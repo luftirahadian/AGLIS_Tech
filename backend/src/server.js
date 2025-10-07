@@ -15,6 +15,7 @@ const customerRoutes = require('./routes/customers');
 const technicianRoutes = require('./routes/technicians');
 const ticketRoutes = require('./routes/tickets');
 const inventoryRoutes = require('./routes/inventory');
+const packageRoutes = require('./routes/packages');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -67,6 +68,7 @@ app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
+app.use('/api/packages', authMiddleware, packageRoutes);
 
 // Socket.IO for real-time updates
 io.on('connection', (socket) => {
