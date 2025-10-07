@@ -172,11 +172,12 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
+    // Simplified query first
     const query = `
       SELECT t.*, 
              c.customer_code, c.full_name as customer_name, c.phone as customer_phone,
-             c.address as customer_address, c.service_area, c.coordinates,
-             u.full_name as technician_name, tech.employee_id, tech.phone as technician_phone,
+             c.address as customer_address, c.service_area,
+             u.full_name as technician_name, tech.employee_id,
              creator.full_name as created_by_name
       FROM tickets t
       JOIN customers c ON t.customer_id = c.id
@@ -258,6 +259,17 @@ router.post('/', [
       scheduled_date, estimated_duration, equipment_needed 
     } = req.body;
 
+    // Format equipment_needed as PostgreSQL array
+    let formattedEquipment = null;
+    if (equipment_needed) {
+      if (Array.isArray(equipment_needed)) {
+        formattedEquipment = equipment_needed;
+      } else {
+        // Split by comma and trim whitespace, then filter out empty strings
+        formattedEquipment = equipment_needed.split(',').map(item => item.trim()).filter(item => item.length > 0);
+      }
+    }
+
     // Verify customer exists
     const customerCheck = await pool.query(
       'SELECT id, service_area FROM customers WHERE id = $1',
@@ -306,7 +318,7 @@ router.post('/', [
       const ticketResult = await client.query(ticketQuery, [
         ticket_number, customer_id, req.user.id, type, priority,
         category, title, description, scheduled_date, estimated_duration,
-        equipment_needed, sla_due_date
+        formattedEquipment, sla_due_date
       ]);
 
       const ticket = ticketResult.rows[0];

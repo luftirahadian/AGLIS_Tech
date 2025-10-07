@@ -18,7 +18,7 @@ const inventoryRoutes = require('./routes/inventory');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
-const authMiddleware = require('./middleware/auth');
+const { authMiddleware } = require('./middleware/auth');
 
 const app = express();
 const server = createServer(app);

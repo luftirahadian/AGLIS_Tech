@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const userData = await authService.getProfile()
-          setUser(userData.user)
+          setUser(userData.data.user)
         } catch (error) {
           console.error('Auth initialization error:', error)
           localStorage.removeItem('token')
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       const response = await authService.login(credentials)
-      const { user: userData, token } = response
+      const { user: userData, token } = response.data
       
       localStorage.setItem('token', token)
       setUser(userData)
