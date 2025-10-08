@@ -17,6 +17,8 @@ const ticketRoutes = require('./routes/tickets');
 const inventoryRoutes = require('./routes/inventory');
 const packageRoutes = require('./routes/packages');
 const odpRoutes = require('./routes/odp');
+const serviceTypesRoutes = require('./routes/serviceTypes');
+const serviceCategoriesRoutes = require('./routes/serviceCategories');
 const notificationRoutes = require('./routes/notifications');
 const analyticsRoutes = require('./routes/analytics');
 
@@ -79,6 +81,8 @@ app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
 app.use('/api/packages', authMiddleware, packageRoutes);
 app.use('/api/odp', authMiddleware, odpRoutes);
+app.use('/api/service-types', authMiddleware, serviceTypesRoutes);
+app.use('/api/service-categories', authMiddleware, serviceCategoriesRoutes);
 app.use('/api/notifications', authMiddleware, notificationRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 
