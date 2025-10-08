@@ -26,6 +26,12 @@ export const technicianService = {
     return response
   },
 
+  // Delete technician
+  deleteTechnician: async (id) => {
+    const response = await api.delete(`/technicians/${id}`)
+    return response
+  },
+
   // Update technician availability status
   updateAvailability: async (id, availabilityData) => {
     const response = await api.patch(`/technicians/${id}/availability`, availabilityData)

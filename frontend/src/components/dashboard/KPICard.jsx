@@ -38,6 +38,17 @@ const KPICard = ({
 
   const formatValue = (val) => {
     if (format === 'currency') {
+      // Use compact notation for large numbers
+      if (val >= 1000000) {
+        return new Intl.NumberFormat('id-ID', {
+          style: 'currency',
+          currency: 'IDR',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 1,
+          notation: 'compact',
+          compactDisplay: 'short'
+        }).format(val);
+      }
       return new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR',
@@ -56,8 +67,8 @@ const KPICard = ({
 
   return (
     <div className={`${cardBg} rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200`}>
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
           <div className="flex items-baseline">
             <span className="text-2xl font-bold text-gray-900">
@@ -88,7 +99,7 @@ const KPICard = ({
           )}
         </div>
         
-        <div className={`${iconBg} p-3 rounded-lg`}>
+        <div className={`${iconBg} p-3 rounded-lg flex-shrink-0`}>
           <Icon className="h-6 w-6 text-white" />
         </div>
       </div>

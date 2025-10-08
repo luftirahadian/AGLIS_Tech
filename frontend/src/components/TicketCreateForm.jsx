@@ -41,13 +41,92 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
       const customer = customersData.data.customers.find(c => c.id == selectedCustomerId)
       if (customer) {
         setSelectedCustomer(customer)
-        // Auto-fill some fields based on customer data
-        setValue('category', `${customer.service_type} - ${customer.package_name}`)
       }
     } else {
       setSelectedCustomer(null)
     }
   }, [selectedCustomerId, customersData, setValue])
+
+  // Auto-fill Title when Customer and Service Type are selected
+  useEffect(() => {
+    if (selectedCustomer && selectedType) {
+      const typeLabels = {
+        'installation': 'Installation',
+        'repair': 'Repair',
+        'maintenance': 'Maintenance',
+        'upgrade': 'Upgrade',
+        'wifi_setup': 'WiFi Setup',
+        'speed_test': 'Speed Test',
+        'bandwidth_upgrade': 'Bandwidth Upgrade',
+        'redundancy_setup': 'Redundancy Setup',
+        'network_config': 'Network Configuration',
+        'security_audit': 'Security Audit'
+      }
+      
+      const title = `${typeLabels[selectedType] || selectedType} - ${selectedCustomer.name}`
+      setValue('title', title)
+    }
+  }, [selectedCustomer, selectedType, setValue])
+
+  // Auto-fill Description based on Service Type
+  useEffect(() => {
+    if (selectedCustomer && selectedType) {
+      const descriptionTemplates = {
+        'installation': `Pemasangan baru layanan internet untuk ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Tipe layanan: ${selectedCustomer.service_type || 'broadband'}. Perlu dilakukan survey lokasi, instalasi perangkat, konfigurasi koneksi, dan testing kualitas sinyal.`,
+        
+        'repair': `Perbaikan layanan internet untuk pelanggan ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Keluhan: koneksi tidak stabil atau tidak tersambung. Perlu dilakukan pengecekan perangkat, kabel, kualitas sinyal, dan troubleshooting masalah koneksi.`,
+        
+        'maintenance': `Maintenance rutin untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Meliputi pengecekan kondisi perangkat, pembersihan, update firmware, optimisasi konfigurasi, dan pengukuran kualitas layanan.`,
+        
+        'upgrade': `Upgrade layanan internet untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Upgrade dari paket saat ini ke paket dengan bandwidth lebih tinggi. Perlu dilakukan penggantian atau konfigurasi ulang perangkat jika diperlukan.`,
+        
+        'wifi_setup': `Konfigurasi WiFi untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Meliputi setup WiFi router, konfigurasi SSID dan password, optimisasi channel, dan testing coverage area.`,
+        
+        'speed_test': `Pengukuran kecepatan internet untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Testing kecepatan download/upload, latency, packet loss, dan verifikasi kesesuaian dengan paket berlangganan.`,
+        
+        'bandwidth_upgrade': `Peningkatan bandwidth untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Upgrade kapasitas bandwidth sesuai kebutuhan bisnis atau personal pelanggan.`,
+        
+        'redundancy_setup': `Setup koneksi redundancy untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Instalasi backup connection untuk memastikan kontinuitas layanan jika terjadi gangguan pada jalur utama.`,
+        
+        'network_config': `Konfigurasi network untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Setup dan konfigurasi perangkat network, routing, firewall, dan security sesuai kebutuhan pelanggan.`,
+        
+        'security_audit': `Audit keamanan network untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Pemeriksaan keamanan jaringan, identifikasi vulnerability, dan rekomendasi perbaikan security.`
+      }
+      
+      const description = descriptionTemplates[selectedType] || `Layanan ${selectedType} untuk pelanggan ${selectedCustomer.name}.`
+      setValue('description', description)
+    }
+  }, [selectedCustomer, selectedType, setValue])
+
+  // Auto-fill Estimated Duration based on Service Type
+  useEffect(() => {
+    if (selectedType) {
+      // Installation, Repair, Maintenance = 120 menit
+      if (['installation', 'repair', 'maintenance'].includes(selectedType)) {
+        setValue('estimated_duration', 120)
+      }
+      // Upgrade, WiFi Setup, Speed Test = 15 menit
+      else if (['upgrade', 'wifi_setup', 'speed_test', 'bandwidth_upgrade', 'network_config', 'security_audit', 'redundancy_setup'].includes(selectedType)) {
+        setValue('estimated_duration', 15)
+      }
+    }
+  }, [selectedType, setValue])
+
+  // Auto-fill Scheduled Date dengan waktu saat ini
+  useEffect(() => {
+    if (isOpen) {
+      // Set to current datetime in local format (YYYY-MM-DDTHH:mm)
+      const now = new Date()
+      const year = now.getFullYear()
+      const month = String(now.getMonth() + 1).padStart(2, '0')
+      const day = String(now.getDate()).padStart(2, '0')
+      const hours = String(now.getHours()).padStart(2, '0')
+      const minutes = String(now.getMinutes()).padStart(2, '0')
+      
+      const datetimeLocal = `${year}-${month}-${day}T${hours}:${minutes}`
+      setValue('scheduled_date', datetimeLocal)
+    }
+  }, [isOpen, setValue])
 
   const getTicketTypes = () => {
     const baseTypes = [
@@ -347,17 +426,6 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
             {errors.description && (
               <p className="form-error">{errors.description.message}</p>
             )}
-          </div>
-
-          {/* Category */}
-          <div>
-            <label className="form-label">Category</label>
-            <input
-              type="text"
-              className="form-input"
-              placeholder="e.g., Fiber Installation, WiFi Setup, Network Troubleshooting"
-              {...register('category')}
-            />
           </div>
 
           {/* Scheduled Date */}

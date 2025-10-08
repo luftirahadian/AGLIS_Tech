@@ -1,45 +1,24 @@
 const express = require('express');
+const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
-
-const router = express.Router();
 
 // Get all packages
 router.get('/', async (req, res) => {
   try {
-    const { package_type, is_active = 'true' } = req.query;
+    const result = await pool.query(`
+      SELECT id, package_name as name, package_type as type, 
+             bandwidth_down as speed_mbps, monthly_price as price, 
+             description, created_at, updated_at
+      FROM packages_master
+      WHERE is_active = true
+      ORDER BY package_type, bandwidth_down
+    `);
 
-    let query = 'SELECT * FROM packages_master WHERE 1=1';
-    const params = [];
-    let paramCount = 0;
-
-    if (package_type) {
-      paramCount++;
-      query += ` AND package_type = $${paramCount}`;
-      params.push(package_type);
-    }
-
-    if (is_active !== 'all') {
-      paramCount++;
-      query += ` AND is_active = $${paramCount}`;
-      params.push(is_active === 'true');
-    }
-
-    query += ' ORDER BY package_type, monthly_price';
-
-    const result = await pool.query(query, params);
-
-    res.json({
-      success: true,
-      data: { packages: result.rows }
-    });
-
+    res.json(result.rows);
   } catch (error) {
-    console.error('Get packages error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
+    console.error('Error fetching packages:', error);
+    res.status(500).json({ message: 'Error fetching packages' });
   }
 });
 
@@ -47,281 +26,158 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-
-    const query = `
-      SELECT p.*, 
-             COUNT(c.id) as customer_count
-      FROM packages_master p
-      LEFT JOIN customers c ON p.id = c.package_id
-      WHERE p.id = $1
-      GROUP BY p.id
-    `;
-
-    const result = await pool.query(query, [id]);
+    
+    const result = await pool.query(
+      `SELECT id, package_name as name, package_type as type, 
+              bandwidth_down as speed_mbps, monthly_price as price, 
+              description, created_at, updated_at
+       FROM packages_master WHERE id = $1`,
+      [id]
+    );
 
     if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'Package not found'
-      });
+      return res.status(404).json({ message: 'Package not found' });
     }
 
-    res.json({
-      success: true,
-      data: { package: result.rows[0] }
-    });
-
+    res.json(result.rows[0]);
   } catch (error) {
-    console.error('Get package error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
+    console.error('Error fetching package:', error);
+    res.status(500).json({ message: 'Error fetching package' });
   }
 });
 
-// Create new package
-router.post('/', [
-  body('package_name').notEmpty().withMessage('Package name is required'),
-  body('package_type').isIn(['broadband', 'dedicated', 'corporate', 'mitra']).withMessage('Invalid package type'),
-  body('bandwidth_up').isInt({ min: 1 }).withMessage('Upload bandwidth must be a positive integer'),
-  body('bandwidth_down').isInt({ min: 1 }).withMessage('Download bandwidth must be a positive integer'),
-  body('monthly_price').isFloat({ min: 0 }).withMessage('Monthly price must be a positive number'),
-  body('setup_fee').optional().isFloat({ min: 0 }).withMessage('Setup fee must be a positive number'),
-  body('sla_level').optional().isIn(['bronze', 'silver', 'gold']).withMessage('Invalid SLA level')
-], async (req, res) => {
-  try {
+// Create package
+router.post(
+  '/',
+  [
+    body('name').trim().notEmpty().withMessage('Name is required'),
+    body('type').isIn(['broadband', 'dedicated', 'corporate']).withMessage('Invalid package type'),
+    body('speed_mbps').isInt({ min: 1 }).withMessage('Speed must be at least 1 Mbps'),
+    body('price').isFloat({ min: 0 }).withMessage('Price must be 0 or greater'),
+    body('description').optional().trim()
+  ],
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({
-        success: false,
-        message: 'Validation errors',
-        errors: errors.array()
-      });
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const {
-      package_name, package_type, bandwidth_up, bandwidth_down,
-      monthly_price, setup_fee, sla_level, description
-    } = req.body;
+    try {
+      const { name, type, speed_mbps, price, description } = req.body;
 
-    const query = `
-      INSERT INTO packages_master (
-        package_name, package_type, bandwidth_up, bandwidth_down,
-        monthly_price, setup_fee, sla_level, description
-      )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-      RETURNING *
-    `;
+      // Check if package name already exists
+      const existingPackage = await pool.query(
+        'SELECT id FROM packages_master WHERE LOWER(package_name) = LOWER($1)',
+        [name]
+      );
 
-    const result = await pool.query(query, [
-      package_name, package_type, bandwidth_up, bandwidth_down,
-      monthly_price, setup_fee || 0, sla_level || 'silver', description
-    ]);
+      if (existingPackage.rows.length > 0) {
+        return res.status(400).json({ message: 'Package name already exists' });
+      }
 
-    res.status(201).json({
-      success: true,
-      message: 'Package created successfully',
-      data: { package: result.rows[0] }
-    });
+      const result = await pool.query(
+        `INSERT INTO packages_master (package_name, package_type, bandwidth_up, bandwidth_down, monthly_price, description)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         RETURNING id, package_name as name, package_type as type, bandwidth_down as speed_mbps, monthly_price as price, description, created_at, updated_at`,
+        [name, type, speed_mbps, speed_mbps, price, description || null]
+      );
 
-  } catch (error) {
-    console.error('Create package error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
+      res.status(201).json(result.rows[0]);
+    } catch (error) {
+      console.error('Error creating package:', error);
+      res.status(500).json({ message: 'Error creating package' });
+    }
   }
-});
+);
 
 // Update package
-router.put('/:id', [
-  body('package_name').optional().notEmpty().withMessage('Package name cannot be empty'),
-  body('package_type').optional().isIn(['broadband', 'dedicated', 'corporate', 'mitra']).withMessage('Invalid package type'),
-  body('bandwidth_up').optional().isInt({ min: 1 }).withMessage('Upload bandwidth must be a positive integer'),
-  body('bandwidth_down').optional().isInt({ min: 1 }).withMessage('Download bandwidth must be a positive integer'),
-  body('monthly_price').optional().isFloat({ min: 0 }).withMessage('Monthly price must be a positive number'),
-  body('setup_fee').optional().isFloat({ min: 0 }).withMessage('Setup fee must be a positive number'),
-  body('sla_level').optional().isIn(['bronze', 'silver', 'gold']).withMessage('Invalid SLA level')
-], async (req, res) => {
-  try {
+router.put(
+  '/:id',
+  [
+    body('name').trim().notEmpty().withMessage('Name is required'),
+    body('type').isIn(['broadband', 'dedicated', 'corporate']).withMessage('Invalid package type'),
+    body('speed_mbps').isInt({ min: 1 }).withMessage('Speed must be at least 1 Mbps'),
+    body('price').isFloat({ min: 0 }).withMessage('Price must be 0 or greater'),
+    body('description').optional().trim()
+  ],
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({
-        success: false,
-        message: 'Validation errors',
-        errors: errors.array()
-      });
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const { id } = req.params;
-    const updateData = req.body;
+    try {
+      const { id } = req.params;
+      const { name, type, speed_mbps, price, description } = req.body;
 
-    // Build update query dynamically
-    const updates = [];
-    const params = [];
-    let paramCount = 0;
+      // Check if package exists
+      const packageExists = await pool.query(
+        'SELECT id FROM packages_master WHERE id = $1',
+        [id]
+      );
 
-    Object.keys(updateData).forEach(key => {
-      if (updateData[key] !== undefined && updateData[key] !== null) {
-        paramCount++;
-        updates.push(`${key} = $${paramCount}`);
-        params.push(updateData[key]);
+      if (packageExists.rows.length === 0) {
+        return res.status(404).json({ message: 'Package not found' });
       }
-    });
 
-    if (updates.length === 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'No valid fields to update'
-      });
+      // Check if new name conflicts with another package
+      const nameConflict = await pool.query(
+        'SELECT id FROM packages_master WHERE LOWER(package_name) = LOWER($1) AND id != $2',
+        [name, id]
+      );
+
+      if (nameConflict.rows.length > 0) {
+        return res.status(400).json({ message: 'Package name already exists' });
+      }
+
+      const result = await pool.query(
+        `UPDATE packages_master 
+         SET package_name = $1, package_type = $2, bandwidth_up = $3, bandwidth_down = $4, 
+             monthly_price = $5, description = $6, updated_at = CURRENT_TIMESTAMP
+         WHERE id = $7
+         RETURNING id, package_name as name, package_type as type, bandwidth_down as speed_mbps, monthly_price as price, description, created_at, updated_at`,
+        [name, type, speed_mbps, speed_mbps, price, description || null, id]
+      );
+
+      res.json(result.rows[0]);
+    } catch (error) {
+      console.error('Error updating package:', error);
+      res.status(500).json({ message: 'Error updating package' });
     }
-
-    updates.push(`updated_at = CURRENT_TIMESTAMP`);
-    paramCount++;
-    params.push(id);
-
-    const query = `
-      UPDATE packages_master 
-      SET ${updates.join(', ')} 
-      WHERE id = $${paramCount}
-      RETURNING *
-    `;
-
-    const result = await pool.query(query, params);
-
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'Package not found'
-      });
-    }
-
-    res.json({
-      success: true,
-      message: 'Package updated successfully',
-      data: { package: result.rows[0] }
-    });
-
-  } catch (error) {
-    console.error('Update package error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
   }
-});
+);
 
-// Toggle package active status
-router.patch('/:id/toggle-status', async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const query = `
-      UPDATE packages_master 
-      SET is_active = NOT is_active, updated_at = CURRENT_TIMESTAMP
-      WHERE id = $1
-      RETURNING *
-    `;
-
-    const result = await pool.query(query, [id]);
-
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'Package not found'
-      });
-    }
-
-    res.json({
-      success: true,
-      message: `Package ${result.rows[0].is_active ? 'activated' : 'deactivated'} successfully`,
-      data: { package: result.rows[0] }
-    });
-
-  } catch (error) {
-    console.error('Toggle package status error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
-  }
-});
-
-// Delete package (only if no customers are using it)
+// Delete package
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Check if any customers are using this package
-    const customerCheck = await pool.query(
-      'SELECT COUNT(*) FROM customers WHERE package_id = $1',
+    // Check if package is being used by any customers
+    const customerCount = await pool.query(
+      'SELECT COUNT(*) as count FROM customers WHERE package_id = $1',
       [id]
     );
 
-    if (parseInt(customerCheck.rows[0].count) > 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'Cannot delete package that is being used by customers'
+    if (parseInt(customerCount.rows[0].count) > 0) {
+      return res.status(400).json({ 
+        message: 'Cannot delete package. It is being used by customers.' 
       });
     }
 
+    // Instead of deleting, set is_active to false (soft delete)
     const result = await pool.query(
-      'DELETE FROM packages_master WHERE id = $1 RETURNING package_name',
+      'UPDATE packages_master SET is_active = false, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING id',
       [id]
     );
 
     if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'Package not found'
-      });
+      return res.status(404).json({ message: 'Package not found' });
     }
 
-    res.json({
-      success: true,
-      message: 'Package deleted successfully'
-    });
-
+    res.json({ message: 'Package deleted successfully' });
   } catch (error) {
-    console.error('Delete package error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
-  }
-});
-
-// Get package statistics
-router.get('/stats/overview', async (req, res) => {
-  try {
-    const query = `
-      SELECT 
-        pm.package_type,
-        COUNT(pm.id) as total_packages,
-        COUNT(CASE WHEN pm.is_active THEN 1 END) as active_packages,
-        COUNT(c.id) as total_customers,
-        AVG(pm.monthly_price) as avg_price,
-        SUM(CASE WHEN c.id IS NOT NULL THEN pm.monthly_price ELSE 0 END) as total_revenue
-      FROM packages_master pm
-      LEFT JOIN customers c ON pm.id = c.package_id
-      GROUP BY pm.package_type
-      ORDER BY pm.package_type
-    `;
-
-    const result = await pool.query(query);
-
-    res.json({
-      success: true,
-      data: { stats: result.rows }
-    });
-
-  } catch (error) {
-    console.error('Get package stats error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error'
-    });
+    console.error('Error deleting package:', error);
+    res.status(500).json({ message: 'Error deleting package' });
   }
 });
 

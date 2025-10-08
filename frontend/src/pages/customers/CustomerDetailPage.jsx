@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import {
-  ArrowLeft, User, Phone, Mail, MapPin, Package, CreditCard,
+  User, Phone, Mail, MapPin, Package, CreditCard,
   Calendar, Activity, Settings, Plus, Edit, Trash2, Eye,
   Wifi, Router, Cable, DollarSign, Clock, Star, AlertCircle,
   CheckCircle, XCircle, Zap, Globe, Shield
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
+import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import BackButton from '../../components/common/BackButton'
 import toast from 'react-hot-toast'
 
 const CustomerDetailPage = () => {
@@ -31,6 +33,17 @@ const CustomerDetailPage = () => {
     }
   )
 
+  // Fetch packages for dropdown
+  const { data: packagesData } = useQuery(
+    'packages',
+    packageService.getAll,
+    {
+      refetchOnWindowFocus: false
+    }
+  )
+
+  const packages = packagesData || []
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-96">
@@ -47,10 +60,7 @@ const CustomerDetailPage = () => {
         </div>
         <h3 className="text-lg font-medium text-gray-900 mb-2">Customer Not Found</h3>
         <p className="text-gray-500 mb-4">Customer yang Anda cari tidak ditemukan</p>
-        <Link to="/customers" className="btn-primary">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Kembali ke Customer List
-        </Link>
+        <BackButton to="/customers" label="Back to Customers" />
       </div>
     )
   }
@@ -107,6 +117,7 @@ const CustomerDetailPage = () => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: User },
+    { id: 'update', label: 'Update Customer', icon: Edit },
     { id: 'equipment', label: 'Equipment', icon: Router },
     { id: 'payments', label: 'Payments', icon: CreditCard },
     { id: 'service', label: 'Service History', icon: Activity },
@@ -118,19 +129,13 @@ const CustomerDetailPage = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Link to="/customers" className="text-gray-400 hover:text-gray-600">
-            <ArrowLeft className="h-6 w-6" />
-          </Link>
+          <BackButton to="/customers" label="Back to Customers" />
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{customer.name}</h1>
             <p className="text-gray-600">Customer ID: {customer.customer_id}</p>
           </div>
         </div>
         <div className="flex space-x-3">
-          <button className="btn-secondary">
-            <Edit className="h-4 w-4 mr-2" />
-            Edit Customer
-          </button>
           <button className="btn-primary">
             <Plus className="h-4 w-4 mr-2" />
             Create Ticket
@@ -374,6 +379,236 @@ const CustomerDetailPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Update Tab */}
+          {activeTab === 'update' && (
+            <div>
+              <div className="mb-6">
+                <h4 className="text-lg font-medium text-gray-900 mb-2">Update Customer Information</h4>
+                <p className="text-sm text-gray-600">
+                  Modify customer details below. All fields marked with * are required.
+                </p>
+              </div>
+
+              <form className="space-y-6">
+                {/* Personal Information Section */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h5 className="text-md font-medium text-gray-900 mb-4">Personal Information</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Customer Name *
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={customer.name}
+                        className="input w-full"
+                        placeholder="Full Name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        KTP Number
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={customer.ktp || ''}
+                        className="input w-full"
+                        placeholder="KTP Number"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        defaultValue={customer.phone}
+                        className="input w-full"
+                        placeholder="Phone Number"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        defaultValue={customer.email}
+                        className="input w-full"
+                        placeholder="Email Address"
+                      />
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Address *
+                      </label>
+                      <textarea
+                        defaultValue={customer.address}
+                        className="input w-full"
+                        placeholder="Full Address"
+                        rows="2"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Latitude
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={customer.latitude || ''}
+                        className="input w-full"
+                        placeholder="e.g., -6.200000"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Longitude
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={customer.longitude || ''}
+                        className="input w-full"
+                        placeholder="e.g., 106.816666"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        ODP Location
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={customer.odp || ''}
+                        className="input w-full"
+                        placeholder="ODP Location"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Service Information Section */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h5 className="text-md font-medium text-gray-900 mb-4">Service Information</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Service Type *
+                      </label>
+                      <select
+                        defaultValue={customer.service_type}
+                        className="input w-full"
+                      >
+                        <option value="broadband">Broadband</option>
+                        <option value="dedicated">Dedicated</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="mitra">Mitra</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Customer Type
+                      </label>
+                      <select
+                        defaultValue={customer.customer_type || 'regular'}
+                        className="input w-full"
+                      >
+                        <option value="regular">Regular</option>
+                        <option value="non_regular">Non Regular</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Payment Type
+                      </label>
+                      <select
+                        defaultValue={customer.payment_type || 'prepaid'}
+                        className="input w-full"
+                      >
+                        <option value="prepaid">Prepaid</option>
+                        <option value="postpaid">Postpaid</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Account Status *
+                      </label>
+                      <select
+                        defaultValue={customer.account_status}
+                        className="input w-full"
+                      >
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="suspended">Suspended</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Payment Status *
+                      </label>
+                      <select
+                        defaultValue={customer.payment_status}
+                        className="input w-full"
+                      >
+                        <option value="paid">Paid</option>
+                        <option value="unpaid">Unpaid</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Package *
+                      </label>
+                      <select
+                        defaultValue={customer.package_id}
+                        className="input w-full"
+                      >
+                        <option value="">Select Package</option>
+                        {packages.map(pkg => (
+                          <option key={pkg.id} value={pkg.id}>
+                            {pkg.name} - {pkg.speed_mbps} Mbps - Rp {parseInt(pkg.price).toLocaleString('id-ID')}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex justify-end space-x-3 pt-4 border-t">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('overview')}
+                    className="btn-secondary"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      toast.success('Customer update functionality will be implemented soon')
+                    }}
+                  >
+                    <Edit className="h-4 w-4 mr-2" />
+                    Update Customer
+                  </button>
+                </div>
+              </form>
             </div>
           )}
 

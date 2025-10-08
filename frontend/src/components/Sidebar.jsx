@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, 
@@ -8,13 +8,17 @@ import {
   Package, 
   UserCheck,
   X,
-  BarChart3
+  BarChart3,
+  Database,
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
 const Sidebar = ({ isOpen, onClose }) => {
   const { user } = useAuth()
   const location = useLocation()
+  const [masterDataOpen, setMasterDataOpen] = useState(false)
 
   const navigation = [
     {
@@ -52,6 +56,22 @@ const Sidebar = ({ isOpen, onClose }) => {
       href: '/inventory',
       icon: Package,
       roles: ['admin', 'supervisor', 'technician']
+    },
+    {
+      name: 'Master Data',
+      icon: Database,
+      roles: ['admin', 'supervisor'],
+      hasSubmenu: true,
+      submenu: [
+        {
+          name: 'Paket Langganan',
+          href: '/master-data/packages'
+        },
+        {
+          name: 'ODP',
+          href: '/master-data/odp'
+        }
+      ]
     },
     {
       name: 'Users',
@@ -107,6 +127,69 @@ const Sidebar = ({ isOpen, onClose }) => {
           <div className="space-y-1">
             {filteredNavigation.map((item) => {
               const Icon = item.icon
+              
+              // Handle submenu items
+              if (item.hasSubmenu) {
+                const isAnySubmenuActive = item.submenu?.some(sub => 
+                  location.pathname.startsWith(sub.href)
+                )
+                const isOpen = masterDataOpen || isAnySubmenuActive
+                
+                return (
+                  <div key={item.name}>
+                    <button
+                      onClick={() => setMasterDataOpen(!masterDataOpen)}
+                      className={`
+                        w-full group flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors
+                        ${isAnySubmenuActive
+                          ? 'bg-blue-100 text-blue-700' 
+                          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                        }
+                      `}
+                    >
+                      <div className="flex items-center">
+                        <Icon className={`
+                          mr-3 h-5 w-5 flex-shrink-0
+                          ${isAnySubmenuActive ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
+                        `} />
+                        {item.name}
+                      </div>
+                      {isOpen ? (
+                        <ChevronDown className="h-4 w-4" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4" />
+                      )}
+                    </button>
+                    
+                    {isOpen && (
+                      <div className="ml-8 mt-1 space-y-1">
+                        {item.submenu.map((subItem) => {
+                          const isSubActive = location.pathname === subItem.href
+                          
+                          return (
+                            <NavLink
+                              key={subItem.name}
+                              to={subItem.href}
+                              className={`
+                                block px-3 py-2 text-sm rounded-lg transition-colors
+                                ${isSubActive
+                                  ? 'bg-blue-50 text-blue-700 font-medium'
+                                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                }
+                              `}
+                              onClick={onClose}
+                            >
+                              {subItem.name}
+                            </NavLink>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
+              
+              // Regular menu items
               const isActive = location.pathname.startsWith(item.href)
               
               return (

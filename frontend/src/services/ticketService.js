@@ -55,5 +55,11 @@ export const ticketService = {
   getAssignmentRecommendations: async (ticketId) => {
     const response = await api.get(`/tickets/${ticketId}/assignment-recommendations`)
     return response
+  },
+
+  // Get ticket statistics
+  getTicketStats: async () => {
+    const response = await api.get('/tickets/stats/overview')
+    return response
   }
 }

@@ -613,4 +613,56 @@ router.get('/available/assignment', async (req, res) => {
   }
 });
 
+// Delete technician
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Check if technician exists
+    const technicianCheck = await pool.query(
+      'SELECT id, full_name FROM technicians WHERE id = $1',
+      [id]
+    );
+
+    if (technicianCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Technician not found'
+      });
+    }
+
+    // Check if technician has active tickets
+    const activeTicketsCheck = await pool.query(
+      `SELECT COUNT(*) as count FROM tickets 
+       WHERE assigned_technician_id = $1 AND status IN ('assigned', 'in_progress')`,
+      [id]
+    );
+
+    if (parseInt(activeTicketsCheck.rows[0].count) > 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Cannot delete technician with active tickets. Please reassign or complete all tickets first.'
+      });
+    }
+
+    // Delete technician (cascading will handle related records)
+    await pool.query('DELETE FROM technicians WHERE id = $1', [id]);
+
+    res.json({
+      success: true,
+      message: 'Technician deleted successfully',
+      data: {
+        deleted_technician: technicianCheck.rows[0]
+      }
+    });
+
+  } catch (error) {
+    console.error('Delete technician error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 module.exports = router;

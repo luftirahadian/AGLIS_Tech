@@ -16,6 +16,7 @@ const technicianRoutes = require('./routes/technicians');
 const ticketRoutes = require('./routes/tickets');
 const inventoryRoutes = require('./routes/inventory');
 const packageRoutes = require('./routes/packages');
+const odpRoutes = require('./routes/odp');
 const notificationRoutes = require('./routes/notifications');
 const analyticsRoutes = require('./routes/analytics');
 
@@ -77,6 +78,7 @@ app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
 app.use('/api/packages', authMiddleware, packageRoutes);
+app.use('/api/odp', authMiddleware, odpRoutes);
 app.use('/api/notifications', authMiddleware, notificationRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 

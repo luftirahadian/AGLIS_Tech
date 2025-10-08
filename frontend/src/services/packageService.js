@@ -1,46 +1,32 @@
 import api from './api'
 
-export const packageService = {
-  // Get all packages
-  getPackages: async (params = {}) => {
-    const queryString = new URLSearchParams(params).toString()
-    const response = await api.get(`/packages?${queryString}`)
-    return response
+const packageService = {
+  getAll: async () => {
+    try {
+      // api interceptor already returns response.data, so response is the data itself
+      const data = await api.get('/packages')
+      return Array.isArray(data) ? data : []
+    } catch (error) {
+      console.error('❌ PackageService error:', error);
+      return []
+    }
   },
 
-  // Get package by ID
-  getPackage: async (id) => {
-    const response = await api.get(`/packages/${id}`)
-    return response
+  getById: async (id) => {
+    return await api.get(`/packages/${id}`)
   },
 
-  // Create new package
-  createPackage: async (packageData) => {
-    const response = await api.post('/packages', packageData)
-    return response
+  create: async (data) => {
+    return await api.post('/packages', data)
   },
 
-  // Update package
-  updatePackage: async (id, packageData) => {
-    const response = await api.put(`/packages/${id}`, packageData)
-    return response
+  update: async (id, data) => {
+    return await api.put(`/packages/${id}`, data)
   },
 
-  // Toggle package status
-  togglePackageStatus: async (id) => {
-    const response = await api.patch(`/packages/${id}/toggle-status`)
-    return response
-  },
-
-  // Delete package
-  deletePackage: async (id) => {
-    const response = await api.delete(`/packages/${id}`)
-    return response
-  },
-
-  // Get package statistics
-  getPackageStats: async () => {
-    const response = await api.get('/packages/stats/overview')
-    return response
+  delete: async (id) => {
+    return await api.delete(`/packages/${id}`)
   }
 }
+
+export default packageService

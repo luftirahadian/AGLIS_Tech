@@ -23,6 +23,38 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const AnalyticsDashboard = () => {
   const [timeframe, setTimeframe] = useState(30);
   const queryClient = useQueryClient();
+  
+  // Date range states for charts
+  const [trendsDateRange, setTrendsDateRange] = useState({
+    start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    end: new Date().toISOString().split('T')[0]
+  });
+  
+  const [distributionDateRange, setDistributionDateRange] = useState({
+    start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    end: new Date().toISOString().split('T')[0]
+  });
+  
+  // Loading states for chart filters
+  const [trendsFilterLoading, setTrendsFilterLoading] = useState(false);
+  const [distributionFilterLoading, setDistributionFilterLoading] = useState(false);
+  
+  // Apply filter handlers
+  const handleTrendsFilter = async (newRange) => {
+    setTrendsFilterLoading(true);
+    setTrendsDateRange(newRange);
+    // Refetch data with new date range
+    await refetchTrends();
+    setTrendsFilterLoading(false);
+  };
+  
+  const handleDistributionFilter = async (newRange) => {
+    setDistributionFilterLoading(true);
+    setDistributionDateRange(newRange);
+    // Refetch data with new date range
+    await refetchDistribution();
+    setDistributionFilterLoading(false);
+  };
 
   // Fetch dashboard data
   const { data: overviewData, isLoading: overviewLoading, error: overviewError } = useQuery(
@@ -34,8 +66,8 @@ const AnalyticsDashboard = () => {
     }
   );
 
-  const { data: trendsData, isLoading: trendsLoading } = useQuery(
-    ['ticket-trends', timeframe],
+  const { data: trendsData, isLoading: trendsLoading, refetch: refetchTrends } = useQuery(
+    ['ticket-trends', trendsDateRange],
     () => analyticsService.getTicketTrends(timeframe),
     { 
       refetchInterval: 60000, // Refresh every minute
@@ -43,9 +75,9 @@ const AnalyticsDashboard = () => {
     }
   );
 
-  const { data: distributionData, isLoading: distributionLoading } = useQuery(
-    'service-distribution',
-    analyticsService.getServiceDistribution,
+  const { data: distributionData, isLoading: distributionLoading, refetch: refetchDistribution } = useQuery(
+    ['service-distribution', distributionDateRange],
+    () => analyticsService.getServiceDistribution(),
     { 
       refetchInterval: 60000,
       staleTime: 50000
@@ -192,7 +224,6 @@ const AnalyticsDashboard = () => {
           icon={CheckCircle}
           color="green"
           format="percentage"
-          suffix="%"
         />
         
         <KPICard
@@ -237,14 +268,24 @@ const AnalyticsDashboard = () => {
           type="line"
           height={350}
           colors={['#3B82F6', '#10B981', '#EF4444']}
+          showDateRange={true}
+          dateRange={trendsDateRange}
+          onDateRangeChange={setTrendsDateRange}
+          onApplyFilter={handleTrendsFilter}
+          isLoading={trendsFilterLoading}
         />
         
         <ChartCard
           title="Service Type Distribution"
           data={distributionData?.data || []}
           type="pie"
-          height={350}
+          height={400}
           colors={['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6']}
+          showDateRange={true}
+          dateRange={distributionDateRange}
+          onDateRangeChange={setDistributionDateRange}
+          onApplyFilter={handleDistributionFilter}
+          isLoading={distributionFilterLoading}
         />
       </div>
 
@@ -334,10 +375,10 @@ const AnalyticsDashboard = () => {
         </div>
 
         <div className="bg-white rounded-xl p-6 border border-gray-200">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Revenue Overview</p>
-              <p className="text-lg font-bold text-gray-900">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-600 mb-1">Monthly Revenue</p>
+              <p className="text-2xl font-bold text-gray-900">
                 {new Intl.NumberFormat('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
@@ -348,7 +389,7 @@ const AnalyticsDashboard = () => {
             </div>
             <DollarSign className="h-8 w-8 text-indigo-500" />
           </div>
-          <div className="mt-4 space-y-2">
+          <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Active Customers</span>
               <span className="font-medium">{overview.revenue?.activeCustomers || 0}</span>

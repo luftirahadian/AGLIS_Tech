@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
-import { useQuery } from 'react-query'
+import { useQuery, useMutation } from 'react-query'
+import { useNavigate } from 'react-router-dom'
 import { 
   Users, Plus, Search, Filter, MapPin, Phone, Mail, 
   Star, Clock, Wrench, AlertCircle, CheckCircle, 
-  XCircle, Pause, User, Award, Calendar, Eye, Edit, Target
+  XCircle, Pause, User, Award, Calendar, Eye, Trash2
 } from 'lucide-react'
 import { technicianService } from '../../services/technicianService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import TechnicianForm from '../../components/TechnicianForm'
+import StatsCard from '../../components/common/StatsCard'
 import toast from 'react-hot-toast'
 
 const TechniciansPage = () => {
+  const navigate = useNavigate()
   const [filters, setFilters] = useState({
     search: '',
     employment_status: '',
@@ -38,6 +41,20 @@ const TechniciansPage = () => {
     () => technicianService.getTechnicianStats()
   )
 
+  // Delete mutation
+  const deleteMutation = useMutation(
+    (id) => technicianService.deleteTechnician(id),
+    {
+      onSuccess: () => {
+        toast.success('Technician deleted successfully')
+        refetch()
+      },
+      onError: (error) => {
+        toast.error(error.response?.data?.message || 'Failed to delete technician')
+      }
+    }
+  )
+
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }))
     setPage(1)
@@ -55,6 +72,12 @@ const TechniciansPage = () => {
     setShowForm(true)
   }
 
+  const handleDeleteTechnician = (id, name) => {
+    if (window.confirm(`Are you sure you want to delete technician "${name}"? This action cannot be undone.`)) {
+      deleteMutation.mutate(id)
+    }
+  }
+
   const handleFormSuccess = () => {
     // Force refetch both technicians and stats
     refetch()
@@ -64,9 +87,7 @@ const TechniciansPage = () => {
   }
 
   const handleViewTechnician = (technician) => {
-    setSelectedTechnician(technician)
-    setFormMode('view')
-    setShowForm(true)
+    navigate(`/technicians/${technician.id}`)
   }
 
   const getAvailabilityBadge = (status) => {
@@ -137,85 +158,30 @@ const TechniciansPage = () => {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="p-5">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <Users className="h-8 w-8 text-blue-600" />
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">
-                    Total Teknisi
-                  </dt>
-                  <dd className="text-lg font-medium text-gray-900">
-                    {stats.total_technicians || 0}
-                  </dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="p-5">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <CheckCircle className="h-8 w-8 text-green-600" />
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">
-                    Available
-                  </dt>
-                  <dd className="text-lg font-medium text-gray-900">
-                    {stats.available_technicians || 0}
-                  </dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="p-5">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <Clock className="h-8 w-8 text-yellow-600" />
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">
-                    Busy
-                  </dt>
-                  <dd className="text-lg font-medium text-gray-900">
-                    {stats.busy_technicians || 0}
-                  </dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className="p-5">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <Star className="h-8 w-8 text-purple-600" />
-              </div>
-              <div className="ml-5 w-0 flex-1">
-                <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">
-                    Avg Rating
-                  </dt>
-                  <dd className="text-lg font-medium text-gray-900">
-                    {stats.avg_customer_rating ? parseFloat(stats.avg_customer_rating).toFixed(1) : '0.0'}
-                  </dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-        </div>
+        <StatsCard
+          icon={Users}
+          title="Total Teknisi"
+          value={stats.total_technicians || 0}
+          iconColor="blue"
+        />
+        <StatsCard
+          icon={CheckCircle}
+          title="Available"
+          value={stats.available_technicians || 0}
+          iconColor="green"
+        />
+        <StatsCard
+          icon={Clock}
+          title="Busy"
+          value={stats.busy_technicians || 0}
+          iconColor="yellow"
+        />
+        <StatsCard
+          icon={Star}
+          title="Avg Rating"
+          value={stats.avg_customer_rating ? parseFloat(stats.avg_customer_rating).toFixed(1) : '0.0'}
+          iconColor="purple"
+        />
       </div>
 
       {/* Filters */}
@@ -416,20 +382,6 @@ const TechniciansPage = () => {
                           <MapPin className="h-4 w-4 mr-1" />
                           {technician.work_zone?.replace('_', ' ')}
                         </div>
-                        {technician.specializations && technician.specializations.length > 0 && (
-                          <div className="flex flex-wrap gap-1">
-                            {technician.specializations.slice(0, 2).map((spec, index) => (
-                              <span key={index} className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-                                {spec.replace('_', ' ')}
-                              </span>
-                            ))}
-                            {technician.specializations.length > 2 && (
-                              <span className="text-xs text-gray-500">
-                                +{technician.specializations.length - 2} more
-                              </span>
-                            )}
-                          </div>
-                        )}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -461,17 +413,11 @@ const TechniciansPage = () => {
                           <Eye className="h-4 w-4" />
                         </button>
                         <button 
-                          className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
-                          title="Assign Ticket"
+                          onClick={() => handleDeleteTechnician(technician.id, technician.name)}
+                          className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
+                          title="Delete Technician"
                         >
-                          <Target className="h-4 w-4" />
-                        </button>
-                        <button 
-                          onClick={() => handleEditTechnician(technician)}
-                          className="inline-flex items-center justify-center w-8 h-8 text-orange-600 hover:text-orange-800 hover:bg-orange-50 rounded-md transition-colors"
-                          title="Edit Technician"
-                        >
-                          <Edit className="h-4 w-4" />
+                          <Trash2 className="h-4 w-4" />
                         </button>
                       </div>
                     </td>

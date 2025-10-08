@@ -1,6 +1,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
+const { saveBase64File, getFileUrl, validateFile } = require('../utils/fileUpload');
 
 // Helper function to create notification
 const createNotification = async (userId, type, title, message, data = null) => {
@@ -201,6 +202,61 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get ticket statistics (MUST be before /:id route)
+router.get('/stats/overview', async (req, res) => {
+  try {
+    // Total tickets
+    const totalResult = await pool.query('SELECT COUNT(*) as count FROM tickets');
+    const total_tickets = parseInt(totalResult.rows[0].count);
+
+    // Open tickets
+    const openResult = await pool.query(
+      `SELECT COUNT(*) as count FROM tickets WHERE status = 'open'`
+    );
+    const open_tickets = parseInt(openResult.rows[0].count);
+
+    // In progress tickets
+    const inProgressResult = await pool.query(
+      `SELECT COUNT(*) as count FROM tickets WHERE status IN ('assigned', 'in_progress')`
+    );
+    const in_progress_tickets = parseInt(inProgressResult.rows[0].count);
+
+    // Completed tickets
+    const completedResult = await pool.query(
+      `SELECT COUNT(*) as count FROM tickets WHERE status = 'completed'`
+    );
+    const completed_tickets = parseInt(completedResult.rows[0].count);
+
+    // Average resolution time (in hours)
+    const avgTimeResult = await pool.query(`
+      SELECT AVG(EXTRACT(EPOCH FROM (updated_at - created_at))/3600) as avg_hours
+      FROM tickets
+      WHERE status = 'completed'
+    `);
+    const avg_resolution_time = avgTimeResult.rows[0].avg_hours 
+      ? parseFloat(avgTimeResult.rows[0].avg_hours).toFixed(1) 
+      : '0.0';
+
+    res.json({
+      success: true,
+      data: {
+        total_tickets,
+        open_tickets,
+        in_progress_tickets,
+        completed_tickets,
+        avg_resolution_time
+      }
+    });
+
+  } catch (error) {
+    console.error('Get ticket statistics error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Get ticket by ID
 router.get('/:id', async (req, res) => {
   try {
@@ -212,12 +268,14 @@ router.get('/:id', async (req, res) => {
              c.customer_id, c.name as customer_name, c.phone as customer_phone,
              c.address as customer_address, c.service_type,
              u.full_name as technician_name, tech.employee_id,
-             creator.full_name as created_by_name
+             creator.full_name as created_by_name,
+             pm.package_name, pm.bandwidth_down, pm.monthly_price
       FROM tickets t
       JOIN customers c ON t.customer_id = c.id
       LEFT JOIN technicians tech ON t.assigned_technician_id = tech.id
       LEFT JOIN users u ON tech.user_id = u.id
       LEFT JOIN users creator ON t.created_by = creator.id
+      LEFT JOIN packages_master pm ON c.package_id = pm.id
       WHERE t.id = $1
     `;
 
@@ -273,7 +331,7 @@ router.get('/:id', async (req, res) => {
 // Create new ticket
 router.post('/', [
   body('customer_id').isInt().withMessage('Customer ID is required'),
-  body('type').isIn(['installation', 'repair', 'maintenance', 'upgrade']).withMessage('Invalid ticket type'),
+  body('type').isIn(['installation', 'repair', 'maintenance', 'upgrade', 'wifi_setup', 'speed_test', 'bandwidth_upgrade', 'redundancy_setup', 'network_config', 'security_audit']).withMessage('Invalid ticket type'),
   body('priority').optional().isIn(['low', 'normal', 'high', 'critical']).withMessage('Invalid priority'),
   body('title').notEmpty().withMessage('Title is required'),
   body('description').notEmpty().withMessage('Description is required')
@@ -441,7 +499,8 @@ router.post('/', [
 // Update ticket status
 router.put('/:id/status', [
   body('status').isIn(['open', 'assigned', 'in_progress', 'completed', 'cancelled', 'on_hold']).withMessage('Invalid status'),
-  body('notes').optional().notEmpty().withMessage('Notes cannot be empty')
+  body('notes').optional().notEmpty().withMessage('Notes cannot be empty'),
+  body('assigned_technician_id').optional().isInt().withMessage('Invalid technician ID')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -454,7 +513,14 @@ router.put('/:id/status', [
     }
 
     const { id } = req.params;
-    const { status, notes, work_notes, resolution_notes, customer_rating, customer_feedback } = req.body;
+    const { status, notes, work_notes, resolution_notes, customer_rating, customer_feedback, assigned_technician_id, completion_data } = req.body;
+    
+    // Debug log
+    console.log('=== TICKET STATUS UPDATE ===');
+    console.log('Ticket ID:', id);
+    console.log('New Status:', status);
+    console.log('Assigned Technician ID:', assigned_technician_id);
+    console.log('Full Request Body:', JSON.stringify(req.body, null, 2));
 
     // Get current ticket
     const currentTicket = await pool.query(
@@ -527,6 +593,86 @@ router.put('/:id/status', [
         params.push(customer_feedback);
       }
 
+      // Handle technician assignment - update whenever assigned_technician_id is provided
+      if (assigned_technician_id) {
+        paramCount++;
+        updates.push(`assigned_technician_id = $${paramCount}`);
+        params.push(assigned_technician_id);
+      }
+
+      // Handle completion_data and file uploads
+      let completionDataToStore = null;
+      
+      if (completion_data && status === 'completed') {
+        console.log('Processing completion data with file uploads...');
+        
+        // Clone completion data
+        completionDataToStore = { ...completion_data };
+        
+        // Handle file uploads for photos
+        try {
+          // OTDR Photo
+          if (completion_data.otdr_photo && completion_data.otdr_photo.data) {
+            const validation = validateFile(completion_data.otdr_photo, 5);
+            if (validation.valid) {
+              const filePath = await saveBase64File(completion_data.otdr_photo, 'otdr', id);
+              completionDataToStore.otdr_photo = {
+                filename: completion_data.otdr_photo.filename,
+                path: filePath,
+                url: getFileUrl(filePath)
+              };
+              console.log('✓ OTDR photo saved:', filePath);
+            } else {
+              console.warn('OTDR photo validation failed:', validation.error);
+              completionDataToStore.otdr_photo = null;
+            }
+          }
+          
+          // Attenuation Photo
+          if (completion_data.attenuation_photo && completion_data.attenuation_photo.data) {
+            const validation = validateFile(completion_data.attenuation_photo, 5);
+            if (validation.valid) {
+              const filePath = await saveBase64File(completion_data.attenuation_photo, 'attenuation', id);
+              completionDataToStore.attenuation_photo = {
+                filename: completion_data.attenuation_photo.filename,
+                path: filePath,
+                url: getFileUrl(filePath)
+              };
+              console.log('✓ Attenuation photo saved:', filePath);
+            } else {
+              console.warn('Attenuation photo validation failed:', validation.error);
+              completionDataToStore.attenuation_photo = null;
+            }
+          }
+          
+          // Modem SN Photo
+          if (completion_data.modem_sn_photo && completion_data.modem_sn_photo.data) {
+            const validation = validateFile(completion_data.modem_sn_photo, 5);
+            if (validation.valid) {
+              const filePath = await saveBase64File(completion_data.modem_sn_photo, 'modem_sn', id);
+              completionDataToStore.modem_sn_photo = {
+                filename: completion_data.modem_sn_photo.filename,
+                path: filePath,
+                url: getFileUrl(filePath)
+              };
+              console.log('✓ Modem SN photo saved:', filePath);
+            } else {
+              console.warn('Modem SN photo validation failed:', validation.error);
+              completionDataToStore.modem_sn_photo = null;
+            }
+          }
+          
+          // Add completion_data to update
+          paramCount++;
+          updates.push(`completion_data = $${paramCount}`);
+          params.push(JSON.stringify(completionDataToStore));
+          
+        } catch (uploadError) {
+          console.error('Error handling file uploads:', uploadError);
+          throw uploadError;
+        }
+      }
+
       // Update ticket
       const updateQuery = `
         UPDATE tickets 
@@ -546,7 +692,7 @@ router.put('/:id/status', [
       // Update technician stats if completed
       if (status === 'completed' && ticket.assigned_technician_id) {
         await client.query(
-          'UPDATE technicians SET total_completed_tickets = total_completed_tickets + 1 WHERE id = $1',
+          'UPDATE technicians SET total_tickets_completed = total_tickets_completed + 1 WHERE id = $1',
           [ticket.assigned_technician_id]
         );
 
@@ -559,7 +705,7 @@ router.put('/:id/status', [
           
           if (ratingResult.rows[0].avg_rating) {
             await client.query(
-              'UPDATE technicians SET rating = $1 WHERE id = $2',
+              'UPDATE technicians SET customer_rating = $1 WHERE id = $2',
               [parseFloat(ratingResult.rows[0].avg_rating), ticket.assigned_technician_id]
             );
           }

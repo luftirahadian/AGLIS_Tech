@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye, Target } from 'lucide-react'
+import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import StatsCard from '../../components/common/StatsCard'
 
 const TicketsPage = () => {
   const [showCreateForm, setShowCreateForm] = useState(false)
@@ -18,11 +19,34 @@ const TicketsPage = () => {
     priority: ''
   })
 
+  // Format type name for display
+  const formatTypeName = (type) => {
+    const typeNames = {
+      'installation': 'Installation',
+      'repair': 'Repair',
+      'maintenance': 'Maintenance',
+      'upgrade': 'Upgrade',
+      'wifi_setup': 'WiFi Setup',
+      'speed_test': 'Speed Test',
+      'bandwidth_upgrade': 'Bandwidth Upgrade',
+      'redundancy_setup': 'Redundancy Setup',
+      'network_config': 'Network Config',
+      'security_audit': 'Security Audit'
+    }
+    return typeNames[type] || type
+  }
+
   // Fetch tickets
   const { data: ticketsData, isLoading, refetch } = useQuery(
     ['tickets', filters],
     () => ticketService.getTickets(filters),
     { keepPreviousData: true }
+  )
+
+  // Fetch ticket statistics
+  const { data: statsData } = useQuery(
+    'ticket-stats',
+    () => ticketService.getTicketStats()
   )
 
   const handleCreateSuccess = () => {
@@ -63,6 +87,8 @@ const TicketsPage = () => {
     return <span className={`badge ${config.class}`}>{config.label}</span>
   }
 
+  const stats = statsData?.data || {}
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -80,66 +106,107 @@ const TicketsPage = () => {
         </button>
       </div>
 
+      {/* Statistics Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatsCard
+          icon={Ticket}
+          title="Total Tickets"
+          value={stats.total_tickets || 0}
+          iconColor="blue"
+        />
+        <StatsCard
+          icon={AlertCircle}
+          title="Open Tickets"
+          value={stats.open_tickets || 0}
+          iconColor="orange"
+        />
+        <StatsCard
+          icon={Clock}
+          title="In Progress"
+          value={stats.in_progress_tickets || 0}
+          iconColor="yellow"
+        />
+        <StatsCard
+          icon={CheckCircle}
+          title="Completed"
+          value={stats.completed_tickets || 0}
+          iconColor="green"
+        />
+      </div>
+
       {/* Filters */}
-      <div className="card">
-        <div className="card-body">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div>
-              <label className="form-label">Search</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search tickets..."
-                  className="form-input pl-10"
-                  value={filters.search}
-                  onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                />
-              </div>
+      <div className="bg-white shadow rounded-lg p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {/* Search */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Search
+            </label>
+            <div className="relative">
+              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                className="form-input pl-10"
+                placeholder="Cari tiket..."
+                value={filters.search}
+                onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+              />
             </div>
-            <div>
-              <label className="form-label">Status</label>
-              <select
-                className="form-input"
-                value={filters.status}
-                onChange={(e) => setFilters({ ...filters, status: e.target.value })}
-              >
-                <option value="">All Status</option>
-                <option value="open">Open</option>
-                <option value="assigned">Assigned</option>
-                <option value="in_progress">In Progress</option>
-                <option value="completed">Completed</option>
-                <option value="cancelled">Cancelled</option>
-              </select>
-            </div>
-            <div>
-              <label className="form-label">Type</label>
-              <select
-                className="form-input"
-                value={filters.type}
-                onChange={(e) => setFilters({ ...filters, type: e.target.value })}
-              >
-                <option value="">All Types</option>
-                <option value="installation">Installation</option>
-                <option value="repair">Repair</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="upgrade">Upgrade</option>
-              </select>
-            </div>
-            <div>
-              <label className="form-label">Priority</label>
-              <select
-                className="form-input"
-                value={filters.priority}
-                onChange={(e) => setFilters({ ...filters, priority: e.target.value })}
-              >
-                <option value="">All Priorities</option>
-                <option value="low">Low</option>
-                <option value="normal">Normal</option>
-                <option value="high">High</option>
-                <option value="critical">Critical</option>
-              </select>
-            </div>
+          </div>
+
+          {/* Status Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Status
+            </label>
+            <select
+              className="form-input"
+              value={filters.status}
+              onChange={(e) => setFilters({ ...filters, status: e.target.value })}
+            >
+              <option value="">Semua Status</option>
+              <option value="open">Open</option>
+              <option value="assigned">Assigned</option>
+              <option value="in_progress">In Progress</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+
+          {/* Type Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Tipe
+            </label>
+            <select
+              className="form-input"
+              value={filters.type}
+              onChange={(e) => setFilters({ ...filters, type: e.target.value })}
+            >
+              <option value="">Semua Tipe</option>
+              <option value="installation">Installation</option>
+              <option value="repair">Repair</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="upgrade">Upgrade</option>
+            </select>
+          </div>
+
+          {/* Priority Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Prioritas
+            </label>
+            <select
+              className="form-input"
+              value={filters.priority}
+              onChange={(e) => setFilters({ ...filters, priority: e.target.value })}
+            >
+              <option value="">Semua Prioritas</option>
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
           </div>
         </div>
       </div>
@@ -200,7 +267,7 @@ const TicketsPage = () => {
                         </div>
                       </td>
                       <td className="table-cell">
-                        <span className="capitalize">{ticket.type}</span>
+                        <span className="capitalize">{formatTypeName(ticket.type)}</span>
                       </td>
                       <td className="table-cell">
                         {getPriorityBadge(ticket.priority)}

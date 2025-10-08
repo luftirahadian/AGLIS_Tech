@@ -3,11 +3,12 @@ import { useQuery } from 'react-query'
 import { 
   Users, Plus, Search, Filter, Eye, Edit, Trash2, 
   Phone, Mail, MapPin, Package, CreditCard, Activity,
-  ChevronLeft, ChevronRight, RefreshCw
+  ChevronLeft, ChevronRight, RefreshCw, XCircle
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
-import { packageService } from '../../services/packageService'
+import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import StatsCard from '../../components/common/StatsCard'
 import CustomerForm from '../../components/CustomerForm'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
@@ -164,146 +165,122 @@ const CustomersPage = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Users className="h-6 w-6 text-blue-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Customer</p>
-                <p className="text-2xl font-bold text-gray-900">{totalCustomers}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <Activity className="h-6 w-6 text-green-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Active</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {customers.filter(c => c.account_status === 'active').length}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <CreditCard className="h-6 w-6 text-yellow-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Unpaid</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {customers.filter(c => c.payment_status === 'unpaid').length}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <Package className="h-6 w-6 text-purple-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Packages</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {packagesData?.data?.packages?.length || 0}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatsCard
+          icon={Users}
+          title="Total Customer"
+          value={totalCustomers}
+          iconColor="blue"
+        />
+        <StatsCard
+          icon={Activity}
+          title="Active"
+          value={customers.filter(c => c.account_status === 'active').length}
+          iconColor="green"
+        />
+        <StatsCard
+          icon={CreditCard}
+          title="Unpaid"
+          value={customers.filter(c => c.payment_status === 'unpaid').length}
+          iconColor="yellow"
+        />
+        <StatsCard
+          icon={XCircle}
+          title="Non-Active"
+          value={customers.filter(c => c.account_status !== 'active').length}
+          iconColor="red"
+        />
       </div>
 
       {/* Filters */}
-      <div className="card">
-        <div className="card-body">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-            {/* Search */}
-            <div className="md:col-span-2">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <input
-                  type="text"
-                  placeholder="Cari customer..."
-                  value={filters.search}
-                  onChange={(e) => handleFilterChange('search', e.target.value)}
-                  className="pl-10 input-field"
-                />
-              </div>
+      <div className="bg-white shadow rounded-lg p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {/* Search */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Search
+            </label>
+            <div className="relative">
+              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                className="form-input pl-10"
+                placeholder="Cari customer..."
+                value={filters.search}
+                onChange={(e) => handleFilterChange('search', e.target.value)}
+              />
             </div>
+          </div>
 
-            {/* Service Type Filter */}
-            <div>
-              <select
-                value={filters.service_type}
-                onChange={(e) => handleFilterChange('service_type', e.target.value)}
-                className="input-field"
-              >
-                <option value="">Semua Layanan</option>
-                <option value="broadband">Broadband</option>
-                <option value="dedicated">Dedicated</option>
-                <option value="corporate">Corporate</option>
-                <option value="mitra">Mitra</option>
-              </select>
-            </div>
+          {/* Service Type Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Layanan
+            </label>
+            <select
+              className="form-input"
+              value={filters.service_type}
+              onChange={(e) => handleFilterChange('service_type', e.target.value)}
+            >
+              <option value="">Semua Layanan</option>
+              <option value="broadband">Broadband</option>
+              <option value="dedicated">Dedicated</option>
+              <option value="corporate">Corporate</option>
+              <option value="mitra">Mitra</option>
+            </select>
+          </div>
 
-            {/* Account Status Filter */}
-            <div>
-              <select
-                value={filters.account_status}
-                onChange={(e) => handleFilterChange('account_status', e.target.value)}
-                className="input-field"
-              >
-                <option value="">Semua Status</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-                <option value="suspended">Suspended</option>
-              </select>
-            </div>
+          {/* Account Status Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Status Akun
+            </label>
+            <select
+              className="form-input"
+              value={filters.account_status}
+              onChange={(e) => handleFilterChange('account_status', e.target.value)}
+            >
+              <option value="">Semua Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="suspended">Suspended</option>
+            </select>
+          </div>
 
-            {/* Payment Status Filter */}
-            <div>
-              <select
-                value={filters.payment_status}
-                onChange={(e) => handleFilterChange('payment_status', e.target.value)}
-                className="input-field"
-              >
-                <option value="">Status Bayar</option>
-                <option value="paid">Paid</option>
-                <option value="unpaid">Unpaid</option>
-                <option value="pending">Pending</option>
-              </select>
-            </div>
+          {/* Payment Status Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Status Bayar
+            </label>
+            <select
+              className="form-input"
+              value={filters.payment_status}
+              onChange={(e) => handleFilterChange('payment_status', e.target.value)}
+            >
+              <option value="">Status Bayar</option>
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+              <option value="pending">Pending</option>
+            </select>
+          </div>
 
-            {/* Package Filter */}
-            <div>
-              <select
-                value={filters.package_id}
-                onChange={(e) => handleFilterChange('package_id', e.target.value)}
-                className="input-field"
-              >
-                <option value="">Semua Paket</option>
-                {packagesData?.data?.packages?.map(pkg => (
-                  <option key={pkg.id} value={pkg.id}>
-                    {pkg.package_name}
-                  </option>
-                ))}
-              </select>
-            </div>
+          {/* Package Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Paket
+            </label>
+            <select
+              className="form-input"
+              value={filters.package_id}
+              onChange={(e) => handleFilterChange('package_id', e.target.value)}
+            >
+              <option value="">Semua Paket</option>
+              {packagesData?.data?.packages?.map(pkg => (
+                <option key={pkg.id} value={pkg.id}>
+                  {pkg.package_name}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
@@ -407,13 +384,6 @@ const CustomersPage = () => {
                             >
                               <Eye className="h-4 w-4" />
                             </Link>
-                            <button
-                              onClick={() => handleEditCustomer(customer)}
-                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
-                              title="Edit Customer"
-                            >
-                              <Edit className="h-4 w-4" />
-                            </button>
                             <button
                               onClick={() => handleDeleteCustomer(customer.id, customer.name)}
                               className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"

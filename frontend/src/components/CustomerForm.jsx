@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import { X, Save, User, Phone, Mail, MapPin, Package, CreditCard, Settings, AlertCircle } from 'lucide-react'
 import { customerService } from '../services/customerService'
-import { packageService } from '../services/packageService'
+import packageService from '../services/packageService'
 import LoadingSpinner from './LoadingSpinner'
 import toast from 'react-hot-toast'
 

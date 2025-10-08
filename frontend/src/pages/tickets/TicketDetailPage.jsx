@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { 
-  ArrowLeft, 
   Calendar, 
   Clock, 
   User, 
@@ -13,11 +12,13 @@ import {
   AlertCircle,
   CheckCircle,
   Upload,
-  Download
+  Download,
+  Package
 } from 'lucide-react'
 import { ticketService } from '../../services/ticketService'
 import { useAuth } from '../../contexts/AuthContext'
 import StatusUpdateForm from '../../components/StatusUpdateForm'
+import BackButton from '../../components/common/BackButton'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import toast from 'react-hot-toast'
 
@@ -109,10 +110,7 @@ const TicketDetailPage = () => {
     return (
       <div className="space-y-6">
         <div className="flex items-center space-x-4">
-          <Link to="/tickets" className="btn-outline">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Tickets
-          </Link>
+          <BackButton to="/tickets" label="Back to Tickets" />
         </div>
         <div className="card">
           <div className="card-body text-center py-12">
@@ -138,10 +136,7 @@ const TicketDetailPage = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Link to="/tickets" className="btn-outline">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Tickets
-          </Link>
+          <BackButton to="/tickets" label="Back to Tickets" />
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{ticket.ticket_number}</h1>
             <p className="text-gray-600">{ticket.title}</p>
@@ -338,6 +333,145 @@ const TicketDetailPage = () => {
                   </div>
                 </div>
               )}
+
+              {/* Completion Data */}
+              {ticket.completion_data && ticket.status === 'completed' && (
+                <div className="card">
+                  <div className="card-header">
+                    <h3 className="text-lg font-semibold text-gray-900">Completion Details</h3>
+                  </div>
+                  <div className="card-body">
+                    <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {ticket.completion_data.odp_location && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Lokasi ODP</dt>
+                          <dd className="text-sm text-gray-900">{ticket.completion_data.odp_location}</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.odp_distance && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Jarak ODP</dt>
+                          <dd className="text-sm text-gray-900">{ticket.completion_data.odp_distance} meter</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.final_attenuation && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Redaman Terakhir</dt>
+                          <dd className="text-sm text-gray-900">{ticket.completion_data.final_attenuation} dB</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.wifi_name && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Nama WiFi</dt>
+                          <dd className="text-sm text-gray-900">{ticket.completion_data.wifi_name}</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.wifi_password && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Password WiFi</dt>
+                          <dd className="text-sm text-gray-900 font-mono">{ticket.completion_data.wifi_password}</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.activation_date && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Tanggal Aktif</dt>
+                          <dd className="text-sm text-gray-900">{formatDateTime(ticket.completion_data.activation_date)}</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.repair_date && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">Tanggal Perbaikan</dt>
+                          <dd className="text-sm text-gray-900">{formatDateTime(ticket.completion_data.repair_date)}</dd>
+                        </div>
+                      )}
+                      
+                      {ticket.completion_data.new_category && (
+                        <div>
+                          <dt className="text-sm font-medium text-gray-600">New Category</dt>
+                          <dd className="text-sm text-gray-900">{ticket.completion_data.new_category}</dd>
+                        </div>
+                      )}
+                    </dl>
+                    
+                    {/* Photos */}
+                    {(ticket.completion_data.otdr_photo || ticket.completion_data.attenuation_photo || ticket.completion_data.modem_sn_photo) && (
+                      <div className="mt-6 pt-6 border-t border-gray-200">
+                        <h4 className="text-sm font-medium text-gray-900 mb-4">Foto Dokumentasi</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {ticket.completion_data.otdr_photo && (
+                            <div>
+                              <p className="text-xs font-medium text-gray-600 mb-2">Foto OTDR</p>
+                              <a 
+                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
+                              >
+                                <img 
+                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                  alt="OTDR Photo"
+                                  className="w-full h-32 object-cover"
+                                />
+                                <div className="p-2 bg-gray-50">
+                                  <p className="text-xs text-gray-600 truncate">{ticket.completion_data.otdr_photo.filename}</p>
+                                </div>
+                              </a>
+                            </div>
+                          )}
+                          
+                          {ticket.completion_data.attenuation_photo && (
+                            <div>
+                              <p className="text-xs font-medium text-gray-600 mb-2">Foto Redaman</p>
+                              <a 
+                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
+                              >
+                                <img 
+                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                  alt="Attenuation Photo"
+                                  className="w-full h-32 object-cover"
+                                />
+                                <div className="p-2 bg-gray-50">
+                                  <p className="text-xs text-gray-600 truncate">{ticket.completion_data.attenuation_photo.filename}</p>
+                                </div>
+                              </a>
+                            </div>
+                          )}
+                          
+                          {ticket.completion_data.modem_sn_photo && (
+                            <div>
+                              <p className="text-xs font-medium text-gray-600 mb-2">Foto SN Modem</p>
+                              <a 
+                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
+                              >
+                                <img 
+                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                  alt="Modem SN Photo"
+                                  className="w-full h-32 object-cover"
+                                />
+                                <div className="p-2 bg-gray-50">
+                                  <p className="text-xs text-gray-600 truncate">{ticket.completion_data.modem_sn_photo.filename}</p>
+                                </div>
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -420,6 +554,40 @@ const TicketDetailPage = () => {
               </div>
             </div>
           </div>
+
+          {/* Package Information */}
+          {ticket.package_name && (
+            <div className="card">
+              <div className="card-header">
+                <h3 className="text-lg font-semibold text-gray-900">Package Information</h3>
+              </div>
+              <div className="card-body space-y-3">
+                <div className="flex items-center space-x-3">
+                  <Package className="h-5 w-5 text-gray-400" />
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{ticket.package_name}</p>
+                    <p className="text-sm text-gray-500">{ticket.service_type}</p>
+                  </div>
+                </div>
+                
+                {ticket.bandwidth_down && (
+                  <div className="flex justify-between items-center py-2 border-t border-gray-100">
+                    <span className="text-sm text-gray-500">Bandwidth</span>
+                    <span className="text-sm font-medium text-gray-900">{ticket.bandwidth_down} Mbps</span>
+                  </div>
+                )}
+                
+                {ticket.monthly_price && (
+                  <div className="flex justify-between items-center py-2 border-t border-gray-100">
+                    <span className="text-sm text-gray-500">Monthly Price</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      Rp {parseInt(ticket.monthly_price).toLocaleString('id-ID')}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Technician Information */}
           {ticket.technician_name && (

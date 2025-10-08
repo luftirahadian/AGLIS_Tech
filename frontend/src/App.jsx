@@ -12,6 +12,8 @@ import CustomerDetailPage from './pages/customers/CustomerDetailPage'
 import TechniciansPage from './pages/technicians/TechniciansPage'
 import TechnicianDetailPage from './pages/technicians/TechnicianDetailPage'
 import InventoryPage from './pages/inventory/InventoryPage'
+import PackagesPage from './pages/masterdata/PackagesPage'
+import ODPPage from './pages/masterdata/ODPPage'
 import UsersPage from './pages/users/UsersPage'
 import ProfilePage from './pages/ProfilePage'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -54,6 +56,10 @@ function App() {
         
         {/* Inventory */}
         <Route path="inventory" element={<InventoryPage />} />
+        
+        {/* Master Data */}
+        <Route path="master-data/packages" element={<PackagesPage />} />
+        <Route path="master-data/odp" element={<ODPPage />} />
         
         {/* Users (Admin/Supervisor only) */}
         <Route path="users" element={<UsersPage />} />
