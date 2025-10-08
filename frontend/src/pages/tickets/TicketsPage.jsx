@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye } from 'lucide-react'
+import { Ticket, Plus, Search, Filter, Eye, Target } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
+import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
 
 const TicketsPage = () => {
   const [showCreateForm, setShowCreateForm] = useState(false)
+  const [showAssignmentModal, setShowAssignmentModal] = useState(false)
+  const [selectedTicketForAssignment, setSelectedTicketForAssignment] = useState(null)
   const [filters, setFilters] = useState({
     search: '',
     status: '',
@@ -24,6 +27,16 @@ const TicketsPage = () => {
 
   const handleCreateSuccess = () => {
     refetch()
+  }
+
+  const handleAssignTicket = (ticket) => {
+    setSelectedTicketForAssignment(ticket)
+    setShowAssignmentModal(true)
+  }
+
+  const closeAssignmentModal = () => {
+    setShowAssignmentModal(false)
+    setSelectedTicketForAssignment(null)
   }
 
   const getStatusBadge = (status) => {
@@ -218,13 +231,24 @@ const TicketsPage = () => {
                         </div>
                       </td>
                       <td className="table-cell">
-                        <Link
-                          to={`/tickets/${ticket.id}`}
-                          className="inline-flex items-center px-3 py-1 text-sm text-blue-600 hover:text-blue-800"
-                        >
-                          <Eye className="h-4 w-4 mr-1" />
-                          View
-                        </Link>
+                        <div className="flex space-x-2">
+                          <Link
+                            to={`/tickets/${ticket.id}`}
+                            className="inline-flex items-center px-3 py-1 text-sm text-blue-600 hover:text-blue-800"
+                          >
+                            <Eye className="h-4 w-4 mr-1" />
+                            View
+                          </Link>
+                          {ticket.status === 'open' && (
+                            <button
+                              onClick={() => handleAssignTicket(ticket)}
+                              className="inline-flex items-center px-3 py-1 text-sm text-green-600 hover:text-green-800"
+                            >
+                              <Target className="h-4 w-4 mr-1" />
+                              Assign
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -255,6 +279,13 @@ const TicketsPage = () => {
         isOpen={showCreateForm}
         onClose={() => setShowCreateForm(false)}
         onSuccess={handleCreateSuccess}
+      />
+
+      {/* Smart Assignment Modal */}
+      <SmartAssignmentModal
+        isOpen={showAssignmentModal}
+        onClose={closeAssignmentModal}
+        ticket={selectedTicketForAssignment}
       />
     </div>
   )

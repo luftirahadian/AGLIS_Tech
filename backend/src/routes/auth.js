@@ -171,7 +171,7 @@ router.get('/me', authMiddleware, async (req, res) => {
     const userQuery = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.avatar_url, u.last_login, u.created_at,
-             t.employee_id, t.skills, t.service_areas, t.availability_status, t.rating
+             t.employee_id, t.skill_level, t.specializations, t.availability_status, t.customer_rating
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
       WHERE u.id = $1

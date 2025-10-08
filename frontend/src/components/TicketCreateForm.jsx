@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
-import { X, Upload, AlertCircle } from 'lucide-react'
+import { X, Upload, AlertCircle, MapPin, Phone, Mail, Package, User } from 'lucide-react'
 import { customerService } from '../services/customerService'
 import { ticketService } from '../services/ticketService'
 import LoadingSpinner from './LoadingSpinner'
@@ -9,13 +9,15 @@ import toast from 'react-hot-toast'
 
 const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectedCustomer, setSelectedCustomer] = useState(null)
   
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    watch
+    watch,
+    setValue
   } = useForm({
     defaultValues: {
       type: 'installation',
@@ -31,13 +33,94 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
   )
 
   const selectedType = watch('type')
+  const selectedCustomerId = watch('customer_id')
 
-  const ticketTypes = [
-    { value: 'installation', label: 'Installation', description: 'New service installation' },
-    { value: 'repair', label: 'Repair', description: 'Fix existing service issues' },
-    { value: 'maintenance', label: 'Maintenance', description: 'Scheduled maintenance' },
-    { value: 'upgrade', label: 'Upgrade', description: 'Service upgrade or enhancement' }
-  ]
+  // Auto-fill customer data when customer is selected
+  useEffect(() => {
+    if (selectedCustomerId && customersData?.data?.customers) {
+      const customer = customersData.data.customers.find(c => c.id == selectedCustomerId)
+      if (customer) {
+        setSelectedCustomer(customer)
+        // Auto-fill some fields based on customer data
+        setValue('category', `${customer.service_type} - ${customer.package_name}`)
+      }
+    } else {
+      setSelectedCustomer(null)
+    }
+  }, [selectedCustomerId, customersData, setValue])
+
+  const getTicketTypes = () => {
+    const baseTypes = [
+      { value: 'installation', label: 'Installation', description: 'New service installation' },
+      { value: 'repair', label: 'Repair', description: 'Fix existing service issues' },
+      { value: 'maintenance', label: 'Maintenance', description: 'Scheduled maintenance' },
+      { value: 'upgrade', label: 'Upgrade', description: 'Service upgrade or enhancement' }
+    ]
+    
+    // Add service-specific types based on selected customer
+    if (selectedCustomer) {
+      switch (selectedCustomer.service_type) {
+        case 'broadband':
+          baseTypes.push(
+            { value: 'wifi_setup', label: 'WiFi Setup', description: 'Configure wireless network' },
+            { value: 'speed_test', label: 'Speed Test', description: 'Verify connection speed' }
+          )
+          break
+        case 'dedicated':
+          baseTypes.push(
+            { value: 'bandwidth_upgrade', label: 'Bandwidth Upgrade', description: 'Increase dedicated bandwidth' },
+            { value: 'redundancy_setup', label: 'Redundancy Setup', description: 'Setup backup connection' }
+          )
+          break
+        case 'corporate':
+          baseTypes.push(
+            { value: 'network_config', label: 'Network Config', description: 'Configure corporate network' },
+            { value: 'security_audit', label: 'Security Audit', description: 'Network security review' }
+          )
+          break
+      }
+    }
+    
+    return baseTypes
+  }
+
+  const getSuggestedEquipment = () => {
+    if (!selectedCustomer || !selectedType) return []
+    
+    const equipmentMap = {
+      installation: {
+        broadband: ['Modem WiFi', 'Kabel UTP Cat6', 'Connector RJ45', 'Cable Tester', 'Crimping Tool'],
+        dedicated: ['Router Enterprise', 'Fiber Optic Cable', 'SFP Module', 'Patch Panel', 'Network Switch'],
+        corporate: ['Firewall', 'Managed Switch', 'Access Point', 'UPS', 'Rack Cabinet'],
+        mitra: ['High-Performance Router', 'Load Balancer', 'Bandwidth Manager', 'Monitoring Tools']
+      },
+      repair: {
+        broadband: ['Replacement Modem', 'Spare Cables', 'Signal Meter', 'Multimeter'],
+        dedicated: ['Backup Router', 'Fiber Tester', 'Optical Power Meter', 'Cleaning Kit'],
+        corporate: ['Diagnostic Tools', 'Replacement Components', 'Network Analyzer'],
+        mitra: ['Backup Equipment', 'Performance Monitor', 'Troubleshooting Kit']
+      },
+      maintenance: {
+        broadband: ['Cleaning Supplies', 'Cable Organizer', 'Signal Booster'],
+        dedicated: ['Fiber Cleaning Kit', 'Performance Monitor', 'Backup Media'],
+        corporate: ['System Update Tools', 'Security Scanner', 'Backup Solutions'],
+        mitra: ['Maintenance Kit', 'Performance Optimizer', 'System Monitor']
+      },
+      upgrade: {
+        broadband: ['Higher Speed Modem', 'Enhanced WiFi Router', 'Signal Amplifier'],
+        dedicated: ['Higher Capacity Router', 'Additional Bandwidth', 'Redundancy Equipment'],
+        corporate: ['Enterprise Equipment', 'Security Upgrades', 'Performance Enhancers'],
+        mitra: ['Advanced Routing', 'Traffic Management', 'Quality Assurance Tools']
+      },
+      wifi_setup: ['WiFi Router', 'Range Extender', 'WiFi Analyzer', 'Security Configuration'],
+      speed_test: ['Speed Test Device', 'Network Analyzer', 'Performance Monitor'],
+      bandwidth_upgrade: ['Higher Capacity Equipment', 'Configuration Tools'],
+      network_config: ['Configuration Tools', 'Network Documentation', 'Security Setup'],
+      security_audit: ['Security Scanner', 'Vulnerability Assessment', 'Audit Tools']
+    }
+    
+    return equipmentMap[selectedType]?.[selectedCustomer.service_type] || equipmentMap[selectedType] || []
+  }
 
   const priorities = [
     { value: 'low', label: 'Low', color: 'text-gray-600', bgColor: 'bg-gray-100' },
@@ -96,7 +179,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
               <option value="">Select a customer...</option>
               {customersData?.data?.customers?.map((customer) => (
                 <option key={customer.id} value={customer.id}>
-                  {customer.customer_code} - {customer.full_name}
+                  {customer.customer_id} - {customer.name} ({customer.service_type})
                 </option>
               ))}
             </select>
@@ -108,11 +191,57 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
             )}
           </div>
 
+          {/* Selected Customer Information */}
+          {selectedCustomer && (
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center">
+                <User className="h-4 w-4 mr-2" />
+                Customer Information
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="space-y-2">
+                  <div className="flex items-center text-gray-600">
+                    <Phone className="h-4 w-4 mr-2" />
+                    <span>{selectedCustomer.phone}</span>
+                  </div>
+                  {selectedCustomer.email && (
+                    <div className="flex items-center text-gray-600">
+                      <Mail className="h-4 w-4 mr-2" />
+                      <span>{selectedCustomer.email}</span>
+                    </div>
+                  )}
+                  <div className="flex items-start text-gray-600">
+                    <MapPin className="h-4 w-4 mr-2 mt-0.5" />
+                    <span className="text-xs">{selectedCustomer.address}</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center text-gray-600">
+                    <Package className="h-4 w-4 mr-2" />
+                    <span>{selectedCustomer.package_name}</span>
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    Service: {selectedCustomer.service_type}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    Status: <span className={`px-2 py-1 rounded-full text-xs ${
+                      selectedCustomer.account_status === 'active' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-red-100 text-red-800'
+                    }`}>
+                      {selectedCustomer.account_status}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Ticket Type */}
           <div>
             <label className="form-label">Service Type *</label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {ticketTypes.map((type) => (
+              {getTicketTypes().map((type) => (
                 <label
                   key={type.value}
                   className={`
@@ -266,23 +395,71 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
           <div>
             <label className="form-label">Equipment Needed</label>
             <textarea
-              rows={2}
+              rows={3}
               className="form-input"
               placeholder="List required equipment, tools, or materials..."
               {...register('equipment_needed')}
             />
+            {selectedCustomer && selectedType && (
+              <div className="mt-2">
+                <p className="text-xs text-gray-500 mb-2">Suggested equipment for {selectedType}:</p>
+                <div className="flex flex-wrap gap-1">
+                  {getSuggestedEquipment().map((equipment, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800 cursor-pointer hover:bg-blue-200"
+                      onClick={() => {
+                        const currentValue = watch('equipment_needed') || ''
+                        const newValue = currentValue ? `${currentValue}, ${equipment}` : equipment
+                        setValue('equipment_needed', newValue)
+                      }}
+                    >
+                      + {equipment}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* SLA Notice */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <div className="flex">
-              <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5 mr-3" />
-              <div>
-                <h4 className="text-sm font-medium text-blue-800">SLA Information</h4>
-                <p className="text-sm text-blue-700 mt-1">
-                  Service Level Agreement will be automatically set based on priority:
-                  Critical (2h), High (4h), Normal (24h), Low (48h)
-                </p>
+          {/* Location & SLA Information */}
+          <div className="space-y-4">
+            {/* Location Info */}
+            {selectedCustomer && selectedCustomer.latitude && selectedCustomer.longitude && (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="flex">
+                  <MapPin className="h-5 w-5 text-green-600 mt-0.5 mr-3" />
+                  <div>
+                    <h4 className="text-sm font-medium text-green-800">Location Information</h4>
+                    <p className="text-sm text-green-700 mt-1">
+                      GPS Coordinates: {selectedCustomer.latitude}, {selectedCustomer.longitude}
+                    </p>
+                    {selectedCustomer.odp && (
+                      <p className="text-sm text-green-700">
+                        ODP: {selectedCustomer.odp}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SLA Notice */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex">
+                <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5 mr-3" />
+                <div>
+                  <h4 className="text-sm font-medium text-blue-800">SLA Information</h4>
+                  <p className="text-sm text-blue-700 mt-1">
+                    Service Level Agreement will be automatically set based on priority:
+                    Critical (2h), High (4h), Normal (24h), Low (48h)
+                  </p>
+                  {selectedCustomer && (
+                    <p className="text-sm text-blue-700 mt-1">
+                      Customer Package SLA: {selectedCustomer.sla_level || 'Standard'}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>

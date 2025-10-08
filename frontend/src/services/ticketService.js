@@ -44,5 +44,16 @@ export const ticketService = {
       },
     })
     return response
+  },
+
+  // Smart assignment endpoints
+  autoAssignTicket: async (ticketId, options = {}) => {
+    const response = await api.post(`/tickets/${ticketId}/auto-assign`, options)
+    return response
+  },
+
+  getAssignmentRecommendations: async (ticketId) => {
+    const response = await api.get(`/tickets/${ticketId}/assignment-recommendations`)
+    return response
   }
 }

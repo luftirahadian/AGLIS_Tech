@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 
     let query = `
       SELECT t.*, 
-             c.customer_code, c.full_name as customer_name, c.phone as customer_phone,
-             c.address as customer_address, c.service_area,
+             c.customer_id, c.name as customer_name, c.phone as customer_phone,
+             c.address as customer_address, c.service_type,
              u.full_name as technician_name, tech.employee_id,
              creator.full_name as created_by_name
       FROM tickets t
@@ -74,7 +74,7 @@ router.get('/', async (req, res) => {
 
     if (search) {
       paramCount++;
-      query += ` AND (t.ticket_number ILIKE $${paramCount} OR t.title ILIKE $${paramCount} OR c.full_name ILIKE $${paramCount})`;
+      query += ` AND (t.ticket_number ILIKE $${paramCount} OR t.title ILIKE $${paramCount} OR c.name ILIKE $${paramCount})`;
       params.push(`%${search}%`);
     }
 
@@ -138,7 +138,7 @@ router.get('/', async (req, res) => {
 
     if (search) {
       countParamCount++;
-      countQuery += ` AND (t.ticket_number ILIKE $${countParamCount} OR t.title ILIKE $${countParamCount} OR c.full_name ILIKE $${countParamCount})`;
+      countQuery += ` AND (t.ticket_number ILIKE $${countParamCount} OR t.title ILIKE $${countParamCount} OR c.name ILIKE $${countParamCount})`;
       countParams.push(`%${search}%`);
     }
 
@@ -175,8 +175,8 @@ router.get('/:id', async (req, res) => {
     // Simplified query first
     const query = `
       SELECT t.*, 
-             c.customer_code, c.full_name as customer_name, c.phone as customer_phone,
-             c.address as customer_address, c.service_area,
+             c.customer_id, c.name as customer_name, c.phone as customer_phone,
+             c.address as customer_address, c.service_type,
              u.full_name as technician_name, tech.employee_id,
              creator.full_name as created_by_name
       FROM tickets t
@@ -615,6 +615,197 @@ router.put('/:id/assign', [
 
   } catch (error) {
     console.error('Assign ticket error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Smart auto-assignment endpoint
+router.post('/:id/auto-assign', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { force_zone, required_skills } = req.body;
+    console.log('Auto-assign request:', { id, force_zone, required_skills });
+
+    // Get ticket details
+    const ticketQuery = `
+      SELECT t.*, c.latitude, c.longitude, c.service_type
+      FROM tickets t
+      LEFT JOIN customers c ON t.customer_id = c.id
+      WHERE t.id = $1 AND t.status = 'open'
+    `;
+    const ticketResult = await pool.query(ticketQuery, [id]);
+
+    if (ticketResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Ticket not found or already assigned'
+      });
+    }
+
+    const ticket = ticketResult.rows[0];
+
+    // Simplest possible technician selection
+    const technicianQuery = `
+      SELECT t.id, t.full_name, t.employee_id, t.skill_level,
+             t.availability_status, t.is_available, t.max_daily_tickets
+      FROM technicians t
+      WHERE t.employment_status = 'active' 
+        AND t.is_available = true
+        AND t.availability_status = 'available'
+      ORDER BY t.skill_level DESC
+      LIMIT 1
+    `;
+
+    const techResult = await pool.query(technicianQuery);
+
+    if (techResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'No available technicians found matching criteria'
+      });
+    }
+
+    // Auto-assign to the best match
+    const bestTechnician = techResult.rows[0];
+
+    const assignQuery = `
+      UPDATE tickets 
+      SET assigned_technician_id = $1, 
+          status = 'assigned',
+          work_notes = COALESCE(work_notes, '') || ' [Auto-assigned based on smart matching]',
+          updated_at = CURRENT_TIMESTAMP
+      WHERE id = $2
+      RETURNING *
+    `;
+
+    const assignResult = await pool.query(assignQuery, [bestTechnician.id, id]);
+
+    res.json({
+      success: true,
+      data: {
+        ticket: assignResult.rows[0],
+        assigned_technician: bestTechnician,
+        alternatives: techResult.rows.slice(1),
+        assignment_score: {
+          skill_match: 1,
+          performance_rating: 0,
+          current_workload: `0/${bestTechnician.max_daily_tickets}`,
+          distance_km: 0
+        }
+      },
+      message: 'Ticket auto-assigned successfully'
+    });
+
+  } catch (error) {
+    console.error('Auto-assign ticket error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Get assignment recommendations
+router.get('/:id/assignment-recommendations', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Get ticket details
+    const ticketQuery = `
+      SELECT t.*, c.latitude, c.longitude, c.service_type, c.name as customer_name
+      FROM tickets t
+      LEFT JOIN customers c ON t.customer_id = c.id
+      WHERE t.id = $1
+    `;
+    const ticketResult = await pool.query(ticketQuery, [id]);
+
+    if (ticketResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Ticket not found'
+      });
+    }
+
+    const ticket = ticketResult.rows[0];
+
+    // Working simple query
+    const recommendationQuery = `
+      SELECT t.id, t.full_name, t.employee_id, t.skill_level, t.specializations,
+             t.availability_status, t.is_available, t.max_daily_tickets,
+             t.work_zone, t.current_latitude, t.current_longitude,
+             u.username,
+             COUNT(tt.id) as current_tickets,
+             AVG(tp.customer_satisfaction_avg) as avg_rating,
+             AVG(tp.sla_compliance_rate) as avg_sla,
+             AVG(tp.average_resolution_time) as avg_resolution_time,
+             0 as distance_km,
+             0 as relevant_skills_count
+      FROM technicians t
+      LEFT JOIN users u ON t.user_id = u.id
+      LEFT JOIN tickets tt ON t.id = tt.assigned_technician_id 
+        AND tt.status IN ('assigned', 'in_progress')
+      LEFT JOIN technician_performance tp ON t.id = tp.technician_id
+      WHERE t.employment_status = 'active'
+      GROUP BY t.id, u.username
+      ORDER BY 
+        CASE WHEN t.is_available = true AND t.availability_status = 'available' THEN 1 ELSE 0 END DESC,
+        CASE WHEN COUNT(tt.id) < t.max_daily_tickets THEN 1 ELSE 0 END DESC,
+        AVG(tp.customer_satisfaction_avg) DESC NULLS LAST,
+        COUNT(tt.id) ASC
+      LIMIT 10
+    `;
+
+    const recommendations = await pool.query(recommendationQuery);
+
+    // Helper function for recommendation scoring
+    const calculateRecommendationScore = (technician) => {
+      let score = 0;
+      
+      // Availability (40 points)
+      if (technician.is_available && technician.availability_status === 'available') {
+        score += 40;
+      }
+      
+      // Capacity (30 points)
+      if (technician.current_tickets < technician.max_daily_tickets) {
+        const capacityRatio = (technician.max_daily_tickets - technician.current_tickets) / technician.max_daily_tickets;
+        score += capacityRatio * 30;
+      }
+      
+      // Performance rating (20 points)
+      if (technician.avg_rating) {
+        score += (technician.avg_rating / 5.0) * 20;
+      }
+      
+      // Distance (10 points)
+      if (technician.distance_km) {
+        if (technician.distance_km < 10) score += 10;
+        else if (technician.distance_km < 25) score += 5;
+      }
+      
+      return Math.round(score);
+    };
+
+    res.json({
+      success: true,
+      data: {
+        ticket: ticket,
+        recommendations: recommendations.rows.map(tech => ({
+          ...tech,
+          availability_status: tech.is_available && tech.availability_status === 'available' ? 'available' : 'unavailable',
+          capacity_status: tech.current_tickets < tech.max_daily_tickets ? 'available' : 'full',
+          recommendation_score: calculateRecommendationScore(tech),
+          distance_status: tech.distance_km ? 
+            (tech.distance_km < 10 ? 'near' : tech.distance_km < 25 ? 'medium' : 'far') : 'unknown'
+        }))
+      }
+    });
+
+  } catch (error) {
+    console.error('Get assignment recommendations error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'

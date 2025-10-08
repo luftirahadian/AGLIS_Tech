@@ -1,26 +1,45 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
-const { authorize } = require('../middleware/auth');
 
 const router = express.Router();
 
-// Get all technicians
+// Get all technicians with filtering and pagination
 router.get('/', async (req, res) => {
   try {
-    const { page = 1, limit = 10, availability_status, service_area, search } = req.query;
+    const { 
+      page = 1, limit = 10, search, employment_status, availability_status,
+      skill_level, work_zone, specialization
+    } = req.query;
     const offset = (page - 1) * limit;
 
     let query = `
-      SELECT t.*, u.username, u.email, u.full_name, u.phone, u.is_active,
-             s.username as supervisor_name
+      SELECT t.*, 
+             u.username, u.email as user_email,
+             COUNT(DISTINCT ts.id) as total_skills,
+             COUNT(DISTINCT tt.id) as active_tickets,
+             AVG(tp.customer_satisfaction_avg) as avg_customer_rating
       FROM technicians t
-      JOIN users u ON t.user_id = u.id
-      LEFT JOIN users s ON t.supervisor_id = s.id
+      LEFT JOIN users u ON t.user_id = u.id
+      LEFT JOIN technician_skills ts ON t.id = ts.technician_id
+      LEFT JOIN tickets tt ON t.id = tt.assigned_technician_id AND tt.status IN ('assigned', 'in_progress')
+      LEFT JOIN technician_performance tp ON t.id = tp.technician_id
       WHERE 1=1
     `;
     const params = [];
     let paramCount = 0;
+
+    if (search) {
+      paramCount++;
+      query += ` AND (t.full_name ILIKE $${paramCount} OR t.employee_id ILIKE $${paramCount} OR t.email ILIKE $${paramCount})`;
+      params.push(`%${search}%`);
+    }
+
+    if (employment_status) {
+      paramCount++;
+      query += ` AND t.employment_status = $${paramCount}`;
+      params.push(employment_status);
+    }
 
     if (availability_status) {
       paramCount++;
@@ -28,31 +47,50 @@ router.get('/', async (req, res) => {
       params.push(availability_status);
     }
 
-    if (service_area) {
+    if (skill_level) {
       paramCount++;
-      query += ` AND $${paramCount} = ANY(t.service_areas)`;
-      params.push(service_area);
+      query += ` AND t.skill_level = $${paramCount}`;
+      params.push(skill_level);
     }
 
-    if (search) {
+    if (work_zone) {
       paramCount++;
-      query += ` AND (u.full_name ILIKE $${paramCount} OR t.employee_id ILIKE $${paramCount} OR u.phone ILIKE $${paramCount})`;
-      params.push(`%${search}%`);
+      query += ` AND t.work_zone = $${paramCount}`;
+      params.push(work_zone);
     }
 
-    query += ` ORDER BY u.full_name LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+    if (specialization) {
+      paramCount++;
+      query += ` AND $${paramCount} = ANY(t.specializations)`;
+      params.push(specialization);
+    }
+
+    query += ` GROUP BY t.id, u.username, u.email ORDER BY t.created_at DESC LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
     params.push(limit, offset);
 
     const result = await pool.query(query, params);
 
-    // Get total count
+    // Get total count for pagination
     let countQuery = `
-      SELECT COUNT(*) FROM technicians t
-      JOIN users u ON t.user_id = u.id
+      SELECT COUNT(DISTINCT t.id) as count
+      FROM technicians t
+      LEFT JOIN users u ON t.user_id = u.id
       WHERE 1=1
     `;
     const countParams = [];
     let countParamCount = 0;
+
+    if (search) {
+      countParamCount++;
+      countQuery += ` AND (t.full_name ILIKE $${countParamCount} OR t.employee_id ILIKE $${countParamCount} OR t.email ILIKE $${countParamCount})`;
+      countParams.push(`%${search}%`);
+    }
+
+    if (employment_status) {
+      countParamCount++;
+      countQuery += ` AND t.employment_status = $${countParamCount}`;
+      countParams.push(employment_status);
+    }
 
     if (availability_status) {
       countParamCount++;
@@ -60,16 +98,22 @@ router.get('/', async (req, res) => {
       countParams.push(availability_status);
     }
 
-    if (service_area) {
+    if (skill_level) {
       countParamCount++;
-      countQuery += ` AND $${countParamCount} = ANY(t.service_areas)`;
-      countParams.push(service_area);
+      countQuery += ` AND t.skill_level = $${countParamCount}`;
+      countParams.push(skill_level);
     }
 
-    if (search) {
+    if (work_zone) {
       countParamCount++;
-      countQuery += ` AND (u.full_name ILIKE $${countParamCount} OR t.employee_id ILIKE $${countParamCount} OR u.phone ILIKE $${countParamCount})`;
-      countParams.push(`%${search}%`);
+      countQuery += ` AND t.work_zone = $${countParamCount}`;
+      countParams.push(work_zone);
+    }
+
+    if (specialization) {
+      countParamCount++;
+      countQuery += ` AND $${countParamCount} = ANY(t.specializations)`;
+      countParams.push(specialization);
     }
 
     const countResult = await pool.query(countQuery, countParams);
@@ -97,37 +141,100 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get technician by ID
+// Get technician by ID with detailed information
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = `
-      SELECT t.*, u.username, u.email, u.full_name, u.phone, u.is_active,
-             s.username as supervisor_name,
-             COUNT(tk.id) as total_tickets,
-             COUNT(CASE WHEN tk.status = 'completed' THEN 1 END) as completed_tickets,
-             COUNT(CASE WHEN tk.status IN ('assigned', 'in_progress') THEN 1 END) as active_tickets
+    // Get technician basic info
+    const technicianQuery = `
+      SELECT t.*, 
+             u.username, u.email as user_email, u.role,
+             supervisor.full_name as supervisor_name
       FROM technicians t
-      JOIN users u ON t.user_id = u.id
-      LEFT JOIN users s ON t.supervisor_id = s.id
-      LEFT JOIN tickets tk ON t.id = tk.assigned_technician_id
+      LEFT JOIN users u ON t.user_id = u.id
+      LEFT JOIN technicians supervisor ON t.supervisor_id = supervisor.id
       WHERE t.id = $1
-      GROUP BY t.id, u.id, s.id
     `;
+    const technicianResult = await pool.query(technicianQuery, [id]);
 
-    const result = await pool.query(query, [id]);
-
-    if (result.rows.length === 0) {
+    if (technicianResult.rows.length === 0) {
       return res.status(404).json({
         success: false,
         message: 'Technician not found'
       });
     }
 
+    const technician = technicianResult.rows[0];
+
+    // Get technician skills
+    const skillsQuery = `
+      SELECT ts.*, u.full_name as verified_by_name
+      FROM technician_skills ts
+      LEFT JOIN users u ON ts.verified_by = u.id
+      WHERE ts.technician_id = $1
+      ORDER BY ts.skill_category, ts.skill_name
+    `;
+    const skillsResult = await pool.query(skillsQuery, [id]);
+
+    // Get current schedule
+    const scheduleQuery = `
+      SELECT * FROM technician_schedule
+      WHERE technician_id = $1 AND schedule_date >= CURRENT_DATE
+      ORDER BY schedule_date
+      LIMIT 7
+    `;
+    const scheduleResult = await pool.query(scheduleQuery, [id]);
+
+    // Get recent performance
+    const performanceQuery = `
+      SELECT tp.*, u.full_name as created_by_name
+      FROM technician_performance tp
+      LEFT JOIN users u ON tp.created_by = u.id
+      WHERE tp.technician_id = $1
+      ORDER BY tp.period_end DESC
+      LIMIT 3
+    `;
+    const performanceResult = await pool.query(performanceQuery, [id]);
+
+    // Get assigned equipment
+    const equipmentQuery = `
+      SELECT * FROM technician_equipment
+      WHERE technician_id = $1 AND is_active = true
+      ORDER BY equipment_type, equipment_name
+    `;
+    const equipmentResult = await pool.query(equipmentQuery, [id]);
+
+    // Get recent location history
+    const locationQuery = `
+      SELECT * FROM technician_location_history
+      WHERE technician_id = $1
+      ORDER BY recorded_at DESC
+      LIMIT 10
+    `;
+    const locationResult = await pool.query(locationQuery, [id]);
+
+    // Get active tickets
+    const ticketsQuery = `
+      SELECT t.*, c.name as customer_name, c.phone as customer_phone
+      FROM tickets t
+      LEFT JOIN customers c ON t.customer_id = c.id
+      WHERE t.assigned_technician_id = $1 AND t.status IN ('assigned', 'in_progress')
+      ORDER BY t.priority DESC, t.created_at ASC
+    `;
+    const ticketsResult = await pool.query(ticketsQuery, [id]);
+
     res.json({
       success: true,
-      data: { technician: result.rows[0] }
+      data: {
+        technician,
+        skills: skillsResult.rows,
+        schedule: scheduleResult.rows,
+        performance: performanceResult.rows,
+        equipment: equipmentResult.rows,
+        location_history: locationResult.rows,
+        active_tickets: ticketsResult.rows
+      }
     });
 
   } catch (error) {
@@ -139,76 +246,72 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create new technician (admin/supervisor only)
+// Create new technician
 router.post('/', [
-  authorize('admin', 'supervisor'),
   body('user_id').isInt().withMessage('User ID is required'),
   body('employee_id').notEmpty().withMessage('Employee ID is required'),
-  body('skills').isArray().withMessage('Skills must be an array'),
-  body('service_areas').isArray().withMessage('Service areas must be an array'),
-  body('hire_date').isISO8601().withMessage('Please provide a valid hire date')
+  body('full_name').notEmpty().withMessage('Full name is required'),
+  body('phone').notEmpty().withMessage('Phone is required'),
+  body('email').isEmail().withMessage('Valid email is required'),
+  body('hire_date').isDate().withMessage('Valid hire date is required'),
+  body('position').notEmpty().withMessage('Position is required'),
+  body('skill_level').isIn(['junior', 'senior', 'expert', 'specialist']).withMessage('Valid skill level is required'),
+  body('work_zone').notEmpty().withMessage('Work zone is required')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Validation errors',
+        message: 'Validation failed',
         errors: errors.array()
       });
     }
 
-    const { 
-      user_id, employee_id, skills, service_areas, 
-      max_daily_tickets, supervisor_id, hire_date 
+    const {
+      user_id, employee_id, full_name, phone, phone_alt, email, address,
+      emergency_contact_name, emergency_contact_phone, hire_date, employment_status,
+      position, department, supervisor_id, skill_level, specializations,
+      work_zone, max_daily_tickets, preferred_shift
     } = req.body;
 
-    // Check if user exists and is a technician
-    const userCheck = await pool.query(
-      'SELECT id, role FROM users WHERE id = $1 AND role = $2',
-      [user_id, 'technician']
-    );
-
-    if (userCheck.rows.length === 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'User not found or not a technician'
-      });
-    }
-
-    // Check if technician profile already exists
-    const technicianCheck = await pool.query(
-      'SELECT id FROM technicians WHERE user_id = $1',
-      [user_id]
-    );
-
-    if (technicianCheck.rows.length > 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'Technician profile already exists for this user'
-      });
-    }
-
     const query = `
-      INSERT INTO technicians (user_id, employee_id, skills, service_areas, 
-                             max_daily_tickets, supervisor_id, hire_date)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
-      RETURNING *
+      INSERT INTO technicians (
+        user_id, employee_id, full_name, phone, phone_alt, email, address,
+        emergency_contact_name, emergency_contact_phone, hire_date, employment_status,
+        position, department, supervisor_id, skill_level, specializations,
+        work_zone, max_daily_tickets, preferred_shift, created_by
+      ) VALUES (
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20
+      ) RETURNING *
     `;
 
-    const result = await pool.query(query, [
-      user_id, employee_id, skills, service_areas,
-      max_daily_tickets || 8, supervisor_id, hire_date
-    ]);
+    const values = [
+      user_id, employee_id, full_name, phone, phone_alt || null, email, address || null,
+      emergency_contact_name || null, emergency_contact_phone || null, hire_date,
+      employment_status || 'active', position, department || 'field_operations',
+      supervisor_id || null, skill_level, specializations || [],
+      work_zone, max_daily_tickets || 8, preferred_shift || 'day', req.user.id
+    ];
+
+    const result = await pool.query(query, values);
 
     res.status(201).json({
       success: true,
-      message: 'Technician created successfully',
-      data: { technician: result.rows[0] }
+      data: {
+        technician: result.rows[0]
+      },
+      message: 'Technician created successfully'
     });
 
   } catch (error) {
     console.error('Create technician error:', error);
+    if (error.code === '23505') {
+      return res.status(400).json({
+        success: false,
+        message: 'Employee ID already exists'
+      });
+    }
     res.status(500).json({
       success: false,
       message: 'Internal server error'
@@ -218,124 +321,72 @@ router.post('/', [
 
 // Update technician
 router.put('/:id', [
-  body('skills').optional().isArray().withMessage('Skills must be an array'),
-  body('service_areas').optional().isArray().withMessage('Service areas must be an array'),
-  body('availability_status').optional().isIn(['available', 'busy', 'off_duty', 'on_break']).withMessage('Invalid availability status')
+  body('full_name').optional().notEmpty().withMessage('Full name cannot be empty'),
+  body('phone').optional().notEmpty().withMessage('Phone cannot be empty'),
+  body('email').optional().isEmail().withMessage('Valid email is required'),
+  body('skill_level').optional().isIn(['junior', 'senior', 'expert', 'specialist']).withMessage('Valid skill level is required')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Validation errors',
+        message: 'Validation failed',
         errors: errors.array()
       });
     }
 
     const { id } = req.params;
-    const { 
-      skills, service_areas, availability_status, 
-      max_daily_tickets, supervisor_id, current_location 
-    } = req.body;
+    const updateFields = [];
+    const values = [];
+    let paramCount = 0;
 
-    // Check if technician exists
-    const technicianCheck = await pool.query(
-      'SELECT user_id FROM technicians WHERE id = $1',
-      [id]
-    );
+    // Build dynamic update query
+    Object.keys(req.body).forEach(key => {
+      if (req.body[key] !== undefined && key !== 'id') {
+        paramCount++;
+        updateFields.push(`${key} = $${paramCount}`);
+        values.push(req.body[key]);
+      }
+    });
 
-    if (technicianCheck.rows.length === 0) {
+    if (updateFields.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'No fields to update'
+      });
+    }
+
+    // Add updated_by and updated_at
+    paramCount++;
+    updateFields.push(`updated_by = $${paramCount}`);
+    values.push(req.user.id);
+
+    paramCount++;
+    values.push(id);
+
+    const query = `
+      UPDATE technicians 
+      SET ${updateFields.join(', ')}
+      WHERE id = $${paramCount}
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, values);
+
+    if (result.rows.length === 0) {
       return res.status(404).json({
         success: false,
         message: 'Technician not found'
       });
     }
 
-    // Check permissions - technicians can only update their own profile (limited fields)
-    if (req.user.role === 'technician') {
-      const technicianUserId = technicianCheck.rows[0].user_id;
-      if (req.user.id !== technicianUserId) {
-        return res.status(403).json({
-          success: false,
-          message: 'Access denied'
-        });
-      }
-      
-      // Technicians can only update availability_status and current_location
-      if (skills || service_areas || max_daily_tickets || supervisor_id) {
-        return res.status(403).json({
-          success: false,
-          message: 'Technicians can only update availability status and location'
-        });
-      }
-    }
-
-    // Build update query dynamically
-    const updates = [];
-    const params = [];
-    let paramCount = 0;
-
-    if (skills && req.user.role !== 'technician') {
-      paramCount++;
-      updates.push(`skills = $${paramCount}`);
-      params.push(skills);
-    }
-
-    if (service_areas && req.user.role !== 'technician') {
-      paramCount++;
-      updates.push(`service_areas = $${paramCount}`);
-      params.push(service_areas);
-    }
-
-    if (availability_status) {
-      paramCount++;
-      updates.push(`availability_status = $${paramCount}`);
-      params.push(availability_status);
-    }
-
-    if (max_daily_tickets && req.user.role !== 'technician') {
-      paramCount++;
-      updates.push(`max_daily_tickets = $${paramCount}`);
-      params.push(max_daily_tickets);
-    }
-
-    if (supervisor_id && req.user.role !== 'technician') {
-      paramCount++;
-      updates.push(`supervisor_id = $${paramCount}`);
-      params.push(supervisor_id);
-    }
-
-    if (current_location) {
-      paramCount++;
-      const locationPoint = `(${current_location.lng}, ${current_location.lat})`;
-      updates.push(`current_location = $${paramCount}`);
-      params.push(locationPoint);
-    }
-
-    if (updates.length === 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'No valid fields to update'
-      });
-    }
-
-    updates.push(`updated_at = CURRENT_TIMESTAMP`);
-    paramCount++;
-    params.push(id);
-
-    const query = `
-      UPDATE technicians 
-      SET ${updates.join(', ')} 
-      WHERE id = $${paramCount}
-      RETURNING *
-    `;
-
-    const result = await pool.query(query, params);
-
     res.json({
       success: true,
-      message: 'Technician updated successfully',
-      data: { technician: result.rows[0] }
+      data: {
+        technician: result.rows[0]
+      },
+      message: 'Technician updated successfully'
     });
 
   } catch (error) {
@@ -347,47 +398,210 @@ router.put('/:id', [
   }
 });
 
-// Get available technicians for assignment
-router.get('/available/for-assignment', async (req, res) => {
+// Update technician availability status
+router.patch('/:id/availability', [
+  body('availability_status').isIn(['available', 'busy', 'break', 'offline']).withMessage('Valid availability status is required'),
+  body('latitude').optional().isFloat().withMessage('Valid latitude is required'),
+  body('longitude').optional().isFloat().withMessage('Valid longitude is required')
+], async (req, res) => {
   try {
-    const { service_area, skills_required } = req.query;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
+      });
+    }
+
+    const { id } = req.params;
+    const { availability_status, latitude, longitude } = req.body;
+
+    // Update availability status
+    const updateQuery = `
+      UPDATE technicians 
+      SET availability_status = $1,
+          current_latitude = COALESCE($2, current_latitude),
+          current_longitude = COALESCE($3, current_longitude),
+          last_location_update = CASE WHEN $2 IS NOT NULL AND $3 IS NOT NULL THEN CURRENT_TIMESTAMP ELSE last_location_update END,
+          is_available = CASE WHEN $1 = 'available' THEN true ELSE false END
+      WHERE id = $4
+      RETURNING *
+    `;
+
+    const result = await pool.query(updateQuery, [availability_status, latitude, longitude, id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Technician not found'
+      });
+    }
+
+    // Log location if provided
+    if (latitude && longitude) {
+      const locationQuery = `
+        INSERT INTO technician_location_history (
+          technician_id, latitude, longitude, activity_type, recorded_at
+        ) VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP)
+      `;
+      await pool.query(locationQuery, [id, latitude, longitude, 'stationary']);
+    }
+
+    res.json({
+      success: true,
+      data: {
+        technician: result.rows[0]
+      },
+      message: 'Availability status updated successfully'
+    });
+
+  } catch (error) {
+    console.error('Update availability error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Add skill to technician
+router.post('/:id/skills', [
+  body('skill_name').notEmpty().withMessage('Skill name is required'),
+  body('skill_category').isIn(['technical', 'soft', 'certification']).withMessage('Valid skill category is required'),
+  body('proficiency_level').isInt({ min: 1, max: 5 }).withMessage('Proficiency level must be between 1 and 5')
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
+      });
+    }
+
+    const { id } = req.params;
+    const { skill_name, skill_category, proficiency_level, notes } = req.body;
+
+    const query = `
+      INSERT INTO technician_skills (
+        technician_id, skill_name, skill_category, proficiency_level, 
+        notes, verified_by
+      ) VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [
+      id, skill_name, skill_category, proficiency_level, notes || null, req.user.id
+    ]);
+
+    res.status(201).json({
+      success: true,
+      data: {
+        skill: result.rows[0]
+      },
+      message: 'Skill added successfully'
+    });
+
+  } catch (error) {
+    console.error('Add skill error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Get technician statistics
+router.get('/stats/overview', async (req, res) => {
+  try {
+    const statsQuery = `
+      SELECT 
+        COUNT(*) as total_technicians,
+        COUNT(CASE WHEN employment_status = 'active' THEN 1 END) as active_technicians,
+        COUNT(CASE WHEN availability_status = 'available' THEN 1 END) as available_technicians,
+        COUNT(CASE WHEN availability_status = 'busy' THEN 1 END) as busy_technicians,
+        COUNT(CASE WHEN skill_level = 'junior' THEN 1 END) as junior_technicians,
+        COUNT(CASE WHEN skill_level = 'senior' THEN 1 END) as senior_technicians,
+        COUNT(CASE WHEN skill_level = 'expert' THEN 1 END) as expert_technicians,
+        COUNT(CASE WHEN skill_level = 'specialist' THEN 1 END) as specialist_technicians,
+        AVG(customer_rating) as avg_customer_rating,
+        AVG(sla_compliance_rate) as avg_sla_compliance
+      FROM technicians
+      WHERE employment_status = 'active'
+    `;
+
+    const result = await pool.query(statsQuery);
+
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+
+  } catch (error) {
+    console.error('Get technician stats error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Get available technicians for assignment
+router.get('/available/assignment', async (req, res) => {
+  try {
+    const { work_zone, specialization, skill_level } = req.query;
 
     let query = `
-      SELECT t.*, u.full_name, u.phone,
-             COUNT(tk.id) as current_tickets
+      SELECT t.id, t.employee_id, t.full_name, t.phone, t.skill_level,
+             t.specializations, t.work_zone, t.current_latitude, t.current_longitude,
+             t.max_daily_tickets, 
+             COUNT(tt.id) as current_tickets,
+             AVG(tp.customer_satisfaction_avg) as avg_rating
       FROM technicians t
-      JOIN users u ON t.user_id = u.id AND u.is_active = true
-      LEFT JOIN tickets tk ON t.id = tk.assigned_technician_id 
-                          AND tk.status IN ('assigned', 'in_progress')
-      WHERE t.availability_status = 'available'
+      LEFT JOIN tickets tt ON t.id = tt.assigned_technician_id AND tt.status IN ('assigned', 'in_progress')
+      LEFT JOIN technician_performance tp ON t.id = tp.technician_id
+      WHERE t.employment_status = 'active' 
+        AND t.availability_status = 'available'
+        AND t.is_available = true
     `;
     const params = [];
     let paramCount = 0;
 
-    if (service_area) {
+    if (work_zone) {
       paramCount++;
-      query += ` AND $${paramCount} = ANY(t.service_areas)`;
-      params.push(service_area);
+      query += ` AND t.work_zone = $${paramCount}`;
+      params.push(work_zone);
     }
 
-    if (skills_required) {
-      const skillsArray = Array.isArray(skills_required) ? skills_required : [skills_required];
+    if (specialization) {
       paramCount++;
-      query += ` AND t.skills @> $${paramCount}`;
-      params.push(skillsArray);
+      query += ` AND $${paramCount} = ANY(t.specializations)`;
+      params.push(specialization);
     }
 
-    query += `
-      GROUP BY t.id, u.id
-      HAVING COUNT(tk.id) < t.max_daily_tickets
-      ORDER BY COUNT(tk.id), t.rating DESC
+    if (skill_level) {
+      paramCount++;
+      query += ` AND t.skill_level = $${paramCount}`;
+      params.push(skill_level);
+    }
+
+    query += ` 
+      GROUP BY t.id, t.employee_id, t.full_name, t.phone, t.skill_level,
+               t.specializations, t.work_zone, t.current_latitude, t.current_longitude,
+               t.max_daily_tickets
+      HAVING COUNT(tt.id) < t.max_daily_tickets
+      ORDER BY AVG(tp.customer_satisfaction_avg) DESC NULLS LAST, COUNT(tt.id) ASC
     `;
 
     const result = await pool.query(query, params);
 
     res.json({
       success: true,
-      data: { technicians: result.rows }
+      data: {
+        technicians: result.rows
+      }
     });
 
   } catch (error) {
