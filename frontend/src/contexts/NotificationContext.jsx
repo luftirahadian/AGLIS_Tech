@@ -1,0 +1,370 @@
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { useQuery, useQueryClient } from 'react-query';
+import toast from 'react-hot-toast';
+import socketService from '../services/socketService';
+import notificationService from '../services/notificationService';
+import { useAuth } from './AuthContext';
+
+const NotificationContext = createContext();
+
+export const useNotifications = () => {
+  const context = useContext(NotificationContext);
+  if (!context) {
+    throw new Error('useNotifications must be used within a NotificationProvider');
+  }
+  return context;
+};
+
+export const NotificationProvider = ({ children }) => {
+  const { user } = useAuth();
+  const queryClient = useQueryClient();
+  
+  const [notifications, setNotifications] = useState([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [isSocketConnected, setIsSocketConnected] = useState(false);
+  const [settings, setSettings] = useState({
+    email_notifications: true,
+    push_notifications: true,
+    sound_notifications: true,
+    notification_types: {
+      ticket_assigned: true,
+      ticket_updated: true,
+      ticket_completed: true,
+      system_alert: true,
+      technician_status: true,
+      new_ticket: true
+    }
+  });
+
+  // Fetch notifications
+  const { 
+    data: notificationsData, 
+    isLoading: notificationsLoading,
+    refetch: refetchNotifications 
+  } = useQuery(
+    ['notifications', { page: 1, limit: 50, is_read: false }],
+    () => notificationService.getNotifications({ page: 1, limit: 50, is_read: false }),
+    {
+      enabled: !!user,
+      refetchInterval: 30000, // Refetch every 30 seconds as fallback
+      onSuccess: (data) => {
+        if (data?.data?.notifications) {
+          setNotifications(data.data.notifications);
+          setUnreadCount(data.data.unreadCount || 0);
+        }
+      }
+    }
+  );
+
+  // Fetch notification settings
+  const { data: settingsData } = useQuery(
+    ['notification-settings'],
+    notificationService.getSettings,
+    {
+      enabled: !!user,
+      onSuccess: (data) => {
+        if (data?.data?.settings) {
+          setSettings(data.data.settings);
+        }
+      }
+    }
+  );
+
+  // Initialize Socket.IO connection when user is available
+  useEffect(() => {
+    if (user && !isSocketConnected) {
+      console.log('🔗 Initializing Socket.IO connection...');
+      socketService.connect(user);
+      
+      // Setup socket event listeners
+      socketService.on('notification', handleNewNotification);
+      socketService.on('ticket_updated', handleTicketUpdate);
+      socketService.on('technician_status_changed', handleTechnicianStatusChange);
+      socketService.on('system_alert', handleSystemAlert);
+      
+      // Monitor connection status
+      const checkConnection = () => {
+        const status = socketService.getConnectionStatus();
+        setIsSocketConnected(status.isConnected);
+      };
+      
+      const connectionInterval = setInterval(checkConnection, 1000);
+      
+      return () => {
+        clearInterval(connectionInterval);
+        socketService.off('notification', handleNewNotification);
+        socketService.off('ticket_updated', handleTicketUpdate);
+        socketService.off('technician_status_changed', handleTechnicianStatusChange);
+        socketService.off('system_alert', handleSystemAlert);
+      };
+    }
+  }, [user]);
+
+  // Cleanup socket on unmount
+  useEffect(() => {
+    return () => {
+      if (isSocketConnected) {
+        socketService.disconnect();
+      }
+    };
+  }, []);
+
+  // Handle new notification from Socket.IO
+  const handleNewNotification = useCallback((notification) => {
+    console.log('🔔 Received notification:', notification);
+    
+    // Add to notifications list
+    setNotifications(prev => [notification, ...prev]);
+    setUnreadCount(prev => prev + 1);
+    
+    // Show toast notification based on settings
+    if (settings.push_notifications && shouldShowNotification(notification.type)) {
+      showToastNotification(notification);
+    }
+    
+    // Play sound if enabled
+    if (settings.sound_notifications && shouldShowNotification(notification.type)) {
+      playNotificationSound();
+    }
+    
+    // Invalidate queries to refresh data
+    queryClient.invalidateQueries(['notifications']);
+    
+  }, [settings, queryClient]);
+
+  // Handle ticket updates
+  const handleTicketUpdate = useCallback((data) => {
+    console.log('🎫 Ticket updated:', data);
+    
+    // Invalidate ticket-related queries
+    queryClient.invalidateQueries(['tickets']);
+    queryClient.invalidateQueries(['ticket', data.ticketId]);
+    
+    // Show notification if user is involved
+    if (data.assignedTo === user?.id || data.updatedBy === user?.id) {
+      toast.success(`Ticket #${data.ticketId} updated`);
+    }
+  }, [queryClient, user]);
+
+  // Handle technician status changes
+  const handleTechnicianStatusChange = useCallback((data) => {
+    console.log('👷 Technician status changed:', data);
+    
+    // Invalidate technician-related queries
+    queryClient.invalidateQueries(['technicians']);
+    queryClient.invalidateQueries(['technician-stats']);
+    
+    // Show notification for supervisors/admins
+    if (user?.role === 'admin' || user?.role === 'supervisor') {
+      toast.info(`Technician status updated: ${data.status}`);
+    }
+  }, [queryClient, user]);
+
+  // Handle system alerts
+  const handleSystemAlert = useCallback((alert) => {
+    console.log('⚠️ System alert:', alert);
+    
+    // Show system alert based on priority
+    const toastOptions = {
+      duration: alert.priority === 'urgent' ? 10000 : 5000,
+      style: {
+        background: alert.priority === 'urgent' ? '#ef4444' : '#f59e0b',
+        color: 'white'
+      }
+    };
+    
+    toast(alert.message, toastOptions);
+  }, []);
+
+  // Check if notification type should be shown
+  const shouldShowNotification = (type) => {
+    return settings.notification_types?.[type] !== false;
+  };
+
+  // Show toast notification
+  const showToastNotification = (notification) => {
+    const toastOptions = {
+      duration: 5000,
+      style: {
+        background: notification.priority === 'high' ? '#ef4444' : '#3b82f6',
+        color: 'white'
+      }
+    };
+    
+    toast(notification.message, toastOptions);
+  };
+
+  // Play notification sound
+  const playNotificationSound = () => {
+    try {
+      // Create a simple beep sound
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.value = 800;
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.5);
+    } catch (error) {
+      console.warn('Could not play notification sound:', error);
+    }
+  };
+
+  // Mark notification as read
+  const markAsRead = async (notificationId) => {
+    try {
+      await notificationService.markAsRead(notificationId);
+      
+      // Update local state
+      setNotifications(prev => 
+        prev.map(notif => 
+          notif.id === notificationId 
+            ? { ...notif, is_read: true, read_at: new Date().toISOString() }
+            : notif
+        )
+      );
+      
+      setUnreadCount(prev => Math.max(0, prev - 1));
+      
+      // Invalidate queries
+      queryClient.invalidateQueries(['notifications']);
+      
+    } catch (error) {
+      console.error('Error marking notification as read:', error);
+      toast.error('Failed to mark notification as read');
+    }
+  };
+
+  // Mark all notifications as read
+  const markAllAsRead = async () => {
+    try {
+      await notificationService.markAllAsRead();
+      
+      // Update local state
+      setNotifications(prev => 
+        prev.map(notif => ({ 
+          ...notif, 
+          is_read: true, 
+          read_at: new Date().toISOString() 
+        }))
+      );
+      
+      setUnreadCount(0);
+      
+      // Invalidate queries
+      queryClient.invalidateQueries(['notifications']);
+      
+      toast.success('All notifications marked as read');
+      
+    } catch (error) {
+      console.error('Error marking all notifications as read:', error);
+      toast.error('Failed to mark all notifications as read');
+    }
+  };
+
+  // Archive notification
+  const archiveNotification = async (notificationId) => {
+    try {
+      await notificationService.archiveNotification(notificationId);
+      
+      // Remove from local state
+      setNotifications(prev => prev.filter(notif => notif.id !== notificationId));
+      
+      // Invalidate queries
+      queryClient.invalidateQueries(['notifications']);
+      
+      toast.success('Notification archived');
+      
+    } catch (error) {
+      console.error('Error archiving notification:', error);
+      toast.error('Failed to archive notification');
+    }
+  };
+
+  // Update notification settings
+  const updateSettings = async (newSettings) => {
+    try {
+      await notificationService.updateSettings(newSettings);
+      setSettings(prev => ({ ...prev, ...newSettings }));
+      
+      // Invalidate queries
+      queryClient.invalidateQueries(['notification-settings']);
+      
+      toast.success('Notification settings updated');
+      
+    } catch (error) {
+      console.error('Error updating notification settings:', error);
+      toast.error('Failed to update notification settings');
+    }
+  };
+
+  // Join room (for specific tickets, etc.)
+  const joinRoom = (room) => {
+    if (isSocketConnected) {
+      socketService.joinRoom(room);
+    }
+  };
+
+  // Leave room
+  const leaveRoom = (room) => {
+    if (isSocketConnected) {
+      socketService.leaveRoom(room);
+    }
+  };
+
+  // Emit ticket update
+  const emitTicketUpdate = (ticketData) => {
+    if (isSocketConnected) {
+      socketService.emitTicketUpdate(ticketData);
+    }
+  };
+
+  // Emit technician status update
+  const emitTechnicianStatusUpdate = (statusData) => {
+    if (isSocketConnected) {
+      socketService.emitTechnicianStatusUpdate(statusData);
+    }
+  };
+
+  const value = {
+    // State
+    notifications,
+    unreadCount,
+    isSocketConnected,
+    settings,
+    isLoading: notificationsLoading,
+    
+    // Actions
+    markAsRead,
+    markAllAsRead,
+    archiveNotification,
+    updateSettings,
+    refetchNotifications,
+    
+    // Socket actions
+    joinRoom,
+    leaveRoom,
+    emitTicketUpdate,
+    emitTechnicianStatusUpdate,
+    
+    // Connection management
+    reconnect: () => socketService.reconnect(user),
+    disconnect: () => socketService.disconnect()
+  };
+
+  return (
+    <NotificationContext.Provider value={value}>
+      {children}
+    </NotificationContext.Provider>
+  );
+};
+
+export default NotificationContext;

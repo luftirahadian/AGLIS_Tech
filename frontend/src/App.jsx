@@ -1,8 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './contexts/AuthContext'
+import { NotificationProvider } from './contexts/NotificationContext'
 import Layout from './components/Layout'
 import LoginPage from './pages/auth/LoginPage'
 import DashboardPage from './pages/DashboardPage'
+import AnalyticsDashboard from './pages/AnalyticsDashboard'
 import TicketsPage from './pages/tickets/TicketsPage'
 import TicketDetailPage from './pages/tickets/TicketDetailPage'
 import CustomersPage from './pages/customers/CustomersPage'
@@ -22,7 +24,8 @@ function App() {
   }
 
   return (
-    <Routes>
+    <NotificationProvider>
+      <Routes>
       {/* Public Routes */}
       <Route 
         path="/login" 
@@ -35,6 +38,7 @@ function App() {
         element={user ? <Layout /> : <Navigate to="/login" replace />}
       >
         <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="analytics" element={<AnalyticsDashboard />} />
         
         {/* Tickets */}
         <Route path="tickets" element={<TicketsPage />} />
@@ -63,7 +67,8 @@ function App() {
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
-    </Routes>
+      </Routes>
+    </NotificationProvider>
   )
 }
 

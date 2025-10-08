@@ -1,18 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Menu, Bell, User, LogOut, Settings, ChevronDown } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
+import { useNotifications } from '../contexts/NotificationContext'
 import { Link } from 'react-router-dom'
 
 const Header = ({ onMenuClick }) => {
   const { user, logout } = useAuth()
+  const { unreadCount, notifications, markAsRead, markAllAsRead, isSocketConnected } = useNotifications()
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [notificationDropdownOpen, setNotificationDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const notificationRef = useRef(null)
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false)
+      }
+      if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+        setNotificationDropdownOpen(false)
       }
     }
 
@@ -62,12 +69,90 @@ const Header = ({ onMenuClick }) => {
           {/* Right side - Actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
             {/* Notifications */}
-            <button className="relative p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
-              <Bell className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-medium">
-                3
-              </span>
-            </button>
+            <div className="relative" ref={notificationRef}>
+              <button 
+                onClick={() => setNotificationDropdownOpen(!notificationDropdownOpen)}
+                className="relative p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+              >
+                <Bell className="h-5 w-5" />
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-medium">
+                    {unreadCount > 99 ? '99+' : unreadCount}
+                  </span>
+                )}
+                {/* Connection status indicator */}
+                <span className={`absolute -bottom-1 -right-1 h-2 w-2 rounded-full ${
+                  isSocketConnected ? 'bg-green-400' : 'bg-gray-400'
+                }`} title={isSocketConnected ? 'Real-time connected' : 'Offline mode'} />
+              </button>
+
+              {/* Notification Dropdown */}
+              {notificationDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 z-[9999] max-h-96 overflow-hidden">
+                  {/* Header */}
+                  <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+                    <h3 className="text-sm font-semibold text-gray-900">Notifications</h3>
+                    {unreadCount > 0 && (
+                      <button
+                        onClick={markAllAsRead}
+                        className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                      >
+                        Mark all read
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Notifications List */}
+                  <div className="max-h-64 overflow-y-auto">
+                    {notifications.length === 0 ? (
+                      <div className="px-4 py-6 text-center text-gray-500 text-sm">
+                        No notifications
+                      </div>
+                    ) : (
+                      notifications.slice(0, 10).map((notification) => (
+                        <div
+                          key={notification.id}
+                          className={`px-4 py-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer ${
+                            !notification.is_read ? 'bg-blue-50' : ''
+                          }`}
+                          onClick={() => !notification.is_read && markAsRead(notification.id)}
+                        >
+                          <div className="flex items-start space-x-3">
+                            <div className={`flex-shrink-0 w-2 h-2 rounded-full mt-2 ${
+                              !notification.is_read ? 'bg-blue-500' : 'bg-gray-300'
+                            }`} />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">
+                                {notification.title}
+                              </p>
+                              <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                                {notification.message}
+                              </p>
+                              <p className="text-xs text-gray-400 mt-1">
+                                {new Date(notification.created_at).toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  {/* Footer */}
+                  {notifications.length > 0 && (
+                    <div className="px-4 py-2 border-t border-gray-200 bg-gray-50">
+                      <Link
+                        to="/notifications"
+                        className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                        onClick={() => setNotificationDropdownOpen(false)}
+                      >
+                        View all notifications
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
             {/* User Menu */}
             <div className="relative" ref={dropdownRef}>

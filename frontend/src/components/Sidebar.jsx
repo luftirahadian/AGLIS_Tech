@@ -7,7 +7,8 @@ import {
   Wrench, 
   Package, 
   UserCheck,
-  X 
+  X,
+  BarChart3
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -21,6 +22,12 @@ const Sidebar = ({ isOpen, onClose }) => {
       href: '/dashboard',
       icon: LayoutDashboard,
       roles: ['admin', 'supervisor', 'technician', 'customer_service']
+    },
+    {
+      name: 'Analytics',
+      href: '/analytics',
+      icon: BarChart3,
+      roles: ['admin', 'supervisor']
     },
     {
       name: 'Tickets',

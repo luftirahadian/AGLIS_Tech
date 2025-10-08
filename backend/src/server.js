@@ -16,6 +16,8 @@ const technicianRoutes = require('./routes/technicians');
 const ticketRoutes = require('./routes/tickets');
 const inventoryRoutes = require('./routes/inventory');
 const packageRoutes = require('./routes/packages');
+const notificationRoutes = require('./routes/notifications');
+const analyticsRoutes = require('./routes/analytics');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -30,11 +32,17 @@ const io = new Server(server, {
   }
 });
 
-// Rate limiting
+// Rate limiting - Very permissive for development
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.'
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 1 * 60 * 1000, // 1 minute window (shorter)
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 10000, // 10,000 requests per minute
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  // Skip rate limiting for localhost in development
+  skip: (req) => {
+    return req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === '::ffff:127.0.0.1';
+  }
 });
 
 // Middleware
@@ -69,14 +77,96 @@ app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
 app.use('/api/packages', authMiddleware, packageRoutes);
+app.use('/api/notifications', authMiddleware, notificationRoutes);
+app.use('/api/analytics', authMiddleware, analyticsRoutes);
 
 // Socket.IO for real-time updates
 io.on('connection', (socket) => {
   console.log('👤 User connected:', socket.id);
   
+  // User authentication and room joining
+  socket.on('authenticate', (data) => {
+    const { userId, role } = data;
+    socket.userId = userId;
+    socket.role = role;
+    
+    // Join role-based rooms
+    socket.join(`role_${role}`);
+    socket.join(`user_${userId}`);
+    
+    console.log(`👤 User ${userId} (${role}) authenticated: ${socket.id}`);
+    
+    // Send welcome notification
+    socket.emit('notification', {
+      type: 'system',
+      title: 'Connected',
+      message: 'Real-time notifications active',
+      timestamp: new Date().toISOString()
+    });
+  });
+  
+  // Join specific rooms (tickets, technicians, etc.)
   socket.on('join_room', (room) => {
     socket.join(room);
     console.log(`👤 User ${socket.id} joined room: ${room}`);
+  });
+  
+  // Leave specific rooms
+  socket.on('leave_room', (room) => {
+    socket.leave(room);
+    console.log(`👤 User ${socket.id} left room: ${room}`);
+  });
+  
+  // Handle ticket updates
+  socket.on('ticket_update', (data) => {
+    const { ticketId, status, assignedTo } = data;
+    
+    // Broadcast to relevant users
+    io.to(`ticket_${ticketId}`).emit('ticket_updated', {
+      ticketId,
+      status,
+      assignedTo,
+      updatedBy: socket.userId,
+      timestamp: new Date().toISOString()
+    });
+    
+    // Notify assigned technician
+    if (assignedTo) {
+      io.to(`user_${assignedTo}`).emit('notification', {
+        type: 'ticket_assigned',
+        title: 'New Ticket Assignment',
+        message: `You have been assigned to ticket #${ticketId}`,
+        ticketId,
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+  
+  // Handle technician status updates
+  socket.on('technician_status_update', (data) => {
+    const { technicianId, status } = data;
+    
+    // Broadcast to supervisors and admins
+    io.to('role_admin').to('role_supervisor').emit('technician_status_changed', {
+      technicianId,
+      status,
+      timestamp: new Date().toISOString()
+    });
+  });
+  
+  // Handle system alerts
+  socket.on('system_alert', (data) => {
+    const { message, type, targetRole } = data;
+    
+    // Broadcast to specific role or all users
+    const target = targetRole ? `role_${targetRole}` : io;
+    target.emit('notification', {
+      type: 'system_alert',
+      title: 'System Alert',
+      message,
+      priority: type,
+      timestamp: new Date().toISOString()
+    });
   });
   
   socket.on('disconnect', () => {

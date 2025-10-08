@@ -402,21 +402,21 @@ const CustomersPage = () => {
                           <div className="flex justify-end space-x-2">
                             <Link
                               to={`/customers/${customer.id}`}
-                              className="text-blue-600 hover:text-blue-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
                               title="View Details"
                             >
                               <Eye className="h-4 w-4" />
                             </Link>
                             <button
                               onClick={() => handleEditCustomer(customer)}
-                              className="text-green-600 hover:text-green-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
                               title="Edit Customer"
                             >
                               <Edit className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => handleDeleteCustomer(customer.id, customer.name)}
-                              className="text-red-600 hover:text-red-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
                               title="Deactivate Customer"
                             >
                               <Trash2 className="h-4 w-4" />

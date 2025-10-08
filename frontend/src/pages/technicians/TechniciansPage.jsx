@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { 
   Users, Plus, Search, Filter, MapPin, Phone, Mail, 
   Star, Clock, Wrench, AlertCircle, CheckCircle, 
-  XCircle, Pause, User, Award, Calendar
+  XCircle, Pause, User, Award, Calendar, Eye, Edit, Target
 } from 'lucide-react'
 import { technicianService } from '../../services/technicianService'
 import LoadingSpinner from '../../components/LoadingSpinner'
@@ -455,18 +455,23 @@ const TechniciansPage = () => {
                       <div className="flex space-x-2">
                         <button 
                           onClick={() => handleViewTechnician(technician)}
-                          className="text-blue-600 hover:text-blue-900"
+                          className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                          title="View Details"
                         >
-                          View
+                          <Eye className="h-4 w-4" />
                         </button>
-                        <button className="text-green-600 hover:text-green-900">
-                          Assign
+                        <button 
+                          className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
+                          title="Assign Ticket"
+                        >
+                          <Target className="h-4 w-4" />
                         </button>
                         <button 
                           onClick={() => handleEditTechnician(technician)}
-                          className="text-gray-600 hover:text-gray-900"
+                          className="inline-flex items-center justify-center w-8 h-8 text-orange-600 hover:text-orange-800 hover:bg-orange-50 rounded-md transition-colors"
+                          title="Edit Technician"
                         >
-                          Edit
+                          <Edit className="h-4 w-4" />
                         </button>
                       </div>
                     </td>

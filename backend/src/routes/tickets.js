@@ -2,6 +2,40 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 
+// Helper function to create notification
+const createNotification = async (userId, type, title, message, data = null) => {
+  try {
+    const query = `
+      INSERT INTO notifications (user_id, type, title, message, data, priority)
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING *
+    `;
+    
+    const priority = type.includes('urgent') ? 'high' : 'normal';
+    const result = await pool.query(query, [
+      userId, type, title, message, 
+      data ? JSON.stringify(data) : null, 
+      priority
+    ]);
+    
+    return result.rows[0];
+  } catch (error) {
+    console.error('Error creating notification:', error);
+    return null;
+  }
+};
+
+// Helper function to emit Socket.IO notification
+const emitNotification = (req, notification) => {
+  const io = req.app.get('io');
+  if (io && notification) {
+    io.to(`user_${notification.user_id}`).emit('notification', {
+      ...notification,
+      timestamp: notification.created_at
+    });
+  }
+};
+
 const router = express.Router();
 
 // Get all tickets
@@ -259,6 +293,12 @@ router.post('/', [
       scheduled_date, estimated_duration, equipment_needed 
     } = req.body;
 
+    // Process scheduled_date - convert empty string to null
+    const processedScheduledDate = scheduled_date && scheduled_date.trim() !== '' ? scheduled_date : null;
+    
+    // Process estimated_duration - convert empty string to null
+    const processedEstimatedDuration = estimated_duration && estimated_duration.toString().trim() !== '' ? parseInt(estimated_duration) : null;
+
     // Format equipment_needed as PostgreSQL array
     let formattedEquipment = null;
     if (equipment_needed) {
@@ -272,7 +312,7 @@ router.post('/', [
 
     // Verify customer exists
     const customerCheck = await pool.query(
-      'SELECT id, service_area FROM customers WHERE id = $1',
+      'SELECT id, service_type FROM customers WHERE id = $1',
       [customer_id]
     );
 
@@ -317,7 +357,7 @@ router.post('/', [
 
       const ticketResult = await client.query(ticketQuery, [
         ticket_number, customer_id, req.user.id, type, priority,
-        category, title, description, scheduled_date, estimated_duration,
+        category, title, description, processedScheduledDate, processedEstimatedDuration,
         formattedEquipment, sla_due_date
       ]);
 
@@ -331,12 +371,50 @@ router.post('/', [
 
       await client.query('COMMIT');
 
-      // Emit real-time notification
+      // Create notifications for supervisors and admins
+      const supervisorQuery = `
+        SELECT id FROM users 
+        WHERE role IN ('admin', 'supervisor')
+      `;
+      const supervisors = await pool.query(supervisorQuery, []);
+      
+      for (const supervisor of supervisors.rows) {
+        const notification = await createNotification(
+          supervisor.id,
+          'new_ticket',
+          `New Ticket #${ticket.id}`,
+          `New ${customerCheck.rows[0].service_type} ticket created by ${req.user.full_name || req.user.username}`,
+          { ticket_id: ticket.id, customer_id: ticket.customer_id }
+        );
+        
+        if (notification) {
+          emitNotification(req, notification);
+        }
+      }
+
+      // Emit real-time ticket update
       const io = req.app.get('io');
-      io.emit('new_ticket', {
-        ticket: ticket,
-        customer: customerCheck.rows[0]
-      });
+      if (io) {
+        // Emit to specific roles (for notifications)
+        io.to('role_admin').to('role_supervisor').emit('new_ticket', {
+          ticket: ticket,
+          customer: customerCheck.rows[0],
+          createdBy: req.user.username
+        });
+        
+        // Emit global dashboard update event (for all connected clients)
+        io.emit('dashboard_update', {
+          type: 'ticket_created',
+          data: { ticket_id: ticket.id }
+        });
+        
+        // Also emit global new_ticket for dashboard listeners
+        io.emit('new_ticket_global', {
+          ticket: ticket,
+          customer: customerCheck.rows[0],
+          createdBy: req.user.username
+        });
+      }
 
       res.status(201).json({
         success: true,
@@ -498,6 +576,12 @@ router.put('/:id/status', [
         new_status: status,
         updated_by: req.user.full_name
       });
+      
+      // Emit dashboard update event
+      io.emit('dashboard_update', {
+        type: 'ticket_status_changed',
+        data: { ticket_id: id, old_status: oldStatus, new_status: status }
+      });
 
       res.json({
         success: true,
@@ -592,13 +676,44 @@ router.put('/:id/assign', [
 
       await client.query('COMMIT');
 
-      // Emit real-time notification
+      // Create notification for assigned technician
+      const notification = await createNotification(
+        technician.user_id,
+        'ticket_assigned',
+        `Ticket #${id} Assigned`,
+        `You have been assigned to ticket #${id} - ${result.rows[0].service_type}`,
+        { ticket_id: id, assigned_by: req.user.id }
+      );
+      
+      if (notification) {
+        emitNotification(req, notification);
+      }
+
+      // Emit real-time ticket update
       const io = req.app.get('io');
-      io.emit('ticket_assigned', {
-        ticket_id: id,
-        technician_id: technician_id,
-        technician_name: technician.full_name
-      });
+      if (io) {
+        io.to(`user_${technician.user_id}`).emit('ticket_assigned', {
+          ticket_id: id,
+          technician_id: technician_id,
+          technician_name: technician.full_name,
+          assigned_by: req.user.username
+        });
+        
+        // Broadcast to supervisors
+        io.to('role_admin').to('role_supervisor').emit('ticket_updated', {
+          ticketId: id,
+          status: 'assigned',
+          assignedTo: technician_id,
+          updatedBy: req.user.id,
+          timestamp: new Date().toISOString()
+        });
+        
+        // Emit dashboard update event
+        io.emit('dashboard_update', {
+          type: 'ticket_assigned',
+          data: { ticket_id: id, technician_id: technician_id }
+        });
+      }
 
       res.json({
         success: true,

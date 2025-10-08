@@ -234,18 +234,18 @@ const TicketsPage = () => {
                         <div className="flex space-x-2">
                           <Link
                             to={`/tickets/${ticket.id}`}
-                            className="inline-flex items-center px-3 py-1 text-sm text-blue-600 hover:text-blue-800"
+                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                            title="View Details"
                           >
-                            <Eye className="h-4 w-4 mr-1" />
-                            View
+                            <Eye className="h-4 w-4" />
                           </Link>
                           {ticket.status === 'open' && (
                             <button
                               onClick={() => handleAssignTicket(ticket)}
-                              className="inline-flex items-center px-3 py-1 text-sm text-green-600 hover:text-green-800"
+                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
+                              title="Assign Technician"
                             >
-                              <Target className="h-4 w-4 mr-1" />
-                              Assign
+                              <Target className="h-4 w-4" />
                             </button>
                           )}
                         </div>
