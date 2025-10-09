@@ -12,13 +12,21 @@ const api = axios.create({
   },
 })
 
-// Request interceptor to add auth token
+// Request interceptor to add auth token and disable cache for GET requests
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
+    
+    // Disable cache for GET requests to prevent stale data
+    if (config.method === 'get') {
+      config.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+      config.headers['Pragma'] = 'no-cache'
+      config.headers['Expires'] = '0'
+    }
+    
     return config
   },
   (error) => {
@@ -36,10 +44,16 @@ api.interceptors.response.use(
     
     // Handle specific error cases
     if (error.response?.status === 401) {
-      // Unauthorized - redirect to login
-      localStorage.removeItem('token')
-      window.location.href = '/login'
-      toast.error('Session expired. Please login again.')
+      // Don't redirect if on public pages
+      const publicPaths = ['/register', '/track', '/login']
+      const isPublicPage = publicPaths.some(path => window.location.pathname.startsWith(path))
+      
+      if (!isPublicPage) {
+        // Unauthorized - redirect to login
+        localStorage.removeItem('token')
+        window.location.href = '/login'
+        toast.error('Session expired. Please login again.')
+      }
     } else if (error.response?.status === 403) {
       toast.error('Access denied. Insufficient permissions.')
     } else if (error.response?.status === 404) {

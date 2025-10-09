@@ -41,6 +41,7 @@ const Header = ({ onMenuClick }) => {
         <div className="flex items-center justify-between h-16">
           {/* Left side - Logo and Title */}
           <div className="flex items-center space-x-4">
+            {/* Mobile Menu Button */}
             <button
               onClick={onMenuClick}
               className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 lg:hidden transition-colors"

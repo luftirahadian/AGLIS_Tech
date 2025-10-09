@@ -6,6 +6,7 @@ import LoadingSpinner from './LoadingSpinner'
 import { useQuery } from 'react-query'
 import { technicianService } from '../services/technicianService'
 import odpService from '../services/odpService'
+import packageService from '../services/packageService'
 
 const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
   const { user } = useAuth()
@@ -28,6 +29,22 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
     {
       refetchOnWindowFocus: false,
       select: (data) => data?.filter(odp => odp.status === 'active') || []
+    }
+  )
+  
+  // Fetch packages for upgrade/downgrade
+  const { data: packagesList, isLoading: packagesLoading, error: packagesError } = useQuery(
+    'packages-active',
+    () => packageService.getAll(),
+    {
+      refetchOnWindowFocus: false,
+      enabled: ticket.type === 'upgrade' || ticket.type === 'downgrade',
+      select: (data) => {
+        // packageService.getAll() returns array directly
+        // Backend already filters by is_active = true, so no need to filter again
+        const packages = Array.isArray(data) ? data : []
+        return packages
+      }
     }
   )
   
@@ -304,7 +321,11 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
           data: modem_sn_photo_base64
         } : null,
         repair_date: data.repair_date,
-        new_category: data.new_category
+        new_category: data.new_category,
+        // Upgrade/Downgrade fields
+        new_package: data.new_package,
+        upgrade_notes: data.upgrade_notes,
+        downgrade_notes: data.downgrade_notes
       }
       
       // Log file info for debugging
@@ -696,15 +717,81 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                 <div className="space-y-4 bg-green-50 p-4 rounded-lg">
                   <p className="text-sm font-medium text-green-900">Upgrade Completion Fields</p>
                   
-                  <div>
-                    <label className="form-label">New Category *</label>
-                    <input
-                      type="text"
-                      className={`form-input ${errors.new_category ? 'border-red-500' : ''}`}
-                      placeholder="e.g., 100 Mbps -> 200 Mbps"
-                      {...register('new_category', { required: 'New Category is required' })}
-                    />
-                    {errors.new_category && <p className="form-error">{errors.new_category.message}</p>}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="form-label">Paket Baru *</label>
+                      <select
+                        className={`form-input ${errors.new_package ? 'border-red-500' : ''}`}
+                        {...register('new_package', { required: 'Paket baru is required' })}
+                        disabled={packagesLoading}
+                      >
+                        <option value="">
+                          {packagesLoading ? 'Loading packages...' : 'Pilih Paket Baru...'}
+                        </option>
+                        {packagesList?.map((pkg) => (
+                          <option key={pkg.id} value={pkg.name || pkg.package_name}>
+                            {pkg.name || pkg.package_name} - {pkg.speed_mbps || pkg.speed} Mbps - Rp {(pkg.price || pkg.monthly_price)?.toLocaleString('id-ID')}
+                          </option>
+                        ))}
+                      </select>
+                      {packagesError && <p className="form-error">Error loading packages: {packagesError.message}</p>}
+                      {!packagesLoading && packagesList && packagesList.length === 0 && (
+                        <p className="text-xs text-amber-600">No active packages available</p>
+                      )}
+                      {errors.new_package && <p className="form-error">{errors.new_package.message}</p>}
+                    </div>
+
+                    <div>
+                      <label className="form-label">Catatan Upgrade</label>
+                      <input
+                        type="text"
+                        className="form-input"
+                        placeholder="e.g., Dari 100 Mbps ke 200 Mbps"
+                        {...register('upgrade_notes')}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {/* Downgrade Fields */}
+              {ticket.type === 'downgrade' && (
+                <div className="space-y-4 bg-amber-50 p-4 rounded-lg">
+                  <p className="text-sm font-medium text-amber-900">Downgrade Completion Fields</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="form-label">Paket Baru *</label>
+                      <select
+                        className={`form-input ${errors.new_package ? 'border-red-500' : ''}`}
+                        {...register('new_package', { required: 'Paket baru is required' })}
+                        disabled={packagesLoading}
+                      >
+                        <option value="">
+                          {packagesLoading ? 'Loading packages...' : 'Pilih Paket Baru...'}
+                        </option>
+                        {packagesList?.map((pkg) => (
+                          <option key={pkg.id} value={pkg.name || pkg.package_name}>
+                            {pkg.name || pkg.package_name} - {pkg.speed_mbps || pkg.speed} Mbps - Rp {(pkg.price || pkg.monthly_price)?.toLocaleString('id-ID')}
+                          </option>
+                        ))}
+                      </select>
+                      {packagesError && <p className="form-error">Error loading packages: {packagesError.message}</p>}
+                      {!packagesLoading && packagesList && packagesList.length === 0 && (
+                        <p className="text-xs text-amber-600">No active packages available</p>
+                      )}
+                      {errors.new_package && <p className="form-error">{errors.new_package.message}</p>}
+                    </div>
+
+                    <div>
+                      <label className="form-label">Catatan Downgrade</label>
+                      <input
+                        type="text"
+                        className="form-input"
+                        placeholder="e.g., Dari 200 Mbps ke 100 Mbps"
+                        {...register('downgrade_notes')}
+                      />
+                    </div>
                   </div>
                 </div>
               )}

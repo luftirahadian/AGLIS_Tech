@@ -159,8 +159,8 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
         'installation': 'Survey lokasi, instalasi perangkat, konfigurasi koneksi, testing kualitas sinyal.',
         'repair': 'Pengecekan perangkat, kabel, kualitas sinyal, troubleshooting masalah koneksi.',
         'maintenance': 'Pengecekan kondisi perangkat, pembersihan, update firmware, optimisasi konfigurasi.',
-        'upgrade': 'Penggantian atau konfigurasi ulang perangkat untuk paket lebih tinggi.',
-        'downgrade': 'Penyesuaian konfigurasi perangkat untuk paket lebih rendah.',
+        'upgrade': 'Penggantian atau konfigurasi ulang perangkat untuk paket lebih tinggi. Upgrade speed atau bandwidth sesuai permintaan.',
+        'downgrade': 'Penyesuaian konfigurasi perangkat untuk paket lebih rendah. Downgrade speed atau bandwidth sesuai permintaan.',
         'wifi_setup': 'Setup WiFi router, konfigurasi SSID dan password, optimisasi channel, testing coverage.',
         'dismantle': 'Pelepasan perangkat, pencabutan kabel, pengembalian equipment ke warehouse.'
       }
@@ -171,19 +171,10 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
     }
   }, [selectedCustomer, selectedType, selectedCategory, serviceTypes, availableCategories, selectedCustomerId, customersData, setValue])
 
-  // Auto-fill Estimated Duration based on Service Type
-  useEffect(() => {
-    if (selectedType) {
-      // Installation, Repair, Maintenance = 120 menit
-      if (['installation', 'repair', 'maintenance'].includes(selectedType)) {
-        setValue('estimated_duration', 120)
-      }
-      // Upgrade, WiFi Setup, Speed Test = 15 menit
-      else if (['upgrade', 'wifi_setup', 'speed_test', 'bandwidth_upgrade', 'network_config', 'security_audit', 'redundancy_setup'].includes(selectedType)) {
-        setValue('estimated_duration', 15)
-      }
-    }
-  }, [selectedType, setValue])
+  // Note: Estimated duration is auto-filled from service type master data
+  // See lines 96-110 for the logic that pulls duration from:
+  // 1. Service Category (if selected) - category.estimated_duration
+  // 2. Service Type (fallback) - serviceType.default_duration
 
   // Auto-fill Scheduled Date dengan waktu saat ini
   useEffect(() => {

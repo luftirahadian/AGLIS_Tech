@@ -22,6 +22,8 @@ const serviceTypesRoutes = require('./routes/serviceTypes');
 const serviceCategoriesRoutes = require('./routes/serviceCategories');
 const notificationRoutes = require('./routes/notifications');
 const analyticsRoutes = require('./routes/analytics');
+const registrationRoutes = require('./routes/registrations');
+const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -87,9 +89,24 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again later.',
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  // Skip rate limiting for localhost in development
+  // Skip rate limiting for localhost AND local network IPs in development
   skip: (req) => {
-    return req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === '::ffff:127.0.0.1';
+    const ip = req.ip || req.connection.remoteAddress;
+    
+    // Localhost
+    if (ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1' || ip === 'localhost') {
+      return true;
+    }
+    
+    // Local network IPs (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
+    if (ip.startsWith('192.168.') || 
+        ip.startsWith('10.') || 
+        /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(ip)) {
+      console.log(`⚡ Rate limit skipped for local IP: ${ip}`);
+      return true;
+    }
+    
+    return false;
   }
 });
 
@@ -147,13 +164,23 @@ app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
-app.use('/api/packages', authMiddleware, packageRoutes);
+// Packages API - allow public read access for registration form
+app.use('/api/packages', (req, res, next) => {
+  // Allow GET requests without auth (for public registration)
+  if (req.method === 'GET') {
+    return next();
+  }
+  // Other methods require auth
+  return authMiddleware(req, res, next);
+}, packageRoutes);
 app.use('/api/equipment', authMiddleware, equipmentRoutes);
 app.use('/api/odp', authMiddleware, odpRoutes);
 app.use('/api/service-types', authMiddleware, serviceTypesRoutes);
 app.use('/api/service-categories', authMiddleware, serviceCategoriesRoutes);
 app.use('/api/notifications', authMiddleware, notificationRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
+app.use('/api/registrations', registrationRoutes); // Public routes included, auth handled per route
+app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);
 
 // Socket.IO for real-time updates
 io.on('connection', (socket) => {

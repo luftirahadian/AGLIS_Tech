@@ -19,6 +19,10 @@ import ServiceTypesPage from './pages/masterdata/ServiceTypesPage'
 import ServiceCategoriesPage from './pages/masterdata/ServiceCategoriesPage'
 import UsersPage from './pages/users/UsersPage'
 import ProfilePage from './pages/ProfilePage'
+import RegisterPage from './pages/public/RegisterPage'
+import TrackingPage from './pages/public/TrackingPage'
+import RegistrationsPage from './pages/registrations/RegistrationsPage'
+import RegistrationAnalyticsPage from './pages/registrations/RegistrationAnalyticsPage'
 import LoadingSpinner from './components/LoadingSpinner'
 
 function App() {
@@ -36,6 +40,9 @@ function App() {
         path="/login" 
         element={!user ? <LoginPage /> : <Navigate to="/dashboard" replace />} 
       />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/track" element={<TrackingPage />} />
+      <Route path="/track/:registrationNumber" element={<TrackingPage />} />
 
       {/* Protected Routes */}
       <Route 
@@ -52,6 +59,10 @@ function App() {
         {/* Customers */}
         <Route path="customers" element={<CustomersPage />} />
         <Route path="customers/:id" element={<CustomerDetailPage />} />
+        
+        {/* Registrations */}
+        <Route path="registrations" element={<RegistrationsPage />} />
+        <Route path="registration-analytics" element={<RegistrationAnalyticsPage />} />
         
         {/* Technicians */}
         <Route path="technicians" element={<TechniciansPage />} />

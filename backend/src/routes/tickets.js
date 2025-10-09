@@ -43,8 +43,9 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { 
-      page = 1, limit = 10, status, type, priority, 
-      assigned_technician_id, customer_id, search 
+      page = 1, limit = 5, status, type, priority, 
+      assigned_technician_id, customer_id, search,
+      sort_by = 'created_at', sort_order = 'DESC'
     } = req.query;
     const offset = (page - 1) * limit;
 
@@ -113,7 +114,12 @@ router.get('/', async (req, res) => {
       params.push(`%${search}%`);
     }
 
-    query += ` ORDER BY t.created_at DESC LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+    // Validate and sanitize sort parameters to prevent SQL injection
+    const allowedSortColumns = ['created_at', 'updated_at', 'priority', 'status', 'type', 'ticket_number', 'scheduled_date'];
+    const sortColumn = allowedSortColumns.includes(sort_by) ? sort_by : 'created_at';
+    const sortDirection = ['ASC', 'DESC'].includes(sort_order.toUpperCase()) ? sort_order.toUpperCase() : 'DESC';
+    
+    query += ` ORDER BY t.${sortColumn} ${sortDirection} LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
     params.push(limit, offset);
 
     const result = await pool.query(query, params);
@@ -179,6 +185,11 @@ router.get('/', async (req, res) => {
 
     const countResult = await pool.query(countQuery, countParams);
     const total = parseInt(countResult.rows[0].count);
+
+    // Disable cache for dynamic data
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 
     res.json({
       success: true,
@@ -336,7 +347,7 @@ router.get('/:id', async (req, res) => {
 // Create new ticket
 router.post('/', [
   body('customer_id').isInt().withMessage('Customer ID is required'),
-  body('type').isIn(['installation', 'repair', 'maintenance', 'upgrade', 'wifi_setup', 'speed_test', 'bandwidth_upgrade', 'redundancy_setup', 'network_config', 'security_audit']).withMessage('Invalid ticket type'),
+  body('type').isIn(['installation', 'repair', 'maintenance', 'upgrade', 'downgrade', 'wifi_setup', 'dismantle', 'speed_test', 'bandwidth_upgrade', 'redundancy_setup', 'network_config', 'security_audit']).withMessage('Invalid ticket type'),
   body('priority').optional().isIn(['low', 'normal', 'high', 'critical']).withMessage('Invalid priority'),
   body('title').notEmpty().withMessage('Title is required'),
   body('description').notEmpty().withMessage('Description is required')
@@ -386,13 +397,16 @@ router.post('/', [
       });
     }
 
-    // Generate ticket number
-    const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    // Generate ticket number - use database date to avoid timezone issues
+    const dateResult = await pool.query('SELECT CURRENT_DATE as today');
+    const today = dateResult.rows[0].today.toISOString().slice(0, 10).replace(/-/g, '');
     const countResult = await pool.query(
       'SELECT COUNT(*) FROM tickets WHERE DATE(created_at) = CURRENT_DATE'
     );
     const dailyCount = parseInt(countResult.rows[0].count) + 1;
-    const ticket_number = `TKT-${today}-${dailyCount.toString().padStart(4, '0')}`;
+    
+    // Use shorter format to fit within 20 character limit
+    const ticket_number = `TKT${today}${dailyCount.toString().padStart(3, '0')}`;
 
     // Calculate SLA due date based on priority
     const slaHours = {
