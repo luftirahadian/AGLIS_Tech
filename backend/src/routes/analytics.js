@@ -344,7 +344,11 @@ router.get('/dashboard/priority-analysis', async (req, res) => {
 // Get recent activities for dashboard feed
 router.get('/dashboard/recent-activities', async (req, res) => {
   try {
-    const { limit = '10' } = req.query;
+    const { limit = '50' } = req.query;
+    
+    // Get today's date at midnight (start of day)
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
     
     const activitiesResult = await pool.query(`
       SELECT 
@@ -359,9 +363,10 @@ router.get('/dashboard/recent-activities', async (req, res) => {
         'Technician' as technician_name,
         'Admin' as created_by_name
       FROM tickets t
+      WHERE t.created_at >= $1
       ORDER BY t.created_at DESC
-      LIMIT $1
-    `, [parseInt(limit)]);
+      LIMIT $2
+    `, [todayStart, parseInt(limit)]);
 
     const activities = activitiesResult.rows.map(row => ({
       type: row.type,

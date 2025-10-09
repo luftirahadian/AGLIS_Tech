@@ -68,12 +68,36 @@ class SocketService {
     this.socket.on('notification', (notification) => {
       console.log('🔔 New notification:', notification);
       this.emit('notification', notification);
+      // Don't dispatch window event here - let NotificationContext handle it to avoid duplication
     });
 
     // Listen for ticket updates
     this.socket.on('ticket_updated', (data) => {
       console.log('🎫 Ticket updated:', data);
       this.emit('ticket_updated', data);
+      // Dispatch custom event for components
+      window.dispatchEvent(new CustomEvent('ticket-updated', { detail: data }));
+    });
+
+    // Listen for ticket created
+    this.socket.on('ticket_created', (data) => {
+      console.log('🎫 Ticket created:', data);
+      this.emit('ticket_created', data);
+      window.dispatchEvent(new CustomEvent('ticket-created', { detail: data }));
+    });
+
+    // Listen for ticket assigned
+    this.socket.on('ticket_assigned', (data) => {
+      console.log('🎫 Ticket assigned:', data);
+      this.emit('ticket_assigned', data);
+      window.dispatchEvent(new CustomEvent('ticket-assigned', { detail: data }));
+    });
+
+    // Listen for ticket completed
+    this.socket.on('ticket_completed', (data) => {
+      console.log('🎫 Ticket completed:', data);
+      this.emit('ticket_completed', data);
+      window.dispatchEvent(new CustomEvent('ticket-completed', { detail: data }));
     });
 
     // Listen for technician status changes
@@ -128,12 +152,8 @@ class SocketService {
 
   // Add event listener
   on(event, callback) {
-    if (!this.listeners.has(event)) {
-      this.listeners.set(event, []);
-    }
-    this.listeners.get(event).push(callback);
-
-    // Also listen on socket if connected
+    // Only listen on socket directly to avoid double registration
+    // Don't add to this.listeners to prevent duplicate calls
     if (this.socket) {
       this.socket.on(event, callback);
     }
@@ -141,15 +161,7 @@ class SocketService {
 
   // Remove event listener
   off(event, callback) {
-    if (this.listeners.has(event)) {
-      const callbacks = this.listeners.get(event);
-      const index = callbacks.indexOf(callback);
-      if (index > -1) {
-        callbacks.splice(index, 1);
-      }
-    }
-
-    // Also remove from socket if connected
+    // Only remove from socket to match on() behavior
     if (this.socket) {
       this.socket.off(event, callback);
     }

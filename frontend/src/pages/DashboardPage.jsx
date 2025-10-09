@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import { 
   Ticket, 
   Users, 
@@ -9,35 +10,71 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
-  AlertTriangle
+  AlertTriangle,
+  PlayCircle,
+  PauseCircle,
+  XCircle,
+  FileCheck
 } from 'lucide-react'
 import analyticsService from '../services/analyticsService'
 import LoadingSpinner from '../components/LoadingSpinner'
+import StatsCard from '../components/common/StatsCard'
 import { formatDistanceToNow } from 'date-fns'
 import { id as localeId } from 'date-fns/locale'
 
 const DashboardPage = () => {
   const { user } = useAuth()
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   // Fetch dashboard overview data
   const { data: overview, isLoading: overviewLoading } = useQuery(
     'dashboard-overview',
     () => analyticsService.getDashboardOverview(),
     {
-      refetchInterval: 60000, // Refetch every 1 minute
-      refetchOnWindowFocus: true
+      refetchInterval: 30000, // Refetch every 30 seconds (reduced from 60s)
+      refetchOnWindowFocus: true,
+      refetchOnMount: 'always', // Always refetch when component mounts
+      staleTime: 0 // Data is always considered stale
     }
   )
 
-  // Fetch recent activities
+  // Fetch recent activities (all today's activities)
   const { data: activities, isLoading: activitiesLoading } = useQuery(
     'dashboard-activities',
-    () => analyticsService.getRecentActivities(5),
+    () => analyticsService.getRecentActivities(50), // Get up to 50 today's activities
     {
-      refetchInterval: 30000, // Refetch every 30 seconds
-      refetchOnWindowFocus: true
+      refetchInterval: 15000, // Refetch every 15 seconds (reduced from 30s)
+      refetchOnWindowFocus: true,
+      refetchOnMount: 'always', // Always refetch when component mounts
+      staleTime: 0 // Data is always considered stale
     }
   )
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    // Function to handle ticket updates
+    const handleTicketUpdate = () => {
+      // Invalidate and refetch dashboard data
+      queryClient.invalidateQueries('dashboard-overview')
+      queryClient.invalidateQueries('dashboard-activities')
+      console.log('📊 Dashboard data refreshed due to ticket update')
+    }
+
+    // Listen to custom events from socket
+    window.addEventListener('ticket-updated', handleTicketUpdate)
+    window.addEventListener('ticket-created', handleTicketUpdate)
+    window.addEventListener('ticket-assigned', handleTicketUpdate)
+    window.addEventListener('ticket-completed', handleTicketUpdate)
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('ticket-updated', handleTicketUpdate)
+      window.removeEventListener('ticket-created', handleTicketUpdate)
+      window.removeEventListener('ticket-assigned', handleTicketUpdate)
+      window.removeEventListener('ticket-completed', handleTicketUpdate)
+    }
+  }, [queryClient])
 
   if (overviewLoading) {
     return (
@@ -49,11 +86,15 @@ const DashboardPage = () => {
 
   // Map API response to stats object
   const apiData = overview?.data || {}
+  const byStatus = apiData.tickets?.byStatus || {}
   const stats = {
     total_tickets: apiData.tickets?.total || 0,
-    open_tickets: apiData.tickets?.byStatus?.open || 0,
-    in_progress_tickets: apiData.tickets?.byStatus?.in_progress || 0,
-    completed_tickets: apiData.tickets?.byStatus?.completed || 0,
+    open_tickets: byStatus.open || 0,
+    assigned_tickets: byStatus.assigned || 0,
+    in_progress_tickets: byStatus.in_progress || 0,
+    on_hold_tickets: byStatus.on_hold || 0,
+    completed_tickets: byStatus.completed || 0,
+    cancelled_tickets: byStatus.cancelled || 0,
     ticket_growth: null, // API doesn't provide this yet
     avg_resolution_time: apiData.resolution?.averageHours || null,
     avg_customer_rating: apiData.satisfaction?.averageRating || null,
@@ -63,44 +104,18 @@ const DashboardPage = () => {
     overdue_tickets: 0 // API doesn't provide this in overview
   }
 
-  const StatCard = ({ title, value, icon: Icon, color = 'blue', trend }) => (
-    <div className="card">
-      <div className="card-body">
-        <div className="flex items-center">
-          <div className="flex-shrink-0">
-            <div className={`p-3 rounded-lg bg-${color}-100`}>
-              <Icon className={`h-6 w-6 text-${color}-600`} />
-            </div>
-          </div>
-          <div className="ml-4">
-            <p className="text-sm font-medium text-gray-600">{title}</p>
-            <p className="text-2xl font-semibold text-gray-900">{value}</p>
-            {trend && (
-              <div className="flex items-center mt-1">
-                <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
-                <span className="text-sm text-green-600">{trend}</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-
   const QuickAction = ({ title, description, icon: Icon, color = 'blue', onClick }) => (
     <button
       onClick={onClick}
-      className="card hover:shadow-md transition-shadow text-left w-full"
+      className="card hover:shadow-md transition-shadow text-left w-full h-full"
     >
-      <div className="card-body">
-        <div className="flex items-center">
-          <div className={`p-2 rounded-lg bg-${color}-100 mr-3`}>
-            <Icon className={`h-5 w-5 text-${color}-600`} />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-gray-900">{title}</h3>
-            <p className="text-xs text-gray-500">{description}</p>
-          </div>
+      <div className="card-body flex items-center h-full">
+        <div className={`p-2 rounded-lg bg-${color}-100 mr-3 flex-shrink-0`}>
+          <Icon className={`h-5 w-5 text-${color}-600`} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-sm font-medium text-gray-900">{title}</h3>
+          <p className="text-xs text-gray-500 truncate">{description}</p>
         </div>
       </div>
     </button>
@@ -118,86 +133,107 @@ const DashboardPage = () => {
         </p>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard
-          title="Total Tickets"
+      {/* Stats Grid - All Ticket Status */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <StatsCard
+          title="Total"
           value={stats.total_tickets || 0}
           icon={Ticket}
-          color="blue"
-          trend={stats.ticket_growth ? `${stats.ticket_growth > 0 ? '+' : ''}${stats.ticket_growth}% from last month` : null}
+          iconColor="blue"
         />
-        <StatCard
-          title="Open Tickets"
+        <StatsCard
+          title="Open"
           value={stats.open_tickets || 0}
-          icon={Clock}
-          color="yellow"
+          icon={FileCheck}
+          iconColor="blue"
         />
-        <StatCard
-          title="In Progress"
+        <StatsCard
+          title="Assigned"
+          value={stats.assigned_tickets || 0}
+          icon={Users}
+          iconColor="indigo"
+        />
+        <StatsCard
+          title="Progress"
           value={stats.in_progress_tickets || 0}
-          icon={Wrench}
-          color="orange"
+          icon={PlayCircle}
+          iconColor="orange"
         />
-        <StatCard
+        <StatsCard
+          title="On Hold"
+          value={stats.on_hold_tickets || 0}
+          icon={PauseCircle}
+          iconColor="yellow"
+        />
+        <StatsCard
           title="Completed"
           value={stats.completed_tickets || 0}
           icon={CheckCircle}
-          color="green"
+          iconColor="green"
+        />
+        <StatsCard
+          title="Cancelled"
+          value={stats.cancelled_tickets || 0}
+          icon={XCircle}
+          iconColor="red"
         />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Quick Actions */}
         <div className="lg:col-span-2">
-          <div className="card">
+          <div className="card h-full">
             <div className="card-header">
               <h2 className="text-lg font-semibold text-gray-900">Quick Actions</h2>
             </div>
             <div className="card-body">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 <QuickAction
                   title="Create New Ticket"
                   description="Add a new service request"
                   icon={Ticket}
                   color="blue"
+                  onClick={() => navigate('/tickets')}
                 />
                 <QuickAction
                   title="Add Customer"
                   description="Register new customer"
                   icon={Users}
                   color="green"
+                  onClick={() => navigate('/customers')}
                 />
                 <QuickAction
-                  title="Assign Technician"
-                  description="Assign tickets to technicians"
+                  title="Manage Technicians"
+                  description="View and manage technicians"
                   icon={Wrench}
                   color="purple"
+                  onClick={() => navigate('/technicians')}
                 />
                 <QuickAction
                   title="Check Inventory"
                   description="View stock levels"
                   icon={Package}
                   color="orange"
+                  onClick={() => navigate('/inventory')}
                 />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Recent Activity */}
+        {/* Today's Activity */}
         <div>
-          <div className="card">
+          <div className="card h-full flex flex-col">
             <div className="card-header">
-              <h2 className="text-lg font-semibold text-gray-900">Recent Activity</h2>
+              <h2 className="text-lg font-semibold text-gray-900">Today's Activity</h2>
             </div>
-            <div className="card-body">
+            <div className="card-body flex-1 overflow-hidden">
               {activitiesLoading ? (
                 <div className="flex justify-center py-4">
                   <LoadingSpinner />
                 </div>
               ) : activities?.data && activities.data.length > 0 ? (
-                <div className="space-y-4">
+                <div className="space-y-4 overflow-y-auto h-full pr-2" style={{ maxHeight: '180px' }}>
                   {activities.data.map((activity, index) => {
                     // Generate description from activity data
                     let description = ''
@@ -251,7 +287,7 @@ const DashboardPage = () => {
                 </div>
               ) : (
                 <p className="text-sm text-gray-500 text-center py-4">
-                  Tidak ada aktivitas terbaru
+                  Tidak ada aktivitas hari ini
                 </p>
               )}
             </div>

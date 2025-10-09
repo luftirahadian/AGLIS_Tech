@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useQuery } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { useQuery, useQueryClient } from 'react-query'
+import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
@@ -9,6 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import StatsCard from '../../components/common/StatsCard'
 
 const TicketsPage = () => {
+  const queryClient = useQueryClient()
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [showAssignmentModal, setShowAssignmentModal] = useState(false)
   const [selectedTicketForAssignment, setSelectedTicketForAssignment] = useState(null)
@@ -46,8 +47,36 @@ const TicketsPage = () => {
   // Fetch ticket statistics
   const { data: statsData } = useQuery(
     'ticket-stats',
-    () => ticketService.getTicketStats()
+    () => ticketService.getTicketStats(),
+    {
+      refetchOnWindowFocus: true,
+      refetchOnMount: 'always'
+    }
   )
+
+  // Listen to socket events for real-time ticket updates
+  useEffect(() => {
+    const handleTicketUpdate = () => {
+      // Invalidate and refetch ticket data
+      queryClient.invalidateQueries(['tickets'])
+      queryClient.invalidateQueries('ticket-stats')
+      console.log('🎫 Ticket list & stats refreshed due to ticket update')
+    }
+
+    // Listen to custom events from socket
+    window.addEventListener('ticket-updated', handleTicketUpdate)
+    window.addEventListener('ticket-created', handleTicketUpdate)
+    window.addEventListener('ticket-assigned', handleTicketUpdate)
+    window.addEventListener('ticket-completed', handleTicketUpdate)
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('ticket-updated', handleTicketUpdate)
+      window.removeEventListener('ticket-created', handleTicketUpdate)
+      window.removeEventListener('ticket-assigned', handleTicketUpdate)
+      window.removeEventListener('ticket-completed', handleTicketUpdate)
+    }
+  }, [queryClient])
 
   const handleCreateSuccess = () => {
     refetch()
@@ -106,24 +135,36 @@ const TicketsPage = () => {
         </button>
       </div>
 
-      {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Statistics Cards - All Ticket Status */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
         <StatsCard
           icon={Ticket}
-          title="Total Tickets"
+          title="Total"
           value={stats.total_tickets || 0}
           iconColor="blue"
         />
         <StatsCard
-          icon={AlertCircle}
-          title="Open Tickets"
+          icon={FileCheck}
+          title="Open"
           value={stats.open_tickets || 0}
+          iconColor="blue"
+        />
+        <StatsCard
+          icon={Users}
+          title="Assigned"
+          value={stats.assigned_tickets || 0}
+          iconColor="indigo"
+        />
+        <StatsCard
+          icon={PlayCircle}
+          title="Progress"
+          value={stats.in_progress_tickets || 0}
           iconColor="orange"
         />
         <StatsCard
-          icon={Clock}
-          title="In Progress"
-          value={stats.in_progress_tickets || 0}
+          icon={PauseCircle}
+          title="On Hold"
+          value={stats.on_hold_tickets || 0}
           iconColor="yellow"
         />
         <StatsCard
@@ -131,6 +172,12 @@ const TicketsPage = () => {
           title="Completed"
           value={stats.completed_tickets || 0}
           iconColor="green"
+        />
+        <StatsCard
+          icon={XCircle}
+          title="Cancelled"
+          value={stats.cancelled_tickets || 0}
+          iconColor="red"
         />
       </div>
 

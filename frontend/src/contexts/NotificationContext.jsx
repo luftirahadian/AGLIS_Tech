@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import toast from 'react-hot-toast';
 import socketService from '../services/socketService';
@@ -18,6 +18,8 @@ export const useNotifications = () => {
 export const NotificationProvider = ({ children }) => {
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const listenersSetup = useRef(false); // Track if listeners are already setup
+  const processedNotifications = useRef(new Set()); // Track processed notification IDs for deduplication
   
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -70,47 +72,25 @@ export const NotificationProvider = ({ children }) => {
     }
   );
 
-  // Initialize Socket.IO connection when user is available
-  useEffect(() => {
-    if (user && !isSocketConnected) {
-      console.log('🔗 Initializing Socket.IO connection...');
-      socketService.connect(user);
-      
-      // Setup socket event listeners
-      socketService.on('notification', handleNewNotification);
-      socketService.on('ticket_updated', handleTicketUpdate);
-      socketService.on('technician_status_changed', handleTechnicianStatusChange);
-      socketService.on('system_alert', handleSystemAlert);
-      
-      // Monitor connection status
-      const checkConnection = () => {
-        const status = socketService.getConnectionStatus();
-        setIsSocketConnected(status.isConnected);
-      };
-      
-      const connectionInterval = setInterval(checkConnection, 1000);
-      
-      return () => {
-        clearInterval(connectionInterval);
-        socketService.off('notification', handleNewNotification);
-        socketService.off('ticket_updated', handleTicketUpdate);
-        socketService.off('technician_status_changed', handleTechnicianStatusChange);
-        socketService.off('system_alert', handleSystemAlert);
-      };
-    }
-  }, [user]);
-
-  // Cleanup socket on unmount
-  useEffect(() => {
-    return () => {
-      if (isSocketConnected) {
-        socketService.disconnect();
-      }
-    };
-  }, []);
-
   // Handle new notification from Socket.IO
   const handleNewNotification = useCallback((notification) => {
+    // Generate unique ID for deduplication
+    const notifKey = `${notification.id || notification.type}-${notification.timestamp || Date.now()}`;
+    
+    // Check if already processed (deduplication)
+    if (processedNotifications.current.has(notifKey)) {
+      console.log('⚠️ Duplicate notification ignored:', notifKey);
+      return;
+    }
+    
+    // Mark as processed
+    processedNotifications.current.add(notifKey);
+    
+    // Clean up old processed IDs after 10 seconds
+    setTimeout(() => {
+      processedNotifications.current.delete(notifKey);
+    }, 10000);
+    
     console.log('🔔 Received notification:', notification);
     
     // Add to notifications list
@@ -217,6 +197,57 @@ export const NotificationProvider = ({ children }) => {
       console.warn('Could not play notification sound:', error);
     }
   };
+
+  // Initialize Socket.IO connection when user is available
+  useEffect(() => {
+    if (!user) return;
+    
+    console.log('🔗 Initializing Socket.IO connection...');
+    socketService.connect(user);
+    
+    // Monitor connection status
+    const checkConnection = () => {
+      const status = socketService.getConnectionStatus();
+      setIsSocketConnected(status.isConnected);
+    };
+    
+    const connectionInterval = setInterval(checkConnection, 1000);
+    
+    return () => {
+      clearInterval(connectionInterval);
+    };
+  }, [user]);
+
+  // Setup socket event listeners (separate effect to prevent re-registration)
+  useEffect(() => {
+    if (!isSocketConnected || listenersSetup.current) return;
+
+    console.log('📡 Setting up socket event listeners...');
+    listenersSetup.current = true;
+    
+    // Setup socket event listeners
+    socketService.on('notification', handleNewNotification);
+    socketService.on('ticket_updated', handleTicketUpdate);
+    socketService.on('technician_status_changed', handleTechnicianStatusChange);
+    socketService.on('system_alert', handleSystemAlert);
+    
+    return () => {
+      console.log('🔌 Cleaning up socket event listeners...');
+      listenersSetup.current = false;
+      socketService.off('notification', handleNewNotification);
+      socketService.off('ticket_updated', handleTicketUpdate);
+      socketService.off('technician_status_changed', handleTechnicianStatusChange);
+      socketService.off('system_alert', handleSystemAlert);
+    };
+  }, [isSocketConnected, handleNewNotification, handleTicketUpdate, handleTechnicianStatusChange, handleSystemAlert]);
+
+  // Cleanup socket on unmount
+  useEffect(() => {
+    return () => {
+      console.log('🛑 Disconnecting socket on unmount...');
+      socketService.disconnect();
+    };
+  }, []);
 
   // Mark notification as read
   const markAsRead = async (notificationId) => {

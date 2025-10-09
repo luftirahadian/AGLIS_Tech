@@ -205,33 +205,26 @@ router.get('/', async (req, res) => {
 // Get ticket statistics (MUST be before /:id route)
 router.get('/stats/overview', async (req, res) => {
   try {
-    // Total tickets
-    const totalResult = await pool.query('SELECT COUNT(*) as count FROM tickets');
-    const total_tickets = parseInt(totalResult.rows[0].count);
+    // Get all ticket counts by status in one query
+    const statusResult = await pool.query(`
+      SELECT 
+        COUNT(*) as total_tickets,
+        COUNT(CASE WHEN status = 'open' THEN 1 END) as open_tickets,
+        COUNT(CASE WHEN status = 'assigned' THEN 1 END) as assigned_tickets,
+        COUNT(CASE WHEN status = 'in_progress' THEN 1 END) as in_progress_tickets,
+        COUNT(CASE WHEN status = 'on_hold' THEN 1 END) as on_hold_tickets,
+        COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed_tickets,
+        COUNT(CASE WHEN status = 'cancelled' THEN 1 END) as cancelled_tickets
+      FROM tickets
+    `);
 
-    // Open tickets
-    const openResult = await pool.query(
-      `SELECT COUNT(*) as count FROM tickets WHERE status = 'open'`
-    );
-    const open_tickets = parseInt(openResult.rows[0].count);
-
-    // In progress tickets
-    const inProgressResult = await pool.query(
-      `SELECT COUNT(*) as count FROM tickets WHERE status IN ('assigned', 'in_progress')`
-    );
-    const in_progress_tickets = parseInt(inProgressResult.rows[0].count);
-
-    // Completed tickets
-    const completedResult = await pool.query(
-      `SELECT COUNT(*) as count FROM tickets WHERE status = 'completed'`
-    );
-    const completed_tickets = parseInt(completedResult.rows[0].count);
+    const counts = statusResult.rows[0];
 
     // Average resolution time (in hours)
     const avgTimeResult = await pool.query(`
-      SELECT AVG(EXTRACT(EPOCH FROM (updated_at - created_at))/3600) as avg_hours
+      SELECT AVG(EXTRACT(EPOCH FROM (completed_at - created_at))/3600) as avg_hours
       FROM tickets
-      WHERE status = 'completed'
+      WHERE status = 'completed' AND completed_at IS NOT NULL
     `);
     const avg_resolution_time = avgTimeResult.rows[0].avg_hours 
       ? parseFloat(avgTimeResult.rows[0].avg_hours).toFixed(1) 
@@ -240,10 +233,13 @@ router.get('/stats/overview', async (req, res) => {
     res.json({
       success: true,
       data: {
-        total_tickets,
-        open_tickets,
-        in_progress_tickets,
-        completed_tickets,
+        total_tickets: parseInt(counts.total_tickets),
+        open_tickets: parseInt(counts.open_tickets),
+        assigned_tickets: parseInt(counts.assigned_tickets),
+        in_progress_tickets: parseInt(counts.in_progress_tickets),
+        on_hold_tickets: parseInt(counts.on_hold_tickets),
+        completed_tickets: parseInt(counts.completed_tickets),
+        cancelled_tickets: parseInt(counts.cancelled_tickets),
         avg_resolution_time
       }
     });
@@ -438,6 +434,9 @@ router.post('/', [
 
       await client.query('COMMIT');
 
+      // Get Socket.IO instance
+      const io = req.app.get('io');
+
       // Create notifications for supervisors and admins
       const supervisorQuery = `
         SELECT id FROM users 
@@ -459,28 +458,32 @@ router.post('/', [
         }
       }
 
-      // Emit real-time ticket update
-      const io = req.app.get('io');
+      // Emit Socket.IO events for real-time updates
       if (io) {
-        // Emit to specific roles (for notifications)
+        // 1. Emit ticket_created event (for socketService listener)
+        io.emit('ticket_created', {
+          ticket: ticket,
+          ticketId: ticket.id,
+          ticketNumber: ticket.ticket_number,
+          status: ticket.status,
+          type: ticket.type,
+          priority: ticket.priority
+        });
+
+        // 2. Emit to specific roles
         io.to('role_admin').to('role_supervisor').emit('new_ticket', {
           ticket: ticket,
           customer: customerCheck.rows[0],
           createdBy: req.user.username
         });
         
-        // Emit global dashboard update event (for all connected clients)
+        // 3. Emit global dashboard update event
         io.emit('dashboard_update', {
           type: 'ticket_created',
           data: { ticket_id: ticket.id }
         });
         
-        // Also emit global new_ticket for dashboard listeners
-        io.emit('new_ticket_global', {
-          ticket: ticket,
-          customer: customerCheck.rows[0],
-          createdBy: req.user.username
-        });
+        console.log(`📡 Socket.IO: Events emitted for new ticket ${ticket.ticket_number}`);
       }
 
       res.status(201).json({
@@ -724,20 +727,33 @@ router.put('/:id/status', [
 
       await client.query('COMMIT');
 
-      // Emit real-time notification
+      // Emit Socket.IO events for real-time updates
       const io = req.app.get('io');
-      io.emit('ticket_status_updated', {
-        ticket_id: id,
-        old_status: oldStatus,
-        new_status: status,
-        updated_by: req.user.full_name
-      });
-      
-      // Emit dashboard update event
-      io.emit('dashboard_update', {
-        type: 'ticket_status_changed',
-        data: { ticket_id: id, old_status: oldStatus, new_status: status }
-      });
+      if (io) {
+        // 1. Emit ticket_updated event (for socketService listener with underscore)
+        io.emit('ticket_updated', {
+          ticketId: id,
+          oldStatus: oldStatus,
+          newStatus: status,
+          updatedBy: req.user.full_name
+        });
+
+        // 2. Emit ticket_status_updated (for legacy listeners)
+        io.emit('ticket_status_updated', {
+          ticket_id: id,
+          old_status: oldStatus,
+          new_status: status,
+          updated_by: req.user.full_name
+        });
+        
+        // 3. Emit dashboard update event
+        io.emit('dashboard_update', {
+          type: 'ticket_status_changed',
+          data: { ticket_id: id, old_status: oldStatus, new_status: status }
+        });
+
+        console.log(`📡 Socket.IO: Events emitted for ticket ${id} status update (${oldStatus} → ${status})`);
+      }
 
       res.json({
         success: true,
@@ -845,9 +861,18 @@ router.put('/:id/assign', [
         emitNotification(req, notification);
       }
 
-      // Emit real-time ticket update
+      // Emit Socket.IO events for real-time updates
       const io = req.app.get('io');
       if (io) {
+        // 1. Emit ticket_assigned event (for socketService listener)
+        io.emit('ticket_assigned', {
+          ticketId: id,
+          status: 'assigned',
+          assignedTo: technician_id,
+          updatedBy: req.user.id
+        });
+
+        // 2. Emit to assigned technician
         io.to(`user_${technician.user_id}`).emit('ticket_assigned', {
           ticket_id: id,
           technician_id: technician_id,
@@ -855,7 +880,7 @@ router.put('/:id/assign', [
           assigned_by: req.user.username
         });
         
-        // Broadcast to supervisors
+        // 3. Broadcast to supervisors
         io.to('role_admin').to('role_supervisor').emit('ticket_updated', {
           ticketId: id,
           status: 'assigned',
@@ -864,11 +889,13 @@ router.put('/:id/assign', [
           timestamp: new Date().toISOString()
         });
         
-        // Emit dashboard update event
+        // 4. Emit dashboard update event
         io.emit('dashboard_update', {
           type: 'ticket_assigned',
           data: { ticket_id: id, technician_id: technician_id }
         });
+
+        console.log(`📡 Socket.IO: Events emitted for ticket ${id} assignment to technician ${technician_id}`);
       }
 
       res.json({
