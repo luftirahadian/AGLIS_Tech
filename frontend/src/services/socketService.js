@@ -13,7 +13,11 @@ class SocketService {
       this.disconnect();
     }
 
-    const serverUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    // Extract base URL from API URL (remove /api suffix for Socket.IO)
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    const serverUrl = apiUrl.replace('/api', '');
+    
+    console.log(`🔗 Socket.IO: Connecting to ${serverUrl}`);
     
     this.socket = io(serverUrl, {
       autoConnect: true,
@@ -21,6 +25,8 @@ class SocketService {
       reconnectionDelay: 1000,
       reconnectionAttempts: 5,
       timeout: 20000,
+      transports: ['polling', 'websocket'],
+      path: '/socket.io/'
     });
 
     this.setupEventListeners();
