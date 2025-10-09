@@ -8,8 +8,7 @@ const router = express.Router();
 // Get all inventory items
 router.get('/', async (req, res) => {
   try {
-    const { page = 1, limit = 10, category, search, low_stock } = req.query;
-    const offset = (page - 1) * limit;
+    const { page, limit, category, search, low_stock } = req.query;
 
     let query = `
       SELECT id, item_code, name, description, category, unit, unit_price,
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
              created_at, updated_at,
              CASE WHEN current_stock <= minimum_stock THEN true ELSE false END as is_low_stock
       FROM inventory_items
-      WHERE is_active = true
+      WHERE 1=1
     `;
     const params = [];
     let paramCount = 0;
@@ -38,8 +37,14 @@ router.get('/', async (req, res) => {
       query += ` AND current_stock <= minimum_stock`;
     }
 
-    query += ` ORDER BY name LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
-    params.push(limit, offset);
+    query += ` ORDER BY name`;
+    
+    // Only add pagination if page and limit are provided
+    if (page && limit) {
+      const offset = (page - 1) * limit;
+      query += ` LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+      params.push(limit, offset);
+    }
 
     const result = await pool.query(query, params);
 

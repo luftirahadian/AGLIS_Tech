@@ -269,13 +269,17 @@ router.get('/:id', async (req, res) => {
              c.address as customer_address, c.service_type,
              u.full_name as technician_name, tech.employee_id,
              creator.full_name as created_by_name,
-             pm.package_name, pm.bandwidth_down, pm.monthly_price
+             pm.package_name, pm.bandwidth_down, pm.monthly_price,
+             st.type_name as service_type_name,
+             sc.category_name, sc.category_code
       FROM tickets t
       JOIN customers c ON t.customer_id = c.id
       LEFT JOIN technicians tech ON t.assigned_technician_id = tech.id
       LEFT JOIN users u ON tech.user_id = u.id
       LEFT JOIN users creator ON t.created_by = creator.id
       LEFT JOIN packages_master pm ON c.package_id = pm.id
+      LEFT JOIN service_types st ON t.type = st.type_code
+      LEFT JOIN service_categories sc ON t.category = sc.category_code AND t.type = sc.service_type_code
       WHERE t.id = $1
     `;
 
@@ -298,11 +302,16 @@ router.get('/:id', async (req, res) => {
     `;
     const attachmentsResult = await pool.query(attachmentsQuery, [id]);
 
-    // Get ticket status history
+    // Get ticket status history with technician info
     const historyQuery = `
-      SELECT h.*, u.full_name as changed_by_name
+      SELECT h.*, 
+             u.full_name as changed_by_name,
+             tech.employee_id as technician_employee_id,
+             tech_user.full_name as technician_name
       FROM ticket_status_history h
       LEFT JOIN users u ON h.changed_by = u.id
+      LEFT JOIN technicians tech ON h.assigned_technician_id = tech.id
+      LEFT JOIN users tech_user ON tech.user_id = tech_user.id
       WHERE h.ticket_id = $1
       ORDER BY h.created_at
     `;
@@ -682,11 +691,12 @@ router.put('/:id/status', [
       `;
 
       const result = await client.query(updateQuery, params);
+      const updatedTicket = result.rows[0];
 
-      // Insert status history
+      // Insert status history with assigned technician info
       await client.query(
-        'INSERT INTO ticket_status_history (ticket_id, old_status, new_status, changed_by, notes) VALUES ($1, $2, $3, $4, $5)',
-        [id, oldStatus, status, req.user.id, notes]
+        'INSERT INTO ticket_status_history (ticket_id, old_status, new_status, changed_by, notes, assigned_technician_id) VALUES ($1, $2, $3, $4, $5, $6)',
+        [id, oldStatus, status, req.user.id, notes, updatedTicket.assigned_technician_id]
       );
 
       // Update technician stats if completed

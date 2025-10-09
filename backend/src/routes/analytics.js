@@ -15,6 +15,7 @@ router.get('/dashboard/overview', async (req, res) => {
     const [
       totalTicketsResult,
       todayTicketsResult,
+      allTicketsByStatusResult,
       slaComplianceResult,
       avgResolutionResult,
       customerSatisfactionResult,
@@ -38,6 +39,14 @@ router.get('/dashboard/overview', async (req, res) => {
         WHERE created_at >= CURRENT_DATE
         GROUP BY status
       `),
+      
+      // All tickets by status (in timeframe)
+      pool.query(`
+        SELECT status, COUNT(*) as count
+        FROM tickets 
+        WHERE created_at >= $1
+        GROUP BY status
+      `, [startDate]),
       
       // SLA Compliance Rate
       pool.query(`
@@ -105,7 +114,11 @@ router.get('/dashboard/overview', async (req, res) => {
         today: parseInt(totalTicketsResult.rows[0].today),
         week: parseInt(totalTicketsResult.rows[0].week),
         month: parseInt(totalTicketsResult.rows[0].month),
-        byStatus: todayTicketsResult.rows.reduce((acc, row) => {
+        byStatus: allTicketsByStatusResult.rows.reduce((acc, row) => {
+          acc[row.status] = parseInt(row.count);
+          return acc;
+        }, {}),
+        todayByStatus: todayTicketsResult.rows.reduce((acc, row) => {
           acc[row.status] = parseInt(row.count);
           return acc;
         }, {})

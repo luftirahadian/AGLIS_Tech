@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import { useQuery } from 'react-query'
 import { 
   Ticket, 
   Users, 
@@ -10,19 +11,56 @@ import {
   CheckCircle,
   AlertTriangle
 } from 'lucide-react'
+import analyticsService from '../services/analyticsService'
+import LoadingSpinner from '../components/LoadingSpinner'
+import { formatDistanceToNow } from 'date-fns'
+import { id as localeId } from 'date-fns/locale'
 
 const DashboardPage = () => {
   const { user } = useAuth()
 
-  // Mock data - in real app, this would come from API
+  // Fetch dashboard overview data
+  const { data: overview, isLoading: overviewLoading } = useQuery(
+    'dashboard-overview',
+    () => analyticsService.getDashboardOverview(),
+    {
+      refetchInterval: 60000, // Refetch every 1 minute
+      refetchOnWindowFocus: true
+    }
+  )
+
+  // Fetch recent activities
+  const { data: activities, isLoading: activitiesLoading } = useQuery(
+    'dashboard-activities',
+    () => analyticsService.getRecentActivities(5),
+    {
+      refetchInterval: 30000, // Refetch every 30 seconds
+      refetchOnWindowFocus: true
+    }
+  )
+
+  if (overviewLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-96">
+        <LoadingSpinner />
+      </div>
+    )
+  }
+
+  // Map API response to stats object
+  const apiData = overview?.data || {}
   const stats = {
-    totalTickets: 156,
-    openTickets: 23,
-    inProgressTickets: 12,
-    completedTickets: 121,
-    totalCustomers: 1247,
-    activeTechnicians: 15,
-    lowStockItems: 8
+    total_tickets: apiData.tickets?.total || 0,
+    open_tickets: apiData.tickets?.byStatus?.open || 0,
+    in_progress_tickets: apiData.tickets?.byStatus?.in_progress || 0,
+    completed_tickets: apiData.tickets?.byStatus?.completed || 0,
+    ticket_growth: null, // API doesn't provide this yet
+    avg_resolution_time: apiData.resolution?.averageHours || null,
+    avg_customer_rating: apiData.satisfaction?.averageRating || null,
+    sla_compliance: apiData.sla?.complianceRate || null,
+    active_technicians: apiData.technicians?.available || 0,
+    approaching_sla: 0, // API doesn't provide this in overview
+    overdue_tickets: 0 // API doesn't provide this in overview
   }
 
   const StatCard = ({ title, value, icon: Icon, color = 'blue', trend }) => (
@@ -84,26 +122,26 @@ const DashboardPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="Total Tickets"
-          value={stats.totalTickets}
+          value={stats.total_tickets || 0}
           icon={Ticket}
           color="blue"
-          trend="+12% from last month"
+          trend={stats.ticket_growth ? `${stats.ticket_growth > 0 ? '+' : ''}${stats.ticket_growth}% from last month` : null}
         />
         <StatCard
           title="Open Tickets"
-          value={stats.openTickets}
+          value={stats.open_tickets || 0}
           icon={Clock}
           color="yellow"
         />
         <StatCard
           title="In Progress"
-          value={stats.inProgressTickets}
+          value={stats.in_progress_tickets || 0}
           icon={Wrench}
           color="orange"
         />
         <StatCard
           title="Completed"
-          value={stats.completedTickets}
+          value={stats.completed_tickets || 0}
           icon={CheckCircle}
           color="green"
         />
@@ -154,63 +192,68 @@ const DashboardPage = () => {
               <h2 className="text-lg font-semibold text-gray-900">Recent Activity</h2>
             </div>
             <div className="card-body">
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="p-1 bg-green-100 rounded-full">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-900">
-                      Ticket #TKT-001 completed by John Doe
-                    </p>
-                    <p className="text-xs text-gray-500">2 minutes ago</p>
-                  </div>
+              {activitiesLoading ? (
+                <div className="flex justify-center py-4">
+                  <LoadingSpinner />
                 </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="p-1 bg-blue-100 rounded-full">
-                      <Ticket className="h-4 w-4 text-blue-600" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-900">
-                      New ticket created for Jane Smith
-                    </p>
-                    <p className="text-xs text-gray-500">15 minutes ago</p>
-                  </div>
+              ) : activities?.data && activities.data.length > 0 ? (
+                <div className="space-y-4">
+                  {activities.data.map((activity, index) => {
+                    // Generate description from activity data
+                    let description = ''
+                    let Icon = Ticket
+                    let color = 'blue'
+                    
+                    if (activity.status === 'completed') {
+                      description = `Ticket #${activity.ticketNumber} completed`
+                      Icon = CheckCircle
+                      color = 'green'
+                    } else if (activity.status === 'assigned') {
+                      description = `Ticket #${activity.ticketNumber} assigned to technician`
+                      Icon = Wrench
+                      color = 'purple'
+                    } else if (activity.status === 'in_progress') {
+                      description = `Ticket #${activity.ticketNumber} in progress`
+                      Icon = Clock
+                      color = 'orange'
+                    } else if (activity.status === 'open') {
+                      description = `New ticket created: ${activity.title}`
+                      Icon = Ticket
+                      color = 'blue'
+                    } else {
+                      description = `Ticket #${activity.ticketNumber} - ${activity.title}`
+                    }
+                    
+                    return (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="flex-shrink-0">
+                          <div className={`p-1 bg-${color}-100 rounded-full`}>
+                            <Icon className={`h-4 w-4 text-${color}-600`} />
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm text-gray-900">
+                            {description}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {activity.timestamp && !isNaN(new Date(activity.timestamp).getTime()) 
+                              ? formatDistanceToNow(new Date(activity.timestamp), { 
+                                  addSuffix: true,
+                                  locale: localeId 
+                                })
+                              : 'Baru saja'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="p-1 bg-yellow-100 rounded-full">
-                      <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-900">
-                      Low stock alert: Fiber cables
-                    </p>
-                    <p className="text-xs text-gray-500">1 hour ago</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="p-1 bg-purple-100 rounded-full">
-                      <Users className="h-4 w-4 text-purple-600" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-900">
-                      New customer registered: ABC Corp
-                    </p>
-                    <p className="text-xs text-gray-500">3 hours ago</p>
-                  </div>
-                </div>
-              </div>
+              ) : (
+                <p className="text-sm text-gray-500 text-center py-4">
+                  Tidak ada aktivitas terbaru
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -227,19 +270,25 @@ const DashboardPage = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Average Resolution Time</span>
-                  <span className="text-sm font-medium text-gray-900">2.4 hours</span>
+                  <span className="text-sm font-medium text-gray-900">
+                    {stats.avg_resolution_time ? `${stats.avg_resolution_time.toFixed(1)} hours` : 'N/A'}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Customer Satisfaction</span>
-                  <span className="text-sm font-medium text-gray-900">4.8/5.0</span>
+                  <span className="text-sm font-medium text-gray-900">
+                    {stats.avg_customer_rating ? `${stats.avg_customer_rating.toFixed(1)}/5.0` : 'N/A'}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">SLA Compliance</span>
-                  <span className="text-sm font-medium text-green-600">96.2%</span>
+                  <span className={`text-sm font-medium ${stats.sla_compliance >= 90 ? 'text-green-600' : 'text-yellow-600'}`}>
+                    {stats.sla_compliance ? `${stats.sla_compliance.toFixed(1)}%` : 'N/A'}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Active Technicians</span>
-                  <span className="text-sm font-medium text-gray-900">{stats.activeTechnicians}</span>
+                  <span className="text-sm font-medium text-gray-900">{stats.active_technicians || 0}</span>
                 </div>
               </div>
             </div>
@@ -251,29 +300,47 @@ const DashboardPage = () => {
             </div>
             <div className="card-body">
               <div className="space-y-3">
-                <div className="flex items-center p-3 bg-yellow-50 rounded-lg">
-                  <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3" />
-                  <div>
-                    <p className="text-sm font-medium text-yellow-800">
-                      {stats.lowStockItems} items low in stock
-                    </p>
-                    <p className="text-xs text-yellow-600">
-                      Check inventory management
-                    </p>
+                {stats.approaching_sla > 0 && (
+                  <div className="flex items-center p-3 bg-red-50 rounded-lg">
+                    <Clock className="h-5 w-5 text-red-600 mr-3" />
+                    <div>
+                      <p className="text-sm font-medium text-red-800">
+                        {stats.approaching_sla} tickets approaching SLA deadline
+                      </p>
+                      <p className="text-xs text-red-600">
+                        Requires immediate attention
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
                 
-                <div className="flex items-center p-3 bg-blue-50 rounded-lg">
-                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <div>
-                    <p className="text-sm font-medium text-blue-800">
-                      3 tickets approaching SLA deadline
-                    </p>
-                    <p className="text-xs text-blue-600">
-                      Requires immediate attention
-                    </p>
+                {stats.overdue_tickets > 0 && (
+                  <div className="flex items-center p-3 bg-yellow-50 rounded-lg">
+                    <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3" />
+                    <div>
+                      <p className="text-sm font-medium text-yellow-800">
+                        {stats.overdue_tickets} tickets overdue
+                      </p>
+                      <p className="text-xs text-yellow-600">
+                        Past SLA deadline
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {(!stats.approaching_sla || stats.approaching_sla === 0) && (!stats.overdue_tickets || stats.overdue_tickets === 0) && (
+                  <div className="flex items-center p-3 bg-green-50 rounded-lg">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <div>
+                      <p className="text-sm font-medium text-green-800">
+                        All tickets on track
+                      </p>
+                      <p className="text-xs text-green-600">
+                        No urgent alerts
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

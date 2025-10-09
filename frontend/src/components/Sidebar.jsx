@@ -64,8 +64,20 @@ const Sidebar = ({ isOpen, onClose }) => {
       hasSubmenu: true,
       submenu: [
         {
+          name: 'Service Types',
+          href: '/master-data/service-types'
+        },
+        {
+          name: 'Service Categories',
+          href: '/master-data/service-categories'
+        },
+        {
           name: 'Paket Langganan',
           href: '/master-data/packages'
+        },
+        {
+          name: 'Equipment',
+          href: '/master-data/equipment'
         },
         {
           name: 'ODP',

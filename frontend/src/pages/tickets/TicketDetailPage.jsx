@@ -245,11 +245,11 @@ const TicketDetailPage = () => {
                   <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <dt className="text-sm font-medium text-gray-600">Type</dt>
-                      <dd className="text-sm text-gray-900 capitalize">{ticket.type}</dd>
+                      <dd className="text-sm text-gray-900">{ticket.service_type_name || ticket.type}</dd>
                     </div>
                     <div>
                       <dt className="text-sm font-medium text-gray-600">Category</dt>
-                      <dd className="text-sm text-gray-900">{ticket.category || 'Not specified'}</dd>
+                      <dd className="text-sm text-gray-900">{ticket.category_name || ticket.category || 'Not specified'}</dd>
                     </div>
                     <div>
                       <dt className="text-sm font-medium text-gray-600">Scheduled Date</dt>
@@ -492,7 +492,7 @@ const TicketDetailPage = () => {
                 {ticket.status_history && ticket.status_history.length > 0 ? (
                   <div className="space-y-4">
                     {ticket.status_history.map((history, index) => (
-                      <div key={history.id} className="flex items-start space-x-3">
+                      <div key={history.id} className="flex items-start space-x-3 border-l-2 border-blue-200 pl-4 py-2">
                         <div className="flex-shrink-0">
                           <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
                             <Clock className="h-4 w-4 text-blue-600" />
@@ -507,8 +507,15 @@ const TicketDetailPage = () => {
                           <p className="text-sm text-gray-600">
                             by {history.changed_by_name} • {formatDateTime(history.created_at)}
                           </p>
+                          {history.technician_name && (
+                            <p className="text-sm text-blue-600 mt-1">
+                              🔧 Assigned to: {history.technician_name} ({history.technician_employee_id})
+                            </p>
+                          )}
                           {history.notes && (
-                            <p className="text-sm text-gray-700 mt-1">{history.notes}</p>
+                            <p className="text-sm text-gray-700 mt-1 italic bg-gray-50 p-2 rounded">
+                              {history.notes}
+                            </p>
                           )}
                         </div>
                       </div>

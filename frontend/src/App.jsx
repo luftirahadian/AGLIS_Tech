@@ -13,7 +13,10 @@ import TechniciansPage from './pages/technicians/TechniciansPage'
 import TechnicianDetailPage from './pages/technicians/TechnicianDetailPage'
 import InventoryPage from './pages/inventory/InventoryPage'
 import PackagesPage from './pages/masterdata/PackagesPage'
+import EquipmentPage from './pages/masterdata/EquipmentPage'
 import ODPPage from './pages/masterdata/ODPPage'
+import ServiceTypesPage from './pages/masterdata/ServiceTypesPage'
+import ServiceCategoriesPage from './pages/masterdata/ServiceCategoriesPage'
 import UsersPage from './pages/users/UsersPage'
 import ProfilePage from './pages/ProfilePage'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -58,7 +61,10 @@ function App() {
         <Route path="inventory" element={<InventoryPage />} />
         
         {/* Master Data */}
+        <Route path="master-data/service-types" element={<ServiceTypesPage />} />
+        <Route path="master-data/service-categories" element={<ServiceCategoriesPage />} />
         <Route path="master-data/packages" element={<PackagesPage />} />
+        <Route path="master-data/equipment" element={<EquipmentPage />} />
         <Route path="master-data/odp" element={<ODPPage />} />
         
         {/* Users (Admin/Supervisor only) */}

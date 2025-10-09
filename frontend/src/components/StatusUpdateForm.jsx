@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext'
 import LoadingSpinner from './LoadingSpinner'
 import { useQuery } from 'react-query'
 import { technicianService } from '../services/technicianService'
+import odpService from '../services/odpService'
 
 const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
   const { user } = useAuth()
@@ -20,10 +21,21 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
     setValue
   } = useForm()
   
-  // Watch file inputs to show feedback
+  // Fetch ODP list for dropdown
+  const { data: odpList } = useQuery(
+    'odp-active',
+    () => odpService.getAll(),
+    {
+      refetchOnWindowFocus: false,
+      select: (data) => data?.filter(odp => odp.status === 'active') || []
+    }
+  )
+  
+  // Watch file inputs and ODP selection to show feedback
   const otdrPhoto = watch('otdr_photo')
   const attenuationPhoto = watch('attenuation_photo')
   const modemSnPhoto = watch('modem_sn_photo')
+  const selectedOdp = watch('odp_location')
 
   // Debug file selection
   useEffect(() => {
@@ -268,8 +280,12 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
       const attenuation_photo_base64 = data.attenuation_photo?.[0] ? await fileToBase64(data.attenuation_photo[0]) : null
       const modem_sn_photo_base64 = data.modem_sn_photo?.[0] ? await fileToBase64(data.modem_sn_photo[0]) : null
       
+      // Find selected ODP ID
+      const selectedOdpData = odpList?.find(odp => odp.name === data.odp_location)
+      
       updateData.completion_data = {
         odp_location: data.odp_location,
+        odp_id: selectedOdpData?.id || null,
         odp_distance: data.odp_distance,
         otdr_photo: otdr_photo_base64 ? {
           filename: data.otdr_photo[0].name,
@@ -476,11 +492,17 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="form-label">Lokasi ODP *</label>
-                      <input
-                        type="text"
+                      <select
                         className={`form-input ${errors.odp_location ? 'border-red-500' : ''}`}
                         {...register('odp_location', { required: 'Lokasi ODP is required' })}
-                      />
+                      >
+                        <option value="">Pilih ODP...</option>
+                        {odpList?.map((odp) => (
+                          <option key={odp.id} value={odp.name}>
+                            {odp.name} - {odp.location}
+                          </option>
+                        ))}
+                      </select>
                       {errors.odp_location && <p className="form-error">{errors.odp_location.message}</p>}
                     </div>
 
@@ -596,11 +618,17 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="form-label">Lokasi ODP *</label>
-                      <input
-                        type="text"
+                      <select
                         className={`form-input ${errors.odp_location ? 'border-red-500' : ''}`}
                         {...register('odp_location', { required: 'Lokasi ODP is required' })}
-                      />
+                      >
+                        <option value="">Pilih ODP...</option>
+                        {odpList?.map((odp) => (
+                          <option key={odp.id} value={odp.name}>
+                            {odp.name} - {odp.location}
+                          </option>
+                        ))}
+                      </select>
                       {errors.odp_location && <p className="form-error">{errors.odp_location.message}</p>}
                     </div>
 

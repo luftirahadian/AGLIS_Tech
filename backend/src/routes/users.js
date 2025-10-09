@@ -8,13 +8,12 @@ const router = express.Router();
 // Get all users (admin/supervisor only)
 router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
   try {
-    const { page = 1, limit = 10, role, search } = req.query;
-    const offset = (page - 1) * limit;
+    const { page, limit, role, search } = req.query;
 
     let query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.is_active, u.avatar_url, u.last_login, u.created_at,
-             t.employee_id, t.availability_status, t.rating
+             t.employee_id, t.availability_status
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
       WHERE 1=1
@@ -34,8 +33,14 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
       params.push(`%${search}%`);
     }
 
-    query += ` ORDER BY u.created_at DESC LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
-    params.push(limit, offset);
+    query += ` ORDER BY u.created_at DESC`;
+    
+    // Only add pagination if page and limit are provided
+    if (page && limit) {
+      const offset = (page - 1) * limit;
+      query += ` LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+      params.push(limit, offset);
+    }
 
     const result = await pool.query(query, params);
 

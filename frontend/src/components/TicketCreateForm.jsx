@@ -4,12 +4,16 @@ import { useQuery } from 'react-query'
 import { X, Upload, AlertCircle, MapPin, Phone, Mail, Package, User } from 'lucide-react'
 import { customerService } from '../services/customerService'
 import { ticketService } from '../services/ticketService'
+import serviceTypeService from '../services/serviceTypeService'
+import serviceCategoryService from '../services/serviceCategoryService'
+import equipmentService from '../services/equipmentService'
 import LoadingSpinner from './LoadingSpinner'
 import toast from 'react-hot-toast'
 
 const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedCustomer, setSelectedCustomer] = useState(null)
+  const [availableCategories, setAvailableCategories] = useState([])
   
   const {
     register,
@@ -20,7 +24,8 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
     setValue
   } = useForm({
     defaultValues: {
-      type: 'installation',
+      type: '',
+      category: '',
       priority: 'normal'
     }
   })
@@ -32,7 +37,29 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
     { enabled: isOpen }
   )
 
+  // Get service types from master data
+  const { data: serviceTypes, isLoading: serviceTypesLoading } = useQuery(
+    'service-types-active',
+    () => serviceTypeService.getAll(true),
+    { enabled: isOpen }
+  )
+
+  // Get all service categories
+  const { data: serviceCategories } = useQuery(
+    'service-categories-active',
+    () => serviceCategoryService.getAll(null, true),
+    { enabled: isOpen }
+  )
+
+  // Get equipment list from master data
+  const { data: equipmentList } = useQuery(
+    ['equipment-list'],
+    equipmentService.getAll,
+    { enabled: isOpen }
+  )
+
   const selectedType = watch('type')
+  const selectedCategory = watch('category')
   const selectedCustomerId = watch('customer_id')
 
   // Auto-fill customer data when customer is selected
@@ -47,56 +74,102 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
     }
   }, [selectedCustomerId, customersData, setValue])
 
-  // Auto-fill Title when Customer and Service Type are selected
+  // Update available categories when service type changes (CASCADE)
   useEffect(() => {
-    if (selectedCustomer && selectedType) {
-      const typeLabels = {
-        'installation': 'Installation',
-        'repair': 'Repair',
-        'maintenance': 'Maintenance',
-        'upgrade': 'Upgrade',
-        'wifi_setup': 'WiFi Setup',
-        'speed_test': 'Speed Test',
-        'bandwidth_upgrade': 'Bandwidth Upgrade',
-        'redundancy_setup': 'Redundancy Setup',
-        'network_config': 'Network Configuration',
-        'security_audit': 'Security Audit'
-      }
+    if (selectedType && serviceCategories) {
+      const filtered = serviceCategories.filter(cat => cat.service_type_code === selectedType)
+      setAvailableCategories(filtered)
       
-      const title = `${typeLabels[selectedType] || selectedType} - ${selectedCustomer.name}`
-      setValue('title', title)
+      // Reset category selection when service type changes
+      setValue('category', '')
+      
+      // Auto-select first category if only one available
+      if (filtered.length === 1) {
+        setValue('category', filtered[0].category_code)
+      }
+    } else {
+      setAvailableCategories([])
+      setValue('category', '')
     }
-  }, [selectedCustomer, selectedType, setValue])
+  }, [selectedType, serviceCategories, setValue])
 
-  // Auto-fill Description based on Service Type
+  // Auto-fill estimated duration from selected category
+  useEffect(() => {
+    if (selectedCategory && availableCategories.length > 0) {
+      const category = availableCategories.find(cat => cat.category_code === selectedCategory)
+      if (category && category.estimated_duration) {
+        setValue('estimated_duration', category.estimated_duration)
+      }
+    } else if (selectedType && serviceTypes) {
+      // Fallback to service type default duration
+      const serviceType = serviceTypes.find(st => st.type_code === selectedType)
+      if (serviceType && serviceType.default_duration) {
+        setValue('estimated_duration', serviceType.default_duration)
+      }
+    }
+  }, [selectedCategory, availableCategories, selectedType, serviceTypes, setValue])
+
+  // Auto-fill Title when Customer, Service Type, and Category are selected
   useEffect(() => {
     if (selectedCustomer && selectedType) {
-      const descriptionTemplates = {
-        'installation': `Pemasangan baru layanan internet untuk ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Tipe layanan: ${selectedCustomer.service_type || 'broadband'}. Perlu dilakukan survey lokasi, instalasi perangkat, konfigurasi koneksi, dan testing kualitas sinyal.`,
-        
-        'repair': `Perbaikan layanan internet untuk pelanggan ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Keluhan: koneksi tidak stabil atau tidak tersambung. Perlu dilakukan pengecekan perangkat, kabel, kualitas sinyal, dan troubleshooting masalah koneksi.`,
-        
-        'maintenance': `Maintenance rutin untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Meliputi pengecekan kondisi perangkat, pembersihan, update firmware, optimisasi konfigurasi, dan pengukuran kualitas layanan.`,
-        
-        'upgrade': `Upgrade layanan internet untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Upgrade dari paket saat ini ke paket dengan bandwidth lebih tinggi. Perlu dilakukan penggantian atau konfigurasi ulang perangkat jika diperlukan.`,
-        
-        'wifi_setup': `Konfigurasi WiFi untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Meliputi setup WiFi router, konfigurasi SSID dan password, optimisasi channel, dan testing coverage area.`,
-        
-        'speed_test': `Pengukuran kecepatan internet untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Testing kecepatan download/upload, latency, packet loss, dan verifikasi kesesuaian dengan paket berlangganan.`,
-        
-        'bandwidth_upgrade': `Peningkatan bandwidth untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Upgrade kapasitas bandwidth sesuai kebutuhan bisnis atau personal pelanggan.`,
-        
-        'redundancy_setup': `Setup koneksi redundancy untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Instalasi backup connection untuk memastikan kontinuitas layanan jika terjadi gangguan pada jalur utama.`,
-        
-        'network_config': `Konfigurasi network untuk pelanggan ${selectedCustomer.name}. Lokasi: ${selectedCustomer.address || 'belum ditentukan'}. Setup dan konfigurasi perangkat network, routing, firewall, dan security sesuai kebutuhan pelanggan.`,
-        
-        'security_audit': `Audit keamanan network untuk ${selectedCustomer.name}. Alamat: ${selectedCustomer.address || 'belum ditentukan'}. Pemeriksaan keamanan jaringan, identifikasi vulnerability, dan rekomendasi perbaikan security.`
+      const serviceType = serviceTypes?.find(st => st.type_code === selectedType)
+      const category = availableCategories.find(cat => cat.category_code === selectedCategory)
+      
+      let title = ''
+      if (category) {
+        title = `${category.category_name} - ${selectedCustomer.name}`
+      } else if (serviceType) {
+        title = `${serviceType.type_name} - ${selectedCustomer.name}`
       }
       
-      const description = descriptionTemplates[selectedType] || `Layanan ${selectedType} untuk pelanggan ${selectedCustomer.name}.`
+      if (title) {
+        setValue('title', title)
+      }
+    }
+  }, [selectedCustomer, selectedType, selectedCategory, serviceTypes, availableCategories, setValue])
+
+  // Auto-fill Description based on Service Type (formatted & detailed)
+  useEffect(() => {
+    if (selectedCustomer && selectedType) {
+      const serviceType = serviceTypes?.find(st => st.type_code === selectedType)
+      const category = availableCategories.find(cat => cat.category_code === selectedCategory)
+      
+      // Format customer package info
+      const packageInfo = customersData?.data?.customers?.find(c => c.id == selectedCustomerId)
+      const packageName = packageInfo?.package_name || 'Tidak diketahui'
+      
+      // Build description with proper formatting
+      let description = `INFORMASI PELANGGAN\n`
+      description += `Nama: ${selectedCustomer.name}\n`
+      description += `Alamat: ${selectedCustomer.address || 'Belum ditentukan'}\n`
+      description += `Telepon: ${selectedCustomer.phone || '-'}\n`
+      description += `Paket: ${packageName}\n`
+      description += `Tipe Layanan: ${selectedCustomer.service_type || 'broadband'}\n\n`
+      
+      description += `JENIS PEKERJAAN\n`
+      description += `Service Type: ${serviceType?.type_name || selectedType}\n`
+      if (category) {
+        description += `Category: ${category.category_name}\n`
+      }
+      description += `\n`
+      
+      // Add work description based on type
+      description += `DESKRIPSI PEKERJAAN\n`
+      const workDescriptions = {
+        'installation': 'Survey lokasi, instalasi perangkat, konfigurasi koneksi, testing kualitas sinyal.',
+        'repair': 'Pengecekan perangkat, kabel, kualitas sinyal, troubleshooting masalah koneksi.',
+        'maintenance': 'Pengecekan kondisi perangkat, pembersihan, update firmware, optimisasi konfigurasi.',
+        'upgrade': 'Penggantian atau konfigurasi ulang perangkat untuk paket lebih tinggi.',
+        'downgrade': 'Penyesuaian konfigurasi perangkat untuk paket lebih rendah.',
+        'wifi_setup': 'Setup WiFi router, konfigurasi SSID dan password, optimisasi channel, testing coverage.',
+        'dismantle': 'Pelepasan perangkat, pencabutan kabel, pengembalian equipment ke warehouse.'
+      }
+      
+      description += workDescriptions[selectedType] || 'Pekerjaan sesuai dengan service type yang dipilih.'
+      
       setValue('description', description)
     }
-  }, [selectedCustomer, selectedType, setValue])
+  }, [selectedCustomer, selectedType, selectedCategory, serviceTypes, availableCategories, selectedCustomerId, customersData, setValue])
 
   // Auto-fill Estimated Duration based on Service Type
   useEffect(() => {
@@ -128,77 +201,49 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
     }
   }, [isOpen, setValue])
 
-  const getTicketTypes = () => {
-    const baseTypes = [
-      { value: 'installation', label: 'Installation', description: 'New service installation' },
-      { value: 'repair', label: 'Repair', description: 'Fix existing service issues' },
-      { value: 'maintenance', label: 'Maintenance', description: 'Scheduled maintenance' },
-      { value: 'upgrade', label: 'Upgrade', description: 'Service upgrade or enhancement' }
-    ]
+  const getSuggestedEquipment = () => {
+    if (!selectedCustomer || !selectedType || !equipmentList) return []
     
-    // Add service-specific types based on selected customer
-    if (selectedCustomer) {
-      switch (selectedCustomer.service_type) {
-        case 'broadband':
-          baseTypes.push(
-            { value: 'wifi_setup', label: 'WiFi Setup', description: 'Configure wireless network' },
-            { value: 'speed_test', label: 'Speed Test', description: 'Verify connection speed' }
-          )
-          break
-        case 'dedicated':
-          baseTypes.push(
-            { value: 'bandwidth_upgrade', label: 'Bandwidth Upgrade', description: 'Increase dedicated bandwidth' },
-            { value: 'redundancy_setup', label: 'Redundancy Setup', description: 'Setup backup connection' }
-          )
-          break
-        case 'corporate':
-          baseTypes.push(
-            { value: 'network_config', label: 'Network Config', description: 'Configure corporate network' },
-            { value: 'security_audit', label: 'Security Audit', description: 'Network security review' }
-          )
-          break
+    // Filter equipment based on service type and customer service type
+    // Define equipment categories for each service type
+    const categoryMap = {
+      installation: {
+        broadband: ['devices', 'cables', 'accessories', 'tools'],
+        dedicated: ['devices', 'cables', 'accessories'],
+        corporate: ['devices', 'accessories'],
+        mitra: ['devices', 'accessories']
+      },
+      repair: {
+        all: ['tools']
+      },
+      maintenance: {
+        all: ['tools', 'accessories']
+      },
+      upgrade: {
+        all: ['devices']
+      },
+      wifi_setup: {
+        all: ['devices', 'accessories']
+      },
+      dismantle: {
+        all: ['tools']
+      },
+      downgrade: {
+        all: ['devices']
       }
     }
     
-    return baseTypes
-  }
-
-  const getSuggestedEquipment = () => {
-    if (!selectedCustomer || !selectedType) return []
+    // Get relevant categories for this service type
+    const relevantCategories = categoryMap[selectedType]?.[selectedCustomer.service_type] || 
+                               categoryMap[selectedType]?.all ||
+                               ['devices', 'tools']
     
-    const equipmentMap = {
-      installation: {
-        broadband: ['Modem WiFi', 'Kabel UTP Cat6', 'Connector RJ45', 'Cable Tester', 'Crimping Tool'],
-        dedicated: ['Router Enterprise', 'Fiber Optic Cable', 'SFP Module', 'Patch Panel', 'Network Switch'],
-        corporate: ['Firewall', 'Managed Switch', 'Access Point', 'UPS', 'Rack Cabinet'],
-        mitra: ['High-Performance Router', 'Load Balancer', 'Bandwidth Manager', 'Monitoring Tools']
-      },
-      repair: {
-        broadband: ['Replacement Modem', 'Spare Cables', 'Signal Meter', 'Multimeter'],
-        dedicated: ['Backup Router', 'Fiber Tester', 'Optical Power Meter', 'Cleaning Kit'],
-        corporate: ['Diagnostic Tools', 'Replacement Components', 'Network Analyzer'],
-        mitra: ['Backup Equipment', 'Performance Monitor', 'Troubleshooting Kit']
-      },
-      maintenance: {
-        broadband: ['Cleaning Supplies', 'Cable Organizer', 'Signal Booster'],
-        dedicated: ['Fiber Cleaning Kit', 'Performance Monitor', 'Backup Media'],
-        corporate: ['System Update Tools', 'Security Scanner', 'Backup Solutions'],
-        mitra: ['Maintenance Kit', 'Performance Optimizer', 'System Monitor']
-      },
-      upgrade: {
-        broadband: ['Higher Speed Modem', 'Enhanced WiFi Router', 'Signal Amplifier'],
-        dedicated: ['Higher Capacity Router', 'Additional Bandwidth', 'Redundancy Equipment'],
-        corporate: ['Enterprise Equipment', 'Security Upgrades', 'Performance Enhancers'],
-        mitra: ['Advanced Routing', 'Traffic Management', 'Quality Assurance Tools']
-      },
-      wifi_setup: ['WiFi Router', 'Range Extender', 'WiFi Analyzer', 'Security Configuration'],
-      speed_test: ['Speed Test Device', 'Network Analyzer', 'Performance Monitor'],
-      bandwidth_upgrade: ['Higher Capacity Equipment', 'Configuration Tools'],
-      network_config: ['Configuration Tools', 'Network Documentation', 'Security Setup'],
-      security_audit: ['Security Scanner', 'Vulnerability Assessment', 'Audit Tools']
-    }
+    // Filter active equipment from relevant categories
+    const suggestedEquipment = equipmentList
+      ?.filter(eq => eq.is_active && relevantCategories.includes(eq.category))
+      ?.map(eq => eq.equipment_name) || []
     
-    return equipmentMap[selectedType]?.[selectedCustomer.service_type] || equipmentMap[selectedType] || []
+    return suggestedEquipment.slice(0, 10) // Limit to 10 suggestions
   }
 
   const priorities = [
@@ -316,49 +361,57 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
             </div>
           )}
 
-          {/* Ticket Type */}
+          {/* Service Type */}
           <div>
             <label className="form-label">Service Type *</label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {getTicketTypes().map((type) => (
-                <label
-                  key={type.value}
-                  className={`
-                    relative flex cursor-pointer rounded-lg border p-4 focus:outline-none
-                    ${selectedType === type.value 
-                      ? 'border-blue-600 bg-blue-50' 
-                      : 'border-gray-300 bg-white hover:bg-gray-50'
-                    }
-                  `}
-                >
-                  <input
-                    type="radio"
-                    value={type.value}
-                    className="sr-only"
-                    {...register('type', { required: 'Service type is required' })}
-                  />
-                  <div className="flex-1">
-                    <div className="flex items-center">
-                      <div className="text-sm">
-                        <div className="font-medium text-gray-900">{type.label}</div>
-                        <div className="text-gray-500">{type.description}</div>
-                      </div>
-                    </div>
-                  </div>
-                  {selectedType === type.value && (
-                    <div className="flex-shrink-0 text-blue-600">
-                      <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  )}
-                </label>
+            <select
+              className="form-input"
+              {...register('type', { required: 'Service type wajib dipilih' })}
+            >
+              <option value="">Pilih Service Type...</option>
+              {serviceTypes?.map((type) => (
+                <option key={type.type_code} value={type.type_code}>
+                  {type.type_name} - {type.description}
+                </option>
               ))}
-            </div>
+            </select>
             {errors.type && (
               <p className="form-error">{errors.type.message}</p>
             )}
           </div>
+
+          {/* Service Category (Cascade) */}
+          {selectedType && (
+            <div>
+              <label className="form-label">
+                Service Category {availableCategories.length > 0 && '*'}
+              </label>
+              {availableCategories.length > 0 ? (
+                <>
+                  <select
+                    className="form-input"
+                    {...register('category', { 
+                      required: availableCategories.length > 0 ? 'Category wajib dipilih' : false 
+                    })}
+                  >
+                    <option value="">Pilih Category...</option>
+                    {availableCategories.map((cat) => (
+                      <option key={cat.category_code} value={cat.category_code}>
+                        {cat.category_name} - {cat.description}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.category && (
+                    <p className="form-error">{errors.category.message}</p>
+                  )}
+                </>
+              ) : (
+                <p className="text-sm text-gray-500 italic mt-1">
+                  Tidak ada kategori tersedia untuk service type ini
+                </p>
+              )}
+            </div>
+          )}
 
           {/* Priority */}
           <div>
