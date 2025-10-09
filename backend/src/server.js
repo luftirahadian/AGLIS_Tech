@@ -29,11 +29,55 @@ const { authMiddleware } = require('./middleware/auth');
 
 const app = express();
 const server = createServer(app);
+// Configure CORS origins - flexible for development and production
+const getCorsOrigins = () => {
+  // Production: Use explicit CORS_ORIGIN if provided
+  if (process.env.CORS_ORIGIN && process.env.CORS_ORIGIN.trim() !== '') {
+    console.log(`🔧 CORS: Using production origins from CORS_ORIGIN`);
+    return process.env.CORS_ORIGIN.split(',').map(origin => origin.trim());
+  }
+  
+  // Development: Auto-detect local network access
+  console.log(`🔧 CORS: Using development mode - auto-detect local network`);
+  return [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    // Allow any local network IP patterns
+    /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:3000$/,
+    /^http:\/\/10\.\d{1,3}\.\d{1,3}\.\d{1,3}:3000$/,
+    /^http:\/\/172\.(1[6-9]|2[0-9]|3[0-1])\.\d{1,3}\.\d{1,3}:3000$/
+  ];
+};
+
+const allowedOrigins = getCorsOrigins();
+
 const io = new Server(server, {
   cors: {
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"]
-  }
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, Postman, etc)
+      if (!origin) return callback(null, true);
+      
+      // Check if origin is in allowed list
+      const isAllowed = allowedOrigins.some(allowed => {
+        if (typeof allowed === 'string') return allowed === origin;
+        if (allowed instanceof RegExp) return allowed.test(origin);
+        return false;
+      });
+      
+      if (isAllowed) {
+        console.log(`✅ Socket.IO: Allowed origin: ${origin}`);
+        callback(null, true);
+      } else {
+        console.warn(`🚫 Socket.IO: Blocked origin: ${origin}`);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    transports: ['polling', 'websocket']
+  },
+  // Add namespace configuration
+  path: '/socket.io/'
 });
 
 // Rate limiting - Very permissive for development
@@ -55,7 +99,30 @@ app.use(compression());
 app.use(morgan('combined'));
 app.use(limiter);
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, Postman, etc)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is in allowed list
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (typeof allowed === 'string') {
+        return allowed === origin;
+      }
+      if (allowed instanceof RegExp) {
+        return allowed.test(origin);
+      }
+      return false;
+    });
+    
+    if (isAllowed) {
+      console.log(`✅ CORS: Allowed origin: ${origin}`);
+      callback(null, true);
+    } else {
+      console.warn(`🚫 CORS: Blocked origin: ${origin}`);
+      console.warn(`📋 CORS: Allowed origins:`, allowedOrigins);
+      callback(null, false);
+    }
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
@@ -197,10 +264,14 @@ app.use('*', (req, res) => {
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || '0.0.0.0'; // Bind to all network interfaces
 
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+server.listen(PORT, HOST, () => {
+  console.log(`🚀 Server running on ${HOST}:${PORT}`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`📡 Local access: http://localhost:${PORT}`);
+  console.log(`🌐 Network access: http://192.168.121.30:${PORT}`);
+  console.log(`📝 CORS origins configured for local network access`);
 });
 
 module.exports = { app, io };
