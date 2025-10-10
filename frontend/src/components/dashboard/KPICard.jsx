@@ -9,7 +9,8 @@ const KPICard = ({
   color = 'blue',
   format = 'number',
   suffix = '',
-  prefix = ''
+  prefix = '',
+  onClick = null
 }) => {
   const getColorClasses = (color) => {
     const colors = {
@@ -66,7 +67,20 @@ const KPICard = ({
   };
 
   return (
-    <div className={`${cardBg} rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200`}>
+    <div 
+      className={`${cardBg} rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-200 ${
+        onClick ? 'cursor-pointer hover:scale-105 active:scale-100' : ''
+      }`}
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      } : undefined}
+    >
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>

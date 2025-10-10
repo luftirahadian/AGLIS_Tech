@@ -25,7 +25,7 @@ const CustomersPage = () => {
   })
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 5
+    limit: 10
   })
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
@@ -61,9 +61,29 @@ const CustomersPage = () => {
     }
   )
 
+  // Fetch customer statistics
+  const { data: statsData } = useQuery(
+    'customer-stats',
+    () => customerService.getCustomerStats(),
+    {
+      refetchOnWindowFocus: true,
+      refetchOnMount: 'always'
+    }
+  )
+
   const customers = customersData?.data?.customers || []
   const totalPages = customersData?.data?.pagination?.pages || 1
   const totalCustomers = customersData?.data?.pagination?.total || 0
+  const stats = statsData?.data || {
+    total_customers: 0,
+    active_customers: 0,
+    inactive_customers: 0,
+    suspended_customers: 0,
+    paid_customers: 0,
+    unpaid_customers: 0,
+    pending_customers: 0,
+    non_active_customers: 0
+  }
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }))
@@ -198,26 +218,54 @@ const CustomersPage = () => {
         <KPICard
           icon={Users}
           title="Total Customer"
-          value={totalCustomers}
+          value={stats.total_customers || 0}
           color="blue"
         />
         <KPICard
           icon={Activity}
           title="Active"
-          value={customers.filter(c => c.account_status === 'active').length}
+          value={stats.active_customers || 0}
           color="green"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              account_status: filters.account_status === 'active' ? '' : 'active',
+              payment_status: '' // Reset payment status filter
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
         />
         <KPICard
           icon={CreditCard}
           title="Unpaid"
-          value={customers.filter(c => c.payment_status === 'unpaid').length}
+          value={stats.unpaid_customers || 0}
           color="yellow"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              payment_status: filters.payment_status === 'unpaid' ? '' : 'unpaid',
+              account_status: '' // Reset account status filter
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
         />
         <KPICard
           icon={XCircle}
           title="Non-Active"
-          value={customers.filter(c => c.account_status !== 'active').length}
+          value={stats.non_active_customers || 0}
           color="red"
+          onClick={() => {
+            // Toggle between showing inactive/suspended and showing all
+            const newStatus = filters.account_status === 'inactive' || filters.account_status === 'suspended' 
+              ? '' 
+              : 'inactive'
+            setFilters({ 
+              ...filters, 
+              account_status: newStatus,
+              payment_status: '' // Reset payment status filter
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
         />
       </div>
 
@@ -460,7 +508,22 @@ const CustomersPage = () => {
                     </button>
                   </div>
                   <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                    <div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <label className="text-sm text-gray-700">Show</label>
+                        <select
+                          value={pagination.limit}
+                          onChange={(e) => setPagination({ page: 1, limit: parseInt(e.target.value) })}
+                          className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        >
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                        </select>
+                        <span className="text-sm text-gray-700">rows</span>
+                      </div>
+                      <div className="border-l border-gray-300 h-6"></div>
                       <p className="text-sm text-gray-700">
                         Showing <span className="font-medium">{(pagination.page - 1) * pagination.limit + 1}</span> to{' '}
                         <span className="font-medium">
@@ -478,7 +541,12 @@ const CustomersPage = () => {
                         >
                           <ChevronLeft className="h-5 w-5" />
                         </button>
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => {
+                          if (totalPages <= 10) return i + 1;
+                          if (pagination.page <= 5) return i + 1;
+                          if (pagination.page >= totalPages - 4) return totalPages - 9 + i;
+                          return pagination.page - 5 + i;
+                        }).map((page) => (
                           <button
                             key={page}
                             onClick={() => handlePageChange(page)}

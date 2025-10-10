@@ -15,6 +15,7 @@ import KPICard from '../../components/dashboard/KPICard'
 const RegistrationsPage = () => {
   const queryClient = useQueryClient()
   const [currentPage, setCurrentPage] = useState(1)
+  const [limit, setLimit] = useState(10)
   const [selectedRegistration, setSelectedRegistration] = useState(null)
   const [showDetailModal, setShowDetailModal] = useState(false)
   const [showActionModal, setShowActionModal] = useState(false)
@@ -32,11 +33,11 @@ const RegistrationsPage = () => {
 
   // Fetch registrations
   const { data: registrationsData, isLoading } = useQuery(
-    ['registrations', filters, currentPage, sortBy, sortOrder],
+    ['registrations', filters, currentPage, limit, sortBy, sortOrder],
     () => registrationService.getAll({
       ...filters,
       page: currentPage,
-      limit: 5,
+      limit,
       sort_by: sortBy,
       sort_order: sortOrder
     }),
@@ -454,11 +455,29 @@ const RegistrationsPage = () => {
                   </button>
                 </div>
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                  <div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm text-gray-700">Show</label>
+                      <select
+                        value={limit}
+                        onChange={(e) => {
+                          setLimit(parseInt(e.target.value))
+                          setCurrentPage(1)
+                        }}
+                        className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      >
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                      <span className="text-sm text-gray-700">rows</span>
+                    </div>
+                    <div className="border-l border-gray-300 h-6"></div>
                     <p className="text-sm text-gray-700">
-                      Showing <span className="font-medium">{(currentPage - 1) * 5 + 1}</span> to{' '}
+                      Showing <span className="font-medium">{(currentPage - 1) * limit + 1}</span> to{' '}
                       <span className="font-medium">
-                        {Math.min(currentPage * 5, registrationsData.data.pagination.total)}
+                        {Math.min(currentPage * limit, registrationsData.data.pagination.total)}
                       </span>{' '}
                       of <span className="font-medium">{registrationsData.data.pagination.total}</span> results
                     </p>
@@ -472,7 +491,13 @@ const RegistrationsPage = () => {
                       >
                         <ChevronLeft className="h-5 w-5" />
                       </button>
-                      {Array.from({ length: registrationsData.data.pagination.pages }, (_, i) => i + 1).map((page) => (
+                      {Array.from({ length: Math.min(registrationsData.data.pagination.pages, 10) }, (_, i) => {
+                        const totalPages = registrationsData.data.pagination.pages;
+                        if (totalPages <= 10) return i + 1;
+                        if (currentPage <= 5) return i + 1;
+                        if (currentPage >= totalPages - 4) return totalPages - 9 + i;
+                        return currentPage - 5 + i;
+                      }).map((page) => (
                         <button
                           key={page}
                           onClick={() => setCurrentPage(page)}

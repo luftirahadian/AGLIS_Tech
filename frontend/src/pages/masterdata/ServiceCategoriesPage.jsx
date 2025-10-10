@@ -17,9 +17,8 @@ const ServiceCategoriesPage = () => {
   const [sortBy, setSortBy] = useState('display_order')
   const [sortOrder, setSortOrder] = useState('asc')
   const [serviceTypePages, setServiceTypePages] = useState({}) // Track page for each service type
+  const [limit, setLimit] = useState(10) // Items per page per service type
   const queryClient = useQueryClient()
-
-  const limit = 5 // Items per page per service type
 
   // Fetch service types for filter
   const { data: serviceTypesResponse } = useQuery(
@@ -205,7 +204,7 @@ const ServiceCategoriesPage = () => {
 
       {/* Filters */}
       <div className="bg-white shadow rounded-lg p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Search */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -258,17 +257,23 @@ const ServiceCategoriesPage = () => {
             </select>
           </div>
 
-          {/* Additional Filter Placeholder */}
+          {/* Rows Per Table */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Duration Range
+              Rows Per Table
             </label>
             <select
               className="form-input"
-              value="all"
-              onChange={(e) => {}}
+              value={limit}
+              onChange={(e) => {
+                setLimit(parseInt(e.target.value))
+                setServiceTypePages({}) // Reset all pages
+              }}
             >
-              <option value="all">Semua Duration</option>
+              <option value="5">5 rows</option>
+              <option value="10">10 rows</option>
+              <option value="25">25 rows</option>
+              <option value="50">50 rows</option>
             </select>
           </div>
         </div>

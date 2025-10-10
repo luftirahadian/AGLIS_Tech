@@ -29,11 +29,11 @@ const TechniciansPage = () => {
   const [showForm, setShowForm] = useState(false)
   const [selectedTechnician, setSelectedTechnician] = useState(null)
   const [formMode, setFormMode] = useState('create')
-  const limit = 5
+  const [limit, setLimit] = useState(10)
 
   // Fetch technicians
   const { data: techniciansData, isLoading, refetch } = useQuery(
-    ['technicians', filters, page, sortBy, sortOrder],
+    ['technicians', filters, page, limit, sortBy, sortOrder],
     () => technicianService.getTechnicians({ 
       ...filters, 
       page, 
@@ -475,7 +475,25 @@ const TechniciansPage = () => {
                   </button>
                 </div>
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                  <div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm text-gray-700">Show</label>
+                      <select
+                        value={limit}
+                        onChange={(e) => {
+                          setLimit(parseInt(e.target.value))
+                          setPage(1)
+                        }}
+                        className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      >
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                      <span className="text-sm text-gray-700">rows</span>
+                    </div>
+                    <div className="border-l border-gray-300 h-6"></div>
                     <p className="text-sm text-gray-700">
                       Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
                       <span className="font-medium">
@@ -493,7 +511,12 @@ const TechniciansPage = () => {
                       >
                         <ChevronLeft className="h-5 w-5" />
                       </button>
-                      {Array.from({ length: pagination.pages }, (_, i) => i + 1).map((pageNum) => (
+                      {Array.from({ length: Math.min(pagination.pages, 10) }, (_, i) => {
+                        if (pagination.pages <= 10) return i + 1;
+                        if (page <= 5) return i + 1;
+                        if (page >= pagination.pages - 4) return pagination.pages - 9 + i;
+                        return page - 5 + i;
+                      }).map((pageNum) => (
                         <button
                           key={pageNum}
                           onClick={() => setPage(pageNum)}

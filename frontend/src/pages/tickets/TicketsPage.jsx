@@ -14,6 +14,7 @@ const TicketsPage = () => {
   const [showAssignmentModal, setShowAssignmentModal] = useState(false)
   const [selectedTicketForAssignment, setSelectedTicketForAssignment] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
+  const [limit, setLimit] = useState(10)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
   const [filters, setFilters] = useState({
@@ -44,11 +45,11 @@ const TicketsPage = () => {
 
   // Fetch tickets with pagination and sorting
   const { data: ticketsData, isLoading, refetch } = useQuery(
-    ['tickets', filters, currentPage, sortBy, sortOrder],
+    ['tickets', filters, currentPage, limit, sortBy, sortOrder],
     () => ticketService.getTickets({
       ...filters,
       page: currentPage,
-      limit: 5,
+      limit,
       sort_by: sortBy,
       sort_order: sortOrder
     }),
@@ -174,15 +175,75 @@ const TicketsPage = () => {
         </button>
       </div>
 
-      {/* Statistics Cards - All Ticket Status - Analytics Style */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
-        <KPICard icon={Ticket} title="Total" value={stats.total_tickets || 0} color="blue" />
-        <KPICard icon={FileCheck} title="Open" value={stats.open_tickets || 0} color="blue" />
-        <KPICard icon={Users} title="Assigned" value={stats.assigned_tickets || 0} color="indigo" />
-        <KPICard icon={PlayCircle} title="Progress" value={stats.in_progress_tickets || 0} color="yellow" />
-        <KPICard icon={PauseCircle} title="Hold" value={stats.on_hold_tickets || 0} color="purple" />
-        <KPICard icon={CheckCircle} title="Completed" value={stats.completed_tickets || 0} color="green" />
-        <KPICard icon={XCircle} title="Cancelled" value={stats.cancelled_tickets || 0} color="red" />
+      {/* Statistics Cards - Grouped by Status Type */}
+      <div className="space-y-6">
+        {/* Active Tickets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <KPICard 
+            icon={FileCheck} 
+            title="Open" 
+            value={stats.open_tickets || 0} 
+            color="blue"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'open' ? '' : 'open' })
+              setCurrentPage(1)
+            }}
+          />
+          <KPICard 
+            icon={Users} 
+            title="Assigned" 
+            value={stats.assigned_tickets || 0} 
+            color="indigo"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'assigned' ? '' : 'assigned' })
+              setCurrentPage(1)
+            }}
+          />
+          <KPICard 
+            icon={PlayCircle} 
+            title="In Progress" 
+            value={stats.in_progress_tickets || 0} 
+            color="yellow"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'in_progress' ? '' : 'in_progress' })
+              setCurrentPage(1)
+            }}
+          />
+          <KPICard 
+            icon={PauseCircle} 
+            title="On Hold" 
+            value={stats.on_hold_tickets || 0} 
+            color="purple"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'on_hold' ? '' : 'on_hold' })
+              setCurrentPage(1)
+            }}
+          />
+        </div>
+        
+        {/* Completed Status */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <KPICard 
+            icon={CheckCircle} 
+            title="Completed" 
+            value={stats.completed_tickets || 0} 
+            color="green"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'completed' ? '' : 'completed' })
+              setCurrentPage(1)
+            }}
+          />
+          <KPICard 
+            icon={XCircle} 
+            title="Cancelled" 
+            value={stats.cancelled_tickets || 0} 
+            color="red"
+            onClick={() => {
+              setFilters({ ...filters, status: filters.status === 'cancelled' ? '' : 'cancelled' })
+              setCurrentPage(1)
+            }}
+          />
+        </div>
       </div>
 
       {/* Filters */}
@@ -285,22 +346,24 @@ const TicketsPage = () => {
             </div>
           ) : ticketsData?.data?.tickets?.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="table">
+              <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '1100px' }}>
                 <thead className="table-header">
                   <tr>
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('ticket_number')}
+                      style={{ width: '200px' }}
                     >
                       <div className="flex items-center justify-between">
                         <span>Ticket</span>
                         {getSortIcon('ticket_number')}
                       </div>
                     </th>
-                    <th className="table-header-cell">Customer</th>
+                    <th className="table-header-cell" style={{ width: '160px' }}>Customer</th>
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('type')}
+                      style={{ width: '110px' }}
                     >
                       <div className="flex items-center justify-between">
                         <span>Type</span>
@@ -310,6 +373,7 @@ const TicketsPage = () => {
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('priority')}
+                      style={{ width: '90px' }}
                     >
                       <div className="flex items-center justify-between">
                         <span>Priority</span>
@@ -319,23 +383,25 @@ const TicketsPage = () => {
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('status')}
+                      style={{ width: '110px' }}
                     >
                       <div className="flex items-center justify-between">
                         <span>Status</span>
                         {getSortIcon('status')}
                       </div>
                     </th>
-                    <th className="table-header-cell">Technician</th>
+                    <th className="table-header-cell" style={{ width: '140px' }}>Technician</th>
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('created_at')}
+                      style={{ width: '110px' }}
                     >
                       <div className="flex items-center justify-between">
                         <span>Created</span>
                         {getSortIcon('created_at')}
                       </div>
                     </th>
-                    <th className="table-header-cell text-center">Actions</th>
+                    <th className="table-header-cell text-center" style={{ width: '100px' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody className="table-body">
@@ -346,37 +412,37 @@ const TicketsPage = () => {
                           <div className="font-medium text-gray-900">
                             {ticket.ticket_number}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 truncate" title={ticket.title}>
                             {ticket.title}
                           </div>
                         </div>
                       </td>
                       <td className="table-cell">
                         <div>
-                          <div className="font-medium text-gray-900">
+                          <div className="font-medium text-gray-900 truncate" title={ticket.customer_name}>
                             {ticket.customer_name}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 truncate">
                             {ticket.customer_phone}
                           </div>
                         </div>
                       </td>
-                      <td className="table-cell">
+                      <td className="table-cell whitespace-nowrap" style={{ width: '110px' }}>
                         <span className="capitalize">{formatTypeName(ticket.type)}</span>
                       </td>
-                      <td className="table-cell">
+                      <td className="table-cell whitespace-nowrap">
                         {getPriorityBadge(ticket.priority)}
                       </td>
-                      <td className="table-cell">
+                      <td className="table-cell whitespace-nowrap">
                         {getStatusBadge(ticket.status)}
                       </td>
                       <td className="table-cell">
                         {ticket.technician_name ? (
                           <div>
-                            <div className="font-medium text-gray-900">
+                            <div className="font-medium text-gray-900 truncate" title={ticket.technician_name}>
                               {ticket.technician_name}
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-gray-500 truncate">
                               {ticket.employee_id}
                             </div>
                           </div>
@@ -384,7 +450,7 @@ const TicketsPage = () => {
                           <span className="text-gray-400">Unassigned</span>
                         )}
                       </td>
-                      <td className="table-cell">
+                      <td className="table-cell whitespace-nowrap" style={{ width: '110px' }}>
                         <div className="text-sm text-gray-900">
                           {new Date(ticket.created_at).toLocaleDateString()}
                         </div>
@@ -392,14 +458,16 @@ const TicketsPage = () => {
                           {new Date(ticket.created_at).toLocaleTimeString()}
                         </div>
                       </td>
-                      <td className="table-cell">
-                        <Link
-                          to={`/tickets/${ticket.id}`}
-                          className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                          title="View Details"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Link>
+                      <td className="table-cell" style={{ width: '100px' }}>
+                        <div className="flex justify-center">
+                          <Link
+                            to={`/tickets/${ticket.id}`}
+                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                            title="View Details"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Link>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -445,11 +513,29 @@ const TicketsPage = () => {
                 </button>
               </div>
               <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <label className="text-sm text-gray-700">Show</label>
+                    <select
+                      value={limit}
+                      onChange={(e) => {
+                        setLimit(parseInt(e.target.value))
+                        setCurrentPage(1)
+                      }}
+                      className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                    <span className="text-sm text-gray-700">rows</span>
+                  </div>
+                  <div className="border-l border-gray-300 h-6"></div>
                   <p className="text-sm text-gray-700">
-                    Showing <span className="font-medium">{((currentPage - 1) * 5) + 1}</span> to{' '}
+                    Showing <span className="font-medium">{((currentPage - 1) * limit) + 1}</span> to{' '}
                     <span className="font-medium">
-                      {Math.min(currentPage * 5, ticketsData.data.pagination.total)}
+                      {Math.min(currentPage * limit, ticketsData.data.pagination.total)}
                     </span>{' '}
                     of <span className="font-medium">{ticketsData.data.pagination.total}</span> results
                   </p>
@@ -463,7 +549,13 @@ const TicketsPage = () => {
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
-                    {Array.from({ length: ticketsData.data.pagination.pages }, (_, i) => i + 1).map((page) => (
+                    {Array.from({ length: Math.min(ticketsData.data.pagination.pages, 10) }, (_, i) => {
+                      const totalPages = ticketsData.data.pagination.pages;
+                      if (totalPages <= 10) return i + 1;
+                      if (currentPage <= 5) return i + 1;
+                      if (currentPage >= totalPages - 4) return totalPages - 9 + i;
+                      return currentPage - 5 + i;
+                    }).map((page) => (
                       <button
                         key={page}
                         onClick={() => setCurrentPage(page)}

@@ -46,7 +46,7 @@ export const customerService = {
 
   // Get customer statistics
   getCustomerStats: async () => {
-    const response = await api.get('/customers/stats/overview')
+    const response = await api.get('/customers/stats')
     return response
   }
 }

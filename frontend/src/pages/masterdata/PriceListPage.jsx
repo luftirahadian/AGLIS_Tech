@@ -13,7 +13,7 @@ const PriceListPage = () => {
   const [sortBy, setSortBy] = useState('base_price');
   const [sortOrder, setSortOrder] = useState('desc');
   const [serviceTypePages, setServiceTypePages] = useState({});
-  const limit = 5;
+  const [limit, setLimit] = useState(10);
 
   const serviceTypes = [
     { code: 'installation', name: 'Installation' },
@@ -165,7 +165,7 @@ const PriceListPage = () => {
 
       {/* Search and Filters */}
       <div className="bg-white shadow rounded-lg p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Search
@@ -226,6 +226,24 @@ const PriceListPage = () => {
               <option value="all">Semua Harga</option>
               <option value="true">Gratis</option>
               <option value="false">Berbayar</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Rows Per Table
+            </label>
+            <select
+              className="form-input"
+              value={limit}
+              onChange={(e) => {
+                setLimit(parseInt(e.target.value))
+                setServiceTypePages({}) // Reset all pages
+              }}
+            >
+              <option value="5">5 rows</option>
+              <option value="10">10 rows</option>
+              <option value="25">25 rows</option>
+              <option value="50">50 rows</option>
             </select>
           </div>
         </div>

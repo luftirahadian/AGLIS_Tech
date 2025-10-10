@@ -16,12 +16,12 @@ const ODPPage = () => {
   const [sortBy, setSortBy] = useState('name')
   const [sortOrder, setSortOrder] = useState('asc')
   const [page, setPage] = useState(1)
-  const limit = 5
+  const [limit, setLimit] = useState(10)
   const queryClient = useQueryClient()
 
   // Fetch ODPs with pagination
   const { data: odpsResponse, isLoading } = useQuery(
-    ['odps', filterStatus, filterArea, searchTerm, sortBy, sortOrder, page],
+    ['odps', filterStatus, filterArea, searchTerm, sortBy, sortOrder, page, limit],
     () => odpService.getAll({
       status: filterStatus !== 'all' ? filterStatus : undefined,
       area: filterArea !== 'all' ? filterArea : undefined,
@@ -397,70 +397,92 @@ const ODPPage = () => {
           </div>
 
           {/* Pagination */}
-          {pagination.pages > 1 && (
-            <div className="bg-white shadow rounded-lg">
-              <div className="px-4 py-3 border-t border-gray-200 sm:px-6">
-                <div className="flex-1 flex justify-between sm:hidden">
-                  <button
-                    onClick={() => setPage(Math.max(1, page - 1))}
-                    disabled={page === 1}
-                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
-                    disabled={page === (pagination.pages || 1)}
-                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
+          <div className="bg-white shadow rounded-lg">
+            <div className="px-4 py-3 border-t border-gray-200 sm:px-6">
+              <div className="flex-1 flex justify-between sm:hidden">
+                <button
+                  onClick={() => setPage(Math.max(1, page - 1))}
+                  disabled={page === 1}
+                  className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
+                  disabled={page === (pagination.pages || 1)}
+                  className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
+              </div>
+              <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <label className="text-sm text-gray-700">Show</label>
+                    <select
+                      value={limit}
+                      onChange={(e) => {
+                        setLimit(parseInt(e.target.value))
+                        setPage(1)
+                      }}
+                      className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                    <span className="text-sm text-gray-700">rows</span>
+                  </div>
+                  <div className="border-l border-gray-300 h-6"></div>
+                  <p className="text-sm text-gray-700">
+                    Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
+                    <span className="font-medium">
+                      {Math.min(page * limit, pagination.total || 0)}
+                    </span>{' '}
+                    of <span className="font-medium">{pagination.total || 0}</span> results
+                  </p>
                 </div>
-                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-sm text-gray-700">
-                      Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
-                      <span className="font-medium">
-                        {Math.min(page * limit, pagination.total || 0)}
-                      </span>{' '}
-                      of <span className="font-medium">{pagination.total || 0}</span> results
-                    </p>
-                  </div>
-                  <div>
-                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <div>
+                  <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <button
+                      onClick={() => setPage(Math.max(1, page - 1))}
+                      disabled={page === 1}
+                      className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    {Array.from({ length: Math.min(pagination.pages || 1, 10) }, (_, i) => {
+                      const totalPages = pagination.pages || 1;
+                      if (totalPages <= 10) return i + 1;
+                      if (page <= 5) return i + 1;
+                      if (page >= totalPages - 4) return totalPages - 9 + i;
+                      return page - 5 + i;
+                    }).map((pageNum) => (
                       <button
-                        onClick={() => setPage(Math.max(1, page - 1))}
-                        disabled={page === 1}
-                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        key={pageNum}
+                        onClick={() => setPage(pageNum)}
+                        className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                          page === pageNum
+                            ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                            : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                        }`}
                       >
-                        <ChevronLeft className="h-5 w-5" />
+                        {pageNum}
                       </button>
-                      {Array.from({ length: pagination.pages || 1 }, (_, i) => i + 1).map((pageNum) => (
-                        <button
-                          key={pageNum}
-                          onClick={() => setPage(pageNum)}
-                          className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                            page === pageNum
-                              ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                              : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                          }`}
-                        >
-                          {pageNum}
-                        </button>
-                      ))}
-                      <button
-                        onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
-                        disabled={page === (pagination.pages || 1)}
-                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        <ChevronRight className="h-5 w-5" />
-                      </button>
-                    </nav>
-                  </div>
+                    ))}
+                    <button
+                      onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
+                      disabled={page === (pagination.pages || 1)}
+                      className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </nav>
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </>
       )}
 

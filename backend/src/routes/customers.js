@@ -5,6 +5,37 @@ const pool = require('../config/database');
 
 const router = express.Router();
 
+// Get customer statistics - MUST be before /:id route
+router.get('/stats', async (req, res) => {
+  try {
+    const statsQuery = `
+      SELECT 
+        COUNT(*) as total_customers,
+        COUNT(*) FILTER (WHERE account_status = 'active') as active_customers,
+        COUNT(*) FILTER (WHERE account_status = 'inactive') as inactive_customers,
+        COUNT(*) FILTER (WHERE account_status = 'suspended') as suspended_customers,
+        COUNT(*) FILTER (WHERE payment_status = 'paid') as paid_customers,
+        COUNT(*) FILTER (WHERE payment_status = 'unpaid') as unpaid_customers,
+        COUNT(*) FILTER (WHERE payment_status = 'pending') as pending_customers,
+        COUNT(*) FILTER (WHERE account_status != 'active') as non_active_customers
+      FROM customers
+    `;
+    
+    const result = await pool.query(statsQuery);
+    
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Get customer stats error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Get all customers with enhanced filtering
 router.get('/', async (req, res) => {
   try {
