@@ -20,7 +20,7 @@ const validateServiceCategory = [
 // Get all service categories
 router.get('/', async (req, res) => {
   try {
-    const { service_type_code, active_only } = req.query;
+    const { service_type_code, active_only, search, sort_by, sort_order, page = 1, limit = 10 } = req.query;
     
     let query = `
       SELECT sc.id, sc.service_type_code, sc.category_code, sc.category_name,
@@ -34,9 +34,11 @@ router.get('/', async (req, res) => {
     
     const conditions = [];
     const params = [];
+    let paramCount = 0;
     
     if (service_type_code) {
-      conditions.push(`sc.service_type_code = $${params.length + 1}`);
+      paramCount++;
+      conditions.push(`sc.service_type_code = $${paramCount}`);
       params.push(service_type_code);
     }
     
@@ -44,15 +46,64 @@ router.get('/', async (req, res) => {
       conditions.push('sc.is_active = true');
     }
     
+    if (search) {
+      paramCount++;
+      conditions.push(`(sc.category_name ILIKE $${paramCount} OR sc.category_code ILIKE $${paramCount} OR sc.description ILIKE $${paramCount})`);
+      params.push(`%${search}%`);
+    }
+    
     if (conditions.length > 0) {
       query += ' WHERE ' + conditions.join(' AND ');
     }
     
-    query += ' ORDER BY sc.service_type_code, sc.display_order, sc.category_name';
+    // Sorting
+    const allowedSortColumns = {
+      'category_name': 'sc.category_name',
+      'category_code': 'sc.category_code',
+      'service_type_code': 'sc.service_type_code',
+      'display_order': 'sc.display_order',
+      'estimated_duration': 'sc.estimated_duration',
+      'is_active': 'sc.is_active'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 'sc.service_type_code, sc.display_order, sc.category_name';
+    const sortDirection = sort_order === 'desc' ? 'DESC' : 'ASC';
+    query += ` ORDER BY ${sortColumn} ${sortDirection}`;
+    
+    // Get total count
+    let countQuery = `
+      SELECT COUNT(*) as total 
+      FROM service_categories sc
+      JOIN service_types st ON sc.service_type_code = st.type_code
+    `;
+    if (conditions.length > 0) {
+      countQuery += ' WHERE ' + conditions.join(' AND ');
+    }
+    const countResult = await pool.query(countQuery, params);
+    const totalRecords = parseInt(countResult.rows[0].total);
+    
+    // Pagination
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+    paramCount++;
+    query += ` LIMIT $${paramCount}`;
+    params.push(parseInt(limit));
+    
+    paramCount++;
+    query += ` OFFSET $${paramCount}`;
+    params.push(offset);
     
     const result = await pool.query(query, params);
     
-    res.json(result.rows);
+    res.json({
+      success: true,
+      data: result.rows,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: totalRecords,
+        pages: Math.ceil(totalRecords / parseInt(limit))
+      }
+    });
   } catch (error) {
     console.error('Error fetching service categories:', error);
     res.status(500).json({ message: 'Error fetching service categories' });

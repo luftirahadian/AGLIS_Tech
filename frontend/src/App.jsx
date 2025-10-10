@@ -12,7 +12,9 @@ import CustomerDetailPage from './pages/customers/CustomerDetailPage'
 import TechniciansPage from './pages/technicians/TechniciansPage'
 import TechnicianDetailPage from './pages/technicians/TechnicianDetailPage'
 import InventoryPage from './pages/inventory/InventoryPage'
+import InventoryStockPage from './pages/inventory/InventoryStockPage'
 import PackagesPage from './pages/masterdata/PackagesPage'
+import PriceListPage from './pages/masterdata/PriceListPage'
 import EquipmentPage from './pages/masterdata/EquipmentPage'
 import ODPPage from './pages/masterdata/ODPPage'
 import ServiceTypesPage from './pages/masterdata/ServiceTypesPage'
@@ -70,11 +72,13 @@ function App() {
         
         {/* Inventory */}
         <Route path="inventory" element={<InventoryPage />} />
+        <Route path="inventory-stock" element={<InventoryStockPage />} />
         
         {/* Master Data */}
         <Route path="master-data/service-types" element={<ServiceTypesPage />} />
         <Route path="master-data/service-categories" element={<ServiceCategoriesPage />} />
         <Route path="master-data/packages" element={<PackagesPage />} />
+        <Route path="master-data/price-list" element={<PriceListPage />} />
         <Route path="master-data/equipment" element={<EquipmentPage />} />
         <Route path="master-data/odp" element={<ODPPage />} />
         

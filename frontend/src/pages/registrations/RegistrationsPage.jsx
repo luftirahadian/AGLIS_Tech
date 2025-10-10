@@ -3,47 +3,14 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 import {
   UserPlus, Search, Filter, Eye, CheckCircle, XCircle, Clock,
   Calendar, Phone, Mail, MapPin, Package, Shield, FileCheck,
-  UserCheck, ClipboardCheck, Home as HomeIcon, ChevronRight, BarChart3
+  UserCheck, ClipboardCheck, Home as HomeIcon, ChevronRight, BarChart3,
+  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
-
-// KPI Card Component
-const KPICard = ({ icon: Icon, title, value, color = 'blue' }) => {
-  const getColorClasses = (color) => {
-    const colors = {
-      blue: 'bg-blue-500 text-blue-600 bg-blue-50',
-      green: 'bg-green-500 text-green-600 bg-green-50',
-      yellow: 'bg-yellow-500 text-yellow-600 bg-yellow-50',
-      red: 'bg-red-500 text-red-600 bg-red-50',
-      purple: 'bg-purple-500 text-purple-600 bg-purple-50',
-      indigo: 'bg-indigo-500 text-indigo-600 bg-indigo-50',
-      gray: 'bg-gray-500 text-gray-600 bg-gray-50'
-    }
-    return colors[color] || colors.blue
-  }
-
-  const colorClasses = getColorClasses(color).split(' ')
-  const [iconBg, textColor, cardBg] = colorClasses
-
-  return (
-    <div className={`${cardBg} rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200`}>
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-          <div className="flex items-baseline">
-            <span className="text-2xl font-bold text-gray-900">{value}</span>
-          </div>
-        </div>
-        <div className={`${iconBg} p-3 rounded-lg flex-shrink-0`}>
-          <Icon className="h-6 w-6 text-white" />
-        </div>
-      </div>
-    </div>
-  )
-}
+import KPICard from '../../components/dashboard/KPICard'
 
 const RegistrationsPage = () => {
   const queryClient = useQueryClient()
@@ -55,6 +22,8 @@ const RegistrationsPage = () => {
   const [actionNotes, setActionNotes] = useState('')
   const [rejectionReason, setRejectionReason] = useState('')
   const [surveyDate, setSurveyDate] = useState('')
+  const [sortBy, setSortBy] = useState('created_at')
+  const [sortOrder, setSortOrder] = useState('DESC')
   
   const [filters, setFilters] = useState({
     search: '',
@@ -63,11 +32,13 @@ const RegistrationsPage = () => {
 
   // Fetch registrations
   const { data: registrationsData, isLoading } = useQuery(
-    ['registrations', filters, currentPage],
+    ['registrations', filters, currentPage, sortBy, sortOrder],
     () => registrationService.getAll({
       ...filters,
       page: currentPage,
-      limit: 10
+      limit: 5,
+      sort_by: sortBy,
+      sort_order: sortOrder
     }),
     {
       keepPreviousData: true
@@ -159,6 +130,25 @@ const RegistrationsPage = () => {
     }
   }
 
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'ASC' ? 'DESC' : 'ASC')
+    } else {
+      setSortBy(column)
+      setSortOrder('DESC')
+    }
+    setCurrentPage(1)
+  }
+
+  const getSortIcon = (column) => {
+    if (sortBy !== column) {
+      return <ArrowUpDown className="h-4 w-4 text-gray-400" />
+    }
+    return sortOrder === 'ASC' 
+      ? <ArrowUp className="h-4 w-4 text-blue-600" />
+      : <ArrowDown className="h-4 w-4 text-blue-600" />
+  }
+
   const getStatusBadge = (status) => {
     const badges = {
       pending_verification: { label: 'Pending', color: 'bg-yellow-100 text-yellow-800' },
@@ -174,38 +164,38 @@ const RegistrationsPage = () => {
   }
 
   const stats = statsData || {}
+  const totalRegistrations = registrationsData?.data?.pagination?.total || 0
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Pendaftaran Customer</h1>
-            <p className="text-gray-600 mt-1">Kelola pendaftaran customer baru dari public form</p>
-          </div>
-          <div className="flex gap-3">
-            <Link
-              to="/registration-analytics"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-            >
-              <BarChart3 className="-ml-1 mr-2 h-5 w-5" />
-              Analytics
-            </Link>
-            <a
-              href="/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-            >
-              <UserPlus className="-ml-1 mr-2 h-5 w-5" />
-              Form Pendaftaran
-            </a>
-          </div>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Pendaftaran Customer</h1>
+          <p className="text-gray-600">Kelola pendaftaran customer baru dari public form</p>
         </div>
+        <div className="flex gap-3">
+          <Link
+            to="/registration-analytics"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+          >
+            <BarChart3 className="-ml-1 mr-2 h-5 w-5" />
+            Analytics
+          </Link>
+          <a
+            href="/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            <UserPlus className="h-4 w-4 mr-2" />
+            Form Pendaftaran
+          </a>
+        </div>
+      </div>
 
-        {/* Statistics Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      {/* Statistics Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard 
             icon={FileCheck} 
             title="Total Pendaftaran" 
@@ -232,169 +222,199 @@ const RegistrationsPage = () => {
           />
         </div>
 
-        {/* Filters */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Search */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Search</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Cari nama, email, nomor..."
-                  className="form-input pl-10"
-                  value={filters.search}
-                  onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                />
-              </div>
-            </div>
-
-            {/* Status Filter */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
-              <select
-                className="form-input"
-                value={filters.status}
-                onChange={(e) => setFilters({ ...filters, status: e.target.value })}
-              >
-                <option value="">Semua Status</option>
-                <option value="pending_verification">Pending Verification</option>
-                <option value="verified">Verified</option>
-                <option value="survey_scheduled">Survey Scheduled</option>
-                <option value="survey_completed">Survey Completed</option>
-                <option value="approved">Approved</option>
-                <option value="rejected">Rejected</option>
-              </select>
+      {/* Filters */}
+      <div className="bg-white shadow rounded-lg p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {/* Search */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Search</label>
+            <div className="relative">
+              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Cari nama, email, nomor..."
+                className="form-input pl-10"
+                value={filters.search}
+                onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+              />
             </div>
           </div>
-        </div>
 
-        {/* Table */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          {/* Status Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <select
+              className="form-input"
+              value={filters.status}
+              onChange={(e) => setFilters({ ...filters, status: e.target.value })}
+            >
+              <option value="">Semua Status</option>
+              <option value="pending_verification">Pending Verification</option>
+              <option value="verified">Verified</option>
+              <option value="survey_scheduled">Survey Scheduled</option>
+              <option value="survey_completed">Survey Completed</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Table */}
+      <div className="card">
+        <div className="card-header">
+          <h2 className="text-lg font-semibold text-gray-900">
+            All Registrations
+            <span className="text-sm font-normal text-gray-500 ml-2">
+              ({totalRegistrations} total)
+            </span>
+          </h2>
+        </div>
+        <div className="card-body p-0">
           {isLoading ? (
-            <div className="p-12 text-center">
-              <LoadingSpinner />
+            <div className="py-12">
+              <LoadingSpinner className="mx-auto" />
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+              <table className="table">
+                <thead className="table-header">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Nomor Registrasi
+                    <th 
+                      className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => handleSort('registration_number')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>Nomor Registrasi</span>
+                        {getSortIcon('registration_number')}
+                      </div>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Customer
+                    <th 
+                      className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => handleSort('full_name')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>Customer</span>
+                        {getSortIcon('full_name')}
+                      </div>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Paket
+                    <th className="table-header-cell">Paket</th>
+                    <th 
+                      className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => handleSort('status')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>Status</span>
+                        {getSortIcon('status')}
+                      </div>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Status
+                    <th 
+                      className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => handleSort('created_at')}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>Tanggal</span>
+                        {getSortIcon('created_at')}
+                      </div>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Tanggal
-                    </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Actions
-                    </th>
+                    <th className="table-header-cell text-center">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="table-body">
                   {registrationsData?.data?.registrations.map((reg) => (
-                    <tr key={reg.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-blue-600">{reg.registration_number}</div>
-                        <div className="text-xs text-gray-500">{new Date(reg.created_at).toLocaleDateString('id-ID')}</div>
+                    <tr key={reg.id}>
+                      <td className="table-cell">
+                        <div className="font-medium text-blue-600">{reg.registration_number}</div>
+                        <div className="text-sm text-gray-500">{new Date(reg.created_at).toLocaleDateString('id-ID')}</div>
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
-                          <div>
-                            <div className="text-sm font-medium text-gray-900">{reg.full_name}</div>
-                            <div className="text-xs text-gray-500 flex items-center mt-1">
-                              <Phone className="h-3 w-3 mr-1" />
-                              {reg.phone}
-                            </div>
-                            <div className="text-xs text-gray-500 flex items-center">
-                              <Mail className="h-3 w-3 mr-1" />
-                              {reg.email}
-                            </div>
-                          </div>
+                      <td className="table-cell">
+                        <div className="font-medium text-gray-900">{reg.full_name}</div>
+                        <div className="flex items-center text-sm text-gray-500 mt-1">
+                          <Phone className="h-3 w-3 mr-1" />
+                          {reg.phone}
+                        </div>
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Mail className="h-3 w-3 mr-1" />
+                          {reg.email}
                         </div>
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900">{reg.package_name}</div>
-                        <div className="text-xs text-gray-500">
+                      <td className="table-cell">
+                        <div className="font-medium">{reg.package_name}</div>
+                        <div className="text-sm text-gray-500">
                           Rp {reg.monthly_price?.toLocaleString('id-ID')}/bln
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="table-cell">
                         {getStatusBadge(reg.status)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {new Date(reg.created_at).toLocaleString('id-ID')}
+                      <td className="table-cell">
+                        <div className="text-sm text-gray-900">
+                          {new Date(reg.created_at).toLocaleDateString('id-ID')}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {new Date(reg.created_at).toLocaleTimeString('id-ID')}
+                        </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div className="flex items-center justify-end space-x-2">
+                      <td className="table-cell">
+                        <div className="flex items-center justify-center space-x-2">
                           <button
                             onClick={() => {
                               setSelectedRegistration(reg)
                               setShowDetailModal(true)
                             }}
-                            className="text-blue-600 hover:text-blue-900"
+                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
                             title="View Details"
                           >
-                            <Eye className="h-5 w-5" />
+                            <Eye className="h-4 w-4" />
                           </button>
 
                           {reg.status === 'pending_verification' && (
                             <button
                               onClick={() => handleAction(reg, 'verified')}
-                              className="text-green-600 hover:text-green-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
                               title="Verify"
                             >
-                              <CheckCircle className="h-5 w-5" />
+                              <CheckCircle className="h-4 w-4" />
                             </button>
                           )}
 
                           {reg.status === 'verified' && (
                             <button
                               onClick={() => handleAction(reg, 'survey_scheduled')}
-                              className="text-indigo-600 hover:text-indigo-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors"
                               title="Schedule Survey"
                             >
-                              <Calendar className="h-5 w-5" />
+                              <Calendar className="h-4 w-4" />
                             </button>
                           )}
 
                           {reg.status === 'survey_completed' && (
                             <button
                               onClick={() => handleAction(reg, 'approved')}
-                              className="text-green-600 hover:text-green-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
                               title="Approve"
                             >
-                              <UserCheck className="h-5 w-5" />
+                              <UserCheck className="h-4 w-4" />
                             </button>
                           )}
 
                           {reg.status === 'approved' && !reg.customer_id && (
                             <button
                               onClick={() => handleCreateCustomer(reg)}
-                              className="text-purple-600 hover:text-purple-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors"
                               title="Create Customer"
                             >
-                              <HomeIcon className="h-5 w-5" />
+                              <HomeIcon className="h-4 w-4" />
                             </button>
                           )}
 
                           {!['approved', 'rejected', 'cancelled'].includes(reg.status) && (
                             <button
                               onClick={() => handleAction(reg, 'rejected')}
-                              className="text-red-600 hover:text-red-900"
+                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
                               title="Reject"
                             >
-                              <XCircle className="h-5 w-5" />
+                              <XCircle className="h-4 w-4" />
                             </button>
                           )}
                         </div>
@@ -414,34 +434,68 @@ const RegistrationsPage = () => {
           )}
 
           {/* Pagination */}
-          {registrationsData?.data?.pagination && registrationsData.data.pagination.pages > 1 && (
-            <div className="bg-gray-50 px-6 py-4 border-t flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-700">
-                  Showing <span className="font-medium">{(currentPage - 1) * 10 + 1}</span> to{' '}
-                  <span className="font-medium">
-                    {Math.min(currentPage * 10, registrationsData.data.pagination.total)}
-                  </span>{' '}
-                  of <span className="font-medium">{registrationsData.data.pagination.total}</span> results
-                </p>
-              </div>
-              <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
-                {Array.from({ length: registrationsData.data.pagination.pages }, (_, i) => i + 1).map((page) => (
+          {registrationsData?.data?.registrations?.length > 0 && registrationsData?.data?.pagination && (
+            <div className="bg-white border-t border-gray-200 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex-1 flex justify-between sm:hidden">
                   <button
-                    key={page}
-                    onClick={() => setCurrentPage(page)}
-                    className={`
-                      relative inline-flex items-center px-4 py-2 border text-sm font-medium
-                      ${page === currentPage
-                        ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                        : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                      }
-                    `}
+                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                    disabled={currentPage === 1}
+                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {page}
+                    Previous
                   </button>
-                ))}
-              </nav>
+                  <button
+                    onClick={() => setCurrentPage(Math.min(registrationsData.data.pagination.pages, currentPage + 1))}
+                    disabled={currentPage === registrationsData.data.pagination.pages}
+                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
+                </div>
+                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-gray-700">
+                      Showing <span className="font-medium">{(currentPage - 1) * 5 + 1}</span> to{' '}
+                      <span className="font-medium">
+                        {Math.min(currentPage * 5, registrationsData.data.pagination.total)}
+                      </span>{' '}
+                      of <span className="font-medium">{registrationsData.data.pagination.total}</span> results
+                    </p>
+                  </div>
+                  <div>
+                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                      <button
+                        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                        disabled={currentPage === 1}
+                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      {Array.from({ length: registrationsData.data.pagination.pages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                            currentPage === page
+                              ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                              : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                      <button
+                        onClick={() => setCurrentPage(Math.min(registrationsData.data.pagination.pages, currentPage + 1))}
+                        disabled={currentPage === registrationsData.data.pagination.pages}
+                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </nav>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>

@@ -18,7 +18,7 @@ const validateServiceType = [
 // Get all service types
 router.get('/', async (req, res) => {
   try {
-    const { active_only } = req.query;
+    const { active_only, search, sort_by, sort_order, page = 1, limit = 10 } = req.query;
     
     let query = `
       SELECT id, type_code, type_name, description, icon, 
@@ -27,15 +27,67 @@ router.get('/', async (req, res) => {
       FROM service_types
     `;
     
+    const params = [];
+    let paramCount = 0;
+    const conditions = [];
+    
     if (active_only === 'true') {
-      query += ' WHERE is_active = true';
+      conditions.push('is_active = true');
     }
     
-    query += ' ORDER BY display_order, type_name';
+    if (search) {
+      paramCount++;
+      conditions.push(`(type_name ILIKE $${paramCount} OR type_code ILIKE $${paramCount} OR description ILIKE $${paramCount})`);
+      params.push(`%${search}%`);
+    }
     
-    const result = await pool.query(query);
+    if (conditions.length > 0) {
+      query += ' WHERE ' + conditions.join(' AND ');
+    }
     
-    res.json(result.rows);
+    // Sorting
+    const allowedSortColumns = {
+      'type_name': 'type_name',
+      'type_code': 'type_code',
+      'display_order': 'display_order',
+      'default_duration': 'default_duration',
+      'is_active': 'is_active'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 'display_order, type_name';
+    const sortDirection = sort_order === 'desc' ? 'DESC' : 'ASC';
+    query += ` ORDER BY ${sortColumn} ${sortDirection}`;
+    
+    // Get total count
+    let countQuery = 'SELECT COUNT(*) as total FROM service_types';
+    if (conditions.length > 0) {
+      countQuery += ' WHERE ' + conditions.join(' AND ');
+    }
+    const countResult = await pool.query(countQuery, params);
+    const totalRecords = parseInt(countResult.rows[0].total);
+    
+    // Pagination
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+    paramCount++;
+    query += ` LIMIT $${paramCount}`;
+    params.push(parseInt(limit));
+    
+    paramCount++;
+    query += ` OFFSET $${paramCount}`;
+    params.push(offset);
+    
+    const result = await pool.query(query, params);
+    
+    res.json({
+      success: true,
+      data: result.rows,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: totalRecords,
+        pages: Math.ceil(totalRecords / parseInt(limit))
+      }
+    });
   } catch (error) {
     console.error('Error fetching service types:', error);
     res.status(500).json({ message: 'Error fetching service types' });

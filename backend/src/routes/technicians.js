@@ -9,7 +9,9 @@ router.get('/', async (req, res) => {
   try {
     const { 
       page = 1, limit = 10, search, employment_status, availability_status,
-      skill_level, work_zone, specialization
+      skill_level, work_zone, specialization,
+      sort_by = 'created_at',
+      sort_order = 'DESC'
     } = req.query;
     const offset = (page - 1) * limit;
 
@@ -65,7 +67,22 @@ router.get('/', async (req, res) => {
       params.push(specialization);
     }
 
-    query += ` GROUP BY t.id, u.username, u.email ORDER BY t.created_at DESC LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+    query += ` GROUP BY t.id, u.username, u.email`;
+    
+    // Dynamic sorting with whitelist for security
+    const allowedSortColumns = {
+      'full_name': 't.full_name',
+      'employee_id': 't.employee_id',
+      'availability_status': 't.availability_status',
+      'skill_level': 't.skill_level',
+      'work_zone': 't.work_zone',
+      'created_at': 't.created_at'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 't.created_at';
+    const sortDirection = sort_order.toUpperCase() === 'ASC' ? 'ASC' : 'DESC';
+    
+    query += ` ORDER BY ${sortColumn} ${sortDirection} LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
     params.push(limit, offset);
 
     const result = await pool.query(query, params);

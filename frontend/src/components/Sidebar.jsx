@@ -67,7 +67,7 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
     },
     {
       name: 'Inventory',
-      href: '/inventory',
+      href: '/inventory-stock',
       icon: Package,
       roles: ['admin', 'supervisor', 'technician']
     },
@@ -88,6 +88,10 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
         {
           name: 'Paket Langganan',
           href: '/master-data/packages'
+        },
+        {
+          name: 'Price List',
+          href: '/master-data/price-list'
         },
         {
           name: 'Equipment',

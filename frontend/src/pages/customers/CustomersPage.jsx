@@ -3,12 +3,13 @@ import { useQuery } from 'react-query'
 import { 
   Users, Plus, Search, Filter, Eye, Edit, Trash2, 
   Phone, Mail, MapPin, Package, CreditCard, Activity,
-  ChevronLeft, ChevronRight, RefreshCw, XCircle
+  ChevronLeft, ChevronRight, RefreshCw, XCircle, 
+  ArrowUpDown, ArrowUp, ArrowDown
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
-import StatsCard from '../../components/common/StatsCard'
+import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
@@ -24,8 +25,10 @@ const CustomersPage = () => {
   })
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 10
+    limit: 5
   })
+  const [sortBy, setSortBy] = useState('created_at')
+  const [sortOrder, setSortOrder] = useState('DESC')
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [editingCustomer, setEditingCustomer] = useState(null)
 
@@ -36,8 +39,13 @@ const CustomersPage = () => {
     refetch: refetchCustomers,
     error: customersError
   } = useQuery(
-    ['customers', filters, pagination], 
-    () => customerService.getCustomers({ ...filters, ...pagination }),
+    ['customers', filters, pagination, sortBy, sortOrder], 
+    () => customerService.getCustomers({ 
+      ...filters, 
+      ...pagination,
+      sort_by: sortBy,
+      sort_order: sortOrder
+    }),
     {
       keepPreviousData: true,
       staleTime: 30000
@@ -92,6 +100,27 @@ const CustomersPage = () => {
   const handleCloseForm = () => {
     setShowCreateModal(false)
     setEditingCustomer(null)
+  }
+
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      // Toggle sort order
+      setSortOrder(sortOrder === 'ASC' ? 'DESC' : 'ASC')
+    } else {
+      // New column, default to DESC
+      setSortBy(column)
+      setSortOrder('DESC')
+    }
+    setPagination(prev => ({ ...prev, page: 1 })) // Reset to first page when sorting changes
+  }
+
+  const getSortIcon = (column) => {
+    if (sortBy !== column) {
+      return <ArrowUpDown className="h-4 w-4 text-gray-400" />
+    }
+    return sortOrder === 'ASC' 
+      ? <ArrowUp className="h-4 w-4 text-blue-600" />
+      : <ArrowDown className="h-4 w-4 text-blue-600" />
   }
 
   const getStatusBadge = (status, type = 'account') => {
@@ -166,29 +195,29 @@ const CustomersPage = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatsCard
+        <KPICard
           icon={Users}
           title="Total Customer"
           value={totalCustomers}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           icon={Activity}
           title="Active"
           value={customers.filter(c => c.account_status === 'active').length}
-          iconColor="green"
+          color="green"
         />
-        <StatsCard
+        <KPICard
           icon={CreditCard}
           title="Unpaid"
           value={customers.filter(c => c.payment_status === 'unpaid').length}
-          iconColor="yellow"
+          color="yellow"
         />
-        <StatsCard
+        <KPICard
           icon={XCircle}
           title="Non-Active"
           value={customers.filter(c => c.account_status !== 'active').length}
-          iconColor="red"
+          color="red"
         />
       </div>
 
@@ -287,10 +316,18 @@ const CustomersPage = () => {
 
       {/* Customer Table */}
       <div className="card">
+        <div className="card-header">
+          <h2 className="text-lg font-semibold text-gray-900">
+            All Customers
+            <span className="text-sm font-normal text-gray-500 ml-2">
+              ({totalCustomers} total)
+            </span>
+          </h2>
+        </div>
         <div className="card-body p-0">
           {customersLoading ? (
-            <div className="flex justify-center py-12">
-              <LoadingSpinner />
+            <div className="py-12">
+              <LoadingSpinner className="mx-auto" />
             </div>
           ) : customers.length === 0 ? (
             <div className="text-center py-12">
@@ -301,81 +338,85 @@ const CustomersPage = () => {
           ) : (
             <>
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                <table className="table">
+                  <thead className="table-header">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Customer
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort('name')}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Customer</span>
+                          {getSortIcon('name')}
+                        </div>
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Kontak
+                      <th className="table-header-cell">Kontak</th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort('package_name')}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Paket</span>
+                          {getSortIcon('package_name')}
+                        </div>
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Paket
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort('account_status')}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Status</span>
+                          {getSortIcon('account_status')}
+                        </div>
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Tickets
-                      </th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Actions
-                      </th>
+                      <th className="table-header-cell">Tickets</th>
+                      <th className="table-header-cell text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="table-body">
                     {customers.map((customer) => (
-                      <tr key={customer.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
+                      <tr key={customer.id}>
+                        <td className="table-cell">
                           <div>
-                            <div className="flex items-center">
-                              <div>
-                                <div className="text-sm font-medium text-gray-900">
-                                  {customer.name}
-                                </div>
-                                <div className="text-sm text-gray-500">
-                                  ID: {customer.customer_id}
-                                </div>
-                              </div>
+                            <div className="font-medium text-gray-900">
+                              {customer.name}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              ID: {customer.customer_id}
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900">
-                            <div className="flex items-center mb-1">
-                              <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                              {customer.phone}
+                        <td className="table-cell">
+                          <div className="flex items-center mb-1">
+                            <Phone className="h-3 w-3 mr-1 text-gray-400" />
+                            {customer.phone}
+                          </div>
+                          {customer.email && (
+                            <div className="flex items-center text-sm text-gray-500">
+                              <Mail className="h-3 w-3 mr-1 text-gray-400" />
+                              {customer.email}
                             </div>
-                            {customer.email && (
-                              <div className="flex items-center">
-                                <Mail className="h-3 w-3 mr-1 text-gray-400" />
-                                {customer.email}
-                              </div>
-                            )}
+                          )}
+                        </td>
+                        <td className="table-cell">
+                          <div className="font-medium">{customer.package_name}</div>
+                          <div className="text-sm text-gray-500">
+                            {customer.bandwidth_down} Mbps - {formatCurrency(customer.monthly_price)}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900">
-                            <div className="font-medium">{customer.package_name}</div>
-                            <div className="text-gray-500">
-                              {customer.bandwidth_down} Mbps - {formatCurrency(customer.monthly_price)}
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="table-cell">
                           <div className="space-y-1">
                             {getStatusBadge(customer.account_status, 'account')}
                             {getStatusBadge(customer.payment_status, 'payment')}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <td className="table-cell">
                           <div className="text-center">
                             <div className="font-medium">{customer.total_tickets || 0}</div>
                             <div className="text-xs text-gray-500">total</div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="table-cell">
                           <div className="flex justify-end space-x-2">
                             <Link
                               to={`/customers/${customer.id}`}
@@ -400,20 +441,20 @@ const CustomersPage = () => {
               </div>
 
               {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+              <div className="bg-white border-t border-gray-200 px-6 py-4">
+                <div className="flex items-center justify-between">
                   <div className="flex-1 flex justify-between sm:hidden">
                     <button
                       onClick={() => handlePageChange(pagination.page - 1)}
                       disabled={pagination.page === 1}
-                      className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+                      className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Previous
                     </button>
                     <button
                       onClick={() => handlePageChange(pagination.page + 1)}
                       disabled={pagination.page === totalPages}
-                      className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+                      className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next
                     </button>
@@ -421,50 +462,39 @@ const CustomersPage = () => {
                   <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                     <div>
                       <p className="text-sm text-gray-700">
-                        Showing{' '}
-                        <span className="font-medium">
-                          {(pagination.page - 1) * pagination.limit + 1}
-                        </span>{' '}
-                        to{' '}
+                        Showing <span className="font-medium">{(pagination.page - 1) * pagination.limit + 1}</span> to{' '}
                         <span className="font-medium">
                           {Math.min(pagination.page * pagination.limit, totalCustomers)}
                         </span>{' '}
-                        of{' '}
-                        <span className="font-medium">{totalCustomers}</span> results
+                        of <span className="font-medium">{totalCustomers}</span> results
                       </p>
                     </div>
                     <div>
-                      <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                      <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                         <button
                           onClick={() => handlePageChange(pagination.page - 1)}
                           disabled={pagination.page === 1}
-                          className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+                          className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <ChevronLeft className="h-5 w-5" />
                         </button>
-                        
-                        {/* Page numbers */}
-                        {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                          const page = i + 1
-                          return (
-                            <button
-                              key={page}
-                              onClick={() => handlePageChange(page)}
-                              className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                                page === pagination.page
-                                  ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                                  : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                              }`}
-                            >
-                              {page}
-                            </button>
-                          )
-                        })}
-                        
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                          <button
+                            key={page}
+                            onClick={() => handlePageChange(page)}
+                            className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                              pagination.page === page
+                                ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                                : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                            }`}
+                          >
+                            {page}
+                          </button>
+                        ))}
                         <button
                           onClick={() => handlePageChange(pagination.page + 1)}
                           disabled={pagination.page === totalPages}
-                          className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+                          className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <ChevronRight className="h-5 w-5" />
                         </button>
@@ -472,7 +502,7 @@ const CustomersPage = () => {
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </>
           )}
         </div>

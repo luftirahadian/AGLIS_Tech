@@ -15,6 +15,8 @@ const customerRoutes = require('./routes/customers');
 const technicianRoutes = require('./routes/technicians');
 const ticketRoutes = require('./routes/tickets');
 const inventoryRoutes = require('./routes/inventory');
+const inventoryStockRoutes = require('./routes/inventoryStock');
+const pricelistRoutes = require('./routes/pricelist');
 const packageRoutes = require('./routes/packages');
 const equipmentRoutes = require('./routes/equipment');
 const odpRoutes = require('./routes/odp');
@@ -164,6 +166,16 @@ app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
+app.use('/api/inventory-stock', authMiddleware, inventoryStockRoutes);
+// Pricelist API - allow public read access for customer transparency
+app.use('/api/pricelist', (req, res, next) => {
+  // Allow GET requests without auth (for public viewing)
+  if (req.method === 'GET') {
+    return next();
+  }
+  // Other methods require auth
+  return authMiddleware(req, res, next);
+}, pricelistRoutes);
 // Packages API - allow public read access for registration form
 app.use('/api/packages', (req, res, next) => {
   // Allow GET requests without auth (for public registration)

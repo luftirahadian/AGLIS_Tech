@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 import analyticsService from '../services/analyticsService'
 import LoadingSpinner from '../components/LoadingSpinner'
-import StatsCard from '../components/common/StatsCard'
+import KPICard from '../components/dashboard/KPICard'
 import { formatDistanceToNow } from 'date-fns'
 import { id as localeId } from 'date-fns/locale'
 
@@ -135,47 +135,47 @@ const DashboardPage = () => {
 
       {/* Stats Grid - All Ticket Status */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
-        <StatsCard
+        <KPICard
           title="Total"
           value={stats.total_tickets || 0}
           icon={Ticket}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           title="Open"
           value={stats.open_tickets || 0}
           icon={FileCheck}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           title="Assigned"
           value={stats.assigned_tickets || 0}
           icon={Users}
-          iconColor="indigo"
+          color="indigo"
         />
-        <StatsCard
+        <KPICard
           title="Progress"
           value={stats.in_progress_tickets || 0}
           icon={PlayCircle}
-          iconColor="orange"
+          color="orange"
         />
-        <StatsCard
+        <KPICard
           title="On Hold"
           value={stats.on_hold_tickets || 0}
           icon={PauseCircle}
-          iconColor="yellow"
+          color="yellow"
         />
-        <StatsCard
+        <KPICard
           title="Completed"
           value={stats.completed_tickets || 0}
           icon={CheckCircle}
-          iconColor="green"
+          color="green"
         />
-        <StatsCard
+        <KPICard
           title="Cancelled"
           value={stats.cancelled_tickets || 0}
           icon={XCircle}
-          iconColor="red"
+          color="red"
         />
       </div>
 

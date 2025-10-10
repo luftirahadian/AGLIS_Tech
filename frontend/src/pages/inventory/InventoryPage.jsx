@@ -4,7 +4,7 @@ import { Package, Plus, Search, Trash2, Edit, AlertTriangle } from 'lucide-react
 import inventoryService from '../../services/inventoryService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import InventoryModal from '../../components/inventory/InventoryModal'
-import StatsCard from '../../components/common/StatsCard'
+import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
 const InventoryPage = () => {
@@ -113,29 +113,29 @@ const InventoryPage = () => {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <StatsCard
+        <KPICard
           icon={Package}
           title="Total Items"
           value={totalItems}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           icon={Package}
           title="Active Items"
           value={activeItems}
-          iconColor="green"
+          color="green"
         />
-        <StatsCard
+        <KPICard
           icon={AlertTriangle}
           title="Low Stock"
           value={lowStockItems}
-          iconColor="red"
+          color="red"
         />
-        <StatsCard
+        <KPICard
           icon={Package}
           title="Total Value"
           value={`Rp ${totalValue.toLocaleString('id-ID')}`}
-          iconColor="purple"
+          color="purple"
         />
       </div>
 

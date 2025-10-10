@@ -17,15 +17,85 @@ const validateEquipment = [
 // Get all Equipment
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query(`
+    const { category, status, search, sort_by, sort_order, page = 1, limit = 10 } = req.query;
+    
+    let query = `
       SELECT id, equipment_code, equipment_name, category,
              description, unit, is_active,
              created_at, updated_at
       FROM equipment_master
-      ORDER BY equipment_name
-    `);
+      WHERE 1=1
+    `;
     
-    res.json(result.rows);
+    const conditions = [];
+    const params = [];
+    let paramCount = 0;
+    
+    if (category && category !== 'all') {
+      paramCount++;
+      conditions.push(`category = $${paramCount}`);
+      params.push(category);
+    }
+    
+    if (status === 'active') {
+      conditions.push('is_active = true');
+    } else if (status === 'inactive') {
+      conditions.push('is_active = false');
+    }
+    
+    if (search) {
+      paramCount++;
+      conditions.push(`(equipment_name ILIKE $${paramCount} OR equipment_code ILIKE $${paramCount} OR category ILIKE $${paramCount})`);
+      params.push(`%${search}%`);
+    }
+    
+    if (conditions.length > 0) {
+      query += ' AND ' + conditions.join(' AND ');
+    }
+    
+    // Sorting
+    const allowedSortColumns = {
+      'equipment_code': 'equipment_code',
+      'equipment_name': 'equipment_name',
+      'category': 'category',
+      'unit': 'unit',
+      'is_active': 'is_active'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 'equipment_name';
+    const sortDirection = sort_order === 'desc' ? 'DESC' : 'ASC';
+    query += ` ORDER BY ${sortColumn} ${sortDirection}`;
+    
+    // Get total count
+    let countQuery = `SELECT COUNT(*) as total FROM equipment_master WHERE 1=1`;
+    if (conditions.length > 0) {
+      countQuery += ' AND ' + conditions.join(' AND ');
+    }
+    const countResult = await pool.query(countQuery, params);
+    const totalRecords = parseInt(countResult.rows[0].total);
+    
+    // Pagination
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+    paramCount++;
+    query += ` LIMIT $${paramCount}`;
+    params.push(parseInt(limit));
+    
+    paramCount++;
+    query += ` OFFSET $${paramCount}`;
+    params.push(offset);
+    
+    const result = await pool.query(query, params);
+    
+    res.json({
+      success: true,
+      data: result.rows,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: totalRecords,
+        pages: Math.ceil(totalRecords / parseInt(limit))
+      }
+    });
   } catch (error) {
     console.error('Error fetching equipment:', error);
     res.status(500).json({ message: 'Error fetching equipment' });

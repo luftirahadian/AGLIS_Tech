@@ -1,10 +1,25 @@
 import api from './api'
 
 const equipmentService = {
-  getAll: async () => {
-    // api interceptor already returns response.data, so this is the actual array
-    const data = await api.get('/equipment')
-    return data
+  getAll: async (params = {}) => {
+    try {
+      const queryParams = new URLSearchParams()
+      
+      if (params.category) queryParams.append('category', params.category)
+      if (params.status) queryParams.append('status', params.status)
+      if (params.search) queryParams.append('search', params.search)
+      if (params.page) queryParams.append('page', params.page)
+      if (params.limit) queryParams.append('limit', params.limit)
+      if (params.sort_by) queryParams.append('sort_by', params.sort_by)
+      if (params.sort_order) queryParams.append('sort_order', params.sort_order)
+      
+      const queryString = queryParams.toString()
+      const response = await api.get(`/equipment${queryString ? '?' + queryString : ''}`)
+      return response
+    } catch (error) {
+      console.error('❌ EquipmentService error:', error)
+      return { data: [], pagination: {} }
+    }
   },
 
   getById: async (id) => {

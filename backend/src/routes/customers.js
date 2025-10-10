@@ -16,7 +16,9 @@ router.get('/', async (req, res) => {
       service_type, 
       account_status,
       payment_status,
-      package_id 
+      package_id,
+      sort_by = 'created_at',
+      sort_order = 'DESC'
     } = req.query;
     
     const offset = (page - 1) * limit;
@@ -72,7 +74,21 @@ router.get('/', async (req, res) => {
     }
 
     query += ` GROUP BY c.id, pm.package_name, pm.bandwidth_down, pm.monthly_price`;
-    query += ` ORDER BY c.created_at DESC LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
+    
+    // Dynamic sorting with whitelist for security
+    const allowedSortColumns = {
+      'name': 'c.name',
+      'customer_id': 'c.customer_id',
+      'package_name': 'pm.package_name',
+      'account_status': 'c.account_status',
+      'payment_status': 'c.payment_status',
+      'created_at': 'c.created_at'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 'c.created_at';
+    const sortDirection = sort_order.toUpperCase() === 'ASC' ? 'ASC' : 'DESC';
+    
+    query += ` ORDER BY ${sortColumn} ${sortDirection} LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
     params.push(limit, offset);
 
     const result = await pool.query(query, params);

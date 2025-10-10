@@ -6,51 +6,7 @@ import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
-import CountUp from 'react-countup'
-
-// KPI Card Component - Same style as Analytics Dashboard
-const KPICard = ({ icon: Icon, title, value, color = 'blue' }) => {
-  const getColorClasses = (color) => {
-    const colors = {
-      blue: 'bg-blue-500 text-blue-600 bg-blue-50',
-      green: 'bg-green-500 text-green-600 bg-green-50',
-      yellow: 'bg-yellow-500 text-yellow-600 bg-yellow-50',
-      red: 'bg-red-500 text-red-600 bg-red-50',
-      purple: 'bg-purple-500 text-purple-600 bg-purple-50',
-      indigo: 'bg-indigo-500 text-indigo-600 bg-indigo-50'
-    }
-    return colors[color] || colors.blue
-  }
-
-  const colorClasses = getColorClasses(color).split(' ')
-  const iconBg = colorClasses[0]
-  const textColor = colorClasses[1]
-  const cardBg = colorClasses[2]
-
-  return (
-    <div className={`${cardBg} rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200`}>
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-          <div className="flex items-baseline">
-            <span className="text-2xl font-bold text-gray-900">
-              <CountUp
-                end={value}
-                duration={1.5}
-                separator=","
-                preserveValue
-              />
-            </span>
-          </div>
-        </div>
-        
-        <div className={`${iconBg} p-3 rounded-lg flex-shrink-0`}>
-          <Icon className="h-6 w-6 text-white" />
-        </div>
-      </div>
-    </div>
-  )
-}
+import KPICard from '../../components/dashboard/KPICard'
 
 const TicketsPage = () => {
   const queryClient = useQueryClient()
@@ -219,12 +175,12 @@ const TicketsPage = () => {
       </div>
 
       {/* Statistics Cards - All Ticket Status - Analytics Style */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
         <KPICard icon={Ticket} title="Total" value={stats.total_tickets || 0} color="blue" />
         <KPICard icon={FileCheck} title="Open" value={stats.open_tickets || 0} color="blue" />
         <KPICard icon={Users} title="Assigned" value={stats.assigned_tickets || 0} color="indigo" />
         <KPICard icon={PlayCircle} title="Progress" value={stats.in_progress_tickets || 0} color="yellow" />
-        <KPICard icon={PauseCircle} title="On Hold" value={stats.on_hold_tickets || 0} color="purple" />
+        <KPICard icon={PauseCircle} title="Hold" value={stats.on_hold_tickets || 0} color="purple" />
         <KPICard icon={CheckCircle} title="Completed" value={stats.completed_tickets || 0} color="green" />
         <KPICard icon={XCircle} title="Cancelled" value={stats.cancelled_tickets || 0} color="red" />
       </div>

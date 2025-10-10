@@ -8,7 +8,7 @@ const router = express.Router();
 // Get all users (admin/supervisor only)
 router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
   try {
-    const { page, limit, role, search } = req.query;
+    const { page = 1, limit = 10, role, status, search, sort_by, sort_order } = req.query;
 
     let query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
@@ -21,10 +21,16 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
     const params = [];
     let paramCount = 0;
 
-    if (role) {
+    if (role && role !== 'all') {
       paramCount++;
       query += ` AND u.role = $${paramCount}`;
       params.push(role);
+    }
+
+    if (status === 'active') {
+      query += ` AND u.is_active = true`;
+    } else if (status === 'inactive') {
+      query += ` AND u.is_active = false`;
     }
 
     if (search) {
@@ -33,26 +39,36 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
       params.push(`%${search}%`);
     }
 
-    query += ` ORDER BY u.created_at DESC`;
+    // Sorting
+    const allowedSortColumns = {
+      'full_name': 'u.full_name',
+      'username': 'u.username',
+      'email': 'u.email',
+      'role': 'u.role',
+      'last_login': 'u.last_login',
+      'is_active': 'u.is_active',
+      'created_at': 'u.created_at'
+    };
     
-    // Only add pagination if page and limit are provided
-    if (page && limit) {
-      const offset = (page - 1) * limit;
-      query += ` LIMIT $${paramCount + 1} OFFSET $${paramCount + 2}`;
-      params.push(limit, offset);
-    }
-
-    const result = await pool.query(query, params);
+    const sortColumn = allowedSortColumns[sort_by] || 'u.created_at';
+    const sortDirection = sort_order === 'asc' ? 'ASC' : 'DESC';
+    query += ` ORDER BY ${sortColumn} ${sortDirection}`;
 
     // Get total count
-    let countQuery = 'SELECT COUNT(*) FROM users u WHERE 1=1';
+    let countQuery = 'SELECT COUNT(*) as total FROM users u WHERE 1=1';
     const countParams = [];
     let countParamCount = 0;
 
-    if (role) {
+    if (role && role !== 'all') {
       countParamCount++;
       countQuery += ` AND u.role = $${countParamCount}`;
       countParams.push(role);
+    }
+
+    if (status === 'active') {
+      countQuery += ` AND u.is_active = true`;
+    } else if (status === 'inactive') {
+      countQuery += ` AND u.is_active = false`;
     }
 
     if (search) {
@@ -62,18 +78,28 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
     }
 
     const countResult = await pool.query(countQuery, countParams);
-    const total = parseInt(countResult.rows[0].count);
+    const totalRecords = parseInt(countResult.rows[0].total);
+    
+    // Pagination
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+    paramCount++;
+    query += ` LIMIT $${paramCount}`;
+    params.push(parseInt(limit));
+    
+    paramCount++;
+    query += ` OFFSET $${paramCount}`;
+    params.push(offset);
+
+    const result = await pool.query(query, params);
 
     res.json({
       success: true,
-      data: {
-        users: result.rows,
-        pagination: {
-          page: parseInt(page),
-          limit: parseInt(limit),
-          total,
-          pages: Math.ceil(total / limit)
-        }
+      data: result.rows,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: totalRecords,
+        pages: Math.ceil(totalRecords / parseInt(limit))
       }
     });
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { Package, Plus, Search, Trash2, Edit } from 'lucide-react'
+import { Package, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import equipmentService from '../../services/equipmentService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import EquipmentModal from '../../components/masterdata/EquipmentModal'
-import StatsCard from '../../components/common/StatsCard'
+import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
 const EquipmentPage = () => {
@@ -13,21 +13,48 @@ const EquipmentPage = () => {
   const [filterStatus, setFilterStatus] = useState('all')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedEquipment, setSelectedEquipment] = useState(null)
+  const [sortBy, setSortBy] = useState('equipment_name')
+  const [sortOrder, setSortOrder] = useState('asc')
+  const [page, setPage] = useState(1)
+  const limit = 5
   const queryClient = useQueryClient()
 
-  // Fetch Equipment
-  const { data: equipmentResponse, isLoading, error } = useQuery(
-    ['equipment-list'],
-    equipmentService.getAll,
+  // Fetch Equipment with pagination
+  const { data: equipmentResponse, isLoading } = useQuery(
+    ['equipment-list', filterCategory, filterStatus, searchTerm, sortBy, sortOrder, page],
+    () => equipmentService.getAll({
+      category: filterCategory !== 'all' ? filterCategory : undefined,
+      status: filterStatus !== 'all' ? filterStatus : undefined,
+      search: searchTerm || undefined,
+      page,
+      limit,
+      sort_by: sortBy,
+      sort_order: sortOrder
+    }),
     {
       refetchOnWindowFocus: false,
-      onError: (err) => {
-        console.error('Equipment query error:', err);
-      }
+      keepPreviousData: true
     }
   )
 
-  const equipment = Array.isArray(equipmentResponse) ? equipmentResponse : (equipmentResponse?.data || [])
+  const equipment = equipmentResponse?.data || []
+  const pagination = equipmentResponse?.pagination || {}
+
+  // Fetch all equipment for stats
+  const { data: allEquipmentResponse } = useQuery(
+    'all-equipment-stats',
+    () => equipmentService.getAll({ page: 1, limit: 1000 }),
+    {
+      refetchOnWindowFocus: false
+    }
+  )
+
+  const allEquipment = allEquipmentResponse?.data || []
+  const totalEquipment = allEquipment.length
+  const activeEquipment = allEquipment.filter(e => e.is_active).length
+  const inactiveEquipment = allEquipment.filter(e => !e.is_active).length
+  const categories = [...new Set(allEquipment.map(e => e.category).filter(Boolean))]
+  const categoriesCount = categories.length
 
   // Delete mutation
   const deleteMutation = useMutation(
@@ -36,30 +63,13 @@ const EquipmentPage = () => {
       onSuccess: () => {
         toast.success('Equipment berhasil dihapus')
         queryClient.invalidateQueries(['equipment-list'])
+        queryClient.invalidateQueries('all-equipment-stats')
       },
       onError: (error) => {
         toast.error(error.response?.data?.message || 'Gagal menghapus equipment')
       }
     }
   )
-
-  // Filter Equipment
-  const filteredEquipment = equipment?.filter(eq => {
-    const matchesSearch = eq.equipment_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         eq.equipment_code?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         eq.category?.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = filterCategory === 'all' || eq.category === filterCategory
-    const matchesStatus = filterStatus === 'all' || (filterStatus === 'active' && eq.is_active) || (filterStatus === 'inactive' && !eq.is_active)
-    return matchesSearch && matchesCategory && matchesStatus
-  }) || []
-
-  // Statistics
-  const totalEquipment = equipment.length
-  const activeEquipment = equipment.filter(e => e.is_active).length
-  const inactiveEquipment = equipment.filter(e => !e.is_active).length
-  
-  // Categories
-  const categories = [...new Set(equipment.map(e => e.category).filter(Boolean))]
 
   const handleCreate = () => {
     setSelectedEquipment(null)
@@ -84,10 +94,54 @@ const EquipmentPage = () => {
 
   const handleSuccess = () => {
     queryClient.invalidateQueries(['equipment-list'])
+    queryClient.invalidateQueries('all-equipment-stats')
     handleModalClose()
   }
 
-  if (isLoading) {
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortBy(column)
+      setSortOrder('asc')
+    }
+    setPage(1)
+  }
+
+  const getSortIcon = (column) => {
+    if (sortBy !== column) {
+      return <ArrowUpDown className="h-4 w-4 text-gray-400" />
+    }
+    return sortOrder === 'asc' ? 
+      <ArrowUp className="h-4 w-4" /> : 
+      <ArrowDown className="h-4 w-4" />
+  }
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value)
+    setPage(1)
+  }
+
+  const handleFilterChange = (filterType, value) => {
+    if (filterType === 'category') {
+      setFilterCategory(value)
+    } else if (filterType === 'status') {
+      setFilterStatus(value)
+    }
+    setPage(1)
+  }
+
+  const getCategoryColor = (category) => {
+    const colors = {
+      devices: 'bg-blue-100 text-blue-800',
+      cables: 'bg-green-100 text-green-800',
+      accessories: 'bg-yellow-100 text-yellow-800',
+      tools: 'bg-purple-100 text-purple-800'
+    };
+    return colors[category] || 'bg-gray-100 text-gray-800';
+  };
+
+  if (isLoading && page === 1) {
     return (
       <div className="flex justify-center items-center min-h-96">
         <LoadingSpinner />
@@ -113,150 +167,297 @@ const EquipmentPage = () => {
       </div>
 
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatsCard
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <KPICard
           icon={Package}
           title="Total Equipment"
           value={totalEquipment}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           icon={Package}
           title="Active"
           value={activeEquipment}
-          iconColor="green"
+          color="green"
         />
-        <StatsCard
+        <KPICard
           icon={Package}
           title="Inactive"
           value={inactiveEquipment}
-          iconColor="red"
+          color="red"
+        />
+        <KPICard
+          icon={Package}
+          title="Categories"
+          value={categoriesCount}
+          color="purple"
         />
       </div>
 
       {/* Search and Filters */}
       <div className="bg-white shadow rounded-lg p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Cari equipment..."
-              className="input-field pl-10"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Search
+            </label>
+            <div className="relative">
+              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                className="form-input pl-10"
+                placeholder="Cari equipment..."
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </div>
           </div>
-          <select
-            className="input-field"
-            value={filterCategory}
-            onChange={(e) => setFilterCategory(e.target.value)}
-          >
-            <option value="all">Semua Kategori</option>
-            {categories.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
-          <select
-            className="input-field"
-            value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
-          >
-            <option value="all">Semua Status</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Kategori
+            </label>
+            <select
+              className="form-input"
+              value={filterCategory}
+              onChange={(e) => handleFilterChange('category', e.target.value)}
+            >
+              <option value="all">Semua Kategori</option>
+              {categories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Status
+            </label>
+            <select
+              className="form-input"
+              value={filterStatus}
+              onChange={(e) => handleFilterChange('status', e.target.value)}
+            >
+              <option value="all">Semua Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Unit Type
+            </label>
+            <select
+              className="form-input"
+              value="all"
+              onChange={(e) => {}}
+            >
+              <option value="all">Semua Unit</option>
+            </select>
+          </div>
         </div>
       </div>
 
       {/* Equipment List */}
-      <div className="bg-white shadow rounded-lg overflow-hidden">
-        {filteredEquipment.length === 0 ? (
-          <div className="text-center py-12">
-            <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Tidak ada equipment</h3>
-            <p className="text-gray-500 mb-4">Mulai dengan menambahkan equipment pertama</p>
-            <button onClick={handleCreate} className="btn-primary">
-              <Plus className="h-4 w-4 mr-2" />
-              Tambah Equipment
-            </button>
+      {equipment.length === 0 ? (
+        <div className="bg-white shadow rounded-lg p-12 text-center">
+          <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Tidak ada equipment</h3>
+          <p className="text-gray-500 mb-4">Mulai dengan menambahkan equipment pertama</p>
+          <button onClick={handleCreate} className="btn-primary">
+            <Plus className="h-4 w-4 mr-2" />
+            Tambah Equipment
+          </button>
+        </div>
+      ) : (
+        <>
+          <div className="card">
+            <div className="card-header">
+              <h2 className="text-lg font-semibold text-gray-900">
+                All Equipment
+                <span className="text-sm font-normal text-gray-500 ml-2">
+                  ({pagination.total || 0} total)
+                </span>
+              </h2>
+            </div>
+            <div className="card-body p-0">
+              <div className="overflow-x-auto">
+                <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '900px' }}>
+                  <thead className="table-header">
+                    <tr>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
+                        onClick={() => handleSort('equipment_code')}
+                        style={{ width: '140px' }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Kode</span>
+                          {getSortIcon('equipment_code')}
+                        </div>
+                      </th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
+                        onClick={() => handleSort('equipment_name')}
+                        style={{ width: '280px' }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Nama Equipment</span>
+                          {getSortIcon('equipment_name')}
+                        </div>
+                      </th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
+                        onClick={() => handleSort('category')}
+                        style={{ width: '130px' }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Kategori</span>
+                          {getSortIcon('category')}
+                        </div>
+                      </th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
+                        onClick={() => handleSort('unit')}
+                        style={{ width: '80px' }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Unit</span>
+                          {getSortIcon('unit')}
+                        </div>
+                      </th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
+                        onClick={() => handleSort('is_active')}
+                        style={{ width: '100px' }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Status</span>
+                          {getSortIcon('is_active')}
+                        </div>
+                      </th>
+                      <th className="table-header-cell text-center" style={{ width: '100px' }}>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="table-body">
+                    {equipment.map((eq) => (
+                      <tr key={eq.id}>
+                        <td className="table-cell">
+                          <div className="text-sm font-mono text-gray-900 truncate">{eq.equipment_code}</div>
+                        </td>
+                        <td className="table-cell">
+                          <div className="text-sm font-medium text-gray-900 truncate">{eq.equipment_name}</div>
+                          {eq.description && (
+                            <div className="text-xs text-gray-500 truncate" title={eq.description}>
+                              {eq.description}
+                            </div>
+                          )}
+                        </td>
+                        <td className="table-cell whitespace-nowrap">
+                          <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getCategoryColor(eq.category)}`}>
+                            {eq.category || '-'}
+                          </span>
+                        </td>
+                        <td className="table-cell whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{eq.unit || 'pcs'}</div>
+                        </td>
+                        <td className="table-cell whitespace-nowrap">
+                          <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                            eq.is_active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                          }`}>
+                            {eq.is_active ? 'Active' : 'Inactive'}
+                          </span>
+                        </td>
+                        <td className="table-cell text-center">
+                          <div className="flex justify-center space-x-2">
+                            <button
+                              onClick={() => handleEdit(eq)}
+                              className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                              title="Edit Equipment"
+                            >
+                              <Edit className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(eq.id, eq.equipment_name)}
+                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
+                              title="Delete Equipment"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Kode
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Nama Equipment
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Kategori
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Unit
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {filteredEquipment.map((eq) => (
-                  <tr key={eq.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{eq.equipment_code}</div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="text-sm font-medium text-gray-900">{eq.equipment_name}</div>
-                      {eq.description && (
-                        <div className="text-xs text-gray-500">{eq.description}</div>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{eq.category || '-'}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{eq.unit || 'pcs'}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        eq.is_active ? 'bg-green-100 text-green-800' :
-                        'bg-gray-100 text-gray-800'
-                      }`}>
-                        {eq.is_active ? 'Active' : 'Inactive'}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <div className="flex justify-end space-x-2">
+
+          {/* Pagination */}
+          {pagination.pages > 1 && (
+            <div className="bg-white shadow rounded-lg">
+              <div className="px-4 py-3 border-t border-gray-200 sm:px-6">
+                <div className="flex-1 flex justify-between sm:hidden">
+                  <button
+                    onClick={() => setPage(Math.max(1, page - 1))}
+                    disabled={page === 1}
+                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
+                    disabled={page === (pagination.pages || 1)}
+                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
+                </div>
+                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-gray-700">
+                      Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
+                      <span className="font-medium">
+                        {Math.min(page * limit, pagination.total || 0)}
+                      </span>{' '}
+                      of <span className="font-medium">{pagination.total || 0}</span> results
+                    </p>
+                  </div>
+                  <div>
+                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                      <button
+                        onClick={() => setPage(Math.max(1, page - 1))}
+                        disabled={page === 1}
+                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      {Array.from({ length: pagination.pages || 1 }, (_, i) => i + 1).map((pageNum) => (
                         <button
-                          onClick={() => handleEdit(eq)}
-                          className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                          title="Edit Equipment"
+                          key={pageNum}
+                          onClick={() => setPage(pageNum)}
+                          className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                            page === pageNum
+                              ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                              : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                          }`}
                         >
-                          <Edit className="h-4 w-4" />
+                          {pageNum}
                         </button>
-                        <button
-                          onClick={() => handleDelete(eq.id, eq.equipment_name)}
-                          className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
-                          title="Delete Equipment"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+                      ))}
+                      <button
+                        onClick={() => setPage(Math.min(pagination.pages || 1, page + 1))}
+                        disabled={page === (pagination.pages || 1)}
+                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
 
       {/* Equipment Modal */}
       {isModalOpen && (
@@ -271,4 +472,3 @@ const EquipmentPage = () => {
 }
 
 export default EquipmentPage
-

@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { 
   Users, Plus, Search, Filter, MapPin, Phone, Mail, 
   Star, Clock, Wrench, AlertCircle, CheckCircle, 
-  XCircle, Pause, User, Award, Calendar, Eye, Trash2
+  XCircle, Pause, User, Award, Calendar, Eye, Trash2,
+  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight
 } from 'lucide-react'
 import { technicianService } from '../../services/technicianService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import TechnicianForm from '../../components/TechnicianForm'
-import StatsCard from '../../components/common/StatsCard'
+import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
 const TechniciansPage = () => {
@@ -23,15 +24,23 @@ const TechniciansPage = () => {
     specialization: ''
   })
   const [page, setPage] = useState(1)
+  const [sortBy, setSortBy] = useState('created_at')
+  const [sortOrder, setSortOrder] = useState('DESC')
   const [showForm, setShowForm] = useState(false)
   const [selectedTechnician, setSelectedTechnician] = useState(null)
   const [formMode, setFormMode] = useState('create')
-  const limit = 10
+  const limit = 5
 
   // Fetch technicians
   const { data: techniciansData, isLoading, refetch } = useQuery(
-    ['technicians', filters, page],
-    () => technicianService.getTechnicians({ ...filters, page, limit }),
+    ['technicians', filters, page, sortBy, sortOrder],
+    () => technicianService.getTechnicians({ 
+      ...filters, 
+      page, 
+      limit,
+      sort_by: sortBy,
+      sort_order: sortOrder
+    }),
     { keepPreviousData: true }
   )
 
@@ -79,15 +88,32 @@ const TechniciansPage = () => {
   }
 
   const handleFormSuccess = () => {
-    // Force refetch both technicians and stats
     refetch()
-    statsQuery.refetch()
     setShowForm(false)
     setSelectedTechnician(null)
   }
 
   const handleViewTechnician = (technician) => {
     navigate(`/technicians/${technician.id}`)
+  }
+
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'ASC' ? 'DESC' : 'ASC')
+    } else {
+      setSortBy(column)
+      setSortOrder('DESC')
+    }
+    setPage(1)
+  }
+
+  const getSortIcon = (column) => {
+    if (sortBy !== column) {
+      return <ArrowUpDown className="h-4 w-4 text-gray-400" />
+    }
+    return sortOrder === 'ASC' 
+      ? <ArrowUp className="h-4 w-4 text-blue-600" />
+      : <ArrowDown className="h-4 w-4 text-blue-600" />
   }
 
   const getAvailabilityBadge = (status) => {
@@ -158,29 +184,29 @@ const TechniciansPage = () => {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatsCard
+        <KPICard
           icon={Users}
           title="Total Teknisi"
           value={stats.total_technicians || 0}
-          iconColor="blue"
+          color="blue"
         />
-        <StatsCard
+        <KPICard
           icon={CheckCircle}
           title="Available"
           value={stats.available_technicians || 0}
-          iconColor="green"
+          color="green"
         />
-        <StatsCard
+        <KPICard
           icon={Clock}
           title="Busy"
           value={stats.busy_technicians || 0}
-          iconColor="yellow"
+          color="yellow"
         />
-        <StatsCard
+        <KPICard
           icon={Star}
           title="Avg Rating"
           value={stats.avg_customer_rating ? parseFloat(stats.avg_customer_rating).toFixed(1) : '0.0'}
-          iconColor="purple"
+          color="purple"
         />
       </div>
 
@@ -292,59 +318,64 @@ const TechniciansPage = () => {
       </div>
 
       {/* Technicians Table */}
-      <div className="bg-white shadow rounded-lg overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h3 className="text-lg font-medium text-gray-900">
-            All Technicians 
-            <span className="text-sm text-gray-500 ml-2">
+      <div className="card">
+        <div className="card-header">
+          <h2 className="text-lg font-semibold text-gray-900">
+            All Technicians
+            <span className="text-sm font-normal text-gray-500 ml-2">
               ({pagination.total || 0} total)
             </span>
-          </h3>
+          </h2>
         </div>
-
-        {technicians.length === 0 ? (
-          <div className="text-center py-12">
-            <Users className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No technicians found</h3>
-            <p className="mt-1 text-sm text-gray-500">
-              Get started by adding your first technician.
-            </p>
-            <div className="mt-6">
-              <button className="btn-primary">
-                <Plus className="h-4 w-4 mr-2" />
-                Add First Technician
-              </button>
+        <div className="card-body p-0">
+          {technicians.length === 0 ? (
+            <div className="text-center py-12">
+              <Users className="mx-auto h-12 w-12 text-gray-400" />
+              <h3 className="mt-2 text-lg font-medium text-gray-900">No technicians found</h3>
+              <p className="mt-1 text-gray-500">
+                Get started by adding your first technician.
+              </p>
+              <div className="mt-6">
+                <button onClick={handleCreateTechnician} className="btn-primary">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add First Technician
+                </button>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Technician
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Contact
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Skills & Zone
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Performance
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+          ) : (
+            <>
+              <div className="overflow-x-auto">
+                <table className="table">
+                  <thead className="table-header">
+                    <tr>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort('full_name')}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Technician</span>
+                          {getSortIcon('full_name')}
+                        </div>
+                      </th>
+                      <th className="table-header-cell">Contact</th>
+                      <th className="table-header-cell">Skills & Zone</th>
+                      <th 
+                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort('availability_status')}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>Status</span>
+                          {getSortIcon('availability_status')}
+                        </div>
+                      </th>
+                      <th className="table-header-cell">Performance</th>
+                      <th className="table-header-cell text-center">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="table-body">
                 {technicians.map((technician) => (
-                  <tr key={technician.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
+                  <tr key={technician.id}>
+                    <td className="table-cell">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
                           <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
@@ -352,7 +383,7 @@ const TechniciansPage = () => {
                           </div>
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">
+                          <div className="font-medium text-gray-900">
                             {technician.full_name}
                           </div>
                           <div className="text-sm text-gray-500">
@@ -361,21 +392,19 @@ const TechniciansPage = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        <div className="flex items-center mb-1">
-                          <Phone className="h-4 w-4 mr-2 text-gray-400" />
-                          {technician.phone}
-                        </div>
-                        {technician.email && (
-                          <div className="flex items-center">
-                            <Mail className="h-4 w-4 mr-2 text-gray-400" />
-                            <span className="text-xs">{technician.email}</span>
-                          </div>
-                        )}
+                    <td className="table-cell">
+                      <div className="flex items-center mb-1">
+                        <Phone className="h-3 w-3 mr-1 text-gray-400" />
+                        {technician.phone}
                       </div>
+                      {technician.email && (
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Mail className="h-3 w-3 mr-1 text-gray-400" />
+                          {technician.email}
+                        </div>
+                      )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="table-cell">
                       <div className="space-y-2">
                         {getSkillLevelBadge(technician.skill_level)}
                         <div className="flex items-center text-sm text-gray-500">
@@ -384,7 +413,7 @@ const TechniciansPage = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="table-cell">
                       <div className="space-y-2">
                         {getAvailabilityBadge(technician.availability_status)}
                         <div className="text-xs text-gray-500">
@@ -392,19 +421,17 @@ const TechniciansPage = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        <div className="flex items-center mb-1">
-                          <Star className="h-4 w-4 mr-1 text-yellow-400" />
-                          {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
-                        </div>
-                        <div className="text-xs text-gray-500">
-                          Completed: {technician.total_tickets_completed || 0}
-                        </div>
+                    <td className="table-cell">
+                      <div className="flex items-center mb-1">
+                        <Star className="h-4 w-4 mr-1 text-yellow-400" />
+                        {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        Completed: {technician.total_tickets_completed || 0}
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <div className="flex space-x-2">
+                    <td className="table-cell">
+                      <div className="flex justify-center space-x-2">
                         <button 
                           onClick={() => handleViewTechnician(technician)}
                           className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
@@ -413,7 +440,7 @@ const TechniciansPage = () => {
                           <Eye className="h-4 w-4" />
                         </button>
                         <button 
-                          onClick={() => handleDeleteTechnician(technician.id, technician.name)}
+                          onClick={() => handleDeleteTechnician(technician.id, technician.full_name)}
                           className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
                           title="Delete Technician"
                         >
@@ -426,74 +453,75 @@ const TechniciansPage = () => {
               </tbody>
             </table>
           </div>
-        )}
 
-        {/* Pagination */}
-        {pagination.pages > 1 && (
-          <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-            <div className="flex-1 flex justify-between sm:hidden">
-              <button
-                onClick={() => setPage(Math.max(1, page - 1))}
-                disabled={page === 1}
-                className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
-              >
-                Previous
-              </button>
-              <button
-                onClick={() => setPage(Math.min(pagination.pages, page + 1))}
-                disabled={page === pagination.pages}
-                className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
-              >
-                Next
-              </button>
-            </div>
-            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm text-gray-700">
-                  Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
-                  <span className="font-medium">
-                    {Math.min(page * limit, pagination.total)}
-                  </span>{' '}
-                  of <span className="font-medium">{pagination.total}</span> results
-                </p>
-              </div>
-              <div>
-                <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+          {/* Pagination */}
+          {pagination && (
+            <div className="bg-white border-t border-gray-200 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex-1 flex justify-between sm:hidden">
                   <button
                     onClick={() => setPage(Math.max(1, page - 1))}
                     disabled={page === 1}
-                    className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Previous
                   </button>
-                  {Array.from({ length: Math.min(5, pagination.pages) }, (_, i) => {
-                    const pageNum = i + 1
-                    return (
-                      <button
-                        key={pageNum}
-                        onClick={() => setPage(pageNum)}
-                        className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                          page === pageNum
-                            ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                            : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                        }`}
-                      >
-                        {pageNum}
-                      </button>
-                    )
-                  })}
                   <button
                     onClick={() => setPage(Math.min(pagination.pages, page + 1))}
                     disabled={page === pagination.pages}
-                    className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Next
                   </button>
-                </nav>
+                </div>
+                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm text-gray-700">
+                      Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
+                      <span className="font-medium">
+                        {Math.min(page * limit, pagination.total)}
+                      </span>{' '}
+                      of <span className="font-medium">{pagination.total}</span> results
+                    </p>
+                  </div>
+                  <div>
+                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                      <button
+                        onClick={() => setPage(Math.max(1, page - 1))}
+                        disabled={page === 1}
+                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      {Array.from({ length: pagination.pages }, (_, i) => i + 1).map((pageNum) => (
+                        <button
+                          key={pageNum}
+                          onClick={() => setPage(pageNum)}
+                          className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                            page === pageNum
+                              ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                              : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                          }`}
+                        >
+                          {pageNum}
+                        </button>
+                      ))}
+                      <button
+                        onClick={() => setPage(Math.min(pagination.pages, page + 1))}
+                        disabled={page === pagination.pages}
+                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </nav>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+          </>
+          )}
+        </div>
       </div>
 
       {/* Technician Form Modal */}

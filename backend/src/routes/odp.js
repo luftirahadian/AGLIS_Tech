@@ -20,15 +20,86 @@ const validateODP = [
 // Get all ODPs
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query(`
+    const { status, area, search, sort_by, sort_order, page = 1, limit = 10 } = req.query;
+    
+    let query = `
       SELECT id, name, location, area, latitude, longitude, 
              total_ports, used_ports, status, notes,
              created_at, updated_at
       FROM odp
-      ORDER BY name
-    `);
+      WHERE 1=1
+    `;
     
-    res.json(result.rows);
+    const conditions = [];
+    const params = [];
+    let paramCount = 0;
+    
+    if (status && status !== 'all') {
+      paramCount++;
+      conditions.push(`status = $${paramCount}`);
+      params.push(status);
+    }
+    
+    if (area && area !== 'all') {
+      paramCount++;
+      conditions.push(`area = $${paramCount}`);
+      params.push(area);
+    }
+    
+    if (search) {
+      paramCount++;
+      conditions.push(`(name ILIKE $${paramCount} OR location ILIKE $${paramCount} OR area ILIKE $${paramCount})`);
+      params.push(`%${search}%`);
+    }
+    
+    if (conditions.length > 0) {
+      query += ' AND ' + conditions.join(' AND ');
+    }
+    
+    // Sorting
+    const allowedSortColumns = {
+      'name': 'name',
+      'location': 'location',
+      'area': 'area',
+      'total_ports': 'total_ports',
+      'used_ports': 'used_ports',
+      'status': 'status'
+    };
+    
+    const sortColumn = allowedSortColumns[sort_by] || 'name';
+    const sortDirection = sort_order === 'desc' ? 'DESC' : 'ASC';
+    query += ` ORDER BY ${sortColumn} ${sortDirection}`;
+    
+    // Get total count
+    let countQuery = `SELECT COUNT(*) as total FROM odp WHERE 1=1`;
+    if (conditions.length > 0) {
+      countQuery += ' AND ' + conditions.join(' AND ');
+    }
+    const countResult = await pool.query(countQuery, params);
+    const totalRecords = parseInt(countResult.rows[0].total);
+    
+    // Pagination
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+    paramCount++;
+    query += ` LIMIT $${paramCount}`;
+    params.push(parseInt(limit));
+    
+    paramCount++;
+    query += ` OFFSET $${paramCount}`;
+    params.push(offset);
+    
+    const result = await pool.query(query, params);
+    
+    res.json({
+      success: true,
+      data: result.rows,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total: totalRecords,
+        pages: Math.ceil(totalRecords / parseInt(limit))
+      }
+    });
   } catch (error) {
     console.error('Error fetching ODPs:', error);
     res.status(500).json({ message: 'Error fetching ODPs' });
