@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🚀 AGLIS Management System - Production Deployment Script
+# 🚀 AGLIS Management System - Fixed Production Deployment Script
 # Author: AI Assistant
 # Date: $(date)
 
@@ -22,8 +22,8 @@ DB_NAME="aglis_production"
 DB_USER="aglis_user"
 DB_PASSWORD="$(openssl rand -base64 32)"  # Generate secure password
 
-echo -e "${BLUE}🚀 AGLIS Management System - Production Deployment${NC}"
-echo -e "${BLUE}================================================${NC}"
+echo -e "${BLUE}🚀 AGLIS Management System - Fixed Production Deployment${NC}"
+echo -e "${BLUE}====================================================${NC}"
 
 # Function to print status
 print_status() {
@@ -103,40 +103,30 @@ sudo chown $APP_USER:$APP_USER $APP_DIR
 
 # Copy application files (assuming script is run from project root)
 if [ -f "package.json" ]; then
+    echo -e "${YELLOW}📂 Copying application files...${NC}"
     sudo cp -r . $APP_DIR/
     sudo chown -R $APP_USER:$APP_USER $APP_DIR
+    sudo chmod -R 755 $APP_DIR
     print_status "Application files copied"
 else
-    print_warning "Please run this script from the project root directory"
-    print_warning "Current directory: $(pwd)"
-    print_warning "Looking for package.json..."
-    ls -la | grep package.json || echo "package.json not found in current directory"
+    print_error "Please run this script from the project root directory where package.json exists"
 fi
-
-# Ensure proper permissions
-sudo chown -R $APP_USER:$APP_USER $APP_DIR
-sudo chmod -R 755 $APP_DIR
 
 # Step 8: Install Application Dependencies
 echo -e "${YELLOW}📦 Installing application dependencies...${NC}"
 
-# Ensure we can access the directory
-sudo chown -R $APP_USER:$APP_USER $APP_DIR
-sudo chmod -R 755 $APP_DIR
-
-# Switch to aglis user for all operations
-sudo -u $APP_USER bash << 'EOF'
-cd /home/aglis/AGLIS_Tech
-
 # Install backend dependencies
-echo "Installing backend dependencies..."
-cd backend
+echo -e "${YELLOW}   📦 Installing backend dependencies...${NC}"
+sudo -u $APP_USER bash << 'EOF'
+cd /home/aglis/AGLIS_Tech/backend
 npm ci --production
 echo "Backend dependencies installed"
+EOF
 
-# Install frontend dependencies
-echo "Installing frontend dependencies..."
-cd ../frontend
+# Install frontend dependencies and build
+echo -e "${YELLOW}   📦 Installing frontend dependencies...${NC}"
+sudo -u $APP_USER bash << 'EOF'
+cd /home/aglis/AGLIS_Tech/frontend
 npm ci --production
 npm run build
 echo "Frontend built"
@@ -147,7 +137,10 @@ print_status "All dependencies installed and frontend built"
 # Step 9: Create Environment Configuration
 echo -e "${YELLOW}⚙️  Creating environment configuration...${NC}"
 
-# Create production config as aglis user
+# Generate JWT secret
+JWT_SECRET=$(openssl rand -base64 64)
+
+# Create production config
 sudo -u $APP_USER bash << EOF
 cd /home/aglis/AGLIS_Tech/backend
 cat > config.env << 'ENVEOF'
@@ -158,10 +151,11 @@ DB_PORT=5432
 DB_NAME=$DB_NAME
 DB_USER=$DB_USER
 DB_PASSWORD=$DB_PASSWORD
-JWT_SECRET=$(openssl rand -base64 64)
+JWT_SECRET=$JWT_SECRET
 UPLOAD_PATH=./uploads
 CORS_ORIGIN=https://$DOMAIN
 ENVEOF
+chmod 600 config.env
 echo "Environment configuration created"
 EOF
 
@@ -178,7 +172,7 @@ print_status "Database migrations completed"
 
 # Step 11: Create PM2 Ecosystem
 echo -e "${YELLOW}⚙️  Creating PM2 configuration...${NC}"
-sudo -u $APP_USER bash << EOF
+sudo -u $APP_USER bash << 'EOF'
 cd /home/aglis/AGLIS_Tech
 cat > ecosystem.config.js << 'ECOSYSTEMEOF'
 module.exports = {
@@ -219,6 +213,11 @@ pm2 start ecosystem.config.js
 pm2 save
 echo "Application started with PM2"
 EOF
+
+# Setup PM2 startup
+sudo -u $APP_USER pm2 startup systemd -u $APP_USER --hp /home/$APP_USER
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $APP_USER --hp /home/$APP_USER
+
 print_status "Application started with PM2"
 
 # Step 13: Configure Nginx
@@ -292,7 +291,9 @@ print_status "SSL certificate installed"
 
 # Step 16: Setup Backup Script
 echo -e "${YELLOW}💾 Setting up backup system...${NC}"
-sudo -u $APP_USER tee backup_db.sh > /dev/null << 'EOF'
+sudo -u $APP_USER bash << 'EOF'
+cd /home/aglis
+cat > backup_db.sh << 'BACKUPEOF'
 #!/bin/bash
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/home/aglis/backups"
@@ -310,9 +311,11 @@ gzip $BACKUP_DIR/aglis_db_$DATE.sql
 find $BACKUP_DIR -name "*.gz" -mtime +7 -delete
 
 echo "Backup completed: aglis_db_$DATE.sql.gz"
-EOF
+BACKUPEOF
 
-sudo -u $APP_USER chmod +x backup_db.sh
+chmod +x backup_db.sh
+echo "Backup script created"
+EOF
 
 # Setup cron job for daily backups
 sudo -u $APP_USER crontab -l 2>/dev/null | { cat; echo "0 2 * * * /home/aglis/backup_db.sh"; } | sudo -u $APP_USER crontab -
@@ -326,7 +329,9 @@ print_status "Monitoring tools installed"
 
 # Step 18: Create Deployment Script
 echo -e "${YELLOW}🚀 Creating deployment script...${NC}"
-sudo -u $APP_USER tee deploy.sh > /dev/null << 'EOF'
+sudo -u $APP_USER bash << 'EOF'
+cd /home/aglis
+cat > deploy.sh << 'DEPLOYEOF'
 #!/bin/bash
 set -e
 
@@ -367,9 +372,12 @@ pm2 status
 
 echo "✅ Deployment completed successfully!"
 echo "🌐 Application is running at: https://yourdomain.com"
+DEPLOYEOF
+
+chmod +x deploy.sh
+echo "Deployment script created"
 EOF
 
-sudo -u $APP_USER chmod +x deploy.sh
 print_status "Deployment script created"
 
 # Final Status

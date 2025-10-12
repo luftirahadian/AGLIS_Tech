@@ -28,9 +28,20 @@ apt install -y curl wget git nginx certbot python3-certbot-nginx postgresql post
 ### **2. Run Deployment Script**
 ```bash
 # Download and run deployment script
-wget https://raw.githubusercontent.com/your-repo/AGLIS_Tech/main/scripts/production-deploy.sh
-chmod +x production-deploy.sh
-./production-deploy.sh
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-fixed.sh
+chmod +x production-deploy-fixed.sh
+./production-deploy-fixed.sh
+```
+
+**If you get permission errors:**
+```bash
+# Run permission fix script first
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/fix-permissions.sh
+chmod +x fix-permissions.sh
+sudo ./fix-permissions.sh
+
+# Then continue with deployment
+./production-deploy-fixed.sh
 ```
 
 ### **3. Configure Domain**
@@ -134,6 +145,16 @@ sudo -u postgres psql aglis_production -c "VACUUM ANALYZE;"
 ## 🚨 **TROUBLESHOOTING**
 
 ### **Common Issues**
+
+**Permission Denied Errors:**
+```bash
+# Fix ownership and permissions
+sudo chown -R aglis:aglis /home/aglis/AGLIS_Tech
+sudo chmod -R 755 /home/aglis/AGLIS_Tech
+
+# Or use the permission fix script
+sudo ./fix-permissions.sh
+```
 
 **Application won't start:**
 ```bash
