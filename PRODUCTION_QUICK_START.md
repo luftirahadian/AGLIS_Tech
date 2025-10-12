@@ -74,7 +74,7 @@ sudo -u aglis /home/aglis/AGLIS_Tech/scripts/monitoring-setup.sh
 ### **SSL Certificate**
 ```bash
 # Get SSL certificate (replace yourdomain.com)
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+sudo certbot --nginx -d portal.aglis.biz.id -d www.portal.aglis.biz.id
 ```
 
 ### **Test Application**
@@ -85,8 +85,8 @@ sudo systemctl status nginx
 sudo systemctl status postgresql
 
 # Test URLs
-curl -I https://yourdomain.com
-curl -I https://yourdomain.com/api/health
+curl -I https://portal.aglis.biz.id
+curl -I https://portal.aglis.biz.id/api/health
 ```
 
 ---
