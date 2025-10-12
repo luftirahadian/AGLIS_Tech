@@ -19,7 +19,10 @@ const KPICard = ({
       yellow: 'bg-yellow-500 text-yellow-600 bg-yellow-50',
       red: 'bg-red-500 text-red-600 bg-red-50',
       purple: 'bg-purple-500 text-purple-600 bg-purple-50',
-      indigo: 'bg-indigo-500 text-indigo-600 bg-indigo-50'
+      indigo: 'bg-indigo-500 text-indigo-600 bg-indigo-50',
+      emerald: 'bg-emerald-500 text-emerald-600 bg-emerald-50',
+      gray: 'bg-gray-500 text-gray-600 bg-gray-50',
+      orange: 'bg-orange-500 text-orange-600 bg-orange-50'
     };
     return colors[color] || colors.blue;
   };

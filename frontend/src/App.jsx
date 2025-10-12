@@ -24,6 +24,7 @@ import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/public/RegisterPage'
 import TrackingPage from './pages/public/TrackingPage'
 import RegistrationsPage from './pages/registrations/RegistrationsPage'
+import RegistrationDetailPage from './pages/registrations/RegistrationDetailPage'
 import RegistrationAnalyticsPage from './pages/registrations/RegistrationAnalyticsPage'
 import LoadingSpinner from './components/LoadingSpinner'
 
@@ -64,6 +65,7 @@ function App() {
         
         {/* Registrations */}
         <Route path="registrations" element={<RegistrationsPage />} />
+        <Route path="registrations/:id" element={<RegistrationDetailPage />} />
         <Route path="registration-analytics" element={<RegistrationAnalyticsPage />} />
         
         {/* Technicians */}

@@ -127,8 +127,8 @@ router.post('/public', [
   body('address').trim().notEmpty().withMessage('Address is required'),
   body('city').trim().notEmpty().withMessage('City is required'),
   body('package_id').custom(value => !isNaN(parseInt(value))).withMessage('Package selection is required'),
-  body('preferred_installation_date').optional().isISO8601().withMessage('Invalid date format'),
-  body('id_card_photo').optional().isString()
+  body('preferred_installation_date').optional({ nullable: true, checkFalsy: true }).isISO8601().withMessage('Invalid date format'),
+  body('id_card_photo').optional({ nullable: true, checkFalsy: true }).isString()
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -152,30 +152,31 @@ router.post('/public', [
     package_id = parseInt(package_id);
 
     // Check if email or phone already registered
+    // Check if email already registered (phone boleh sama)
     const existingCheck = await pool.query(
       `SELECT id FROM customer_registrations 
-       WHERE (email = $1 OR phone = $2) 
+       WHERE email = $1
        AND status NOT IN ('rejected', 'cancelled')`,
-      [email, phone]
+      [email]
     );
 
     if (existingCheck.rows.length > 0) {
       return res.status(400).json({
         success: false,
-        message: 'Email atau nomor telepon sudah terdaftar'
+        message: 'Email sudah terdaftar. Silakan gunakan email lain atau hubungi customer service.'
       });
     }
 
-    // Check if already a customer
+    // Check if email already exists as customer (phone boleh sama)
     const customerCheck = await pool.query(
-      'SELECT id FROM customers WHERE email = $1 OR phone = $2',
-      [email, phone]
+      'SELECT id, name FROM customers WHERE email = $1',
+      [email]
     );
 
     if (customerCheck.rows.length > 0) {
       return res.status(400).json({
         success: false,
-        message: 'Anda sudah terdaftar sebagai customer'
+        message: 'Email sudah terdaftar sebagai customer aktif. Silakan login atau hubungi customer service.'
       });
     }
 
@@ -293,10 +294,14 @@ router.post('/public', [
     }
 
   } catch (error) {
-    console.error('Public registration error:', error);
+    console.error('❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌');
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    console.error('Request body:', req.body);
     res.status(500).json({
       success: false,
-      message: 'Terjadi kesalahan. Silakan coba lagi.'
+      message: 'Terjadi kesalahan. Silakan coba lagi.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
@@ -361,6 +366,7 @@ router.get('/', authMiddleware, async (req, res) => {
       limit = 10,
       status,
       search,
+      dateFilter,
       sort_by = 'created_at',
       sort_order = 'DESC'
     } = req.query;
@@ -401,6 +407,13 @@ router.get('/', authMiddleware, async (req, res) => {
         r.registration_number ILIKE $${paramCount}
       )`;
       params.push(`%${search}%`);
+    }
+
+    // Date filter
+    if (dateFilter === 'today') {
+      query += ` AND DATE(r.created_at) = CURRENT_DATE`;
+    } else if (dateFilter === 'week') {
+      query += ` AND r.created_at >= CURRENT_DATE - INTERVAL '7 days'`;
     }
 
     // Validate sort parameters
@@ -472,7 +485,9 @@ router.get('/stats', authMiddleware, async (req, res) => {
         COUNT(CASE WHEN status = 'survey_scheduled' THEN 1 END) as survey_scheduled,
         COUNT(CASE WHEN status = 'survey_completed' THEN 1 END) as survey_completed,
         COUNT(CASE WHEN status = 'approved' THEN 1 END) as approved,
+        COUNT(CASE WHEN status = 'customer_created' THEN 1 END) as customer_created,
         COUNT(CASE WHEN status = 'rejected' THEN 1 END) as rejected,
+        COUNT(CASE WHEN status = 'cancelled' THEN 1 END) as cancelled,
         COUNT(CASE WHEN DATE(created_at) = CURRENT_DATE THEN 1 END) as today_registrations,
         COUNT(CASE WHEN DATE(created_at) >= CURRENT_DATE - INTERVAL '7 days' THEN 1 END) as week_registrations
       FROM customer_registrations
@@ -545,7 +560,7 @@ router.get('/:id', authMiddleware, async (req, res) => {
 router.put('/:id/status', authMiddleware, [
   body('status').isIn([
     'pending_verification', 'verified', 'survey_scheduled', 
-    'survey_completed', 'approved', 'rejected', 'cancelled'
+    'survey_completed', 'approved', 'customer_created', 'rejected', 'cancelled'
   ]).withMessage('Invalid status'),
   body('notes').optional().isString()
 ], async (req, res) => {
@@ -764,26 +779,49 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
       });
     }
 
+    console.log(`📝 Starting customer creation for registration ID: ${id}`);
+    console.log(`📋 Registration data:`, {
+      name: registration.full_name,
+      email: registration.email,
+      phone: registration.phone,
+      ktp: registration.id_card_number
+    });
+
     const client = await pool.connect();
 
     try {
       await client.query('BEGIN');
+      console.log('✅ Transaction BEGIN');
 
-      // Generate customer ID
+      // Generate customer ID - Format: AGLSyyyymmddxxxx (4 digits)
       const countResult = await client.query(
         "SELECT COUNT(*) FROM customers WHERE DATE(created_at) = CURRENT_DATE"
       );
       const dailyCount = parseInt(countResult.rows[0].count) + 1;
-      const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-      const customer_id = `CUST${today}${dailyCount.toString().padStart(3, '0')}`;
+      // Use local date instead of UTC to match database CURRENT_DATE
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const today = `${year}${month}${day}`;
+      const customer_id = `AGLS${today}${dailyCount.toString().padStart(4, '0')}`;
+
+      // Generate username and password (username must be unique!)
+      // Format: {email_prefix}_{last8phone}@customer
+      const emailPrefix = registration.email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+      const phoneLastDigits = registration.phone.slice(-8);
+      const username = `${emailPrefix}_${phoneLastDigits}@customer`;
+      const bcrypt = require('bcryptjs');
+      const hashedPassword = await bcrypt.hash('customer123', 10); // Default password
+      const clientPassword = Math.random().toString(36).slice(-8).toUpperCase(); // Random client area password
 
       // Create customer
       const customerQuery = `
         INSERT INTO customers (
-          customer_id, name, email, phone,
+          customer_id, name, email, phone, ktp,
           address, service_type, package_id,
-          status, created_by
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, 'pending_installation', $8)
+          account_status, username, password, client_area_password
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING *
       `;
 
@@ -792,16 +830,31 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
         registration.full_name,
         registration.email,
         registration.phone,
+        registration.id_card_number, // KTP
         registration.address,
         registration.service_type,
         registration.package_id,
-        req.user.id
+        'pending_installation', // account_status
+        username,
+        hashedPassword,
+        clientPassword
       ]);
 
       const customer = customerResult.rows[0];
+      console.log('✅ Customer created:', {
+        id: customer.id,
+        customer_id: customer.customer_id,
+        name: customer.name,
+        ktp: customer.ktp
+      });
 
-      // Create installation ticket
-      const ticketNumber = `TKT${today}${(dailyCount * 10).toString().padStart(3, '0')}`;
+      // Create installation ticket - Format: TKTyyyymmddxxx
+      // Get daily ticket count (not customer count)
+      const ticketCountResult = await client.query(
+        'SELECT COUNT(*) FROM tickets WHERE DATE(created_at) = CURRENT_DATE'
+      );
+      const dailyTicketCount = parseInt(ticketCountResult.rows[0].count) + 1;
+      const ticketNumber = `TKT${today}${dailyTicketCount.toString().padStart(3, '0')}`;
       const sla_due_date = new Date();
       sla_due_date.setHours(sla_due_date.getHours() + 48); // 48 hours SLA for installation
 
@@ -825,16 +878,56 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
       ]);
 
       const ticket = ticketResult.rows[0];
+      console.log('✅ Ticket created:', {
+        id: ticket.id,
+        ticket_number: ticket.ticket_number,
+        customer_id: ticket.customer_id
+      });
 
-      // Update registration with customer_id and ticket_id
-      await client.query(
+      // Update registration with customer_id, ticket_id, and status
+      console.log(`📝 Updating registration ${id} with customer_id=${customer.id}, ticket_id=${ticket.id}`);
+      const updateResult = await client.query(
         `UPDATE customer_registrations 
-         SET customer_id = $1, installation_ticket_id = $2 
-         WHERE id = $3`,
+         SET customer_id = $1, installation_ticket_id = $2, status = 'customer_created'
+         WHERE id = $3
+         RETURNING id, status, customer_id, installation_ticket_id`,
         [customer.id, ticket.id, id]
       );
+      console.log('✅ Registration updated:', updateResult.rows[0]);
 
       await client.query('COMMIT');
+      console.log('✅ Transaction COMMITTED');
+
+      // Emit Socket.IO events for real-time updates
+      const io = req.app.get('io');
+      if (io) {
+        // Notify customer-created event
+        io.emit('customer-created', {
+          customerId: customer.id,
+          customer_id: customer.customer_id,
+          name: customer.name,
+          status: 'pending_installation'
+        });
+        
+        // Notify registration status updated
+        io.emit('registration-updated', {
+          registrationId: id,
+          registration_number: registration.registration_number,
+          oldStatus: 'approved',
+          newStatus: 'customer_created',
+          action: 'customer_created'
+        });
+
+        // Notify ticket created
+        io.emit('ticket-created', {
+          ticketId: ticket.id,
+          ticket_number: ticket.ticket_number,
+          type: 'installation',
+          customer_id: customer.customer_id
+        });
+
+        console.log(`✅ Customer ${customer.customer_id} and ticket ${ticket.ticket_number} created from registration ${registration.registration_number}`);
+      }
 
       res.json({
         success: true,
@@ -853,10 +946,15 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
     }
 
   } catch (error) {
-    console.error('Create customer error:', error);
+    console.error('❌❌❌ CREATE CUSTOMER ERROR ❌❌❌');
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    console.error('Error detail:', error.detail);
+    console.error('SQL:', error.sql);
     res.status(500).json({
       success: false,
-      message: 'Internal server error'
+      message: 'Internal server error',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });

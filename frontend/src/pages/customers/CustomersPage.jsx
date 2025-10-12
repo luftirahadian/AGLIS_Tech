@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import { 
-  Users, Plus, Search, Filter, Eye, Edit, Trash2, 
+  Users, Plus, Search, Filter, 
   Phone, Mail, MapPin, Package, CreditCard, Activity,
   ChevronLeft, ChevronRight, RefreshCw, XCircle, 
-  ArrowUpDown, ArrowUp, ArrowDown
+  ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Clock, AlertCircle, CheckCircle
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 const CustomersPage = () => {
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const [filters, setFilters] = useState({
     search: '',
     customer_type: '',
@@ -77,6 +79,7 @@ const CustomersPage = () => {
   const stats = statsData?.data || {
     total_customers: 0,
     active_customers: 0,
+    pending_installation_customers: 0,
     inactive_customers: 0,
     suspended_customers: 0,
     paid_customers: 0,
@@ -84,6 +87,23 @@ const CustomersPage = () => {
     pending_customers: 0,
     non_active_customers: 0
   }
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    const handleCustomerUpdate = () => {
+      queryClient.invalidateQueries(['customers'])
+      queryClient.invalidateQueries('customer-stats')
+      console.log('🔄 Customer list & stats refreshed')
+    }
+
+    window.addEventListener('customer-created', handleCustomerUpdate)
+    window.addEventListener('customer-updated', handleCustomerUpdate)
+
+    return () => {
+      window.removeEventListener('customer-created', handleCustomerUpdate)
+      window.removeEventListener('customer-updated', handleCustomerUpdate)
+    }
+  }, [queryClient])
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }))
@@ -143,17 +163,30 @@ const CustomersPage = () => {
       : <ArrowDown className="h-4 w-4 text-blue-600" />
   }
 
+  // Format status text untuk display yang lebih baik
+  const formatStatusText = (status) => {
+    if (!status) return '-'
+    // Convert snake_case to Title Case
+    return status
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
+  }
+
   const getStatusBadge = (status, type = 'account') => {
     const statusConfig = {
       account: {
         active: 'bg-green-100 text-green-800',
         inactive: 'bg-red-100 text-red-800',
-        suspended: 'bg-yellow-100 text-yellow-800'
+        suspended: 'bg-yellow-100 text-yellow-800',
+        pending_installation: 'bg-blue-100 text-blue-800',
+        pending_activation: 'bg-purple-100 text-purple-800'
       },
       payment: {
         paid: 'bg-green-100 text-green-800',
         unpaid: 'bg-red-100 text-red-800',
-        pending: 'bg-yellow-100 text-yellow-800'
+        pending: 'bg-yellow-100 text-yellow-800',
+        overdue: 'bg-orange-100 text-orange-800'
       }
     }
 
@@ -162,7 +195,7 @@ const CustomersPage = () => {
 
     return (
       <span className={`px-2 py-1 text-xs font-medium rounded-full ${className}`}>
-        {status}
+        {formatStatusText(status)}
       </span>
     )
   }
@@ -213,13 +246,25 @@ const CustomersPage = () => {
         </button>
       </div>
 
-      {/* Stats Cards */}
+      {/* Stats Cards - Row 1: Account Status */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <KPICard
           icon={Users}
           title="Total Customer"
           value={stats.total_customers || 0}
           color="blue"
+          onClick={() => {
+            // Reset all filters to show all customers
+            setFilters({
+              search: '',
+              customer_type: '',
+              service_type: '',
+              account_status: '',
+              payment_status: '',
+              package_id: ''
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
         />
         <KPICard
           icon={Activity}
@@ -236,7 +281,39 @@ const CustomersPage = () => {
           }}
         />
         <KPICard
-          icon={CreditCard}
+          icon={Clock}
+          title="Pending Installation"
+          value={stats.pending_installation_customers || 0}
+          color="orange"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              account_status: filters.account_status === 'pending_installation' ? '' : 'pending_installation',
+              payment_status: '' // Reset payment status filter
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
+        />
+        <KPICard
+          icon={AlertCircle}
+          title="Suspended"
+          value={stats.suspended_customers || 0}
+          color="red"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              account_status: filters.account_status === 'suspended' ? '' : 'suspended',
+              payment_status: '' // Reset payment status filter
+            })
+            setPagination({ ...pagination, page: 1 })
+          }}
+        />
+      </div>
+
+      {/* Stats Cards - Row 2: Payment Status */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <KPICard
+          icon={XCircle}
           title="Unpaid"
           value={stats.unpaid_customers || 0}
           color="yellow"
@@ -250,19 +327,15 @@ const CustomersPage = () => {
           }}
         />
         <KPICard
-          icon={XCircle}
-          title="Non-Active"
-          value={stats.non_active_customers || 0}
-          color="red"
+          icon={CheckCircle}
+          title="Paid"
+          value={stats.paid_customers || 0}
+          color="green"
           onClick={() => {
-            // Toggle between showing inactive/suspended and showing all
-            const newStatus = filters.account_status === 'inactive' || filters.account_status === 'suspended' 
-              ? '' 
-              : 'inactive'
             setFilters({ 
               ...filters, 
-              account_status: newStatus,
-              payment_status: '' // Reset payment status filter
+              payment_status: filters.payment_status === 'paid' ? '' : 'paid',
+              account_status: '' // Reset account status filter
             })
             setPagination({ ...pagination, page: 1 })
           }}
@@ -381,7 +454,16 @@ const CustomersPage = () => {
             <div className="text-center py-12">
               <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">Tidak ada customer</h3>
-              <p className="text-gray-500">Belum ada data customer yang sesuai dengan filter</p>
+              <p className="text-gray-500 mb-4">
+                Belum ada data customer. Customer akan dibuat dari pendaftaran yang disetujui.
+              </p>
+              <button 
+                onClick={() => navigate('/registrations')}
+                className="btn-primary inline-flex items-center"
+              >
+                <UserPlus className="h-4 w-4 mr-2" />
+                Lihat Pendaftaran
+              </button>
             </div>
           ) : (
             <>
@@ -423,7 +505,12 @@ const CustomersPage = () => {
                   </thead>
                   <tbody className="table-body">
                     {customers.map((customer) => (
-                      <tr key={customer.id}>
+                      <tr 
+                        key={customer.id}
+                        onClick={() => navigate(`/customers/${customer.id}`)}
+                        className="cursor-pointer hover:bg-blue-50 transition-colors"
+                        title="Klik untuk lihat detail"
+                      >
                         <td className="table-cell">
                           <div>
                             <div className="font-medium text-gray-900">
@@ -465,21 +552,8 @@ const CustomersPage = () => {
                           </div>
                         </td>
                         <td className="table-cell">
-                          <div className="flex justify-end space-x-2">
-                            <Link
-                              to={`/customers/${customer.id}`}
-                              className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                              title="View Details"
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Link>
-                            <button
-                              onClick={() => handleDeleteCustomer(customer.id, customer.name)}
-                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
-                              title="Deactivate Customer"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
+                          <div className="flex items-center justify-center text-gray-400">
+                            <ChevronRight className="h-5 w-5" />
                           </div>
                         </td>
                       </tr>

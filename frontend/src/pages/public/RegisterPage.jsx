@@ -45,7 +45,8 @@ const RegisterPage = () => {
     () => packageService.getAll(),
     {
       select: (data) => {
-        const pkgs = Array.isArray(data) ? data : []
+        // Backend returns { success: true, data: [...], pagination: {...} }
+        const pkgs = Array.isArray(data?.data) ? data.data : []
         return pkgs.filter(pkg => pkg.type === 'broadband')
       }
     }
@@ -139,11 +140,30 @@ const RegisterPage = () => {
         ktpPhotoBase64 = await fileToBase64(data.id_card_photo[0])
       }
 
+      // Clean data: convert empty strings to null for optional fields
       const registrationData = {
         ...data,
         id_card_photo: ktpPhotoBase64,
-        whatsapp_verified: 'true'
+        whatsapp_verified: 'true',
+        // Convert empty strings to null
+        id_card_number: data.id_card_number || null,
+        rt: data.rt || null,
+        rw: data.rw || null,
+        kelurahan: data.kelurahan || null,
+        kecamatan: data.kecamatan || null,
+        postal_code: data.postal_code || null,
+        address_notes: data.address_notes || null,
+        preferred_installation_date: data.preferred_installation_date || null,
+        notes: data.notes || null,
+        referral_code: data.referral_code || null,
+        // Ensure package_id is number
+        package_id: parseInt(data.package_id)
       }
+
+      console.log('🚀 SUBMITTING REGISTRATION - FULL DATA:')
+      console.log(JSON.stringify(registrationData, null, 2))
+      console.log('📊 Data Keys:', Object.keys(registrationData))
+      console.log('📊 package_id type:', typeof registrationData.package_id, '=', registrationData.package_id)
 
       const result = await registrationService.submitRegistration(registrationData)
 
@@ -154,6 +174,11 @@ const RegisterPage = () => {
         })
       }
     } catch (error) {
+      console.error('❌ REGISTRATION SUBMIT ERROR:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      })
       toast.error(error.response?.data?.message || 'Gagal submit pendaftaran')
     } finally {
       setIsSubmitting(false)
@@ -161,7 +186,13 @@ const RegisterPage = () => {
   }
 
   // Handle next step
-  const handleNextStep = async () => {
+  const handleNextStep = async (e) => {
+    // CRITICAL: Prevent form submission!
+    if (e) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    
     let fieldsToValidate = []
 
     if (currentStep === 1) {

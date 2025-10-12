@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useQuery, useMutation } from 'react-query'
+import React, { useState, useEffect } from 'react'
+import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { 
   Users, Plus, Search, Filter, MapPin, Phone, Mail, 
@@ -15,6 +15,7 @@ import toast from 'react-hot-toast'
 
 const TechniciansPage = () => {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const [filters, setFilters] = useState({
     search: '',
     employment_status: '',
@@ -151,6 +152,29 @@ const TechniciansPage = () => {
     )
   }
 
+  const technicians = techniciansData?.data?.technicians || []
+  const pagination = techniciansData?.data?.pagination || {}
+  const stats = statsData?.data || {}
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    const handleTechnicianUpdate = () => {
+      queryClient.invalidateQueries(['technicians'])
+      queryClient.invalidateQueries('technician-stats')
+      console.log('🔄 Technician list & stats refreshed')
+    }
+
+    window.addEventListener('technician-created', handleTechnicianUpdate)
+    window.addEventListener('technician-updated', handleTechnicianUpdate)
+    window.addEventListener('technician-status-changed', handleTechnicianUpdate)
+
+    return () => {
+      window.removeEventListener('technician-created', handleTechnicianUpdate)
+      window.removeEventListener('technician-updated', handleTechnicianUpdate)
+      window.removeEventListener('technician-status-changed', handleTechnicianUpdate)
+    }
+  }, [queryClient])
+
   if (isLoading && !techniciansData) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -158,10 +182,6 @@ const TechniciansPage = () => {
       </div>
     )
   }
-
-  const technicians = techniciansData?.data?.technicians || []
-  const pagination = techniciansData?.data?.pagination || {}
-  const stats = statsData?.data || {}
 
   return (
     <div className="space-y-6">
@@ -195,18 +215,39 @@ const TechniciansPage = () => {
           title="Available"
           value={stats.available_technicians || 0}
           color="green"
+          onClick={() => {
+            setFilters({
+              ...filters,
+              availability_status: filters.availability_status === 'available' ? '' : 'available'
+            })
+            setPage(1)
+          }}
         />
         <KPICard
           icon={Clock}
           title="Busy"
           value={stats.busy_technicians || 0}
           color="yellow"
+          onClick={() => {
+            setFilters({
+              ...filters,
+              availability_status: filters.availability_status === 'busy' ? '' : 'busy'
+            })
+            setPage(1)
+          }}
         />
         <KPICard
-          icon={Star}
-          title="Avg Rating"
-          value={stats.avg_customer_rating ? parseFloat(stats.avg_customer_rating).toFixed(1) : '0.0'}
-          color="purple"
+          icon={XCircle}
+          title="Offline"
+          value={stats.offline_technicians || 0}
+          color="red"
+          onClick={() => {
+            setFilters({
+              ...filters,
+              availability_status: filters.availability_status === 'offline' ? '' : 'offline'
+            })
+            setPage(1)
+          }}
         />
       </div>
 

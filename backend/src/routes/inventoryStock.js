@@ -152,6 +152,37 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get inventory statistics - MUST be before /:id route
+router.get('/stats', async (req, res) => {
+  try {
+    const statsQuery = `
+      SELECT 
+        COUNT(DISTINCT ist.id) as total_items,
+        SUM(ist.total_value) as total_value,
+        COUNT(*) FILTER (WHERE ist.current_stock <= ist.minimum_stock) as low_stock_count,
+        COUNT(*) FILTER (WHERE ist.current_stock > ist.minimum_stock) as available_count,
+        COUNT(DISTINCT em.category) as total_categories,
+        AVG(ist.current_stock) as avg_stock
+      FROM inventory_stock ist
+      JOIN equipment_master em ON ist.equipment_id = em.id
+      WHERE em.is_active = true
+    `;
+    
+    const result = await pool.query(statsQuery);
+    
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Get inventory stats error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Get single inventory stock item by ID
 router.get('/:id', async (req, res) => {
   try {

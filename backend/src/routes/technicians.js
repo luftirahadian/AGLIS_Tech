@@ -158,6 +158,40 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get technician statistics - MUST be before /:id route
+router.get('/stats', async (req, res) => {
+  try {
+    const statsQuery = `
+      SELECT 
+        COUNT(*) as total_technicians,
+        COUNT(*) FILTER (WHERE availability_status = 'available') as available_technicians,
+        COUNT(*) FILTER (WHERE availability_status = 'busy') as busy_technicians,
+        COUNT(*) FILTER (WHERE availability_status = 'break') as break_technicians,
+        COUNT(*) FILTER (WHERE availability_status = 'offline') as offline_technicians,
+        COUNT(*) FILTER (WHERE employment_status = 'active') as active_employment,
+        COUNT(*) FILTER (WHERE employment_status = 'inactive') as inactive_employment,
+        AVG(tp.customer_satisfaction_avg) as avg_customer_rating,
+        COUNT(DISTINCT tt.id) FILTER (WHERE tt.status IN ('assigned', 'in_progress')) as active_tickets
+      FROM technicians t
+      LEFT JOIN technician_performance tp ON t.id = tp.technician_id
+      LEFT JOIN tickets tt ON t.id = tt.assigned_technician_id
+    `;
+    
+    const result = await pool.query(statsQuery);
+    
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Get technician stats error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Get technician by ID with detailed information
 router.get('/:id', async (req, res) => {
   try {

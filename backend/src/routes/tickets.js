@@ -739,6 +739,35 @@ router.put('/:id/status', [
         }
       }
 
+      // 🔥 CRITICAL: Update customer status when installation completed
+      if (status === 'completed' && ticket.type === 'installation' && ticket.customer_id) {
+        const customerUpdateResult = await client.query(
+          `UPDATE customers 
+           SET 
+             account_status = 'active',
+             installation_date = CURRENT_TIMESTAMP,
+             updated_at = CURRENT_TIMESTAMP
+           WHERE id = $1 AND account_status = 'pending_installation'
+           RETURNING *`,
+          [ticket.customer_id]
+        );
+
+        if (customerUpdateResult.rows.length > 0) {
+          console.log(`✅ Customer ${ticket.customer_id} activated after installation completed`);
+          
+          // Emit customer-updated event for real-time UI refresh
+          const io = req.app.get('io');
+          if (io) {
+            io.emit('customer-updated', {
+              customerId: ticket.customer_id,
+              oldStatus: 'pending_installation',
+              newStatus: 'active',
+              action: 'installation_completed'
+            });
+          }
+        }
+      }
+
       await client.query('COMMIT');
 
       // Emit Socket.IO events for real-time updates

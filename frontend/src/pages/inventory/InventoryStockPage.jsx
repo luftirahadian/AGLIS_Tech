@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useQuery } from 'react-query';
+import React, { useState, useEffect } from 'react';
+import { useQuery, useQueryClient } from 'react-query';
 import { Package, Search, AlertTriangle, DollarSign, TrendingUp, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import inventoryStockService from '../../services/inventoryStockService';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -7,6 +7,7 @@ import KPICard from '../../components/dashboard/KPICard';
 import toast from 'react-hot-toast';
 
 const InventoryStockPage = () => {
+  const queryClient = useQueryClient()
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [showLowStockOnly, setShowLowStockOnly] = useState(false);
@@ -42,15 +43,44 @@ const InventoryStockPage = () => {
     }
   );
 
+  // Fetch inventory statistics
+  const { data: statsResponse } = useQuery(
+    'inventory-stats',
+    inventoryStockService.getStats,
+    {
+      refetchOnWindowFocus: true,
+      refetchOnMount: 'always'
+    }
+  );
+
   const inventory = Array.isArray(inventoryResponse?.data) ? inventoryResponse.data : [];
   const lowStockAlerts = Array.isArray(alertsResponse?.data) ? alertsResponse.data : [];
   const pagination = inventoryResponse?.pagination || {};
+  const stats = statsResponse?.data || {};
 
-  // Statistics - from all data
-  const totalItems = inventoryResponse?.total || 0;
-  const totalValue = inventory.reduce((sum, item) => sum + parseFloat(item.total_value || 0), 0);
-  const lowStockCount = lowStockAlerts.length;
-  const categories = [...new Set(inventory.map(i => i.category))].length;
+  // Statistics - from API
+  const totalItems = parseInt(stats.total_items) || 0;
+  const totalValue = parseFloat(stats.total_value) || 0;
+  const lowStockCount = parseInt(stats.low_stock_count) || 0;
+  const categories = parseInt(stats.total_categories) || 0;
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    const handleInventoryUpdate = () => {
+      queryClient.invalidateQueries(['inventory-stock'])
+      queryClient.invalidateQueries('inventory-stats')
+      queryClient.invalidateQueries('low-stock-alerts')
+      console.log('🔄 Inventory list & stats refreshed')
+    }
+
+    window.addEventListener('inventory-updated', handleInventoryUpdate)
+    window.addEventListener('stock-changed', handleInventoryUpdate)
+
+    return () => {
+      window.removeEventListener('inventory-updated', handleInventoryUpdate)
+      window.removeEventListener('stock-changed', handleInventoryUpdate)
+    }
+  }, [queryClient])
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('id-ID', {
@@ -142,6 +172,10 @@ const InventoryStockPage = () => {
           value={lowStockCount}
           icon={AlertTriangle}
           color="red"
+          onClick={() => {
+            setShowLowStockOnly(!showLowStockOnly)
+            setPage(1)
+          }}
         />
         <KPICard
           title="Kategori"

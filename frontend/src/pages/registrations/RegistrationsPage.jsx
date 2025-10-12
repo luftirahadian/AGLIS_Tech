@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 import {
   UserPlus, Search, Filter, Eye, CheckCircle, XCircle, Clock,
   Calendar, Phone, Mail, MapPin, Package, Shield, FileCheck,
-  UserCheck, ClipboardCheck, Home as HomeIcon, ChevronRight, BarChart3,
+  UserCheck, ClipboardCheck, Home, ChevronRight, BarChart3,
   ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft
 } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 
 const RegistrationsPage = () => {
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [currentPage, setCurrentPage] = useState(1)
   const [limit, setLimit] = useState(10)
   const [selectedRegistration, setSelectedRegistration] = useState(null)
   const [showDetailModal, setShowDetailModal] = useState(false)
-  const [showActionModal, setShowActionModal] = useState(false)
-  const [actionType, setActionType] = useState(null) // verify, approve, reject
+  const [actionType, setActionType] = useState(null) // verify, approve, reject, survey_scheduled
   const [actionNotes, setActionNotes] = useState('')
   const [rejectionReason, setRejectionReason] = useState('')
   const [surveyDate, setSurveyDate] = useState('')
@@ -28,8 +28,20 @@ const RegistrationsPage = () => {
   
   const [filters, setFilters] = useState({
     search: '',
-    status: ''
+    status: '',
+    dateFilter: '' // 'today' or ''
   })
+
+  // Format currency helper
+  const formatCurrency = (amount) => {
+    if (!amount) return '-'
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount)
+  }
 
   // Fetch registrations
   const { data: registrationsData, isLoading } = useQuery(
@@ -59,14 +71,21 @@ const RegistrationsPage = () => {
   const updateStatusMutation = useMutation(
     ({ id, data }) => registrationService.updateStatus(id, data),
     {
-      onSuccess: () => {
+      onSuccess: (response) => {
         queryClient.invalidateQueries(['registrations'])
         queryClient.invalidateQueries('registration-stats')
-        setShowActionModal(false)
-        setSelectedRegistration(null)
+        
+        // Reset form fields
+        setActionType(null)
         setActionNotes('')
         setRejectionReason('')
         setSurveyDate('')
+        
+        // Refresh selected registration data
+        if (response?.data?.registration) {
+          setSelectedRegistration(response.data.registration)
+        }
+        
         toast.success('Status berhasil diupdate')
       },
       onError: (error) => {
@@ -92,12 +111,6 @@ const RegistrationsPage = () => {
     }
   )
 
-  const handleAction = (registration, type) => {
-    setSelectedRegistration(registration)
-    setActionType(type)
-    setShowActionModal(true)
-  }
-
   const handleSubmitAction = () => {
     if (!selectedRegistration) return
 
@@ -120,6 +133,14 @@ const RegistrationsPage = () => {
         return
       }
       data.survey_scheduled_date = surveyDate
+    }
+
+    if (actionType === 'survey_completed') {
+      if (!actionNotes.trim()) {
+        toast.error('Hasil survey wajib diisi')
+        return
+      }
+      data.notes = actionNotes // Survey results stored in notes
     }
 
     updateStatusMutation.mutate({ id: selectedRegistration.id, data })
@@ -157,8 +178,8 @@ const RegistrationsPage = () => {
       survey_scheduled: { label: 'Survey Scheduled', color: 'bg-indigo-100 text-indigo-800' },
       survey_completed: { label: 'Survey Done', color: 'bg-purple-100 text-purple-800' },
       approved: { label: 'Approved', color: 'bg-green-100 text-green-800' },
-      rejected: { label: 'Rejected', color: 'bg-red-100 text-red-800' },
-      cancelled: { label: 'Cancelled', color: 'bg-gray-100 text-gray-800' }
+      customer_created: { label: 'Customer Created', color: 'bg-emerald-100 text-emerald-800' },
+      rejected: { label: 'Rejected', color: 'bg-red-100 text-red-800' }
     }
     const badge = badges[status] || badges.pending_verification
     return <span className={`px-3 py-1 rounded-full text-xs font-semibold ${badge.color}`}>{badge.label}</span>
@@ -166,6 +187,23 @@ const RegistrationsPage = () => {
 
   const stats = statsData || {}
   const totalRegistrations = registrationsData?.data?.pagination?.total || 0
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    const handleRegistrationUpdate = () => {
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+      console.log('🔄 Registration list & stats refreshed')
+    }
+
+    window.addEventListener('registration-created', handleRegistrationUpdate)
+    window.addEventListener('registration-updated', handleRegistrationUpdate)
+
+    return () => {
+      window.removeEventListener('registration-created', handleRegistrationUpdate)
+      window.removeEventListener('registration-updated', handleRegistrationUpdate)
+    }
+  }, [queryClient])
 
   return (
     <div className="space-y-6">
@@ -195,33 +233,106 @@ const RegistrationsPage = () => {
         </div>
       </div>
 
-      {/* Statistics Cards */}
+      {/* Statistics Cards - Row 1: Workflow Progress */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <KPICard 
-            icon={FileCheck} 
-            title="Total Pendaftaran" 
-            value={stats.total_registrations || 0} 
-            color="blue" 
-          />
-          <KPICard 
-            icon={Clock} 
-            title="Pending" 
-            value={stats.pending_verification || 0} 
-            color="yellow" 
-          />
-          <KPICard 
-            icon={CheckCircle} 
-            title="Approved" 
-            value={stats.approved || 0} 
-            color="green" 
-          />
-          <KPICard 
-            icon={UserPlus} 
-            title="Hari Ini" 
-            value={stats.today_registrations || 0} 
-            color="indigo" 
-          />
-        </div>
+        <KPICard 
+          icon={FileCheck} 
+          title="Total Pendaftaran" 
+          value={stats.total_registrations || 0} 
+          color="blue" 
+        />
+        <KPICard 
+          icon={Clock} 
+          title="Need Review" 
+          value={(parseInt(stats.pending_verification) || 0) + (parseInt(stats.verified) || 0)} 
+          color="yellow"
+          onClick={() => {
+            // Toggle between showing Need Review statuses or all
+            const isFiltered = filters.status === 'pending_verification' || filters.status === 'verified'
+            setFilters({ 
+              ...filters, 
+              status: isFiltered ? '' : 'pending_verification',
+              dateFilter: ''
+            })
+            setCurrentPage(1)
+          }}
+        />
+        <KPICard 
+          icon={Calendar} 
+          title="Survey" 
+          value={(parseInt(stats.survey_scheduled) || 0) + (parseInt(stats.survey_completed) || 0)} 
+          color="indigo"
+          onClick={() => {
+            const isFiltered = filters.status === 'survey_scheduled' || filters.status === 'survey_completed'
+            setFilters({ 
+              ...filters, 
+              status: isFiltered ? '' : 'survey_scheduled',
+              dateFilter: ''
+            })
+            setCurrentPage(1)
+          }}
+        />
+        <KPICard 
+          icon={CheckCircle} 
+          title="Approved" 
+          value={stats.approved || 0} 
+          color="green"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              status: filters.status === 'approved' ? '' : 'approved',
+              dateFilter: ''
+            })
+            setCurrentPage(1)
+          }}
+        />
+      </div>
+
+      {/* Statistics Cards - Row 2: Outcomes & Daily Metric */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <KPICard 
+          icon={Home} 
+          title="Customer Created" 
+          value={stats.customer_created || 0} 
+          color="emerald"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              status: filters.status === 'customer_created' ? '' : 'customer_created',
+              dateFilter: ''
+            })
+            setCurrentPage(1)
+          }}
+        />
+        <KPICard 
+          icon={XCircle} 
+          title="Rejected" 
+          value={stats.rejected || 0} 
+          color="red"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              status: filters.status === 'rejected' ? '' : 'rejected',
+              dateFilter: ''
+            })
+            setCurrentPage(1)
+          }}
+        />
+        <KPICard 
+          icon={Calendar} 
+          title="Today's New" 
+          value={stats.today_registrations || 0} 
+          color="orange"
+          onClick={() => {
+            setFilters({ 
+              ...filters, 
+              status: '',
+              dateFilter: filters.dateFilter === 'today' ? '' : 'today'
+            })
+            setCurrentPage(1)
+          }}
+        />
+      </div>
 
       {/* Filters */}
       <div className="bg-white shadow rounded-lg p-6">
@@ -255,6 +366,7 @@ const RegistrationsPage = () => {
               <option value="survey_scheduled">Survey Scheduled</option>
               <option value="survey_completed">Survey Completed</option>
               <option value="approved">Approved</option>
+              <option value="customer_created">Customer Created</option>
               <option value="rejected">Rejected</option>
             </select>
           </div>
@@ -275,6 +387,23 @@ const RegistrationsPage = () => {
           {isLoading ? (
             <div className="py-12">
               <LoadingSpinner className="mx-auto" />
+            </div>
+          ) : registrationsData?.data?.registrations.length === 0 ? (
+            <div className="text-center py-12">
+              <UserPlus className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Belum ada pendaftaran</h3>
+              <p className="text-gray-500 mb-4">
+                Pendaftaran akan muncul setelah customer mengisi form pendaftaran
+              </p>
+              <a 
+                href="/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center"
+              >
+                <UserPlus className="h-4 w-4 mr-2" />
+                Buka Form Pendaftaran
+              </a>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -323,7 +452,12 @@ const RegistrationsPage = () => {
                 </thead>
                 <tbody className="table-body">
                   {registrationsData?.data?.registrations.map((reg) => (
-                    <tr key={reg.id}>
+                    <tr 
+                      key={reg.id}
+                      onClick={() => navigate(`/registrations/${reg.id}`)}
+                      className="cursor-pointer hover:bg-blue-50 transition-colors"
+                      title="Klik untuk lihat detail"
+                    >
                       <td className="table-cell">
                         <div className="font-medium text-blue-600">{reg.registration_number}</div>
                         <div className="text-sm text-gray-500">{new Date(reg.created_at).toLocaleDateString('id-ID')}</div>
@@ -342,7 +476,7 @@ const RegistrationsPage = () => {
                       <td className="table-cell">
                         <div className="font-medium">{reg.package_name}</div>
                         <div className="text-sm text-gray-500">
-                          Rp {reg.monthly_price?.toLocaleString('id-ID')}/bln
+                          {formatCurrency(reg.monthly_price)}/bln
                         </div>
                       </td>
                       <td className="table-cell">
@@ -357,80 +491,14 @@ const RegistrationsPage = () => {
                         </div>
                       </td>
                       <td className="table-cell">
-                        <div className="flex items-center justify-center space-x-2">
-                          <button
-                            onClick={() => {
-                              setSelectedRegistration(reg)
-                              setShowDetailModal(true)
-                            }}
-                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                            title="View Details"
-                          >
-                            <Eye className="h-4 w-4" />
-                          </button>
-
-                          {reg.status === 'pending_verification' && (
-                            <button
-                              onClick={() => handleAction(reg, 'verified')}
-                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
-                              title="Verify"
-                            >
-                              <CheckCircle className="h-4 w-4" />
-                            </button>
-                          )}
-
-                          {reg.status === 'verified' && (
-                            <button
-                              onClick={() => handleAction(reg, 'survey_scheduled')}
-                              className="inline-flex items-center justify-center w-8 h-8 text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors"
-                              title="Schedule Survey"
-                            >
-                              <Calendar className="h-4 w-4" />
-                            </button>
-                          )}
-
-                          {reg.status === 'survey_completed' && (
-                            <button
-                              onClick={() => handleAction(reg, 'approved')}
-                              className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
-                              title="Approve"
-                            >
-                              <UserCheck className="h-4 w-4" />
-                            </button>
-                          )}
-
-                          {reg.status === 'approved' && !reg.customer_id && (
-                            <button
-                              onClick={() => handleCreateCustomer(reg)}
-                              className="inline-flex items-center justify-center w-8 h-8 text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors"
-                              title="Create Customer"
-                            >
-                              <HomeIcon className="h-4 w-4" />
-                            </button>
-                          )}
-
-                          {!['approved', 'rejected', 'cancelled'].includes(reg.status) && (
-                            <button
-                              onClick={() => handleAction(reg, 'rejected')}
-                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
-                              title="Reject"
-                            >
-                              <XCircle className="h-4 w-4" />
-                            </button>
-                          )}
+                        <div className="flex items-center justify-center text-gray-400">
+                          <ChevronRight className="h-5 w-5" />
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-
-              {registrationsData?.data?.registrations.length === 0 && (
-                <div className="text-center py-12">
-                  <UserPlus className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Belum ada pendaftaran</p>
-                </div>
-              )}
             </div>
           )}
 
@@ -617,126 +685,355 @@ const RegistrationsPage = () => {
                   </div>
                 </div>
 
-                {/* Actions */}
-                <div className="border-t pt-6 flex gap-3 justify-end">
-                  {selectedRegistration.status === 'approved' && !selectedRegistration.customer_id && (
-                    <button
-                      onClick={() => handleCreateCustomer(selectedRegistration)}
-                      disabled={createCustomerMutation.isLoading}
-                      className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-gray-400 transition-colors inline-flex items-center"
-                    >
-                      <HomeIcon className="h-5 w-5 mr-2" />
-                      Buat Customer & Ticket
-                    </button>
-                  )}
-                </div>
+                {/* Actions Section */}
+                {!['rejected'].includes(selectedRegistration.status) && selectedRegistration.status !== 'customer_created' && (
+                  <div className="border-t pt-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                      {selectedRegistration.status === 'approved' && !selectedRegistration.customer_id 
+                        ? 'Create Customer' 
+                        : 'Available Actions'
+                      }
+                    </h3>
+
+                    {/* PENDING VERIFICATION: Verify or Reject */}
+                    {selectedRegistration.status === 'pending_verification' && (
+                      <div className="space-y-4">
+                        <div className="space-y-3">
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors"
+                            style={{ borderColor: actionType === 'verified' ? '#10b981' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="verified"
+                              checked={actionType === 'verified'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-green-600 focus:ring-green-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">✅ Verify - Verifikasi Data</p>
+                              <p className="text-sm text-gray-600">Data sudah diperiksa dan valid</p>
+                            </div>
+                          </label>
+
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-red-50 transition-colors"
+                            style={{ borderColor: actionType === 'rejected' ? '#ef4444' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="rejected"
+                              checked={actionType === 'rejected'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-red-600 focus:ring-red-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">❌ Reject - Tolak Pendaftaran</p>
+                              <p className="text-sm text-gray-600">Data tidak valid atau tidak memenuhi syarat</p>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* VERIFIED: Approve, Schedule Survey, or Reject */}
+                    {selectedRegistration.status === 'verified' && (
+                      <div className="space-y-4">
+                        <div className="space-y-3">
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors"
+                            style={{ borderColor: actionType === 'approved' ? '#10b981' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="approved"
+                              checked={actionType === 'approved'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-green-600 focus:ring-green-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">✅ Approve - Setujui Langsung</p>
+                              <p className="text-sm text-gray-600">Skip survey, langsung create customer (Fast Track)</p>
+                            </div>
+                          </label>
+
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-indigo-50 transition-colors"
+                            style={{ borderColor: actionType === 'survey_scheduled' ? '#6366f1' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="survey_scheduled"
+                              checked={actionType === 'survey_scheduled'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">📅 Schedule Survey</p>
+                              <p className="text-sm text-gray-600">Jadwalkan survey lokasi terlebih dahulu</p>
+                            </div>
+                          </label>
+
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-red-50 transition-colors"
+                            style={{ borderColor: actionType === 'rejected' ? '#ef4444' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="rejected"
+                              checked={actionType === 'rejected'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-red-600 focus:ring-red-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">❌ Reject - Tolak Pendaftaran</p>
+                              <p className="text-sm text-gray-600">Data tidak memenuhi syarat</p>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* SURVEY SCHEDULED: Survey Completed or Reject */}
+                    {selectedRegistration.status === 'survey_scheduled' && (
+                      <div className="space-y-4">
+                        <div className="bg-indigo-50 border-2 border-indigo-200 rounded-lg p-4 mb-4">
+                          <p className="text-sm font-medium text-indigo-900">📅 Survey Scheduled</p>
+                          <p className="text-sm text-indigo-700 mt-1">
+                            Survey telah dijadwalkan. Setelah survey dilakukan, update status di bawah ini.
+                          </p>
+                        </div>
+                        <div className="space-y-3">
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors"
+                            style={{ borderColor: actionType === 'survey_completed' ? '#10b981' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="survey_completed"
+                              checked={actionType === 'survey_completed'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-green-600 focus:ring-green-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">✅ Survey Completed</p>
+                              <p className="text-sm text-gray-600">Survey sudah selesai, lokasi feasible untuk instalasi</p>
+                            </div>
+                          </label>
+
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-red-50 transition-colors"
+                            style={{ borderColor: actionType === 'rejected' ? '#ef4444' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="rejected"
+                              checked={actionType === 'rejected'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-red-600 focus:ring-red-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">❌ Reject - Tidak Feasible</p>
+                              <p className="text-sm text-gray-600">Lokasi tidak memungkinkan untuk instalasi</p>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* SURVEY COMPLETED: Approve or Reject */}
+                    {selectedRegistration.status === 'survey_completed' && (
+                      <div className="space-y-4">
+                        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-4">
+                          <p className="text-sm font-medium text-green-900">✅ Survey Completed</p>
+                          <p className="text-sm text-green-700 mt-1">Survey sudah selesai. Pilih tindakan selanjutnya di bawah ini.</p>
+                        </div>
+                        <div className="space-y-3">
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-green-50 transition-colors"
+                            style={{ borderColor: actionType === 'approved' ? '#10b981' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="approved"
+                              checked={actionType === 'approved'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-green-600 focus:ring-green-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">✅ Approve - Setujui Pendaftaran</p>
+                              <p className="text-sm text-gray-600">Lokasi feasible, siap untuk create customer</p>
+                            </div>
+                          </label>
+
+                          <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-red-50 transition-colors"
+                            style={{ borderColor: actionType === 'rejected' ? '#ef4444' : '#e5e7eb' }}
+                          >
+                            <input
+                              type="radio"
+                              name="action"
+                              value="rejected"
+                              checked={actionType === 'rejected'}
+                              onChange={(e) => setActionType(e.target.value)}
+                              className="h-4 w-4 text-red-600 focus:ring-red-500"
+                            />
+                            <div className="ml-3">
+                              <p className="text-sm font-medium text-gray-900">❌ Reject - Tidak Feasible</p>
+                              <p className="text-sm text-gray-600">Hasil survey menunjukkan lokasi tidak layak</p>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* APPROVED: Create Customer */}
+                    {selectedRegistration.status === 'approved' && !selectedRegistration.customer_id && (
+                      <div className="space-y-4">
+                        <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-4">
+                          <p className="text-sm font-medium text-purple-900">🎉 Registration Approved!</p>
+                          <p className="text-sm text-purple-700 mt-1">
+                            Pendaftaran sudah disetujui. Klik tombol di bawah untuk membuat data customer dan ticket instalasi.
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => handleCreateCustomer(selectedRegistration)}
+                          disabled={createCustomerMutation.isLoading}
+                          className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-gray-400 transition-colors inline-flex items-center justify-center"
+                        >
+                          {createCustomerMutation.isLoading ? (
+                            <>
+                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                              Processing...
+                            </>
+                          ) : (
+                            <>
+                              <HomeIcon className="h-5 w-5 mr-2" />
+                              Buat Customer & Ticket Instalasi
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Conditional Form Fields */}
+                    {actionType && selectedRegistration.status !== 'approved' && (
+                      <div className="mt-6 space-y-4">
+                        {/* Survey Date - Only for survey_scheduled */}
+                        {actionType === 'survey_scheduled' && (
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              Tanggal Survey <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              type="datetime-local"
+                              value={surveyDate}
+                              onChange={(e) => setSurveyDate(e.target.value)}
+                              className="form-input"
+                              min={new Date().toISOString().slice(0, 16)}
+                            />
+                          </div>
+                        )}
+
+                        {/* Survey Results - Only for survey_completed */}
+                        {actionType === 'survey_completed' && (
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              Hasil Survey <span className="text-red-500">*</span>
+                            </label>
+                            <textarea
+                              rows={4}
+                              value={actionNotes}
+                              onChange={(e) => setActionNotes(e.target.value)}
+                              className="form-input"
+                              placeholder="Contoh: Survey completed successfully. ODP distance: 50m. Cable needed: 60m. No obstacles found. Location is feasible for installation."
+                            />
+                            <p className="text-xs text-gray-500 mt-1">
+                              💡 Tips: Sebutkan jarak ODP, panjang kabel needed, hambatan (jika ada), dan kesimpulan kelayakan instalasi.
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Rejection Reason - Only for rejected */}
+                        {actionType === 'rejected' && (
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              Alasan Penolakan <span className="text-red-500">*</span>
+                            </label>
+                            <textarea
+                              rows={3}
+                              value={rejectionReason}
+                              onChange={(e) => setRejectionReason(e.target.value)}
+                              className="form-input"
+                              placeholder="Jelaskan alasan penolakan secara detail..."
+                            />
+                          </div>
+                        )}
+
+                        {/* Notes - For all actions except survey_completed (uses actionNotes for results) */}
+                        {actionType !== 'survey_completed' && (
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              Catatan (Opsional)
+                            </label>
+                            <textarea
+                              rows={2}
+                              value={actionNotes}
+                              onChange={(e) => setActionNotes(e.target.value)}
+                              className="form-input"
+                              placeholder="Tambahkan catatan tambahan..."
+                            />
+                          </div>
+                        )}
+
+                        {/* Submit Button */}
+                        <div className="flex gap-3 justify-end pt-4">
+                          <button
+                            onClick={() => {
+                              setActionType(null)
+                              setActionNotes('')
+                              setRejectionReason('')
+                              setSurveyDate('')
+                            }}
+                            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            Batal
+                          </button>
+                          <button
+                            onClick={handleSubmitAction}
+                            disabled={updateStatusMutation.isLoading}
+                            className={`
+                              px-6 py-2 rounded-lg text-white transition-colors inline-flex items-center
+                              ${actionType === 'rejected' 
+                                ? 'bg-red-600 hover:bg-red-700' 
+                                : actionType === 'survey_scheduled'
+                                ? 'bg-indigo-600 hover:bg-indigo-700'
+                                : 'bg-green-600 hover:bg-green-700'
+                              }
+                              disabled:bg-gray-400 disabled:cursor-not-allowed
+                            `}
+                          >
+                            {updateStatusMutation.isLoading ? (
+                              <>
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                Processing...
+                              </>
+                            ) : (
+                              <>
+                                <CheckCircle className="h-5 w-5 mr-2" />
+                                Konfirmasi
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         )}
 
-        {/* Action Modal */}
-        {showActionModal && selectedRegistration && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl shadow-2xl max-w-md w-full">
-              <div className="px-6 py-4 border-b">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {actionType === 'verified' && 'Verifikasi Data'}
-                  {actionType === 'approved' && 'Setujui Pendaftaran'}
-                  {actionType === 'rejected' && 'Tolak Pendaftaran'}
-                  {actionType === 'survey_scheduled' && 'Jadwalkan Survey'}
-                </h3>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <p className="text-gray-700">
-                  Customer: <span className="font-semibold">{selectedRegistration.full_name}</span>
-                </p>
-
-                {actionType === 'survey_scheduled' && (
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Tanggal Survey *
-                    </label>
-                    <input
-                      type="datetime-local"
-                      value={surveyDate}
-                      onChange={(e) => setSurveyDate(e.target.value)}
-                      className="form-input"
-                      min={new Date().toISOString().slice(0, 16)}
-                    />
-                  </div>
-                )}
-
-                {actionType === 'rejected' && (
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Alasan Penolakan *
-                    </label>
-                    <textarea
-                      rows={3}
-                      value={rejectionReason}
-                      onChange={(e) => setRejectionReason(e.target.value)}
-                      className="form-input"
-                      placeholder="Jelaskan alasan penolakan..."
-                    />
-                  </div>
-                )}
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Catatan (Opsional)
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={actionNotes}
-                    onChange={(e) => setActionNotes(e.target.value)}
-                    className="form-input"
-                    placeholder="Tambahkan catatan..."
-                  />
-                </div>
-              </div>
-
-              <div className="px-6 py-4 bg-gray-50 border-t flex justify-end space-x-3">
-                <button
-                  onClick={() => {
-                    setShowActionModal(false)
-                    setActionNotes('')
-                    setRejectionReason('')
-                    setSurveyDate('')
-                  }}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
-                >
-                  Batal
-                </button>
-                <button
-                  onClick={handleSubmitAction}
-                  disabled={updateStatusMutation.isLoading}
-                  className={`
-                    px-6 py-2 rounded-lg text-white transition-colors inline-flex items-center
-                    ${actionType === 'rejected' 
-                      ? 'bg-red-600 hover:bg-red-700' 
-                      : 'bg-blue-600 hover:bg-blue-700'
-                    }
-                    disabled:bg-gray-400 disabled:cursor-not-allowed
-                  `}
-                >
-                  {updateStatusMutation.isLoading ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <CheckCircle className="h-5 w-5 mr-2" />
-                      Konfirmasi
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )

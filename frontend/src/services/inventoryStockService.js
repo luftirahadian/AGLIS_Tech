@@ -29,6 +29,12 @@ const inventoryStockService = {
   getValueByCategory: async () => {
     const response = await api.get('/inventory-stock/reports/value-by-category');
     return response;
+  },
+
+  // Get inventory statistics
+  getStats: async () => {
+    const response = await api.get('/inventory-stock/stats');
+    return response;
   }
 };
 

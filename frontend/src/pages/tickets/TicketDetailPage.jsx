@@ -11,6 +11,7 @@ import {
   FileText,
   AlertCircle,
   CheckCircle,
+  XCircle,
   Upload,
   Download,
   Package
@@ -204,6 +205,86 @@ const TicketDetailPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Quick Actions */}
+      {!['completed', 'cancelled'].includes(ticket.status) && (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-gray-400" />
+              <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
+            </div>
+            <div className="flex items-center gap-3">
+              {ticket.status === 'open' && user && (
+                <button
+                  onClick={() => {
+                    updateStatusMutation.mutate({
+                      status: 'assigned',
+                      technician_id: user.id,
+                      notes: 'Self-assigned via quick action'
+                    })
+                  }}
+                  disabled={updateStatusMutation.isLoading}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <User className="h-4 w-4" />
+                  Assign to Me
+                </button>
+              )}
+              
+              {['assigned', 'in_progress'].includes(ticket.status) && (
+                <button
+                  onClick={() => {
+                    updateStatusMutation.mutate({
+                      status: 'completed',
+                      notes: 'Completed via quick action'
+                    })
+                  }}
+                  disabled={updateStatusMutation.isLoading}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <CheckCircle className="h-4 w-4" />
+                  Complete Ticket
+                </button>
+              )}
+
+              {!['on_hold', 'cancelled'].includes(ticket.status) && (
+                <button
+                  onClick={() => {
+                    updateStatusMutation.mutate({
+                      status: 'on_hold',
+                      notes: 'Put on hold via quick action'
+                    })
+                  }}
+                  disabled={updateStatusMutation.isLoading}
+                  className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <Clock className="h-4 w-4" />
+                  Put On Hold
+                </button>
+              )}
+
+              {ticket.status !== 'cancelled' && (
+                <button
+                  onClick={() => {
+                    if (window.confirm('Are you sure you want to cancel this ticket?')) {
+                      updateStatusMutation.mutate({
+                        status: 'cancelled',
+                        notes: 'Cancelled via quick action'
+                      })
+                    }
+                  }}
+                  disabled={updateStatusMutation.isLoading}
+                  className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <XCircle className="h-4 w-4" />
+                  Cancel
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="border-b border-gray-200">

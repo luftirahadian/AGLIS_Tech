@@ -12,6 +12,7 @@ router.get('/stats', async (req, res) => {
       SELECT 
         COUNT(*) as total_customers,
         COUNT(*) FILTER (WHERE account_status = 'active') as active_customers,
+        COUNT(*) FILTER (WHERE account_status = 'pending_installation') as pending_installation_customers,
         COUNT(*) FILTER (WHERE account_status = 'inactive') as inactive_customers,
         COUNT(*) FILTER (WHERE account_status = 'suspended') as suspended_customers,
         COUNT(*) FILTER (WHERE payment_status = 'paid') as paid_customers,
