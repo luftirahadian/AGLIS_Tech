@@ -8,10 +8,21 @@ import { technicianService } from '../services/technicianService'
 import odpService from '../services/odpService'
 import packageService from '../services/packageService'
 
-const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
+const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onStatusPreSelected }) => {
   const { user } = useAuth()
   const [selectedStatus, setSelectedStatus] = useState(ticket.status)
   const [selectedTechnician, setSelectedTechnician] = useState(ticket.assigned_technician_id || '')
+  
+  // Auto-select status if pre-selected from Quick Actions
+  useEffect(() => {
+    if (preSelectedStatus) {
+      setSelectedStatus(preSelectedStatus)
+      // Call callback to clear pre-selected status
+      if (onStatusPreSelected) {
+        onStatusPreSelected()
+      }
+    }
+  }, [preSelectedStatus, onStatusPreSelected])
   
   const {
     register,
@@ -23,12 +34,24 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
   } = useForm()
   
   // Fetch ODP list for dropdown
-  const { data: odpList } = useQuery(
+  const { data: odpList, isLoading: odpLoading, error: odpError } = useQuery(
     'odp-active',
     () => odpService.getAll(),
     {
       refetchOnWindowFocus: false,
-      select: (data) => data?.filter(odp => odp.status === 'active') || []
+      select: (response) => {
+        console.log('🔍 ODP API Response:', response)
+        
+        // Extract array from response.data
+        const odpArray = Array.isArray(response?.data) ? response.data : []
+        console.log('📦 ODP Array:', odpArray)
+        
+        // Filter only active ODPs
+        const activeOdps = odpArray.filter(odp => odp.status === 'active')
+        console.log('✅ Active ODPs:', activeOdps)
+        
+        return activeOdps
+      }
     }
   )
   
@@ -48,30 +71,15 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
     }
   )
   
-  // Watch file inputs and ODP selection to show feedback
-  const otdrPhoto = watch('otdr_photo')
-  const attenuationPhoto = watch('attenuation_photo')
-  const modemSnPhoto = watch('modem_sn_photo')
-  const selectedOdp = watch('odp_location')
-
-  // Debug file selection
-  useEffect(() => {
-    if (otdrPhoto?.[0]) {
-      console.log('✅ OTDR Photo selected:', otdrPhoto[0].name, otdrPhoto[0].size, 'bytes');
-    }
-  }, [otdrPhoto])
-
-  useEffect(() => {
-    if (attenuationPhoto?.[0]) {
-      console.log('✅ Attenuation Photo selected:', attenuationPhoto[0].name, attenuationPhoto[0].size, 'bytes');
-    }
-  }, [attenuationPhoto])
-
-  useEffect(() => {
-    if (modemSnPhoto?.[0]) {
-      console.log('✅ Modem SN Photo selected:', modemSnPhoto[0].name, modemSnPhoto[0].size, 'bytes');
-    }
-  }, [modemSnPhoto])
+  // State for image previews (managed directly in onChange handlers)
+  const [otdrPreview, setOtdrPreview] = useState(null)
+  const [attenuationPreview, setAttenuationPreview] = useState(null)
+  const [modemSnPreview, setModemSnPreview] = useState(null)
+  
+  // Store file objects for display info (filename, size)
+  const [otdrFile, setOtdrFile] = useState(null)
+  const [attenuationFile, setAttenuationFile] = useState(null)
+  const [modemSnFile, setModemSnFile] = useState(null)
 
   // Auto-fill dates when status changes to 'completed'
   useEffect(() => {
@@ -244,33 +252,285 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
     console.log('Form data:', data);
     console.log('Selected status:', selectedStatus);
     
+    // Manual validation for file uploads (when status = completed & type = installation)
+    if (selectedStatus === 'completed' && ticket.type === 'installation') {
+      console.log('🔍 [VALIDATION] Checking required files...');
+      console.log('🔍 [VALIDATION] otdrFile:', otdrFile);
+      console.log('🔍 [VALIDATION] attenuationFile:', attenuationFile);
+      console.log('🔍 [VALIDATION] modemSnFile:', modemSnFile);
+      console.log('🔍 [VALIDATION] data.otdr_photo:', data.otdr_photo);
+      console.log('🔍 [VALIDATION] data.attenuation_photo:', data.attenuation_photo);
+      console.log('🔍 [VALIDATION] data.modem_sn_photo:', data.modem_sn_photo);
+      
+      if (!otdrFile) {
+        console.log('❌ [VALIDATION] OTDR file missing!');
+        alert('Foto OTDR is required');
+        return;
+      }
+      if (!attenuationFile) {
+        console.log('❌ [VALIDATION] Attenuation file missing!');
+        alert('Foto Redaman Terakhir is required');
+        return;
+      }
+      if (!modemSnFile) {
+        console.log('❌ [VALIDATION] Modem SN file missing!');
+        alert('Foto SN Modem is required');
+        return;
+      }
+      console.log('✅ All required files validated:', {
+        otdr: otdrFile.name,
+        attenuation: attenuationFile.name,
+        modemSn: modemSnFile.name
+      });
+    }
+    
     // Validation: jika pilih 'assigned' dari status 'open', harus pilih teknisi
     if (selectedStatus === 'assigned' && ticket.status === 'open' && !selectedTechnician) {
       alert('Please select a technician when assigning the ticket for the first time')
       return
     }
 
-    // Auto-generate notes jika kosong berdasarkan status
+    // PHASE 1: Conditional Smart Notes - Contextual & Informative
     const autoGenerateNotes = () => {
-      if (data.notes && data.notes.trim()) return data.notes
-      
-      const statusMessages = {
-        'open': 'Ticket dibuka dan menunggu assignment teknisi.',
-        'assigned': `Ticket telah di-assign ke teknisi${selectedTechnician ? ' yang dipilih' : ''} untuk dikerjakan.`,
-        'in_progress': 'Pekerjaan dimulai. Teknisi sedang mengerjakan ticket ini.',
-        'completed': 'Pekerjaan selesai dikerjakan dengan baik. Ticket ditutup.',
-        'cancelled': 'Ticket dibatalkan karena alasan tertentu.',
-        'on_hold': 'Pekerjaan ditunda sementara. Menunggu informasi atau material tambahan.'
+      console.log('📝 [AUTO-NOTES] Starting auto-generation...');
+      console.log('📝 [AUTO-NOTES] Custom notes provided?', !!data.notes?.trim());
+      if (data.notes && data.notes.trim()) {
+        console.log('📝 [AUTO-NOTES] Using custom notes');
+        return data.notes
       }
       
-      return statusMessages[selectedStatus] || `Status diubah menjadi ${selectedStatus}`
+      // Extract contextual data
+      const customerName = ticket.customer_name || 'Customer'
+      const customerId = ticket.customer_code || ticket.customer_id || ''
+      const ticketType = ticket.type || 'general'
+      const ticketTypeName = ticket.type_name || ticket.type || 'Ticket'
+      const ticketId = ticket.ticket_number || ticket.id
+      const oldStatus = ticket.status
+      const newStatus = selectedStatus
+      
+      console.log('📝 [AUTO-NOTES] Context:', {
+        customerName,
+        ticketType,
+        oldStatus,
+        newStatus,
+        ticketId
+      })
+      
+      const customerAddress = ticket.customer_address || ''
+      const packageName = ticket.package_name || ''
+      const bandwidth = ticket.bandwidth_down || ticket.bandwidth_up || ''
+      
+      // Get technician info
+      let technicianName = ''
+      let technicianId = ''
+      
+      // First try to get from selected technician (for new assignments)
+      if (selectedTechnician && techniciansData?.data?.technicians) {
+        console.log('📝 [AUTO-NOTES] Looking up technician, selectedTechnician:', selectedTechnician);
+        console.log('📝 [AUTO-NOTES] Available technicians:', techniciansData.data.technicians.length);
+        const tech = techniciansData.data.technicians.find(t => t.id === parseInt(selectedTechnician))
+        if (tech) {
+          technicianName = tech.full_name
+          technicianId = tech.employee_id
+          console.log('📝 [AUTO-NOTES] Found technician:', technicianName);
+        } else {
+          console.log('📝 [AUTO-NOTES] Technician not found in list');
+        }
+      }
+      
+      // Fallback to current ticket technician (for status updates)
+      if (!technicianName && ticket.technician_name) {
+        technicianName = ticket.technician_name
+        technicianId = ticket.technician_employee_id || ''
+        console.log('📝 [AUTO-NOTES] Using ticket technician:', technicianName);
+      }
+      
+      // Helper: Format date time
+      const formatDateTime = (date) => {
+        const d = new Date(date)
+        const day = String(d.getDate()).padStart(2, '0')
+        const month = String(d.getMonth() + 1).padStart(2, '0')
+        const year = d.getFullYear()
+        const hours = String(d.getHours()).padStart(2, '0')
+        const minutes = String(d.getMinutes()).padStart(2, '0')
+        return `${day}/${month}/${year} ${hours}:${minutes}`
+      }
+      
+      // Helper: Calculate target completion
+      const calculateTargetCompletion = (estimatedMinutes) => {
+        const now = new Date()
+        const target = new Date(now.getTime() + estimatedMinutes * 60000)
+        return formatDateTime(target)
+      }
+      
+      // Helper: Get equipment list by ticket type
+      const getEquipmentList = (type) => {
+        const equipment = {
+          installation: 'Dropcore fiber 50m, ONU/ONT, Patchcord LC-SC 3m, Rosette, Cable ties, Weatherproofing kit',
+          maintenance: 'OTDR, Power meter, Spare connectors, Cleaning kit, Patchcords',
+          upgrade: 'ONU (jika diperlukan), Configuration tools',
+          downgrade: 'Configuration tools, Billing system access',
+          relocation: 'Dropcore fiber, Patchcords, Cable management tools',
+          troubleshooting: 'OTDR, Power meter, Signal tester, Spare parts'
+        }
+        return equipment[type] || 'Standard technician toolkit'
+      }
+      
+      // Helper: Get estimated duration by ticket type
+      const getEstimatedDuration = (type) => {
+        const durations = {
+          installation: 120,
+          maintenance: 90,
+          upgrade: 45,
+          downgrade: 30,
+          relocation: 180,
+          troubleshooting: 60
+        }
+        return durations[type] || 60
+      }
+      
+      // Helper: Format SLA date
+      const formatSLA = () => {
+        if (ticket.sla_due_date) {
+          const sla = new Date(ticket.sla_due_date)
+          const now = new Date()
+          const diffHours = Math.floor((sla - now) / (1000 * 60 * 60))
+          const diffDays = Math.floor(diffHours / 24)
+          
+          if (diffDays > 1) {
+            return `${formatDateTime(sla)} (${diffDays} hari lagi)`
+          } else if (diffHours > 0) {
+            return `${formatDateTime(sla)} (${diffHours} jam lagi)`
+          } else {
+            return `${formatDateTime(sla)} (⚠️ URGENT)`
+          }
+        }
+        return 'Not set'
+      }
+      
+      // Conditional logic per ticket type and status
+      const ticketTypeKey = ticketType.toLowerCase()
+      
+      // ASSIGNED Status
+      if (newStatus === 'assigned') {
+        console.log('📝 [AUTO-NOTES] Generating ASSIGNED notes, technicianName:', technicianName);
+        if (oldStatus === 'open' && technicianName) {
+          const notes = `📋 TICKET ASSIGNMENT\n\nTiket ${ticketTypeName} (${ticketId}) berhasil di-assign.\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${customerAddress ? `\nLokasi: ${customerAddress}` : ''}${packageName ? `\nPackage: ${packageName}` : ''}\n\nStatus berubah: "${oldStatus}" → "Assigned"\n\nTeknisi akan segera menghubungi customer untuk koordinasi jadwal pekerjaan. Estimasi penyelesaian: ${getEstimatedDuration(ticketTypeKey)} menit setelah mulai dikerjakan.`
+          console.log('📝 [AUTO-NOTES] Generated:', notes.substring(0, 100) + '...');
+          return notes
+        } else if (technicianName) {
+          return `🔄 RE-ASSIGNMENT\n\nTiket ${ticketTypeName} (${ticketId}) di-assign ulang.\n\nTeknisi Baru: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\n\nStatus: "${oldStatus}" → "Assigned"\n\nProses penanganan akan dilanjutkan oleh teknisi yang baru. Koordinasi dengan customer akan segera dilakukan.`
+        }
+      }
+      
+      // IN_PROGRESS Status - Conditional by ticket type
+      if (newStatus === 'in_progress') {
+        console.log('📝 [AUTO-NOTES] Generating IN_PROGRESS notes, ticketType:', ticketTypeKey);
+        const currentTime = formatDateTime(new Date())
+        const estimatedDuration = getEstimatedDuration(ticketTypeKey)
+        const targetTime = calculateTargetCompletion(estimatedDuration)
+        const equipment = getEquipmentList(ticketTypeKey)
+        
+        if (ticketTypeKey === 'installation') {
+          return `🔧 INSTALLATION DIMULAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${customerAddress ? `\nLokasi: ${customerAddress}` : ''}${packageName && bandwidth ? `\nPackage: ${packageName} (${bandwidth} Mbps)` : packageName ? `\nPackage: ${packageName}` : ''}\n\nEquipment: ${equipment}\n\nTimeline:\n- Mulai: ${currentTime}\n- Target selesai: ${targetTime} (estimasi ${estimatedDuration} menit)\n- SLA Deadline: ${formatSLA()}\n\nStatus: "${oldStatus}" → "In Progress"\n\nPekerjaan pemasangan fiber optic sedang berlangsung. Teknisi sedang melakukan routing kabel dan instalasi perangkat dengan monitoring signal quality.`
+        }
+        
+        if (ticketTypeKey === 'maintenance') {
+          return `🔧 MAINTENANCE DIMULAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${customerAddress ? `\nLokasi: ${customerAddress}` : ''}\nIssue: ${ticket.category_name || 'Maintenance diperlukan'}\n\nDiagnostic Tools: ${equipment}\n\nTimeline:\n- Mulai: ${currentTime}\n- Target resolusi: ${targetTime} (estimasi ${estimatedDuration} menit)\n- SLA Deadline: ${formatSLA()}\n\nStatus: "${oldStatus}" → "In Progress"\n\nTeknisi sedang melakukan troubleshooting dan diagnosis untuk identifikasi akar masalah. Signal testing dan measurement sedang berlangsung.`
+        }
+        
+        if (ticketTypeKey === 'upgrade') {
+          return `📈 UPGRADE SERVICE DIMULAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${packageName ? `\nNew Package: ${packageName}` : ''}\n\nConfiguration Tools: ${equipment}\n\nTimeline:\n- Mulai: ${currentTime}\n- Target selesai: ${targetTime} (estimasi ${estimatedDuration} menit)\n- SLA Deadline: ${formatSLA()}\n\nStatus: "${oldStatus}" → "In Progress"\n\nTeknisi sedang melakukan rekonfigurasi bandwidth dan update service plan. Perubahan konfigurasi di ONU dan core network sedang berlangsung.`
+        }
+        
+        if (ticketTypeKey === 'downgrade') {
+          return `📉 DOWNGRADE SERVICE DIMULAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${packageName ? `\nNew Package: ${packageName}` : ''}\n\nTimeline:\n- Mulai: ${currentTime}\n- Target selesai: ${targetTime} (estimasi ${estimatedDuration} menit)\n\nStatus: "${oldStatus}" → "In Progress"\n\nTeknisi sedang melakukan adjustment bandwidth sesuai package baru. Konfigurasi service plan sedang diupdate di system.`
+        }
+        
+        // Default for other types
+        return `🔧 PEKERJAAN DIMULAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${customerAddress ? `\nLokasi: ${customerAddress}` : ''}\nTipe: ${ticketTypeName}\n\nEquipment: ${equipment}\n\nTimeline:\n- Mulai: ${currentTime}\n- Target selesai: ${targetTime} (estimasi ${estimatedDuration} menit)\n- SLA Deadline: ${formatSLA()}\n\nStatus: "${oldStatus}" → "In Progress"\n\nPekerjaan ${ticketTypeName} sedang berlangsung. Teknisi sedang aktif di lokasi customer.`
+      }
+      
+      // COMPLETED Status - Conditional by ticket type
+      if (newStatus === 'completed') {
+        const completionTime = formatDateTime(new Date())
+        
+        if (ticketTypeKey === 'installation') {
+          return `✅ INSTALLATION SELESAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nCompletion: ${completionTime}\n\nInstallation Summary:\n✓ Fiber optic installed & terminated\n✓ ONU configured & activated${packageName ? `\n✓ Service: ${packageName}` : ''}\n✓ Signal testing completed\n✓ Speed test passed\n✓ Customer demo & acceptance completed\n\nStatus: "${oldStatus}" → "Completed"\n\nInstalasi telah selesai dengan sukses. Layanan internet sudah aktif dan customer telah menerima demo penggunaan. Ticket ditutup.`
+        }
+        
+        if (ticketTypeKey === 'maintenance') {
+          return `✅ MAINTENANCE SELESAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nCompletion: ${completionTime}\n\nResolution Summary:\n✓ Problem identified & resolved\n✓ Signal strength restored to normal\n✓ Service testing completed\n✓ Connectivity stable\n✓ Customer confirmation received\n\nStatus: "${oldStatus}" → "Completed"\n\nMasalah berhasil diselesaikan. Service kembali normal dan customer confirm satisfied. Ticket ditutup.`
+        }
+        
+        if (ticketTypeKey === 'upgrade') {
+          return `✅ UPGRADE SELESAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nCompletion: ${completionTime}\n\nUpgrade Summary:\n✓ Bandwidth reconfigured${packageName ? `\n✓ New package: ${packageName}` : ''}\n✓ Speed test passed\n✓ Billing system synced\n✓ Customer notified\n\nStatus: "${oldStatus}" → "Completed"\n\nUpgrade service berhasil diselesaikan. Package baru sudah aktif dan speed sesuai target. Ticket ditutup.`
+        }
+        
+        return `✅ PEKERJAAN SELESAI\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nTipe: ${ticketTypeName}\nCompletion: ${completionTime}\n\nStatus: "${oldStatus}" → "Completed"\n\n${ticketTypeName} untuk ${customerName} telah selesai dikerjakan dengan baik. Semua pekerjaan telah diselesaikan sesuai SLA. Ticket ditutup.`
+      }
+      
+      // ON_HOLD Status
+      if (newStatus === 'on_hold') {
+        return `⏸️ PEKERJAAN DITUNDA\n\nTeknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nTipe: ${ticketTypeName}\n\nStatus: "${oldStatus}" → "On Hold"\n\nPekerjaan ${ticketTypeName} ditunda sementara. Menunggu:\n- Informasi tambahan dari customer, atau\n- Material/equipment yang diperlukan, atau\n- Konfirmasi dari dispatcher/management\n\nPekerjaan akan dilanjutkan setelah requirement terpenuhi. Ticket tetap di-monitor.`
+      }
+      
+      // CANCELLED Status
+      if (newStatus === 'cancelled') {
+        return `❌ TICKET DIBATALKAN\n\nTiket: ${ticketTypeName} (${ticketId})\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\nCancelled: ${formatDateTime(new Date())}\n\nStatus: "${oldStatus}" → "Cancelled"\n\nTiket dibatalkan karena:\n- Request dari customer, atau\n- Tidak feasible secara teknis, atau\n- Duplicate ticket, atau\n- Alasan lainnya\n\nMohon hubungi dispatcher untuk informasi lebih lanjut jika diperlukan.`
+      }
+      
+      // OPEN Status
+      if (newStatus === 'open') {
+        return `📋 TICKET DIBUKA KEMBALI\n\nTiket: ${ticketTypeName} (${ticketId})\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}${customerAddress ? `\nLokasi: ${customerAddress}` : ''}\n\nStatus: "${oldStatus}" → "Open"\n\nTiket dibuka kembali dan menunggu assignment ke teknisi. Perlu tindak lanjut segera.\nSLA Deadline: ${formatSLA()}`
+      }
+      
+      // Fallback for any other status
+      return `📝 STATUS UPDATE\n\nTiket: ${ticketTypeName} (${ticketId})\nCustomer: ${customerName}${customerId ? ` (${customerId})` : ''}\n\nStatus berubah: "${oldStatus}" → "${newStatus}"\n\n${technicianName ? `Teknisi: ${technicianName}${technicianId ? ` (${technicianId})` : ''}\n` : ''}Update pada: ${formatDateTime(new Date())}`
+    }
+
+    // Auto-generate resolution notes untuk completed status
+    const autoGenerateResolutionNotes = () => {
+      // If user provided custom notes, use those
+      if (data.resolution_notes && data.resolution_notes.trim()) return data.resolution_notes
+      
+      // Only auto-generate for completed status
+      if (selectedStatus !== 'completed') return undefined
+      
+      const ticketType = (ticket.type || 'general').toLowerCase()
+      const customerName = ticket.customer_name || 'Customer'
+      const packageName = ticket.package_name || ''
+      const bandwidth = ticket.bandwidth_down || ticket.bandwidth_up || ''
+      const technicianName = ticket.technician_name || 'Technician'
+      
+      // Generate resolution based on ticket type
+      switch(ticketType) {
+        case 'installation':
+          return `Installation untuk ${customerName} telah selesai dengan sukses. Fiber optic telah terpasang dengan baik dan signal quality dalam kondisi optimal. ONU telah dikonfigurasi${packageName ? ` untuk package ${packageName}` : ''}${bandwidth ? ` dengan bandwidth ${bandwidth} Mbps` : ''}. Speed test menunjukkan hasil sesuai spesifikasi. Customer telah menerima perangkat dalam kondisi baik, menerima demo penggunaan layanan, dan menandatangani berita acara serah terima. Layanan internet sudah aktif dan berjalan normal. Tidak ada issue yang ditemukan. Ticket ditutup dengan status completed.`
+        
+        case 'maintenance':
+        case 'troubleshooting':
+          return `Issue pada layanan ${customerName} berhasil diselesaikan. Root cause telah diidentifikasi dan diperbaiki. Signal strength telah kembali normal dan koneksi stabil. Testing dilakukan untuk memastikan tidak ada packet loss atau latency berlebih. Service telah berjalan dengan baik dan customer confirm bahwa masalah sudah teratasi. Pekerjaan maintenance selesai tanpa kendala. Ticket ditutup dengan status resolved.`
+        
+        case 'upgrade':
+          return `Upgrade package untuk ${customerName} berhasil diselesaikan.${packageName ? ` New package ${packageName}` : ' Package baru'}${bandwidth ? ` dengan bandwidth ${bandwidth} Mbps` : ''} telah aktif dan berjalan normal. Rekonfigurasi bandwidth dilakukan di ONU dan core network. Speed test menunjukkan hasil sesuai dengan package baru. Billing system telah disinkronisasi dengan perubahan package. Customer telah diberitahu tentang perubahan layanan dan menerima konfirmasi aktivasi. Ticket ditutup dengan status completed.`
+        
+        case 'downgrade':
+          return `Downgrade package untuk ${customerName} berhasil diproses.${packageName ? ` New package ${packageName}` : ' Package baru'}${bandwidth ? ` dengan bandwidth ${bandwidth} Mbps` : ''} telah aktif. Adjustment bandwidth dilakukan sesuai permintaan customer. Service plan telah diupdate di system dan billing. Layanan berjalan normal dengan konfigurasi baru. Customer confirm perubahan package sesuai dengan yang diinginkan. Ticket ditutup dengan status completed.`
+        
+        case 'relocation':
+          return `Relokasi layanan untuk ${customerName} telah selesai. Perangkat telah dipindahkan ke lokasi baru dengan sukses. Fiber optic di-routing ulang dan koneksi telah di-establish dengan baik. Signal quality optimal di lokasi baru. Testing dilakukan dan semua berjalan normal. Customer confirm layanan sudah aktif di lokasi baru dan berfungsi dengan baik. Ticket ditutup dengan status completed.`
+        
+        default:
+          return `Ticket ${ticket.type_name || ticketType} untuk ${customerName} telah diselesaikan dengan baik. Semua pekerjaan yang diperlukan telah dikerjakan sesuai SLA. Testing telah dilakukan dan hasilnya memuaskan. Customer confirm satisfied dengan hasil pekerjaan. Tidak ada outstanding issue. Ticket ditutup dengan status completed.`
+      }
     }
 
     const updateData = {
       status: selectedStatus,
       notes: autoGenerateNotes(),
       work_notes: data.work_notes || undefined,
-      resolution_notes: data.resolution_notes || undefined,
+      resolution_notes: autoGenerateResolutionNotes(),
       customer_rating: data.customer_rating || undefined,
       customer_feedback: data.customer_feedback || undefined
     }
@@ -292,10 +552,17 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
 
     // Completion fields berdasarkan service type - hanya kirim jika status 'completed'
     if (selectedStatus === 'completed') {
-      // Convert files to base64 if they exist
-      const otdr_photo_base64 = data.otdr_photo?.[0] ? await fileToBase64(data.otdr_photo[0]) : null
-      const attenuation_photo_base64 = data.attenuation_photo?.[0] ? await fileToBase64(data.attenuation_photo[0]) : null
-      const modem_sn_photo_base64 = data.modem_sn_photo?.[0] ? await fileToBase64(data.modem_sn_photo[0]) : null
+      // Convert files to base64 - use stored file objects instead of data.field
+      console.log('🔄 [SUBMIT] Converting files to base64...');
+      const otdr_photo_base64 = otdrFile ? await fileToBase64(otdrFile) : null
+      const attenuation_photo_base64 = attenuationFile ? await fileToBase64(attenuationFile) : null
+      const modem_sn_photo_base64 = modemSnFile ? await fileToBase64(modemSnFile) : null
+      
+      console.log('🔄 [SUBMIT] Files converted:', {
+        otdr: otdr_photo_base64 ? 'OK' : 'None',
+        attenuation: attenuation_photo_base64 ? 'OK' : 'None',
+        modemSn: modem_sn_photo_base64 ? 'OK' : 'None'
+      });
       
       // Find selected ODP ID
       const selectedOdpData = odpList?.find(odp => odp.name === data.odp_location)
@@ -305,19 +572,19 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
         odp_id: selectedOdpData?.id || null,
         odp_distance: data.odp_distance,
         otdr_photo: otdr_photo_base64 ? {
-          filename: data.otdr_photo[0].name,
+          filename: otdrFile.name,
           data: otdr_photo_base64
         } : null,
         final_attenuation: data.final_attenuation,
         attenuation_photo: attenuation_photo_base64 ? {
-          filename: data.attenuation_photo[0].name,
+          filename: attenuationFile.name,
           data: attenuation_photo_base64
         } : null,
         wifi_name: data.wifi_name,
         wifi_password: data.wifi_password,
         activation_date: data.activation_date,
         modem_sn_photo: modem_sn_photo_base64 ? {
-          filename: data.modem_sn_photo[0].name,
+          filename: modemSnFile.name,
           data: modem_sn_photo_base64
         } : null,
         repair_date: data.repair_date,
@@ -330,9 +597,9 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
       
       // Log file info for debugging
       console.log('=== FILE UPLOADS ===');
-      if (data.otdr_photo?.[0]) console.log('OTDR Photo:', data.otdr_photo[0].name, data.otdr_photo[0].size, 'bytes');
-      if (data.attenuation_photo?.[0]) console.log('Attenuation Photo:', data.attenuation_photo[0].name, data.attenuation_photo[0].size, 'bytes');
-      if (data.modem_sn_photo?.[0]) console.log('Modem SN Photo:', data.modem_sn_photo[0].name, data.modem_sn_photo[0].size, 'bytes');
+      if (otdrFile) console.log('OTDR Photo:', otdrFile.name, otdrFile.size, 'bytes');
+      if (attenuationFile) console.log('Attenuation Photo:', attenuationFile.name, attenuationFile.size, 'bytes');
+      if (modemSnFile) console.log('Modem SN Photo:', modemSnFile.name, modemSnFile.size, 'bytes');
     }
 
     await onUpdate(updateData)
@@ -437,7 +704,7 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
             <textarea
               rows={3}
               className="form-input"
-              placeholder="Add notes about this status change..."
+              placeholder="Optional: Add custom notes (leave empty to auto-generate detailed message)..."
               {...register('notes')}
             />
           </div>
@@ -485,18 +752,13 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
           {/* Resolution Notes (for completed status) */}
           {selectedStatus === 'completed' && (
             <div>
-              <label className="form-label">Resolution Notes *</label>
+              <label className="form-label">Resolution Notes</label>
               <textarea
                 rows={3}
-                className={`form-input ${errors.resolution_notes ? 'border-red-500' : ''}`}
-                placeholder="Describe how the issue was resolved..."
-                {...register('resolution_notes', {
-                  required: selectedStatus === 'completed' ? 'Resolution notes are required when completing a ticket' : false
-                })}
+                className="form-input"
+                placeholder="Optional: Add custom resolution notes (leave empty to auto-generate summary)..."
+                {...register('resolution_notes')}
               />
-              {errors.resolution_notes && (
-                <p className="form-error">{errors.resolution_notes.message}</p>
-              )}
             </div>
           )}
 
@@ -511,22 +773,32 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                   <p className="text-sm font-medium text-blue-900">Installation Completion Fields</p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* 1. Lokasi ODP */}
                     <div>
                       <label className="form-label">Lokasi ODP *</label>
                       <select
                         className={`form-input ${errors.odp_location ? 'border-red-500' : ''}`}
                         {...register('odp_location', { required: 'Lokasi ODP is required' })}
+                        disabled={odpLoading}
                       >
-                        <option value="">Pilih ODP...</option>
+                        <option value="">
+                          {odpLoading ? 'Loading ODP data...' : odpError ? 'Error loading ODP' : !odpList || odpList.length === 0 ? 'No active ODP available' : 'Pilih ODP...'}
+                        </option>
                         {odpList?.map((odp) => (
                           <option key={odp.id} value={odp.name}>
                             {odp.name} - {odp.location}
                           </option>
                         ))}
                       </select>
+                      {odpLoading && <p className="text-xs text-blue-600 mt-1">⏳ Loading ODP list...</p>}
+                      {odpError && <p className="text-xs text-red-600 mt-1">⚠️ Error: {odpError.message || 'Failed to load ODP data'}</p>}
+                      {!odpLoading && !odpError && odpList?.length === 0 && (
+                        <p className="text-xs text-orange-600 mt-1">⚠️ No active ODP found. Please add ODP in Master Data first.</p>
+                      )}
                       {errors.odp_location && <p className="form-error">{errors.odp_location.message}</p>}
                     </div>
 
+                    {/* 2. Jarak ODP */}
                     <div>
                       <label className="form-label">Jarak ODP (meter) *</label>
                       <input
@@ -537,22 +809,7 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       {errors.odp_distance && <p className="form-error">{errors.odp_distance.message}</p>}
                     </div>
 
-                    <div>
-                      <label className="form-label">Foto OTDR *</label>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer border border-gray-300 rounded-md"
-                        {...register('otdr_photo', { required: 'Foto OTDR is required' })}
-                      />
-                      {otdrPhoto?.[0] && (
-                        <p className="text-xs text-green-600 font-medium">
-                          ✓ Selected: {otdrPhoto[0].name} ({(otdrPhoto[0].size / 1024).toFixed(1)} KB)
-                        </p>
-                      )}
-                      {errors.otdr_photo && <p className="form-error">{errors.otdr_photo.message}</p>}
-                    </div>
-
+                    {/* 3. Redaman Terakhir */}
                     <div>
                       <label className="form-label">Redaman Terakhir (dB) *</label>
                       <input
@@ -564,22 +821,7 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       {errors.final_attenuation && <p className="form-error">{errors.final_attenuation.message}</p>}
                     </div>
 
-                    <div>
-                      <label className="form-label">Foto Redaman Terakhir *</label>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer border border-gray-300 rounded-md"
-                        {...register('attenuation_photo', { required: 'Foto Redaman is required' })}
-                      />
-                      {attenuationPhoto?.[0] && (
-                        <p className="text-xs text-green-600 font-medium">
-                          ✓ Selected: {attenuationPhoto[0].name} ({(attenuationPhoto[0].size / 1024).toFixed(1)} KB)
-                        </p>
-                      )}
-                      {errors.attenuation_photo && <p className="form-error">{errors.attenuation_photo.message}</p>}
-                    </div>
-
+                    {/* 4. Nama WiFi */}
                     <div>
                       <label className="form-label">Nama WiFi *</label>
                       <input
@@ -590,6 +832,7 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       {errors.wifi_name && <p className="form-error">{errors.wifi_name.message}</p>}
                     </div>
 
+                    {/* 5. Password WiFi */}
                     <div>
                       <label className="form-label">Password WiFi *</label>
                       <input
@@ -600,6 +843,7 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       {errors.wifi_password && <p className="form-error">{errors.wifi_password.message}</p>}
                     </div>
 
+                    {/* 6. Tanggal Aktif */}
                     <div>
                       <label className="form-label">Tanggal Aktif *</label>
                       <input
@@ -610,20 +854,301 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       {errors.activation_date && <p className="form-error">{errors.activation_date.message}</p>}
                     </div>
 
-                    <div>
+                    {/* 7. Foto OTDR */}
+                    <div className="md:col-span-2">
+                      <label className="form-label">Foto OTDR *</label>
+                      <input
+                        type="file"
+                        id="otdr-photo-input"
+                        accept="image/*"
+                        className="hidden"
+                        ref={register('otdr_photo').ref}
+                        name="otdr_photo"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          console.log('📁 OTDR Photo selected:', file?.name);
+                          if (file) {
+                            // Store file object for display
+                            setOtdrFile(file);
+                            // Generate preview directly
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              console.log('✅ OTDR Preview generated');
+                              setOtdrPreview(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+                            // Set value for form submission
+                            setValue('otdr_photo', e.target.files);
+                          }
+                        }}
+                      />
+                      
+                      {/* Upload Button or Preview */}
+                      {!otdrPreview ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            console.log('🎯 Triggering OTDR file picker...');
+                            document.getElementById('otdr-photo-input').click();
+                          }}
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all ${
+                            errors.otdr_photo
+                              ? 'border-red-500 bg-red-50 hover:bg-red-100'
+                              : 'border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-blue-500'
+                          }`}
+                        >
+                          <Upload className="h-5 w-5 text-gray-400" />
+                          <span className="text-sm font-medium text-gray-600">
+                            Klik untuk pilih Foto OTDR
+                          </span>
+                        </button>
+                      ) : (
+                        <div className="border-2 border-green-500 bg-green-50 rounded-lg overflow-hidden">
+                          <div className="relative">
+                            <img 
+                              src={otdrPreview} 
+                              alt="OTDR Preview" 
+                              className="w-full h-48 object-cover"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => window.open(otdrPreview, '_blank')}
+                              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                              title="Preview full size"
+                            >
+                              <svg className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div className="p-3 bg-white border-t-2 border-green-500">
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <svg className="h-5 w-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <p className="text-sm font-semibold text-green-700 truncate" title={otdrFile?.name}>
+                                  {otdrFile?.name}
+                                </p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setValue('otdr_photo', null);
+                                  setOtdrPreview(null);
+                                  setOtdrFile(null);
+                                }}
+                                className="ml-2 text-red-600 hover:text-red-700 flex-shrink-0"
+                                title="Remove file"
+                              >
+                                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                            <p className="text-xs text-gray-600">
+                              Size: {(otdrFile?.size / 1024).toFixed(1)} KB
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 8. Foto Redaman Terakhir */}
+                    <div className="md:col-span-2">
+                      <label className="form-label">Foto Redaman Terakhir *</label>
+                      <input
+                        type="file"
+                        id="attenuation-photo-input"
+                        accept="image/*"
+                        className="hidden"
+                        ref={register('attenuation_photo').ref}
+                        name="attenuation_photo"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          console.log('📁 Attenuation Photo selected:', file?.name);
+                          if (file) {
+                            setAttenuationFile(file);
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              console.log('✅ Attenuation Preview generated');
+                              setAttenuationPreview(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+                            setValue('attenuation_photo', e.target.files);
+                          }
+                        }}
+                      />
+                      
+                      {/* Upload Button or Preview */}
+                      {!attenuationPreview ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            console.log('🎯 Triggering Attenuation file picker...');
+                            document.getElementById('attenuation-photo-input').click();
+                          }}
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all ${
+                            errors.attenuation_photo
+                              ? 'border-red-500 bg-red-50 hover:bg-red-100'
+                              : 'border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-blue-500'
+                          }`}
+                        >
+                          <Upload className="h-5 w-5 text-gray-400" />
+                          <span className="text-sm font-medium text-gray-600">
+                            Klik untuk pilih Foto Redaman
+                          </span>
+                        </button>
+                      ) : (
+                        <div className="border-2 border-green-500 bg-green-50 rounded-lg overflow-hidden">
+                          <div className="relative">
+                            <img 
+                              src={attenuationPreview} 
+                              alt="Attenuation Preview" 
+                              className="w-full h-48 object-cover"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => window.open(attenuationPreview, '_blank')}
+                              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                              title="Preview full size"
+                            >
+                              <svg className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div className="p-3 bg-white border-t-2 border-green-500">
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <svg className="h-5 w-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <p className="text-sm font-semibold text-green-700 truncate" title={attenuationFile?.name}>
+                                  {attenuationFile?.name}
+                                </p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setValue('attenuation_photo', null);
+                                  setAttenuationPreview(null);
+                                  setAttenuationFile(null);
+                                }}
+                                className="ml-2 text-red-600 hover:text-red-700 flex-shrink-0"
+                                title="Remove file"
+                              >
+                                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                            <p className="text-xs text-gray-600">
+                              Size: {(attenuationFile?.size / 1024).toFixed(1)} KB
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 9. Foto SN Modem */}
+                    <div className="md:col-span-2">
                       <label className="form-label">Foto SN Modem *</label>
                       <input
                         type="file"
+                        id="modem-sn-photo-input"
                         accept="image/*"
-                        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer border border-gray-300 rounded-md"
-                        {...register('modem_sn_photo', { required: 'Foto SN Modem is required' })}
+                        className="hidden"
+                        ref={register('modem_sn_photo').ref}
+                        name="modem_sn_photo"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          console.log('📁 Modem SN Photo selected:', file?.name);
+                          if (file) {
+                            setModemSnFile(file);
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              console.log('✅ Modem SN Preview generated');
+                              setModemSnPreview(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+                            setValue('modem_sn_photo', e.target.files);
+                          }
+                        }}
                       />
-                      {modemSnPhoto?.[0] && (
-                        <p className="text-xs text-green-600 font-medium">
-                          ✓ Selected: {modemSnPhoto[0].name} ({(modemSnPhoto[0].size / 1024).toFixed(1)} KB)
-                        </p>
+                      
+                      {/* Upload Button or Preview */}
+                      {!modemSnPreview ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            console.log('🎯 Triggering Modem SN file picker...');
+                            document.getElementById('modem-sn-photo-input').click();
+                          }}
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all ${
+                            errors.modem_sn_photo
+                              ? 'border-red-500 bg-red-50 hover:bg-red-100'
+                              : 'border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-blue-500'
+                          }`}
+                        >
+                          <Upload className="h-5 w-5 text-gray-400" />
+                          <span className="text-sm font-medium text-gray-600">
+                            Klik untuk pilih Foto SN Modem
+                          </span>
+                        </button>
+                      ) : (
+                        <div className="border-2 border-green-500 bg-green-50 rounded-lg overflow-hidden">
+                          <div className="relative">
+                            <img 
+                              src={modemSnPreview} 
+                              alt="Modem SN Preview" 
+                              className="w-full h-48 object-cover"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => window.open(modemSnPreview, '_blank')}
+                              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                              title="Preview full size"
+                            >
+                              <svg className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div className="p-3 bg-white border-t-2 border-green-500">
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <svg className="h-5 w-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <p className="text-sm font-semibold text-green-700 truncate" title={modemSnFile?.name}>
+                                  {modemSnFile?.name}
+                                </p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setValue('modem_sn_photo', null);
+                                  setModemSnPreview(null);
+                                  setModemSnFile(null);
+                                }}
+                                className="ml-2 text-red-600 hover:text-red-700 flex-shrink-0"
+                                title="Remove file"
+                              >
+                                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                            <p className="text-xs text-gray-600">
+                              Size: {(modemSnFile?.size / 1024).toFixed(1)} KB
+                            </p>
+                          </div>
+                        </div>
                       )}
-                      {errors.modem_sn_photo && <p className="form-error">{errors.modem_sn_photo.message}</p>}
                     </div>
                   </div>
                 </div>
@@ -642,14 +1167,22 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
                       <select
                         className={`form-input ${errors.odp_location ? 'border-red-500' : ''}`}
                         {...register('odp_location', { required: 'Lokasi ODP is required' })}
+                        disabled={odpLoading}
                       >
-                        <option value="">Pilih ODP...</option>
+                        <option value="">
+                          {odpLoading ? 'Loading ODP data...' : odpError ? 'Error loading ODP' : !odpList || odpList.length === 0 ? 'No active ODP available' : 'Pilih ODP...'}
+                        </option>
                         {odpList?.map((odp) => (
                           <option key={odp.id} value={odp.name}>
                             {odp.name} - {odp.location}
                           </option>
                         ))}
                       </select>
+                      {odpLoading && <p className="text-xs text-blue-600 mt-1">⏳ Loading ODP list...</p>}
+                      {odpError && <p className="text-xs text-red-600 mt-1">⚠️ Error: {odpError.message || 'Failed to load ODP data'}</p>}
+                      {!odpLoading && !odpError && odpList?.length === 0 && (
+                        <p className="text-xs text-orange-600 mt-1">⚠️ No active ODP found. Please add ODP in Master Data first.</p>
+                      )}
                       {errors.odp_location && <p className="form-error">{errors.odp_location.message}</p>}
                     </div>
 
@@ -666,19 +1199,95 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading }) => {
 
                     <div>
                       <label className="form-label">Foto Redaman Terakhir (Optional)</label>
-                      <div className="space-y-2">
                         <input
                           type="file"
+                        id="maintenance-attenuation-photo-input"
                           accept="image/*"
-                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer border border-gray-300 rounded-md"
-                          {...register('attenuation_photo')}
-                        />
-                        {attenuationPhoto?.[0] && (
-                          <p className="text-xs text-green-600 font-medium">
-                            ✓ Selected: {attenuationPhoto[0].name} ({(attenuationPhoto[0].size / 1024).toFixed(1)} KB)
-                          </p>
-                        )}
+                        className="hidden"
+                        ref={register('attenuation_photo').ref}
+                        name="attenuation_photo"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          console.log('📁 Maintenance Attenuation Photo selected:', file?.name);
+                          if (file) {
+                            setAttenuationFile(file);
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              console.log('✅ Maintenance Attenuation Preview generated');
+                              setAttenuationPreview(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+                            setValue('attenuation_photo', e.target.files);
+                          }
+                        }}
+                      />
+                      
+                      {/* Upload Button or Preview */}
+                      {!attenuationPreview ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            console.log('🎯 Triggering Maintenance Attenuation file picker...');
+                            document.getElementById('maintenance-attenuation-photo-input').click();
+                          }}
+                          className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-orange-500"
+                        >
+                          <Upload className="h-5 w-5 text-gray-400" />
+                          <span className="text-sm font-medium text-gray-600">
+                            Klik untuk pilih Foto Redaman (Optional)
+                          </span>
+                        </button>
+                      ) : (
+                        <div className="border-2 border-green-500 bg-green-50 rounded-lg overflow-hidden">
+                          <div className="relative">
+                            <img 
+                              src={attenuationPreview} 
+                              alt="Attenuation Preview" 
+                              className="w-full h-48 object-cover"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => window.open(attenuationPreview, '_blank')}
+                              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                              title="Preview full size"
+                            >
+                              <svg className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div className="p-3 bg-white border-t-2 border-green-500">
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <svg className="h-5 w-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <p className="text-sm font-semibold text-green-700 truncate" title={attenuationFile?.name}>
+                                  {attenuationFile?.name}
+                                </p>
                       </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setValue('attenuation_photo', null);
+                                  setAttenuationPreview(null);
+                                  setAttenuationFile(null);
+                                }}
+                                className="ml-2 text-red-600 hover:text-red-700 flex-shrink-0"
+                                title="Remove file"
+                              >
+                                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                            <p className="text-xs text-gray-600">
+                              Size: {(attenuationFile?.size / 1024).toFixed(1)} KB
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     <div>

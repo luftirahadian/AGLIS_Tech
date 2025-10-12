@@ -500,7 +500,6 @@ const CustomersPage = () => {
                         </div>
                       </th>
                       <th className="table-header-cell">Tickets</th>
-                      <th className="table-header-cell text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="table-body">
@@ -508,8 +507,8 @@ const CustomersPage = () => {
                       <tr 
                         key={customer.id}
                         onClick={() => navigate(`/customers/${customer.id}`)}
-                        className="cursor-pointer hover:bg-blue-50 transition-colors"
-                        title="Klik untuk lihat detail"
+                        className="cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                        title="Klik untuk lihat detail customer"
                       >
                         <td className="table-cell">
                           <div>
@@ -549,11 +548,6 @@ const CustomersPage = () => {
                           <div className="text-center">
                             <div className="font-medium">{customer.total_tickets || 0}</div>
                             <div className="text-xs text-gray-500">total</div>
-                          </div>
-                        </td>
-                        <td className="table-cell">
-                          <div className="flex items-center justify-center text-gray-400">
-                            <ChevronRight className="h-5 w-5" />
                           </div>
                         </td>
                       </tr>

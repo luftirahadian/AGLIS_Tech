@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
@@ -9,6 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 
 const TicketsPage = () => {
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [showAssignmentModal, setShowAssignmentModal] = useState(false)
@@ -177,13 +178,23 @@ const TicketsPage = () => {
 
       {/* Statistics Cards - Grouped by Status Type */}
       <div className="space-y-6">
-        {/* Active Tickets */}
+        {/* Row 1: Overview + Active Tickets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <KPICard 
+            icon={Ticket} 
+            title="Total Tickets" 
+            value={stats.total_tickets || 0} 
+            color="blue"
+            onClick={() => {
+              setFilters({ search: '', status: '', type: '', priority: '' })
+              setCurrentPage(1)
+            }}
+          />
           <KPICard 
             icon={FileCheck} 
             title="Open" 
             value={stats.open_tickets || 0} 
-            color="blue"
+            color="indigo"
             onClick={() => {
               setFilters({ ...filters, status: filters.status === 'open' ? '' : 'open' })
               setCurrentPage(1)
@@ -193,7 +204,7 @@ const TicketsPage = () => {
             icon={Users} 
             title="Assigned" 
             value={stats.assigned_tickets || 0} 
-            color="indigo"
+            color="purple"
             onClick={() => {
               setFilters({ ...filters, status: filters.status === 'assigned' ? '' : 'assigned' })
               setCurrentPage(1)
@@ -209,19 +220,9 @@ const TicketsPage = () => {
               setCurrentPage(1)
             }}
           />
-          <KPICard 
-            icon={PauseCircle} 
-            title="On Hold" 
-            value={stats.on_hold_tickets || 0} 
-            color="purple"
-            onClick={() => {
-              setFilters({ ...filters, status: filters.status === 'on_hold' ? '' : 'on_hold' })
-              setCurrentPage(1)
-            }}
-          />
         </div>
         
-        {/* Completed Status */}
+        {/* Row 2: Completed Status */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <KPICard 
             icon={CheckCircle} 
@@ -401,12 +402,16 @@ const TicketsPage = () => {
                         {getSortIcon('created_at')}
                       </div>
                     </th>
-                    <th className="table-header-cell text-center" style={{ width: '100px' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody className="table-body">
                   {ticketsData.data.tickets.map((ticket) => (
-                    <tr key={ticket.id}>
+                    <tr 
+                      key={ticket.id}
+                      onClick={() => navigate(`/tickets/${ticket.id}`)}
+                      className="cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                      title="Klik untuk lihat detail ticket"
+                    >
                       <td className="table-cell">
                         <div>
                           <div className="font-medium text-gray-900">
@@ -456,17 +461,6 @@ const TicketsPage = () => {
                         </div>
                         <div className="text-sm text-gray-500">
                           {new Date(ticket.created_at).toLocaleTimeString()}
-                        </div>
-                      </td>
-                      <td className="table-cell" style={{ width: '100px' }}>
-                        <div className="flex justify-center">
-                          <Link
-                            to={`/tickets/${ticket.id}`}
-                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                            title="View Details"
-                          >
-                            <Eye className="h-4 w-4" />
-                          </Link>
                         </div>
                       </td>
                     </tr>

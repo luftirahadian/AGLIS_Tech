@@ -1,0 +1,1563 @@
+🔧 CORS: Using production origins from CORS_ORIGIN
+🚀 Server running on 0.0.0.0:3001
+🌍 Environment: development
+📡 Local access: http://localhost:3001
+🌐 Network access: http://192.168.121.30:3001
+📝 CORS origins configured for local network access
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: -yw3YjDYeZRuU39hAAAB
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: -yw3YjDYeZRuU39hAAAB
+127.0.0.1 - - [12/Oct/2025:02:29:05 +0000] "GET /api/tickets/3 HTTP/1.1" 401 63 "-" "curl/8.7.1"
+127.0.0.1 - - [12/Oct/2025:02:29:14 +0000] "GET /api/tickets/3 HTTP/1.1" 401 63 "-" "curl/8.7.1"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:15 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:29:15 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: -yw3YjDYeZRuU39hAAAB
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:22 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:22 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: 3yk4zr8zQf8KjMIoAAAE
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: 3yk4zr8zQf8KjMIoAAAE
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:23 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: 3yk4zr8zQf8KjMIoAAAE
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Connected to PostgreSQL database
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: _E0iS7C0BRlHsZchAAAH
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:29:41 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User disconnected: _E0iS7C0BRlHsZchAAAH
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: 9JbL4c1U8VAozcfOAAAJ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: 9JbL4c1U8VAozcfOAAAJ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:30:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:30:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:45 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:45 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:48 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:48 +0000] "OPTIONS /api/technicians/available/assignment? HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:48 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:30:48 +0000] "GET /api/technicians/available/assignment? HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:55 +0000] "OPTIONS /api/tickets/3/status HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+=== TICKET STATUS UPDATE ===
+Ticket ID: 3
+New Status: assigned
+Assigned Technician ID: 14
+Full Request Body: {
+  "status": "assigned",
+  "notes": "Ticket telah di-assign ke teknisi yang dipilih untuk dikerjakan.",
+  "assigned_technician_id": 14
+}
+📡 Socket.IO: Events emitted for ticket 3 status update (assigned → assigned)
+127.0.0.1 - - [12/Oct/2025:02:30:55 +0000] "PUT /api/tickets/3/status HTTP/1.1" 200 840 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:55 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:30:55 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:31:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:45 +0000] "OPTIONS /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:45 +0000] "OPTIONS /api/registrations/stats HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:45 +0000] "GET /api/registrations/stats HTTP/1.1" 200 261 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:31:45 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:49 +0000] "OPTIONS /api/registrations/9 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:49 +0000] "OPTIONS /api/packages HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:49 +0000] "GET /api/packages HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:31:49 +0000] "GET /api/registrations/9 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:57 +0000] "OPTIONS /api/registrations/9/status HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+📱 WhatsApp sent to 628197670700 via fonnte
+📱 WhatsApp status update sent: {
+  success: true,
+  data: {
+    detail: 'success! message in queue',
+    id: [ '125466892' ],
+    process: 'pending',
+    quota: { '628179380800': [Object] },
+    requestid: 141540393,
+    status: true,
+    target: [ '628197670700' ]
+  },
+  provider: 'fonnte'
+}
+127.0.0.1 - - [12/Oct/2025:02:31:57 +0000] "PUT /api/registrations/9/status HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:57 +0000] "OPTIONS /api/registrations/9 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:31:57 +0000] "GET /api/registrations/9 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+📱 WhatsApp sent to 628197670700 via fonnte
+📱 WhatsApp status update sent: {
+  success: true,
+  data: {
+    detail: 'success! message in queue',
+    id: [ '125466895' ],
+    process: 'pending',
+    quota: { '628179380800': [Object] },
+    requestid: 141540396,
+    status: true,
+    target: [ '628197670700' ]
+  },
+  provider: 'fonnte'
+}
+127.0.0.1 - - [12/Oct/2025:02:32:00 +0000] "PUT /api/registrations/9/status HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:00 +0000] "GET /api/registrations/9 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:04 +0000] "OPTIONS /api/registrations/9/create-customer HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+📝 Starting customer creation for registration ID: 9
+📋 Registration data: {
+  name: 'Indah Permata Sari',
+  email: 'indah.permata@yahoo.com',
+  phone: '08197670700',
+  ktp: '3216012002930009'
+}
+✅ Transaction BEGIN
+✅ Customer created: {
+  id: 4,
+  customer_id: 'AGLS202510120001',
+  name: 'Indah Permata Sari',
+  ktp: '3216012002930009'
+}
+✅ Ticket created: { id: 4, ticket_number: 'TKT20251012001', customer_id: 4 }
+📝 Updating registration 9 with customer_id=4, ticket_id=4
+✅ Registration updated: {
+  id: 9,
+  status: 'customer_created',
+  customer_id: 4,
+  installation_ticket_id: 4
+}
+✅ Transaction COMMITTED
+✅ Customer AGLS202510120001 and ticket TKT20251012001 created from registration REG20251011009
+127.0.0.1 - - [12/Oct/2025:02:32:04 +0000] "POST /api/registrations/9/create-customer HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:04 +0000] "OPTIONS /api/registrations/9 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:04 +0000] "GET /api/registrations/9 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:32:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:32:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:33:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:37 +0000] "OPTIONS /api/customers/4 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:37 +0000] "GET /api/customers/4 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:33:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:41 +0000] "OPTIONS /api/tickets?customer_id=4&limit=100 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:41 +0000] "GET /api/tickets?customer_id=4&limit=100 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:44 +0000] "OPTIONS /api/tickets/4 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:33:44 +0000] "GET /api/tickets/4 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:10 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:10 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:10 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:34:11 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:34:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:34:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:35:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:35:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:35:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:35:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:36:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:36:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:36:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:36:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:37:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:37:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:37:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:37:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:38:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:38:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:38:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:38:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:39:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:39:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:39:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:39:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:40:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:40:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:40:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:40:42 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:41:12 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:41:12 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:41:42 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:41:42 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:41:47 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:41:47 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:12 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:42:12 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: 9JbL4c1U8VAozcfOAAAJ
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: YWX35TXR8W5dhVZcAAAN
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: YWX35TXR8W5dhVZcAAAN
+✅ Socket.IO: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:42:16 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:41 +0000] "OPTIONS /api/tickets/3/status HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+=== TICKET STATUS UPDATE ===
+Ticket ID: 3
+New Status: in_progress
+Assigned Technician ID: undefined
+Full Request Body: {
+  "status": "in_progress",
+  "notes": "Started working on ticket"
+}
+📡 Socket.IO: Events emitted for ticket 3 status update (assigned → in_progress)
+127.0.0.1 - - [12/Oct/2025:02:42:41 +0000] "PUT /api/tickets/3/status HTTP/1.1" 200 865 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:41 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:41 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:42:46 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:42:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:43:01 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:43:01 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:43:16 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:43:16 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:43:46 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:43:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:44:16 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:44:16 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:44:46 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:44:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:45:16 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:45:16 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:45:46 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:45:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:46:16 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:46:16 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:46:46 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:46:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:47:16 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:47:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:47:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:47:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:48:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:48:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:48:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:48:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:49:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:49:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:49:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:49:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:50:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:50:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:50:42 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:50:42 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:50:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:50:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:51:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:51:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:51:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:51:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:52:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:52:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:52:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:52:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:53:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:53:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:53:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:53:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:54:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:54:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:54:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:54:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:55:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:55:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:55:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:55:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:56:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:56:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:53 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:53 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:53 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:02:56:53 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:55 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:55 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:56 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:56:56 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:57:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:57:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:57:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:57:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:58:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:58:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:58:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:58:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:59:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:59:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:02:59:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:02:59:47 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:00:17 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:00:17 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:00:47 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:00:48 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:01:18 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:01:18 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:01:48 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:01:48 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:06 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:06 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:18 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:02:18 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:48 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:02:48 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: YWX35TXR8W5dhVZcAAAN
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: PUwoeUUL5-8x6-XBAAAQ
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:02:55 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User disconnected: PUwoeUUL5-8x6-XBAAAQ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: H6oOoHce-DICGxGQAAAS
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: H6oOoHce-DICGxGQAAAS
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:07 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:07 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:25 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:03:25 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: H6oOoHce-DICGxGQAAAS
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:40 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:40 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:40 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:03:40 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: rvl1PaR0dHF9-eS-AAAW
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: rvl1PaR0dHF9-eS-AAAW
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:03:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:52 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:03:52 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:04:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:19 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:19 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:19 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:04:19 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:30 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:30 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:04:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:11 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:05:11 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:41 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:05:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: rvl1PaR0dHF9-eS-AAAW
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: h57JPUzT3uI26bO0AAAZ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: h57JPUzT3uI26bO0AAAZ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User disconnected: h57JPUzT3uI26bO0AAAZ
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: p5i9TPYuY4-7aL5AAAAb
+✅ Connected to PostgreSQL database
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: p5i9TPYuY4-7aL5AAAAb
+✅ Socket.IO: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:05:58 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:06:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:06:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:06:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:06:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:07:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:07:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:07:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:07:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:08:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:08:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:08:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:08:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:09:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:09:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:09:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:09:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:10:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:36 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:36 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:36 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:10:36 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:56 +0000] "OPTIONS /api/tickets/4 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:56 +0000] "GET /api/tickets/4 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:10:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:11 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:11 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:13 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:13 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:26 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:26 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:28 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:11:28 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:11:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:11:59 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:12:29 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:12:29 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:12:58 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:12:59 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:13:29 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:13:29 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:13:59 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:13:59 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:29 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:14:29 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: p5i9TPYuY4-7aL5AAAAb
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: wPENn3JEipDDmpLGAAAf
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: wPENn3JEipDDmpLGAAAf
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:14:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: wPENn3JEipDDmpLGAAAf
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:18 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:18 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:18 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:15:18 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: -Lp_lP5botl7vUASAAAi
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: -Lp_lP5botl7vUASAAAi
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User disconnected: -Lp_lP5botl7vUASAAAi
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: Bh92LxIflO6ntrrFAAAl
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: Bh92LxIflO6ntrrFAAAl
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:15:20 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User disconnected: Bh92LxIflO6ntrrFAAAl
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: NfKV0c2MkxUn5PzEAAAn
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: NfKV0c2MkxUn5PzEAAAn
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:50 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:15:50 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:56 +0000] "OPTIONS /api/customers/AGLS202510110001 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:15:56 +0000] "OPTIONS /api/packages HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:15:56 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:15:56 +0000] "GET /api/packages HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:15:57 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:16:20 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:16:20 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:16:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:16:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:17:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:17:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:17:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:17:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:18:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:18:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:18:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:18:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:19:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:19:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:19:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:19:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:20:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:20:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:20:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:20:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:21:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:21:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:21:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:21:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:22:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:22:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:22:39 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:22:39 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:22:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:22:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:01 +0000] "OPTIONS /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:01 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:01 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:23:01 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:18 +0000] "OPTIONS /api/customers/AGLS202510110001 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:18 +0000] "OPTIONS /api/packages HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:23:18 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:23:18 +0000] "GET /api/packages HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:23:19 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:23:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:22 +0000] "OPTIONS /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:22 +0000] "OPTIONS /api/customers/stats HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:22 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:23:22 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:24 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:24 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:31 +0000] "OPTIONS /api/technicians/14 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:31 +0000] "GET /api/technicians/14 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:37 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:37 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:47 +0000] "OPTIONS /api/technicians?search=&employment_status=&availability_status=&skill_level=&work_zone=&specialization=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:47 +0000] "OPTIONS /api/technicians/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:47 +0000] "GET /api/technicians/stats/overview HTTP/1.1" 200 315 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:23:47 +0000] "GET /api/technicians?search=&employment_status=&availability_status=&skill_level=&work_zone=&specialization=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:49 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:49 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:56 +0000] "OPTIONS /api/customers/AGLS202510110001 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:23:56 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+Get customer error: error: invalid input syntax for type integer: "AGLS202510110001"
+    at /Users/luftirahadian/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/luftirahadian/AGLIS_Tech/backend/src/routes/customers.js:215:28 {
+  length: 154,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '235',
+  routine: 'pg_strtoint32'
+}
+127.0.0.1 - - [12/Oct/2025:03:23:58 +0000] "GET /api/customers/AGLS202510110001 HTTP/1.1" 500 51 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:59 +0000] "OPTIONS /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:23:59 +0000] "OPTIONS /api/customers/stats HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:23:59 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:23:59 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:01 +0000] "OPTIONS /api/customers/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:01 +0000] "GET /api/customers/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:03 +0000] "OPTIONS /api/tickets/stats/overview HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:03 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 197 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:24:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:24:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:25:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:25:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:25:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:25:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:25:59 +0000] "OPTIONS /api/odp HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:25:59 +0000] "GET /api/odp HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:26:21 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:26:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:26:51 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:26:51 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: NfKV0c2MkxUn5PzEAAAn
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: pz2qHkyHvvaU9fJIAAAq
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: pz2qHkyHvvaU9fJIAAAq
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:27:06 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:27:36 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:27:36 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:28:06 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:28:06 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:28:36 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:28:36 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:06 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:29:06 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:36 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:29:36 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+👤 User disconnected: pz2qHkyHvvaU9fJIAAAq
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:52 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:52 +0000] "OPTIONS /api/auth/me HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:52 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:29:52 +0000] "GET /api/auth/me HTTP/1.1" 200 369 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "OPTIONS /api/tickets/3 HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "OPTIONS /api/notifications/settings/preferences HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 420 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Oct/2025:03:29:53 +0000] "GET /api/tickets/3 HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User connected: V8oT8lUc2SleVSoqAAAu
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ Socket.IO: Allowed origin: http://localhost:3000
+👤 User 1 (admin) authenticated: V8oT8lUc2SleVSoqAAAu
+✅ Socket.IO: Allowed origin: http://localhost:3000
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:30:23 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:30:23 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:30:53 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:30:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:31:23 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:31:23 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:31:53 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:31:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:32:23 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:32:23 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+127.0.0.1 - - [12/Oct/2025:03:32:53 +0000] "OPTIONS /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 204 0 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+✅ CORS: Allowed origin: http://localhost:3000
+✅ Connected to PostgreSQL database
+✅ Connected to PostgreSQL database
+127.0.0.1 - - [12/Oct/2025:03:32:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

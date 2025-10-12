@@ -14,7 +14,9 @@ import {
   XCircle,
   Upload,
   Download,
-  Package
+  Package,
+  PlayCircle,
+  Ticket
 } from 'lucide-react'
 import { ticketService } from '../../services/ticketService'
 import { useAuth } from '../../contexts/AuthContext'
@@ -28,6 +30,7 @@ const TicketDetailPage = () => {
   const { user } = useAuth()
   const queryClient = useQueryClient()
   const [activeTab, setActiveTab] = useState('details')
+  const [preSelectedStatus, setPreSelectedStatus] = useState(null)
 
   // Fetch ticket details
   const { data: ticketData, isLoading, error } = useQuery(
@@ -139,7 +142,12 @@ const TicketDetailPage = () => {
         <div className="flex items-center space-x-4">
           <BackButton to="/tickets" label="Back to Tickets" />
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">{ticket.ticket_number}</h1>
+            <div className="flex items-center gap-2 mb-1">
+              <Ticket className="h-5 w-5 text-blue-600" />
+              <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-lg font-mono font-semibold border border-blue-200">
+                {ticket.ticket_number}
+              </span>
+            </div>
             <p className="text-gray-600">{ticket.title}</p>
           </div>
         </div>
@@ -151,17 +159,23 @@ const TicketDetailPage = () => {
 
       {/* Quick Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <User className="h-8 w-8 text-blue-600 bg-blue-100 rounded-lg p-2 mr-3" />
-              <div>
-                <p className="text-sm font-medium text-gray-600">Customer</p>
-                <p className="text-lg font-semibold text-gray-900">{ticket.customer_name}</p>
+        {/* Customer Card - Clickable */}
+        {ticket.customer_numeric_id && (
+          <Link to={`/customers/${ticket.customer_numeric_id}`} className="card hover:shadow-lg transition-shadow cursor-pointer">
+            <div className="card-body">
+              <div className="flex items-center">
+                <User className="h-8 w-8 text-blue-600 bg-blue-100 rounded-lg p-2 mr-3" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Customer</p>
+                  <p className="text-lg font-semibold text-gray-900">{ticket.customer_name}</p>
+                  {ticket.customer_code && (
+                    <p className="text-xs text-gray-500 font-mono">{ticket.customer_code}</p>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </Link>
+        )}
 
         <div className="card">
           <div className="card-body">
@@ -191,19 +205,33 @@ const TicketDetailPage = () => {
           </div>
         </div>
 
-        <div className="card">
-          <div className="card-body">
-            <div className="flex items-center">
-              <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
-              <div>
-                <p className="text-sm font-medium text-gray-600">Technician</p>
-                <p className="text-lg font-semibold text-gray-900">
-                  {ticket.technician_name || 'Unassigned'}
-                </p>
+        {/* Technician Card - Clickable if assigned */}
+        {ticket.assigned_technician_id ? (
+          <Link to={`/technicians/${ticket.assigned_technician_id}`} className="card hover:shadow-lg transition-shadow cursor-pointer">
+            <div className="card-body">
+              <div className="flex items-center">
+                <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Technician</p>
+                  <p className="text-lg font-semibold text-gray-900">{ticket.technician_name}</p>
+                  <p className="text-xs text-gray-500">{ticket.employee_id}</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ) : (
+          <div className="card">
+            <div className="card-body">
+              <div className="flex items-center">
+                <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Technician</p>
+                  <p className="text-lg font-semibold text-gray-900">Unassigned</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Quick Actions */}
@@ -215,6 +243,7 @@ const TicketDetailPage = () => {
               <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
             </div>
             <div className="flex items-center gap-3">
+              {/* Status: OPEN - Can self-assign */}
               {ticket.status === 'open' && user && (
                 <button
                   onClick={() => {
@@ -232,13 +261,33 @@ const TicketDetailPage = () => {
                 </button>
               )}
               
-              {['assigned', 'in_progress'].includes(ticket.status) && (
+              {/* Status: ASSIGNED - Must start progress first */}
+              {ticket.status === 'assigned' && (
                 <button
                   onClick={() => {
                     updateStatusMutation.mutate({
-                      status: 'completed',
-                      notes: 'Completed via quick action'
+                      status: 'in_progress',
+                      notes: 'Started working on ticket'
                     })
+                  }}
+                  disabled={updateStatusMutation.isLoading}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <PlayCircle className="h-4 w-4" />
+                  Start Progress
+                </button>
+              )}
+              
+              {/* Status: IN_PROGRESS - Can complete with proper form */}
+              {ticket.status === 'in_progress' && (
+                <button
+                  onClick={() => {
+                    // Pre-select "completed" status
+                    setPreSelectedStatus('completed')
+                    // Switch to Update Status tab to fill completion form
+                    setActiveTab('status')
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
                   disabled={updateStatusMutation.isLoading}
                   className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"
@@ -248,7 +297,8 @@ const TicketDetailPage = () => {
                 </button>
               )}
 
-              {!['on_hold', 'cancelled'].includes(ticket.status) && (
+              {/* Put On Hold - Available for open, assigned, in_progress */}
+              {['open', 'assigned', 'in_progress'].includes(ticket.status) && (
                 <button
                   onClick={() => {
                     updateStatusMutation.mutate({
@@ -264,6 +314,7 @@ const TicketDetailPage = () => {
                 </button>
               )}
 
+              {/* Cancel - Available for all except already cancelled */}
               {ticket.status !== 'cancelled' && (
                 <button
                   onClick={() => {
@@ -328,28 +379,36 @@ const TicketDetailPage = () => {
                       <dt className="text-sm font-medium text-gray-600">Type</dt>
                       <dd className="text-sm text-gray-900">{ticket.service_type_name || ticket.type}</dd>
                     </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-600">Category</dt>
-                      <dd className="text-sm text-gray-900">{ticket.category_name || ticket.category || 'Not specified'}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-600">Scheduled Date</dt>
-                      <dd className="text-sm text-gray-900">{formatDateTime(ticket.scheduled_date)}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-600">Estimated Duration</dt>
-                      <dd className="text-sm text-gray-900">
-                        {ticket.estimated_duration ? `${ticket.estimated_duration} minutes` : 'Not specified'}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-600">Started At</dt>
-                      <dd className="text-sm text-gray-900">{formatDateTime(ticket.started_at)}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-600">Completed At</dt>
-                      <dd className="text-sm text-gray-900">{formatDateTime(ticket.completed_at)}</dd>
-                    </div>
+                    {(ticket.category_name || ticket.category) && ticket.category !== 'Not specified' && (
+                      <div>
+                        <dt className="text-sm font-medium text-gray-600">Category</dt>
+                        <dd className="text-sm text-gray-900">{ticket.category_name || ticket.category}</dd>
+                      </div>
+                    )}
+                    {ticket.scheduled_date && (
+                      <div>
+                        <dt className="text-sm font-medium text-gray-600">Scheduled Date</dt>
+                        <dd className="text-sm text-gray-900">{formatDateTime(ticket.scheduled_date)}</dd>
+                      </div>
+                    )}
+                    {ticket.estimated_duration && (
+                      <div>
+                        <dt className="text-sm font-medium text-gray-600">Estimated Duration</dt>
+                        <dd className="text-sm text-gray-900">{ticket.estimated_duration} minutes</dd>
+                      </div>
+                    )}
+                    {ticket.started_at && (
+                      <div>
+                        <dt className="text-sm font-medium text-gray-600">Started At</dt>
+                        <dd className="text-sm text-gray-900">{formatDateTime(ticket.started_at)}</dd>
+                      </div>
+                    )}
+                    {ticket.completed_at && (
+                      <div>
+                        <dt className="text-sm font-medium text-gray-600">Completed At</dt>
+                        <dd className="text-sm text-gray-900">{formatDateTime(ticket.completed_at)}</dd>
+                      </div>
+                    )}
                     {ticket.started_at && ticket.completed_at && (
                       <div>
                         <dt className="text-sm font-medium text-gray-600">Actual Duration</dt>
@@ -368,7 +427,7 @@ const TicketDetailPage = () => {
                   <h3 className="text-lg font-semibold text-gray-900">Description</h3>
                 </div>
                 <div className="card-body">
-                  <p className="text-gray-700 whitespace-pre-wrap">{ticket.description}</p>
+                  <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">{ticket.description}</p>
                 </div>
               </div>
 
@@ -423,6 +482,7 @@ const TicketDetailPage = () => {
                   </div>
                   <div className="card-body">
                     <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* 1. Lokasi ODP */}
                       {ticket.completion_data.odp_location && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Lokasi ODP</dt>
@@ -430,6 +490,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* 2. Jarak ODP */}
                       {ticket.completion_data.odp_distance && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Jarak ODP</dt>
@@ -437,6 +498,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* 3. Redaman Terakhir */}
                       {ticket.completion_data.final_attenuation && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Redaman Terakhir</dt>
@@ -444,6 +506,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* 4. Nama WiFi */}
                       {ticket.completion_data.wifi_name && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Nama WiFi</dt>
@@ -451,6 +514,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* 5. Password WiFi */}
                       {ticket.completion_data.wifi_password && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Password WiFi</dt>
@@ -458,6 +522,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* 6. Tanggal Aktif (Installation) - Moved here before photos */}
                       {ticket.completion_data.activation_date && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Tanggal Aktif</dt>
@@ -465,6 +530,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* Repair Date (for maintenance/repair) */}
                       {ticket.completion_data.repair_date && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">Tanggal Perbaikan</dt>
@@ -472,6 +538,7 @@ const TicketDetailPage = () => {
                         </div>
                       )}
                       
+                      {/* New Category (for upgrades) */}
                       {ticket.completion_data.new_category && (
                         <div>
                           <dt className="text-sm font-medium text-gray-600">New Category</dt>
@@ -480,7 +547,7 @@ const TicketDetailPage = () => {
                       )}
                     </dl>
                     
-                    {/* Photos */}
+                    {/* Photos - Side by side in 3 columns */}
                     {(ticket.completion_data.otdr_photo || ticket.completion_data.attenuation_photo || ticket.completion_data.modem_sn_photo) && (
                       <div className="mt-6 pt-6 border-t border-gray-200">
                         <h4 className="text-sm font-medium text-gray-900 mb-4">Foto Dokumentasi</h4>
@@ -489,15 +556,16 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto OTDR</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                href={`http://localhost:3001${ticket.completion_data.otdr_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                  src={`http://localhost:3001${ticket.completion_data.otdr_photo.url}`}
                                   alt="OTDR Photo"
                                   className="w-full h-32 object-cover"
+                                  onError={(e) => console.error('Failed to load OTDR photo:', ticket.completion_data.otdr_photo.url)}
                                 />
                                 <div className="p-2 bg-gray-50">
                                   <p className="text-xs text-gray-600 truncate">{ticket.completion_data.otdr_photo.filename}</p>
@@ -510,15 +578,16 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto Redaman</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                href={`http://localhost:3001${ticket.completion_data.attenuation_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                  src={`http://localhost:3001${ticket.completion_data.attenuation_photo.url}`}
                                   alt="Attenuation Photo"
                                   className="w-full h-32 object-cover"
+                                  onError={(e) => console.error('Failed to load Attenuation photo:', ticket.completion_data.attenuation_photo.url)}
                                 />
                                 <div className="p-2 bg-gray-50">
                                   <p className="text-xs text-gray-600 truncate">{ticket.completion_data.attenuation_photo.filename}</p>
@@ -531,15 +600,16 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto SN Modem</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                href={`http://localhost:3001${ticket.completion_data.modem_sn_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                  src={`http://localhost:3001${ticket.completion_data.modem_sn_photo.url}`}
                                   alt="Modem SN Photo"
                                   className="w-full h-32 object-cover"
+                                  onError={(e) => console.error('Failed to load Modem SN photo:', ticket.completion_data.modem_sn_photo.url)}
                                 />
                                 <div className="p-2 bg-gray-50">
                                   <p className="text-xs text-gray-600 truncate">{ticket.completion_data.modem_sn_photo.filename}</p>
@@ -561,49 +631,124 @@ const TicketDetailPage = () => {
               ticket={ticket}
               onUpdate={updateStatusMutation.mutate}
               isLoading={updateStatusMutation.isLoading}
+              preSelectedStatus={preSelectedStatus}
+              onStatusPreSelected={() => setPreSelectedStatus(null)}
             />
           )}
 
           {activeTab === 'history' && (
             <div className="card">
               <div className="card-header">
-                <h3 className="text-lg font-semibold text-gray-900">Status History</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">Status History</h3>
+                  <span className="text-sm text-gray-500">
+                    {ticket.status_history?.length || 0} changes
+                  </span>
+                </div>
               </div>
               <div className="card-body">
                 {ticket.status_history && ticket.status_history.length > 0 ? (
-                  <div className="space-y-4">
-                    {ticket.status_history.map((history, index) => (
-                      <div key={history.id} className="flex items-start space-x-3 border-l-2 border-blue-200 pl-4 py-2">
-                        <div className="flex-shrink-0">
-                          <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
-                            <Clock className="h-4 w-4 text-blue-600" />
+                  <div className="relative">
+                    {/* Timeline line */}
+                    <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                    
+                    <div className="space-y-6">
+                      {ticket.status_history.map((history, index) => {
+                        const statusIcons = {
+                          'open': { icon: FileText, color: 'blue', bg: 'bg-blue-100', border: 'border-blue-200' },
+                          'assigned': { icon: User, color: 'indigo', bg: 'bg-indigo-100', border: 'border-indigo-200' },
+                          'in_progress': { icon: PlayCircle, color: 'yellow', bg: 'bg-yellow-100', border: 'border-yellow-200' },
+                          'on_hold': { icon: Clock, color: 'purple', bg: 'bg-purple-100', border: 'border-purple-200' },
+                          'completed': { icon: CheckCircle, color: 'green', bg: 'bg-green-100', border: 'border-green-200' },
+                          'cancelled': { icon: XCircle, color: 'red', bg: 'bg-red-100', border: 'border-red-200' }
+                        }
+                        const statusConfig = statusIcons[history.new_status] || statusIcons['open']
+                        const StatusIcon = statusConfig.icon
+                        
+                        // Calculate time since this change
+                        const nextHistory = ticket.status_history[index + 1]
+                        const timeSince = nextHistory 
+                          ? calculateDuration(history.created_at, nextHistory.created_at)
+                          : null
+                        
+                        return (
+                          <div key={history.id} className="relative flex items-start space-x-4">
+                            {/* Timeline dot */}
+                            <div className="relative flex-shrink-0 z-10">
+                              <div className={`h-10 w-10 ${statusConfig.bg} rounded-full flex items-center justify-center border-2 ${statusConfig.border} shadow-sm`}>
+                                <StatusIcon className={`h-5 w-5 text-${statusConfig.color}-600`} />
+                              </div>
+                            </div>
+                            
+                            {/* Content */}
+                            <div className="flex-1 min-w-0 bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                              {/* Header */}
+                              <div className="flex items-start justify-between mb-2">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  {history.old_status && (
+                                    <>
+                                      <span className="text-xs text-gray-500 capitalize">{history.old_status.replace('_', ' ')}</span>
+                                      <span className="text-gray-400">→</span>
+                                    </>
+                                  )}
+                                  {getStatusBadge(history.new_status)}
+                                  {timeSince && (
+                                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                                      Duration: {timeSince}
+                                    </span>
+                                  )}
+                                </div>
+                                <span className="text-xs text-gray-400">
+                                  #{index + 1}
+                                </span>
+                              </div>
+                              
+                              {/* Metadata */}
+                              <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
+                                <div className="flex items-center gap-1">
+                                  <User className="h-3.5 w-3.5" />
+                                  <span className="font-medium">{history.changed_by_name}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Calendar className="h-3.5 w-3.5" />
+                                  <span>{formatDateTime(history.created_at)}</span>
+                                </div>
+                              </div>
+                              
+                              {/* Technician Assignment */}
+                              {history.technician_name && (
+                                <div className="flex items-center gap-2 mb-2 p-2 bg-blue-50 rounded border-l-2 border-blue-400">
+                                  <User className="h-4 w-4 text-blue-600" />
+                                  <span className="text-sm text-blue-900">
+                                    <span className="font-medium">Assigned to:</span> {history.technician_name}
+                                    <span className="text-xs text-blue-600 ml-1">({history.technician_employee_id})</span>
+                                  </span>
+                                </div>
+                              )}
+                              
+                              {/* Notes */}
+                              {history.notes && (
+                                <div className="mt-2 p-3 bg-gray-50 rounded border-l-2 border-gray-300">
+                                  <div className="flex items-start gap-2">
+                                    <FileText className="h-4 w-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                                    <p className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">
+                                      {history.notes}
+                                    </p>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-2">
-                            <span className="text-sm font-medium text-gray-900">
-                              Status changed to: {getStatusBadge(history.new_status)}
-                            </span>
-                          </div>
-                          <p className="text-sm text-gray-600">
-                            by {history.changed_by_name} • {formatDateTime(history.created_at)}
-                          </p>
-                          {history.technician_name && (
-                            <p className="text-sm text-blue-600 mt-1">
-                              🔧 Assigned to: {history.technician_name} ({history.technician_employee_id})
-                            </p>
-                          )}
-                          {history.notes && (
-                            <p className="text-sm text-gray-700 mt-1 italic bg-gray-50 p-2 rounded">
-                              {history.notes}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+                        )
+                      })}
+                    </div>
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-4">No status history available</p>
+                  <div className="text-center py-8">
+                    <Clock className="h-12 w-12 text-gray-300 mx-auto mb-3" />
+                    <p className="text-gray-500">No status history available</p>
+                    <p className="text-sm text-gray-400 mt-1">Status changes will appear here</p>
+                  </div>
                 )}
               </div>
             </div>
@@ -612,37 +757,6 @@ const TicketDetailPage = () => {
 
         {/* Sidebar */}
         <div className="space-y-6">
-          {/* Customer Information */}
-          <div className="card">
-            <div className="card-header">
-              <h3 className="text-lg font-semibold text-gray-900">Customer Information</h3>
-            </div>
-            <div className="card-body space-y-3">
-              <div className="flex items-center space-x-3">
-                <User className="h-5 w-5 text-gray-400" />
-                <div>
-                  <p className="text-sm font-medium text-gray-900">{ticket.customer_name}</p>
-                  <p className="text-sm text-gray-500">{ticket.customer_code}</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-gray-400" />
-                <div>
-                  <p className="text-sm text-gray-900">{ticket.customer_phone}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-gray-400 mt-0.5" />
-                <div>
-                  <p className="text-sm text-gray-900">{ticket.customer_address}</p>
-                  <p className="text-sm text-gray-500">{ticket.service_area}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Package Information */}
           {ticket.package_name && (
             <div className="card">
@@ -661,7 +775,12 @@ const TicketDetailPage = () => {
                 {ticket.bandwidth_down && (
                   <div className="flex justify-between items-center py-2 border-t border-gray-100">
                     <span className="text-sm text-gray-500">Bandwidth</span>
-                    <span className="text-sm font-medium text-gray-900">{ticket.bandwidth_down} Mbps</span>
+                    <span className="text-sm font-medium">
+                      <span className="text-blue-600">↑ {ticket.bandwidth_up || ticket.bandwidth_down}</span>
+                      <span className="text-gray-400 mx-1">/</span>
+                      <span className="text-green-600">↓ {ticket.bandwidth_down}</span>
+                      <span className="text-gray-900 ml-1">Mbps</span>
+                    </span>
                   </div>
                 )}
                 
@@ -671,33 +790,6 @@ const TicketDetailPage = () => {
                     <span className="text-sm font-medium text-gray-900">
                       Rp {parseInt(ticket.monthly_price).toLocaleString('id-ID')}
                     </span>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Technician Information */}
-          {ticket.technician_name && (
-            <div className="card">
-              <div className="card-header">
-                <h3 className="text-lg font-semibold text-gray-900">Assigned Technician</h3>
-              </div>
-              <div className="card-body space-y-3">
-                <div className="flex items-center space-x-3">
-                  <User className="h-5 w-5 text-gray-400" />
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">{ticket.technician_name}</p>
-                    <p className="text-sm text-gray-500">{ticket.employee_id}</p>
-                  </div>
-                </div>
-                
-                {ticket.technician_phone && (
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-gray-400" />
-                    <div>
-                      <p className="text-sm text-gray-900">{ticket.technician_phone}</p>
-                    </div>
                   </div>
                 )}
               </div>

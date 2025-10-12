@@ -53,12 +53,11 @@ router.get('/', async (req, res) => {
       SELECT t.*, 
              c.customer_id, c.name as customer_name, c.phone as customer_phone,
              c.address as customer_address, c.service_type,
-             u.full_name as technician_name, tech.employee_id,
+             tech.full_name as technician_name, tech.employee_id,
              creator.full_name as created_by_name
       FROM tickets t
       JOIN customers c ON t.customer_id = c.id
       LEFT JOIN technicians tech ON t.assigned_technician_id = tech.id
-      LEFT JOIN users u ON tech.user_id = u.id
       LEFT JOIN users creator ON t.created_by = creator.id
       WHERE 1=1
     `;
@@ -272,17 +271,17 @@ router.get('/:id', async (req, res) => {
     // Simplified query first
     const query = `
       SELECT t.*, 
-             c.customer_id, c.name as customer_name, c.phone as customer_phone,
+             c.id as customer_numeric_id, c.customer_id as customer_code, 
+             c.name as customer_name, c.phone as customer_phone,
              c.address as customer_address, c.service_type,
-             u.full_name as technician_name, tech.employee_id,
+             tech.full_name as technician_name, tech.employee_id, tech.phone as technician_phone,
              creator.full_name as created_by_name,
-             pm.package_name, pm.bandwidth_down, pm.monthly_price,
+             pm.package_name, pm.bandwidth_down, pm.bandwidth_up, pm.monthly_price,
              st.type_name as service_type_name,
              sc.category_name, sc.category_code
       FROM tickets t
       JOIN customers c ON t.customer_id = c.id
       LEFT JOIN technicians tech ON t.assigned_technician_id = tech.id
-      LEFT JOIN users u ON tech.user_id = u.id
       LEFT JOIN users creator ON t.created_by = creator.id
       LEFT JOIN packages_master pm ON c.package_id = pm.id
       LEFT JOIN service_types st ON t.type = st.type_code
@@ -314,11 +313,10 @@ router.get('/:id', async (req, res) => {
       SELECT h.*, 
              u.full_name as changed_by_name,
              tech.employee_id as technician_employee_id,
-             tech_user.full_name as technician_name
+             tech.full_name as technician_name
       FROM ticket_status_history h
       LEFT JOIN users u ON h.changed_by = u.id
       LEFT JOIN technicians tech ON h.assigned_technician_id = tech.id
-      LEFT JOIN users tech_user ON tech.user_id = tech_user.id
       WHERE h.ticket_id = $1
       ORDER BY h.created_at
     `;
