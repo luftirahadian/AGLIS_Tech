@@ -26,11 +26,21 @@ apt install -y curl wget git nginx certbot python3-certbot-nginx postgresql post
 ```
 
 ### **2. Run Deployment Script**
+
+**For Fresh Installation:**
 ```bash
 # Download and run deployment script
 wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-fixed.sh
 chmod +x production-deploy-fixed.sh
 ./production-deploy-fixed.sh
+```
+
+**For Resume/Re-run (if script was interrupted):**
+```bash
+# Download and run resume script
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-resume.sh
+chmod +x production-deploy-resume.sh
+./production-deploy-resume.sh
 ```
 
 **If you get permission errors:**
@@ -41,7 +51,7 @@ chmod +x fix-permissions.sh
 sudo ./fix-permissions.sh
 
 # Then continue with deployment
-./production-deploy-fixed.sh
+./production-deploy-resume.sh
 ```
 
 ### **3. Configure Domain**
@@ -154,6 +164,20 @@ sudo chmod -R 755 /home/aglis/AGLIS_Tech
 
 # Or use the permission fix script
 sudo ./fix-permissions.sh
+```
+
+**Re-run Deployment (Script Interrupted):**
+```bash
+# Use resume script for interrupted deployments
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-resume.sh
+chmod +x production-deploy-resume.sh
+./production-deploy-resume.sh
+```
+
+**Database Already Exists Error:**
+```bash
+# This is normal for re-runs, script will handle it automatically
+# Database and user will be reused if they already exist
 ```
 
 **Application won't start:**
