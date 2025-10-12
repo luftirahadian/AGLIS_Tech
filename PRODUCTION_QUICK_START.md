@@ -27,31 +27,31 @@ apt install -y curl wget git nginx certbot python3-certbot-nginx postgresql post
 
 ### **2. Run Deployment Script**
 
-**For Fresh Installation:**
+**🚀 EASY DEPLOYMENT (Recommended):**
 ```bash
-# Download and run deployment script
-wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-fixed.sh
-chmod +x production-deploy-fixed.sh
-./production-deploy-fixed.sh
+# Download and run the simple deployment script
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/quick-deploy.sh
+chmod +x quick-deploy.sh
+./quick-deploy.sh
 ```
 
-**For Resume/Re-run (if script was interrupted):**
+**🔧 COMPLETE DEPLOYMENT (Advanced):**
 ```bash
-# Download and run resume script
-wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/production-deploy-resume.sh
-chmod +x production-deploy-resume.sh
-./production-deploy-resume.sh
+# Download and run the complete deployment script
+wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/aglis-production-deploy.sh
+chmod +x aglis-production-deploy.sh
+./aglis-production-deploy.sh
 ```
 
-**If you get permission errors:**
+**⚠️ If you get any errors:**
 ```bash
-# Run permission fix script first
-wget https://raw.githubusercontent.com/luftirahadian/AGLIS_Tech/main/scripts/fix-permissions.sh
-chmod +x fix-permissions.sh
-sudo ./fix-permissions.sh
+# Clean start - remove everything and start fresh
+sudo rm -rf /home/aglis
+sudo -u postgres psql -c "DROP DATABASE IF EXISTS aglis_production;"
+sudo -u postgres psql -c "DROP USER IF EXISTS aglis_user;"
 
-# Then continue with deployment
-./production-deploy-resume.sh
+# Then run the easy deployment script
+./quick-deploy.sh
 ```
 
 ### **3. Configure Domain**
