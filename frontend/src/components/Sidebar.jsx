@@ -137,13 +137,15 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
           <div className="flex items-center overflow-hidden">
             <div className="flex-shrink-0">
-              <div className="h-8 w-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Wrench className="h-5 w-5 text-white" />
-              </div>
+              <img 
+                src="/aglis-logo.svg" 
+                alt="AGLIS Net" 
+                className="h-8 w-auto"
+              />
             </div>
             {!collapsed && (
               <div className="ml-3 transition-opacity duration-300">
-                <h2 className="text-lg font-semibold text-gray-900 whitespace-nowrap">ISP Tech</h2>
+                <h2 className="text-lg font-semibold text-gray-900 whitespace-nowrap">AGLIS</h2>
               </div>
             )}
           </div>

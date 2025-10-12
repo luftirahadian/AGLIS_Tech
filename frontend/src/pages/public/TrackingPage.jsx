@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { 
@@ -7,6 +7,7 @@ import {
   FileCheck, UserCheck, ClipboardCheck, Home as HomeIcon
 } from 'lucide-react'
 import registrationService from '../../services/registrationService'
+import socketService from '../../services/socketService'
 
 const TrackingPage = () => {
   const { registrationNumber } = useParams()
@@ -30,6 +31,43 @@ const TrackingPage = () => {
       refetch()
     }
   }
+
+  // Socket.IO real-time updates
+  useEffect(() => {
+    if (!searchQuery || !trackingData) return
+
+    // Connect to socket (if not already connected)
+    socketService.connect()
+
+    // Listen for registration updates
+    const handleRegistrationUpdate = (data) => {
+      console.log('📡 [TrackingPage] Registration update received:', data)
+      
+      // Check if the update is for the current registration
+      if (
+        data.registration_number === searchQuery || 
+        data.registration_number === trackingData.registration_number ||
+        data.email === searchQuery ||
+        data.email === trackingData.email
+      ) {
+        console.log('✅ [TrackingPage] Update is for current registration, refetching...')
+        refetch()
+      }
+    }
+
+    // Subscribe to socket events
+    socketService.on('registration_updated', handleRegistrationUpdate)
+    socketService.on('registration_status_changed', handleRegistrationUpdate)
+
+    console.log('🔌 [TrackingPage] Socket listeners setup for:', searchQuery)
+
+    // Cleanup on unmount or when searchQuery changes
+    return () => {
+      console.log('🔌 [TrackingPage] Removing socket listeners')
+      socketService.off('registration_updated', handleRegistrationUpdate)
+      socketService.off('registration_status_changed', handleRegistrationUpdate)
+    }
+  }, [searchQuery, trackingData, refetch])
 
   const getStatusInfo = (status) => {
     const statusMap = {
@@ -63,6 +101,12 @@ const TrackingPage = () => {
         color: 'green',
         description: 'Pendaftaran Anda telah disetujui! Instalasi akan segera dijadwalkan'
       },
+      customer_created: {
+        label: 'Customer Telah Dibuat',
+        icon: CheckCircle,
+        color: 'green',
+        description: 'Selamat! Anda telah terdaftar sebagai customer. Instalasi akan segera dijadwalkan'
+      },
       rejected: {
         label: 'Ditolak',
         icon: XCircle,
@@ -85,7 +129,8 @@ const TrackingPage = () => {
       'verified',
       'survey_scheduled',
       'survey_completed',
-      'approved'
+      'approved',
+      'customer_created'
     ]
     
     const currentIndex = statusOrder.indexOf(currentStatus)
@@ -100,6 +145,67 @@ const TrackingPage = () => {
     return 'pending'
   }
 
+  // Get next steps guidance based on status
+  const getNextSteps = (status) => {
+    const steps = {
+      pending_verification: {
+        title: 'Langkah Selanjutnya',
+        items: [
+          'Tim kami akan melakukan verifikasi data (1-2 hari kerja)',
+          'Pastikan nomor WhatsApp Anda aktif',
+          'Anda akan dihubungi untuk jadwal survey lokasi'
+        ],
+        color: 'blue'
+      },
+      verified: {
+        title: 'Menunggu Jadwal Survey',
+        items: [
+          'Tim akan menghubungi Anda untuk jadwal survey',
+          'Pastikan lokasi mudah diakses',
+          'Siapkan denah lokasi jika diperlukan'
+        ],
+        color: 'blue'
+      },
+      survey_scheduled: {
+        title: 'Persiapan Survey',
+        items: [
+          'Pastikan ada yang bisa menerima tim survey',
+          'Siapkan akses ke lokasi instalasi',
+          'Berikan informasi teknis lokasi jika ada'
+        ],
+        color: 'indigo'
+      },
+      survey_completed: {
+        title: 'Menunggu Persetujuan',
+        items: [
+          'Survey lokasi telah selesai dilakukan',
+          'Tim sedang review hasil survey',
+          'Anda akan dihubungi untuk hasil persetujuan'
+        ],
+        color: 'purple'
+      },
+      approved: {
+        title: 'Selamat! Pendaftaran Disetujui',
+        items: [
+          'Tim kami akan segera menghubungi untuk jadwal instalasi',
+          'Pastikan nomor WhatsApp Anda aktif',
+          'Proses pembuatan account customer sedang berlangsung'
+        ],
+        color: 'green'
+      },
+      customer_created: {
+        title: 'Menunggu Jadwal Instalasi',
+        items: [
+          'Selamat! Anda sudah terdaftar sebagai customer',
+          'Tim instalasi akan menghubungi untuk jadwal',
+          'Pastikan nomor WhatsApp aktif dan lokasi siap diakses'
+        ],
+        color: 'green'
+      }
+    }
+    return steps[status]
+  }
+
   const statusInfo = trackingData ? getStatusInfo(trackingData.status) : null
   const StatusIcon = statusInfo?.icon || Clock
 
@@ -110,11 +216,13 @@ const TrackingPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="h-12 w-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Wifi className="h-7 w-7 text-white" />
-              </div>
+              <img 
+                src="/aglis-logo.svg" 
+                alt="AGLIS Net" 
+                className="h-12 w-auto"
+              />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">ISP Tech</h1>
+                <h1 className="text-2xl font-bold text-gray-900">AGLIS</h1>
                 <p className="text-sm text-gray-500">Lacak Status Pendaftaran</p>
               </div>
             </div>
@@ -264,10 +372,52 @@ const TrackingPage = () => {
                   <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
                     <p className="text-xl font-bold text-gray-900">{trackingData.package_name}</p>
                     <p className="text-2xl font-bold text-blue-600 mt-2">
-                      Rp {trackingData.monthly_price?.toLocaleString('id-ID')}/bulan
+                      {new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                      }).format(trackingData.monthly_price)}/bulan
                     </p>
                   </div>
                 </div>
+
+                {/* Address Info */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <MapPin className="h-5 w-5 mr-2 text-blue-600" />
+                    Alamat Instalasi
+                  </h3>
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <p className="text-gray-900">{trackingData.address || 'Belum tersedia'}</p>
+                    {trackingData.city && (
+                      <p className="text-gray-600 text-sm mt-1">{trackingData.city}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Survey Date Highlight */}
+                {trackingData.status === 'survey_scheduled' && trackingData.survey_scheduled_date && (
+                  <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
+                    <div className="flex items-start space-x-3">
+                      <Calendar className="h-6 w-6 text-indigo-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-bold text-indigo-900 mb-2">📅 Survey Telah Dijadwalkan</h4>
+                        <p className="text-indigo-800 text-lg font-semibold">
+                          {new Date(trackingData.survey_scheduled_date).toLocaleDateString('id-ID', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </p>
+                        <p className="text-indigo-700 text-sm mt-2">
+                          Mohon siapkan akses lokasi untuk tim survey kami
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Timeline */}
                 <div>
@@ -281,7 +431,8 @@ const TrackingPage = () => {
                       { status: 'verified', label: 'Data Diverifikasi', date: trackingData.verified_at },
                       { status: 'survey_scheduled', label: 'Survey Dijadwalkan', date: trackingData.survey_scheduled_date },
                       { status: 'survey_completed', label: 'Survey Selesai', date: null },
-                      { status: 'approved', label: 'Disetujui', date: trackingData.approved_at }
+                      { status: 'approved', label: 'Disetujui', date: trackingData.approved_at },
+                      { status: 'customer_created', label: 'Customer Dibuat', date: null }
                     ].map((step, index) => {
                       const stepStatus = getStepStatus(trackingData.status, step.status)
                       return (
@@ -328,37 +479,45 @@ const TrackingPage = () => {
                   </div>
                 )}
 
-                {/* Next Steps */}
-                {trackingData.status === 'pending_verification' && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                    <h4 className="font-semibold text-blue-900 mb-2">Langkah Selanjutnya</h4>
-                    <ul className="space-y-2 text-blue-800">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Tim kami akan melakukan verifikasi data (1-2 hari kerja)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Pastikan nomor WhatsApp Anda aktif</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Anda akan dihubungi untuk jadwal survey lokasi</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {trackingData.status === 'approved' && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                    <h4 className="font-semibold text-green-900 mb-2 flex items-center">
+                {/* Next Steps - Dynamic based on status */}
+                {getNextSteps(trackingData.status) && (
+                  <div className={`
+                    border rounded-lg p-6
+                    ${getNextSteps(trackingData.status).color === 'green' ? 'bg-green-50 border-green-200' :
+                      getNextSteps(trackingData.status).color === 'blue' ? 'bg-blue-50 border-blue-200' :
+                      getNextSteps(trackingData.status).color === 'indigo' ? 'bg-indigo-50 border-indigo-200' :
+                      getNextSteps(trackingData.status).color === 'purple' ? 'bg-purple-50 border-purple-200' :
+                      'bg-gray-50 border-gray-200'
+                    }
+                  `}>
+                    <h4 className={`
+                      font-semibold mb-3 flex items-center
+                      ${getNextSteps(trackingData.status).color === 'green' ? 'text-green-900' :
+                        getNextSteps(trackingData.status).color === 'blue' ? 'text-blue-900' :
+                        getNextSteps(trackingData.status).color === 'indigo' ? 'text-indigo-900' :
+                        getNextSteps(trackingData.status).color === 'purple' ? 'text-purple-900' :
+                        'text-gray-900'
+                      }
+                    `}>
                       <CheckCircle className="h-5 w-5 mr-2" />
-                      Selamat! Pendaftaran Anda Disetujui
+                      {getNextSteps(trackingData.status).title}
                     </h4>
-                    <p className="text-green-800 mb-4">
-                      Tim kami akan segera menghubungi Anda untuk menjadwalkan instalasi.
-                      Pastikan nomor WhatsApp Anda aktif.
-                    </p>
+                    <ul className={`
+                      space-y-2
+                      ${getNextSteps(trackingData.status).color === 'green' ? 'text-green-800' :
+                        getNextSteps(trackingData.status).color === 'blue' ? 'text-blue-800' :
+                        getNextSteps(trackingData.status).color === 'indigo' ? 'text-indigo-800' :
+                        getNextSteps(trackingData.status).color === 'purple' ? 'text-purple-800' :
+                        'text-gray-800'
+                      }
+                    `}>
+                      {getNextSteps(trackingData.status).items.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>

@@ -37,11 +37,15 @@ const LoginPage = () => {
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div>
-          <div className="mx-auto h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center">
-            <Wrench className="h-8 w-8 text-white" />
+          <div className="mx-auto flex items-center justify-center">
+            <img 
+              src="/aglis-logo.svg" 
+              alt="AGLIS Net" 
+              className="h-16 w-auto"
+            />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            ISP Technician Management
+            AGLIS Management System
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Sign in to your account

@@ -1,7 +1,3 @@
-
-> isp-technician-backend@1.0.0 start
-> node src/server.js
-
 🔧 CORS: Using production origins from CORS_ORIGIN
 node:events:485
       throw er; // Unhandled 'error' event

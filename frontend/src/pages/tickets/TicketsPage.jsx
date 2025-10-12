@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, Download, Loader2 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
+import { exportToExcel, formatCurrency, formatDate } from '../../utils/exportToExcel'
 
 const TicketsPage = () => {
   const navigate = useNavigate()
@@ -18,6 +20,7 @@ const TicketsPage = () => {
   const [limit, setLimit] = useState(10)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
+  const [isExporting, setIsExporting] = useState(false)
   const [filters, setFilters] = useState({
     search: '',
     status: '',
@@ -128,6 +131,59 @@ const TicketsPage = () => {
     setShowAssignmentModal(true)
   }
 
+  // Export tickets to Excel
+  const handleExport = async () => {
+    try {
+      setIsExporting(true)
+      
+      // Fetch all tickets with current filters (no pagination limit)
+      const response = await ticketService.getTickets({
+        ...filters,
+        page: 1,
+        limit: 10000, // Get all data
+        sort_by: sortBy,
+        sort_order: sortOrder
+      })
+
+      const allTickets = response.data.tickets || []
+      
+      if (allTickets.length === 0) {
+        toast.error('Tidak ada data untuk di-export')
+        return
+      }
+
+      // Format data for Excel
+      const exportData = allTickets.map((ticket, index) => ({
+        'No': index + 1,
+        'Ticket Number': ticket.ticket_number,
+        'Tanggal Dibuat': formatDate(ticket.created_at),
+        'Type': formatTypeName(ticket.type),
+        'Status': ticket.status?.toUpperCase() || '-',
+        'Priority': ticket.priority?.toUpperCase() || '-',
+        'Customer': ticket.customer_name || '-',
+        'Customer Code': ticket.customer_code || '-',
+        'Teknisi': ticket.technician_name || 'Unassigned',
+        'Judul': ticket.title,
+        'Category': ticket.category || '-',
+        'SLA Due Date': formatDate(ticket.sla_due_date),
+        'Completed Date': ticket.completed_at ? formatDate(ticket.completed_at) : '-',
+        'Scheduled Date': ticket.scheduled_date ? formatDate(ticket.scheduled_date) : '-',
+        'Estimated Duration (min)': ticket.estimated_duration || '-'
+      }))
+
+      // Export to Excel
+      const result = exportToExcel(exportData, 'Tickets_Export', 'Tickets Data')
+      
+      toast.success(`✅ ${result.rows} tickets berhasil di-export!`)
+      
+    } catch (error) {
+      console.error('Export error:', error)
+      toast.error('Gagal export data. Silakan coba lagi.')
+    } finally {
+      setIsExporting(false)
+    }
+  }
+
   const closeAssignmentModal = () => {
     setShowAssignmentModal(false)
     setSelectedTicketForAssignment(null)
@@ -167,13 +223,32 @@ const TicketsPage = () => {
           <h1 className="text-2xl font-bold text-gray-900">Tickets</h1>
           <p className="text-gray-600">Manage service requests and work orders</p>
         </div>
-        <button 
-          onClick={() => setShowCreateForm(true)}
-          className="btn-primary"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          New Ticket
-        </button>
+        <div className="flex gap-3">
+          <button 
+            onClick={handleExport}
+            disabled={isExporting || isLoading}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isExporting ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                Exporting...
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4 mr-2" />
+                Export to Excel
+              </>
+            )}
+          </button>
+          <button 
+            onClick={() => setShowCreateForm(true)}
+            className="btn-primary"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            New Ticket
+          </button>
+        </div>
       </div>
 
       {/* Statistics Cards - Grouped by Status Type */}

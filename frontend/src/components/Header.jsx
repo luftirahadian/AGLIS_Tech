@@ -51,17 +51,19 @@ const Header = ({ onMenuClick }) => {
             
             <div className="flex items-center space-x-3">
               {/* Logo */}
-              <div className="h-9 w-9 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-sm">ISP</span>
-              </div>
+              <img 
+                src="/aglis-logo.svg" 
+                alt="AGLIS Net" 
+                className="h-9 w-auto"
+              />
               
               {/* Title */}
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 hidden sm:block">
-                  ISP Technician Management
+                  AGLIS Management System
                 </h1>
                 <h1 className="text-lg font-semibold text-gray-900 sm:hidden">
-                  ISP Tech
+                  AGLIS
                 </h1>
               </div>
             </div>

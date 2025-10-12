@@ -4,13 +4,14 @@ import {
   UserPlus, Search, Filter, Eye, CheckCircle, XCircle, Clock,
   Calendar, Phone, Mail, MapPin, Package, Shield, FileCheck,
   UserCheck, ClipboardCheck, Home, ChevronRight, BarChart3,
-  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft
+  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, Download, Loader2
 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
+import { exportToExcel, formatCurrency as formatCurrencyExport, formatDate, formatDateOnly } from '../../utils/exportToExcel'
 
 const RegistrationsPage = () => {
   const navigate = useNavigate()
@@ -25,6 +26,7 @@ const RegistrationsPage = () => {
   const [surveyDate, setSurveyDate] = useState('')
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
+  const [isExporting, setIsExporting] = useState(false)
   
   const [filters, setFilters] = useState({
     search: '',
@@ -185,6 +187,75 @@ const RegistrationsPage = () => {
     return <span className={`px-3 py-1 rounded-full text-xs font-semibold ${badge.color}`}>{badge.label}</span>
   }
 
+  // Export registrations to Excel
+  const handleExport = async () => {
+    try {
+      setIsExporting(true)
+      
+      // Fetch all registrations with current filters (no pagination limit)
+      const response = await registrationService.getAll({
+        ...filters,
+        page: 1,
+        limit: 10000, // Get all data
+        sort_by: sortBy,
+        sort_order: sortOrder
+      })
+
+      const allRegistrations = response.data?.registrations || []
+      
+      if (allRegistrations.length === 0) {
+        toast.error('Tidak ada data untuk di-export')
+        return
+      }
+
+      // Get status label for display
+      const getStatusLabel = (status) => {
+        const labels = {
+          pending_verification: 'Pending',
+          verified: 'Verified',
+          survey_scheduled: 'Survey Scheduled',
+          survey_completed: 'Survey Done',
+          approved: 'Approved',
+          customer_created: 'Customer Created',
+          rejected: 'Rejected',
+          cancelled: 'Cancelled'
+        }
+        return labels[status] || status
+      }
+
+      // Format data for Excel
+      const exportData = allRegistrations.map((reg, index) => ({
+        'No': index + 1,
+        'Registration Number': reg.registration_number,
+        'Tanggal Daftar': formatDate(reg.created_at),
+        'Nama Lengkap': reg.full_name,
+        'Email': reg.email || '-',
+        'WhatsApp': reg.phone || '-',
+        'Alamat Lengkap': reg.address || '-',
+        'Kota': reg.city || '-',
+        'Package': reg.package_name || '-',
+        'Harga Bulanan': formatCurrencyExport(reg.monthly_price),
+        'Status': getStatusLabel(reg.status),
+        'Verified Date': reg.verified_at ? formatDate(reg.verified_at) : '-',
+        'Survey Scheduled': reg.survey_scheduled_date ? formatDate(reg.survey_scheduled_date) : '-',
+        'Approved Date': reg.approved_at ? formatDate(reg.approved_at) : '-',
+        'Rejection Reason': reg.rejection_reason || '-',
+        'Preferred Install Date': reg.preferred_installation_date ? formatDateOnly(reg.preferred_installation_date) : '-'
+      }))
+
+      // Export to Excel
+      const result = exportToExcel(exportData, 'Registrations_Export', 'Registrations Data')
+      
+      toast.success(`✅ ${result.rows} registrations berhasil di-export!`)
+      
+    } catch (error) {
+      console.error('Export error:', error)
+      toast.error('Gagal export data. Silakan coba lagi.')
+    } finally {
+      setIsExporting(false)
+    }
+  }
+
   const stats = statsData || {}
   const totalRegistrations = registrationsData?.data?.pagination?.total || 0
 
@@ -214,6 +285,23 @@ const RegistrationsPage = () => {
           <p className="text-gray-600">Kelola pendaftaran customer baru dari public form</p>
         </div>
         <div className="flex gap-3">
+          <button 
+            onClick={handleExport}
+            disabled={isExporting || isLoading}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isExporting ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                Exporting...
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4 mr-2" />
+                Export to Excel
+              </>
+            )}
+          </button>
           <Link
             to="/registration-analytics"
             className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"

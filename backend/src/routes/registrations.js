@@ -317,6 +317,8 @@ router.get('/public/status/:identifier', async (req, res) => {
         r.full_name,
         r.email,
         r.phone,
+        r.address,
+        r.city,
         r.status,
         r.created_at,
         r.verified_at,
@@ -720,6 +722,34 @@ router.put('/:id/status', authMiddleware, [
         console.log('📱 WhatsApp status update sent:', waResult);
       }
 
+      // Emit Socket.IO event for real-time updates
+      const io = req.app.get('io');
+      if (io) {
+        // Emit to admin/staff roles
+        io.to('role_admin').to('role_supervisor').to('role_customer_service').emit('registration_updated', {
+          registration_id: updatedReg.id,
+          registration_number: updatedReg.registration_number,
+          email: updatedReg.email,
+          old_status: registration.status,
+          new_status: updatedReg.status,
+          full_name: updatedReg.full_name,
+          phone: updatedReg.phone,
+          updated_by: req.user.id,
+          updated_at: updatedReg.updated_at
+        });
+
+        // Emit broadcast event for public tracking page
+        io.emit('registration_status_changed', {
+          registration_id: updatedReg.id,
+          registration_number: updatedReg.registration_number,
+          email: updatedReg.email,
+          status: updatedReg.status,
+          old_status: registration.status
+        });
+
+        console.log(`📡 [Socket.IO] Registration status update emitted: ${registration.status} → ${updatedReg.status}`);
+      }
+
       res.json({
         success: true,
         message: 'Status updated successfully',
@@ -819,9 +849,9 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
       const customerQuery = `
         INSERT INTO customers (
           customer_id, name, email, phone, ktp,
-          address, service_type, package_id,
+          address, city, service_type, package_id,
           account_status, username, password, client_area_password
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
         RETURNING *
       `;
 
@@ -832,6 +862,7 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
         registration.phone,
         registration.id_card_number, // KTP
         registration.address,
+        registration.city, // Add city from registration
         registration.service_type,
         registration.package_id,
         'pending_installation', // account_status

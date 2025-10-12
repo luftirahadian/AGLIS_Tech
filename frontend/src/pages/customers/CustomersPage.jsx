@@ -4,7 +4,7 @@ import {
   Users, Plus, Search, Filter, 
   Phone, Mail, MapPin, Package, CreditCard, Activity,
   ChevronLeft, ChevronRight, RefreshCw, XCircle, 
-  ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Clock, AlertCircle, CheckCircle
+  ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Clock, AlertCircle, CheckCircle, Download, Loader2
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
@@ -13,6 +13,7 @@ import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { exportToExcel, formatCurrency, formatDate, formatDateOnly } from '../../utils/exportToExcel'
 
 const CustomersPage = () => {
   const navigate = useNavigate()
@@ -33,6 +34,7 @@ const CustomersPage = () => {
   const [sortOrder, setSortOrder] = useState('DESC')
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [editingCustomer, setEditingCustomer] = useState(null)
+  const [isExporting, setIsExporting] = useState(false)
 
   // Fetch customers with filters
   const { 
@@ -129,6 +131,61 @@ const CustomersPage = () => {
 
   const handleEditCustomer = (customer) => {
     setEditingCustomer(customer)
+  }
+
+  // Export customers to Excel
+  const handleExport = async () => {
+    try {
+      setIsExporting(true)
+      
+      // Fetch all customers with current filters (no pagination limit)
+      const response = await customerService.getCustomers({
+        ...filters,
+        page: 1,
+        limit: 10000, // Get all data
+        sort_by: sortBy,
+        sort_order: sortOrder
+      })
+
+      const allCustomers = response.data?.customers || []
+      
+      if (allCustomers.length === 0) {
+        toast.error('Tidak ada data untuk di-export')
+        return
+      }
+
+      // Format data for Excel
+      const exportData = allCustomers.map((customer, index) => ({
+        'No': index + 1,
+        'Customer Code': customer.customer_id || '-',
+        'Nama': customer.name,
+        'Email': customer.email || '-',
+        'Telepon': customer.phone || '-',
+        'Alamat': customer.address || '-',
+        'Kota': customer.city || '-',
+        'Provinsi': customer.province || '-',
+        'Package': customer.package_name || '-',
+        'Harga Bulanan': formatCurrency(customer.monthly_price),
+        'Customer Type': customer.customer_type || '-',
+        'Service Type': customer.service_type || '-',
+        'Account Status': customer.account_status?.toUpperCase() || '-',
+        'Payment Status': customer.payment_status?.toUpperCase() || '-',
+        'Username': customer.username || '-',
+        'Tanggal Registrasi': formatDate(customer.created_at),
+        'Tanggal Aktif': customer.activation_date ? formatDateOnly(customer.activation_date) : '-'
+      }))
+
+      // Export to Excel
+      const result = exportToExcel(exportData, 'Customers_Export', 'Customers Data')
+      
+      toast.success(`✅ ${result.rows} customers berhasil di-export!`)
+      
+    } catch (error) {
+      console.error('Export error:', error)
+      toast.error('Gagal export data. Silakan coba lagi.')
+    } finally {
+      setIsExporting(false)
+    }
   }
 
   const handleFormSuccess = () => {
@@ -237,13 +294,32 @@ const CustomersPage = () => {
           <h1 className="text-2xl font-bold text-gray-900">Customer Management</h1>
           <p className="text-gray-600">Kelola data customer dan informasi layanan</p>
         </div>
-        <button 
-          onClick={() => setShowCreateModal(true)}
-          className="btn-primary"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Tambah Customer
-        </button>
+        <div className="flex gap-3">
+          <button 
+            onClick={handleExport}
+            disabled={isExporting || customersLoading}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isExporting ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                Exporting...
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4 mr-2" />
+                Export to Excel
+              </>
+            )}
+          </button>
+          <button 
+            onClick={() => setShowCreateModal(true)}
+            className="btn-primary"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Tambah Customer
+          </button>
+        </div>
       </div>
 
       {/* Stats Cards - Row 1: Account Status */}

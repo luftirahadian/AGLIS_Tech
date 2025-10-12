@@ -249,11 +249,13 @@ const RegisterPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="h-10 w-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Wifi className="h-6 w-6 text-white" />
-              </div>
+              <img 
+                src="/aglis-logo.svg" 
+                alt="AGLIS Net" 
+                className="h-10 w-auto"
+              />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">ISP Tech</h1>
+                <h1 className="text-xl font-bold text-gray-900">AGLIS</h1>
                 <p className="text-sm text-gray-500">Daftar Sekarang</p>
               </div>
             </div>
