@@ -101,9 +101,9 @@ echo ""
 echo "🔧 Step 4: Rebuild Frontend"
 echo "==========================="
 
-print_info "Installing dependencies..."
+print_info "Installing dependencies (including build tools)..."
 cd "$FRONTEND_DIR"
-sudo -u aglis npm ci --omit=dev
+sudo -u aglis npm install
 
 print_status "Dependencies installed"
 
