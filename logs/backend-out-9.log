@@ -575,3 +575,15 @@
 2025-10-13T10:15:55: ✅ Connected to PostgreSQL database
 2025-10-13T10:15:55: ✅ Connected to PostgreSQL database
 2025-10-13T10:15:55: 127.0.0.1 - - [13/Oct/2025:03:15:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:16:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:16:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:16:55: 127.0.0.1 - - [13/Oct/2025:03:16:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:17:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:17:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:17:55: 127.0.0.1 - - [13/Oct/2025:03:17:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:18:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:18:55: ✅ Connected to PostgreSQL database
+2025-10-13T10:18:55: 127.0.0.1 - - [13/Oct/2025:03:18:55 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:19:56: ✅ Connected to PostgreSQL database
+2025-10-13T10:19:56: ✅ Connected to PostgreSQL database
+2025-10-13T10:19:56: 127.0.0.1 - - [13/Oct/2025:03:19:56 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

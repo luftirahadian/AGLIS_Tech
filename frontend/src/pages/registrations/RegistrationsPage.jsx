@@ -466,6 +466,17 @@ const RegistrationsPage = () => {
     }
   }, [queryClient])
 
+  if (!hasAccess) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-96">
+        <ShieldAlert className="h-24 w-24 text-red-500 mb-4" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
+        <p className="text-gray-600 mb-4">You don't have permission to access Registrations.</p>
+        <p className="text-sm text-gray-500">Required role: Admin, Supervisor, or Customer Service</p>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -510,6 +521,48 @@ const RegistrationsPage = () => {
           </a>
         </div>
       </div>
+
+      {/* Bulk Action Toolbar - Shows when items are selected */}
+      {selectedRegistrations.length > 0 && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-blue-900">
+                {selectedRegistrations.length} registration dipilih
+              </span>
+              <button
+                onClick={() => {
+                  setSelectedRegistrations([])
+                  setSelectAll(false)
+                }}
+                className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                Batal Pilihan
+              </button>
+            </div>
+            <div className="flex gap-2">
+              {canVerify && (
+                <button
+                  onClick={handleBulkVerify}
+                  className="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm inline-flex items-center"
+                >
+                  <UserCheck className="h-4 w-4 mr-1" />
+                  Verify
+                </button>
+              )}
+              {canReject && (
+                <button
+                  onClick={handleBulkReject}
+                  className="px-3 py-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm inline-flex items-center"
+                >
+                  <XCircle className="h-4 w-4 mr-1" />
+                  Reject
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Statistics Cards - Row 1: Workflow Progress */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -688,6 +741,16 @@ const RegistrationsPage = () => {
               <table className="table">
                 <thead className="table-header">
                   <tr>
+                    {/* Bulk Selection Checkbox */}
+                    <th className="table-header-cell w-12">
+                      <input
+                        type="checkbox"
+                        checked={selectAll}
+                        onChange={handleSelectAll}
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        title="Pilih Semua"
+                      />
+                    </th>
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('registration_number')}
@@ -725,6 +788,7 @@ const RegistrationsPage = () => {
                         {getSortIcon('created_at')}
                       </div>
                     </th>
+                    <th className="table-header-cell">Quick Actions</th>
                   </tr>
                 </thead>
                 <tbody className="table-body">
@@ -732,39 +796,157 @@ const RegistrationsPage = () => {
                     <tr 
                       key={reg.id}
                       onClick={() => navigate(`/registrations/${reg.id}`)}
-                      className="cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-green-500 transition-all duration-200"
+                      className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-green-500 transition-all duration-200"
                       title="Klik untuk lihat detail registrasi"
                     >
+                      {/* Bulk Selection Checkbox */}
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedRegistrations.includes(reg.id)}
+                          onChange={() => handleSelectRegistration(reg.id)}
+                          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                      </td>
+
+                      {/* Registration Number with Copy */}
                       <td className="table-cell">
-                        <div className="font-medium text-blue-600">{reg.registration_number}</div>
+                        <div className="font-medium text-blue-600 flex items-center gap-1">
+                          <span>{reg.registration_number}</span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleCopyToClipboard(reg.registration_number, 'Registration Number')
+                            }}
+                            className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                            title="Copy Registration Number"
+                          >
+                            {copiedField === 'Registration Number' ? (
+                              <Check className="h-3 w-3 text-green-600" />
+                            ) : (
+                              <Copy className="h-3 w-3 text-gray-500" />
+                            )}
+                          </button>
+                        </div>
                         <div className="text-sm text-gray-500">{new Date(reg.created_at).toLocaleDateString('id-ID')}</div>
                       </td>
+
+                      {/* Customer with Copy */}
                       <td className="table-cell">
                         <div className="font-medium text-gray-900">{reg.full_name}</div>
-                        <div className="flex items-center text-sm text-gray-500 mt-1">
-                          <Phone className="h-3 w-3 mr-1" />
-                          {reg.phone}
+                        <div className="flex items-center text-sm text-gray-500 mt-1 gap-1">
+                          <Phone className="h-3 w-3" />
+                          <span>{reg.phone}</span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleCopyToClipboard(reg.phone, 'Phone')
+                            }}
+                            className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                            title="Copy Phone"
+                          >
+                            {copiedField === 'Phone' ? (
+                              <Check className="h-3 w-3 text-green-600" />
+                            ) : (
+                              <Copy className="h-3 w-3 text-gray-500" />
+                            )}
+                          </button>
                         </div>
-                        <div className="flex items-center text-sm text-gray-500">
-                          <Mail className="h-3 w-3 mr-1" />
-                          {reg.email}
+                        <div className="flex items-center text-sm text-gray-500 gap-1">
+                          <Mail className="h-3 w-3" />
+                          <span className="truncate max-w-[150px]">{reg.email}</span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleCopyToClipboard(reg.email, 'Email')
+                            }}
+                            className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                            title="Copy Email"
+                          >
+                            {copiedField === 'Email' ? (
+                              <Check className="h-3 w-3 text-green-600" />
+                            ) : (
+                              <Copy className="h-3 w-3 text-gray-500" />
+                            )}
+                          </button>
                         </div>
                       </td>
+
+                      {/* Package */}
                       <td className="table-cell">
                         <div className="font-medium">{reg.package_name}</div>
                         <div className="text-sm text-gray-500">
                           {formatCurrency(reg.monthly_price)}/bln
                         </div>
                       </td>
+
+                      {/* Status */}
                       <td className="table-cell">
                         {getStatusBadge(reg.status)}
                       </td>
+
+                      {/* Date */}
                       <td className="table-cell">
                         <div className="text-sm text-gray-900">
                           {new Date(reg.created_at).toLocaleDateString('id-ID')}
                         </div>
                         <div className="text-sm text-gray-500">
                           {new Date(reg.created_at).toLocaleTimeString('id-ID')}
+                        </div>
+                      </td>
+
+                      {/* Quick Actions (appear on hover) */}
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {/* Quick Call */}
+                          {reg.phone && (
+                            <button
+                              onClick={(e) => handleQuickCall(e, reg.phone)}
+                              className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                              title="Call Customer"
+                            >
+                              <PhoneCall className="h-4 w-4 text-green-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Email */}
+                          {reg.email && (
+                            <button
+                              onClick={(e) => handleQuickEmail(e, reg.email)}
+                              className="p-1.5 hover:bg-blue-100 rounded transition-colors"
+                              title="Email Customer"
+                            >
+                              <MailIcon className="h-4 w-4 text-blue-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Verify (only for pending) */}
+                          {canVerify && reg.status === 'pending_verification' && (
+                            <button
+                              onClick={(e) => handleQuickVerify(e, reg)}
+                              className="p-1.5 hover:bg-blue-100 rounded transition-colors"
+                              title="Quick Verify"
+                            >
+                              <UserCheck className="h-4 w-4 text-blue-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Reject (only for non-final statuses) */}
+                          {canReject && !['customer_created', 'rejected', 'cancelled'].includes(reg.status) && (
+                            <button
+                              onClick={(e) => handleQuickReject(e, reg)}
+                              className="p-1.5 hover:bg-red-100 rounded transition-colors"
+                              title="Quick Reject"
+                            >
+                              <XCircle className="h-4 w-4 text-red-600" />
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>
