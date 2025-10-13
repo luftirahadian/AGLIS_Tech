@@ -13,6 +13,7 @@ import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import socketService from '../../services/socketService'
 import { exportToExcel, formatCurrency as formatCurrencyExport, formatDate, formatDateOnly } from '../../utils/exportToExcel'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -464,18 +465,46 @@ const RegistrationsPage = () => {
 
   // Listen to socket events for real-time updates
   useEffect(() => {
-    const handleRegistrationUpdate = () => {
+    const handleRegistrationUpdate = (data) => {
+      console.log('🔄 Registration update received:', data)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
-      console.log('🔄 Registration list & stats refreshed')
+      toast.success('Data registrasi telah diperbarui!')
     }
 
-    window.addEventListener('registration-created', handleRegistrationUpdate)
-    window.addEventListener('registration-updated', handleRegistrationUpdate)
+    const handleNewRegistration = (data) => {
+      console.log('✨ New registration received:', data)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+      toast.success(`Pendaftaran baru dari ${data.registration?.full_name || 'customer'}!`, {
+        duration: 4000,
+        icon: '🎉'
+      })
+    }
+
+    const handleCustomerCreated = (data) => {
+      console.log('👤 Customer created:', data)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+    }
+
+    // Register Socket.IO listeners
+    socketService.on('new_registration', handleNewRegistration)
+    socketService.on('registration-updated', handleRegistrationUpdate)
+    socketService.on('registration_updated', handleRegistrationUpdate)
+    socketService.on('customer-created', handleCustomerCreated)
+    socketService.on('registration_status_changed', handleRegistrationUpdate)
+
+    console.log('📡 Socket.IO listeners registered for registrations')
 
     return () => {
-      window.removeEventListener('registration-created', handleRegistrationUpdate)
-      window.removeEventListener('registration-updated', handleRegistrationUpdate)
+      // Cleanup listeners
+      socketService.off('new_registration', handleNewRegistration)
+      socketService.off('registration-updated', handleRegistrationUpdate)
+      socketService.off('registration_updated', handleRegistrationUpdate)
+      socketService.off('customer-created', handleCustomerCreated)
+      socketService.off('registration_status_changed', handleRegistrationUpdate)
+      console.log('📡 Socket.IO listeners cleaned up')
     }
   }, [queryClient])
 
