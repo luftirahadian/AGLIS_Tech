@@ -1,0 +1,224 @@
+2025-10-13T07:02:39: Login error: error: password authentication failed for user "aglis_user"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 106,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:08:41: Login error: error: password authentication failed for user "aglis_user"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 106,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:09:51: Login error: error: password authentication failed for user "aglis_user"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 106,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:11:31: Login error: error: permission denied for table users
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 93,
+  severity: 'ERROR',
+  code: '42501',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'aclchk.c',
+  line: '3452',
+  routine: 'aclcheck_error'
+}
+2025-10-13T07:19:46: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:19:51: Registration analytics overview error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:37:26 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '987',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:19:52: Get registrations error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '224',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:04: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:22: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:38:49: Error fetching packages: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/packages.js:56:25 {
+  length: 105,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:44:14: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+2025-10-13T07:44:14: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]
+2025-10-13T07:45:48: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+2025-10-13T07:45:48: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]

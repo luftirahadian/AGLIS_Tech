@@ -1,0 +1,44 @@
+2025-10-12T22:42:08: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T22:42:08: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T22:42:08: 🌍 Environment: production
+2025-10-12T22:42:08: 📡 Local access: http://localhost:3001
+2025-10-12T22:42:08: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T22:42:08: 📝 CORS origins configured for local network access
+2025-10-12T22:45:52: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T22:45:52: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T22:45:52: 🌍 Environment: production
+2025-10-12T22:45:52: 📡 Local access: http://localhost:3001
+2025-10-12T22:45:52: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T22:45:52: 📝 CORS origins configured for local network access
+2025-10-12T22:56:15: 127.0.0.1 - - [12/Oct/2025:22:56:15 +0000] "HEAD /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-12T22:59:31: 127.0.0.1 - - [12/Oct/2025:22:59:31 +0000] "HEAD /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-12T22:59:32: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T22:59:32: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T22:59:32: 🌍 Environment: production
+2025-10-12T22:59:32: 📡 Local access: http://localhost:3001
+2025-10-12T22:59:32: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T22:59:32: 📝 CORS origins configured for local network access
+2025-10-12T22:59:38: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T22:59:38: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T22:59:38: 🌍 Environment: production
+2025-10-12T22:59:38: 📡 Local access: http://localhost:3001
+2025-10-12T22:59:38: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T22:59:38: 📝 CORS origins configured for local network access
+2025-10-12T23:00:06: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T23:00:06: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T23:00:06: 🌍 Environment: production
+2025-10-12T23:00:06: 📡 Local access: http://localhost:3001
+2025-10-12T23:00:06: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T23:00:06: 📝 CORS origins configured for local network access
+2025-10-12T23:01:51: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T23:01:51: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T23:01:51: 🌍 Environment: production
+2025-10-12T23:01:51: 📡 Local access: http://localhost:3001
+2025-10-12T23:01:51: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T23:01:51: 📝 CORS origins configured for local network access
+2025-10-12T23:03:01: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T23:03:01: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T23:03:01: 🌍 Environment: production
+2025-10-12T23:03:01: 📡 Local access: http://localhost:3001
+2025-10-12T23:03:01: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T23:03:01: 📝 CORS origins configured for local network access

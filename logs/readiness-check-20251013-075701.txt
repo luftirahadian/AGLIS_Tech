@@ -1,0 +1,12 @@
+Redis Readiness Check Report
+Generated: Mon Oct 13 07:57:01 WIB 2025
+Ready: 9/10
+Warnings: 1
+
+Node.js: v18.20.8
+NPM: 10.8.2
+PM2: 6.0.13
+Redis: Not installed
+Disk: 72G available
+Memory: 6.6Gi of 8.0Gi
+CPU: 8 cores

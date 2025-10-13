@@ -1,0 +1,135 @@
+2025-10-13T06:51:21: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+2025-10-13T06:51:21: 📋 CORS: Allowed origins: [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:3000$/,
+  /^http:\/\/10\.\d{1,3}\.\d{1,3}\.\d{1,3}:3000$/,
+  /^http:\/\/172\.(1[6-9]|2[0-9]|3[0-1])\.\d{1,3}\.\d{1,3}:3000$/
+]
+2025-10-13T06:51:21: Login error: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 105,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:19:47: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:19:51: Package popularity error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:131:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '455',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:03: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:23: Get stats error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '897',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:40:13: ❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌
+2025-10-13T07:40:13: Error message: password authentication failed for user "isp_admin"
+2025-10-13T07:40:13: Error stack: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:156:27
+2025-10-13T07:40:13: Request body: {
+  full_name: 'Test User',
+  email: 'test123@example.com',
+  phone: '081234567890',
+  whatsapp_verified: 'true',
+  address: 'Test Address',
+  city: 'Jakarta',
+  package_id: '1'
+}
+2025-10-13T07:45:27: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+2025-10-13T07:45:27: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]

@@ -1,0 +1,16 @@
+2025-10-13T01:03:11: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T01:03:11: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T01:03:11: 🌍 Environment: production
+2025-10-13T01:03:11: 📡 Local access: http://localhost:3001
+2025-10-13T01:03:11: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T01:03:11: 📝 CORS origins configured for local network access
+2025-10-13T01:03:11: ✅ Redis clients connected for Socket.IO adapter
+2025-10-13T01:03:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:22: 👤 User connected: tOuQj46bR3Oj2a33AAAB
+2025-10-13T01:03:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:22: 👤 User 17 (admin) authenticated: tOuQj46bR3Oj2a33AAAB
+2025-10-13T01:03:26: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:26: 127.0.0.1 - - [13/Oct/2025:01:03:26 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.0" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T01:03:27: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:27: 127.0.0.1 - - [13/Oct/2025:01:03:27 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

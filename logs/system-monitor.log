@@ -1,0 +1,872 @@
+==========================================
+AGLIS System Monitor - 2025-10-13 07:00:01
+==========================================
+
+🖥️  SYSTEM RESOURCES:
+-------------------
+CPU Usage:
+49.2
+
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           8.0Gi       548Mi       5.5Gi        13Mi       2.0Gi       7.5Gi
+Swap:          8.0Gi          0B       8.0Gi
+
+Disk Usage:
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/mapper/pve-vm--116--disk--0   79G  2.2G   73G   3% /
+none                              492K  4.0K  488K   1% /dev
+efivarfs                          256K  137K  115K  55% /sys/firmware/efi/efivars
+tmpfs                              40G   28K   40G   1% /dev/shm
+tmpfs                              16G  160K   16G   1% /run
+tmpfs                             5.0M     0  5.0M   0% /run/lock
+tmpfs                             7.9G     0  7.9G   0% /run/user/1001
+
+Load Average:
+ 07:00:01 up  3:11,  2 users,  load average: 1.92, 2.61, 2.67
+
+🌐 NETWORK STATUS:
+-----------------
+Active Connections:
+/home/aglis/AGLIS_Tech/scripts/monitoring/system-monitor.sh: line 29: netstat: command not found
+
+Network Traffic:
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+
+🗄️  DATABASE STATUS:
+------------------
+active
+Database Size:
+ pg_size_pretty 
+----------------
+ 8561 kB
+(1 row)
+
+Active Connections:
+ count 
+-------
+     0
+(1 row)
+
+
+⚙️  APPLICATION STATUS:
+---------------------
+PM2 Status:
+┌────┬─────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 4  │ aglis-backend       │ default     │ 1.0.0   │ cluster │ 35222    │ 89s    │ 4    │ online    │ 0%       │ 72.8mb   │ aglis    │ disabled │
+│ 5  │ aglis-backend       │ default     │ 1.0.0   │ cluster │ 35223    │ 89s    │ 4    │ online    │ 0%       │ 73.1mb   │ aglis    │ disabled │
+│ 6  │ aglis-backend       │ default     │ 1.0.0   │ cluster │ 35246    │ 89s    │ 4    │ online    │ 0%       │ 70.6mb   │ aglis    │ disabled │
+│ 7  │ aglis-backend       │ default     │ 1.0.0   │ cluster │ 35247    │ 89s    │ 4    │ online    │ 0%       │ 70.8mb   │ aglis    │ disabled │
+└────┴─────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Modules
+┌────┬──────────────────────────────┬───────────────┬──────────┬──────────┬──────┬──────────┬──────────┬──────────┐
+│ id │ module                       │ version       │ pid      │ status   │ ↺    │ cpu      │ mem      │ user     │
+├────┼──────────────────────────────┼───────────────┼──────────┼──────────┼──────┼──────────┼──────────┼──────────┤
+│ 3  │ pm2-logrotate                │ 3.0.0         │ 28587    │ online   │ 0    │ 0%       │ 66.5mb   │ aglis    │
+│ 2  │ pm2-server-monit             │ 3.0.0         │ 28527    │ online   │ 0    │ 0%       │ 62.0mb   │ aglis    │
+└────┴──────────────────────────────┴───────────────┴──────────┴──────────┴──────┴──────────┴──────────┴──────────┘
+
+Nginx Status:
+active
+
+SSL Certificate:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: portal.aglis.biz.id
+    Serial Number: 5f6961824a228370f30769559e6e00a8487
+    Key Type: RSA
+    Domains: portal.aglis.biz.id
+    Expiry Date: 2026-01-10 21:53:08+00:00 (VALID: 89 days)
+    Certificate Path: /etc/letsencrypt/live/portal.aglis.biz.id/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/portal.aglis.biz.id/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+📊 LOG SUMMARY:
+--------------
+Recent Nginx Errors:
+2025/10/13 06:45:02 [error] 33295#33295: *68 connect() failed (111: Unknown error) while connecting to upstream, client: 103.55.225.241, server: portal.aglis.biz.id, request: "GET /api/health HTTP/1.1", upstream: "http://[::1]:3001/api/health", host: "portal.aglis.biz.id"
+2025/10/13 06:50:53 [notice] 34690#34690: signal process started
+2025/10/13 06:51:10 [error] 34691#34691: *81 connect() failed (111: Unknown error) while connecting to upstream, client: 103.55.224.49, server: portal.aglis.biz.id, request: "GET /api/packages HTTP/1.1", upstream: "http://[::1]:3001/api/packages", host: "portal.aglis.biz.id", referrer: "https://portal.aglis.biz.id/register"
+2025/10/13 06:52:15 [error] 34691#34691: *86 connect() failed (111: Unknown error) while connecting to upstream, client: 103.55.224.49, server: portal.aglis.biz.id, request: "POST /api/auth/login HTTP/1.1", upstream: "http://[::1]:3001/api/auth/login", host: "portal.aglis.biz.id", referrer: "https://portal.aglis.biz.id/login"
+2025/10/13 07:00:01 [error] 34691#34691: *100 connect() failed (111: Unknown error) while connecting to upstream, client: 103.55.225.241, server: portal.aglis.biz.id, request: "GET /api/health HTTP/1.1", upstream: "http://[::1]:3001/api/health", host: "portal.aglis.biz.id"
+
+Recent PM2 Errors:
+[TAILING] Tailing last 5 lines for [all] processes (change the value with --lines option)
+/home/aglis/.pm2/logs/pm2-server-monit-error.log last 5 lines:
+/home/aglis/.pm2/logs/pm2-logrotate-error.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-6.log last 5 lines:
+6|aglis-ba |   constraint: undefined,
+6|aglis-ba |   file: 'auth.c',
+6|aglis-ba |   line: '343',
+6|aglis-ba |   routine: 'auth_failed'
+6|aglis-ba | }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-7.log last 5 lines:
+7|aglis-ba |   constraint: undefined,
+7|aglis-ba |   file: 'auth.c',
+7|aglis-ba |   line: '343',
+7|aglis-ba |   routine: 'auth_failed'
+7|aglis-ba | }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-5.log last 5 lines:
+5|aglis-ba |   constraint: undefined,
+5|aglis-ba |   file: 'auth.c',
+5|aglis-ba |   line: '343',
+5|aglis-ba |   routine: 'auth_failed'
+5|aglis-ba | }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-4.log last 5 lines:
+4|aglis-backend  | 2025-10-13T07:02:39: Login error: error: password authentication failed for user "aglis_user"
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+4|aglis-backend  |   length: 106,
+4|aglis-backend  |   severity: 'FATAL',
+4|aglis-backend  |   code: '28P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: undefined,
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'auth.c',
+4|aglis-backend  |   line: '343',
+4|aglis-backend  |   routine: 'auth_failed'
+4|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:08:41: Login error: error: password authentication failed for user "aglis_user"
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+4|aglis-backend  |   length: 106,
+4|aglis-backend  |   severity: 'FATAL',
+4|aglis-backend  |   code: '28P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: undefined,
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'auth.c',
+4|aglis-backend  |   line: '343',
+4|aglis-backend  |   routine: 'auth_failed'
+4|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:09:27: Login error: error: password authentication failed for user "aglis_user"
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+5|aglis-backend  |   length: 106,
+5|aglis-backend  |   severity: 'FATAL',
+5|aglis-backend  |   code: '28P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: undefined,
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'auth.c',
+5|aglis-backend  |   line: '343',
+5|aglis-backend  |   routine: 'auth_failed'
+5|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:09:51: Login error: error: password authentication failed for user "aglis_user"
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+4|aglis-backend  |   length: 106,
+4|aglis-backend  |   severity: 'FATAL',
+4|aglis-backend  |   code: '28P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: undefined,
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'auth.c',
+4|aglis-backend  |   line: '343',
+4|aglis-backend  |   routine: 'auth_failed'
+4|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:11:31: Login error: error: permission denied for table users
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+4|aglis-backend  |   length: 93,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42501',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: undefined,
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'aclchk.c',
+4|aglis-backend  |   line: '3452',
+4|aglis-backend  |   routine: 'aclcheck_error'
+4|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:19:46: Get stats error: error: relation "customer_registrations" does not exist
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+4|aglis-backend  |   length: 122,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: '897',
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'parse_relation.c',
+4|aglis-backend  |   line: '1381',
+4|aglis-backend  |   routine: 'parserOpenTable'
+4|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:19:46: Get registrations error: error: relation "customer_registrations" does not exist
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+5|aglis-backend  |   length: 122,
+5|aglis-backend  |   severity: 'ERROR',
+5|aglis-backend  |   code: '42P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: '224',
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'parse_relation.c',
+5|aglis-backend  |   line: '1381',
+5|aglis-backend  |   routine: 'parserOpenTable'
+5|aglis-backend  | }
+6|aglis-backend  | 2025-10-13T07:19:47: Get stats error: error: relation "customer_registrations" does not exist
+6|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+6|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+6|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+6|aglis-backend  |   length: 122,
+6|aglis-backend  |   severity: 'ERROR',
+6|aglis-backend  |   code: '42P01',
+6|aglis-backend  |   detail: undefined,
+6|aglis-backend  |   hint: undefined,
+6|aglis-backend  |   position: '897',
+6|aglis-backend  |   internalPosition: undefined,
+6|aglis-backend  |   internalQuery: undefined,
+6|aglis-backend  |   where: undefined,
+6|aglis-backend  |   schema: undefined,
+6|aglis-backend  |   table: undefined,
+6|aglis-backend  |   column: undefined,
+6|aglis-backend  |   dataType: undefined,
+6|aglis-backend  |   constraint: undefined,
+6|aglis-backend  |   file: 'parse_relation.c',
+6|aglis-backend  |   line: '1381',
+6|aglis-backend  |   routine: 'parserOpenTable'
+6|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:19:47: Get registrations error: error: relation "customer_registrations" does not exist
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+7|aglis-backend  |   length: 122,
+7|aglis-backend  |   severity: 'ERROR',
+7|aglis-backend  |   code: '42P01',
+7|aglis-backend  |   detail: undefined,
+7|aglis-backend  |   hint: undefined,
+7|aglis-backend  |   position: '224',
+7|aglis-backend  |   internalPosition: undefined,
+7|aglis-backend  |   internalQuery: undefined,
+7|aglis-backend  |   where: undefined,
+7|aglis-backend  |   schema: undefined,
+7|aglis-backend  |   table: undefined,
+7|aglis-backend  |   column: undefined,
+7|aglis-backend  |   dataType: undefined,
+7|aglis-backend  |   constraint: undefined,
+7|aglis-backend  |   file: 'parse_relation.c',
+7|aglis-backend  |   line: '1381',
+7|aglis-backend  |   routine: 'parserOpenTable'
+7|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:19:51: Registration analytics overview error: error: relation "customer_registrations" does not exist
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:37:26 {
+4|aglis-backend  |   length: 122,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: '987',
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'parse_relation.c',
+4|aglis-backend  |   line: '1381',
+4|aglis-backend  |   routine: 'parserOpenTable'
+4|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:19:51: Registration trends error: error: relation "customer_registrations" does not exist
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:92:20 {
+5|aglis-backend  |   length: 122,
+5|aglis-backend  |   severity: 'ERROR',
+5|aglis-backend  |   code: '42P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: '225',
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'parse_relation.c',
+5|aglis-backend  |   line: '1381',
+5|aglis-backend  |   routine: 'parserOpenTable'
+5|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:19:51: Funnel analysis error: error: relation "customer_registrations" does not exist
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:267:20 {
+7|aglis-backend  |   length: 122,
+7|aglis-backend  |   severity: 'ERROR',
+7|aglis-backend  |   code: '42P01',
+7|aglis-backend  |   detail: undefined,
+7|aglis-backend  |   hint: undefined,
+7|aglis-backend  |   position: '145',
+7|aglis-backend  |   internalPosition: undefined,
+7|aglis-backend  |   internalQuery: undefined,
+7|aglis-backend  |   where: undefined,
+7|aglis-backend  |   schema: undefined,
+7|aglis-backend  |   table: undefined,
+7|aglis-backend  |   column: undefined,
+7|aglis-backend  |   dataType: undefined,
+7|aglis-backend  |   constraint: undefined,
+7|aglis-backend  |   file: 'parse_relation.c',
+7|aglis-backend  |   line: '1381',
+7|aglis-backend  |   routine: 'parserOpenTable'
+7|aglis-backend  | }
+6|aglis-backend  | 2025-10-13T07:19:51: Package popularity error: error: relation "customer_registrations" does not exist
+6|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+6|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+6|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:131:20 {
+6|aglis-backend  |   length: 122,
+6|aglis-backend  |   severity: 'ERROR',
+6|aglis-backend  |   code: '42P01',
+6|aglis-backend  |   detail: undefined,
+6|aglis-backend  |   hint: undefined,
+6|aglis-backend  |   position: '455',
+6|aglis-backend  |   internalPosition: undefined,
+6|aglis-backend  |   internalQuery: undefined,
+6|aglis-backend  |   where: undefined,
+6|aglis-backend  |   schema: undefined,
+6|aglis-backend  |   table: undefined,
+6|aglis-backend  |   column: undefined,
+6|aglis-backend  |   dataType: undefined,
+6|aglis-backend  |   constraint: undefined,
+6|aglis-backend  |   file: 'parse_relation.c',
+6|aglis-backend  |   line: '1381',
+6|aglis-backend  |   routine: 'parserOpenTable'
+6|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:19:52: Get registrations error: error: relation "customer_registrations" does not exist
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+4|aglis-backend  |   length: 122,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: '224',
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'parse_relation.c',
+4|aglis-backend  |   line: '1381',
+4|aglis-backend  |   routine: 'parserOpenTable'
+4|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:19:52: Get stats error: error: relation "customer_registrations" does not exist
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+5|aglis-backend  |   length: 122,
+5|aglis-backend  |   severity: 'ERROR',
+5|aglis-backend  |   code: '42P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: '897',
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'parse_relation.c',
+5|aglis-backend  |   line: '1381',
+5|aglis-backend  |   routine: 'parserOpenTable'
+5|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:20:03: Get registrations error: error: relation "customer_registrations" does not exist
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+5|aglis-backend  |   length: 122,
+5|aglis-backend  |   severity: 'ERROR',
+5|aglis-backend  |   code: '42P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: '224',
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'parse_relation.c',
+5|aglis-backend  |   line: '1381',
+5|aglis-backend  |   routine: 'parserOpenTable'
+5|aglis-backend  | }
+6|aglis-backend  | 2025-10-13T07:20:03: Get stats error: error: relation "customer_registrations" does not exist
+6|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+6|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+6|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+6|aglis-backend  |   length: 122,
+6|aglis-backend  |   severity: 'ERROR',
+6|aglis-backend  |   code: '42P01',
+6|aglis-backend  |   detail: undefined,
+6|aglis-backend  |   hint: undefined,
+6|aglis-backend  |   position: '897',
+6|aglis-backend  |   internalPosition: undefined,
+6|aglis-backend  |   internalQuery: undefined,
+6|aglis-backend  |   where: undefined,
+6|aglis-backend  |   schema: undefined,
+6|aglis-backend  |   table: undefined,
+6|aglis-backend  |   column: undefined,
+6|aglis-backend  |   dataType: undefined,
+6|aglis-backend  |   constraint: undefined,
+6|aglis-backend  |   file: 'parse_relation.c',
+6|aglis-backend  |   line: '1381',
+6|aglis-backend  |   routine: 'parserOpenTable'
+6|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:20:04: Get registrations error: error: relation "customer_registrations" does not exist
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+7|aglis-backend  |   length: 122,
+7|aglis-backend  |   severity: 'ERROR',
+7|aglis-backend  |   code: '42P01',
+7|aglis-backend  |   detail: undefined,
+7|aglis-backend  |   hint: undefined,
+7|aglis-backend  |   position: '224',
+7|aglis-backend  |   internalPosition: undefined,
+7|aglis-backend  |   internalQuery: undefined,
+7|aglis-backend  |   where: undefined,
+7|aglis-backend  |   schema: undefined,
+7|aglis-backend  |   table: undefined,
+7|aglis-backend  |   column: undefined,
+7|aglis-backend  |   dataType: undefined,
+7|aglis-backend  |   constraint: undefined,
+7|aglis-backend  |   file: 'parse_relation.c',
+7|aglis-backend  |   line: '1381',
+7|aglis-backend  |   routine: 'parserOpenTable'
+7|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:20:04: Get stats error: error: relation "customer_registrations" does not exist
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+4|aglis-backend  |   length: 122,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: '897',
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'parse_relation.c',
+4|aglis-backend  |   line: '1381',
+4|aglis-backend  |   routine: 'parserOpenTable'
+4|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:20:22: Get registrations error: error: relation "customer_registrations" does not exist
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+7|aglis-backend  |   length: 122,
+7|aglis-backend  |   severity: 'ERROR',
+7|aglis-backend  |   code: '42P01',
+7|aglis-backend  |   detail: undefined,
+7|aglis-backend  |   hint: undefined,
+7|aglis-backend  |   position: '224',
+7|aglis-backend  |   internalPosition: undefined,
+7|aglis-backend  |   internalQuery: undefined,
+7|aglis-backend  |   where: undefined,
+7|aglis-backend  |   schema: undefined,
+7|aglis-backend  |   table: undefined,
+7|aglis-backend  |   column: undefined,
+7|aglis-backend  |   dataType: undefined,
+7|aglis-backend  |   constraint: undefined,
+7|aglis-backend  |   file: 'parse_relation.c',
+7|aglis-backend  |   line: '1381',
+7|aglis-backend  |   routine: 'parserOpenTable'
+7|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:20:22: Get stats error: error: relation "customer_registrations" does not exist
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+4|aglis-backend  |   length: 122,
+4|aglis-backend  |   severity: 'ERROR',
+4|aglis-backend  |   code: '42P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: '897',
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'parse_relation.c',
+4|aglis-backend  |   line: '1381',
+4|aglis-backend  |   routine: 'parserOpenTable'
+4|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:20:23: Get registrations error: error: relation "customer_registrations" does not exist
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+5|aglis-backend  |   length: 122,
+5|aglis-backend  |   severity: 'ERROR',
+5|aglis-backend  |   code: '42P01',
+5|aglis-backend  |   detail: undefined,
+5|aglis-backend  |   hint: undefined,
+5|aglis-backend  |   position: '224',
+5|aglis-backend  |   internalPosition: undefined,
+5|aglis-backend  |   internalQuery: undefined,
+5|aglis-backend  |   where: undefined,
+5|aglis-backend  |   schema: undefined,
+5|aglis-backend  |   table: undefined,
+5|aglis-backend  |   column: undefined,
+5|aglis-backend  |   dataType: undefined,
+5|aglis-backend  |   constraint: undefined,
+5|aglis-backend  |   file: 'parse_relation.c',
+5|aglis-backend  |   line: '1381',
+5|aglis-backend  |   routine: 'parserOpenTable'
+5|aglis-backend  | }
+6|aglis-backend  | 2025-10-13T07:20:23: Get stats error: error: relation "customer_registrations" does not exist
+6|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+6|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+6|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:498:20 {
+6|aglis-backend  |   length: 122,
+6|aglis-backend  |   severity: 'ERROR',
+6|aglis-backend  |   code: '42P01',
+6|aglis-backend  |   detail: undefined,
+6|aglis-backend  |   hint: undefined,
+6|aglis-backend  |   position: '897',
+6|aglis-backend  |   internalPosition: undefined,
+6|aglis-backend  |   internalQuery: undefined,
+6|aglis-backend  |   where: undefined,
+6|aglis-backend  |   schema: undefined,
+6|aglis-backend  |   table: undefined,
+6|aglis-backend  |   column: undefined,
+6|aglis-backend  |   dataType: undefined,
+6|aglis-backend  |   constraint: undefined,
+6|aglis-backend  |   file: 'parse_relation.c',
+6|aglis-backend  |   line: '1381',
+6|aglis-backend  |   routine: 'parserOpenTable'
+6|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:38:49: Error fetching packages: error: password authentication failed for user "isp_admin"
+4|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+4|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/packages.js:56:25 {
+4|aglis-backend  |   length: 105,
+4|aglis-backend  |   severity: 'FATAL',
+4|aglis-backend  |   code: '28P01',
+4|aglis-backend  |   detail: undefined,
+4|aglis-backend  |   hint: undefined,
+4|aglis-backend  |   position: undefined,
+4|aglis-backend  |   internalPosition: undefined,
+4|aglis-backend  |   internalQuery: undefined,
+4|aglis-backend  |   where: undefined,
+4|aglis-backend  |   schema: undefined,
+4|aglis-backend  |   table: undefined,
+4|aglis-backend  |   column: undefined,
+4|aglis-backend  |   dataType: undefined,
+4|aglis-backend  |   constraint: undefined,
+4|aglis-backend  |   file: 'auth.c',
+4|aglis-backend  |   line: '343',
+4|aglis-backend  |   routine: 'auth_failed'
+4|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:38:58: ❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌
+7|aglis-backend  | 2025-10-13T07:38:58: Error message: password authentication failed for user "isp_admin"
+7|aglis-backend  | 2025-10-13T07:38:58: Error stack: error: password authentication failed for user "isp_admin"
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:156:27
+7|aglis-backend  | 2025-10-13T07:38:58: Request body: {
+7|aglis-backend  |   full_name: 'Test User',
+7|aglis-backend  |   email: 'test@example.com',
+7|aglis-backend  |   phone: '081234567890',
+7|aglis-backend  |   whatsapp_verified: 'true',
+7|aglis-backend  |   address: 'Test Address',
+7|aglis-backend  |   city: 'Jakarta',
+7|aglis-backend  |   package_id: '1'
+7|aglis-backend  | }
+5|aglis-backend  | 2025-10-13T07:40:13: ❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌
+5|aglis-backend  | 2025-10-13T07:40:13: Error message: password authentication failed for user "isp_admin"
+5|aglis-backend  | 2025-10-13T07:40:13: Error stack: error: password authentication failed for user "isp_admin"
+5|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+5|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+5|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:156:27
+5|aglis-backend  | 2025-10-13T07:40:13: Request body: {
+5|aglis-backend  |   full_name: 'Test User',
+5|aglis-backend  |   email: 'test123@example.com',
+5|aglis-backend  |   phone: '081234567890',
+5|aglis-backend  |   whatsapp_verified: 'true',
+5|aglis-backend  |   address: 'Test Address',
+5|aglis-backend  |   city: 'Jakarta',
+5|aglis-backend  |   package_id: '1'
+5|aglis-backend  | }
+6|aglis-backend  | 2025-10-13T07:40:13: ❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌
+6|aglis-backend  | 2025-10-13T07:40:13: Error message: password authentication failed for user "isp_admin"
+6|aglis-backend  | 2025-10-13T07:40:13: Error stack: error: password authentication failed for user "isp_admin"
+6|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+6|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+6|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:156:27
+6|aglis-backend  | 2025-10-13T07:40:13: Request body: {
+6|aglis-backend  |   full_name: 'Test User',
+6|aglis-backend  |   email: 'test123@example.com',
+6|aglis-backend  |   phone: '081234567890',
+6|aglis-backend  |   whatsapp_verified: 'true',
+6|aglis-backend  |   address: 'Test Address',
+6|aglis-backend  |   city: 'Jakarta',
+6|aglis-backend  |   package_id: '1'
+6|aglis-backend  | }
+7|aglis-backend  | 2025-10-13T07:40:14: Error fetching packages: error: password authentication failed for user "isp_admin"
+7|aglis-backend  |     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend  |     at async /home/aglis/AGLIS_Tech/backend/src/routes/packages.js:56:25 {
+7|aglis-backend  |   length: 105,
+7|aglis-backend  |   severity: 'FATAL',
+7|aglis-backend  |   code: '28P01',
+7|aglis-backend  |   detail: undefined,
+7|aglis-backend  |   hint: undefined,
+7|aglis-backend  |   position: undefined,
+7|aglis-backend  |   internalPosition: undefined,
+7|aglis-backend  |   internalQuery: undefined,
+7|aglis-backend  |   where: undefined,
+7|aglis-backend  |   schema: undefined,
+7|aglis-backend  |   table: undefined,
+7|aglis-backend  |   column: undefined,
+7|aglis-backend  |   dataType: undefined,
+7|aglis-backend  |   constraint: undefined,
+7|aglis-backend  |   file: 'auth.c',
+7|aglis-backend  |   line: '343',
+7|aglis-backend  |   routine: 'auth_failed'
+7|aglis-backend  | }
+4|aglis-backend  | 2025-10-13T07:44:14: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+4|aglis-backend  | 2025-10-13T07:44:14: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]
+6|aglis-backend  | 2025-10-13T07:45:27: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+6|aglis-backend  | 2025-10-13T07:45:27: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]
+4|aglis-backend  | 2025-10-13T07:45:48: 🚫 CORS: Blocked origin: https://portal.aglis.biz.id
+4|aglis-backend  | 2025-10-13T07:45:48: 📋 CORS: Allowed origins: [ 'http://localhost:3000' ]
+9|aglis-backend-3  | 2025-10-13T09:06:41: Error fetching inventory stock: error: relation "inventory_stock" does not exist
+9|aglis-backend-3  | 2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:86:20 {
+9|aglis-backend-3  | 2025-10-13T09:06:41:   length: 115,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-13T09:06:41:   code: '42P01',
+9|aglis-backend-3  | 2025-10-13T09:06:41:   detail: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   hint: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   position: '641',
+9|aglis-backend-3  | 2025-10-13T09:06:41:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   where: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   schema: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   table: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   column: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:41:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-13T09:06:41:   line: '1381',
+9|aglis-backend-3  | 2025-10-13T09:06:41:   routine: 'parserOpenTable'
+9|aglis-backend-3  | 2025-10-13T09:06:41: }
+10|aglis-backend-4 | 2025-10-13T09:06:41: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+10|aglis-backend-4 | 2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+10|aglis-backend-4 | 2025-10-13T09:06:41:   length: 115,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-13T09:06:41:   code: '42P01',
+10|aglis-backend-4 | 2025-10-13T09:06:41:   detail: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   hint: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   position: '254',
+10|aglis-backend-4 | 2025-10-13T09:06:41:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   where: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   schema: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   table: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   column: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:41:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-13T09:06:41:   line: '1381',
+10|aglis-backend-4 | 2025-10-13T09:06:41:   routine: 'parserOpenTable'
+10|aglis-backend-4 | 2025-10-13T09:06:41: }
+7|aglis-backend-1  | 2025-10-13T09:06:41: Get inventory stats error: error: relation "inventory_stock" does not exist
+7|aglis-backend-1  | 2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+7|aglis-backend-1  | 2025-10-13T09:06:41:   length: 115,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-13T09:06:41:   code: '42P01',
+7|aglis-backend-1  | 2025-10-13T09:06:41:   detail: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   hint: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   position: '401',
+7|aglis-backend-1  | 2025-10-13T09:06:41:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   where: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   schema: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   table: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   column: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-13T09:06:41:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-13T09:06:41:   line: '1381',
+7|aglis-backend-1  | 2025-10-13T09:06:41:   routine: 'parserOpenTable'
+7|aglis-backend-1  | 2025-10-13T09:06:41: }
+8|aglis-backend-2  | 2025-10-13T09:06:42: Error fetching inventory stock: error: relation "inventory_stock" does not exist
+8|aglis-backend-2  | 2025-10-13T09:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-13T09:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-13T09:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:86:20 {
+8|aglis-backend-2  | 2025-10-13T09:06:42:   length: 115,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-13T09:06:42:   code: '42P01',
+8|aglis-backend-2  | 2025-10-13T09:06:42:   detail: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   hint: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   position: '641',
+8|aglis-backend-2  | 2025-10-13T09:06:42:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   where: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   schema: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   table: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   column: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-13T09:06:42:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-13T09:06:42:   line: '1381',
+8|aglis-backend-2  | 2025-10-13T09:06:42:   routine: 'parserOpenTable'
+8|aglis-backend-2  | 2025-10-13T09:06:42: }
+9|aglis-backend-3  | 2025-10-13T09:06:43: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+9|aglis-backend-3  | 2025-10-13T09:06:43:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-13T09:06:43:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-13T09:06:43:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+9|aglis-backend-3  | 2025-10-13T09:06:43:   length: 115,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-13T09:06:43:   code: '42P01',
+9|aglis-backend-3  | 2025-10-13T09:06:43:   detail: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   hint: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   position: '254',
+9|aglis-backend-3  | 2025-10-13T09:06:43:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   where: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   schema: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   table: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   column: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-13T09:06:43:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-13T09:06:43:   line: '1381',
+9|aglis-backend-3  | 2025-10-13T09:06:43:   routine: 'parserOpenTable'
+9|aglis-backend-3  | 2025-10-13T09:06:43: }
+10|aglis-backend-4 | 2025-10-13T09:06:43: Get inventory stats error: error: relation "inventory_stock" does not exist
+10|aglis-backend-4 | 2025-10-13T09:06:43:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-13T09:06:43:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-13T09:06:43:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+10|aglis-backend-4 | 2025-10-13T09:06:43:   length: 115,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-13T09:06:43:   code: '42P01',
+10|aglis-backend-4 | 2025-10-13T09:06:43:   detail: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   hint: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   position: '401',
+10|aglis-backend-4 | 2025-10-13T09:06:43:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   where: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   schema: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   table: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   column: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-13T09:06:43:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-13T09:06:43:   line: '1381',
+10|aglis-backend-4 | 2025-10-13T09:06:43:   routine: 'parserOpenTable'
+10|aglis-backend-4 | 2025-10-13T09:06:43: }
+7|aglis-backend-1  | 2025-10-13T10:03:47: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1  | 2025-10-13T10:03:47: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+7|aglis-backend-1  | 2025-10-13T10:03:47: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+7|aglis-backend-1  | 2025-10-13T10:03:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-13T10:03:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-13T10:03:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:920:28
+7|aglis-backend-1  | 2025-10-13T10:03:47: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 1, 1, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 03:03:47.572854).
+7|aglis-backend-1  | 2025-10-13T10:03:47: SQL: undefined
+10|aglis-backend-4 | 2025-10-13T10:03:58: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+10|aglis-backend-4 | 2025-10-13T10:03:58: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+10|aglis-backend-4 | 2025-10-13T10:03:58: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+10|aglis-backend-4 | 2025-10-13T10:03:58:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 2025-10-13T10:03:58:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-13T10:03:58:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:920:28
+10|aglis-backend-4 | 2025-10-13T10:03:58: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 2, 2, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 03:03:57.93126).
+10|aglis-backend-4 | 2025-10-13T10:03:58: SQL: undefined

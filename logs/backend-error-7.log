@@ -1,0 +1,199 @@
+2025-10-13T06:51:10: Error fetching packages: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/packages.js:56:25 {
+  length: 105,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T06:54:26: Login error: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/auth.js:111:24 {
+  length: 105,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T07:19:47: Get registrations error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '224',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:19:51: Funnel analysis error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrationAnalytics.js:267:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '145',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:04: Get registrations error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '224',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:20:22: Get registrations error: error: relation "customer_registrations" does not exist
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:430:20 {
+  length: 122,
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '224',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '1381',
+  routine: 'parserOpenTable'
+}
+2025-10-13T07:38:58: ❌❌❌ PUBLIC REGISTRATION ERROR ❌❌❌
+2025-10-13T07:38:58: Error message: password authentication failed for user "isp_admin"
+2025-10-13T07:38:58: Error stack: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:156:27
+2025-10-13T07:38:58: Request body: {
+  full_name: 'Test User',
+  email: 'test@example.com',
+  phone: '081234567890',
+  whatsapp_verified: 'true',
+  address: 'Test Address',
+  city: 'Jakarta',
+  package_id: '1'
+}
+2025-10-13T07:40:14: Error fetching packages: error: password authentication failed for user "isp_admin"
+    at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aglis/AGLIS_Tech/backend/src/routes/packages.js:56:25 {
+  length: 105,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '343',
+  routine: 'auth_failed'
+}
+2025-10-13T09:06:41: Get inventory stats error: error: relation "inventory_stock" does not exist
+2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+2025-10-13T09:06:41:   length: 115,
+2025-10-13T09:06:41:   severity: 'ERROR',
+2025-10-13T09:06:41:   code: '42P01',
+2025-10-13T09:06:41:   detail: undefined,
+2025-10-13T09:06:41:   hint: undefined,
+2025-10-13T09:06:41:   position: '401',
+2025-10-13T09:06:41:   internalPosition: undefined,
+2025-10-13T09:06:41:   internalQuery: undefined,
+2025-10-13T09:06:41:   where: undefined,
+2025-10-13T09:06:41:   schema: undefined,
+2025-10-13T09:06:41:   table: undefined,
+2025-10-13T09:06:41:   column: undefined,
+2025-10-13T09:06:41:   dataType: undefined,
+2025-10-13T09:06:41:   constraint: undefined,
+2025-10-13T09:06:41:   file: 'parse_relation.c',
+2025-10-13T09:06:41:   line: '1381',
+2025-10-13T09:06:41:   routine: 'parserOpenTable'
+2025-10-13T09:06:41: }
+2025-10-13T10:03:47: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-13T10:03:47: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-13T10:03:47: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-13T10:03:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-13T10:03:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T10:03:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:920:28
+2025-10-13T10:03:47: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 1, 1, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 03:03:47.572854).
+2025-10-13T10:03:47: SQL: undefined

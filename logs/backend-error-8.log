@@ -1,0 +1,22 @@
+2025-10-13T09:06:42: Error fetching inventory stock: error: relation "inventory_stock" does not exist
+2025-10-13T09:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T09:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T09:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:86:20 {
+2025-10-13T09:06:42:   length: 115,
+2025-10-13T09:06:42:   severity: 'ERROR',
+2025-10-13T09:06:42:   code: '42P01',
+2025-10-13T09:06:42:   detail: undefined,
+2025-10-13T09:06:42:   hint: undefined,
+2025-10-13T09:06:42:   position: '641',
+2025-10-13T09:06:42:   internalPosition: undefined,
+2025-10-13T09:06:42:   internalQuery: undefined,
+2025-10-13T09:06:42:   where: undefined,
+2025-10-13T09:06:42:   schema: undefined,
+2025-10-13T09:06:42:   table: undefined,
+2025-10-13T09:06:42:   column: undefined,
+2025-10-13T09:06:42:   dataType: undefined,
+2025-10-13T09:06:42:   constraint: undefined,
+2025-10-13T09:06:42:   file: 'parse_relation.c',
+2025-10-13T09:06:42:   line: '1381',
+2025-10-13T09:06:42:   routine: 'parserOpenTable'
+2025-10-13T09:06:42: }

@@ -1,0 +1,837 @@
+2025-10-12T23:03:37: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-12T23:03:37: 🚀 Server running on 0.0.0.0:3001
+2025-10-12T23:03:37: 🌍 Environment: production
+2025-10-12T23:03:37: 📡 Local access: http://localhost:3001
+2025-10-12T23:03:37: 🌐 Network access: http://192.168.121.30:3001
+2025-10-12T23:03:37: 📝 CORS origins configured for local network access
+2025-10-12T23:09:50: 127.0.0.1 - - [12/Oct/2025:23:09:50 +0000] "HEAD /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:09:51: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T06:09:51: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T06:09:51: 🌍 Environment: production
+2025-10-13T06:09:51: 📡 Local access: http://localhost:3001
+2025-10-13T06:09:51: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T06:09:51: 📝 CORS origins configured for local network access
+2025-10-13T06:09:57: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T06:09:57: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T06:09:57: 🌍 Environment: production
+2025-10-13T06:09:57: 📡 Local access: http://localhost:3001
+2025-10-13T06:09:57: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T06:09:57: 📝 CORS origins configured for local network access
+2025-10-13T06:14:59: 127.0.0.1 - - [12/Oct/2025:23:14:59 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:18:21: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T06:18:22: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T06:18:22: 🌍 Environment: production
+2025-10-13T06:18:22: 📡 Local access: http://localhost:3001
+2025-10-13T06:18:22: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T06:18:22: 📝 CORS origins configured for local network access
+2025-10-13T06:20:01: 127.0.0.1 - - [12/Oct/2025:23:20:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:24:50: 127.0.0.1 - - [12/Oct/2025:23:24:50 +0000] "GET / HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:30:01: 127.0.0.1 - - [12/Oct/2025:23:30:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:31:43: 127.0.0.1 - - [12/Oct/2025:23:31:43 +0000] "GET /health HTTP/1.1" 200 77 "-" "curl/7.81.0"
+2025-10-13T06:33:04: 127.0.0.1 - - [12/Oct/2025:23:33:04 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:33:06: 127.0.0.1 - - [12/Oct/2025:23:33:06 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:35:37: 127.0.0.1 - - [12/Oct/2025:23:35:37 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:35:37: 127.0.0.1 - - [12/Oct/2025:23:35:37 +0000] "GET /api/tickets HTTP/1.1" 401 63 "-" "curl/7.81.0"
+2025-10-13T06:37:17: 127.0.0.1 - - [12/Oct/2025:23:37:17 +0000] "POST /api/auth/login HTTP/1.1" 400 222 "-" "curl/7.81.0"
+2025-10-13T06:50:01: 127.0.0.1 - - [12/Oct/2025:23:50:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T06:52:15: 127.0.0.1 - - [12/Oct/2025:23:52:15 +0000] "POST /api/auth/login HTTP/1.0" 500 51 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T06:58:33: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T06:58:33: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T06:58:33: 🌍 Environment: production
+2025-10-13T06:58:33: 📡 Local access: http://localhost:3001
+2025-10-13T06:58:33: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T06:58:33: 📝 CORS origins configured for local network access
+2025-10-13T06:59:33: 127.0.0.1 - - [12/Oct/2025:23:59:33 +0000] "POST /api/auth/login HTTP/1.0" 500 51 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:02:34: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:02:34: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:02:34: 🌍 Environment: production
+2025-10-13T07:02:34: 📡 Local access: http://localhost:3001
+2025-10-13T07:02:34: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:02:34: 📝 CORS origins configured for local network access
+2025-10-13T07:02:39: 127.0.0.1 - - [13/Oct/2025:00:02:39 +0000] "GET /health HTTP/1.1" 200 74 "-" "curl/7.81.0"
+2025-10-13T07:06:57: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:06:57: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:06:57: 🌍 Environment: production
+2025-10-13T07:06:57: 📡 Local access: http://localhost:3001
+2025-10-13T07:06:57: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:06:57: 📝 CORS origins configured for local network access
+2025-10-13T07:08:33: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:08:33: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:08:33: 🌍 Environment: production
+2025-10-13T07:08:33: 📡 Local access: http://localhost:3001
+2025-10-13T07:08:33: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:08:33: 📝 CORS origins configured for local network access
+2025-10-13T07:09:16: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:09:16: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:09:16: 🌍 Environment: production
+2025-10-13T07:09:16: 📡 Local access: http://localhost:3001
+2025-10-13T07:09:16: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:09:16: 📝 CORS origins configured for local network access
+2025-10-13T07:09:27: 127.0.0.1 - - [13/Oct/2025:00:09:27 +0000] "POST /api/auth/login HTTP/1.1" 500 51 "-" "curl/7.81.0"
+2025-10-13T07:09:48: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:09:48: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:09:48: 🌍 Environment: production
+2025-10-13T07:09:48: 📡 Local access: http://localhost:3001
+2025-10-13T07:09:48: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:09:48: 📝 CORS origins configured for local network access
+2025-10-13T07:10:01: 127.0.0.1 - - [13/Oct/2025:00:10:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T07:11:28: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:11:28: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:11:28: 🌍 Environment: production
+2025-10-13T07:11:28: 📡 Local access: http://localhost:3001
+2025-10-13T07:11:28: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:11:28: 📝 CORS origins configured for local network access
+2025-10-13T07:13:15: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:13:15: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:13:15: 🌍 Environment: production
+2025-10-13T07:13:15: 📡 Local access: http://localhost:3001
+2025-10-13T07:13:15: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:13:15: 📝 CORS origins configured for local network access
+2025-10-13T07:13:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:13:18: 127.0.0.1 - - [13/Oct/2025:00:13:18 +0000] "POST /api/auth/login HTTP/1.1" 401 49 "-" "curl/7.81.0"
+2025-10-13T07:17:16: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:17:16: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:16: 127.0.0.1 - - [13/Oct/2025:00:17:16 +0000] "POST /api/auth/login HTTP/1.0" 200 343 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:17:16: 127.0.0.1 - - [13/Oct/2025:00:17:16 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.0" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:18: 127.0.0.1 - - [13/Oct/2025:00:17:18 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:17:48: 127.0.0.1 - - [13/Oct/2025:00:17:48 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:18: 127.0.0.1 - - [13/Oct/2025:00:18:18 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: ✅ Connected to PostgreSQL database
+2025-10-13T07:18:48: 127.0.0.1 - - [13/Oct/2025:00:18:48 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:18: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:19: 127.0.0.1 - - [13/Oct/2025:00:19:19 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:27: 127.0.0.1 - - [13/Oct/2025:00:19:27 +0000] "GET /api/notifications/settings/preferences HTTP/1.0" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:30: 127.0.0.1 - - [13/Oct/2025:00:19:30 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.0" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:37: 127.0.0.1 - - [13/Oct/2025:00:19:37 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.0" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:38: 127.0.0.1 - - [13/Oct/2025:00:19:38 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.0" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:41: 127.0.0.1 - - [13/Oct/2025:00:19:41 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 200 95 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:46: 127.0.0.1 - - [13/Oct/2025:00:19:46 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 500 51 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:51: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:51: 127.0.0.1 - - [13/Oct/2025:00:19:51 +0000] "GET /api/registration-analytics/trends?days=30 HTTP/1.0" 500 51 "https://portal.aglis.biz.id/registration-analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:52: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:52: 127.0.0.1 - - [13/Oct/2025:00:19:52 +0000] "GET /api/registrations/stats HTTP/1.0" 500 51 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:19:57: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:57: ✅ Connected to PostgreSQL database
+2025-10-13T07:19:57: 127.0.0.1 - - [13/Oct/2025:00:19:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:20:03: 127.0.0.1 - - [13/Oct/2025:00:20:03 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 500 51 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:20:12: 127.0.0.1 - - [13/Oct/2025:00:20:12 +0000] "GET /api/auth/me HTTP/1.0" 200 361 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:20:19: 127.0.0.1 - - [13/Oct/2025:00:20:19 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:20:23: 127.0.0.1 - - [13/Oct/2025:00:20:23 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 500 51 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:22:13: ✅ Connected to PostgreSQL database
+2025-10-13T07:22:13: ✅ Connected to PostgreSQL database
+2025-10-13T07:22:13: 127.0.0.1 - - [13/Oct/2025:00:22:13 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:24:13: ✅ Connected to PostgreSQL database
+2025-10-13T07:24:13: ✅ Connected to PostgreSQL database
+2025-10-13T07:24:13: 127.0.0.1 - - [13/Oct/2025:00:24:13 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:25:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:25:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:25:44: 127.0.0.1 - - [13/Oct/2025:00:25:44 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:27:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:27:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:27:44: 127.0.0.1 - - [13/Oct/2025:00:27:44 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:29:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:29:44: ✅ Connected to PostgreSQL database
+2025-10-13T07:29:44: 127.0.0.1 - - [13/Oct/2025:00:29:44 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:35:01: 127.0.0.1 - - [13/Oct/2025:00:35:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "curl/7.81.0"
+2025-10-13T07:38:27: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T07:38:27: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:38:27: 🌍 Environment: production
+2025-10-13T07:38:27: 📡 Local access: http://localhost:3001
+2025-10-13T07:38:27: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:38:27: 📝 CORS origins configured for local network access
+2025-10-13T07:38:51: 127.0.0.1 - - [13/Oct/2025:00:38:51 +0000] "GET /api/registrations/stats HTTP/1.1" 401 63 "-" "curl/7.81.0"
+2025-10-13T07:39:13: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T07:39:13: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:39:13: 🌍 Environment: production
+2025-10-13T07:39:13: 📡 Local access: http://localhost:3001
+2025-10-13T07:39:13: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:39:13: 📝 CORS origins configured for local network access
+2025-10-13T07:39:57: 🔧 CORS: Using development mode - auto-detect local network
+2025-10-13T07:39:57: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:39:57: 🌍 Environment: production
+2025-10-13T07:39:57: 📡 Local access: http://localhost:3001
+2025-10-13T07:39:57: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:39:57: 📝 CORS origins configured for local network access
+2025-10-13T07:40:13: 127.0.0.1 - - [13/Oct/2025:00:40:13 +0000] "POST /api/registrations/public HTTP/1.1" 500 67 "-" "curl/7.81.0"
+2025-10-13T07:40:47: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:40:47: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:40:47: 🌍 Environment: production
+2025-10-13T07:40:47: 📡 Local access: http://localhost:3001
+2025-10-13T07:40:47: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:40:47: 📝 CORS origins configured for local network access
+2025-10-13T07:40:59: ✅ Connected to PostgreSQL database
+2025-10-13T07:40:59: WhatsApp service is disabled. Message: Halo Test User,
+
+Terima kasih telah mendaftar sebagai customer ISP kami!
+
+📋 *Nomor Registrasi:* REG-20251013-0001
+📦 *Paket:* Home Bronze 30M
+💰 *Harga:* Rp 149900.00/bulan
+
+Tim kami akan segera menghubungi Anda untuk proses verifikasi dan survey lokasi.
+
+Anda dapat cek status pendaftaran Anda di:
+http://localhost:3000/track/REG-20251013-0001
+
+Terima kasih!
+2025-10-13T07:40:59: 📱 WhatsApp confirmation sent: {
+  success: true,
+  message: 'WhatsApp service disabled - message logged only',
+  disabled: true
+}
+2025-10-13T07:40:59: ✅ Connected to PostgreSQL database
+2025-10-13T07:40:59: 127.0.0.1 - - [13/Oct/2025:00:40:59 +0000] "POST /api/registrations/public HTTP/1.1" 201 227 "-" "curl/7.81.0"
+2025-10-13T07:44:14: ✅ Connected to PostgreSQL database
+2025-10-13T07:44:14: ✅ Connected to PostgreSQL database
+2025-10-13T07:44:14: 127.0.0.1 - - [13/Oct/2025:00:44:14 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 519 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:44:30: 127.0.0.1 - - [13/Oct/2025:00:44:30 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.0" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:44:37: 127.0.0.1 - - [13/Oct/2025:00:44:37 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 519 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:19: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:19: 127.0.0.1 - - [13/Oct/2025:00:45:19 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=full_name&sort_order=DESC HTTP/1.0" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:27: 127.0.0.1 - - [13/Oct/2025:00:45:27 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:30: 127.0.0.1 - - [13/Oct/2025:00:45:30 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.0" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:30: ✅ Connected to PostgreSQL database
+2025-10-13T07:45:30: 127.0.0.1 - - [13/Oct/2025:00:45:30 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:32: 127.0.0.1 - - [13/Oct/2025:00:45:32 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 200 95 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:34: 127.0.0.1 - - [13/Oct/2025:00:45:34 +0000] "GET /api/registration-analytics/trends?days=30 HTTP/1.0" 200 103 "https://portal.aglis.biz.id/registration-analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:37: 127.0.0.1 - - [13/Oct/2025:00:45:37 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 519 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:45:51: 127.0.0.1 - - [13/Oct/2025:00:45:51 +0000] "GET /api/registrations/1 HTTP/1.0" 200 - "https://portal.aglis.biz.id/registrations/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:46:37: ✅ Connected to PostgreSQL database
+2025-10-13T07:46:37: ✅ Connected to PostgreSQL database
+2025-10-13T07:46:37: 127.0.0.1 - - [13/Oct/2025:00:46:37 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:47:37: ✅ Connected to PostgreSQL database
+2025-10-13T07:47:37: ✅ Connected to PostgreSQL database
+2025-10-13T07:47:37: 127.0.0.1 - - [13/Oct/2025:00:47:37 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:47:54: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T07:47:54: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T07:47:54: 🌍 Environment: production
+2025-10-13T07:47:54: 📡 Local access: http://localhost:3001
+2025-10-13T07:47:54: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T07:47:54: 📝 CORS origins configured for local network access
+2025-10-13T07:48:09: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:09: 127.0.0.1 - - [13/Oct/2025:00:48:09 +0000] "GET /api/auth/me HTTP/1.0" 200 361 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:48:09: 127.0.0.1 - - [13/Oct/2025:00:48:09 +0000] "GET /api/notifications/settings/preferences HTTP/1.0" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: ✅ Connected to PostgreSQL database
+2025-10-13T07:48:39: 127.0.0.1 - - [13/Oct/2025:00:48:39 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:05: 127.0.0.1 - - [13/Oct/2025:00:49:05 +0000] "GET /api/auth/me HTTP/1.0" 200 361 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:05: 127.0.0.1 - - [13/Oct/2025:00:49:05 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:35: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: ✅ Connected to PostgreSQL database
+2025-10-13T07:49:36: 127.0.0.1 - - [13/Oct/2025:00:49:36 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:47: 127.0.0.1 - - [13/Oct/2025:00:49:47 +0000] "GET /api/notifications/settings/preferences HTTP/1.0" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:50: 127.0.0.1 - - [13/Oct/2025:00:49:50 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:49:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:49:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:07: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: ✅ Connected to PostgreSQL database
+2025-10-13T07:50:17: 127.0.0.1 - - [13/Oct/2025:00:50:17 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T07:50:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T07:50:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:03:48: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T08:03:48: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T08:03:48: 🌍 Environment: production
+2025-10-13T08:03:48: 📡 Local access: http://localhost:3001
+2025-10-13T08:03:48: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T08:03:48: 📝 CORS origins configured for local network access
+2025-10-13T08:03:48: ✅ Redis clients connected for Socket.IO adapter
+2025-10-13T08:04:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:04:09: 127.0.0.1 - - [13/Oct/2025:01:04:09 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:04:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:19: 127.0.0.1 - - [13/Oct/2025:01:04:19 +0000] "GET /api/auth/me HTTP/1.0" 200 361 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:04:19: 127.0.0.1 - - [13/Oct/2025:01:04:19 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:04:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:28: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:04:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:40: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: 127.0.0.1 - - [13/Oct/2025:01:05:40 +0000] "POST /api/auth/login HTTP/1.0" 200 343 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: ✅ Connected to PostgreSQL database
+2025-10-13T08:05:40: 127.0.0.1 - - [13/Oct/2025:01:05:40 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:05:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:53: 127.0.0.1 - - [13/Oct/2025:01:05:53 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.0" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:57: 127.0.0.1 - - [13/Oct/2025:01:05:57 +0000] "GET /api/customers/stats HTTP/1.0" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:05:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:05:59: 127.0.0.1 - - [13/Oct/2025:01:05:59 +0000] "GET /api/customers/stats HTTP/1.0" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:06:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:04: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:07: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:12: 127.0.0.1 - - [13/Oct/2025:01:06:12 +0000] "GET /api/auth/me HTTP/1.1" 200 361 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:06:12: 127.0.0.1 - - [13/Oct/2025:01:06:12 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:06:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:35: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:42: ✅ Connected to PostgreSQL database
+2025-10-13T08:06:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:06:43: 127.0.0.1 - - [13/Oct/2025:01:06:43 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:06:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:06:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:05: 127.0.0.1 - - [13/Oct/2025:01:07:05 +0000] "GET /api/packages HTTP/1.1" 200 1250 "-" "curl/7.81.0"
+2025-10-13T08:07:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:28: 127.0.0.1 - - [13/Oct/2025:01:07:28 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:07:28: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:58: ✅ Connected to PostgreSQL database
+2025-10-13T08:07:58: 127.0.0.1 - - [13/Oct/2025:01:07:58 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:07:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:07:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:04: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:04: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:07: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:28: ✅ Connected to PostgreSQL database
+2025-10-13T08:08:28: 127.0.0.1 - - [13/Oct/2025:01:08:28 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:08:28: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:35: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:58: ✅ Connected to PostgreSQL database
+2025-10-13T08:08:58: 127.0.0.1 - - [13/Oct/2025:01:08:58 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:08:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:08:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:04: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:05: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:28: ✅ Connected to PostgreSQL database
+2025-10-13T08:09:28: 127.0.0.1 - - [13/Oct/2025:01:09:28 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:09:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:36: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:43: 127.0.0.1 - - [13/Oct/2025:01:09:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:09:58: 127.0.0.1 - - [13/Oct/2025:01:09:58 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:09:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:09:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:13: 127.0.0.1 - - [13/Oct/2025:01:10:13 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:10:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:10:43: 127.0.0.1 - - [13/Oct/2025:01:10:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:10:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:10:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:11:43: 127.0.0.1 - - [13/Oct/2025:01:11:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:11:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:11:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:13: ✅ Connected to PostgreSQL database
+2025-10-13T08:12:13: 127.0.0.1 - - [13/Oct/2025:01:12:13 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:12:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:12:43: 127.0.0.1 - - [13/Oct/2025:01:12:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:12:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:12:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:13: ✅ Connected to PostgreSQL database
+2025-10-13T08:13:13: 127.0.0.1 - - [13/Oct/2025:01:13:13 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:13:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:13:43: 127.0.0.1 - - [13/Oct/2025:01:13:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:13:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:13:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:13: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:13: 127.0.0.1 - - [13/Oct/2025:01:14:13 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:14:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:28: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:35: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:14:43: 127.0.0.1 - - [13/Oct/2025:01:14:43 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:14:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:14:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:13: 127.0.0.1 - - [13/Oct/2025:01:15:13 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:15:14: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:15:43: ✅ Connected to PostgreSQL database
+2025-10-13T08:15:43: 127.0.0.1 - - [13/Oct/2025:01:15:43 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:15:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:56: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:15:58: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:16:41: 127.0.0.1 - - [13/Oct/2025:01:16:41 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:43: 127.0.0.1 - - [13/Oct/2025:01:16:43 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:45: 127.0.0.1 - - [13/Oct/2025:01:16:45 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:47: 127.0.0.1 - - [13/Oct/2025:01:16:47 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:49: 127.0.0.1 - - [13/Oct/2025:01:16:49 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:51: 127.0.0.1 - - [13/Oct/2025:01:16:51 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:53: 127.0.0.1 - - [13/Oct/2025:01:16:53 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:55: 127.0.0.1 - - [13/Oct/2025:01:16:55 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:57: 127.0.0.1 - - [13/Oct/2025:01:16:57 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:16:59: 127.0.0.1 - - [13/Oct/2025:01:16:59 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:01: 127.0.0.1 - - [13/Oct/2025:01:17:01 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:03: 127.0.0.1 - - [13/Oct/2025:01:17:03 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:05: 127.0.0.1 - - [13/Oct/2025:01:17:05 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:07: 127.0.0.1 - - [13/Oct/2025:01:17:07 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:09: 127.0.0.1 - - [13/Oct/2025:01:17:09 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:11: 127.0.0.1 - - [13/Oct/2025:01:17:11 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:13: 127.0.0.1 - - [13/Oct/2025:01:17:13 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:15: 127.0.0.1 - - [13/Oct/2025:01:17:15 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:17: 127.0.0.1 - - [13/Oct/2025:01:17:17 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:19: 127.0.0.1 - - [13/Oct/2025:01:17:19 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:21: 127.0.0.1 - - [13/Oct/2025:01:17:21 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:23: 127.0.0.1 - - [13/Oct/2025:01:17:23 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:25: 127.0.0.1 - - [13/Oct/2025:01:17:25 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:27: 127.0.0.1 - - [13/Oct/2025:01:17:27 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:29: 127.0.0.1 - - [13/Oct/2025:01:17:29 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:31: 127.0.0.1 - - [13/Oct/2025:01:17:31 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:33: 127.0.0.1 - - [13/Oct/2025:01:17:33 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:35: 127.0.0.1 - - [13/Oct/2025:01:17:35 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:37: 127.0.0.1 - - [13/Oct/2025:01:17:37 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:39: 127.0.0.1 - - [13/Oct/2025:01:17:39 +0000] "GET /api/health HTTP/1.0" 404 45 "-" "-"
+2025-10-13T08:17:46: ✅ Connected to PostgreSQL database
+2025-10-13T08:17:46: ✅ Connected to PostgreSQL database
+2025-10-13T08:17:46: 127.0.0.1 - - [13/Oct/2025:01:17:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:17:54: 127.0.0.1 - - [13/Oct/2025:01:17:54 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:18:09: 127.0.0.1 - - [13/Oct/2025:01:18:09 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:18:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:12: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:20: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:39: ✅ Connected to PostgreSQL database
+2025-10-13T08:18:39: 127.0.0.1 - - [13/Oct/2025:01:18:39 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:18:40: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:47: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:48: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:49: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:18:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T08:19:09: ✅ Connected to PostgreSQL database
+2025-10-13T08:19:09: 127.0.0.1 - - [13/Oct/2025:01:19:09 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T08:19:09: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id

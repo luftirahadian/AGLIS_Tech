@@ -4,7 +4,8 @@ import {
   Users, Plus, Search, Filter, 
   Phone, Mail, MapPin, Package, CreditCard, Activity,
   ChevronLeft, ChevronRight, RefreshCw, XCircle, 
-  ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Clock, AlertCircle, CheckCircle, Download, Loader2
+  ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Clock, AlertCircle, CheckCircle, Download, Loader2,
+  Copy, Check, ShieldOff, ShieldCheck, Trash2, X, PhoneCall, MailIcon, ShieldAlert
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
@@ -14,10 +15,13 @@ import CustomerForm from '../../components/CustomerForm'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { exportToExcel, formatCurrency, formatDate, formatDateOnly } from '../../utils/exportToExcel'
+import { useAuth } from '../../contexts/AuthContext'
 
 const CustomersPage = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { user: currentUser, isAdmin, isSupervisor } = useAuth()
+  
   const [filters, setFilters] = useState({
     search: '',
     customer_type: '',
@@ -35,6 +39,13 @@ const CustomersPage = () => {
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [editingCustomer, setEditingCustomer] = useState(null)
   const [isExporting, setIsExporting] = useState(false)
+  
+  // Bulk selection states
+  const [selectedCustomers, setSelectedCustomers] = useState([])
+  const [selectAll, setSelectAll] = useState(false)
+  
+  // Copy to clipboard state
+  const [copiedField, setCopiedField] = useState(null)
 
   // Fetch customers with filters
   const { 
@@ -265,6 +276,205 @@ const CustomersPage = () => {
     }).format(amount)
   }
 
+  // ==================== BULK SELECTION HANDLERS ====================
+  
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedCustomers(customers.map(c => c.id))
+      setSelectAll(true)
+    } else {
+      setSelectedCustomers([])
+      setSelectAll(false)
+    }
+  }
+
+  const handleSelectCustomer = (customerId) => {
+    if (selectedCustomers.includes(customerId)) {
+      setSelectedCustomers(selectedCustomers.filter(id => id !== customerId))
+      setSelectAll(false)
+    } else {
+      const newSelected = [...selectedCustomers, customerId]
+      setSelectedCustomers(newSelected)
+      if (newSelected.length === customers.length) {
+        setSelectAll(true)
+      }
+    }
+  }
+
+  // ==================== BULK ACTION HANDLERS ====================
+
+  const handleBulkSuspend = async () => {
+    if (selectedCustomers.length === 0) {
+      toast.error('Pilih customer terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Suspend ${selectedCustomers.length} customer yang dipilih?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const customerId of selectedCustomers) {
+        try {
+          await customerService.updateCustomer(customerId, { account_status: 'suspended' })
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to suspend customer ${customerId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} customer berhasil di-suspend${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        refetchCustomers()
+        setSelectedCustomers([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal suspend customer')
+      }
+    } catch (error) {
+      console.error('Bulk suspend error:', error)
+      toast.error('Terjadi kesalahan saat suspend customer')
+    }
+  }
+
+  const handleBulkActivate = async () => {
+    if (selectedCustomers.length === 0) {
+      toast.error('Pilih customer terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Aktifkan ${selectedCustomers.length} customer yang dipilih?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const customerId of selectedCustomers) {
+        try {
+          await customerService.updateCustomer(customerId, { account_status: 'active' })
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to activate customer ${customerId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} customer berhasil diaktifkan${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        refetchCustomers()
+        setSelectedCustomers([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal aktifkan customer')
+      }
+    } catch (error) {
+      console.error('Bulk activate error:', error)
+      toast.error('Terjadi kesalahan saat aktifkan customer')
+    }
+  }
+
+  const handleBulkDelete = async () => {
+    if (selectedCustomers.length === 0) {
+      toast.error('Pilih customer terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`⚠️ PERINGATAN: Hapus ${selectedCustomers.length} customer yang dipilih?\n\nCustomer akan dinonaktifkan dan tidak bisa login.`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const customerId of selectedCustomers) {
+        try {
+          await customerService.deleteCustomer(customerId)
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to delete customer ${customerId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} customer berhasil dihapus${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        refetchCustomers()
+        setSelectedCustomers([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal hapus customer')
+      }
+    } catch (error) {
+      console.error('Bulk delete error:', error)
+      toast.error('Terjadi kesalahan saat hapus customer')
+    }
+  }
+
+  // ==================== COPY TO CLIPBOARD HANDLER ====================
+
+  const handleCopyToClipboard = (text, fieldName) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedField(fieldName)
+      toast.success(`${fieldName} berhasil di-copy!`)
+      setTimeout(() => setCopiedField(null), 2000)
+    }).catch(err => {
+      toast.error('Gagal copy ke clipboard')
+      console.error('Copy error:', err)
+    })
+  }
+
+  // ==================== QUICK ACTION HANDLERS ====================
+
+  const handleQuickSuspend = async (e, customer) => {
+    e.stopPropagation() // Prevent row click
+    
+    if (!window.confirm(`Suspend customer ${customer.name}?`)) return
+
+    try {
+      await customerService.updateCustomer(customer.id, { account_status: 'suspended' })
+      toast.success(`Customer ${customer.name} berhasil di-suspend`)
+      refetchCustomers()
+    } catch (error) {
+      toast.error('Gagal suspend customer')
+      console.error('Quick suspend error:', error)
+    }
+  }
+
+  const handleQuickActivate = async (e, customer) => {
+    e.stopPropagation() // Prevent row click
+    
+    try {
+      await customerService.updateCustomer(customer.id, { account_status: 'active' })
+      toast.success(`Customer ${customer.name} berhasil diaktifkan`)
+      refetchCustomers()
+    } catch (error) {
+      toast.error('Gagal aktifkan customer')
+      console.error('Quick activate error:', error)
+    }
+  }
+
+  const handleQuickCall = (e, phone) => {
+    e.stopPropagation() // Prevent row click
+    window.location.href = `tel:${phone}`
+  }
+
+  const handleQuickEmail = (e, email) => {
+    e.stopPropagation() // Prevent row click
+    window.location.href = `mailto:${email}`
+  }
+
+  // ==================== RBAC CHECK ====================
+  
+  // Check if user has access (Admin or Supervisor only)
+  const hasAccess = isAdmin || isSupervisor
+
   if (customersError) {
     return (
       <div className="space-y-6">
@@ -282,6 +492,18 @@ const CustomersPage = () => {
             Coba Lagi
           </button>
         </div>
+      </div>
+    )
+  }
+
+  // ==================== RBAC: CHECK ACCESS ====================
+  if (!hasAccess) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-96">
+        <ShieldAlert className="h-24 w-24 text-red-500 mb-4" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
+        <p className="text-gray-600 mb-4">You don't have permission to access Customer Management.</p>
+        <p className="text-sm text-gray-500">Required role: Admin or Supervisor</p>
       </div>
     )
   }
@@ -312,15 +534,64 @@ const CustomersPage = () => {
               </>
             )}
           </button>
-          <button 
-            onClick={() => setShowCreateModal(true)}
-            className="btn-primary"
-          >
-            <Plus className="h-4 w-4 mr-2" />
-            Tambah Customer
-          </button>
+          {isAdmin && (
+            <button 
+              onClick={() => setShowCreateModal(true)}
+              className="btn-primary"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Tambah Customer
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Bulk Action Toolbar - Shows when items are selected */}
+      {selectedCustomers.length > 0 && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-blue-900">
+                {selectedCustomers.length} customer dipilih
+              </span>
+              <button
+                onClick={() => {
+                  setSelectedCustomers([])
+                  setSelectAll(false)
+                }}
+                className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                Batal Pilihan
+              </button>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={handleBulkActivate}
+                className="px-3 py-1.5 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm inline-flex items-center"
+              >
+                <ShieldCheck className="h-4 w-4 mr-1" />
+                Aktifkan
+              </button>
+              <button
+                onClick={handleBulkSuspend}
+                className="px-3 py-1.5 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 transition-colors text-sm inline-flex items-center"
+              >
+                <ShieldOff className="h-4 w-4 mr-1" />
+                Suspend
+              </button>
+              {isAdmin && (
+                <button
+                  onClick={handleBulkDelete}
+                  className="px-3 py-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm inline-flex items-center"
+                >
+                  <Trash2 className="h-4 w-4 mr-1" />
+                  Hapus
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Stats Cards - Row 1: Account Status */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -547,6 +818,16 @@ const CustomersPage = () => {
                 <table className="table">
                   <thead className="table-header">
                     <tr>
+                      {/* Bulk Selection Checkbox */}
+                      <th className="table-header-cell w-12">
+                        <input
+                          type="checkbox"
+                          checked={selectAll}
+                          onChange={handleSelectAll}
+                          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          title="Pilih Semua"
+                        />
+                      </th>
                       <th 
                         className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                         onClick={() => handleSort('name')}
@@ -576,6 +857,7 @@ const CustomersPage = () => {
                         </div>
                       </th>
                       <th className="table-header-cell">Tickets</th>
+                      <th className="table-header-cell">Quick Actions</th>
                     </tr>
                   </thead>
                   <tbody className="table-body">
@@ -583,47 +865,158 @@ const CustomersPage = () => {
                       <tr 
                         key={customer.id}
                         onClick={() => navigate(`/customers/${customer.id}`)}
-                        className="cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                        className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
                         title="Klik untuk lihat detail customer"
                       >
+                        {/* Bulk Selection Checkbox */}
+                        <td 
+                          className="table-cell"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectedCustomers.includes(customer.id)}
+                            onChange={() => handleSelectCustomer(customer.id)}
+                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          />
+                        </td>
+
+                        {/* Customer Name & ID with Copy */}
                         <td className="table-cell">
                           <div>
                             <div className="font-medium text-gray-900">
                               {customer.name}
                             </div>
-                            <div className="text-sm text-gray-500">
-                              ID: {customer.customer_id}
+                            <div className="text-sm text-gray-500 flex items-center gap-1">
+                              <span>ID: {customer.customer_id}</span>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  handleCopyToClipboard(customer.customer_id, 'Customer ID')
+                                }}
+                                className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                                title="Copy Customer ID"
+                              >
+                                {copiedField === 'Customer ID' ? (
+                                  <Check className="h-3 w-3 text-green-600" />
+                                ) : (
+                                  <Copy className="h-3 w-3 text-gray-500" />
+                                )}
+                              </button>
                             </div>
                           </div>
                         </td>
+
+                        {/* Contact with Copy Buttons */}
                         <td className="table-cell">
-                          <div className="flex items-center mb-1">
-                            <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                            {customer.phone}
+                          <div className="flex items-center mb-1 gap-1">
+                            <Phone className="h-3 w-3 text-gray-400" />
+                            <span>{customer.phone}</span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleCopyToClipboard(customer.phone, 'Phone')
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                              title="Copy Phone"
+                            >
+                              {copiedField === 'Phone' ? (
+                                <Check className="h-3 w-3 text-green-600" />
+                              ) : (
+                                <Copy className="h-3 w-3 text-gray-500" />
+                              )}
+                            </button>
                           </div>
                           {customer.email && (
-                            <div className="flex items-center text-sm text-gray-500">
-                              <Mail className="h-3 w-3 mr-1 text-gray-400" />
-                              {customer.email}
+                            <div className="flex items-center text-sm text-gray-500 gap-1">
+                              <Mail className="h-3 w-3 text-gray-400" />
+                              <span className="truncate max-w-[150px]">{customer.email}</span>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  handleCopyToClipboard(customer.email, 'Email')
+                                }}
+                                className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                                title="Copy Email"
+                              >
+                                {copiedField === 'Email' ? (
+                                  <Check className="h-3 w-3 text-green-600" />
+                                ) : (
+                                  <Copy className="h-3 w-3 text-gray-500" />
+                                )}
+                              </button>
                             </div>
                           )}
                         </td>
+
+                        {/* Package */}
                         <td className="table-cell">
                           <div className="font-medium">{customer.package_name}</div>
                           <div className="text-sm text-gray-500">
                             {customer.bandwidth_down} Mbps - {formatCurrency(customer.monthly_price)}
                           </div>
                         </td>
+
+                        {/* Status Badges */}
                         <td className="table-cell">
                           <div className="space-y-1">
                             {getStatusBadge(customer.account_status, 'account')}
                             {getStatusBadge(customer.payment_status, 'payment')}
                           </div>
                         </td>
+
+                        {/* Tickets Count */}
                         <td className="table-cell">
                           <div className="text-center">
                             <div className="font-medium">{customer.total_tickets || 0}</div>
                             <div className="text-xs text-gray-500">total</div>
+                          </div>
+                        </td>
+
+                        {/* Quick Actions (appear on hover) */}
+                        <td 
+                          className="table-cell"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            {/* Quick Call */}
+                            <button
+                              onClick={(e) => handleQuickCall(e, customer.phone)}
+                              className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                              title="Call Customer"
+                            >
+                              <PhoneCall className="h-4 w-4 text-green-600" />
+                            </button>
+
+                            {/* Quick Email */}
+                            {customer.email && (
+                              <button
+                                onClick={(e) => handleQuickEmail(e, customer.email)}
+                                className="p-1.5 hover:bg-blue-100 rounded transition-colors"
+                                title="Email Customer"
+                              >
+                                <MailIcon className="h-4 w-4 text-blue-600" />
+                              </button>
+                            )}
+
+                            {/* Quick Suspend/Activate */}
+                            {customer.account_status === 'active' ? (
+                              <button
+                                onClick={(e) => handleQuickSuspend(e, customer)}
+                                className="p-1.5 hover:bg-yellow-100 rounded transition-colors"
+                                title="Suspend Customer"
+                              >
+                                <ShieldOff className="h-4 w-4 text-yellow-600" />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={(e) => handleQuickActivate(e, customer)}
+                                className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                                title="Activate Customer"
+                              >
+                                <ShieldCheck className="h-4 w-4 text-green-600" />
+                              </button>
+                            )}
                           </div>
                         </td>
                       </tr>

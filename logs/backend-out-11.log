@@ -1,0 +1,22 @@
+2025-10-13T01:02:53: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T01:02:53: 🚀 Server running on 0.0.0.0:3001
+2025-10-13T01:02:53: 🌍 Environment: production
+2025-10-13T01:02:53: 📡 Local access: http://localhost:3001
+2025-10-13T01:02:53: 🌐 Network access: http://192.168.121.30:3001
+2025-10-13T01:02:53: 📝 CORS origins configured for local network access
+2025-10-13T01:02:53: ✅ Redis clients connected for Socket.IO adapter
+2025-10-13T01:03:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:08: 👤 User connected: VMpejU4754ko80VHAAAB
+2025-10-13T01:03:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T01:03:08: 👤 User 17 (admin) authenticated: VMpejU4754ko80VHAAAB
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: 127.0.0.1 - - [13/Oct/2025:01:03:08 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.0" 200 152 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: ✅ Connected to PostgreSQL database
+2025-10-13T01:03:08: 127.0.0.1 - - [13/Oct/2025:01:03:08 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.0" 200 444 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
