@@ -1026,3 +1026,41 @@
 2025-10-13T10:23:27: ✅ Connected to PostgreSQL database
 2025-10-13T10:23:27: ✅ Connected to PostgreSQL database
 2025-10-13T10:23:27: 127.0.0.1 - - [13/Oct/2025:03:23:27 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:24:17: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-13T10:24:17: 🚀 Server running on 0.0.0.0:3002
+2025-10-13T10:24:17: 🌍 Environment: production
+2025-10-13T10:24:17: 📡 Local access: http://localhost:3002
+2025-10-13T10:24:17: 🌐 Network access: http://192.168.121.30:3002
+2025-10-13T10:24:17: 📝 CORS origins configured for local network access
+2025-10-13T10:24:17: ✅ Redis clients connected for Socket.IO adapter
+2025-10-13T10:24:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:17: 👤 User connected: yBGPtUP_QsITC-RlAAAB
+2025-10-13T10:24:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:17: 👤 User connected: BLp_vxw4R2xYfEPBAAAD
+2025-10-13T10:24:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:17: 👤 User 17 (admin) authenticated: BLp_vxw4R2xYfEPBAAAD
+2025-10-13T10:24:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:17: 👤 User 17 (admin) authenticated: yBGPtUP_QsITC-RlAAAB
+2025-10-13T10:24:18: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:27: ✅ Connected to PostgreSQL database
+2025-10-13T10:24:27: ✅ Connected to PostgreSQL database
+2025-10-13T10:24:27: 127.0.0.1 - - [13/Oct/2025:03:24:27 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:24:33: 👤 User disconnected: BLp_vxw4R2xYfEPBAAAD
+2025-10-13T10:24:33: 127.0.0.1 - - [13/Oct/2025:03:24:33 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:24:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:33: 👤 User connected: rbcXVmixL4MBs4wBAAAF
+2025-10-13T10:24:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-13T10:24:33: 👤 User 17 (admin) authenticated: rbcXVmixL4MBs4wBAAAF
+2025-10-13T10:24:49: 127.0.0.1 - - [13/Oct/2025:03:24:49 +0000] "GET /api/packages?is_active=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:25:02: 127.0.0.1 - - [13/Oct/2025:03:25:02 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T10:25:27: ✅ Connected to PostgreSQL database
+2025-10-13T10:25:27: ✅ Connected to PostgreSQL database
+2025-10-13T10:25:27: 127.0.0.1 - - [13/Oct/2025:03:25:27 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:25:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:25:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:25:57: 127.0.0.1 - - [13/Oct/2025:03:25:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:26:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:26:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:26:57: 127.0.0.1 - - [13/Oct/2025:03:26:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

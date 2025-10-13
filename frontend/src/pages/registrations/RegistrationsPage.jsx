@@ -448,6 +448,7 @@ const RegistrationsPage = () => {
 
   const stats = statsData || {}
   const totalRegistrations = registrationsData?.data?.pagination?.total || 0
+  const registrations = registrationsData?.data?.registrations || []
 
   // Listen to socket events for real-time updates
   useEffect(() => {
