@@ -1555,6 +1555,10 @@ const RegistrationsPage = () => {
                 <span className="font-medium text-gray-900">{customerToCreate.full_name}</span>
               </div>
               <div className="flex justify-between">
+                <span className="text-gray-600">No. HP:</span>
+                <span className="font-medium text-gray-900">{customerToCreate.phone || '-'}</span>
+              </div>
+              <div className="flex justify-between">
                 <span className="text-gray-600">Paket:</span>
                 <span className="font-medium text-gray-900">{customerToCreate.service_package || '-'}</span>
               </div>
