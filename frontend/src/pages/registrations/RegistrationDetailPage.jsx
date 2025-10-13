@@ -10,6 +10,7 @@ import registrationService from '../../services/registrationService'
 import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
+import ConfirmationModal from '../../components/ConfirmationModal'
 import toast from 'react-hot-toast'
 
 const RegistrationDetailPage = () => {
@@ -26,6 +27,9 @@ const RegistrationDetailPage = () => {
   const [surveyDate, setSurveyDate] = useState('')
   const [surveyResults, setSurveyResults] = useState('')
   const [actionNotes, setActionNotes] = useState('')
+
+  // Create customer confirmation modal
+  const [showCreateCustomerModal, setShowCreateCustomerModal] = useState(false)
 
   // Fetch registration detail
   const { data: registrationData, isLoading, error } = useQuery(
@@ -130,10 +134,12 @@ const RegistrationDetailPage = () => {
   }
 
   const handleCreateCustomer = () => {
-    if (!window.confirm(`Buat customer dan ticket instalasi untuk ${registration.full_name}?`)) {
-      return
-    }
+    setShowCreateCustomerModal(true)
+  }
+
+  const confirmCreateCustomer = () => {
     createCustomerMutation.mutate(registration.id)
+    setShowCreateCustomerModal(false)
   }
 
   const formatStatusText = (status) => {
@@ -1251,6 +1257,52 @@ const RegistrationDetailPage = () => {
           )}
         </div>
       </div>
+
+      {/* Create Customer Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showCreateCustomerModal}
+        onClose={() => setShowCreateCustomerModal(false)}
+        onConfirm={confirmCreateCustomer}
+        title="🏠 Buat Customer & Ticket Instalasi"
+        message={registration ? `Apakah Anda yakin ingin membuat customer dan ticket instalasi untuk "${registration.full_name}"?` : ''}
+        confirmText="Ya, Buat Customer"
+        cancelText="Batal"
+        type="success"
+        isLoading={createCustomerMutation.isLoading}
+      >
+        {registration && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-2">
+            <div className="text-sm space-y-1">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Nama:</span>
+                <span className="font-medium text-gray-900">{registration.full_name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">No. HP:</span>
+                <span className="font-medium text-gray-900">{registration.phone_number}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Paket:</span>
+                <span className="font-medium text-gray-900">{selectedPackage?.name || '-'}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Harga:</span>
+                <span className="font-medium text-gray-900">
+                  Rp {new Intl.NumberFormat('id-ID').format(selectedPackage?.price || 0)}/bulan
+                </span>
+              </div>
+            </div>
+            <div className="mt-3 pt-3 border-t border-blue-200">
+              <p className="text-xs text-gray-600">
+                ✅ Customer baru akan dibuat di sistem<br/>
+                🎫 Ticket instalasi akan otomatis dibuatkan<br/>
+                📧 Notifikasi akan dikirim ke teknisi<br/>
+                🔗 Status registrasi akan di-update
+              </p>
+            </div>
+          </div>
+        )}
+      </ConfirmationModal>
     </div>
   )
 }

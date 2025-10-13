@@ -12,6 +12,7 @@ import toast from 'react-hot-toast'
 import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
+import ConfirmationModal from '../../components/ConfirmationModal'
 import { exportToExcel, formatCurrency as formatCurrencyExport, formatDate, formatDateOnly } from '../../utils/exportToExcel'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -44,6 +45,10 @@ const RegistrationsPage = () => {
   
   // Copy to clipboard state
   const [copiedField, setCopiedField] = useState(null)
+
+  // Create customer confirmation modal
+  const [showCreateCustomerModal, setShowCreateCustomerModal] = useState(false)
+  const [customerToCreate, setCustomerToCreate] = useState(null)
 
   // Format currency helper
   const formatCurrency = (amount) => {
@@ -160,8 +165,15 @@ const RegistrationsPage = () => {
   }
 
   const handleCreateCustomer = (registration) => {
-    if (window.confirm(`Buat customer dan ticket instalasi untuk ${registration.full_name}?`)) {
-      createCustomerMutation.mutate(registration.id)
+    setCustomerToCreate(registration)
+    setShowCreateCustomerModal(true)
+  }
+
+  const confirmCreateCustomer = () => {
+    if (customerToCreate) {
+      createCustomerMutation.mutate(customerToCreate.id)
+      setShowCreateCustomerModal(false)
+      setCustomerToCreate(null)
     }
   }
 
@@ -1490,6 +1502,48 @@ const RegistrationsPage = () => {
         )}
 
       </div>
+
+      {/* Create Customer Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showCreateCustomerModal}
+        onClose={() => {
+          setShowCreateCustomerModal(false)
+          setCustomerToCreate(null)
+        }}
+        onConfirm={confirmCreateCustomer}
+        title="🏠 Buat Customer & Ticket Instalasi"
+        message={customerToCreate ? `Apakah Anda yakin ingin membuat customer dan ticket instalasi untuk "${customerToCreate.full_name}"?` : ''}
+        confirmText="Ya, Buat Customer"
+        cancelText="Batal"
+        type="success"
+        isLoading={createCustomerMutation.isLoading}
+      >
+        {customerToCreate && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-2">
+            <div className="text-sm space-y-1">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Nama:</span>
+                <span className="font-medium text-gray-900">{customerToCreate.full_name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Paket:</span>
+                <span className="font-medium text-gray-900">{customerToCreate.service_package || '-'}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Alamat:</span>
+                <span className="font-medium text-gray-900 text-right ml-2">{customerToCreate.installation_address?.substring(0, 40)}...</span>
+              </div>
+            </div>
+            <div className="mt-3 pt-3 border-t border-blue-200">
+              <p className="text-xs text-gray-600">
+                ✅ Customer baru akan dibuat<br/>
+                🎫 Ticket instalasi akan otomatis dibuatkan<br/>
+                📧 Notifikasi akan dikirim
+              </p>
+            </div>
+          </div>
+        )}
+      </ConfirmationModal>
     </div>
   )
 }

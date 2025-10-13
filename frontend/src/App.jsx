@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './contexts/AuthContext'
 import { NotificationProvider } from './contexts/NotificationContext'
+import { PermissionProvider } from './contexts/PermissionContext'
 import Layout from './components/Layout'
 import LoginPage from './pages/auth/LoginPage'
 import DashboardPage from './pages/DashboardPage'
@@ -20,6 +21,7 @@ import ODPPage from './pages/masterdata/ODPPage'
 import ServiceTypesPage from './pages/masterdata/ServiceTypesPage'
 import ServiceCategoriesPage from './pages/masterdata/ServiceCategoriesPage'
 import UsersPage from './pages/users/UsersPage'
+import PermissionsPage from './pages/PermissionsPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/public/RegisterPage'
 import TrackingPage from './pages/public/TrackingPage'
@@ -36,8 +38,9 @@ function App() {
   }
 
   return (
-    <NotificationProvider>
-      <Routes>
+    <PermissionProvider>
+      <NotificationProvider>
+        <Routes>
       {/* Public Routes */}
       <Route 
         path="/login" 
@@ -86,7 +89,8 @@ function App() {
         
         {/* Users (Admin/Supervisor only) */}
         <Route path="users" element={<UsersPage />} />
-        
+        <Route path="permissions" element={<PermissionsPage />} />
+
         {/* Profile */}
         <Route path="profile" element={<ProfilePage />} />
         
@@ -96,8 +100,9 @@ function App() {
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
-      </Routes>
-    </NotificationProvider>
+        </Routes>
+      </NotificationProvider>
+    </PermissionProvider>
   )
 }
 

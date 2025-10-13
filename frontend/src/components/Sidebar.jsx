@@ -7,6 +7,7 @@ import {
   Wrench, 
   Package, 
   UserCheck,
+  Shield,
   X,
   BarChart3,
   Database,
@@ -108,6 +109,12 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
       href: '/users',
       icon: UserCheck,
       roles: ['admin', 'supervisor']
+    },
+    {
+      name: 'Permissions',
+      href: '/permissions',
+      icon: Shield,
+      roles: ['admin']
     }
   ]
 
