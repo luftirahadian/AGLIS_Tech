@@ -6,6 +6,7 @@ import userService from '../../services/userService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import UserModal from '../../components/users/UserModal'
 import ResetPasswordModal from '../../components/users/ResetPasswordModal'
+import DeleteConfirmationModal from '../../components/users/DeleteConfirmationModal'
 import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
@@ -19,6 +20,8 @@ const UsersPage = () => {
   const [selectedUser, setSelectedUser] = useState(null)
   const [isResetPasswordModalOpen, setIsResetPasswordModalOpen] = useState(false)
   const [userToResetPassword, setUserToResetPassword] = useState(null)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [userToDelete, setUserToDelete] = useState(null)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('desc')
   const [page, setPage] = useState(1)
@@ -83,21 +86,6 @@ const UsersPage = () => {
   const adminUsers = allUsers.filter(u => u.role === 'admin').length
   const technicianUsers = allUsers.filter(u => u.role === 'technician').length
 
-  // Delete mutation
-  const deleteMutation = useMutation(
-    (id) => userService.delete(id),
-    {
-      onSuccess: () => {
-        toast.success('User berhasil dihapus')
-        queryClient.invalidateQueries(['users-list'])
-        queryClient.invalidateQueries('all-users-stats')
-      },
-      onError: (error) => {
-        toast.error(error.response?.data?.message || 'Gagal menghapus user')
-      }
-    }
-  )
-
   const handleCreate = () => {
     setSelectedUser(null)
     setIsModalOpen(true)
@@ -123,10 +111,19 @@ const UsersPage = () => {
     // Don't close modal yet, let user see the generated password
   }
 
-  const handleDelete = (id, name) => {
-    if (window.confirm(`Apakah Anda yakin ingin menghapus user "${name}"?`)) {
-      deleteMutation.mutate(id)
-    }
+  const handleDelete = (user) => {
+    setUserToDelete(user)
+    setIsDeleteModalOpen(true)
+  }
+
+  const handleDeleteClose = () => {
+    setIsDeleteModalOpen(false)
+    setUserToDelete(null)
+  }
+
+  const handleDeleteSuccess = () => {
+    queryClient.invalidateQueries(['users-list'])
+    queryClient.invalidateQueries('all-users-stats')
   }
 
   const handleModalClose = () => {
@@ -487,7 +484,7 @@ const UsersPage = () => {
                             {/* Delete: Only Admin can delete */}
                             {isAdmin && user.id !== currentUser?.id && (
                               <button
-                                onClick={() => handleDelete(user.id, user.full_name)}
+                                onClick={() => handleDelete(user)}
                                 className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
                                 title="Delete User"
                               >
@@ -611,6 +608,15 @@ const UsersPage = () => {
           user={userToResetPassword}
           onClose={handleResetPasswordClose}
           onSuccess={handleResetPasswordSuccess}
+        />
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {isDeleteModalOpen && userToDelete && (
+        <DeleteConfirmationModal
+          user={userToDelete}
+          onClose={handleDeleteClose}
+          onSuccess={handleDeleteSuccess}
         />
       )}
     </div>
