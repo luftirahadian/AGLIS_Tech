@@ -158,3 +158,6 @@
 2025-10-14T02:54:42: ✅ Redis client connected for OTP storage
 2025-10-14T02:54:42: ✅ Redis client ready
 2025-10-14T02:55:01: 103.55.225.241 - - [13/Oct/2025:19:55:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T02:56:58: ✅ Connected to PostgreSQL database
+2025-10-14T02:56:58: ✅ Connected to PostgreSQL database
+2025-10-14T02:56:58: 140.213.21.245 - - [13/Oct/2025:19:56:58 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
