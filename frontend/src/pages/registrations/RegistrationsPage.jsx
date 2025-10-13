@@ -452,6 +452,48 @@ const RegistrationsPage = () => {
     window.location.href = `mailto:${email}`
   }
 
+  const handleQuickCreateCustomer = (e, registration) => {
+    e.stopPropagation()
+    setCustomerToCreate(registration)
+    setShowCreateCustomerModal(true)
+  }
+
+  const handleQuickApprove = async (e, registration) => {
+    e.stopPropagation()
+    
+    if (!window.confirm(`Approve registration ${registration.registration_number}?`)) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'approved', { notes: 'Quick approved' })
+      toast.success(`Registration ${registration.registration_number} approved`)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+    } catch (error) {
+      toast.error('Failed to approve registration')
+      console.error('Quick approve error:', error)
+    }
+  }
+
+  const handleQuickScheduleSurvey = async (e, registration) => {
+    e.stopPropagation()
+    
+    const surveyDate = window.prompt('Survey date (YYYY-MM-DD):', new Date().toISOString().split('T')[0])
+    if (!surveyDate) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'survey_scheduled', { 
+        survey_date: surveyDate,
+        notes: 'Survey scheduled via quick action'
+      })
+      toast.success(`Survey scheduled for ${registration.registration_number}`)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+    } catch (error) {
+      toast.error('Failed to schedule survey')
+      console.error('Quick schedule survey error:', error)
+    }
+  }
+
   // ==================== RBAC CHECK ====================
   
   const hasAccess = isAdmin || isSupervisor || isCustomerService
@@ -987,6 +1029,39 @@ const RegistrationsPage = () => {
                               title="Quick Reject"
                             >
                               <XCircle className="h-4 w-4 text-red-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Approve (only for verified) */}
+                          {reg.status === 'verified' && (
+                            <button
+                              onClick={(e) => handleQuickApprove(e, reg)}
+                              className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                              title="Quick Approve"
+                            >
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Schedule Survey (only for verified) */}
+                          {reg.status === 'verified' && (
+                            <button
+                              onClick={(e) => handleQuickScheduleSurvey(e, reg)}
+                              className="p-1.5 hover:bg-orange-100 rounded transition-colors"
+                              title="Quick Schedule Survey"
+                            >
+                              <Calendar className="h-4 w-4 text-orange-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Create Customer (only for approved) */}
+                          {reg.status === 'approved' && !reg.customer_id && (
+                            <button
+                              onClick={(e) => handleQuickCreateCustomer(e, reg)}
+                              className="p-1.5 hover:bg-purple-100 rounded transition-colors"
+                              title="Quick Create Customer"
+                            >
+                              <Home className="h-4 w-4 text-purple-600" />
                             </button>
                           )}
                         </div>
