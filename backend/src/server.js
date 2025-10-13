@@ -6,7 +6,9 @@ const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
-require('dotenv').config();
+const { createAdapter } = require('@socket.io/redis-adapter');
+const { createClient } = require('redis');
+require('dotenv').config({ path: require('path').join(__dirname, '../../backend/config.env') });
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -33,6 +35,29 @@ const { authMiddleware } = require('./middleware/auth');
 
 const app = express();
 const server = createServer(app);
+
+// Create Redis clients for Socket.IO adapter
+const pubClient = createClient({
+  url: `redis://127.0.0.1:${process.env.REDIS_PORT || 6379}`,
+  password: process.env.REDIS_PASSWORD
+});
+
+const subClient = pubClient.duplicate();
+
+// Connect Redis clients
+Promise.all([pubClient.connect(), subClient.connect()])
+  .then(() => {
+    console.log('✅ Redis clients connected for Socket.IO adapter');
+  })
+  .catch((err) => {
+    console.error('❌ Redis connection failed:', err);
+    process.exit(1);
+  });
+
+// Error handling for Redis
+pubClient.on('error', (err) => console.error('❌ Redis Pub Client Error:', err));
+subClient.on('error', (err) => console.error('❌ Redis Sub Client Error:', err));
+
 // Configure CORS origins - flexible for development and production
 const getCorsOrigins = () => {
   // Production: Use explicit CORS_ORIGIN if provided
@@ -81,7 +106,9 @@ const io = new Server(server, {
     transports: ['polling', 'websocket']
   },
   // Add namespace configuration
-  path: '/socket.io/'
+  path: '/socket.io/',
+  // Use Redis adapter for cluster mode
+  adapter: createAdapter(pubClient, subClient)
 });
 
 // Rate limiting - Very permissive for development
