@@ -1,0 +1,150 @@
+2025-10-13T09:06:41: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+2025-10-13T09:06:41:   length: 115,
+2025-10-13T09:06:41:   severity: 'ERROR',
+2025-10-13T09:06:41:   code: '42P01',
+2025-10-13T09:06:41:   detail: undefined,
+2025-10-13T09:06:41:   hint: undefined,
+2025-10-13T09:06:41:   position: '254',
+2025-10-13T09:06:41:   internalPosition: undefined,
+2025-10-13T09:06:41:   internalQuery: undefined,
+2025-10-13T09:06:41:   where: undefined,
+2025-10-13T09:06:41:   schema: undefined,
+2025-10-13T09:06:41:   table: undefined,
+2025-10-13T09:06:41:   column: undefined,
+2025-10-13T09:06:41:   dataType: undefined,
+2025-10-13T09:06:41:   constraint: undefined,
+2025-10-13T09:06:41:   file: 'parse_relation.c',
+2025-10-13T09:06:41:   line: '1381',
+2025-10-13T09:06:41:   routine: 'parserOpenTable'
+2025-10-13T09:06:41: }
+2025-10-13T09:06:43: Get inventory stats error: error: relation "inventory_stock" does not exist
+2025-10-13T09:06:43:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T09:06:43:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T09:06:43:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+2025-10-13T09:06:43:   length: 115,
+2025-10-13T09:06:43:   severity: 'ERROR',
+2025-10-13T09:06:43:   code: '42P01',
+2025-10-13T09:06:43:   detail: undefined,
+2025-10-13T09:06:43:   hint: undefined,
+2025-10-13T09:06:43:   position: '401',
+2025-10-13T09:06:43:   internalPosition: undefined,
+2025-10-13T09:06:43:   internalQuery: undefined,
+2025-10-13T09:06:43:   where: undefined,
+2025-10-13T09:06:43:   schema: undefined,
+2025-10-13T09:06:43:   table: undefined,
+2025-10-13T09:06:43:   column: undefined,
+2025-10-13T09:06:43:   dataType: undefined,
+2025-10-13T09:06:43:   constraint: undefined,
+2025-10-13T09:06:43:   file: 'parse_relation.c',
+2025-10-13T09:06:43:   line: '1381',
+2025-10-13T09:06:43:   routine: 'parserOpenTable'
+2025-10-13T09:06:43: }
+2025-10-13T10:03:58: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-13T10:03:58: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-13T10:03:58: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-13T10:03:58:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-13T10:03:58:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T10:03:58:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:920:28
+2025-10-13T10:03:58: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 2, 2, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 03:03:57.93126).
+2025-10-13T10:03:58: SQL: undefined
+2025-10-13T17:33:48: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+2025-10-13T17:33:48:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T17:33:48:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T17:33:48:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+2025-10-13T17:33:48:   length: 115,
+2025-10-13T17:33:48:   severity: 'ERROR',
+2025-10-13T17:33:48:   code: '42P01',
+2025-10-13T17:33:48:   detail: undefined,
+2025-10-13T17:33:48:   hint: undefined,
+2025-10-13T17:33:48:   position: '254',
+2025-10-13T17:33:48:   internalPosition: undefined,
+2025-10-13T17:33:48:   internalQuery: undefined,
+2025-10-13T17:33:48:   where: undefined,
+2025-10-13T17:33:48:   schema: undefined,
+2025-10-13T17:33:48:   table: undefined,
+2025-10-13T17:33:48:   column: undefined,
+2025-10-13T17:33:48:   dataType: undefined,
+2025-10-13T17:33:48:   constraint: undefined,
+2025-10-13T17:33:48:   file: 'parse_relation.c',
+2025-10-13T17:33:48:   line: '1381',
+2025-10-13T17:33:48:   routine: 'parserOpenTable'
+2025-10-13T17:33:48: }
+2025-10-13T18:33:12: Get inventory stats error: error: relation "inventory_stock" does not exist
+2025-10-13T18:33:12:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T18:33:12:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T18:33:12:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+2025-10-13T18:33:12:   length: 115,
+2025-10-13T18:33:12:   severity: 'ERROR',
+2025-10-13T18:33:12:   code: '42P01',
+2025-10-13T18:33:12:   detail: undefined,
+2025-10-13T18:33:12:   hint: undefined,
+2025-10-13T18:33:12:   position: '401',
+2025-10-13T18:33:12:   internalPosition: undefined,
+2025-10-13T18:33:12:   internalQuery: undefined,
+2025-10-13T18:33:12:   where: undefined,
+2025-10-13T18:33:12:   schema: undefined,
+2025-10-13T18:33:12:   table: undefined,
+2025-10-13T18:33:12:   column: undefined,
+2025-10-13T18:33:12:   dataType: undefined,
+2025-10-13T18:33:12:   constraint: undefined,
+2025-10-13T18:33:12:   file: 'parse_relation.c',
+2025-10-13T18:33:12:   line: '1381',
+2025-10-13T18:33:12:   routine: 'parserOpenTable'
+2025-10-13T18:33:12: }
+2025-10-13T18:33:14: Error fetching service types: error: relation "service_types" does not exist
+2025-10-13T18:33:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T18:33:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T18:33:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/serviceTypes.js:66:25 {
+2025-10-13T18:33:14:   length: 112,
+2025-10-13T18:33:14:   severity: 'ERROR',
+2025-10-13T18:33:14:   code: '42P01',
+2025-10-13T18:33:14:   detail: undefined,
+2025-10-13T18:33:14:   hint: undefined,
+2025-10-13T18:33:14:   position: '31',
+2025-10-13T18:33:14:   internalPosition: undefined,
+2025-10-13T18:33:14:   internalQuery: undefined,
+2025-10-13T18:33:14:   where: undefined,
+2025-10-13T18:33:14:   schema: undefined,
+2025-10-13T18:33:14:   table: undefined,
+2025-10-13T18:33:14:   column: undefined,
+2025-10-13T18:33:14:   dataType: undefined,
+2025-10-13T18:33:14:   constraint: undefined,
+2025-10-13T18:33:14:   file: 'parse_relation.c',
+2025-10-13T18:33:14:   line: '1381',
+2025-10-13T18:33:14:   routine: 'parserOpenTable'
+2025-10-13T18:33:14: }
+2025-10-13T18:33:22: Error fetching equipment: error: relation "equipment_master" does not exist
+2025-10-13T18:33:22:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-13T18:33:22:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T18:33:22:     at async /home/aglis/AGLIS_Tech/backend/src/routes/equipment.js:74:25 {
+2025-10-13T18:33:22:   length: 115,
+2025-10-13T18:33:22:   severity: 'ERROR',
+2025-10-13T18:33:22:   code: '42P01',
+2025-10-13T18:33:22:   detail: undefined,
+2025-10-13T18:33:22:   hint: undefined,
+2025-10-13T18:33:22:   position: '31',
+2025-10-13T18:33:22:   internalPosition: undefined,
+2025-10-13T18:33:22:   internalQuery: undefined,
+2025-10-13T18:33:22:   where: undefined,
+2025-10-13T18:33:22:   schema: undefined,
+2025-10-13T18:33:22:   table: undefined,
+2025-10-13T18:33:22:   column: undefined,
+2025-10-13T18:33:22:   dataType: undefined,
+2025-10-13T18:33:22:   constraint: undefined,
+2025-10-13T18:33:22:   file: 'parse_relation.c',
+2025-10-13T18:33:22:   line: '1381',
+2025-10-13T18:33:22:   routine: 'parserOpenTable'
+2025-10-13T18:33:22: }
+2025-10-13T19:58:28: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-10-13T19:58:28:     at Object.xForwardedForHeader (/home/aglis/AGLIS_Tech/backend/node_modules/express-rate-limit/dist/index.cjs:185:13)
+2025-10-13T19:58:28:     at wrappedValidations.<computed> [as xForwardedForHeader] (/home/aglis/AGLIS_Tech/backend/node_modules/express-rate-limit/dist/index.cjs:397:22)
+2025-10-13T19:58:28:     at Object.keyGenerator (/home/aglis/AGLIS_Tech/backend/node_modules/express-rate-limit/dist/index.cjs:658:20)
+2025-10-13T19:58:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/express-rate-limit/dist/index.cjs:710:32
+2025-10-13T19:58:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-13T19:58:28:     at async /home/aglis/AGLIS_Tech/backend/node_modules/express-rate-limit/dist/index.cjs:691:5 {
+2025-10-13T19:58:28:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-10-13T19:58:28:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-10-13T19:58:28: }

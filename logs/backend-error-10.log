@@ -1,52 +1,30 @@
-2025-10-13T09:06:41: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
-2025-10-13T09:06:41:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
-2025-10-13T09:06:41:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2025-10-13T09:06:41:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
-2025-10-13T09:06:41:   length: 115,
-2025-10-13T09:06:41:   severity: 'ERROR',
-2025-10-13T09:06:41:   code: '42P01',
-2025-10-13T09:06:41:   detail: undefined,
-2025-10-13T09:06:41:   hint: undefined,
-2025-10-13T09:06:41:   position: '254',
-2025-10-13T09:06:41:   internalPosition: undefined,
-2025-10-13T09:06:41:   internalQuery: undefined,
-2025-10-13T09:06:41:   where: undefined,
-2025-10-13T09:06:41:   schema: undefined,
-2025-10-13T09:06:41:   table: undefined,
-2025-10-13T09:06:41:   column: undefined,
-2025-10-13T09:06:41:   dataType: undefined,
-2025-10-13T09:06:41:   constraint: undefined,
-2025-10-13T09:06:41:   file: 'parse_relation.c',
-2025-10-13T09:06:41:   line: '1381',
-2025-10-13T09:06:41:   routine: 'parserOpenTable'
-2025-10-13T09:06:41: }
-2025-10-13T09:06:43: Get inventory stats error: error: relation "inventory_stock" does not exist
-2025-10-13T09:06:43:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
-2025-10-13T09:06:43:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2025-10-13T09:06:43:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
-2025-10-13T09:06:43:   length: 115,
-2025-10-13T09:06:43:   severity: 'ERROR',
-2025-10-13T09:06:43:   code: '42P01',
-2025-10-13T09:06:43:   detail: undefined,
-2025-10-13T09:06:43:   hint: undefined,
-2025-10-13T09:06:43:   position: '401',
-2025-10-13T09:06:43:   internalPosition: undefined,
-2025-10-13T09:06:43:   internalQuery: undefined,
-2025-10-13T09:06:43:   where: undefined,
-2025-10-13T09:06:43:   schema: undefined,
-2025-10-13T09:06:43:   table: undefined,
-2025-10-13T09:06:43:   column: undefined,
-2025-10-13T09:06:43:   dataType: undefined,
-2025-10-13T09:06:43:   constraint: undefined,
-2025-10-13T09:06:43:   file: 'parse_relation.c',
-2025-10-13T09:06:43:   line: '1381',
-2025-10-13T09:06:43:   routine: 'parserOpenTable'
-2025-10-13T09:06:43: }
-2025-10-13T10:03:58: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
-2025-10-13T10:03:58: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
-2025-10-13T10:03:58: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
-2025-10-13T10:03:58:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
-2025-10-13T10:03:58:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2025-10-13T10:03:58:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:920:28
-2025-10-13T10:03:58: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 2, 2, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 03:03:57.93126).
-2025-10-13T10:03:58: SQL: undefined
+2025-10-14T02:26:15: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-14T02:26:15: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-14T02:26:15: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-14T02:26:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T02:26:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T02:26:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:922:28
+2025-10-14T02:26:15: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 4, 4, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 19:26:15.51217).
+2025-10-14T02:26:15: SQL: undefined
+2025-10-14T02:42:07: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T02:42:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T02:42:07:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T02:42:07:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T02:42:07:   length: 113,
+2025-10-14T02:42:07:   severity: 'ERROR',
+2025-10-14T02:42:07:   code: '42P01',
+2025-10-14T02:42:07:   detail: undefined,
+2025-10-14T02:42:07:   hint: undefined,
+2025-10-14T02:42:07:   position: '823',
+2025-10-14T02:42:07:   internalPosition: undefined,
+2025-10-14T02:42:07:   internalQuery: undefined,
+2025-10-14T02:42:07:   where: undefined,
+2025-10-14T02:42:07:   schema: undefined,
+2025-10-14T02:42:07:   table: undefined,
+2025-10-14T02:42:07:   column: undefined,
+2025-10-14T02:42:07:   dataType: undefined,
+2025-10-14T02:42:07:   constraint: undefined,
+2025-10-14T02:42:07:   file: 'parse_relation.c',
+2025-10-14T02:42:07:   line: '1381',
+2025-10-14T02:42:07:   routine: 'parserOpenTable'
+2025-10-14T02:42:07: }

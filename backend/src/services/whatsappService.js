@@ -1,4 +1,5 @@
 const axios = require('axios');
+const redisClient = require('../utils/redisClient');
 
 /**
  * WhatsApp Service
@@ -11,6 +12,8 @@ const axios = require('axios');
  * - Custom API
  * 
  * Set WHATSAPP_PROVIDER in .env to choose provider
+ * 
+ * OTP Storage: Uses Redis for shared storage across PM2 cluster instances
  */
 
 class WhatsAppService {
@@ -19,6 +22,15 @@ class WhatsAppService {
     this.apiUrl = this.getApiUrl();
     this.apiToken = process.env.WHATSAPP_API_TOKEN;
     this.enabled = process.env.WHATSAPP_ENABLED === 'true';
+    this.useRedis = process.env.USE_REDIS_FOR_OTP !== 'false'; // Default to true
+    
+    // Initialize Redis connection for OTP storage
+    if (this.useRedis) {
+      redisClient.connect().catch(err => {
+        console.error('❌ Redis connection failed for OTP, falling back to in-memory storage:', err.message);
+        this.useRedis = false;
+      });
+    }
   }
 
   getApiUrl() {
@@ -310,48 +322,105 @@ class WhatsAppService {
   }
 
   /**
-   * Store OTP in memory (in production, use Redis)
+   * Store OTP in memory (fallback if Redis unavailable)
    * Format: { phone: { otp, expires, attempts } }
    */
   otpStorage = new Map();
 
   /**
    * Save OTP for verification
+   * Uses Redis in production for shared storage across PM2 instances
    */
   async saveOTP(phone, otp) {
     const formattedPhone = this.formatPhoneNumber(phone);
     const expires = Date.now() + (5 * 60 * 1000); // 5 minutes
     
-    this.otpStorage.set(formattedPhone, {
+    const otpData = {
       otp,
       expires,
       attempts: 0
-    });
+    };
 
-    // Auto cleanup after expiry
-    setTimeout(() => {
-      this.otpStorage.delete(formattedPhone);
-    }, 5 * 60 * 1000);
+    try {
+      if (this.useRedis) {
+        // Store in Redis with 5 minutes expiry
+        const key = `otp:${formattedPhone}`;
+        await redisClient.set(key, JSON.stringify(otpData), 300); // 300 seconds = 5 minutes
+        console.log(`🔑 OTP SAVED (Redis): Phone=${formattedPhone}, OTP=${otp}, Key=${key}, Process=${process.pid}`);
+      } else {
+        // Fallback to in-memory storage
+        this.otpStorage.set(formattedPhone, otpData);
+        console.log(`🔑 OTP SAVED (Memory): Phone=${formattedPhone}, OTP=${otp}, Process=${process.pid}`);
+        
+        // Auto cleanup after expiry (memory only)
+        setTimeout(() => {
+          this.otpStorage.delete(formattedPhone);
+        }, 5 * 60 * 1000);
+      }
+    } catch (error) {
+      console.error('❌ Failed to save OTP to Redis, using memory:', error.message);
+      // Fallback to memory if Redis fails
+      this.otpStorage.set(formattedPhone, otpData);
+      setTimeout(() => {
+        this.otpStorage.delete(formattedPhone);
+      }, 5 * 60 * 1000);
+    }
 
     return true;
   }
 
   /**
    * Verify OTP
+   * Checks Redis first, falls back to memory if Redis unavailable
    */
   async verifyOTP(phone, otp) {
     const formattedPhone = this.formatPhoneNumber(phone);
-    const stored = this.otpStorage.get(formattedPhone);
+    let stored = null;
+    let isFromRedis = false;
+
+    try {
+      // Try to get OTP from Redis first
+      if (this.useRedis) {
+        const key = `otp:${formattedPhone}`;
+        const redisData = await redisClient.get(key);
+        if (redisData) {
+          stored = JSON.parse(redisData);
+          isFromRedis = true;
+          console.log(`🔍 OTP VERIFY (Redis): Phone=${formattedPhone}, InputOTP=${otp}, Key=${key}, Process=${process.pid}`);
+        }
+      }
+      
+      // Fallback to memory if Redis didn't have it
+      if (!stored) {
+        stored = this.otpStorage.get(formattedPhone);
+        console.log(`🔍 OTP VERIFY (Memory): Phone=${formattedPhone}, InputOTP=${otp}, Process=${process.pid}, StorageSize=${this.otpStorage.size}`);
+      }
+
+    } catch (error) {
+      console.error('❌ Redis get error, checking memory:', error.message);
+      stored = this.otpStorage.get(formattedPhone);
+    }
 
     if (!stored) {
+      console.log(`❌ OTP NOT FOUND: Phone=${formattedPhone}`);
+      if (!isFromRedis && this.otpStorage.size > 0) {
+        console.log(`Available memory keys:`, Array.from(this.otpStorage.keys()));
+      }
       return {
         success: false,
         error: 'OTP tidak ditemukan atau sudah kadaluarsa'
       };
     }
 
+    console.log(`📦 STORED OTP: ${stored.otp}, Expires: ${new Date(stored.expires).toISOString()}, Attempts: ${stored.attempts}, Source: ${isFromRedis ? 'Redis' : 'Memory'}`);
+
     if (Date.now() > stored.expires) {
+      // Delete from both storages
+      if (isFromRedis) {
+        await redisClient.del(`otp:${formattedPhone}`).catch(e => console.error('Redis delete error:', e));
+      }
       this.otpStorage.delete(formattedPhone);
+      console.log(`⏰ OTP EXPIRED: Phone=${formattedPhone}`);
       return {
         success: false,
         error: 'OTP sudah kadaluarsa'
@@ -359,7 +428,12 @@ class WhatsAppService {
     }
 
     if (stored.attempts >= 3) {
+      // Delete from both storages
+      if (isFromRedis) {
+        await redisClient.del(`otp:${formattedPhone}`).catch(e => console.error('Redis delete error:', e));
+      }
       this.otpStorage.delete(formattedPhone);
+      console.log(`🚫 TOO MANY ATTEMPTS: Phone=${formattedPhone}`);
       return {
         success: false,
         error: 'Terlalu banyak percobaan. Silakan minta OTP baru.'
@@ -368,6 +442,15 @@ class WhatsAppService {
 
     if (stored.otp !== otp) {
       stored.attempts++;
+      
+      // Update attempt count in Redis
+      if (isFromRedis) {
+        const key = `otp:${formattedPhone}`;
+        const ttl = Math.ceil((stored.expires - Date.now()) / 1000); // remaining seconds
+        await redisClient.set(key, JSON.stringify(stored), ttl).catch(e => console.error('Redis update error:', e));
+      }
+      
+      console.log(`❌ OTP MISMATCH: Stored="${stored.otp}" vs Input="${otp}", Attempt ${stored.attempts}/3`);
       return {
         success: false,
         error: 'Kode OTP salah',
@@ -375,8 +458,12 @@ class WhatsAppService {
       };
     }
 
-    // OTP valid
+    // OTP valid - delete from both storages
+    if (isFromRedis) {
+      await redisClient.del(`otp:${formattedPhone}`).catch(e => console.error('Redis delete error:', e));
+    }
     this.otpStorage.delete(formattedPhone);
+    console.log(`✅ OTP VERIFIED: Phone=${formattedPhone}`);
     return {
       success: true,
       message: 'OTP verified successfully'
