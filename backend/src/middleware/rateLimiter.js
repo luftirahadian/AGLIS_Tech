@@ -95,10 +95,11 @@ const createUserLimiter = rateLimit({
 /**
  * Strict rate limiter for public registration
  * Prevents bot registrations
+ * Updated: Increased from 3 to 10 registrations per hour for better user experience
  */
 const publicRegistrationLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 3, // Limit to 3 registrations per hour per IP
+  max: 10, // Limit to 10 registrations per hour per IP (increased from 3)
   message: {
     success: false,
     message: 'Too many registration attempts. Please try again after an hour.'
