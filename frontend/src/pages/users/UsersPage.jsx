@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key, Copy, Check, Download, FileSpreadsheet, Mail, MailCheck, Upload } from 'lucide-react'
+import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key, Copy, Check, Download, FileSpreadsheet, Mail, MailCheck, Upload, Unlock } from 'lucide-react'
 import * as XLSX from 'xlsx'
 import { useAuth } from '../../contexts/AuthContext'
 import userService from '../../services/userService'
@@ -134,6 +134,21 @@ const UsersPage = () => {
   const handleDeleteSuccess = () => {
     queryClient.invalidateQueries(['users-list'])
     queryClient.invalidateQueries('all-users-stats')
+  }
+
+  const handleUnlock = async (user) => {
+    if (!window.confirm(`Unlock account for ${user.full_name}? This will reset all failed login attempts.`)) {
+      return
+    }
+    
+    try {
+      await userService.unlockAccount(user.id)
+      toast.success(`Account unlocked for ${user.full_name}`)
+      queryClient.invalidateQueries(['users-list'])
+      queryClient.invalidateQueries('all-users-stats')
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'Failed to unlock account')
+    }
   }
 
   // Bulk Actions
@@ -824,6 +839,16 @@ const UsersPage = () => {
                                 title="Reset Password"
                               >
                                 <Key className="h-4 w-4" />
+                              </button>
+                            )}
+                            {/* Unlock Account: Only Admin, if account has failed attempts */}
+                            {isAdmin && user.id !== currentUser?.id && (user.failed_login_attempts > 0 || user.locked_until) && (
+                              <button
+                                onClick={() => handleUnlock(user)}
+                                className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
+                                title={`Unlock Account (${user.failed_login_attempts || 0} failed attempts)`}
+                              >
+                                <Unlock className="h-4 w-4" />
                               </button>
                             )}
                             {/* Delete: Only Admin can delete */}

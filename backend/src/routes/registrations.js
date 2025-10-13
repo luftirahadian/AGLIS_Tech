@@ -4,6 +4,8 @@ const pool = require('../config/database');
 const { authMiddleware } = require('../middleware/auth');
 const { saveBase64File, getFileUrl } = require('../utils/fileUpload');
 const whatsappService = require('../services/whatsappService');
+const { publicRegistrationLimiter } = require('../middleware/rateLimiter');
+const { verifyCaptchaMiddleware } = require('../utils/recaptchaVerify');
 
 const router = express.Router();
 
@@ -26,7 +28,7 @@ const createNotification = async (userId, type, title, message, data = null) => 
 };
 
 // PUBLIC ROUTE: Request OTP for WhatsApp verification
-router.post('/public/request-otp', [
+router.post('/public/request-otp', publicRegistrationLimiter, [
   body('phone').matches(/^[0-9+\-() ]+$/).withMessage('Valid phone number is required'),
   body('full_name').optional().trim()
 ], async (req, res) => {
@@ -78,7 +80,7 @@ router.post('/public/request-otp', [
 });
 
 // PUBLIC ROUTE: Verify OTP
-router.post('/public/verify-otp', [
+router.post('/public/verify-otp', publicRegistrationLimiter, [
   body('phone').matches(/^[0-9+\-() ]+$/).withMessage('Valid phone number is required'),
   body('otp').isLength({ min: 6, max: 6 }).withMessage('OTP must be 6 digits')
 ], async (req, res) => {
@@ -119,7 +121,7 @@ router.post('/public/verify-otp', [
 });
 
 // PUBLIC ROUTE: Submit new customer registration (no auth required)
-router.post('/public', [
+router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
   body('full_name').trim().notEmpty().withMessage('Full name is required'),
   body('email').isEmail().withMessage('Valid email is required'),
   body('phone').matches(/^[0-9+\-() ]+$/).withMessage('Valid phone number is required'),

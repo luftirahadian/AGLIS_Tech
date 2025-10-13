@@ -69,6 +69,17 @@ const userService = {
       console.error('❌ Get activity logs error:', error)
       return { data: [] }
     }
+  },
+
+  // Account lockout management
+  unlockAccount: async (id) => {
+    const result = await api.post(`/users/${id}/unlock`)
+    return result
+  },
+
+  getLockStatus: async (id) => {
+    const result = await api.get(`/users/${id}/lock-status`)
+    return result
   }
 }
 

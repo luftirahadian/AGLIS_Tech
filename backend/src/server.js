@@ -13,6 +13,7 @@ require('dotenv').config({ path: require('path').join(__dirname, '../../backend/
 // Import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
+const permissionsRoutes = require('./routes/permissions');
 const customerRoutes = require('./routes/customers');
 const technicianRoutes = require('./routes/technicians');
 const ticketRoutes = require('./routes/tickets');
@@ -32,6 +33,7 @@ const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
 const { authMiddleware } = require('./middleware/auth');
+const { apiLimiter } = require('./middleware/rateLimiter');
 
 const app = express();
 const server = createServer(app);
@@ -111,39 +113,21 @@ const io = new Server(server, {
   adapter: createAdapter(pubClient, subClient)
 });
 
-// Rate limiting - Very permissive for development
-const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 1 * 60 * 1000, // 1 minute window (shorter)
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 10000, // 10,000 requests per minute
-  message: 'Too many requests from this IP, please try again later.',
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  // Skip rate limiting for localhost AND local network IPs in development
-  skip: (req) => {
-    const ip = req.ip || req.connection.remoteAddress;
-    
-    // Localhost
-    if (ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1' || ip === 'localhost') {
-      return true;
-    }
-    
-    // Local network IPs (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
-    if (ip.startsWith('192.168.') || 
-        ip.startsWith('10.') || 
-        /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(ip)) {
-      console.log(`⚡ Rate limit skipped for local IP: ${ip}`);
-      return true;
-    }
-    
-    return false;
-  }
-});
+// Rate limiting - Secure rate limiter
+// Note: apiLimiter imported from rateLimiter middleware (100 req/15min)
+// This provides better security while still allowing legitimate use
+
+// Trust proxy (required for rate limiting behind nginx/haproxy)
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(helmet());
 app.use(compression());
 app.use(morgan('combined'));
-app.use(limiter);
+
+// Apply rate limiter to all API routes (100 requests per 15 minutes)
+app.use('/api/', apiLimiter);
+
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (mobile apps, Postman, etc)
@@ -194,6 +178,7 @@ app.get('/health', (req, res) => {
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authMiddleware, userRoutes);
+app.use('/api/permissions', authMiddleware, permissionsRoutes);
 app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);

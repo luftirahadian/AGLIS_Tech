@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { 
@@ -8,8 +8,10 @@ import {
 } from 'lucide-react'
 import { useQuery } from 'react-query'
 import toast from 'react-hot-toast'
+import ReCAPTCHA from 'react-google-recaptcha'
 import registrationService from '../../services/registrationService'
 import packageService from '../../services/packageService'
+import api from '../../services/api'
 
 const RegisterPage = () => {
   const navigate = useNavigate()
@@ -19,6 +21,10 @@ const RegisterPage = () => {
   const [otpCode, setOtpCode] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [countdown, setCountdown] = useState(0)
+  const [captchaToken, setCaptchaToken] = useState(null)
+  const [recaptchaSiteKey, setRecaptchaSiteKey] = useState('')
+  const [recaptchaEnabled, setRecaptchaEnabled] = useState(false)
+  const recaptchaRef = useRef(null)
 
   const {
     register,
@@ -59,6 +65,27 @@ const RegisterPage = () => {
       return () => clearTimeout(timer)
     }
   }, [countdown])
+
+  // Fetch reCAPTCHA configuration on mount
+  useEffect(() => {
+    const fetchRecaptchaConfig = async () => {
+      try {
+        const response = await api.get('/auth/recaptcha-config')
+        if (response.data) {
+          setRecaptchaEnabled(response.data.enabled)
+          setRecaptchaSiteKey(response.data.siteKey)
+        }
+      } catch (error) {
+        console.error('Failed to fetch reCAPTCHA config:', error)
+        setRecaptchaEnabled(false)
+      }
+    }
+    fetchRecaptchaConfig()
+  }, [])
+
+  const onCaptchaChange = (token) => {
+    setCaptchaToken(token)
+  }
 
   // Handle request OTP
   const handleRequestOTP = async () => {
@@ -131,6 +158,13 @@ const RegisterPage = () => {
       return
     }
 
+    // Check reCAPTCHA if enabled
+    if (recaptchaEnabled && !captchaToken) {
+      toast.error('Mohon selesaikan verifikasi reCAPTCHA')
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
@@ -145,6 +179,7 @@ const RegisterPage = () => {
         ...data,
         id_card_photo: ktpPhotoBase64,
         whatsapp_verified: 'true',
+        recaptchaToken: captchaToken, // Add CAPTCHA token
         // Convert empty strings to null
         id_card_number: data.id_card_number || null,
         rt: data.rt || null,
@@ -179,6 +214,13 @@ const RegisterPage = () => {
         response: error.response?.data,
         status: error.response?.status
       })
+      
+      // Reset reCAPTCHA on error
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset()
+        setCaptchaToken(null)
+      }
+      
       toast.error(error.response?.data?.message || 'Gagal submit pendaftaran')
     } finally {
       setIsSubmitting(false)
@@ -858,6 +900,36 @@ const RegisterPage = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* reCAPTCHA */}
+                  {recaptchaEnabled && recaptchaSiteKey && (
+                    <div className="flex justify-center">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={recaptchaSiteKey}
+                        onChange={onCaptchaChange}
+                        onExpired={() => setCaptchaToken(null)}
+                        onErrored={() => {
+                          setCaptchaToken(null)
+                          toast.error('reCAPTCHA error. Please refresh the page.')
+                        }}
+                        theme="light"
+                      />
+                    </div>
+                  )}
+
+                  {recaptchaEnabled && !captchaToken && (
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-start">
+                        <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div className="ml-3">
+                          <p className="text-sm text-blue-800">
+                            Mohon selesaikan verifikasi reCAPTCHA di atas sebelum submit
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -888,7 +960,7 @@ const RegisterPage = () => {
                 ) : (
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || (recaptchaEnabled && !captchaToken)}
                     className="inline-flex items-center px-8 py-3 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
                   >
                     {isSubmitting ? (

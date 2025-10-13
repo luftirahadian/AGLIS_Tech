@@ -4,11 +4,35 @@ const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 const { authMiddleware } = require('../middleware/auth');
+const { authLimiter, passwordResetLimiter } = require('../middleware/rateLimiter');
+const {
+  isAccountLocked,
+  recordFailedLogin,
+  resetFailedAttempts
+} = require('../utils/accountLockout');
+const { verifyCaptchaMiddleware, getRecaptchaConfig } = require('../utils/recaptchaVerify');
 
 const router = express.Router();
 
+// Get reCAPTCHA configuration (public endpoint)
+router.get('/recaptcha-config', (req, res) => {
+  try {
+    const config = getRecaptchaConfig();
+    res.json({
+      success: true,
+      data: config
+    });
+  } catch (error) {
+    console.error('Get reCAPTCHA config error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Register new user
-router.post('/register', [
+router.post('/register', authLimiter, [
   body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
   body('email').isEmail().withMessage('Please provide a valid email'),
   body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
@@ -86,7 +110,7 @@ router.post('/register', [
 });
 
 // Login user
-router.post('/login', [
+router.post('/login', authLimiter, verifyCaptchaMiddleware, [
   body('username').notEmpty().withMessage('Username is required'),
   body('password').notEmpty().withMessage('Password is required')
 ], async (req, res) => {
@@ -102,7 +126,22 @@ router.post('/login', [
 
     const { username, password } = req.body;
 
-    // Find user by username or email
+    // STEP 1: Check if account is locked
+    const lockCheck = await isAccountLocked(username);
+    if (lockCheck.locked) {
+      console.log(`🔒 Login attempt blocked - Account locked: ${username}`);
+      return res.status(423).json({ // 423 Locked
+        success: false,
+        message: lockCheck.message,
+        locked: true,
+        requiresAdminUnlock: lockCheck.requiresAdminUnlock,
+        lockedUntil: lockCheck.lockedUntil,
+        minutesRemaining: lockCheck.minutesRemaining,
+        tier: lockCheck.tier
+      });
+    }
+
+    // STEP 2: Find user by username or email
     const userQuery = `
       SELECT id, username, email, password_hash, full_name, role, is_active 
       FROM users 
@@ -111,6 +150,9 @@ router.post('/login', [
     const userResult = await pool.query(userQuery, [username]);
 
     if (userResult.rows.length === 0) {
+      // Record failed attempt (user not found)
+      await recordFailedLogin(username, req.ip, req.get('user-agent'));
+      
       return res.status(401).json({
         success: false,
         message: 'Invalid credentials'
@@ -119,27 +161,52 @@ router.post('/login', [
 
     const user = userResult.rows[0];
 
-    // Check password
+    // STEP 3: Check password
     const isPasswordValid = await bcrypt.compare(password, user.password_hash);
     if (!isPasswordValid) {
+      // Record failed attempt and check if account should be locked
+      const lockResult = await recordFailedLogin(username, req.ip, req.get('user-agent'));
+      
+      console.log(`❌ Failed login attempt for ${username} - Attempt ${lockResult.failedAttempts}`);
+      
+      if (lockResult.locked) {
+        // Account just got locked
+        return res.status(423).json({
+          success: false,
+          message: lockResult.lockoutMessage,
+          locked: true,
+          requiresAdminUnlock: lockResult.requiresAdminUnlock,
+          failedAttempts: lockResult.failedAttempts,
+          tier: lockResult.tier
+        });
+      }
+      
+      // Not locked yet, but show warning if close to lockout
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials'
+        message: 'Invalid credentials',
+        warning: lockResult.warning,
+        attemptsRemaining: lockResult.attemptsRemaining
       });
     }
 
-    // Update last login
+    // STEP 4: Password correct - Reset failed attempts
+    await resetFailedAttempts(user.id);
+
+    // STEP 5: Update last login
     await pool.query(
       'UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1',
       [user.id]
     );
 
-    // Generate JWT token
+    // STEP 6: Generate JWT token
     const token = jwt.sign(
       { userId: user.id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
     );
+
+    console.log(`✅ Successful login for ${username}`);
 
     res.json({
       success: true,
@@ -187,6 +254,64 @@ router.get('/me', authMiddleware, async (req, res) => {
 
   } catch (error) {
     console.error('Get profile error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Update profile
+router.put('/profile', [
+  authMiddleware,
+  body('full_name').notEmpty().withMessage('Full name is required'),
+  body('email').isEmail().withMessage('Please provide a valid email'),
+  body('phone').optional()
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation errors',
+        errors: errors.array()
+      });
+    }
+
+    const { full_name, email, phone } = req.body;
+
+    // Check if email is already used by another user
+    const emailCheck = await pool.query(
+      'SELECT id FROM users WHERE email = $1 AND id != $2',
+      [email, req.user.id]
+    );
+
+    if (emailCheck.rows.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email is already in use by another user'
+      });
+    }
+
+    // Update profile
+    const updateQuery = `
+      UPDATE users 
+      SET full_name = $1, email = $2, phone = $3, updated_at = CURRENT_TIMESTAMP 
+      WHERE id = $4
+      RETURNING id, username, email, full_name, phone, role
+    `;
+    
+    const result = await pool.query(updateQuery, [full_name, email, phone, req.user.id]);
+    const updatedUser = result.rows[0];
+
+    res.json({
+      success: true,
+      message: 'Profile updated successfully',
+      data: { user: updatedUser }
+    });
+
+  } catch (error) {
+    console.error('Update profile error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'

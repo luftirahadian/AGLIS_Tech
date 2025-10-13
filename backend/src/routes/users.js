@@ -4,6 +4,8 @@ const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 const { authMiddleware, authorize } = require('../middleware/auth');
 const { logActivity, getActivityLogs } = require('../utils/activityLogger');
+const { createUserLimiter } = require('../middleware/rateLimiter');
+const { unlockAccount, getLockStatus } = require('../utils/accountLockout');
 
 const router = express.Router();
 
@@ -19,6 +21,7 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
              u.email_verified, u.email_verified_at,
+             u.failed_login_attempts, u.locked_until, u.last_failed_login,
              t.employee_id, t.availability_status
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
@@ -119,7 +122,7 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
 });
 
 // Create new user (admin only)
-router.post('/', [
+router.post('/', createUserLimiter, [
   authorize('admin'),
   body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
   body('email').isEmail().withMessage('Please provide a valid email'),
@@ -207,6 +210,7 @@ router.get('/:id', async (req, res) => {
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
              u.email_verified, u.email_verified_at,
+             u.failed_login_attempts, u.locked_until, u.last_failed_login,
              t.employee_id, t.skills, t.service_areas, t.availability_status, 
              t.rating, t.total_completed_tickets, t.hire_date
       FROM users u
@@ -562,6 +566,71 @@ router.get('/activity-logs/list', authorize('admin', 'supervisor'), async (req, 
 
   } catch (error) {
     console.error('Get activity logs error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Unlock account (admin only)
+router.post('/:id/unlock', authorize('admin'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    // Cannot unlock yourself
+    if (req.user.id === parseInt(id)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Cannot unlock your own account'
+      });
+    }
+    
+    const result = await unlockAccount(parseInt(id), req.user.id);
+    
+    if (!result.success) {
+      return res.status(404).json({
+        success: false,
+        message: result.message
+      });
+    }
+    
+    res.json({
+      success: true,
+      message: 'Account unlocked successfully',
+      data: { user: result.user }
+    });
+    
+  } catch (error) {
+    console.error('Unlock account error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Get lock status (admin/supervisor only)
+router.get('/:id/lock-status', authorize('admin', 'supervisor'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const status = await getLockStatus(parseInt(id));
+    
+    if (!status) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: status
+    });
+    
+  } catch (error) {
+    console.error('Get lock status error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'
