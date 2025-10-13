@@ -4,19 +4,22 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 import {
   User, Phone, Mail, MapPin, Package, Calendar,
   CheckCircle, XCircle, Clock, AlertCircle, FileText,
-  Home, UserCheck, ClipboardCheck, Settings, DollarSign
+  Home, UserCheck, ClipboardCheck, Settings, DollarSign,
+  PhoneCall, Mail as MailIcon
 } from 'lucide-react'
 import registrationService from '../../services/registrationService'
 import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import { useAuth } from '../../contexts/AuthContext'
 import toast from 'react-hot-toast'
 
 const RegistrationDetailPage = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { user } = useAuth()
 
   // Determine default tab based on status
   const [activeTab, setActiveTab] = useState('details')
@@ -50,6 +53,15 @@ const RegistrationDetailPage = () => {
 
   const registration = registrationData?.data
   const selectedPackage = packagesData?.data?.find(pkg => pkg.id === registration?.package_id)
+
+  // ==================== RBAC CHECK ====================
+  const isAdmin = user?.role === 'admin'
+  const isSupervisor = user?.role === 'supervisor'
+  const isCustomerService = user?.role === 'customer_service'
+  const canVerify = isAdmin || isSupervisor || isCustomerService
+  const canReject = isAdmin || isSupervisor || isCustomerService
+  const canApprove = isAdmin || isSupervisor || isCustomerService
+  const canCreateCustomer = isAdmin || isSupervisor || isCustomerService
 
   // Auto-switch to Actions tab for verified/survey registrations only (NOT for pending)
   useEffect(() => {
@@ -140,6 +152,80 @@ const RegistrationDetailPage = () => {
   const confirmCreateCustomer = () => {
     createCustomerMutation.mutate(registration.id)
     setShowCreateCustomerModal(false)
+  }
+
+  // ==================== QUICK ACTION HANDLERS ====================
+
+  const handleQuickCall = () => {
+    window.location.href = `tel:${registration.phone}`
+  }
+
+  const handleQuickEmail = () => {
+    window.location.href = `mailto:${registration.email}`
+  }
+
+  const handleQuickVerify = async () => {
+    if (!window.confirm(`Verify registration ${registration.registration_number}?`)) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'verified', { notes: 'Quick verified' })
+      toast.success(`Registration ${registration.registration_number} verified`)
+      queryClient.invalidateQueries(['registration', id])
+      queryClient.invalidateQueries('registrations')
+    } catch (error) {
+      toast.error('Failed to verify registration')
+      console.error('Quick verify error:', error)
+    }
+  }
+
+  const handleQuickReject = async () => {
+    const reason = window.prompt('Alasan reject:')
+    if (!reason) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'rejected', { 
+        rejection_reason: reason,
+        notes: 'Quick rejected'
+      })
+      toast.success(`Registration ${registration.registration_number} rejected`)
+      queryClient.invalidateQueries(['registration', id])
+      queryClient.invalidateQueries('registrations')
+    } catch (error) {
+      toast.error('Failed to reject registration')
+      console.error('Quick reject error:', error)
+    }
+  }
+
+  const handleQuickApprove = async () => {
+    if (!window.confirm(`Approve registration ${registration.registration_number}?`)) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'approved', { notes: 'Quick approved' })
+      toast.success(`Registration ${registration.registration_number} approved`)
+      queryClient.invalidateQueries(['registration', id])
+      queryClient.invalidateQueries('registrations')
+    } catch (error) {
+      toast.error('Failed to approve registration')
+      console.error('Quick approve error:', error)
+    }
+  }
+
+  const handleQuickScheduleSurvey = async () => {
+    const surveyDate = window.prompt('Survey date (YYYY-MM-DD):', new Date().toISOString().split('T')[0])
+    if (!surveyDate) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'survey_scheduled', { 
+        survey_date: surveyDate,
+        notes: 'Survey scheduled via quick action'
+      })
+      toast.success(`Survey scheduled for ${registration.registration_number}`)
+      queryClient.invalidateQueries(['registration', id])
+      queryClient.invalidateQueries('registrations')
+    } catch (error) {
+      toast.error('Failed to schedule survey')
+      console.error('Quick schedule survey error:', error)
+    }
   }
 
   const formatStatusText = (status) => {
@@ -310,6 +396,96 @@ const RegistrationDetailPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Quick Actions */}
+      {!['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-gray-400" />
+              <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
+            </div>
+            <div className="flex items-center gap-3">
+              {/* Quick Call */}
+              {registration.phone && (
+                <button
+                  onClick={handleQuickCall}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <PhoneCall className="h-4 w-4" />
+                  Call Customer
+                </button>
+              )}
+
+              {/* Quick Email */}
+              {registration.email && (
+                <button
+                  onClick={handleQuickEmail}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <MailIcon className="h-4 w-4" />
+                  Email Customer
+                </button>
+              )}
+
+              {/* Quick Verify (only for pending) */}
+              {canVerify && registration.status === 'pending_verification' && (
+                <button
+                  onClick={handleQuickVerify}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <UserCheck className="h-4 w-4" />
+                  Quick Verify
+                </button>
+              )}
+
+              {/* Quick Approve (only for verified) */}
+              {canApprove && registration.status === 'verified' && (
+                <button
+                  onClick={handleQuickApprove}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <CheckCircle className="h-4 w-4" />
+                  Quick Approve
+                </button>
+              )}
+
+              {/* Quick Schedule Survey (only for verified) */}
+              {canVerify && registration.status === 'verified' && (
+                <button
+                  onClick={handleQuickScheduleSurvey}
+                  className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Schedule Survey
+                </button>
+              )}
+
+              {/* Quick Create Customer (only for approved) */}
+              {canCreateCustomer && registration.status === 'approved' && !registration.customer_id && (
+                <button
+                  onClick={handleCreateCustomer}
+                  className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <Home className="h-4 w-4" />
+                  Create Customer
+                </button>
+              )}
+
+              {/* Quick Reject (only for non-final statuses) */}
+              {canReject && !['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
+                <button
+                  onClick={handleQuickReject}
+                  className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+                >
+                  <XCircle className="h-4 w-4" />
+                  Quick Reject
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Tabs Card */}
       <div className="card">
