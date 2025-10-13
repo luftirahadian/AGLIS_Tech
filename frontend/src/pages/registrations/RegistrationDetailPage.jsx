@@ -728,6 +728,129 @@ const RegistrationDetailPage = () => {
           {/* ACTIONS TAB */}
           {activeTab === 'actions' && (
             <div className="space-y-6">
+              {/* Quick Actions in Actions Tab */}
+              {!['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-sm border border-blue-200 p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-blue-600 rounded-lg">
+                        <CheckCircle className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">Quick Actions</h3>
+                        <p className="text-sm text-gray-600">Tindakan cepat untuk status registrasi ini</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {/* Quick Verify (only for pending) */}
+                    {canVerify && registration.status === 'pending_verification' && (
+                      <button
+                        onClick={handleQuickVerify}
+                        className="px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <UserCheck className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Verifikasi Data</div>
+                          <div className="text-xs text-blue-100">Validasi & approve data</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Quick Approve (only for verified) */}
+                    {canApprove && registration.status === 'verified' && (
+                      <button
+                        onClick={handleQuickApprove}
+                        className="px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <CheckCircle className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Approve Langsung</div>
+                          <div className="text-xs text-green-100">Setujui pendaftaran</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Quick Schedule Survey (only for verified) */}
+                    {canVerify && registration.status === 'verified' && (
+                      <button
+                        onClick={handleQuickScheduleSurvey}
+                        className="px-6 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <Calendar className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Jadwalkan Survey</div>
+                          <div className="text-xs text-orange-100">Atur jadwal survey</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Quick Create Customer (only for approved) */}
+                    {canCreateCustomer && registration.status === 'approved' && !registration.customer_id && (
+                      <button
+                        onClick={handleCreateCustomer}
+                        className="px-6 py-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <Home className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Buat Customer</div>
+                          <div className="text-xs text-purple-100">Create customer & ticket</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Quick Reject (only for non-final statuses) */}
+                    {canReject && !['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
+                      <button
+                        onClick={handleQuickReject}
+                        className="px-6 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <XCircle className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Reject Registrasi</div>
+                          <div className="text-xs text-red-100">Tolak dengan alasan</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {/* Contact Actions - Always Available */}
+                    {registration.phone && (
+                      <button
+                        onClick={handleQuickCall}
+                        className="px-6 py-4 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <PhoneCall className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Call Customer</div>
+                          <div className="text-xs text-emerald-100">{registration.phone}</div>
+                        </div>
+                      </button>
+                    )}
+
+                    {registration.email && (
+                      <button
+                        onClick={handleQuickEmail}
+                        className="px-6 py-4 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
+                      >
+                        <MailIcon className="h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-semibold">Email Customer</div>
+                          <div className="text-xs text-cyan-100">{registration.email?.substring(0, 20)}</div>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Info Text */}
+                  <div className="mt-4 pt-4 border-t border-blue-200">
+                    <p className="text-xs text-gray-600 flex items-center gap-2">
+                      <AlertCircle className="h-4 w-4" />
+                      <span>Gunakan quick actions untuk proses lebih cepat, atau gunakan form detail di bawah untuk kontrol lebih lengkap</span>
+                    </p>
+                  </div>
+                </div>
+              )}
               {/* Approved - Create Customer */}
               {registration.status === 'approved' && !registration.customer_id && (
                 <div>
