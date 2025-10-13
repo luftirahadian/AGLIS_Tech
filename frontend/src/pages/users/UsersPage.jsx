@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key } from 'lucide-react'
+import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key, Copy, Check, Download, FileSpreadsheet } from 'lucide-react'
+import * as XLSX from 'xlsx'
 import { useAuth } from '../../contexts/AuthContext'
 import userService from '../../services/userService'
 import LoadingSpinner from '../../components/LoadingSpinner'
@@ -22,6 +23,9 @@ const UsersPage = () => {
   const [userToResetPassword, setUserToResetPassword] = useState(null)
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [userToDelete, setUserToDelete] = useState(null)
+  const [selectedUsers, setSelectedUsers] = useState([])
+  const [selectAll, setSelectAll] = useState(false)
+  const [copiedField, setCopiedField] = useState(null)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('desc')
   const [page, setPage] = useState(1)
@@ -126,6 +130,170 @@ const UsersPage = () => {
     queryClient.invalidateQueries('all-users-stats')
   }
 
+  // Bulk Actions
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      const allUserIds = filteredUsers.filter(u => u.id !== currentUser?.id).map(u => u.id)
+      setSelectedUsers(allUserIds)
+      setSelectAll(true)
+    } else {
+      setSelectedUsers([])
+      setSelectAll(false)
+    }
+  }
+
+  const handleSelectUser = (userId) => {
+    setSelectedUsers(prev => {
+      if (prev.includes(userId)) {
+        const newSelected = prev.filter(id => id !== userId)
+        setSelectAll(false)
+        return newSelected
+      } else {
+        return [...prev, userId]
+      }
+    })
+  }
+
+  const handleBulkDelete = async () => {
+    if (selectedUsers.length === 0) {
+      toast.error('Pilih minimal 1 user untuk dihapus')
+      return
+    }
+
+    if (!window.confirm(`Hapus ${selectedUsers.length} users yang dipilih?`)) {
+      return
+    }
+
+    try {
+      await Promise.all(selectedUsers.map(id => userService.delete(id)))
+      toast.success(`${selectedUsers.length} users berhasil dihapus`)
+      setSelectedUsers([])
+      setSelectAll(false)
+      queryClient.invalidateQueries(['users-list'])
+      queryClient.invalidateQueries('all-users-stats')
+    } catch (error) {
+      toast.error('Gagal menghapus beberapa users')
+    }
+  }
+
+  const handleBulkDeactivate = async () => {
+    if (selectedUsers.length === 0) {
+      toast.error('Pilih minimal 1 user untuk dinonaktifkan')
+      return
+    }
+
+    if (!window.confirm(`Nonaktifkan ${selectedUsers.length} users yang dipilih?`)) {
+      return
+    }
+
+    try {
+      await Promise.all(
+        selectedUsers.map(id => userService.update(id, { is_active: false }))
+      )
+      toast.success(`${selectedUsers.length} users berhasil dinonaktifkan`)
+      setSelectedUsers([])
+      setSelectAll(false)
+      queryClient.invalidateQueries(['users-list'])
+      queryClient.invalidateQueries('all-users-stats')
+    } catch (error) {
+      toast.error('Gagal menonaktifkan beberapa users')
+    }
+  }
+
+  const handleBulkActivate = async () => {
+    if (selectedUsers.length === 0) {
+      toast.error('Pilih minimal 1 user untuk diaktifkan')
+      return
+    }
+
+    try {
+      await Promise.all(
+        selectedUsers.map(id => userService.update(id, { is_active: true }))
+      )
+      toast.success(`${selectedUsers.length} users berhasil diaktifkan`)
+      setSelectedUsers([])
+      setSelectAll(false)
+      queryClient.invalidateQueries(['users-list'])
+      queryClient.invalidateQueries('all-users-stats')
+    } catch (error) {
+      toast.error('Gagal mengaktifkan beberapa users')
+    }
+  }
+
+  // Copy to clipboard
+  const handleCopyToClipboard = (text, field) => {
+    navigator.clipboard.writeText(text)
+    setCopiedField(field)
+    toast.success('Copied to clipboard!')
+    setTimeout(() => setCopiedField(null), 2000)
+  }
+
+  // Export to Excel
+  const handleExportExcel = () => {
+    const exportData = filteredUsers.map(user => ({
+      'Username': user.username,
+      'Full Name': user.full_name,
+      'Email': user.email,
+      'Phone': user.phone || '-',
+      'Role': user.role,
+      'Status': user.is_active ? 'Active' : 'Inactive',
+      'Last Login': user.last_login ? new Date(user.last_login).toLocaleString('id-ID') : 'Never',
+      'Created At': new Date(user.created_at).toLocaleString('id-ID')
+    }))
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Users')
+    
+    // Auto-width columns
+    const maxWidth = exportData.reduce((w, r) => Math.max(w, r['Full Name']?.length || 0), 10)
+    worksheet['!cols'] = [
+      { wch: 15 }, // Username
+      { wch: maxWidth }, // Full Name
+      { wch: 25 }, // Email
+      { wch: 15 }, // Phone
+      { wch: 15 }, // Role
+      { wch: 10 }, // Status
+      { wch: 20 }, // Last Login
+      { wch: 20 }  // Created At
+    ]
+
+    const fileName = `users-export-${new Date().toISOString().split('T')[0]}.xlsx`
+    XLSX.writeFile(workbook, fileName)
+    toast.success(`Exported ${exportData.length} users to ${fileName}`)
+  }
+
+  // Export to CSV
+  const handleExportCSV = () => {
+    const exportData = filteredUsers.map(user => ({
+      'Username': user.username,
+      'Full Name': user.full_name,
+      'Email': user.email,
+      'Phone': user.phone || '-',
+      'Role': user.role,
+      'Status': user.is_active ? 'Active' : 'Inactive',
+      'Last Login': user.last_login ? new Date(user.last_login).toLocaleString('id-ID') : 'Never',
+      'Created At': new Date(user.created_at).toLocaleString('id-ID')
+    }))
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData)
+    const csv = XLSX.utils.sheet_to_csv(worksheet)
+    
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    const fileName = `users-export-${new Date().toISOString().split('T')[0]}.csv`
+    
+    link.setAttribute('href', url)
+    link.setAttribute('download', fileName)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    
+    toast.success(`Exported ${exportData.length} users to ${fileName}`)
+  }
+
   const handleModalClose = () => {
     setIsModalOpen(false)
     setSelectedUser(null)
@@ -225,13 +393,78 @@ const UsersPage = () => {
           <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
           <p className="text-gray-600">Kelola pengguna sistem dan akses</p>
         </div>
-        <button 
-          onClick={handleCreate}
-          className="btn-primary"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Tambah User
-        </button>
+        <div className="flex items-center space-x-3">
+          {/* Export Dropdown */}
+          <div className="relative group">
+            <button className="btn-outline flex items-center">
+              <Download className="h-4 w-4 mr-2" />
+              Export
+            </button>
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
+              <button
+                onClick={handleExportExcel}
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center transition-colors rounded-t-lg"
+              >
+                <FileSpreadsheet className="h-4 w-4 mr-2 text-green-600" />
+                Export to Excel
+              </button>
+              <button
+                onClick={handleExportCSV}
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center transition-colors rounded-b-lg"
+              >
+                <FileSpreadsheet className="h-4 w-4 mr-2 text-blue-600" />
+                Export to CSV
+              </button>
+            </div>
+          </div>
+
+          {/* Bulk Actions Toolbar */}
+          {selectedUsers.length > 0 && isAdmin && (
+            <div className="flex items-center space-x-2 mr-4 px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg">
+              <span className="text-sm font-medium text-blue-900">
+                {selectedUsers.length} selected
+              </span>
+              <button
+                onClick={handleBulkActivate}
+                className="text-xs px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                title="Activate selected users"
+              >
+                Activate
+              </button>
+              <button
+                onClick={handleBulkDeactivate}
+                className="text-xs px-3 py-1 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition-colors"
+                title="Deactivate selected users"
+              >
+                Deactivate
+              </button>
+              <button
+                onClick={handleBulkDelete}
+                className="text-xs px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+                title="Delete selected users"
+              >
+                Delete
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedUsers([])
+                  setSelectAll(false)
+                }}
+                className="text-xs px-2 py-1 text-gray-600 hover:text-gray-800"
+                title="Clear selection"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+          <button 
+            onClick={handleCreate}
+            className="btn-primary"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Tambah User
+          </button>
+        </div>
       </div>
 
       {/* Statistics Cards */}
@@ -359,9 +592,20 @@ const UsersPage = () => {
             </div>
             <div className="card-body p-0">
               <div className="overflow-x-auto">
-                <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '900px' }}>
+                <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '950px' }}>
                   <thead className="table-header">
                     <tr>
+                      {/* Bulk Select Checkbox */}
+                      {isAdmin && (
+                        <th className="table-header-cell" style={{ width: '50px' }}>
+                          <input
+                            type="checkbox"
+                            checked={selectAll}
+                            onChange={handleSelectAll}
+                            className="cursor-pointer"
+                          />
+                        </th>
+                      )}
                       <th 
                         className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors" 
                         onClick={() => handleSort('full_name')}
@@ -418,7 +662,22 @@ const UsersPage = () => {
                   </thead>
                   <tbody className="table-body">
                     {filteredUsers.map((user) => (
-                      <tr key={user.id}>
+                      <tr key={user.id} className={selectedUsers.includes(user.id) ? 'bg-blue-50' : ''}>
+                        {/* Bulk Select Checkbox */}
+                        {isAdmin && (
+                          <td className="table-cell">
+                            {user.id !== currentUser?.id ? (
+                              <input
+                                type="checkbox"
+                                checked={selectedUsers.includes(user.id)}
+                                onChange={() => handleSelectUser(user.id)}
+                                className="cursor-pointer"
+                              />
+                            ) : (
+                              <span className="text-gray-300">-</span>
+                            )}
+                          </td>
+                        )}
                         <td className="table-cell">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
@@ -439,10 +698,42 @@ const UsersPage = () => {
                           </div>
                         </td>
                         <td className="table-cell">
-                          <div className="text-sm text-gray-900 truncate" title={user.email}>{user.email}</div>
+                          <div className="flex items-center group">
+                            <div className="text-sm text-gray-900 truncate flex-1" title={user.email}>
+                              {user.email}
+                            </div>
+                            <button
+                              onClick={() => handleCopyToClipboard(user.email, `email-${user.id}`)}
+                              className="ml-2 opacity-0 group-hover:opacity-100 p-1 hover:bg-gray-100 rounded transition-all"
+                              title="Copy email"
+                            >
+                              {copiedField === `email-${user.id}` ? (
+                                <Check className="h-3 w-3 text-green-600" />
+                              ) : (
+                                <Copy className="h-3 w-3 text-gray-400" />
+                              )}
+                            </button>
+                          </div>
                         </td>
                         <td className="table-cell whitespace-nowrap">
-                          <div className="text-sm text-gray-900">{user.phone || '-'}</div>
+                          {user.phone ? (
+                            <div className="flex items-center group">
+                              <div className="text-sm text-gray-900 flex-1">{user.phone}</div>
+                              <button
+                                onClick={() => handleCopyToClipboard(user.phone, `phone-${user.id}`)}
+                                className="ml-2 opacity-0 group-hover:opacity-100 p-1 hover:bg-gray-100 rounded transition-all"
+                                title="Copy phone"
+                              >
+                                {copiedField === `phone-${user.id}` ? (
+                                  <Check className="h-3 w-3 text-green-600" />
+                                ) : (
+                                  <Copy className="h-3 w-3 text-gray-400" />
+                                )}
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="text-sm text-gray-400">-</div>
+                          )}
                         </td>
                         <td className="table-cell whitespace-nowrap">
                           {getRoleBadge(user.role)}
