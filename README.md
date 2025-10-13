@@ -13,6 +13,13 @@ Sistem manajemen teknisi yang komprehensif untuk perusahaan Internet Service Pro
 - **[IMPLEMENTATION_ROADMAP.md](./IMPLEMENTATION_ROADMAP.md)** - Roadmap pengembangan 12 bulan
 - **[API_SPECIFICATION.md](./API_SPECIFICATION.md)** - Dokumentasi lengkap API endpoints
 
+#### **Production Deployment Documentation** 🚀
+- **[PRODUCTION_DEPLOYMENT_FIXES.md](./PRODUCTION_DEPLOYMENT_FIXES.md)** - Comprehensive fixes untuk deployment issues
+- **[DEPLOYMENT_QUICK_REFERENCE.md](./DEPLOYMENT_QUICK_REFERENCE.md)** - Quick commands & emergency fixes
+- **[DEPLOYMENT_SESSION_OCT_13_2025.md](./DEPLOYMENT_SESSION_OCT_13_2025.md)** - Complete deployment session log
+- **[PRODUCTION_DEPLOYMENT_GUIDE.md](./PRODUCTION_DEPLOYMENT_GUIDE.md)** - Full production deployment guide
+- **[PRODUCTION_QUICK_START.md](./PRODUCTION_QUICK_START.md)** - Quick start deployment steps
+
 ### 🎯 **Quick Start Guide**
 
 #### **Untuk Stakeholder & Management:**
