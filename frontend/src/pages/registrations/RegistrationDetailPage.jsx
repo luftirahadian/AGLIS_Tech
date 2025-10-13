@@ -1455,7 +1455,7 @@ const RegistrationDetailPage = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">No. HP:</span>
-                <span className="font-medium text-gray-900">{registration.phone_number}</span>
+                <span className="font-medium text-gray-900">{registration.phone || '-'}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Paket:</span>
