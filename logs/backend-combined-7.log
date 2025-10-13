@@ -1034,3 +1034,15 @@
 2025-10-13T10:19:26: ✅ Connected to PostgreSQL database
 2025-10-13T10:19:26: 127.0.0.1 - - [13/Oct/2025:03:19:26 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-13T10:20:01: 127.0.0.1 - - [13/Oct/2025:03:20:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-13T10:20:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:20:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:20:57: 127.0.0.1 - - [13/Oct/2025:03:20:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:21:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:21:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:21:57: 127.0.0.1 - - [13/Oct/2025:03:21:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:22:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:22:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:22:57: 127.0.0.1 - - [13/Oct/2025:03:22:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:23:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:23:57: ✅ Connected to PostgreSQL database
+2025-10-13T10:23:57: 127.0.0.1 - - [13/Oct/2025:03:23:57 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
