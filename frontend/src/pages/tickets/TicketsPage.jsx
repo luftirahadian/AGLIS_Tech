@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, Download, Loader2 } from 'lucide-react'
+import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, Download, Loader2, Copy, Check, UserPlus, PhoneCall, Mail as MailIcon, ShieldAlert, Trash2 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { ticketService } from '../../services/ticketService'
@@ -9,10 +9,13 @@ import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import { exportToExcel, formatCurrency, formatDate } from '../../utils/exportToExcel'
+import { useAuth } from '../../contexts/AuthContext'
 
 const TicketsPage = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { user: currentUser, isAdmin, isSupervisor, isTechnician, isCustomerService } = useAuth()
+  
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [showAssignmentModal, setShowAssignmentModal] = useState(false)
   const [selectedTicketForAssignment, setSelectedTicketForAssignment] = useState(null)
@@ -27,6 +30,13 @@ const TicketsPage = () => {
     type: '',
     priority: ''
   })
+  
+  // Bulk selection states
+  const [selectedTickets, setSelectedTickets] = useState([])
+  const [selectAll, setSelectAll] = useState(false)
+  
+  // Copy to clipboard state
+  const [copiedField, setCopiedField] = useState(null)
 
   // Format type name for display
   const formatTypeName = (type) => {
@@ -213,7 +223,175 @@ const TicketsPage = () => {
     return <span className={`badge ${config.class}`}>{config.label}</span>
   }
 
+  // ==================== BULK SELECTION HANDLERS ====================
+  
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedTickets(tickets.map(t => t.id))
+      setSelectAll(true)
+    } else {
+      setSelectedTickets([])
+      setSelectAll(false)
+    }
+  }
+
+  const handleSelectTicket = (ticketId) => {
+    if (selectedTickets.includes(ticketId)) {
+      setSelectedTickets(selectedTickets.filter(id => id !== ticketId))
+      setSelectAll(false)
+    } else {
+      const newSelected = [...selectedTickets, ticketId]
+      setSelectedTickets(newSelected)
+      if (newSelected.length === tickets.length) {
+        setSelectAll(true)
+      }
+    }
+  }
+
+  // ==================== BULK ACTION HANDLERS ====================
+
+  const handleBulkClose = async () => {
+    if (selectedTickets.length === 0) {
+      toast.error('Pilih ticket terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Close ${selectedTickets.length} ticket yang dipilih?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const ticketId of selectedTickets) {
+        try {
+          await ticketService.updateTicket(ticketId, { status: 'completed' })
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to close ticket ${ticketId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} ticket berhasil di-close${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        refetch()
+        setSelectedTickets([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal close ticket')
+      }
+    } catch (error) {
+      console.error('Bulk close error:', error)
+      toast.error('Terjadi kesalahan saat close ticket')
+    }
+  }
+
+  const handleBulkDelete = async () => {
+    if (selectedTickets.length === 0) {
+      toast.error('Pilih ticket terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`⚠️ PERINGATAN: Hapus ${selectedTickets.length} ticket yang dipilih?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const ticketId of selectedTickets) {
+        try {
+          await ticketService.deleteTicket(ticketId)
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to delete ticket ${ticketId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} ticket berhasil dihapus${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        refetch()
+        setSelectedTickets([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal hapus ticket')
+      }
+    } catch (error) {
+      console.error('Bulk delete error:', error)
+      toast.error('Terjadi kesalahan saat hapus ticket')
+    }
+  }
+
+  // ==================== COPY TO CLIPBOARD HANDLER ====================
+
+  const handleCopyToClipboard = (text, fieldName) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedField(fieldName)
+      toast.success(`${fieldName} berhasil di-copy!`)
+      setTimeout(() => setCopiedField(null), 2000)
+    }).catch(err => {
+      toast.error('Gagal copy ke clipboard')
+      console.error('Copy error:', err)
+    })
+  }
+
+  // ==================== QUICK ACTION HANDLERS ====================
+
+  const handleQuickAssign = (e, ticket) => {
+    e.stopPropagation() // Prevent row click
+    setSelectedTicketForAssignment(ticket)
+    setShowAssignmentModal(true)
+  }
+
+  const handleQuickComplete = async (e, ticket) => {
+    e.stopPropagation() // Prevent row click
+    
+    if (!window.confirm(`Mark ticket ${ticket.ticket_number} as completed?`)) return
+
+    try {
+      await ticketService.updateTicket(ticket.id, { status: 'completed' })
+      toast.success(`Ticket ${ticket.ticket_number} marked as completed`)
+      refetch()
+    } catch (error) {
+      toast.error('Failed to complete ticket')
+      console.error('Quick complete error:', error)
+    }
+  }
+
+  const handleQuickCall = (e, phone) => {
+    e.stopPropagation() // Prevent row click
+    window.location.href = `tel:${phone}`
+  }
+
+  const handleQuickEmail = (e, email) => {
+    e.stopPropagation() // Prevent row click
+    window.location.href = `mailto:${email}`
+  }
+
+  // ==================== RBAC CHECK ====================
+  
+  // All authenticated users can access Tickets page
+  const hasAccess = isAdmin || isSupervisor || isTechnician || isCustomerService
+  const canCreate = isAdmin || isSupervisor || isCustomerService
+  const canDelete = isAdmin
+  const canAssign = isAdmin || isSupervisor
+
   const stats = statsData?.data || {}
+
+  if (!hasAccess) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-96">
+        <ShieldAlert className="h-24 w-24 text-red-500 mb-4" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
+        <p className="text-gray-600 mb-4">You don't have permission to access Tickets.</p>
+        <p className="text-sm text-gray-500">This page is for staff only.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
@@ -241,15 +419,73 @@ const TicketsPage = () => {
               </>
             )}
           </button>
-          <button 
-            onClick={() => setShowCreateForm(true)}
-            className="btn-primary"
-          >
-            <Plus className="h-4 w-4 mr-2" />
-            New Ticket
-          </button>
+          {canCreate && (
+            <button 
+              onClick={() => setShowCreateForm(true)}
+              className="btn-primary"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              New Ticket
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Bulk Action Toolbar - Shows when items are selected */}
+      {selectedTickets.length > 0 && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-blue-900">
+                {selectedTickets.length} ticket dipilih
+              </span>
+              <button
+                onClick={() => {
+                  setSelectedTickets([])
+                  setSelectAll(false)
+                }}
+                className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                Batal Pilihan
+              </button>
+            </div>
+            <div className="flex gap-2">
+              {canAssign && (
+                <button
+                  onClick={() => {
+                    if (selectedTickets.length === 1) {
+                      const ticket = tickets.find(t => t.id === selectedTickets[0])
+                      handleQuickAssign({ stopPropagation: () => {} }, ticket)
+                    } else {
+                      toast.info('Bulk assign coming soon!')
+                    }
+                  }}
+                  className="px-3 py-1.5 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors text-sm inline-flex items-center"
+                >
+                  <UserPlus className="h-4 w-4 mr-1" />
+                  Assign
+                </button>
+              )}
+              <button
+                onClick={handleBulkClose}
+                className="px-3 py-1.5 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm inline-flex items-center"
+              >
+                <CheckCircle className="h-4 w-4 mr-1" />
+                Close
+              </button>
+              {canDelete && (
+                <button
+                  onClick={handleBulkDelete}
+                  className="px-3 py-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm inline-flex items-center"
+                >
+                  <Trash2 className="h-4 w-4 mr-1" />
+                  Delete
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Statistics Cards - Grouped by Status Type */}
       <div className="space-y-6">
@@ -422,9 +658,19 @@ const TicketsPage = () => {
             </div>
           ) : ticketsData?.data?.tickets?.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '1100px' }}>
+              <table className="table w-full" style={{ tableLayout: 'fixed', minWidth: '1200px' }}>
                 <thead className="table-header">
                   <tr>
+                    {/* Bulk Selection Checkbox */}
+                    <th className="table-header-cell" style={{ width: '50px' }}>
+                      <input
+                        type="checkbox"
+                        checked={selectAll}
+                        onChange={handleSelectAll}
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        title="Pilih Semua"
+                      />
+                    </th>
                     <th 
                       className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => handleSort('ticket_number')}
@@ -477,6 +723,7 @@ const TicketsPage = () => {
                         {getSortIcon('created_at')}
                       </div>
                     </th>
+                    <th className="table-header-cell" style={{ width: '120px' }}>Quick Actions</th>
                   </tr>
                 </thead>
                 <tbody className="table-body">
@@ -484,26 +731,70 @@ const TicketsPage = () => {
                     <tr 
                       key={ticket.id}
                       onClick={() => navigate(`/tickets/${ticket.id}`)}
-                      className="cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                      className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
                       title="Klik untuk lihat detail ticket"
                     >
+                      {/* Bulk Selection Checkbox */}
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedTickets.includes(ticket.id)}
+                          onChange={() => handleSelectTicket(ticket.id)}
+                          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                      </td>
+
+                      {/* Ticket Number & Title with Copy */}
                       <td className="table-cell">
                         <div>
-                          <div className="font-medium text-gray-900">
-                            {ticket.ticket_number}
+                          <div className="font-medium text-gray-900 flex items-center gap-1">
+                            <span>{ticket.ticket_number}</span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleCopyToClipboard(ticket.ticket_number, 'Ticket Number')
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                              title="Copy Ticket Number"
+                            >
+                              {copiedField === 'Ticket Number' ? (
+                                <Check className="h-3 w-3 text-green-600" />
+                              ) : (
+                                <Copy className="h-3 w-3 text-gray-500" />
+                              )}
+                            </button>
                           </div>
                           <div className="text-sm text-gray-500 truncate" title={ticket.title}>
                             {ticket.title}
                           </div>
                         </div>
                       </td>
+
+                      {/* Customer with Copy */}
                       <td className="table-cell">
                         <div>
                           <div className="font-medium text-gray-900 truncate" title={ticket.customer_name}>
                             {ticket.customer_name}
                           </div>
-                          <div className="text-sm text-gray-500 truncate">
-                            {ticket.customer_phone}
+                          <div className="text-sm text-gray-500 truncate flex items-center gap-1">
+                            <span>{ticket.customer_phone}</span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleCopyToClipboard(ticket.customer_phone, 'Phone')
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-0.5 hover:bg-gray-200 rounded transition-opacity"
+                              title="Copy Phone"
+                            >
+                              {copiedField === 'Phone' ? (
+                                <Check className="h-3 w-3 text-green-600" />
+                              ) : (
+                                <Copy className="h-3 w-3 text-gray-500" />
+                              )}
+                            </button>
                           </div>
                         </div>
                       </td>
@@ -536,6 +827,47 @@ const TicketsPage = () => {
                         </div>
                         <div className="text-sm text-gray-500">
                           {new Date(ticket.created_at).toLocaleTimeString()}
+                        </div>
+                      </td>
+
+                      {/* Quick Actions (appear on hover) */}
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {/* Quick Call */}
+                          {ticket.customer_phone && (
+                            <button
+                              onClick={(e) => handleQuickCall(e, ticket.customer_phone)}
+                              className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                              title="Call Customer"
+                            >
+                              <PhoneCall className="h-4 w-4 text-green-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Assign */}
+                          {canAssign && ticket.status !== 'completed' && ticket.status !== 'cancelled' && (
+                            <button
+                              onClick={(e) => handleQuickAssign(e, ticket)}
+                              className="p-1.5 hover:bg-purple-100 rounded transition-colors"
+                              title="Quick Assign"
+                            >
+                              <UserPlus className="h-4 w-4 text-purple-600" />
+                            </button>
+                          )}
+
+                          {/* Quick Complete */}
+                          {ticket.status !== 'completed' && ticket.status !== 'cancelled' && (
+                            <button
+                              onClick={(e) => handleQuickComplete(e, ticket)}
+                              className="p-1.5 hover:bg-green-100 rounded transition-colors"
+                              title="Mark as Completed"
+                            >
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>

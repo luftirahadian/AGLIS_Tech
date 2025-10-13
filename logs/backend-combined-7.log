@@ -991,3 +991,27 @@
 2025-10-13T10:05:52: ✅ Connected to PostgreSQL database
 2025-10-13T10:05:52: ✅ Connected to PostgreSQL database
 2025-10-13T10:05:52: 127.0.0.1 - - [13/Oct/2025:03:05:52 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:06:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:06:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:06:53: 127.0.0.1 - - [13/Oct/2025:03:06:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:07:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:07:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:07:53: 127.0.0.1 - - [13/Oct/2025:03:07:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:08:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:08:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:08:53: 127.0.0.1 - - [13/Oct/2025:03:08:53 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:09:53: ✅ Connected to PostgreSQL database
+2025-10-13T10:09:54: ✅ Connected to PostgreSQL database
+2025-10-13T10:09:54: 127.0.0.1 - - [13/Oct/2025:03:09:54 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:10:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:10:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:10:26: 127.0.0.1 - - [13/Oct/2025:03:10:26 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:11:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:11:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:11:26: 127.0.0.1 - - [13/Oct/2025:03:11:26 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:12:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:12:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:12:26: 127.0.0.1 - - [13/Oct/2025:03:12:26 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-13T10:13:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:13:26: ✅ Connected to PostgreSQL database
+2025-10-13T10:13:26: 127.0.0.1 - - [13/Oct/2025:03:13:26 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 152 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
