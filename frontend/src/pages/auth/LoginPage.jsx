@@ -123,16 +123,6 @@ const LoginPage = () => {
               )}
             </button>
           </div>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <h3 className="text-sm font-medium text-blue-800 mb-2">Demo Credentials:</h3>
-            <div className="text-xs text-blue-700 space-y-1">
-              <p><strong>Admin:</strong> admin / admin123</p>
-              <p><strong>Technician:</strong> tech1 / tech123</p>
-              <p><strong>Supervisor:</strong> supervisor / super123</p>
-            </div>
-          </div>
         </form>
       </div>
     </div>
