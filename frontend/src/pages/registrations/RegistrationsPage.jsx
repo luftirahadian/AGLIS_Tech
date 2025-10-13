@@ -4,7 +4,8 @@ import {
   UserPlus, Search, Filter, Eye, CheckCircle, XCircle, Clock,
   Calendar, Phone, Mail, MapPin, Package, Shield, FileCheck,
   UserCheck, ClipboardCheck, Home, ChevronRight, BarChart3,
-  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, Download, Loader2
+  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, Download, Loader2,
+  Copy, Check, PhoneCall, Mail as MailIcon, ShieldAlert, Trash2
 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
@@ -12,10 +13,13 @@ import registrationService from '../../services/registrationService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import { exportToExcel, formatCurrency as formatCurrencyExport, formatDate, formatDateOnly } from '../../utils/exportToExcel'
+import { useAuth } from '../../contexts/AuthContext'
 
 const RegistrationsPage = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { user: currentUser, isAdmin, isSupervisor, isCustomerService } = useAuth()
+  
   const [currentPage, setCurrentPage] = useState(1)
   const [limit, setLimit] = useState(10)
   const [selectedRegistration, setSelectedRegistration] = useState(null)
@@ -33,6 +37,13 @@ const RegistrationsPage = () => {
     status: '',
     dateFilter: '' // 'today' or ''
   })
+
+  // Bulk selection states
+  const [selectedRegistrations, setSelectedRegistrations] = useState([])
+  const [selectAll, setSelectAll] = useState(false)
+  
+  // Copy to clipboard state
+  const [copiedField, setCopiedField] = useState(null)
 
   // Format currency helper
   const formatCurrency = (amount) => {
@@ -255,6 +266,185 @@ const RegistrationsPage = () => {
       setIsExporting(false)
     }
   }
+
+  // ==================== BULK SELECTION HANDLERS ====================
+  
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedRegistrations(registrations.map(r => r.id))
+      setSelectAll(true)
+    } else {
+      setSelectedRegistrations([])
+      setSelectAll(false)
+    }
+  }
+
+  const handleSelectRegistration = (regId) => {
+    if (selectedRegistrations.includes(regId)) {
+      setSelectedRegistrations(selectedRegistrations.filter(id => id !== regId))
+      setSelectAll(false)
+    } else {
+      const newSelected = [...selectedRegistrations, regId]
+      setSelectedRegistrations(newSelected)
+      if (newSelected.length === registrations.length) {
+        setSelectAll(true)
+      }
+    }
+  }
+
+  // ==================== BULK ACTION HANDLERS ====================
+
+  const handleBulkVerify = async () => {
+    if (selectedRegistrations.length === 0) {
+      toast.error('Pilih registration terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Verify ${selectedRegistrations.length} registration yang dipilih?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const regId of selectedRegistrations) {
+        try {
+          await registrationService.updateStatus(regId, 'verified', { notes: 'Bulk verified' })
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to verify registration ${regId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} registration berhasil di-verify${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        queryClient.invalidateQueries(['registrations'])
+        queryClient.invalidateQueries('registration-stats')
+        setSelectedRegistrations([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal verify registration')
+      }
+    } catch (error) {
+      console.error('Bulk verify error:', error)
+      toast.error('Terjadi kesalahan saat verify registration')
+    }
+  }
+
+  const handleBulkReject = async () => {
+    if (selectedRegistrations.length === 0) {
+      toast.error('Pilih registration terlebih dahulu')
+      return
+    }
+
+    const reason = window.prompt('Alasan reject (akan diterapkan ke semua):')
+    if (!reason) return
+
+    if (!window.confirm(`⚠️ Reject ${selectedRegistrations.length} registration?`)) {
+      return
+    }
+
+    try {
+      let successCount = 0
+      let errorCount = 0
+
+      for (const regId of selectedRegistrations) {
+        try {
+          await registrationService.updateStatus(regId, 'rejected', { 
+            rejection_reason: reason,
+            notes: 'Bulk rejected'
+          })
+          successCount++
+        } catch (error) {
+          errorCount++
+          console.error(`Failed to reject registration ${regId}:`, error)
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`✅ ${successCount} registration berhasil di-reject${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+        queryClient.invalidateQueries(['registrations'])
+        queryClient.invalidateQueries('registration-stats')
+        setSelectedRegistrations([])
+        setSelectAll(false)
+      } else {
+        toast.error('Gagal reject registration')
+      }
+    } catch (error) {
+      console.error('Bulk reject error:', error)
+      toast.error('Terjadi kesalahan saat reject registration')
+    }
+  }
+
+  // ==================== COPY TO CLIPBOARD HANDLER ====================
+
+  const handleCopyToClipboard = (text, fieldName) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedField(fieldName)
+      toast.success(`${fieldName} berhasil di-copy!`)
+      setTimeout(() => setCopiedField(null), 2000)
+    }).catch(err => {
+      toast.error('Gagal copy ke clipboard')
+      console.error('Copy error:', err)
+    })
+  }
+
+  // ==================== QUICK ACTION HANDLERS ====================
+
+  const handleQuickVerify = async (e, registration) => {
+    e.stopPropagation()
+    
+    if (!window.confirm(`Verify registration ${registration.registration_number}?`)) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'verified', { notes: 'Quick verified' })
+      toast.success(`Registration ${registration.registration_number} verified`)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+    } catch (error) {
+      toast.error('Failed to verify registration')
+      console.error('Quick verify error:', error)
+    }
+  }
+
+  const handleQuickReject = async (e, registration) => {
+    e.stopPropagation()
+    
+    const reason = window.prompt('Alasan reject:')
+    if (!reason) return
+
+    try {
+      await registrationService.updateStatus(registration.id, 'rejected', { 
+        rejection_reason: reason,
+        notes: 'Quick rejected'
+      })
+      toast.success(`Registration ${registration.registration_number} rejected`)
+      queryClient.invalidateQueries(['registrations'])
+      queryClient.invalidateQueries('registration-stats')
+    } catch (error) {
+      toast.error('Failed to reject registration')
+      console.error('Quick reject error:', error)
+    }
+  }
+
+  const handleQuickCall = (e, phone) => {
+    e.stopPropagation()
+    window.location.href = `tel:${phone}`
+  }
+
+  const handleQuickEmail = (e, email) => {
+    e.stopPropagation()
+    window.location.href = `mailto:${email}`
+  }
+
+  // ==================== RBAC CHECK ====================
+  
+  const hasAccess = isAdmin || isSupervisor || isCustomerService
+  const canVerify = isAdmin || isSupervisor || isCustomerService
+  const canApprove = isAdmin || isSupervisor
+  const canReject = isAdmin || isSupervisor
 
   const stats = statsData || {}
   const totalRegistrations = registrationsData?.data?.pagination?.total || 0
