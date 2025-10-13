@@ -45,6 +45,11 @@ const userService = {
   updatePassword: async (id, data) => {
     const result = await api.put(`/users/${id}/password`, data)
     return result
+  },
+
+  resetPassword: async (id, new_password) => {
+    const result = await api.post(`/users/${id}/reset-password`, { new_password })
+    return result
   }
 }
 

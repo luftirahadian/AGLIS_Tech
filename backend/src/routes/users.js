@@ -1,9 +1,13 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
-const { authorize } = require('../middleware/auth');
+const { authMiddleware, authorize } = require('../middleware/auth');
 
 const router = express.Router();
+
+// Apply authMiddleware to all routes
+router.use(authMiddleware);
 
 // Get all users (admin/supervisor only)
 router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
@@ -12,11 +16,11 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
 
     let query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
-             u.is_active, u.avatar_url, u.last_login, u.created_at,
+             u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
              t.employee_id, t.availability_status
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
-      WHERE 1=1
+      WHERE u.deleted_at IS NULL
     `;
     const params = [];
     let paramCount = 0;
@@ -55,7 +59,7 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
     query += ` ORDER BY ${sortColumn} ${sortDirection}`;
 
     // Get total count
-    let countQuery = 'SELECT COUNT(*) as total FROM users u WHERE 1=1';
+    let countQuery = 'SELECT COUNT(*) as total FROM users u WHERE u.deleted_at IS NULL';
     const countParams = [];
     let countParamCount = 0;
 
@@ -112,6 +116,67 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
   }
 });
 
+// Create new user (admin only)
+router.post('/', [
+  authorize('admin'),
+  body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
+  body('email').isEmail().withMessage('Please provide a valid email'),
+  body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
+  body('full_name').notEmpty().withMessage('Full name is required'),
+  body('role').isIn(['admin', 'supervisor', 'technician', 'customer_service']).withMessage('Invalid role')
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation errors',
+        errors: errors.array()
+      });
+    }
+
+    const { username, email, password, full_name, phone, role, is_active = true } = req.body;
+
+    // Check if username or email already exists
+    const existingUser = await pool.query(
+      'SELECT id FROM users WHERE username = $1 OR email = $2',
+      [username, email]
+    );
+
+    if (existingUser.rows.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Username or email already exists'
+      });
+    }
+
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const password_hash = await bcrypt.hash(password, salt);
+
+    // Create user
+    const result = await pool.query(
+      `INSERT INTO users (username, email, password_hash, full_name, phone, role, is_active)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       RETURNING id, username, email, full_name, phone, role, is_active, created_at`,
+      [username, email, password_hash, full_name, phone, role, is_active]
+    );
+
+    res.status(201).json({
+      success: true,
+      message: 'User created successfully',
+      data: { user: result.rows[0] }
+    });
+
+  } catch (error) {
+    console.error('Create user error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Get user by ID
 router.get('/:id', async (req, res) => {
   try {
@@ -127,12 +192,12 @@ router.get('/:id', async (req, res) => {
 
     const query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
-             u.is_active, u.avatar_url, u.last_login, u.created_at,
+             u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
              t.employee_id, t.skills, t.service_areas, t.availability_status, 
              t.rating, t.total_completed_tickets, t.hire_date
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
-      WHERE u.id = $1
+      WHERE u.id = $1 AND u.deleted_at IS NULL
     `;
 
     const result = await pool.query(query, [id]);
@@ -271,10 +336,70 @@ router.put('/:id', [
   }
 });
 
-// Delete user (admin only)
+// Reset user password (admin only)
+router.post('/:id/reset-password', [
+  authorize('admin'),
+  body('new_password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation errors',
+        errors: errors.array()
+      });
+    }
+
+    const { id } = req.params;
+    const { new_password, force_change = true } = req.body;
+
+    // Check if user exists
+    const userCheck = await pool.query(
+      'SELECT id, username, email, full_name FROM users WHERE id = $1',
+      [id]
+    );
+
+    if (userCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+
+    // Hash new password
+    const salt = await bcrypt.genSalt(10);
+    const password_hash = await bcrypt.hash(new_password, salt);
+
+    // Update password
+    await pool.query(
+      'UPDATE users SET password_hash = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2',
+      [password_hash, id]
+    );
+
+    res.json({
+      success: true,
+      message: 'Password reset successfully',
+      data: {
+        user: userCheck.rows[0],
+        temporary_password: new_password
+      }
+    });
+
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Soft delete user (admin only)
 router.delete('/:id', authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
+    const { permanent = false } = req.query; // Support permanent delete via query param
 
     // Cannot delete yourself
     if (req.user.id === parseInt(id)) {
@@ -284,25 +409,73 @@ router.delete('/:id', authorize('admin'), async (req, res) => {
       });
     }
 
+    let result;
+    if (permanent) {
+      // Permanent delete (hard delete)
+      result = await pool.query(
+        'DELETE FROM users WHERE id = $1 RETURNING id, username',
+        [id]
+      );
+    } else {
+      // Soft delete
+      result = await pool.query(
+        `UPDATE users 
+         SET deleted_at = CURRENT_TIMESTAMP, deleted_by = $1
+         WHERE id = $2 AND deleted_at IS NULL
+         RETURNING id, username`,
+        [req.user.id, id]
+      );
+    }
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found or already deleted'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: `User ${permanent ? 'permanently' : 'successfully'} deleted`
+    });
+
+  } catch (error) {
+    console.error('Delete user error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Restore soft-deleted user (admin only)
+router.post('/:id/restore', authorize('admin'), async (req, res) => {
+  try {
+    const { id } = req.params;
+
     const result = await pool.query(
-      'DELETE FROM users WHERE id = $1 RETURNING id, username',
+      `UPDATE users 
+       SET deleted_at = NULL, deleted_by = NULL, updated_at = CURRENT_TIMESTAMP
+       WHERE id = $1 AND deleted_at IS NOT NULL
+       RETURNING id, username, email, full_name`,
       [id]
     );
 
     if (result.rows.length === 0) {
       return res.status(404).json({
         success: false,
-        message: 'User not found'
+        message: 'User not found or not deleted'
       });
     }
 
     res.json({
       success: true,
-      message: 'User deleted successfully'
+      message: 'User restored successfully',
+      data: { user: result.rows[0] }
     });
 
   } catch (error) {
-    console.error('Delete user error:', error);
+    console.error('Restore user error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'

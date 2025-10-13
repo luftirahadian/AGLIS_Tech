@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key } from 'lucide-react'
+import { useAuth } from '../../contexts/AuthContext'
 import userService from '../../services/userService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import UserModal from '../../components/users/UserModal'
+import ResetPasswordModal from '../../components/users/ResetPasswordModal'
 import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
 const UsersPage = () => {
+  const { user: currentUser, isAdmin, isSupervisor } = useAuth()
   const [searchTerm, setSearchTerm] = useState('')
   const [filterRole, setFilterRole] = useState('all')
   const [filterStatus, setFilterStatus] = useState('all')
+  const [filterLastLogin, setFilterLastLogin] = useState('all')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedUser, setSelectedUser] = useState(null)
+  const [isResetPasswordModalOpen, setIsResetPasswordModalOpen] = useState(false)
+  const [userToResetPassword, setUserToResetPassword] = useState(null)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('desc')
   const [page, setPage] = useState(1)
@@ -21,7 +27,7 @@ const UsersPage = () => {
 
   // Fetch Users with pagination
   const { data: usersResponse, isLoading } = useQuery(
-    ['users-list', filterRole, filterStatus, searchTerm, sortBy, sortOrder, page, limit],
+    ['users-list', filterRole, filterStatus, filterLastLogin, searchTerm, sortBy, sortOrder, page, limit],
     () => userService.getAll({
       role: filterRole !== 'all' ? filterRole : undefined,
       status: filterStatus !== 'all' ? filterStatus : undefined,
@@ -39,6 +45,28 @@ const UsersPage = () => {
 
   const users = Array.isArray(usersResponse?.data) ? usersResponse.data : []
   const pagination = usersResponse?.pagination || {}
+
+  // Client-side filter for last login (since backend doesn't support this yet)
+  const filteredUsers = users.filter(user => {
+    if (filterLastLogin === 'all') return true
+    
+    const lastLogin = user.last_login ? new Date(user.last_login) : null
+    const now = new Date()
+    const daysDiff = lastLogin ? Math.floor((now - lastLogin) / (1000 * 60 * 60 * 24)) : null
+    
+    switch(filterLastLogin) {
+      case 'today':
+        return daysDiff === 0
+      case 'week':
+        return daysDiff !== null && daysDiff <= 7
+      case 'month':
+        return daysDiff !== null && daysDiff <= 30
+      case 'never':
+        return lastLogin === null
+      default:
+        return true
+    }
+  })
 
   // Fetch all users for stats
   const { data: allUsersResponse } = useQuery(
@@ -78,6 +106,21 @@ const UsersPage = () => {
   const handleEdit = (user) => {
     setSelectedUser(user)
     setIsModalOpen(true)
+  }
+
+  const handleResetPassword = (user) => {
+    setUserToResetPassword(user)
+    setIsResetPasswordModalOpen(true)
+  }
+
+  const handleResetPasswordClose = () => {
+    setIsResetPasswordModalOpen(false)
+    setUserToResetPassword(null)
+  }
+
+  const handleResetPasswordSuccess = () => {
+    queryClient.invalidateQueries(['users-list'])
+    // Don't close modal yet, let user see the generated password
   }
 
   const handleDelete = (id, name) => {
@@ -126,6 +169,8 @@ const UsersPage = () => {
       setFilterRole(value)
     } else if (filterType === 'status') {
       setFilterStatus(value)
+    } else if (filterType === 'lastLogin') {
+      setFilterLastLogin(value)
     }
     setPage(1)
   }
@@ -152,6 +197,18 @@ const UsersPage = () => {
       <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${badges[role] || 'bg-gray-100 text-gray-800'}`}>
         {labels[role] || role}
       </span>
+    )
+  }
+
+  // RBAC: Only Admin & Supervisor can access this page
+  if (!isAdmin && !isSupervisor) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-96">
+        <ShieldAlert className="h-24 w-24 text-red-500 mb-4" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
+        <p className="text-gray-600 mb-4">You don't have permission to access User Management.</p>
+        <p className="text-sm text-gray-500">Required role: Admin or Supervisor</p>
+      </div>
     )
   }
 
@@ -262,10 +319,14 @@ const UsersPage = () => {
             </label>
             <select
               className="form-input"
-              value="all"
-              onChange={(e) => {}}
+              value={filterLastLogin}
+              onChange={(e) => handleFilterChange('lastLogin', e.target.value)}
             >
               <option value="all">Semua Waktu</option>
+              <option value="today">Hari Ini</option>
+              <option value="week">7 Hari Terakhir</option>
+              <option value="month">30 Hari Terakhir</option>
+              <option value="never">Belum Pernah</option>
             </select>
           </div>
         </div>
@@ -281,6 +342,12 @@ const UsersPage = () => {
             <Plus className="h-4 w-4 mr-2" />
             Tambah User
           </button>
+        </div>
+      ) : filteredUsers.length === 0 ? (
+        <div className="bg-white shadow rounded-lg p-12 text-center">
+          <Search className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Tidak ada hasil</h3>
+          <p className="text-gray-500 mb-4">Coba ubah filter atau search keyword</p>
         </div>
       ) : (
         <>
@@ -353,7 +420,7 @@ const UsersPage = () => {
                     </tr>
                   </thead>
                   <tbody className="table-body">
-                    {users.map((user) => (
+                    {filteredUsers.map((user) => (
                       <tr key={user.id}>
                         <td className="table-cell">
                           <div className="flex items-center">
@@ -396,21 +463,43 @@ const UsersPage = () => {
                           </span>
                         </td>
                         <td className="table-cell text-center">
-                          <div className="flex justify-center space-x-2">
-                            <button
-                              onClick={() => handleEdit(user)}
-                              className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                              title="Edit User"
-                            >
-                              <Edit className="h-4 w-4" />
-                            </button>
-                            <button
-                              onClick={() => handleDelete(user.id, user.full_name)}
-                              className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
-                              title="Delete User"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
+                          <div className="flex justify-center space-x-1">
+                            {/* Edit: Admin & Supervisor can edit */}
+                            {(isAdmin || isSupervisor) && (
+                              <button
+                                onClick={() => handleEdit(user)}
+                                className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                                title="Edit User"
+                              >
+                                <Edit className="h-4 w-4" />
+                              </button>
+                            )}
+                            {/* Reset Password: Only Admin */}
+                            {isAdmin && user.id !== currentUser?.id && (
+                              <button
+                                onClick={() => handleResetPassword(user)}
+                                className="inline-flex items-center justify-center w-8 h-8 text-orange-600 hover:text-orange-800 hover:bg-orange-50 rounded-md transition-colors"
+                                title="Reset Password"
+                              >
+                                <Key className="h-4 w-4" />
+                              </button>
+                            )}
+                            {/* Delete: Only Admin can delete */}
+                            {isAdmin && user.id !== currentUser?.id && (
+                              <button
+                                onClick={() => handleDelete(user.id, user.full_name)}
+                                className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
+                                title="Delete User"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </button>
+                            )}
+                            {/* Prevent self-actions */}
+                            {user.id === currentUser?.id && (
+                              <span className="text-xs text-gray-400 px-2" title="Cannot modify yourself">
+                                -
+                              </span>
+                            )}
                           </div>
                         </td>
                       </tr>
@@ -513,6 +602,15 @@ const UsersPage = () => {
           user={selectedUser}
           onClose={handleModalClose}
           onSuccess={handleSuccess}
+        />
+      )}
+
+      {/* Reset Password Modal */}
+      {isResetPasswordModalOpen && userToResetPassword && (
+        <ResetPasswordModal
+          user={userToResetPassword}
+          onClose={handleResetPasswordClose}
+          onSuccess={handleResetPasswordSuccess}
         />
       )}
     </div>
