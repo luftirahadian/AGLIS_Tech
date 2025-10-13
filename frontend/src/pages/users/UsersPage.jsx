@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key, Copy, Check, Download, FileSpreadsheet } from 'lucide-react'
+import { UserCheck, Plus, Search, Trash2, Edit, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, ShieldAlert, Key, Copy, Check, Download, FileSpreadsheet, Mail, MailCheck, Upload } from 'lucide-react'
 import * as XLSX from 'xlsx'
 import { useAuth } from '../../contexts/AuthContext'
 import userService from '../../services/userService'
@@ -8,6 +8,9 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import UserModal from '../../components/users/UserModal'
 import ResetPasswordModal from '../../components/users/ResetPasswordModal'
 import DeleteConfirmationModal from '../../components/users/DeleteConfirmationModal'
+import UserDetailModal from '../../components/users/UserDetailModal'
+import ImportUsersModal from '../../components/users/ImportUsersModal'
+import ActivityLogPanel from '../../components/users/ActivityLogPanel'
 import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
@@ -26,6 +29,9 @@ const UsersPage = () => {
   const [selectedUsers, setSelectedUsers] = useState([])
   const [selectAll, setSelectAll] = useState(false)
   const [copiedField, setCopiedField] = useState(null)
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false)
+  const [userToView, setUserToView] = useState(null)
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('desc')
   const [page, setPage] = useState(1)
@@ -228,6 +234,31 @@ const UsersPage = () => {
     setTimeout(() => setCopiedField(null), 2000)
   }
 
+  // View user detail
+  const handleViewDetail = (user) => {
+    setUserToView(user)
+    setIsDetailModalOpen(true)
+  }
+
+  const handleDetailModalClose = () => {
+    setIsDetailModalOpen(false)
+    setUserToView(null)
+  }
+
+  // Import users
+  const handleImport = () => {
+    setIsImportModalOpen(true)
+  }
+
+  const handleImportClose = () => {
+    setIsImportModalOpen(false)
+  }
+
+  const handleImportSuccess = () => {
+    queryClient.invalidateQueries(['users-list'])
+    queryClient.invalidateQueries('all-users-stats')
+  }
+
   // Export to Excel
   const handleExportExcel = () => {
     const exportData = filteredUsers.map(user => ({
@@ -394,6 +425,17 @@ const UsersPage = () => {
           <p className="text-gray-600">Kelola pengguna sistem dan akses</p>
         </div>
         <div className="flex items-center space-x-3">
+          {/* Import Button */}
+          {isAdmin && (
+            <button 
+              onClick={handleImport}
+              className="btn-outline flex items-center"
+            >
+              <Upload className="h-4 w-4 mr-2" />
+              Import
+            </button>
+          )}
+
           {/* Export Dropdown */}
           <div className="relative group">
             <button className="btn-outline flex items-center">
@@ -688,9 +730,14 @@ const UsersPage = () => {
                               </div>
                             </div>
                             <div className="ml-3">
-                              <div className="text-sm font-medium text-gray-900 truncate" style={{ maxWidth: '130px' }}>
+                              <button
+                                onClick={() => handleViewDetail(user)}
+                                className="text-sm font-medium text-blue-600 hover:text-blue-800 truncate cursor-pointer text-left"
+                                style={{ maxWidth: '130px' }}
+                                title="Click to view details"
+                              >
                                 {user.full_name}
-                              </div>
+                              </button>
                               <div className="text-xs text-gray-500 truncate" style={{ maxWidth: '130px' }}>
                                 @{user.username}
                               </div>
@@ -699,12 +746,19 @@ const UsersPage = () => {
                         </td>
                         <td className="table-cell">
                           <div className="flex items-center group">
-                            <div className="text-sm text-gray-900 truncate flex-1" title={user.email}>
-                              {user.email}
+                            <div className="flex items-center flex-1 min-w-0">
+                              <div className="text-sm text-gray-900 truncate" title={user.email}>
+                                {user.email}
+                              </div>
+                              {user.email_verified ? (
+                                <MailCheck className="h-4 w-4 text-green-600 ml-1 flex-shrink-0" title="Email verified" />
+                              ) : (
+                                <Mail className="h-4 w-4 text-gray-400 ml-1 flex-shrink-0" title="Email not verified" />
+                              )}
                             </div>
                             <button
                               onClick={() => handleCopyToClipboard(user.email, `email-${user.id}`)}
-                              className="ml-2 opacity-0 group-hover:opacity-100 p-1 hover:bg-gray-100 rounded transition-all"
+                              className="ml-2 opacity-0 group-hover:opacity-100 p-1 hover:bg-gray-100 rounded transition-all flex-shrink-0"
                               title="Copy email"
                             >
                               {copiedField === `email-${user.id}` ? (
@@ -909,6 +963,27 @@ const UsersPage = () => {
           onClose={handleDeleteClose}
           onSuccess={handleDeleteSuccess}
         />
+      )}
+
+      {/* User Detail Modal */}
+      {isDetailModalOpen && userToView && (
+        <UserDetailModal
+          user={userToView}
+          onClose={handleDetailModalClose}
+        />
+      )}
+
+      {/* Import Users Modal */}
+      {isImportModalOpen && (
+        <ImportUsersModal
+          onClose={handleImportClose}
+          onSuccess={handleImportSuccess}
+        />
+      )}
+
+      {/* Activity Log Panel */}
+      {(isAdmin || isSupervisor) && (
+        <ActivityLogPanel limit={15} />
       )}
     </div>
   )

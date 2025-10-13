@@ -50,6 +50,25 @@ const userService = {
   resetPassword: async (id, new_password) => {
     const result = await api.post(`/users/${id}/reset-password`, { new_password })
     return result
+  },
+
+  getActivityLogs: async (params = {}) => {
+    try {
+      const queryParams = new URLSearchParams()
+      
+      if (params.user_id) queryParams.append('user_id', params.user_id)
+      if (params.target_user_id) queryParams.append('target_user_id', params.target_user_id)
+      if (params.action) queryParams.append('action', params.action)
+      if (params.limit) queryParams.append('limit', params.limit)
+      if (params.page) queryParams.append('page', params.page)
+      
+      const queryString = queryParams.toString()
+      const response = await api.get(`/users/activity-logs/list${queryString ? '?' + queryString : ''}`)
+      return response
+    } catch (error) {
+      console.error('❌ Get activity logs error:', error)
+      return { data: [] }
+    }
   }
 }
 

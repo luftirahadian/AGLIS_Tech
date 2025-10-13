@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 const { authMiddleware, authorize } = require('../middleware/auth');
+const { logActivity, getActivityLogs } = require('../utils/activityLogger');
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.get('/', authorize('admin', 'supervisor'), async (req, res) => {
     let query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
+             u.email_verified, u.email_verified_at,
              t.employee_id, t.availability_status
       FROM users u
       LEFT JOIN technicians t ON u.id = t.user_id
@@ -162,6 +164,17 @@ router.post('/', [
       [username, email, password_hash, full_name, phone, role, is_active]
     );
 
+    // Log activity
+    await logActivity({
+      userId: req.user.id,
+      action: 'created',
+      targetUserId: result.rows[0].id,
+      targetUsername: username,
+      details: { role, is_active },
+      ipAddress: req.ip,
+      userAgent: req.get('user-agent')
+    });
+
     res.status(201).json({
       success: true,
       message: 'User created successfully',
@@ -193,6 +206,7 @@ router.get('/:id', async (req, res) => {
     const query = `
       SELECT u.id, u.username, u.email, u.full_name, u.phone, u.role, 
              u.is_active, u.avatar_url, u.last_login, u.created_at, u.deleted_at,
+             u.email_verified, u.email_verified_at,
              t.employee_id, t.skills, t.service_areas, t.availability_status, 
              t.rating, t.total_completed_tickets, t.hire_date
       FROM users u
@@ -321,6 +335,17 @@ router.put('/:id', [
       });
     }
 
+    // Log activity
+    await logActivity({
+      userId: req.user.id,
+      action: 'updated',
+      targetUserId: parseInt(id),
+      targetUsername: result.rows[0].username,
+      details: { full_name, email, phone, role, is_active },
+      ipAddress: req.ip,
+      userAgent: req.get('user-agent')
+    });
+
     res.json({
       success: true,
       message: 'User updated successfully',
@@ -376,6 +401,17 @@ router.post('/:id/reset-password', [
       'UPDATE users SET password_hash = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2',
       [password_hash, id]
     );
+
+    // Log activity
+    await logActivity({
+      userId: req.user.id,
+      action: 'password_reset',
+      targetUserId: parseInt(id),
+      targetUsername: userCheck.rows[0].username,
+      details: { reset_by: 'admin' },
+      ipAddress: req.ip,
+      userAgent: req.get('user-agent')
+    });
 
     res.json({
       success: true,
@@ -434,6 +470,17 @@ router.delete('/:id', authorize('admin'), async (req, res) => {
       });
     }
 
+    // Log activity
+    await logActivity({
+      userId: req.user.id,
+      action: permanent ? 'deleted_permanent' : 'deleted',
+      targetUserId: parseInt(id),
+      targetUsername: result.rows[0].username,
+      details: { permanent },
+      ipAddress: req.ip,
+      userAgent: req.get('user-agent')
+    });
+
     res.json({
       success: true,
       message: `User ${permanent ? 'permanently' : 'successfully'} deleted`
@@ -468,6 +515,17 @@ router.post('/:id/restore', authorize('admin'), async (req, res) => {
       });
     }
 
+    // Log activity
+    await logActivity({
+      userId: req.user.id,
+      action: 'restored',
+      targetUserId: parseInt(id),
+      targetUsername: result.rows[0].username,
+      details: {},
+      ipAddress: req.ip,
+      userAgent: req.get('user-agent')
+    });
+
     res.json({
       success: true,
       message: 'User restored successfully',
@@ -476,6 +534,34 @@ router.post('/:id/restore', authorize('admin'), async (req, res) => {
 
   } catch (error) {
     console.error('Restore user error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+// Get activity logs (admin/supervisor only)
+router.get('/activity-logs/list', authorize('admin', 'supervisor'), async (req, res) => {
+  try {
+    const { user_id, target_user_id, action, limit = 50, page = 1 } = req.query;
+    const offset = (parseInt(page) - 1) * parseInt(limit);
+
+    const logs = await getActivityLogs({
+      userId: user_id ? parseInt(user_id) : null,
+      targetUserId: target_user_id ? parseInt(target_user_id) : null,
+      action,
+      limit: parseInt(limit),
+      offset
+    });
+
+    res.json({
+      success: true,
+      data: logs
+    });
+
+  } catch (error) {
+    console.error('Get activity logs error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'
