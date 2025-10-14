@@ -82,10 +82,22 @@ const CustomerDetailPage = () => {
     }
   )
 
+  // Fetch customer invoices
+  const { data: invoicesData } = useQuery(
+    ['customer-invoices', id],
+    () => invoiceService.getAll({ customer_id: id, limit: 50 }),
+    {
+      enabled: !!id && activeTab === 'billing',
+      staleTime: 30000
+    }
+  );
+
   const packages = packagesData || []
   const customerTickets = Array.isArray(ticketsData?.data?.tickets) 
     ? ticketsData.data.tickets 
     : []
+  const customerInvoices = invoicesData?.data?.invoices || [];
+  const invoiceStats = invoicesData?.data?.statistics || {};
 
   // Listen to socket events for real-time updates
   useEffect(() => {
@@ -422,19 +434,6 @@ const CustomerDetailPage = () => {
       setEditedAddress(customer.address)
     }
   }
-
-  // Fetch customer invoices
-  const { data: invoicesData } = useQuery(
-    ['customer-invoices', id],
-    () => invoiceService.getAll({ customer_id: id, limit: 50 }),
-    {
-      enabled: !!id && activeTab === 'billing',
-      staleTime: 30000
-    }
-  );
-
-  const customerInvoices = invoicesData?.data?.invoices || [];
-  const invoiceStats = invoicesData?.data?.statistics || {};
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: User },
