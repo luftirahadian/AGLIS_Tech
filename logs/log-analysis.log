@@ -1988,3 +1988,37 @@ Recent application errors:
 9|aglis-backend-3  | 2025-10-14T09:02:32:   line: '3647',
 9|aglis-backend-3  | 2025-10-14T09:02:32:   routine: 'errorMissingColumn'
 9|aglis-backend-3  | 2025-10-14T09:02:32: }
+7|aglis-backend-1  | 2025-10-14T09:04:07: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at JSON.parse (<anonymous>)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 2025-10-14T09:04:07:   expose: true,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   status: 400,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   body: '"verified"',
+7|aglis-backend-1  | 2025-10-14T09:04:07:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T09:04:07: }
+7|aglis-backend-1  | 2025-10-14T09:04:07: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at JSON.parse (<anonymous>)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1  | 2025-10-14T09:04:07:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 2025-10-14T09:04:07:   expose: true,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   status: 400,
+7|aglis-backend-1  | 2025-10-14T09:04:07:   body: '"verified"',
+7|aglis-backend-1  | 2025-10-14T09:04:07:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T09:04:07: }

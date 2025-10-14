@@ -169,13 +169,16 @@ const RegistrationDetailPage = () => {
 
   const confirmQuickVerify = async () => {
     try {
-      await registrationService.updateStatus(registration.id, 'verified', { notes: 'Quick verified' })
-      toast.success(`Registration ${registration.registration_number} verified`)
+      await registrationService.updateStatus(registration.id, { 
+        status: 'verified', 
+        notes: 'Quick verified via detail page' 
+      })
+      toast.success(`✅ Registration ${registration.registration_number} verified`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
       setShowVerifyModal(false)
     } catch (error) {
-      toast.error('Failed to verify registration')
+      toast.error('❌ Failed to verify registration')
       console.error('Quick verify error:', error)
     }
   }
@@ -187,22 +190,23 @@ const RegistrationDetailPage = () => {
 
   const confirmQuickReject = async () => {
     if (!rejectReason.trim()) {
-      toast.error('Alasan reject wajib diisi')
+      toast.error('⚠️ Alasan reject wajib diisi')
       return
     }
 
     try {
-      await registrationService.updateStatus(registration.id, 'rejected', { 
+      await registrationService.updateStatus(registration.id, { 
+        status: 'rejected',
         rejection_reason: rejectReason,
-        notes: 'Quick rejected'
+        notes: rejectReason
       })
-      toast.success(`Registration ${registration.registration_number} rejected`)
+      toast.success(`✅ Registration ${registration.registration_number} rejected`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
       setShowRejectModal(false)
       setRejectReasonInput('')
     } catch (error) {
-      toast.error('Failed to reject registration')
+      toast.error('❌ Failed to reject registration')
       console.error('Quick reject error:', error)
     }
   }
@@ -213,13 +217,16 @@ const RegistrationDetailPage = () => {
 
   const confirmQuickApprove = async () => {
     try {
-      await registrationService.updateStatus(registration.id, 'approved', { notes: 'Quick approved' })
-      toast.success(`Registration ${registration.registration_number} approved`)
+      await registrationService.updateStatus(registration.id, { 
+        status: 'approved', 
+        notes: 'Quick approved via detail page' 
+      })
+      toast.success(`✅ Registration ${registration.registration_number} approved`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
       setShowApproveModal(false)
     } catch (error) {
-      toast.error('Failed to approve registration')
+      toast.error('❌ Failed to approve registration')
       console.error('Quick approve error:', error)
     }
   }
@@ -236,16 +243,17 @@ const RegistrationDetailPage = () => {
     }
 
     try {
-      await registrationService.updateStatus(registration.id, 'survey_scheduled', { 
+      await registrationService.updateStatus(registration.id, { 
+        status: 'survey_scheduled',
         survey_date: surveyDateInput,
-        notes: 'Survey scheduled via quick action'
+        notes: `Survey scheduled for ${surveyDateInput}`
       })
-      toast.success(`Survey scheduled for ${registration.registration_number}`)
+      toast.success(`✅ Survey scheduled for ${registration.registration_number}`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
       setShowScheduleSurveyModal(false)
     } catch (error) {
-      toast.error('Failed to schedule survey')
+      toast.error('❌ Failed to schedule survey')
       console.error('Quick schedule survey error:', error)
     }
   }

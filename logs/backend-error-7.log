@@ -263,3 +263,20 @@
 2025-10-14T09:02:31:   line: '3647',
 2025-10-14T09:02:31:   routine: 'errorMissingColumn'
 2025-10-14T09:02:31: }
+2025-10-14T09:04:07: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T09:04:07:     at JSON.parse (<anonymous>)
+2025-10-14T09:04:07:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T09:04:07:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T09:04:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T09:04:07:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:04:07:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T09:04:07:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T09:04:07:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T09:04:07:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T09:04:07:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T09:04:07:   expose: true,
+2025-10-14T09:04:07:   statusCode: 400,
+2025-10-14T09:04:07:   status: 400,
+2025-10-14T09:04:07:   body: '"verified"',
+2025-10-14T09:04:07:   type: 'entity.parse.failed'
+2025-10-14T09:04:07: }

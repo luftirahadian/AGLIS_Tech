@@ -1913,3 +1913,68 @@
 2025-10-14T09:02:15: 103.55.224.49 - - [14/Oct/2025:02:02:15 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-14T09:02:31: ✅ Connected to PostgreSQL database
 2025-10-14T09:02:31: 103.55.224.49 - - [14/Oct/2025:02:02:31 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:43: 103.55.224.49 - - [14/Oct/2025:02:02:43 +0000] "GET /api/registrations/9 HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/9" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:47: 103.55.224.49 - - [14/Oct/2025:02:02:47 +0000] "GET /api/registrations/8 HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:58: 103.55.224.49 - - [14/Oct/2025:02:02:58 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:03:31: ✅ Connected to PostgreSQL database
+2025-10-14T09:03:31: ✅ Connected to PostgreSQL database
+2025-10-14T09:03:31: 103.55.224.49 - - [14/Oct/2025:02:03:31 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/7" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:04:12: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T09:04:12: ✅ Connected to PostgreSQL database
+2025-10-14T09:04:12: 📱 WhatsApp sent to 628197670700 via fonnte
+2025-10-14T09:04:12: 📱 WhatsApp status update sent: {
+2025-10-14T09:04:12:   success: true,
+2025-10-14T09:04:12:   data: {
+2025-10-14T09:04:12:     detail: 'success! message in queue',
+2025-10-14T09:04:12:     id: [ '125779442' ],
+2025-10-14T09:04:12:     process: 'pending',
+2025-10-14T09:04:12:     quota: { '628179380800': [Object] },
+2025-10-14T09:04:12:     requestid: 144964217,
+2025-10-14T09:04:12:     status: true,
+2025-10-14T09:04:12:     target: [ '628197670700' ]
+2025-10-14T09:04:12:   },
+2025-10-14T09:04:12:   provider: 'fonnte'
+2025-10-14T09:04:12: }
+2025-10-14T09:04:12: 📡 [Socket.IO] Registration status update emitted: pending_verification → verified
+2025-10-14T09:04:12: 103.55.224.49 - - [14/Oct/2025:02:04:12 +0000] "PUT /api/registrations/5/status HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:04:16: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T09:04:16: 📱 WhatsApp sent to 628197670700 via fonnte
+2025-10-14T09:04:16: 📱 WhatsApp status update sent: {
+2025-10-14T09:04:16:   success: true,
+2025-10-14T09:04:16:   data: {
+2025-10-14T09:04:16:     detail: 'success! message in queue',
+2025-10-14T09:04:16:     id: [ '125779461' ],
+2025-10-14T09:04:16:     process: 'pending',
+2025-10-14T09:04:16:     quota: { '628179380800': [Object] },
+2025-10-14T09:04:16:     requestid: 144964260,
+2025-10-14T09:04:16:     status: true,
+2025-10-14T09:04:16:     target: [ '628197670700' ]
+2025-10-14T09:04:16:   },
+2025-10-14T09:04:16:   provider: 'fonnte'
+2025-10-14T09:04:16: }
+2025-10-14T09:04:16: 📡 [Socket.IO] Registration status update emitted: verified → approved
+2025-10-14T09:04:16: 103.55.224.49 - - [14/Oct/2025:02:04:16 +0000] "PUT /api/registrations/5/status HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:04:18: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T09:04:18: 📝 Starting customer creation for registration ID: 5
+2025-10-14T09:04:18: 📋 Registration data: {
+2025-10-14T09:04:18:   name: 'Nabila',
+2025-10-14T09:04:18:   email: 'nabila@gmail.com',
+2025-10-14T09:04:18:   phone: '08197670700',
+2025-10-14T09:04:18:   ktp: null
+2025-10-14T09:04:18: }
+2025-10-14T09:04:18: ✅ Transaction BEGIN
+2025-10-14T09:04:18: ✅ Customer created: { id: 14, customer_id: 'AGLS202510140008', name: 'Nabila', ktp: null }
+2025-10-14T09:04:19: ✅ Ticket created: { id: 15, ticket_number: 'TKT20251014008', customer_id: 14 }
+2025-10-14T09:04:19: 📝 Updating registration 5 with customer_id=14, ticket_id=15
+2025-10-14T09:04:19: ✅ Registration updated: {
+2025-10-14T09:04:19:   id: 5,
+2025-10-14T09:04:19:   status: 'customer_created',
+2025-10-14T09:04:19:   customer_id: 14,
+2025-10-14T09:04:19:   installation_ticket_id: 15
+2025-10-14T09:04:19: }
+2025-10-14T09:04:19: ✅ Transaction COMMITTED
+2025-10-14T09:04:19: ✅ Customer AGLS202510140008 and ticket TKT20251014008 created from registration REG-20251013-0005
+2025-10-14T09:04:19: 103.55.224.49 - - [14/Oct/2025:02:04:19 +0000] "POST /api/registrations/5/create-customer HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:04:22: 103.55.224.49 - - [14/Oct/2025:02:04:22 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:05:01: 103.55.225.241 - - [14/Oct/2025:02:05:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T09:05:16: 👤 User disconnected: jbx1mgum-BA1KuAcAAAB
