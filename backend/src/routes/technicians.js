@@ -326,6 +326,41 @@ router.post('/', [
       work_zone, max_daily_tickets, preferred_shift
     } = req.body;
 
+    // VALIDATION: Check if user_id already has technician profile
+    if (user_id) {
+      const existingTech = await pool.query(
+        'SELECT id, employee_id FROM technicians WHERE user_id = $1',
+        [user_id]
+      );
+
+      if (existingTech.rows.length > 0) {
+        return res.status(400).json({
+          success: false,
+          message: `This user already has a technician profile (${existingTech.rows[0].employee_id}). Cannot create duplicate.`
+        });
+      }
+
+      // Verify user exists and has technician role
+      const userCheck = await pool.query(
+        'SELECT id, role, full_name, email, phone FROM users WHERE id = $1',
+        [user_id]
+      );
+
+      if (userCheck.rows.length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'User not found'
+        });
+      }
+
+      if (userCheck.rows[0].role !== 'technician') {
+        return res.status(400).json({
+          success: false,
+          message: `User role must be 'technician' (current: ${userCheck.rows[0].role})`
+        });
+      }
+    }
+
     const query = `
       INSERT INTO technicians (
         user_id, employee_id, full_name, phone, phone_alt, email, address,

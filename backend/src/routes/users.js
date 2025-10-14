@@ -159,30 +159,97 @@ router.post('/', createUserLimiter, [
     const salt = await bcrypt.genSalt(10);
     const password_hash = await bcrypt.hash(password, salt);
 
-    // Create user
-    const result = await pool.query(
-      `INSERT INTO users (username, email, password_hash, full_name, phone, role, is_active)
-       VALUES ($1, $2, $3, $4, $5, $6, $7)
-       RETURNING id, username, email, full_name, phone, role, is_active, created_at`,
-      [username, email, password_hash, full_name, phone, role, is_active]
-    );
+    // Start transaction for atomic user + technician creation
+    const client = await pool.connect();
+    
+    try {
+      await client.query('BEGIN');
 
-    // Log activity
-    await logActivity({
-      userId: req.user.id,
-      action: 'created',
-      targetUserId: result.rows[0].id,
-      targetUsername: username,
-      details: { role, is_active },
-      ipAddress: req.ip,
-      userAgent: req.get('user-agent')
-    });
+      // Create user
+      const userResult = await client.query(
+        `INSERT INTO users (username, email, password_hash, full_name, phone, role, is_active)
+         VALUES ($1, $2, $3, $4, $5, $6, $7)
+         RETURNING id, username, email, full_name, phone, role, is_active, created_at`,
+        [username, email, password_hash, full_name, phone, role, is_active]
+      );
 
-    res.status(201).json({
-      success: true,
-      message: 'User created successfully',
-      data: { user: result.rows[0] }
-    });
+      const newUser = userResult.rows[0];
+      let technicianProfile = null;
+
+      // AUTO-CREATE TECHNICIAN PROFILE if role is 'technician'
+      if (role === 'technician') {
+        // Generate employee_id automatically
+        const employeeIdResult = await client.query(
+          `SELECT COALESCE(MAX(CAST(SUBSTRING(employee_id FROM 4) AS INTEGER)), 0) + 1 as next_num
+           FROM technicians 
+           WHERE employee_id ~ '^TEC[0-9]+$'`
+        );
+        const nextNum = employeeIdResult.rows[0].next_num;
+        const employee_id = `TEC${String(nextNum).padStart(4, '0')}`; // e.g., TEC0001
+
+        // Create technician profile with default values
+        const techResult = await client.query(
+          `INSERT INTO technicians (
+            user_id, employee_id, full_name, phone, email,
+            hire_date, employment_status, position, department,
+            skill_level, work_zone, max_daily_tickets,
+            availability_status, is_available, created_by
+          ) VALUES (
+            $1, $2, $3, $4, $5, 
+            CURRENT_DATE, $6, 'Field Technician', 'field_operations',
+            'junior', 'Karawang', 8,
+            'offline', false, $7
+          ) RETURNING *`,
+          [
+            newUser.id, 
+            employee_id, 
+            full_name, 
+            phone, 
+            email,
+            is_active ? 'active' : 'inactive',
+            req.user.id
+          ]
+        );
+
+        technicianProfile = techResult.rows[0];
+        console.log(`✅ Auto-created technician profile ${employee_id} for user ${username}`);
+      }
+
+      await client.query('COMMIT');
+
+      // Log activity
+      await logActivity({
+        userId: req.user.id,
+        action: 'created',
+        targetUserId: newUser.id,
+        targetUsername: username,
+        details: { 
+          role, 
+          is_active,
+          auto_created_technician: role === 'technician',
+          technician_employee_id: technicianProfile?.employee_id
+        },
+        ipAddress: req.ip,
+        userAgent: req.get('user-agent')
+      });
+
+      res.status(201).json({
+        success: true,
+        message: role === 'technician' 
+          ? `User and technician profile created successfully (${technicianProfile.employee_id})`
+          : 'User created successfully',
+        data: { 
+          user: newUser,
+          technician: technicianProfile
+        }
+      });
+
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
 
   } catch (error) {
     console.error('Create user error:', error);
@@ -323,38 +390,152 @@ router.put('/:id', [
     paramCount++;
     params.push(id);
 
-    const query = `
-      UPDATE users 
-      SET ${updates.join(', ')} 
-      WHERE id = $${paramCount}
-      RETURNING id, username, email, full_name, phone, role, is_active, updated_at
-    `;
+    // Start transaction for user + technician sync
+    const client = await pool.connect();
+    
+    try {
+      await client.query('BEGIN');
 
-    const result = await pool.query(query, params);
+      const query = `
+        UPDATE users 
+        SET ${updates.join(', ')} 
+        WHERE id = $${paramCount}
+        RETURNING id, username, email, full_name, phone, role, is_active, updated_at
+      `;
 
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found'
+      const result = await client.query(query, params);
+
+      if (result.rows.length === 0) {
+        await client.query('ROLLBACK');
+        return res.status(404).json({
+          success: false,
+          message: 'User not found'
+        });
+      }
+
+      const updatedUser = result.rows[0];
+
+      // AUTO-SYNC to technician profile if exists
+      const techCheck = await client.query(
+        'SELECT id FROM technicians WHERE user_id = $1',
+        [id]
+      );
+
+      if (techCheck.rows.length > 0) {
+        // Build technician sync updates
+        const techUpdates = [];
+        const techParams = [];
+        let techParamCount = 0;
+
+        if (full_name) {
+          techParamCount++;
+          techUpdates.push(`full_name = $${techParamCount}`);
+          techParams.push(full_name);
+        }
+
+        if (email) {
+          techParamCount++;
+          techUpdates.push(`email = $${techParamCount}`);
+          techParams.push(email);
+        }
+
+        if (phone) {
+          techParamCount++;
+          techUpdates.push(`phone = $${techParamCount}`);
+          techParams.push(phone);
+        }
+
+        // Sync is_active to employment_status
+        if (is_active !== undefined) {
+          techParamCount++;
+          techUpdates.push(`employment_status = $${techParamCount}`);
+          techParams.push(is_active ? 'active' : 'inactive');
+        }
+
+        if (techUpdates.length > 0) {
+          techParamCount++;
+          techParams.push(id);
+
+          await client.query(`
+            UPDATE technicians
+            SET ${techUpdates.join(', ')}, updated_at = CURRENT_TIMESTAMP
+            WHERE user_id = $${techParamCount}
+          `, techParams);
+
+          console.log(`✅ Auto-synced technician profile for user ID ${id}`);
+        }
+      }
+
+      // PREVENT role change if technician profile exists (unless changing TO technician)
+      if (role && role !== 'technician' && techCheck.rows.length > 0) {
+        await client.query('ROLLBACK');
+        return res.status(400).json({
+          success: false,
+          message: 'Cannot change role from technician. User has an active technician profile. Please delete technician profile first or keep role as technician.'
+        });
+      }
+
+      // AUTO-CREATE technician profile if role changed TO technician
+      if (role === 'technician' && techCheck.rows.length === 0) {
+        const employeeIdResult = await client.query(
+          `SELECT COALESCE(MAX(CAST(SUBSTRING(employee_id FROM 4) AS INTEGER)), 0) + 1 as next_num
+           FROM technicians 
+           WHERE employee_id ~ '^TEC[0-9]+$'`
+        );
+        const nextNum = employeeIdResult.rows[0].next_num;
+        const employee_id = `TEC${String(nextNum).padStart(4, '0')}`;
+
+        await client.query(
+          `INSERT INTO technicians (
+            user_id, employee_id, full_name, phone, email,
+            hire_date, employment_status, position, department,
+            skill_level, work_zone, max_daily_tickets,
+            availability_status, is_available, created_by
+          ) VALUES (
+            $1, $2, $3, $4, $5, 
+            CURRENT_DATE, $6, 'Field Technician', 'field_operations',
+            'junior', 'Karawang', 8,
+            'offline', false, $7
+          )`,
+          [
+            updatedUser.id,
+            employee_id,
+            updatedUser.full_name,
+            updatedUser.phone,
+            updatedUser.email,
+            updatedUser.is_active ? 'active' : 'inactive',
+            req.user.id
+          ]
+        );
+
+        console.log(`✅ Auto-created technician profile ${employee_id} (role changed to technician)`);
+      }
+
+      await client.query('COMMIT');
+
+      // Log activity
+      await logActivity({
+        userId: req.user.id,
+        action: 'updated',
+        targetUserId: parseInt(id),
+        targetUsername: updatedUser.username,
+        details: { full_name, email, phone, role, is_active },
+        ipAddress: req.ip,
+        userAgent: req.get('user-agent')
       });
+
+      res.json({
+        success: true,
+        message: 'User updated successfully',
+        data: { user: updatedUser }
+      });
+
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
     }
-
-    // Log activity
-    await logActivity({
-      userId: req.user.id,
-      action: 'updated',
-      targetUserId: parseInt(id),
-      targetUsername: result.rows[0].username,
-      details: { full_name, email, phone, role, is_active },
-      ipAddress: req.ip,
-      userAgent: req.get('user-agent')
-    });
-
-    res.json({
-      success: true,
-      message: 'User updated successfully',
-      data: { user: result.rows[0] }
-    });
 
   } catch (error) {
     console.error('Update user error:', error);
@@ -449,29 +630,79 @@ router.delete('/:id', authorize('admin'), async (req, res) => {
       });
     }
 
-    let result;
-    if (permanent) {
-      // Permanent delete (hard delete)
-      result = await pool.query(
-        'DELETE FROM users WHERE id = $1 RETURNING id, username',
-        [id]
+    // Check if user has technician profile
+    const techCheck = await pool.query(
+      'SELECT id, employee_id FROM technicians WHERE user_id = $1',
+      [id]
+    );
+
+    // Check if technician has active tickets
+    if (techCheck.rows.length > 0) {
+      const activeTicketsCheck = await pool.query(
+        `SELECT COUNT(*) as count FROM tickets 
+         WHERE assigned_technician_id = $1 AND status IN ('assigned', 'in_progress')`,
+        [techCheck.rows[0].id]
       );
-    } else {
-      // Soft delete
-      result = await pool.query(
-        `UPDATE users 
-         SET deleted_at = CURRENT_TIMESTAMP, deleted_by = $1
-         WHERE id = $2 AND deleted_at IS NULL
-         RETURNING id, username`,
-        [req.user.id, id]
-      );
+
+      if (parseInt(activeTicketsCheck.rows[0].count) > 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'Cannot delete user with active tickets. Technician has assigned/in-progress tickets. Please reassign or complete all tickets first.'
+        });
+      }
     }
 
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found or already deleted'
-      });
+    const client = await pool.connect();
+    
+    try {
+      await client.query('BEGIN');
+
+      let result;
+      if (permanent) {
+        // Permanent delete (hard delete) - will CASCADE to technicians
+        result = await client.query(
+          'DELETE FROM users WHERE id = $1 RETURNING id, username',
+          [id]
+        );
+      } else {
+        // Soft delete user
+        result = await client.query(
+          `UPDATE users 
+           SET deleted_at = CURRENT_TIMESTAMP, deleted_by = $1, is_active = false
+           WHERE id = $2 AND deleted_at IS NULL
+           RETURNING id, username, role`,
+          [req.user.id, id]
+        );
+
+        // Also deactivate technician profile if exists
+        if (result.rows.length > 0 && result.rows[0].role === 'technician' && techCheck.rows.length > 0) {
+          await client.query(
+            `UPDATE technicians 
+             SET employment_status = 'inactive', 
+                 is_available = false,
+                 availability_status = 'offline',
+                 updated_at = CURRENT_TIMESTAMP
+             WHERE user_id = $1`,
+            [id]
+          );
+          console.log(`✅ Auto-deactivated technician profile ${techCheck.rows[0].employee_id}`);
+        }
+      }
+
+      if (result.rows.length === 0) {
+        await client.query('ROLLBACK');
+        return res.status(404).json({
+          success: false,
+          message: 'User not found or already deleted'
+        });
+      }
+
+      await client.query('COMMIT');
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
     }
 
     // Log activity
@@ -504,37 +735,72 @@ router.post('/:id/restore', authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await pool.query(
-      `UPDATE users 
-       SET deleted_at = NULL, deleted_by = NULL, updated_at = CURRENT_TIMESTAMP
-       WHERE id = $1 AND deleted_at IS NOT NULL
-       RETURNING id, username, email, full_name`,
-      [id]
-    );
+    const client = await pool.connect();
+    
+    try {
+      await client.query('BEGIN');
 
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found or not deleted'
+      const result = await client.query(
+        `UPDATE users 
+         SET deleted_at = NULL, deleted_by = NULL, is_active = true, updated_at = CURRENT_TIMESTAMP
+         WHERE id = $1 AND deleted_at IS NOT NULL
+         RETURNING id, username, email, full_name, role`,
+        [id]
+      );
+
+      if (result.rows.length === 0) {
+        await client.query('ROLLBACK');
+        return res.status(404).json({
+          success: false,
+          message: 'User not found or not deleted'
+        });
+      }
+
+      const restoredUser = result.rows[0];
+
+      // Also restore/reactivate technician profile if user is technician
+      if (restoredUser.role === 'technician') {
+        const techRestore = await client.query(
+          `UPDATE technicians 
+           SET employment_status = 'active',
+               is_available = true,
+               availability_status = 'available',
+               updated_at = CURRENT_TIMESTAMP
+           WHERE user_id = $1
+           RETURNING employee_id`,
+          [id]
+        );
+
+        if (techRestore.rows.length > 0) {
+          console.log(`✅ Auto-restored technician profile ${techRestore.rows[0].employee_id}`);
+        }
+      }
+
+      await client.query('COMMIT');
+
+      // Log activity
+      await logActivity({
+        userId: req.user.id,
+        action: 'restored',
+        targetUserId: parseInt(id),
+        targetUsername: restoredUser.username,
+        details: {},
+        ipAddress: req.ip,
+        userAgent: req.get('user-agent')
       });
+
+      res.json({
+        success: true,
+        message: 'User restored successfully',
+        data: { user: restoredUser }
+      });
+
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
     }
-
-    // Log activity
-    await logActivity({
-      userId: req.user.id,
-      action: 'restored',
-      targetUserId: parseInt(id),
-      targetUsername: result.rows[0].username,
-      details: {},
-      ipAddress: req.ip,
-      userAgent: req.get('user-agent')
-    });
-
-    res.json({
-      success: true,
-      message: 'User restored successfully',
-      data: { user: result.rows[0] }
-    });
 
   } catch (error) {
     console.error('Restore user error:', error);

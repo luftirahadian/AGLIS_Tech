@@ -5730,3 +5730,15 @@ Recent application errors:
 9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
 9|aglis-backend-3  | 2025-10-14T21:55:32:   ]
 9|aglis-backend-3  | 2025-10-14T21:55:32: }
+10|aglis-backend-4 | 2025-10-14T22:11:34: Update user error: ReferenceError: username is not defined
+10|aglis-backend-4 | 2025-10-14T22:11:34:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+10|aglis-backend-4 | 2025-10-14T22:11:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-14T22:11:34: Update user error: ReferenceError: username is not defined
+10|aglis-backend-4 | 2025-10-14T22:11:34:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+10|aglis-backend-4 | 2025-10-14T22:11:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-14T22:12:00: Update user error: ReferenceError: username is not defined
+10|aglis-backend-4 | 2025-10-14T22:12:00:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+10|aglis-backend-4 | 2025-10-14T22:12:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-14T22:12:00: Update user error: ReferenceError: username is not defined
+10|aglis-backend-4 | 2025-10-14T22:12:00:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+10|aglis-backend-4 | 2025-10-14T22:12:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
