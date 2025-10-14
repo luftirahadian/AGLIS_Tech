@@ -2110,3 +2110,47 @@ Recent application errors:
 7|aglis-backend-1  | 2025-10-14T09:36:23:   line: '1075',
 7|aglis-backend-1  | 2025-10-14T09:36:23:   routine: 'checkInsertTargets'
 7|aglis-backend-1  | 2025-10-14T09:36:23: }
+7|aglis-backend-1  | 2025-10-14T10:07:34: Update ticket status error: error: column "assigned_technician_id" of relation "ticket_status_history" does not exist
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:710:7 {
+7|aglis-backend-1  | 2025-10-14T10:07:34:   length: 156,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   position: '90',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   where: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   line: '1075',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-14T10:07:34: }
+7|aglis-backend-1  | 2025-10-14T10:07:34: Update ticket status error: error: column "assigned_technician_id" of relation "ticket_status_history" does not exist
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T10:07:34:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:710:7 {
+7|aglis-backend-1  | 2025-10-14T10:07:34:   length: 156,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   position: '90',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   where: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T10:07:34:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   line: '1075',
+7|aglis-backend-1  | 2025-10-14T10:07:34:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-14T10:07:34: }

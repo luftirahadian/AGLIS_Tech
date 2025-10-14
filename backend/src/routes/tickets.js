@@ -706,10 +706,10 @@ router.put('/:id/status', [
       const result = await client.query(updateQuery, params);
       const updatedTicket = result.rows[0];
 
-      // Insert status history with assigned technician info
+      // Insert status history (without assigned_technician_id - column doesn't exist)
       await client.query(
-        'INSERT INTO ticket_status_history (ticket_id, old_status, new_status, changed_by, notes, assigned_technician_id) VALUES ($1, $2, $3, $4, $5, $6)',
-        [id, oldStatus, status, req.user.id, notes, updatedTicket.assigned_technician_id]
+        'INSERT INTO ticket_status_history (ticket_id, old_status, new_status, changed_by, notes) VALUES ($1, $2, $3, $4, $5)',
+        [id, oldStatus, status, req.user.id, notes || `Status changed from ${oldStatus} to ${status}`]
       );
 
       // Update technician stats if completed
