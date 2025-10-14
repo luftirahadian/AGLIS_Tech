@@ -669,19 +669,32 @@ const TechnicianDetailPage = () => {
                   <Target className="h-5 w-5 mr-2 text-gray-600" />
                   Specializations
                 </h3>
-                {technician.specializations && technician.specializations.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {technician.specializations.map((spec, index) => (
-                      <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
-                    <p className="text-gray-500 text-sm">Belum ada specialization yang tercatat</p>
-                  </div>
-                )}
+                {(() => {
+                  // Parse specializations - handle both array and string formats
+                  let specs = [];
+                  if (technician.specializations) {
+                    if (Array.isArray(technician.specializations)) {
+                      specs = technician.specializations;
+                    } else if (typeof technician.specializations === 'string') {
+                      // If it's a string, split by space or comma
+                      specs = technician.specializations.split(/[\s,]+/).filter(s => s.trim());
+                    }
+                  }
+                  
+                  return specs.length > 0 ? (
+                    <div className="flex flex-wrap gap-2">
+                      {specs.map((spec, index) => (
+                        <span key={index} className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-medium rounded-lg border border-blue-200 shadow-sm">
+                          {spec.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
+                      <p className="text-gray-500 text-sm">Belum ada specialization yang tercatat</p>
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Certifications */}
@@ -690,20 +703,33 @@ const TechnicianDetailPage = () => {
                   <Shield className="h-5 w-5 mr-2 text-gray-600" />
                   Certifications
                 </h3>
-                {technician.certifications && technician.certifications.length > 0 ? (
-                  <div className="space-y-2">
-                    {technician.certifications.map((cert, index) => (
-                      <div key={index} className="flex items-center px-3 py-2 bg-green-50 rounded-lg border border-green-200">
-                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
-                        <span className="text-sm font-medium text-gray-900">{cert}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
-                    <p className="text-gray-500 text-sm">Belum ada certifications yang tercatat</p>
-                  </div>
-                )}
+                {(() => {
+                  // Parse certifications - handle both array and JSONB formats
+                  let certs = [];
+                  if (technician.certifications) {
+                    if (Array.isArray(technician.certifications)) {
+                      certs = technician.certifications;
+                    } else if (typeof technician.certifications === 'object') {
+                      // If it's JSONB object, try to extract array
+                      certs = Object.values(technician.certifications);
+                    }
+                  }
+                  
+                  return certs.length > 0 ? (
+                    <div className="space-y-2">
+                      {certs.map((cert, index) => (
+                        <div key={index} className="flex items-start px-4 py-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200 hover:border-green-300 transition-colors shadow-sm">
+                          <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm font-medium text-gray-900">{cert}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
+                      <p className="text-gray-500 text-sm">Belum ada certifications yang tercatat</p>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           )}
