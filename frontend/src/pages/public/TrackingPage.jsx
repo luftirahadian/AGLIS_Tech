@@ -526,27 +526,17 @@ const TrackingPage = () => {
             {/* Help Section */}
             <div className="bg-white rounded-xl shadow-lg p-8 mt-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Butuh Bantuan?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex justify-center">
                 <a
-                  href="https://wa.me/6281234567890"
+                  href="https://wa.me/6281316003245"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-colors"
+                  className="flex items-center space-x-3 p-6 border border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-colors w-full max-w-sm"
                 >
                   <Phone className="h-6 w-6 text-green-600" />
                   <div>
                     <p className="font-medium text-gray-900">WhatsApp</p>
                     <p className="text-sm text-gray-600">Chat dengan kami</p>
-                  </div>
-                </a>
-                <a
-                  href="tel:021-12345678"
-                  className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors"
-                >
-                  <Phone className="h-6 w-6 text-blue-600" />
-                  <div>
-                    <p className="font-medium text-gray-900">Telepon</p>
-                    <p className="text-sm text-gray-600">021-12345678</p>
                   </div>
                 </a>
               </div>
