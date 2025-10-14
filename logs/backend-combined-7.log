@@ -2634,3 +2634,24 @@
 2025-10-14T10:30:24: ✅ Redis client ready
 2025-10-14T10:30:24: ✅ Redis clients connected for Socket.IO adapter
 2025-10-14T10:30:35: 127.0.0.1 - - [14/Oct/2025:03:30:35 +0000] "HEAD /uploads/tickets/otdr/ticket_15/1760411686809_e14c1ace0dd3507d_Screenshot_2025_10_0.png HTTP/1.1" 200 961883 "-" "curl/7.81.0"
+2025-10-14T10:31:41: ✅ Connected to PostgreSQL database
+2025-10-14T10:31:41: ✅ Connected to PostgreSQL database
+2025-10-14T10:31:41: 103.55.224.49 - - [14/Oct/2025:03:31:41 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:32:14: 103.55.224.49 - - [14/Oct/2025:03:32:14 +0000] "GET /api/uploads/tickets/otdr/ticket_13/1760412729214_8d3a177878301f87_Screenshot_2025_09_3.png HTTP/1.1" 404 45 "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:32:22: ✅ Connected to PostgreSQL database
+2025-10-14T10:32:22: 103.55.224.49 - - [14/Oct/2025:03:32:22 +0000] "GET /api/tickets/13 HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:32:22: 103.55.224.49 - - [14/Oct/2025:03:32:22 +0000] "GET /api/uploads/tickets/otdr/ticket_13/1760412729214_8d3a177878301f87_Screenshot_2025_09_3.png HTTP/1.1" 404 45 "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:32:52: ✅ Connected to PostgreSQL database
+2025-10-14T10:32:52: ✅ Connected to PostgreSQL database
+2025-10-14T10:32:52: 103.55.224.49 - - [14/Oct/2025:03:32:52 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:33:21: 127.0.0.1 - - [14/Oct/2025:03:33:21 +0000] "GET /uploads/tickets/otdr/ticket_15/1760411686809_e14c1ace0dd3507d_Screenshot_2025_10_0.png HTTP/1.1" 200 961883 "-" "curl/7.81.0"
+2025-10-14T10:33:42: 127.0.0.1 - - [14/Oct/2025:03:33:42 +0000] "GET /uploads/tickets/otdr/ticket_14/1760412149425_fa4389d35ab6dad1_Screenshot_2025_10_0.png HTTP/1.1" 200 961883 "-" "curl/7.81.0"
+2025-10-14T10:34:52: ✅ Connected to PostgreSQL database
+2025-10-14T10:34:52: ✅ Connected to PostgreSQL database
+2025-10-14T10:34:52: 103.55.224.49 - - [14/Oct/2025:03:34:52 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:35:29: ✅ Connected to PostgreSQL database
+2025-10-14T10:35:29: ✅ Connected to PostgreSQL database
+2025-10-14T10:35:29: 103.55.224.49 - - [14/Oct/2025:03:35:29 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:35:29: 103.55.224.49 - - [14/Oct/2025:03:35:29 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:35:29: 103.55.224.49 - - [14/Oct/2025:03:35:29 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/tickets/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:35:36: 127.0.0.1 - - [14/Oct/2025:03:35:36 +0000] "GET /uploads/tickets/otdr/ticket_14/1760412149425_fa4389d35ab6dad1_Screenshot_2025_10_0.png HTTP/1.1" 200 961883 "-" "curl/7.81.0"

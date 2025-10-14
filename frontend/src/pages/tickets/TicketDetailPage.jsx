@@ -556,13 +556,13 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto OTDR</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                href={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.otdr_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.otdr_photo.url}`}
+                                  src={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.otdr_photo.url}`}
                                   alt="OTDR Photo"
                                   className="w-full h-32 object-cover"
                                   onError={(e) => console.error('Failed to load OTDR photo:', ticket.completion_data.otdr_photo.url)}
@@ -578,13 +578,13 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto Redaman</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                href={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.attenuation_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.attenuation_photo.url}`}
+                                  src={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.attenuation_photo.url}`}
                                   alt="Attenuation Photo"
                                   className="w-full h-32 object-cover"
                                   onError={(e) => console.error('Failed to load Attenuation photo:', ticket.completion_data.attenuation_photo.url)}
@@ -600,13 +600,13 @@ const TicketDetailPage = () => {
                             <div>
                               <p className="text-xs font-medium text-gray-600 mb-2">Foto SN Modem</p>
                               <a 
-                                href={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                href={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.modem_sn_photo.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block border border-gray-300 rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
                               >
                                 <img 
-                                  src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${ticket.completion_data.modem_sn_photo.url}`}
+                                  src={`${(import.meta.env.VITE_API_URL || 'http://localhost:3001/api').replace('/api', '')}${ticket.completion_data.modem_sn_photo.url}`}
                                   alt="Modem SN Photo"
                                   className="w-full h-32 object-cover"
                                   onError={(e) => console.error('Failed to load Modem SN photo:', ticket.completion_data.modem_sn_photo.url)}
