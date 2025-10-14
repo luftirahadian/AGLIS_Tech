@@ -1230,11 +1230,11 @@ const CustomerDetailPage = () => {
                             {ticket.technician_name || 'Unassigned'}
                           </td>
                           <td className="table-cell">
-                            {new Date(ticket.created_at).toLocaleDateString('id-ID', {
+                            {ticket.created_at ? new Date(ticket.created_at).toLocaleDateString('id-ID', {
                               year: 'numeric',
                               month: 'short',
                               day: 'numeric'
-                            })}
+                            }) : '-'}
                           </td>
                           <td className="table-cell">
                             <div className="flex items-center justify-center text-gray-400">
@@ -1523,11 +1523,11 @@ const CustomerDetailPage = () => {
                             </button>
                           </td>
                           <td className="px-4 py-3 text-sm text-gray-900">
-                            {new Date(invoice.invoice_date).toLocaleDateString('id-ID')}
+                            {invoice.invoice_date ? new Date(invoice.invoice_date).toLocaleDateString('id-ID') : '-'}
                           </td>
                           <td className="px-4 py-3 text-sm">
-                            <span className={new Date(invoice.due_date) < new Date() && invoice.status !== 'paid' ? 'text-red-600 font-semibold' : 'text-gray-900'}>
-                              {new Date(invoice.due_date).toLocaleDateString('id-ID')}
+                            <span className={invoice.due_date && new Date(invoice.due_date) < new Date() && invoice.status !== 'paid' ? 'text-red-600 font-semibold' : 'text-gray-900'}>
+                              {invoice.due_date ? new Date(invoice.due_date).toLocaleDateString('id-ID') : '-'}
                             </span>
                           </td>
                           <td className="px-4 py-3 text-sm font-semibold text-right text-gray-900">

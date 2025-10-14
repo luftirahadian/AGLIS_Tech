@@ -1,0 +1,50 @@
+2025-10-15T05:30:20: Update availability error: error: inconsistent types deduced for parameter $1
+2025-10-15T05:30:20:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T05:30:20:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T05:30:20:   length: 154,
+2025-10-15T05:30:20:   severity: 'ERROR',
+2025-10-15T05:30:20:   code: '42P08',
+2025-10-15T05:30:20:   detail: 'text versus character varying',
+2025-10-15T05:30:20:   hint: undefined,
+2025-10-15T05:30:20:   position: '60',
+2025-10-15T05:30:20:   internalPosition: undefined,
+2025-10-15T05:30:20:   internalQuery: undefined,
+2025-10-15T05:30:20:   where: undefined,
+2025-10-15T05:30:20:   schema: undefined,
+2025-10-15T05:30:20:   table: undefined,
+2025-10-15T05:30:20:   column: undefined,
+2025-10-15T05:30:20:   dataType: undefined,
+2025-10-15T05:30:20:   constraint: undefined,
+2025-10-15T05:30:20:   file: 'parse_param.c',
+2025-10-15T05:30:20:   line: '223',
+2025-10-15T05:30:20:   routine: 'variable_coerce_param_hook'
+2025-10-15T05:30:20: }
+2025-10-15T05:30:20: ❌ QUERY ERROR (4ms): {
+2025-10-15T05:30:20:   error: 'inconsistent types deduced for parameter $1',
+2025-10-15T05:30:20:   query: '\n' +
+2025-10-15T05:30:20:     '      UPDATE technicians \n' +
+2025-10-15T05:30:20:     '      SET availability_status = $1,\n' +
+2025-10-15T05:30:20:     '          current_latitude = COALESCE($2, current_latitude),\n' +
+2025-10-15T05:30:20:     '          current_longitud...'
+2025-10-15T05:30:20: }
+2025-10-15T05:30:20: error: inconsistent types deduced for parameter $1
+2025-10-15T05:30:20:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T05:30:20:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T05:30:20:   length: 154,
+2025-10-15T05:30:20:   severity: 'ERROR',
+2025-10-15T05:30:20:   code: '42P08',
+2025-10-15T05:30:20:   detail: 'text versus character varying',
+2025-10-15T05:30:20:   hint: undefined,
+2025-10-15T05:30:20:   position: '60',
+2025-10-15T05:30:20:   internalPosition: undefined,
+2025-10-15T05:30:20:   internalQuery: undefined,
+2025-10-15T05:30:20:   where: undefined,
+2025-10-15T05:30:20:   schema: undefined,
+2025-10-15T05:30:20:   table: undefined,
+2025-10-15T05:30:20:   column: undefined,
+2025-10-15T05:30:20:   dataType: undefined,
+2025-10-15T05:30:20:   constraint: undefined,
+2025-10-15T05:30:20:   file: 'parse_param.c',
+2025-10-15T05:30:20:   line: '223',
+2025-10-15T05:30:20:   routine: 'variable_coerce_param_hook'
+2025-10-15T05:30:20: }
