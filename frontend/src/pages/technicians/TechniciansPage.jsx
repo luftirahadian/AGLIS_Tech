@@ -629,7 +629,6 @@ const TechniciansPage = () => {
                         </th>
                         <th className="table-header-cell">Capacity</th>
                         <th className="table-header-cell">Rating</th>
-                        <th className="table-header-cell text-center">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="table-body">
@@ -649,29 +648,26 @@ const TechniciansPage = () => {
                             </div>
                           </div>
                           <div className="ml-4">
-                            <div className="font-medium text-gray-900">
+                            <div className="font-medium text-gray-900 truncate" style={{ maxWidth: '150px' }}>
                               {technician.full_name}
                             </div>
-                            <div className="text-sm text-gray-500 flex items-center">
+                            <div className="text-sm text-gray-500">
                               ID: {technician.employee_id}
-                              {technician.username && (
-                                <span className="ml-2 text-blue-600">@{technician.username}</span>
-                              )}
                             </div>
                           </div>
                         </div>
                       </td>
 
                       {/* Contact */}
-                      <td className="table-cell">
+                      <td className="table-cell" style={{ maxWidth: '180px' }}>
                         <div className="space-y-1">
                           <div className="flex items-center text-sm">
-                            <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                            <span>{technician.phone}</span>
+                            <Phone className="h-3 w-3 mr-1 text-gray-400 flex-shrink-0" />
+                            <span className="truncate">{technician.phone}</span>
                           </div>
                           {technician.email && (
-                            <div className="flex items-center text-xs text-gray-500 truncate" style={{ maxWidth: '180px' }}>
-                              <Mail className="h-3 w-3 mr-1 text-gray-400" />
+                            <div className="flex items-center text-xs text-gray-500" title={technician.email}>
+                              <Mail className="h-3 w-3 mr-1 text-gray-400 flex-shrink-0" />
                               <span className="truncate">{technician.email}</span>
                             </div>
                           )}
@@ -735,23 +731,6 @@ const TechniciansPage = () => {
                             {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
                           </span>
                           <span className="text-xs text-gray-400 ml-1">/5.0</span>
-                        </div>
-                      </td>
-                      <td 
-                        className="table-cell"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <div className="flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleViewTechnician(technician);
-                            }}
-                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                            title="View Details"
-                          >
-                            <Eye className="h-4 w-4" />
-                          </button>
                         </div>
                       </td>
                     </tr>

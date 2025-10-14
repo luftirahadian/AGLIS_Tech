@@ -602,38 +602,74 @@ const TechnicianDetailPage = () => {
         <div className="p-6">
           {activeTab === 'overview' && (
             <div className="space-y-6">
+              {/* Basic Info Summary */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Technician Profile</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Position</div>
+                    <div className="font-medium text-gray-900">{technician.position || 'Field Technician'}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Department</div>
+                    <div className="font-medium text-gray-900 capitalize">{technician.department?.replace('_', ' ') || 'Field Operations'}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Work Schedule</div>
+                    <div className="font-medium text-gray-900">{technician.work_schedule || 'Mon-Sat, 08:00-17:00'}</div>
+                  </div>
+                </div>
+              </div>
+
               {/* Equipment */}
-              {equipment && equipment.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Wrench className="h-5 w-5 mr-2 text-gray-600" />
-                    Assigned Equipment
-                  </h3>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <Wrench className="h-5 w-5 mr-2 text-gray-600" />
+                  Assigned Equipment
+                </h3>
+                {equipment && equipment.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {equipment.map((item, index) => (
-                      <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                        <div className="flex items-center justify-between">
-                          <div>
+                      <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-300 transition-colors">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex-1">
                             <div className="font-medium text-gray-900">{item.equipment_name}</div>
-                            <div className="text-sm text-gray-500">{item.equipment_type}</div>
+                            <div className="text-sm text-gray-500 capitalize">{item.equipment_type?.replace('_', ' ')}</div>
                           </div>
-                          {item.serial_number && (
-                            <div className="text-xs text-gray-400">S/N: {item.serial_number}</div>
-                          )}
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                            item.condition === 'excellent' ? 'bg-green-100 text-green-800' :
+                            item.condition === 'good' ? 'bg-blue-100 text-blue-800' :
+                            item.condition === 'fair' ? 'bg-yellow-100 text-yellow-800' :
+                            'bg-red-100 text-red-800'
+                          }`}>
+                            {item.condition || 'Good'}
+                          </span>
                         </div>
+                        {item.serial_number && (
+                          <div className="text-xs text-gray-400">S/N: {item.serial_number}</div>
+                        )}
+                        {item.brand && item.model && (
+                          <div className="text-xs text-gray-500 mt-1">{item.brand} - {item.model}</div>
+                        )}
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+                    <Wrench className="h-12 w-12 mx-auto text-gray-300 mb-2" />
+                    <p className="text-gray-500">Belum ada equipment yang di-assign</p>
+                    <p className="text-sm text-gray-400 mt-1">Equipment akan ditampilkan di sini ketika sudah di-assign</p>
+                  </div>
+                )}
+              </div>
 
               {/* Specializations */}
-              {technician.specializations && technician.specializations.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Target className="h-5 w-5 mr-2 text-gray-600" />
-                    Specializations
-                  </h3>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <Target className="h-5 w-5 mr-2 text-gray-600" />
+                  Specializations
+                </h3>
+                {technician.specializations && technician.specializations.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
                     {technician.specializations.map((spec, index) => (
                       <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
@@ -641,26 +677,34 @@ const TechnicianDetailPage = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
+                    <p className="text-gray-500 text-sm">Belum ada specialization yang tercatat</p>
+                  </div>
+                )}
+              </div>
 
               {/* Certifications */}
-              {technician.certifications && technician.certifications.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Shield className="h-5 w-5 mr-2 text-gray-600" />
-                    Certifications
-                  </h3>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <Shield className="h-5 w-5 mr-2 text-gray-600" />
+                  Certifications
+                </h3>
+                {technician.certifications && technician.certifications.length > 0 ? (
                   <div className="space-y-2">
                     {technician.certifications.map((cert, index) => (
                       <div key={index} className="flex items-center px-3 py-2 bg-green-50 rounded-lg border border-green-200">
-                        <CheckCircle className="h-4 w-4 text-green-600 mr-2" />
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
                         <span className="text-sm font-medium text-gray-900">{cert}</span>
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
+                    <p className="text-gray-500 text-sm">Belum ada certifications yang tercatat</p>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
