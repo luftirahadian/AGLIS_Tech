@@ -46,7 +46,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   // Get service types from master data
   const { data: serviceTypes, isLoading: serviceTypesLoading, error: serviceTypesError } = useQuery(
     'service-types-active',
-    () => serviceTypeService.getAll(true),
+    () => serviceTypeService.getAll({ active_only: true }),
     { 
       enabled: isOpen,
       onError: (error) => {
@@ -59,7 +59,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   // Get all service categories
   const { data: serviceCategories } = useQuery(
     'service-categories-active',
-    () => serviceCategoryService.getAll(null, true),
+    () => serviceCategoryService.getAll({ active_only: true }),
     { enabled: isOpen }
   )
 
@@ -96,8 +96,8 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
 
   // Update available categories when service type changes (CASCADE)
   useEffect(() => {
-    if (selectedType && serviceCategories) {
-      const filtered = serviceCategories.filter(cat => cat.service_type_code === selectedType)
+    if (selectedType && serviceCategories?.data) {
+      const filtered = serviceCategories.data.filter(cat => cat.service_type_code === selectedType)
       setAvailableCategories(filtered)
       
       // Reset category selection when service type changes
@@ -213,7 +213,11 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   }, [isOpen, setValue])
 
   const getSuggestedEquipment = () => {
-    if (!selectedCustomer || !selectedType || !equipmentList) return []
+    if (!selectedCustomer || !selectedType) return []
+    
+    // Ensure equipmentList is an array
+    const equipment = Array.isArray(equipmentList) ? equipmentList : []
+    if (equipment.length === 0) return []
     
     // Filter equipment based on service type and customer service type
     // Define equipment categories for each service type
@@ -250,9 +254,9 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
                                ['devices', 'tools']
     
     // Filter active equipment from relevant categories
-    const suggestedEquipment = equipmentList
-      ?.filter(eq => eq.is_active && relevantCategories.includes(eq.category))
-      ?.map(eq => eq.equipment_name) || []
+    const suggestedEquipment = equipment
+      .filter(eq => eq.is_active && relevantCategories.includes(eq.category))
+      .map(eq => eq.equipment_name)
     
     return suggestedEquipment.slice(0, 10) // Limit to 10 suggestions
   }
@@ -412,7 +416,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
               {...register('type', { required: 'Service type wajib dipilih' })}
             >
               <option value="">Pilih Service Type...</option>
-              {serviceTypes?.map((type) => (
+              {serviceTypes?.data?.map((type) => (
                 <option key={type.type_code} value={type.type_code}>
                   {type.type_name} - {type.description}
                 </option>
