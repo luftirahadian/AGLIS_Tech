@@ -1,15 +1,21 @@
+// ═══════════════════════════════════════════════════════════════
+// 👷 TECHNICIANS PAGE (IMPROVED)
+// ═══════════════════════════════════════════════════════════════
+// Aligned with new User-Technician sync workflow
+// ═══════════════════════════════════════════════════════════════
+
 import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { 
-  Users, Plus, Search, Filter, MapPin, Phone, Mail, 
+  Users, UserPlus, Search, MapPin, Phone, Mail, 
   Star, Clock, Wrench, AlertCircle, CheckCircle, 
-  XCircle, Pause, User, Award, Calendar, Eye, Trash2,
-  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight
+  XCircle, Pause, User, Award, Eye, Ban, Play,
+  ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight,
+  Power, Info
 } from 'lucide-react'
 import { technicianService } from '../../services/technicianService'
 import LoadingSpinner from '../../components/LoadingSpinner'
-import TechnicianForm from '../../components/TechnicianForm'
 import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
 
@@ -27,9 +33,6 @@ const TechniciansPage = () => {
   const [page, setPage] = useState(1)
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
-  const [showForm, setShowForm] = useState(false)
-  const [selectedTechnician, setSelectedTechnician] = useState(null)
-  const [formMode, setFormMode] = useState('create')
   const [limit, setLimit] = useState(10)
 
   // Fetch technicians
@@ -51,16 +54,17 @@ const TechniciansPage = () => {
     () => technicianService.getTechnicianStats()
   )
 
-  // Delete mutation
-  const deleteMutation = useMutation(
-    (id) => technicianService.deleteTechnician(id),
+  // Update availability mutation
+  const updateAvailabilityMutation = useMutation(
+    ({ id, status }) => technicianService.updateAvailability(id, { availability_status: status }),
     {
       onSuccess: () => {
-        toast.success('Technician deleted successfully')
+        toast.success('Status updated successfully')
         refetch()
+        queryClient.invalidateQueries('technician-stats')
       },
       onError: (error) => {
-        toast.error(error.response?.data?.message || 'Failed to delete technician')
+        toast.error(error.response?.data?.message || 'Failed to update status')
       }
     }
   )
@@ -70,32 +74,22 @@ const TechniciansPage = () => {
     setPage(1)
   }
 
-  const handleCreateTechnician = () => {
-    setSelectedTechnician(null)
-    setFormMode('create')
-    setShowForm(true)
-  }
-
-  const handleEditTechnician = (technician) => {
-    setSelectedTechnician(technician)
-    setFormMode('edit')
-    setShowForm(true)
-  }
-
-  const handleDeleteTechnician = (id, name) => {
-    if (window.confirm(`Are you sure you want to delete technician "${name}"? This action cannot be undone.`)) {
-      deleteMutation.mutate(id)
-    }
-  }
-
-  const handleFormSuccess = () => {
-    refetch()
-    setShowForm(false)
-    setSelectedTechnician(null)
+  const handleCreateTechnicianUser = () => {
+    // Redirect to Users page with pre-filled role=technician
+    navigate('/users?create=true&role=technician')
+    toast.info('Create a user account with role "Technician"')
   }
 
   const handleViewTechnician = (technician) => {
     navigate(`/technicians/${technician.id}`)
+  }
+
+  const handleViewUser = (userId) => {
+    navigate(`/users?id=${userId}`)
+  }
+
+  const handleQuickStatusChange = (technicianId, newStatus) => {
+    updateAvailabilityMutation.mutate({ id: technicianId, status: newStatus })
   }
 
   const handleSort = (column) => {
@@ -121,10 +115,28 @@ const TechniciansPage = () => {
     const badges = {
       available: { color: 'bg-green-100 text-green-800', icon: CheckCircle, label: 'Available' },
       busy: { color: 'bg-yellow-100 text-yellow-800', icon: Clock, label: 'Busy' },
-      break: { color: 'bg-blue-100 text-blue-800', icon: Pause, label: 'On Break' },
+      break: { color: 'bg-blue-100 text-blue-800', icon: Pause, label: 'Break' },
       offline: { color: 'bg-gray-100 text-gray-800', icon: XCircle, label: 'Offline' }
     }
     const badge = badges[status] || badges.offline
+    const Icon = badge.icon
+    
+    return (
+      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${badge.color}`}>
+        <Icon className="h-3 w-3 mr-1" />
+        {badge.label}
+      </span>
+    )
+  }
+
+  const getEmploymentBadge = (status) => {
+    const badges = {
+      active: { color: 'bg-green-100 text-green-800', icon: CheckCircle, label: 'Active' },
+      inactive: { color: 'bg-gray-100 text-gray-800', icon: Pause, label: 'Inactive' },
+      suspended: { color: 'bg-red-100 text-red-800', icon: Ban, label: 'Suspended' },
+      terminated: { color: 'bg-red-100 text-red-800', icon: XCircle, label: 'Terminated' }
+    }
+    const badge = badges[status] || badges.active
     const Icon = badge.icon
     
     return (
@@ -161,7 +173,6 @@ const TechniciansPage = () => {
     const handleTechnicianUpdate = () => {
       queryClient.invalidateQueries(['technicians'])
       queryClient.invalidateQueries('technician-stats')
-      console.log('🔄 Technician list & stats refreshed')
     }
 
     window.addEventListener('technician-created', handleTechnicianUpdate)
@@ -188,18 +199,32 @@ const TechniciansPage = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Technician Management</h1>
+          <h1 className="text-2xl font-bold text-gray-900 flex items-center space-x-2">
+            <Wrench className="h-7 w-7 text-blue-600" />
+            <span>Technician Management</span>
+          </h1>
           <p className="mt-1 text-sm text-gray-500">
             Kelola teknisi lapangan dan monitor performa
           </p>
         </div>
-        <button 
-          onClick={handleCreateTechnician}
-          className="mt-4 sm:mt-0 btn-primary"
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Tambah Teknisi
-        </button>
+        <div className="mt-4 sm:mt-0 flex items-center space-x-3">
+          {/* Info Badge */}
+          <div className="hidden sm:flex items-center px-3 py-2 bg-blue-50 border border-blue-200 rounded-lg">
+            <Info className="h-4 w-4 text-blue-600 mr-2" />
+            <span className="text-xs text-blue-900">
+              Create technician via Users page with role="Technician"
+            </span>
+          </div>
+          
+          {/* Create Button */}
+          <button 
+            onClick={handleCreateTechnicianUser}
+            className="btn-primary flex items-center space-x-2"
+          >
+            <UserPlus className="h-4 w-4" />
+            <span>Create Technician User</span>
+          </button>
+        </div>
       </div>
 
       {/* Statistics Cards */}
@@ -216,11 +241,7 @@ const TechniciansPage = () => {
           value={stats.available_technicians || 0}
           color="green"
           onClick={() => {
-            setFilters({
-              ...filters,
-              availability_status: filters.availability_status === 'available' ? '' : 'available'
-            })
-            setPage(1)
+            handleFilterChange('availability_status', filters.availability_status === 'available' ? '' : 'available')
           }}
         />
         <KPICard
@@ -229,11 +250,7 @@ const TechniciansPage = () => {
           value={stats.busy_technicians || 0}
           color="yellow"
           onClick={() => {
-            setFilters({
-              ...filters,
-              availability_status: filters.availability_status === 'busy' ? '' : 'busy'
-            })
-            setPage(1)
+            handleFilterChange('availability_status', filters.availability_status === 'busy' ? '' : 'busy')
           }}
         />
         <KPICard
@@ -242,11 +259,7 @@ const TechniciansPage = () => {
           value={stats.offline_technicians || 0}
           color="red"
           onClick={() => {
-            setFilters({
-              ...filters,
-              availability_status: filters.availability_status === 'offline' ? '' : 'offline'
-            })
-            setPage(1)
+            handleFilterChange('availability_status', filters.availability_status === 'offline' ? '' : 'offline')
           }}
         />
       </div>
@@ -272,7 +285,7 @@ const TechniciansPage = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Status
+              Availability Status
             </label>
             <select
               className="form-input"
@@ -284,6 +297,23 @@ const TechniciansPage = () => {
               <option value="busy">Busy</option>
               <option value="break">On Break</option>
               <option value="offline">Offline</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Employment Status
+            </label>
+            <select
+              className="form-input"
+              value={filters.employment_status}
+              onChange={(e) => handleFilterChange('employment_status', e.target.value)}
+            >
+              <option value="">Semua</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="suspended">Suspended</option>
+              <option value="terminated">Terminated</option>
             </select>
           </div>
 
@@ -314,11 +344,16 @@ const TechniciansPage = () => {
               onChange={(e) => handleFilterChange('work_zone', e.target.value)}
             >
               <option value="">Semua Zone</option>
+              <option value="Karawang">Karawang</option>
               <option value="Jakarta_Pusat">Jakarta Pusat</option>
               <option value="Jakarta_Selatan">Jakarta Selatan</option>
               <option value="Jakarta_Utara">Jakarta Utara</option>
               <option value="Jakarta_Timur">Jakarta Timur</option>
               <option value="Jakarta_Barat">Jakarta Barat</option>
+              <option value="Bogor">Bogor</option>
+              <option value="Depok">Depok</option>
+              <option value="Tangerang">Tangerang</option>
+              <option value="Bekasi">Bekasi</option>
             </select>
           </div>
 
@@ -339,23 +374,43 @@ const TechniciansPage = () => {
               <option value="troubleshooting">Troubleshooting</option>
             </select>
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Employment
-            </label>
-            <select
-              className="form-input"
-              value={filters.employment_status}
-              onChange={(e) => handleFilterChange('employment_status', e.target.value)}
-            >
-              <option value="">Semua</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-              <option value="suspended">Suspended</option>
-            </select>
-          </div>
         </div>
+
+        {/* Active Filters Badge */}
+        {Object.values(filters).some(v => v) && (
+          <div className="mt-4 flex items-center space-x-2">
+            <span className="text-sm text-gray-600">Active filters:</span>
+            {Object.entries(filters).map(([key, value]) => 
+              value ? (
+                <span key={key} className="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full flex items-center space-x-1">
+                  <span>{key}: {value}</span>
+                  <button
+                    onClick={() => handleFilterChange(key, '')}
+                    className="hover:text-blue-900"
+                  >
+                    ×
+                  </button>
+                </span>
+              ) : null
+            )}
+            <button
+              onClick={() => {
+                setFilters({
+                  search: '',
+                  employment_status: '',
+                  availability_status: '',
+                  skill_level: '',
+                  work_zone: '',
+                  specialization: ''
+                })
+                setPage(1)
+              }}
+              className="text-sm text-blue-600 hover:text-blue-800"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Technicians Table */}
@@ -373,15 +428,13 @@ const TechniciansPage = () => {
             <div className="text-center py-12">
               <Users className="mx-auto h-12 w-12 text-gray-400" />
               <h3 className="mt-2 text-lg font-medium text-gray-900">No technicians found</h3>
-              <p className="mt-1 text-gray-500">
-                Get started by adding your first technician.
+              <p className="mt-1 text-gray-500 mb-4">
+                Create a user account with role "Technician" to get started
               </p>
-              <div className="mt-6">
-                <button onClick={handleCreateTechnician} className="btn-primary">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add First Technician
-                </button>
-              </div>
+              <button onClick={handleCreateTechnicianUser} className="btn-primary">
+                <UserPlus className="h-4 w-4 mr-2" />
+                Create Technician User
+              </button>
             </div>
           ) : (
             <>
@@ -398,14 +451,16 @@ const TechniciansPage = () => {
                           {getSortIcon('full_name')}
                         </div>
                       </th>
+                      <th className="table-header-cell">User Account</th>
                       <th className="table-header-cell">Contact</th>
                       <th className="table-header-cell">Skills & Zone</th>
+                      <th className="table-header-cell">Employment</th>
                       <th 
                         className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                         onClick={() => handleSort('availability_status')}
                       >
                         <div className="flex items-center justify-between">
-                          <span>Status</span>
+                          <span>Availability</span>
                           {getSortIcon('availability_status')}
                         </div>
                       </th>
@@ -415,12 +470,12 @@ const TechniciansPage = () => {
                   </thead>
                   <tbody className="table-body">
                 {technicians.map((technician) => (
-                  <tr key={technician.id}>
+                  <tr key={technician.id} className="hover:bg-gray-50">
                     <td className="table-cell">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
-                          <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
-                            <User className="h-5 w-5 text-gray-600" />
+                          <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <User className="h-5 w-5 text-blue-600" />
                           </div>
                         </div>
                         <div className="ml-4">
@@ -434,9 +489,26 @@ const TechniciansPage = () => {
                       </div>
                     </td>
                     <td className="table-cell">
+                      {technician.username ? (
+                        <div>
+                          <button
+                            onClick={() => handleViewUser(technician.user_id)}
+                            className="text-sm font-medium text-blue-600 hover:text-blue-800"
+                          >
+                            @{technician.username}
+                          </button>
+                          <div className="text-xs text-gray-500 mt-1">
+                            User ID: {technician.user_id}
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="text-sm text-red-600">No user account</span>
+                      )}
+                    </td>
+                    <td className="table-cell">
                       <div className="flex items-center mb-1">
                         <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                        {technician.phone}
+                        <span className="text-sm">{technician.phone}</span>
                       </div>
                       {technician.email && (
                         <div className="flex items-center text-sm text-gray-500">
@@ -455,17 +527,38 @@ const TechniciansPage = () => {
                       </div>
                     </td>
                     <td className="table-cell">
+                      {getEmploymentBadge(technician.employment_status)}
+                    </td>
+                    <td className="table-cell">
                       <div className="space-y-2">
-                        {getAvailabilityBadge(technician.availability_status)}
+                        {/* Quick Status Change Dropdown */}
+                        <select
+                          value={technician.availability_status}
+                          onChange={(e) => handleQuickStatusChange(technician.id, e.target.value)}
+                          disabled={technician.employment_status !== 'active'}
+                          className={`text-xs font-medium rounded-full px-2 py-1 border-0 focus:ring-2 focus:ring-blue-500 ${
+                            technician.availability_status === 'available' ? 'bg-green-100 text-green-800' :
+                            technician.availability_status === 'busy' ? 'bg-yellow-100 text-yellow-800' :
+                            technician.availability_status === 'break' ? 'bg-blue-100 text-blue-800' :
+                            'bg-gray-100 text-gray-800'
+                          } ${technician.employment_status !== 'active' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                        >
+                          <option value="available">Available</option>
+                          <option value="busy">Busy</option>
+                          <option value="break">Break</option>
+                          <option value="offline">Offline</option>
+                        </select>
                         <div className="text-xs text-gray-500">
-                          Active Tickets: {technician.active_tickets || 0}/{technician.max_daily_tickets || 8}
+                          Tickets: {technician.active_tickets || 0}/{technician.max_daily_tickets || 8}
                         </div>
                       </div>
                     </td>
                     <td className="table-cell">
                       <div className="flex items-center mb-1">
                         <Star className="h-4 w-4 mr-1 text-yellow-400" />
-                        {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
+                        <span className="text-sm font-medium">
+                          {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
+                        </span>
                       </div>
                       <div className="text-xs text-gray-500">
                         Completed: {technician.total_tickets_completed || 0}
@@ -480,13 +573,6 @@ const TechniciansPage = () => {
                         >
                           <Eye className="h-4 w-4" />
                         </button>
-                        <button 
-                          onClick={() => handleDeleteTechnician(technician.id, technician.full_name)}
-                          className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
-                          title="Delete Technician"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
                       </div>
                     </td>
                   </tr>
@@ -496,7 +582,7 @@ const TechniciansPage = () => {
           </div>
 
           {/* Pagination */}
-          {pagination && (
+          {pagination.total > 0 && (
             <div className="bg-white border-t border-gray-200 px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex-1 flex justify-between sm:hidden">
@@ -587,15 +673,6 @@ const TechniciansPage = () => {
           )}
         </div>
       </div>
-
-      {/* Technician Form Modal */}
-      <TechnicianForm
-        isOpen={showForm}
-        onClose={() => setShowForm(false)}
-        technician={selectedTechnician}
-        onSuccess={handleFormSuccess}
-        mode={formMode}
-      />
     </div>
   )
 }
