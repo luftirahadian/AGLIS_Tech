@@ -1854,3 +1854,9 @@
 2025-10-14T10:09:15: ✅ Connected to PostgreSQL database
 2025-10-14T10:09:15: ✅ Connected to PostgreSQL database
 2025-10-14T10:09:15: 103.55.224.49 - - [14/Oct/2025:03:09:15 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/15" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:10:09: ✅ Connected to PostgreSQL database
+2025-10-14T10:10:09: ✅ Connected to PostgreSQL database
+2025-10-14T10:10:09: 103.55.224.49 - - [14/Oct/2025:03:10:09 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:11:10: ✅ Connected to PostgreSQL database
+2025-10-14T10:11:10: ✅ Connected to PostgreSQL database
+2025-10-14T10:11:10: 103.55.224.49 - - [14/Oct/2025:03:11:10 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
