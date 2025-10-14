@@ -615,10 +615,9 @@ const TechniciansPage = () => {
                             {getSortIcon('full_name')}
                           </div>
                         </th>
-                        <th className="table-header-cell">User Account</th>
                         <th className="table-header-cell">Contact</th>
-                        <th className="table-header-cell">Skills & Zone</th>
-                        <th className="table-header-cell">Employment</th>
+                        <th className="table-header-cell">Work Zone</th>
+                        <th className="table-header-cell">Status</th>
                         <th 
                           className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
                           onClick={() => handleSort('availability_status')}
@@ -629,8 +628,7 @@ const TechniciansPage = () => {
                           </div>
                         </th>
                         <th className="table-header-cell">Capacity</th>
-                        <th className="table-header-cell">Performance</th>
-                        <th className="table-header-cell">Service</th>
+                        <th className="table-header-cell">Rating</th>
                         <th className="table-header-cell text-center">Actions</th>
                       </tr>
                     </thead>
@@ -642,6 +640,7 @@ const TechniciansPage = () => {
                       className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
                       title="Klik untuk lihat detail technician"
                     >
+                      {/* Technician Name & ID */}
                       <td className="table-cell">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
@@ -653,55 +652,48 @@ const TechniciansPage = () => {
                             <div className="font-medium text-gray-900">
                               {technician.full_name}
                             </div>
-                            <div className="text-sm text-gray-500">
-                              {technician.employee_id}
+                            <div className="text-sm text-gray-500 flex items-center">
+                              ID: {technician.employee_id}
+                              {technician.username && (
+                                <span className="ml-2 text-blue-600">@{technician.username}</span>
+                              )}
                             </div>
                           </div>
                         </div>
                       </td>
+
+                      {/* Contact */}
                       <td className="table-cell">
-                        {technician.username ? (
-                          <div>
-                            <button
-                              onClick={() => handleViewUser(technician.user_id)}
-                              className="text-sm font-medium text-blue-600 hover:text-blue-800"
-                            >
-                              @{technician.username}
-                            </button>
-                            <div className="text-xs text-gray-500 mt-1">
-                              {getLastLoginIndicator(technician.last_login)}
+                        <div className="space-y-1">
+                          <div className="flex items-center text-sm">
+                            <Phone className="h-3 w-3 mr-1 text-gray-400" />
+                            <span>{technician.phone}</span>
+                          </div>
+                          {technician.email && (
+                            <div className="flex items-center text-xs text-gray-500 truncate" style={{ maxWidth: '180px' }}>
+                              <Mail className="h-3 w-3 mr-1 text-gray-400" />
+                              <span className="truncate">{technician.email}</span>
                             </div>
-                          </div>
-                        ) : (
-                          <span className="text-sm text-red-600 flex items-center">
-                            <XCircle className="h-3 w-3 mr-1" />
-                            No account
-                          </span>
-                        )}
-                      </td>
-                      <td className="table-cell">
-                        <div className="flex items-center mb-1">
-                          <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                          <span className="text-sm">{technician.phone}</span>
-                        </div>
-                        {technician.email && (
-                          <div className="flex items-center text-xs text-gray-500">
-                            <Mail className="h-3 w-3 mr-1 text-gray-400" />
-                            {technician.email}
-                          </div>
-                        )}
-                      </td>
-                      <td className="table-cell">
-                        <div className="space-y-2">
-                          {getSkillLevelBadge(technician.skill_level)}
-                          <div className="flex items-center text-sm text-gray-500">
-                            <MapPin className="h-4 w-4 mr-1" />
-                            {technician.work_zone?.replace('_', ' ')}
-                          </div>
+                          )}
                         </div>
                       </td>
+
+                      {/* Work Zone */}
                       <td className="table-cell">
-                        {getEmploymentBadge(technician.employment_status)}
+                        <div className="flex items-center text-sm text-gray-700">
+                          <MapPin className="h-4 w-4 mr-1 text-gray-400" />
+                          <span className="capitalize">{technician.work_zone?.replace('_', ' ')}</span>
+                        </div>
+                      </td>
+
+                      {/* Status (Employment + Skill) */}
+                      <td className="table-cell">
+                        <div className="space-y-1">
+                          {getEmploymentBadge(technician.employment_status)}
+                          <div className="text-xs">
+                            {getSkillLevelBadge(technician.skill_level)}
+                          </div>
+                        </div>
                       </td>
                       <td 
                         className="table-cell"
@@ -727,33 +719,23 @@ const TechniciansPage = () => {
                           </select>
                         </div>
                       </td>
+                      {/* Capacity */}
                       <td className="table-cell">
                         <CapacityBar 
                           current={parseInt(technician.active_tickets) || 0} 
                           max={technician.max_daily_tickets || 8} 
                         />
                       </td>
+
+                      {/* Rating */}
                       <td className="table-cell">
-                        <div className="flex items-center mb-1">
-                          <Star className="h-4 w-4 mr-1 text-yellow-400" />
+                        <div className="flex items-center">
+                          <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
                           <span className="text-sm font-medium">
                             {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
                           </span>
+                          <span className="text-xs text-gray-400 ml-1">/5.0</span>
                         </div>
-                        <div className="text-xs text-gray-500">
-                          Completed: {technician.total_tickets_completed || 0}
-                        </div>
-                      </td>
-                      <td className="table-cell">
-                        <div className="flex items-center text-xs text-gray-500 mb-1">
-                          <Calendar className="h-3 w-3 mr-1" />
-                          {getYearsOfService(technician.hire_date)}
-                        </div>
-                        {technician.hire_date && (
-                          <div className="text-xs text-gray-400">
-                            {new Date(technician.hire_date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}
-                          </div>
-                        )}
                       </td>
                       <td 
                         className="table-cell"

@@ -275,6 +275,45 @@ router.get('/:id', async (req, res) => {
     `;
     const ticketsResult = await pool.query(ticketsQuery, [id]);
 
+    // Get recent tickets (last 10)
+    const recentTicketsQuery = `
+      SELECT t.*, c.name as customer_name, c.phone as customer_phone,
+             CASE 
+               WHEN t.status = 'completed' THEN 'completed'
+               WHEN t.status = 'cancelled' THEN 'cancelled'
+               ELSE 'active'
+             END as ticket_category
+      FROM tickets t
+      LEFT JOIN customers c ON t.customer_id = c.id
+      WHERE t.assigned_technician_id = $1
+      ORDER BY t.created_at DESC
+      LIMIT 10
+    `;
+    const recentTicketsResult = await pool.query(recentTicketsQuery, [id]);
+
+    // Get comprehensive statistics
+    const statsQuery = `
+      SELECT 
+        COUNT(t.id) as total_tickets,
+        COUNT(CASE WHEN t.status = 'completed' THEN 1 END) as completed_tickets,
+        COUNT(CASE WHEN t.status IN ('assigned', 'in_progress') THEN 1 END) as active_tickets,
+        COUNT(CASE WHEN t.status = 'pending' THEN 1 END) as pending_tickets,
+        COUNT(CASE WHEN t.status = 'cancelled' THEN 1 END) as cancelled_tickets,
+        COALESCE(AVG(CASE WHEN t.customer_rating IS NOT NULL THEN t.customer_rating END), 0) as avg_rating,
+        COALESCE(
+          ROUND(
+            (COUNT(CASE WHEN t.status = 'completed' THEN 1 END)::numeric / 
+            NULLIF(COUNT(t.id), 0)) * 100, 
+          1),
+          0
+        ) as completion_rate,
+        COUNT(CASE WHEN t.created_at >= CURRENT_DATE - INTERVAL '30 days' THEN 1 END) as tickets_this_month,
+        COUNT(CASE WHEN t.status = 'completed' AND t.updated_at >= CURRENT_DATE - INTERVAL '30 days' THEN 1 END) as completed_this_month
+      FROM tickets t
+      WHERE t.assigned_technician_id = $1
+    `;
+    const statsResult = await pool.query(statsQuery, [id]);
+
     res.json({
       success: true,
       data: {
@@ -284,7 +323,9 @@ router.get('/:id', async (req, res) => {
         performance: performanceResult.rows,
         equipment: equipmentResult.rows,
         location_history: locationResult.rows,
-        active_tickets: ticketsResult.rows
+        active_tickets: ticketsResult.rows,
+        recent_tickets: recentTicketsResult.rows,
+        stats: statsResult.rows[0]
       }
     });
 
