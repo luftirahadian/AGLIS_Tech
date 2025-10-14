@@ -28,7 +28,7 @@ const NotificationTemplatesPage = () => {
   const [previewData, setPreviewData] = useState(null);
 
   // Fetch templates
-  const { data: templatesData, isLoading } = useQuery(
+  const { data: templatesData, isLoading, error } = useQuery(
     ['notification-templates', categoryFilter, activeFilter],
     () => templateService.getAll({
       category: categoryFilter || undefined,
@@ -39,7 +39,7 @@ const NotificationTemplatesPage = () => {
     }
   );
 
-  const templates = templatesData?.data || [];
+  const templates = templatesData || [];
 
   // Delete mutation
   const deleteMutation = useMutation(

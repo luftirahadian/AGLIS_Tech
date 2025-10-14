@@ -3680,3 +3680,249 @@
 2025-10-14T13:42:33: 103.55.224.49 - - [14/Oct/2025:06:42:33 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-14T13:42:53: 103.55.224.49 - - [14/Oct/2025:06:42:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-14T13:42:59: 103.55.224.49 - - [14/Oct/2025:06:42:59 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:17: 103.55.224.49 - - [14/Oct/2025:06:43:17 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:26: 103.55.224.49 - - [14/Oct/2025:06:43:26 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:27: 103.55.224.49 - - [14/Oct/2025:06:43:27 +0000] "GET /api/notification-templates? HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: ✅ Connected to PostgreSQL database
+2025-10-14T13:43:33: 103.55.224.49 - - [14/Oct/2025:06:43:33 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:51: 103.55.225.241 - - [14/Oct/2025:06:43:51 +0000] "GET /api/notification-templates HTTP/1.1" 200 7716 "-" "curl/7.81.0"
+2025-10-14T13:43:57: 103.55.224.49 - - [14/Oct/2025:06:43:57 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:43:57: 103.55.224.49 - - [14/Oct/2025:06:43:57 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:04: 103.55.224.49 - - [14/Oct/2025:06:44:04 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:44:23: 103.55.224.49 - - [14/Oct/2025:06:44:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:44:34: 103.55.224.49 - - [14/Oct/2025:06:44:34 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:44:57: ✅ Connected to PostgreSQL database
+2025-10-14T13:44:57: 103.55.224.49 - - [14/Oct/2025:06:44:57 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:45:04: 103.55.224.49 - - [14/Oct/2025:06:45:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:45:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:45:28: 103.55.224.49 - - [14/Oct/2025:06:45:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:45:49: 103.55.224.49 - - [14/Oct/2025:06:45:49 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:45:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:45:58: 103.55.224.49 - - [14/Oct/2025:06:45:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:46:23: 103.55.224.49 - - [14/Oct/2025:06:46:23 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:46:34: 103.55.224.49 - - [14/Oct/2025:06:46:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:46:53: 103.55.224.49 - - [14/Oct/2025:06:46:53 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:47:04: 103.55.224.49 - - [14/Oct/2025:06:47:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:47:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:47:28: 103.55.224.49 - - [14/Oct/2025:06:47:28 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:47:49: 103.55.224.49 - - [14/Oct/2025:06:47:49 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:47:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:47:58: 103.55.224.49 - - [14/Oct/2025:06:47:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:48:23: 103.55.224.49 - - [14/Oct/2025:06:48:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:48:34: 103.55.224.49 - - [14/Oct/2025:06:48:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:48:53: 103.55.224.49 - - [14/Oct/2025:06:48:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:49:04: 103.55.224.49 - - [14/Oct/2025:06:49:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:49:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:49:28: 103.55.224.49 - - [14/Oct/2025:06:49:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:49:49: 103.55.224.49 - - [14/Oct/2025:06:49:49 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:49:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:49:58: 103.55.224.49 - - [14/Oct/2025:06:49:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:50:19: 103.55.224.49 - - [14/Oct/2025:06:50:19 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:50:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:50:28: 103.55.224.49 - - [14/Oct/2025:06:50:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:50:53: 103.55.224.49 - - [14/Oct/2025:06:50:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:04: 103.55.224.49 - - [14/Oct/2025:06:51:04 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:51:23: 103.55.224.49 - - [14/Oct/2025:06:51:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:51:34: 103.55.224.49 - - [14/Oct/2025:06:51:34 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:51:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:51:58: 103.55.224.49 - - [14/Oct/2025:06:51:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:52:19: 103.55.224.49 - - [14/Oct/2025:06:52:19 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:52:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:52:28: 103.55.224.49 - - [14/Oct/2025:06:52:28 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:52:53: 103.55.224.49 - - [14/Oct/2025:06:52:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:04: 103.55.224.49 - - [14/Oct/2025:06:53:04 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:53:23: 103.55.224.49 - - [14/Oct/2025:06:53:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:53:34: 103.55.224.49 - - [14/Oct/2025:06:53:34 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:53:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:53:58: 103.55.224.49 - - [14/Oct/2025:06:53:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:54:19: 103.55.224.49 - - [14/Oct/2025:06:54:19 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:54:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:54:28: 103.55.224.49 - - [14/Oct/2025:06:54:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:54:54: 103.55.224.49 - - [14/Oct/2025:06:54:54 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:55:02: 103.55.225.241 - - [14/Oct/2025:06:55:02 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T13:55:24: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:24: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:24: 103.55.224.49 - - [14/Oct/2025:06:55:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:55:34: 103.55.224.49 - - [14/Oct/2025:06:55:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:55:54: 103.55.224.49 - - [14/Oct/2025:06:55:54 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:56:04: 103.55.224.49 - - [14/Oct/2025:06:56:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:56:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:56:28: 103.55.224.49 - - [14/Oct/2025:06:56:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:56:49: 103.55.224.49 - - [14/Oct/2025:06:56:49 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:56:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:56:58: 103.55.224.49 - - [14/Oct/2025:06:56:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:57:24: 103.55.224.49 - - [14/Oct/2025:06:57:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:57:34: 103.55.224.49 - - [14/Oct/2025:06:57:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:57:54: 103.55.224.49 - - [14/Oct/2025:06:57:54 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:58:04: 103.55.224.49 - - [14/Oct/2025:06:58:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:58:28: ✅ Connected to PostgreSQL database
+2025-10-14T13:58:28: 103.55.224.49 - - [14/Oct/2025:06:58:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:58:50: 103.55.224.49 - - [14/Oct/2025:06:58:50 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:58:58: ✅ Connected to PostgreSQL database
+2025-10-14T13:58:58: 103.55.224.49 - - [14/Oct/2025:06:58:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:59:24: 103.55.224.49 - - [14/Oct/2025:06:59:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: ✅ Connected to PostgreSQL database
+2025-10-14T13:59:34: 103.55.224.49 - - [14/Oct/2025:06:59:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T13:59:54: 103.55.224.49 - - [14/Oct/2025:06:59:54 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:05: 103.55.224.49 - - [14/Oct/2025:07:00:05 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:00:24: 103.55.224.49 - - [14/Oct/2025:07:00:24 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:00:35: 103.55.224.49 - - [14/Oct/2025:07:00:35 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:00:58: ✅ Connected to PostgreSQL database
+2025-10-14T14:00:58: 103.55.224.49 - - [14/Oct/2025:07:00:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:01:20: 103.55.224.49 - - [14/Oct/2025:07:01:20 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:01:28: ✅ Connected to PostgreSQL database
+2025-10-14T14:01:28: 103.55.224.49 - - [14/Oct/2025:07:01:28 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:01:54: 103.55.224.49 - - [14/Oct/2025:07:01:54 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:05: 103.55.224.49 - - [14/Oct/2025:07:02:05 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:02:24: 103.55.224.49 - - [14/Oct/2025:07:02:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:02:35: 103.55.224.49 - - [14/Oct/2025:07:02:35 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:02:58: ✅ Connected to PostgreSQL database
+2025-10-14T14:02:58: 103.55.224.49 - - [14/Oct/2025:07:02:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:03:20: 103.55.224.49 - - [14/Oct/2025:07:03:20 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:03:28: ✅ Connected to PostgreSQL database
+2025-10-14T14:03:28: 103.55.224.49 - - [14/Oct/2025:07:03:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:03:54: 103.55.224.49 - - [14/Oct/2025:07:03:54 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:05: 103.55.224.49 - - [14/Oct/2025:07:04:05 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:04:24: 103.55.224.49 - - [14/Oct/2025:07:04:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:04:35: 103.55.224.49 - - [14/Oct/2025:07:04:35 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:04:59: ✅ Connected to PostgreSQL database
+2025-10-14T14:04:59: 103.55.224.49 - - [14/Oct/2025:07:04:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:05:05: 103.55.224.49 - - [14/Oct/2025:07:05:05 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:05:29: ✅ Connected to PostgreSQL database
+2025-10-14T14:05:29: 103.55.224.49 - - [14/Oct/2025:07:05:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:05:50: 103.55.224.49 - - [14/Oct/2025:07:05:50 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:05:59: ✅ Connected to PostgreSQL database
+2025-10-14T14:05:59: 103.55.224.49 - - [14/Oct/2025:07:05:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:06:24: 103.55.224.49 - - [14/Oct/2025:07:06:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:06:35: 103.55.224.49 - - [14/Oct/2025:07:06:35 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:06:54: 103.55.224.49 - - [14/Oct/2025:07:06:54 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:07:05: 103.55.224.49 - - [14/Oct/2025:07:07:05 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:07:29: ✅ Connected to PostgreSQL database
+2025-10-14T14:07:29: 103.55.224.49 - - [14/Oct/2025:07:07:29 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:07:50: 103.55.224.49 - - [14/Oct/2025:07:07:50 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:07:59: ✅ Connected to PostgreSQL database
+2025-10-14T14:07:59: 103.55.224.49 - - [14/Oct/2025:07:07:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:24: 103.55.224.49 - - [14/Oct/2025:07:08:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: ✅ Connected to PostgreSQL database
+2025-10-14T14:08:35: 103.55.224.49 - - [14/Oct/2025:07:08:35 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:47: 103.55.224.49 - - [14/Oct/2025:07:08:47 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:47: 103.55.224.49 - - [14/Oct/2025:07:08:47 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:51: 103.55.224.49 - - [14/Oct/2025:07:08:51 +0000] "GET /api/notification-templates? HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:59: 103.55.224.49 - - [14/Oct/2025:07:08:59 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:08:59: 103.55.224.49 - - [14/Oct/2025:07:08:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:03: 103.55.224.49 - - [14/Oct/2025:07:09:03 +0000] "GET /api/notification-analytics/overview? HTTP/1.1" 200 293 "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:03: 103.55.224.49 - - [14/Oct/2025:07:09:03 +0000] "GET /api/notification-analytics/top-performing?limit=5 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:32: 103.55.224.49 - - [14/Oct/2025:07:09:32 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: ✅ Connected to PostgreSQL database
+2025-10-14T14:09:32: 103.55.224.49 - - [14/Oct/2025:07:09:32 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:36: 103.55.224.49 - - [14/Oct/2025:07:09:36 +0000] "GET /api/notification-templates? HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:09:59: 103.55.224.49 - - [14/Oct/2025:07:09:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:10:29: ✅ Connected to PostgreSQL database
+2025-10-14T14:10:29: ✅ Connected to PostgreSQL database
+2025-10-14T14:10:29: 103.55.224.49 - - [14/Oct/2025:07:10:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:10:59: 103.55.224.49 - - [14/Oct/2025:07:10:59 +0000] "GET /api/notification-analytics/overview? HTTP/1.1" 200 293 "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:10:59: 103.55.224.49 - - [14/Oct/2025:07:10:59 +0000] "GET /api/notification-analytics/devices HTTP/1.1" 200 26 "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:11:00: 103.55.224.49 - - [14/Oct/2025:07:11:00 +0000] "GET /api/notification-settings/advanced HTTP/1.1" 200 719 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:11:20: 103.55.224.49 - - [14/Oct/2025:07:11:20 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:11:20: ✅ Connected to PostgreSQL database
+2025-10-14T14:11:20: 103.55.224.49 - - [14/Oct/2025:07:11:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:11:32: 103.55.224.49 - - [14/Oct/2025:07:11:32 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:12:02: ✅ Connected to PostgreSQL database
+2025-10-14T14:12:02: ✅ Connected to PostgreSQL database
+2025-10-14T14:12:02: 103.55.224.49 - - [14/Oct/2025:07:12:02 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:12:30: 103.55.224.49 - - [14/Oct/2025:07:12:30 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:12:30: 103.55.224.49 - - [14/Oct/2025:07:12:30 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:00: ✅ Connected to PostgreSQL database
+2025-10-14T14:13:00: ✅ Connected to PostgreSQL database
+2025-10-14T14:13:00: 103.55.224.49 - - [14/Oct/2025:07:13:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:06: 103.55.224.49 - - [14/Oct/2025:07:13:06 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:07: 103.55.224.49 - - [14/Oct/2025:07:13:07 +0000] "GET /api/notification-templates? HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:10: 103.55.224.49 - - [14/Oct/2025:07:13:10 +0000] "GET /api/notification-templates/5/preview HTTP/1.1" 200 919 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:16: 103.55.224.49 - - [14/Oct/2025:07:13:16 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T14:13:16: 103.55.224.49 - - [14/Oct/2025:07:13:16 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
