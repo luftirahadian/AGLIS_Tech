@@ -13,6 +13,7 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import ExportModal from '../../components/ExportModal'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { exportToExcel, formatCurrency, formatDate, formatDateOnly } from '../../utils/exportToExcel'
@@ -56,6 +57,34 @@ const CustomersPage = () => {
   const [showBulkSuspendModal, setShowBulkSuspendModal] = useState(false)
   const [showBulkActivateModal, setShowBulkActivateModal] = useState(false)
   const [showBulkDeleteModal, setShowBulkDeleteModal] = useState(false)
+  
+  // Export modal state
+  const [showExportModal, setShowExportModal] = useState(false)
+
+  // Available columns for export
+  const exportColumns = [
+    { key: 'no', label: 'No', defaultSelected: true },
+    { key: 'customer_id', label: 'Customer ID', defaultSelected: true },
+    { key: 'name', label: 'Nama', defaultSelected: true },
+    { key: 'phone', label: 'Telepon', defaultSelected: true },
+    { key: 'email', label: 'Email', defaultSelected: true },
+    { key: 'address', label: 'Alamat', defaultSelected: true },
+    { key: 'city', label: 'Kota', defaultSelected: false },
+    { key: 'province', label: 'Provinsi', defaultSelected: false },
+    { key: 'package_name', label: 'Paket', defaultSelected: true },
+    { key: 'monthly_price', label: 'Harga Bulanan', defaultSelected: true },
+    { key: 'customer_type', label: 'Tipe Customer', defaultSelected: false },
+    { key: 'service_type', label: 'Tipe Layanan', defaultSelected: false },
+    { key: 'account_status', label: 'Status Akun', defaultSelected: true },
+    { key: 'payment_status', label: 'Status Pembayaran', defaultSelected: true },
+    { key: 'outstanding_balance', label: 'Outstanding', defaultSelected: true },
+    { key: 'due_date', label: 'Jatuh Tempo', defaultSelected: false },
+    { key: 'last_payment_date', label: 'Pembayaran Terakhir', defaultSelected: false },
+    { key: 'total_tickets', label: 'Total Tickets', defaultSelected: false },
+    { key: 'registration_date', label: 'Tanggal Registrasi', defaultSelected: true },
+    { key: 'ip_address', label: 'IP Address', defaultSelected: false },
+    { key: 'notes', label: 'Catatan', defaultSelected: false }
+  ]
 
   // Fetch customers with filters
   const { 
@@ -163,7 +192,128 @@ const CustomersPage = () => {
     setEditingCustomer(customer)
   }
 
-  // Export customers to Excel
+  // Enhanced export handler with custom options
+  const handleEnhancedExport = async (exportOptions) => {
+    try {
+      let customersToExport = []
+
+      // Determine which customers to export
+      if (exportOptions.type === 'all') {
+        // Fetch ALL customers (no filters, no pagination)
+        const response = await customerService.getCustomers({
+          page: 1,
+          limit: 100000
+        })
+        customersToExport = response.data?.customers || []
+      } else if (exportOptions.type === 'filtered') {
+        // Fetch filtered customers
+        const response = await customerService.getCustomers({
+          ...filters,
+          page: 1,
+          limit: 100000,
+          sort_by: sortBy,
+          sort_order: sortOrder
+        })
+        customersToExport = response.data?.customers || []
+      } else if (exportOptions.type === 'selected') {
+        // Export only selected customers
+        customersToExport = customers.filter(c => selectedCustomers.includes(c.id))
+      }
+
+      if (customersToExport.length === 0) {
+        toast.error('Tidak ada data untuk di-export')
+        return
+      }
+
+      // Build export data based on selected columns
+      const exportData = customersToExport.map((customer, index) => {
+        const row = {}
+        
+        exportOptions.columns.forEach(columnKey => {
+          switch (columnKey) {
+            case 'no':
+              row['No'] = index + 1
+              break
+            case 'customer_id':
+              row['Customer ID'] = customer.customer_id || '-'
+              break
+            case 'name':
+              row['Nama'] = customer.name || '-'
+              break
+            case 'phone':
+              row['Telepon'] = customer.phone || '-'
+              break
+            case 'email':
+              row['Email'] = customer.email || '-'
+              break
+            case 'address':
+              row['Alamat'] = customer.address || '-'
+              break
+            case 'city':
+              row['Kota'] = customer.city || '-'
+              break
+            case 'province':
+              row['Provinsi'] = customer.province || '-'
+              break
+            case 'package_name':
+              row['Paket'] = customer.package_name || '-'
+              break
+            case 'monthly_price':
+              row['Harga Bulanan'] = formatCurrency(customer.monthly_price || 0)
+              break
+            case 'customer_type':
+              row['Tipe Customer'] = customer.customer_type || '-'
+              break
+            case 'service_type':
+              row['Tipe Layanan'] = customer.service_type || '-'
+              break
+            case 'account_status':
+              row['Status Akun'] = customer.account_status?.toUpperCase() || '-'
+              break
+            case 'payment_status':
+              row['Status Pembayaran'] = customer.payment_status?.toUpperCase() || '-'
+              break
+            case 'outstanding_balance':
+              row['Outstanding'] = formatCurrency(customer.outstanding_balance || 0)
+              break
+            case 'due_date':
+              row['Jatuh Tempo'] = customer.due_date ? formatDateOnly(customer.due_date) : '-'
+              break
+            case 'last_payment_date':
+              row['Pembayaran Terakhir'] = customer.last_payment_date ? formatDateOnly(customer.last_payment_date) : '-'
+              break
+            case 'total_tickets':
+              row['Total Tickets'] = customer.total_tickets || 0
+              break
+            case 'registration_date':
+              row['Tanggal Registrasi'] = customer.registration_date ? formatDateOnly(customer.registration_date) : '-'
+              break
+            case 'ip_address':
+              row['IP Address'] = customer.ip_address || '-'
+              break
+            case 'notes':
+              row['Catatan'] = customer.notes || '-'
+              break
+            default:
+              break
+          }
+        })
+        
+        return row
+      })
+
+      // Export to Excel (or CSV in future)
+      const filename = `Customers_${exportOptions.type}_${new Date().toISOString().split('T')[0]}`
+      exportToExcel(exportData, filename)
+      
+      toast.success(`✅ ${customersToExport.length} customers exported successfully!`)
+    } catch (error) {
+      console.error('Enhanced export error:', error)
+      toast.error('❌ Gagal export data')
+    }
+  }
+
+  // Legacy export function (untuk backward compatibility)
   const handleExport = async () => {
     try {
       setIsExporting(true)
@@ -546,8 +696,8 @@ const CustomersPage = () => {
         </div>
         <div className="flex gap-3">
           <button 
-            onClick={handleExport}
-            disabled={isExporting || customersLoading}
+            onClick={() => setShowExportModal(true)}
+            disabled={customersLoading}
             className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isExporting ? (
@@ -1234,6 +1384,17 @@ const CustomersPage = () => {
           </p>
         </div>
       </ConfirmationModal>
+
+      {/* Enhanced Export Modal */}
+      <ExportModal
+        isOpen={showExportModal}
+        onClose={() => setShowExportModal(false)}
+        onExport={handleEnhancedExport}
+        totalCount={stats.total_customers || 0}
+        filteredCount={totalCustomers}
+        selectedCount={selectedCustomers.length}
+        availableColumns={exportColumns}
+      />
     </div>
   )
 }

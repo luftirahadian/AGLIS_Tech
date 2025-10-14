@@ -14,6 +14,7 @@ import { ticketService } from '../../services/ticketService'
 import socketService from '../../services/socketService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
+import PaymentModal from '../../components/PaymentModal'
 import toast from 'react-hot-toast'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -197,6 +198,24 @@ const CustomerDetailPage = () => {
 
   const handleQuickAddPayment = () => {
     setShowAddPayment(true)
+  }
+
+  const handlePaymentSubmit = async (paymentData) => {
+    try {
+      await customerService.addPayment(customer.id, paymentData)
+      toast.success('✅ Pembayaran berhasil dicatat!')
+      queryClient.invalidateQueries(['customer', id])
+      
+      // Emit socket event untuk real-time update
+      const io = window.io
+      if (io) {
+        io.emit('payment-added', { customer_id: customer.id })
+      }
+    } catch (error) {
+      toast.error('❌ Gagal mencatat pembayaran')
+      console.error('Add payment error:', error)
+      throw error // Re-throw untuk PaymentModal handle loading state
+    }
   }
 
   const handleQuickSuspend = async () => {
@@ -1422,24 +1441,13 @@ const CustomerDetailPage = () => {
         </div>
       )}
 
-      {showAddPayment && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div className="mt-3 text-center">
-              <h3 className="text-lg font-medium text-gray-900">Record Payment</h3>
-              <p className="text-sm text-gray-500 mt-2">Payment form will be implemented</p>
-              <div className="mt-4">
-                <button
-                  onClick={() => setShowAddPayment(false)}
-                  className="btn-secondary"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={showAddPayment}
+        onClose={() => setShowAddPayment(false)}
+        customer={customer}
+        onSuccess={handlePaymentSubmit}
+      />
     </div>
   )
 }
