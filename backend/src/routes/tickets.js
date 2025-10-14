@@ -308,15 +308,13 @@ router.get('/:id', async (req, res) => {
     `;
     const attachmentsResult = await pool.query(attachmentsQuery, [id]);
 
-    // Get ticket status history with technician info
+    // Get ticket status history
     const historyQuery = `
       SELECT h.*, 
              u.full_name as changed_by_name,
-             tech.employee_id as technician_employee_id,
-             tech.full_name as technician_name
+             u.username as changed_by_username
       FROM ticket_status_history h
       LEFT JOIN users u ON h.changed_by = u.id
-      LEFT JOIN technicians tech ON h.assigned_technician_id = tech.id
       WHERE h.ticket_id = $1
       ORDER BY h.created_at
     `;
