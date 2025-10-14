@@ -38,6 +38,8 @@ const RegistrationAnalyticsPage = lazy(() => import('./pages/registrations/Regis
 const NotificationTemplatesPage = lazy(() => import('./pages/notifications/NotificationTemplatesPage'))
 const NotificationAnalyticsPage = lazy(() => import('./pages/notifications/NotificationAnalyticsPage'))
 const NotificationSettingsPage = lazy(() => import('./pages/notifications/NotificationSettingsPage'))
+const InvoicesPage = lazy(() => import('./pages/billing/InvoicesPage'))
+const PaymentsPage = lazy(() => import('./pages/billing/PaymentsPage'))
 
 function App() {
   const { user, loading } = useAuth()
@@ -106,6 +108,10 @@ function App() {
         {/* Users (Admin/Supervisor only) */}
         <Route path="users" element={<UsersPage />} />
         <Route path="permissions" element={<PermissionsPage />} />
+        
+        {/* Billing */}
+        <Route path="invoices" element={<InvoicesPage />} />
+        <Route path="payments" element={<PaymentsPage />} />
 
         {/* Profile */}
         <Route path="profile" element={<ProfilePage />} />

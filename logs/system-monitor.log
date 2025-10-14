@@ -10814,3 +10814,1893 @@ Recent PM2 Errors:
 7|aglis-ba | 2025-10-14T11:08:27:   routine: 'pg_strtoint32'
 7|aglis-ba | 2025-10-14T11:08:27: }
 
+10|aglis-backend-4 | 2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4 | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4 | 2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4  | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   code: '42803',
+2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4 | 2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4 | 2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4 | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   code: '42803',
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4 | 2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4  | 2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   query: '\n' +
+2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+10|aglis-backend-4 | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4  | 2025-10-14T21:23:28: }
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4  | 2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4 | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T21:23:28: }
+10|aglis-backend-4 | 2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   where: undefined,
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4 | 2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28: }
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+10|aglis-backend-4 | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28:   length: 132,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   code: '42803',
+2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+2025-10-14T21:23:28:   query: '\n' +
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4  | 2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28: }
+10|aglis-backend-4  | 2025-10-14T21:23:28: }
+2025-10-14T21:23:28:   severity: 'ERROR',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   code: '42803',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   detail: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   hint: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   position: '134',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   internalPosition: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   where: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   schema: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   table: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   column: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   dataType: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   constraint: undefined,
+10|aglis-backend-4  | 2025-10-14T21:23:28:   file: 'parse_agg.c',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   line: '592',
+10|aglis-backend-4  | 2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+10|aglis-backend-4  | 2025-10-14T21:23:28: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13: Require stack:
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:13:   requireStack: [
+2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:13:   ]
+2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:13:   ]
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:13: }
+2025-10-14T21:28:13: }
+2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:13:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:13: }
+7|aglis-backend-1  | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:28:13:   ]
+7|aglis-backend-1  | 2025-10-14T21:28:13: }
+7|aglis-backend-1   | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:13:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:13: }
+7|aglis-backend-1   | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:13:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:13: }
+7|aglis-backend-1   | 2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:13: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:13:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:13:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:13: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:18: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18: Require stack:
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:18: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:18:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:18:   ]
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:18: }
+2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:   requireStack: [
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:18:   requireStack: [
+2025-10-14T21:28:18: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:   ]
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:18: }
+7|aglis-backend-1   | 2025-10-14T21:28:18:   ]
+2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:18: }
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:18:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:18:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:18: }
+7|aglis-backend-1   | 2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:18: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18: Require stack:
+2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:18:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18:   ]
+2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:18: }
+2025-10-14T21:28:18:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:18:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:18: }
+7|aglis-backend-1  | 2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:18: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:18:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:28:18:   ]
+7|aglis-backend-1  | 2025-10-14T21:28:18: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:23: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:23:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:23:   requireStack: [
+2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:23: }
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23: }
+7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:23:   requireStack: [
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23: }
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:23: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:   requireStack: [
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:23: }
+2025-10-14T21:28:23:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23: }
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:23: }
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:23:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:23:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:23: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:27: Require stack:
+2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:27: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:27: Require stack:
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:27:   requireStack: [
+2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:27:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:27:   ]
+2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27: }
+2025-10-14T21:28:27:   requireStack: [
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:27:   ]
+7|aglis-backend-1  | 2025-10-14T21:28:27: }
+7|aglis-backend-1   | 2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:27: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27:   ]
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:27: }
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:27:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:28:27:   ]
+7|aglis-backend-1  | 2025-10-14T21:28:27: }
+7|aglis-backend-1   | 2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:27: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:27: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:27:   requireStack: [
+2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27: Require stack:
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:   ]
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:27: }
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:27:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:   requireStack: [
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:27:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:27: }
+7|aglis-backend-1   | 2025-10-14T21:28:27:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:27: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:32:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:   requireStack: [
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:32:   ]
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:   ]
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:32: }
+7|aglis-backend-1  | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:32: }
+2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:   requireStack: [
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:32:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32: }
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:   ]
+2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:32: }
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:32:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:32: }
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:32:   ]
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:32: }
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:32:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:32: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:37: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:37: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:37:   requireStack: [
+2025-10-14T21:28:37:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:   ]
+2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:37:   ]
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37: }
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37: }
+2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:37:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:37: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:37:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:37: }
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37: Require stack:
+2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:37: Require stack:
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:37:   requireStack: [
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:37: Require stack:
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:37: }
+7|aglis-backend-1   | 2025-10-14T21:28:37:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:37:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37: }
+2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:37:   ]
+2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:37: }
+7|aglis-backend-1   | 2025-10-14T21:28:37:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:37:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:37: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:42: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:42:   requireStack: [
+2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:42:   ]
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:42:   ]
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:42: }
+2025-10-14T21:28:42: }
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:   ]
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:42: }
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:42: }
+2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:42:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:42: }
+2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:42:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:42: }
+7|aglis-backend-1   | 2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:42: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:42:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:42:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:42: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:46: Require stack:
+2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:46: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46: Require stack:
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:46:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:46:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:46:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46: }
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:   ]
+2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46: }
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:46:   requireStack: [
+2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:   ]
+2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46: }
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:46:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46:   ]
+2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:46: }
+7|aglis-backend-1  | 2025-10-14T21:28:46:   requireStack: [
+2025-10-14T21:28:46: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:46:   ]
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46: }
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:28:46:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:28:46:   ]
+7|aglis-backend-1  | 2025-10-14T21:28:46: }
+7|aglis-backend-1   | 2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:46: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:46:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:46:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:46: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:51: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51: Require stack:
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:51: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51: Require stack:
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:51: Require stack:
+2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51: Require stack:
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:51:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:   requireStack: [
+2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:51: }
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:51: }
+2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51: }
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:51:   requireStack: [
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51:   ]
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:51: }
+7|aglis-backend-1  | 2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51: }
+7|aglis-backend-1  | 2025-10-14T21:28:51: }
+7|aglis-backend-1   | 2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:51: Require stack:
+7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:51:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:51:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:51: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56: Require stack:
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:56:   requireStack: [
+2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:28:56: }
+2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:56: }
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:56: }
+7|aglis-backend-1   | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 2025-10-14T21:28:56:   requireStack: [
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:56: Require stack:
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 2025-10-14T21:28:56: }
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:56:   requireStack: [
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:28:56: }
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:   requireStack: [
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56:   ]
+2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T21:28:56: }
+2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1   | 2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1   | 2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1   | 2025-10-14T21:28:56:   requireStack: [
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+7|aglis-backend-1   | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1   | 2025-10-14T21:28:56:   ]
+7|aglis-backend-1   | 2025-10-14T21:28:56: }

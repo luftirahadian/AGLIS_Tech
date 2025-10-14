@@ -34,6 +34,8 @@ const notificationSettingsRoutes = require('./routes/notificationSettings');
 const analyticsRoutes = require('./routes/analytics');
 const registrationRoutes = require('./routes/registrations');
 const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
+const invoiceRoutes = require('./routes/invoices');
+const paymentRoutes = require('./routes/payments');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -222,6 +224,8 @@ app.use('/api/notification-settings', authMiddleware, notificationSettingsRoutes
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/registrations', registrationRoutes); // Public routes included, auth handled per route
 app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);
+app.use('/api/invoices', authMiddleware, invoiceRoutes);
+app.use('/api/payments', authMiddleware, paymentRoutes);
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');

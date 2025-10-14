@@ -5845,3 +5845,404 @@
 2025-10-14T21:13:14: 103.55.224.49 - - [14/Oct/2025:14:13:14 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-14T21:13:39: 103.55.224.49 - - [14/Oct/2025:14:13:39 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-14T21:13:44: 103.55.224.49 - - [14/Oct/2025:14:13:44 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:14:14: ✅ Connected to PostgreSQL database
+2025-10-14T21:14:14: 103.55.224.49 - - [14/Oct/2025:14:14:14 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:14:23: 103.55.224.49 - - [14/Oct/2025:14:14:23 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:14:23: 103.55.224.49 - - [14/Oct/2025:14:14:23 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:14:39: 103.55.224.49 - - [14/Oct/2025:14:14:39 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 502 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:15:01: 103.55.225.241 - - [14/Oct/2025:14:15:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T21:15:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:15:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:15:23: 103.55.224.49 - - [14/Oct/2025:14:15:23 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:15:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:15:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:15:53: 103.55.224.49 - - [14/Oct/2025:14:15:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:16:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:16:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:16:23: 103.55.224.49 - - [14/Oct/2025:14:16:23 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:16:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:16:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:16:53: 103.55.224.49 - - [14/Oct/2025:14:16:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:17:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:17:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:17:23: 103.55.224.49 - - [14/Oct/2025:14:17:23 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:17:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:17:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:17:53: 103.55.224.49 - - [14/Oct/2025:14:17:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:18:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:18:23: ✅ Connected to PostgreSQL database
+2025-10-14T21:18:23: 103.55.224.49 - - [14/Oct/2025:14:18:23 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:18:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:18:53: ✅ Connected to PostgreSQL database
+2025-10-14T21:18:53: 103.55.224.49 - - [14/Oct/2025:14:18:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:18: 103.55.224.49 - - [14/Oct/2025:14:19:18 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:18: 103.55.224.49 - - [14/Oct/2025:14:19:18 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:20: 103.55.224.49 - - [14/Oct/2025:14:19:20 +0000] "GET /api/performance/cache-stats HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: ✅ Connected to PostgreSQL database
+2025-10-14T21:19:29: 103.55.224.49 - - [14/Oct/2025:14:19:29 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:31: 103.55.224.49 - - [14/Oct/2025:14:19:31 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:31: 103.55.224.49 - - [14/Oct/2025:14:19:31 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:32: 103.55.224.49 - - [14/Oct/2025:14:19:32 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:35: 103.55.224.49 - - [14/Oct/2025:14:19:35 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:37: 103.55.224.49 - - [14/Oct/2025:14:19:37 +0000] "GET /api/customers/stats HTTP/1.1" 200 254 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:40: 103.55.224.49 - - [14/Oct/2025:14:19:40 +0000] "GET /api/registration-analytics/package-popularity HTTP/1.1" 200 741 "https://portal.aglis.biz.id/registration-analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:41: 103.55.224.49 - - [14/Oct/2025:14:19:41 +0000] "GET /api/technicians/stats/overview HTTP/1.1" 200 315 "https://portal.aglis.biz.id/technicians" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:46: 🔍 Cache MISS: cache:GET:/:page=1&limit=10&sort_by=display_order&sort_order=asc:admin...
+2025-10-14T21:19:46: 💾 Cached: cache:GET:/:page=1&limit=10&sort_by=display_order&sort_order=asc:admin... (TTL: 600s)
+2025-10-14T21:19:46: 103.55.224.49 - - [14/Oct/2025:14:19:46 +0000] "GET /api/service-types?page=1&limit=10&sort_by=display_order&sort_order=asc HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/service-types" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:48: 🔍 Cache MISS: cache:GET:/:page=1&limit=10&sort_by=type&sort_order=asc:public...
+2025-10-14T21:19:48: 💾 Cached: cache:GET:/:page=1&limit=10&sort_by=type&sort_order=asc:public... (TTL: 300s)
+2025-10-14T21:19:48: 103.55.224.49 - - [14/Oct/2025:14:19:48 +0000] "GET /api/packages?page=1&limit=10&sort_by=type&sort_order=asc HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/packages" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:50: 💨 Cache HIT: cache:GET:/:page=1&limit=1000:admin...
+2025-10-14T21:19:50: 103.55.224.49 - - [14/Oct/2025:14:19:50 +0000] "GET /api/equipment?page=1&limit=1000 HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/equipment" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:53: 103.55.224.49 - - [14/Oct/2025:14:19:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:53: 103.55.224.49 - - [14/Oct/2025:14:19:53 +0000] "GET /api/notification-analytics/trend?days=30 HTTP/1.1" 200 245 "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:19:55: 103.55.224.49 - - [14/Oct/2025:14:19:55 +0000] "GET /api/notification-settings/advanced HTTP/1.1" 200 719 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:20:00: 103.55.224.49 - - [14/Oct/2025:14:20:00 +0000] "GET /api/users/activity-logs/list?limit=15 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/users" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:20:02: 103.55.224.49 - - [14/Oct/2025:14:20:02 +0000] "GET /api/permissions/matrix HTTP/1.1" 200 - "https://portal.aglis.biz.id/permissions" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:20:31: ✅ Connected to PostgreSQL database
+2025-10-14T21:20:31: 103.55.224.49 - - [14/Oct/2025:14:20:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:21:01: ✅ Connected to PostgreSQL database
+2025-10-14T21:21:01: ✅ Connected to PostgreSQL database
+2025-10-14T21:21:01: 103.55.224.49 - - [14/Oct/2025:14:21:01 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:21:31: ✅ Connected to PostgreSQL database
+2025-10-14T21:21:31: ✅ Connected to PostgreSQL database
+2025-10-14T21:21:31: 103.55.224.49 - - [14/Oct/2025:14:21:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:01: ✅ Connected to PostgreSQL database
+2025-10-14T21:22:01: ✅ Connected to PostgreSQL database
+2025-10-14T21:22:01: 103.55.224.49 - - [14/Oct/2025:14:22:01 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:07: 103.55.224.49 - - [14/Oct/2025:14:22:07 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:10: 103.55.224.49 - - [14/Oct/2025:14:22:10 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:10: 103.55.224.49 - - [14/Oct/2025:14:22:10 +0000] "GET /api/performance/query-stats HTTP/1.1" 200 159 "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:11: 103.55.224.49 - - [14/Oct/2025:14:22:11 +0000] "GET /api/analytics/dashboard/ticket-trends?days=30 HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:16: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:16: 103.55.224.49 - - [14/Oct/2025:14:22:16 +0000] "PATCH /api/notifications/61/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:24: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:24: 103.55.224.49 - - [14/Oct/2025:14:22:24 +0000] "PATCH /api/notifications/62/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:32: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:32: 103.55.224.49 - - [14/Oct/2025:14:22:32 +0000] "PATCH /api/notifications/57/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:40: ✅ Connected to PostgreSQL database
+2025-10-14T21:22:40: 103.55.224.49 - - [14/Oct/2025:14:22:40 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:44: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:44: 103.55.224.49 - - [14/Oct/2025:14:22:44 +0000] "PATCH /api/notifications/59/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:47: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:47: 103.55.224.49 - - [14/Oct/2025:14:22:47 +0000] "PATCH /api/notifications/59/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:50: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:50: 103.55.224.49 - - [14/Oct/2025:14:22:50 +0000] "PATCH /api/notifications/59/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:53: 103.55.224.49 - - [14/Oct/2025:14:22:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:22:58: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:22:58: 103.55.224.49 - - [14/Oct/2025:14:22:58 +0000] "PATCH /api/notifications/59/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:03: 103.55.224.49 - - [14/Oct/2025:14:23:03 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:03: 103.55.224.49 - - [14/Oct/2025:14:23:03 +0000] "GET /api/analytics/dashboard/recent-activities?limit=3 HTTP/1.1" 200 781 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:03: 103.55.224.49 - - [14/Oct/2025:14:23:03 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:10: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:10: 103.55.224.49 - - [14/Oct/2025:14:23:10 +0000] "PATCH /api/notifications/56/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:19: 103.55.224.49 - - [14/Oct/2025:14:23:19 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:25: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:25: 103.55.224.49 - - [14/Oct/2025:14:23:25 +0000] "PATCH /api/notifications/58/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:33: 103.55.224.49 - - [14/Oct/2025:14:23:33 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: ✅ Connected to PostgreSQL database
+2025-10-14T21:23:33: 103.55.224.49 - - [14/Oct/2025:14:23:33 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:37: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:37: 103.55.224.49 - - [14/Oct/2025:14:23:37 +0000] "PATCH /api/notifications/45/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:47: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:47: 103.55.224.49 - - [14/Oct/2025:14:23:47 +0000] "PATCH /api/notifications/45/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:49: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:49: 103.55.224.49 - - [14/Oct/2025:14:23:49 +0000] "PATCH /api/notifications/26/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:52: 103.55.224.49 - - [14/Oct/2025:14:23:52 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:52: 103.55.224.49 - - [14/Oct/2025:14:23:52 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:56: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:23:56: 103.55.224.49 - - [14/Oct/2025:14:23:56 +0000] "PATCH /api/notifications/20/read HTTP/1.1" 200 142 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:23:59: 103.55.224.49 - - [14/Oct/2025:14:23:59 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:00: 103.55.224.49 - - [14/Oct/2025:14:24:00 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:02: 103.55.224.49 - - [14/Oct/2025:14:24:02 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:02: 103.55.224.49 - - [14/Oct/2025:14:24:02 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:24:32: 103.55.224.49 - - [14/Oct/2025:14:24:32 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 516 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:42: 103.55.224.49 - - [14/Oct/2025:14:24:42 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:45: 103.55.224.49 - - [14/Oct/2025:14:24:45 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:46: 103.55.224.49 - - [14/Oct/2025:14:24:46 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/track/REG20251014001" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:46: 103.55.224.49 - - [14/Oct/2025:14:24:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/track/REG20251014001" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:24:55: 103.55.224.49 - - [14/Oct/2025:14:24:55 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:01: 103.55.225.241 - - [14/Oct/2025:14:25:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T21:25:02: 103.55.224.49 - - [14/Oct/2025:14:25:02 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/customers/15" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:13: 103.55.224.49 - - [14/Oct/2025:14:25:13 +0000] "GET /api/customers/8 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:21: 103.55.224.49 - - [14/Oct/2025:14:25:21 +0000] "GET /api/technicians/available/assignment? HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:25: 103.55.224.49 - - [14/Oct/2025:14:25:25 +0000] "GET /api/tickets/8 HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:25:32: 103.55.224.49 - - [14/Oct/2025:14:25:32 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:25:49: 103.55.224.49 - - [14/Oct/2025:14:25:49 +0000] "GET /api/tickets?search=&status=open&type=&priority=&page=1&limit=50&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:02: ✅ Connected to PostgreSQL database
+2025-10-14T21:26:02: 103.55.224.49 - - [14/Oct/2025:14:26:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:12: 103.55.224.49 - - [14/Oct/2025:14:26:12 +0000] "GET /api/tickets?search=&status=cancelled&type=&priority=&page=1&limit=50&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 93 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:25: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T21:26:25: === TICKET STATUS UPDATE ===
+2025-10-14T21:26:25: Ticket ID: 5
+2025-10-14T21:26:25: New Status: assigned
+2025-10-14T21:26:25: Assigned Technician ID: 1
+2025-10-14T21:26:25: Full Request Body: {
+2025-10-14T21:26:25:   "status": "assigned",
+2025-10-14T21:26:25:   "notes": "📋 TICKET ASSIGNMENT\n\nTiket installation (TKT20251014001) berhasil di-assign.\n\nTeknisi: Ahmad Fauzi (TECH001)\nCustomer: Test User (AGLS202510140001)\nLokasi: Test Address\nPackage: Home Bronze 30M\n\nStatus berubah: \"open\" → \"Assigned\"\n\nTeknisi akan segera menghubungi customer untuk koordinasi jadwal pekerjaan. Estimasi penyelesaian: 120 menit setelah mulai dikerjakan.",
+2025-10-14T21:26:25:   "assigned_technician_id": 1
+2025-10-14T21:26:25: }
+2025-10-14T21:26:25: 📡 Socket.IO: Events emitted for ticket 5 status update (open → assigned)
+2025-10-14T21:26:25: 103.55.224.49 - - [14/Oct/2025:14:26:25 +0000] "PUT /api/tickets/5/status HTTP/1.1" 200 818 "https://portal.aglis.biz.id/tickets/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:26:32: 103.55.224.49 - - [14/Oct/2025:14:26:32 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/tickets/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:35: 103.55.224.49 - - [14/Oct/2025:14:26:35 +0000] "GET /api/tickets?search=&status=in_progress&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:26:54: 103.55.224.49 - - [14/Oct/2025:14:26:54 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:00: 103.55.224.49 - - [14/Oct/2025:14:27:00 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 198 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:06: 103.55.224.49 - - [14/Oct/2025:14:27:06 +0000] "GET /api/tickets?search=&status=open&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:18: 103.55.224.49 - - [14/Oct/2025:14:27:18 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:24: 103.55.224.49 - - [14/Oct/2025:14:27:24 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=100&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:32: ✅ Connected to PostgreSQL database
+2025-10-14T21:27:32: 103.55.224.49 - - [14/Oct/2025:14:27:32 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:41: 103.55.224.49 - - [14/Oct/2025:14:27:41 +0000] "GET /api/performance/cache-stats HTTP/1.1" 200 - "https://portal.aglis.biz.id/performance" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:42: 103.55.224.49 - - [14/Oct/2025:14:27:42 +0000] "GET /api/analytics/dashboard/technician-performance HTTP/1.1" 200 - "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:27:43: 103.55.224.49 - - [14/Oct/2025:14:27:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:28:02: ✅ Connected to PostgreSQL database
+2025-10-14T21:28:02: 103.55.224.49 - - [14/Oct/2025:14:28:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T21:28:13: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:13: Require stack:
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:13:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:13:   requireStack: [
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:13:   ]
+2025-10-14T21:28:13: }
+2025-10-14T21:28:18: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:18: Require stack:
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:18:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:18:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:18:   requireStack: [
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:18:   ]
+2025-10-14T21:28:18: }
+2025-10-14T21:28:23: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:23: Require stack:
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:23:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:23:   requireStack: [
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:23:   ]
+2025-10-14T21:28:23: }
+2025-10-14T21:28:27: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:27: Require stack:
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:27:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:27:   requireStack: [
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:27:   ]
+2025-10-14T21:28:27: }
+2025-10-14T21:28:32: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:32: Require stack:
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:32:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:32:   requireStack: [
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:32:   ]
+2025-10-14T21:28:32: }
+2025-10-14T21:28:37: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:37: Require stack:
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:37: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:37:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:37:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:37:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:37:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:37:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:37:   requireStack: [
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:37:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:37:   ]
+2025-10-14T21:28:37: }
+2025-10-14T21:28:42: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:42: Require stack:
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:42: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:42:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:42:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:42:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:42:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:42:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:42:   requireStack: [
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:42:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:42:   ]
+2025-10-14T21:28:42: }
+2025-10-14T21:28:46: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:46: Require stack:
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:46: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:46:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:46:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:46:   requireStack: [
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:46:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:46:   ]
+2025-10-14T21:28:46: }
+2025-10-14T21:28:51: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:51: Require stack:
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:51: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:51:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:51:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:51:   requireStack: [
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:51:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:51:   ]
+2025-10-14T21:28:51: }
+2025-10-14T21:28:56: Error: Cannot find module 'date-fns'
+2025-10-14T21:28:56: Require stack:
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/routes/invoices.js
+2025-10-14T21:28:56: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:28:56:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:28:56:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:28:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js:6:20)
+2025-10-14T21:28:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:28:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:28:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:28:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:28:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:28:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:28:56:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:28:56:   requireStack: [
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/services/invoiceService.js',
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/routes/invoices.js',
+2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:28:56:   ]
+2025-10-14T21:28:56: }

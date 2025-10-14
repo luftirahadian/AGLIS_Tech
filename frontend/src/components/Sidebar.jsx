@@ -15,7 +15,9 @@ import {
   ChevronRight,
   UserPlus,
   Bell,
-  Zap
+  Zap,
+  FileText,
+  CreditCard
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -80,6 +82,18 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
       href: '/inventory-stock',
       icon: Package,
       roles: ['admin', 'supervisor', 'technician']
+    },
+    {
+      name: 'Invoices',
+      href: '/invoices',
+      icon: FileText,
+      roles: ['admin', 'supervisor', 'customer_service']
+    },
+    {
+      name: 'Payments',
+      href: '/payments',
+      icon: CreditCard,
+      roles: ['admin', 'supervisor', 'customer_service']
     },
     {
       name: 'Master Data',
