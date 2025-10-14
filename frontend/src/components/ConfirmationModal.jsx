@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { X, AlertCircle, CheckCircle, Info, AlertTriangle } from 'lucide-react'
 
 /**
@@ -14,7 +14,7 @@ import { X, AlertCircle, CheckCircle, Info, AlertTriangle } from 'lucide-react'
  * @param {string} type - Modal type: 'danger', 'warning', 'success', 'info' (default: 'info')
  * @param {boolean} isLoading - Loading state for confirm button
  */
-const ConfirmationModal = ({
+const ConfirmationModal = memo(({
   isOpen,
   onClose,
   onConfirm,
@@ -159,7 +159,9 @@ const ConfirmationModal = ({
       </div>
     </div>
   )
-}
+});
+
+ConfirmationModal.displayName = 'ConfirmationModal';
 
 export default ConfirmationModal
 

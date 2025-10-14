@@ -14,7 +14,8 @@ import {
   ChevronDown,
   ChevronRight,
   UserPlus,
-  Bell
+  Bell,
+  Zap
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -37,6 +38,12 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
       href: '/analytics',
       icon: BarChart3,
       roles: ['admin', 'supervisor']
+    },
+    {
+      name: 'Performance',
+      href: '/performance',
+      icon: Zap,
+      roles: ['admin']
     },
     {
       name: 'Tickets',

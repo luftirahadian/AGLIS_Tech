@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import CountUp from 'react-countup';
 
-const KPICard = ({ 
+const KPICard = memo(({ 
   title, 
   value, 
   previousValue, 
@@ -122,6 +122,8 @@ const KPICard = ({
       </div>
     </div>
   );
-};
+});
+
+KPICard.displayName = 'KPICard';
 
 export default KPICard;

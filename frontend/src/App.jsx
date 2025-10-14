@@ -12,6 +12,7 @@ import DashboardPage from './pages/DashboardPage'
 
 // Lazy load all other pages for better performance
 const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'))
+const PerformanceDashboard = lazy(() => import('./pages/PerformanceDashboard'))
 const TicketsPage = lazy(() => import('./pages/tickets/TicketsPage'))
 const TicketDetailPage = lazy(() => import('./pages/tickets/TicketDetailPage'))
 const CustomersPage = lazy(() => import('./pages/customers/CustomersPage'))
@@ -66,6 +67,7 @@ function App() {
       >
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="analytics" element={<AnalyticsDashboard />} />
+        <Route path="performance" element={<PerformanceDashboard />} />
         
         {/* Tickets */}
         <Route path="tickets" element={<TicketsPage />} />
