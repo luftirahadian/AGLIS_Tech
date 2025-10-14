@@ -14,11 +14,25 @@ const equipmentService = {
       if (params.sort_order) queryParams.append('sort_order', params.sort_order)
       
       const queryString = queryParams.toString()
-      const response = await api.get(`/equipment${queryString ? '?' + queryString : ''}`)
+      const url = `/equipment${queryString ? '?' + queryString : ''}`
+      
+      console.log('📡 EquipmentService.getAll calling:', url)
+      const response = await api.get(url)
+      
+      console.log('📥 EquipmentService.getAll response:', {
+        type: typeof response,
+        isArray: Array.isArray(response),
+        hasData: !!response?.data,
+        responseKeys: Object.keys(response || {}),
+        dataLength: response?.data?.length || 0,
+        firstItem: response?.data?.[0]?.equipment_name
+      })
       
       // API interceptor returns response.data which is {success, data: [...]}
       // Return the data array directly for easier consumption
-      return response.data || []
+      const result = response?.data || []
+      console.log('✅ EquipmentService.getAll returning:', Array.isArray(result) ? `Array(${result.length})` : typeof result)
+      return result
     } catch (error) {
       console.error('❌ EquipmentService.getAll error:', error)
       return []

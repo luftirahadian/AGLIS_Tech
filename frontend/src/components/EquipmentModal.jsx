@@ -26,7 +26,15 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
   // Fetch equipment master data
   const { data: equipmentMaster, isLoading: isLoadingEquipment } = useQuery(
     'equipment-master',
-    () => equipmentService.getAll(),
+    async () => {
+      const result = await equipmentService.getAll()
+      console.log('🔍 Equipment Master Data Loaded:', {
+        type: Array.isArray(result) ? 'Array' : typeof result,
+        length: result?.length || 0,
+        sample: result?.[0]
+      })
+      return result
+    },
     { enabled: isOpen }
   )
 
@@ -160,6 +168,15 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
   const filteredEquipment = (equipmentMaster || []).filter(
     eq => eq.category === selectedCategory && eq.is_active
   )
+  
+  // Debug logging
+  console.log('🔍 Equipment Modal Debug:', {
+    selectedCategory,
+    totalEquipment: equipmentMaster?.length || 0,
+    filteredCount: filteredEquipment.length,
+    equipmentMasterType: Array.isArray(equipmentMaster) ? 'Array' : typeof equipmentMaster,
+    sampleFiltered: filteredEquipment[0]
+  })
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center p-4">
