@@ -39,6 +39,25 @@ const TicketDetailPage = () => {
     { enabled: !!id }
   )
 
+  // Fetch current user's technician profile if they're a technician
+  const { data: myTechnicianData } = useQuery(
+    ['my-technician-profile', user?.id],
+    async () => {
+      if (user?.role !== 'technician') return null
+      const response = await fetch(`/api/technicians?user_id=${user.id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      const data = await response.json()
+      return data?.data?.technicians?.[0] || null
+    },
+    { 
+      enabled: !!user && user.role === 'technician',
+      staleTime: 300000 // 5 minutes
+    }
+  )
+
   // Update ticket status mutation
   const updateStatusMutation = useMutation(
     (updateData) => ticketService.updateTicketStatus(id, updateData),
@@ -243,15 +262,19 @@ const TicketDetailPage = () => {
               <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
             </div>
             <div className="flex items-center gap-3">
-              {/* Status: OPEN - Can self-assign */}
-              {ticket.status === 'open' && user && (
+              {/* Status: OPEN - Can self-assign (technicians only) */}
+              {ticket.status === 'open' && user?.role === 'technician' && myTechnicianData && (
                 <button
-                  onClick={() => {
-                    updateStatusMutation.mutate({
-                      status: 'assigned',
-                      technician_id: user.id,
-                      notes: 'Self-assigned via quick action'
-                    })
+                  onClick={async () => {
+                    try {
+                      // Use the /assign endpoint with technician_id
+                      await ticketService.assignTicket(id, myTechnicianData.id)
+                      toast.success('Ticket assigned to you successfully!')
+                      queryClient.invalidateQueries(['ticket', id])
+                      queryClient.invalidateQueries(['tickets'])
+                    } catch (error) {
+                      toast.error(error.response?.data?.message || 'Failed to assign ticket')
+                    }
                   }}
                   disabled={updateStatusMutation.isLoading}
                   className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 text-sm font-medium inline-flex items-center gap-2 transition-colors"

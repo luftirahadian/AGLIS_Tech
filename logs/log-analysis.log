@@ -6642,3 +6642,103 @@ Recent application errors:
 7|aglis-backend-1  | 2025-10-14T22:34:22:   line: '1421',
 7|aglis-backend-1  | 2025-10-14T22:34:22:   routine: 'check_ungrouped_columns_walker'
 7|aglis-backend-1  | 2025-10-14T22:34:22: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   length: 132,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   code: '42803',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   position: '134',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   file: 'parse_agg.c',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   line: '592',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   length: 132,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   code: '42803',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   position: '134',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   file: 'parse_agg.c',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   line: '592',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: ❌ QUERY ERROR (4ms): {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   error: 'aggregate functions are not allowed in RETURNING',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   query: '\n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      UPDATE notifications \n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      SET is_read = TRUE, read_at = NOW() \n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      RETURNING COUNT(*) as updat...'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: error: aggregate functions are not allowed in RETURNING
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   length: 132,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   code: '42803',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   position: '134',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   file: 'parse_agg.c',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   line: '592',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: ❌ QUERY ERROR (4ms): {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   error: 'aggregate functions are not allowed in RETURNING',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   query: '\n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      UPDATE notifications \n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      SET is_read = TRUE, read_at = NOW() \n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+8|aglis-backend-2  | 2025-10-14T23:43:56:     '      RETURNING COUNT(*) as updat...'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }
+8|aglis-backend-2  | 2025-10-14T23:43:56: error: aggregate functions are not allowed in RETURNING
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-14T23:43:56:   length: 132,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   code: '42803',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   position: '134',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T23:43:56:   file: 'parse_agg.c',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   line: '592',
+8|aglis-backend-2  | 2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+8|aglis-backend-2  | 2025-10-14T23:43:56: }

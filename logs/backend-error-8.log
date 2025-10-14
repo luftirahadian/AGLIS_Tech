@@ -715,3 +715,53 @@
 2025-10-14T22:32:30:   line: '1421',
 2025-10-14T22:32:30:   routine: 'check_ungrouped_columns_walker'
 2025-10-14T22:32:30: }
+2025-10-14T23:43:56: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T23:43:56:   length: 132,
+2025-10-14T23:43:56:   severity: 'ERROR',
+2025-10-14T23:43:56:   code: '42803',
+2025-10-14T23:43:56:   detail: undefined,
+2025-10-14T23:43:56:   hint: undefined,
+2025-10-14T23:43:56:   position: '134',
+2025-10-14T23:43:56:   internalPosition: undefined,
+2025-10-14T23:43:56:   internalQuery: undefined,
+2025-10-14T23:43:56:   where: undefined,
+2025-10-14T23:43:56:   schema: undefined,
+2025-10-14T23:43:56:   table: undefined,
+2025-10-14T23:43:56:   column: undefined,
+2025-10-14T23:43:56:   dataType: undefined,
+2025-10-14T23:43:56:   constraint: undefined,
+2025-10-14T23:43:56:   file: 'parse_agg.c',
+2025-10-14T23:43:56:   line: '592',
+2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+2025-10-14T23:43:56: }
+2025-10-14T23:43:56: ❌ QUERY ERROR (4ms): {
+2025-10-14T23:43:56:   error: 'aggregate functions are not allowed in RETURNING',
+2025-10-14T23:43:56:   query: '\n' +
+2025-10-14T23:43:56:     '      UPDATE notifications \n' +
+2025-10-14T23:43:56:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T23:43:56:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+2025-10-14T23:43:56:     '      RETURNING COUNT(*) as updat...'
+2025-10-14T23:43:56: }
+2025-10-14T23:43:56: error: aggregate functions are not allowed in RETURNING
+2025-10-14T23:43:56:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T23:43:56:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T23:43:56:   length: 132,
+2025-10-14T23:43:56:   severity: 'ERROR',
+2025-10-14T23:43:56:   code: '42803',
+2025-10-14T23:43:56:   detail: undefined,
+2025-10-14T23:43:56:   hint: undefined,
+2025-10-14T23:43:56:   position: '134',
+2025-10-14T23:43:56:   internalPosition: undefined,
+2025-10-14T23:43:56:   internalQuery: undefined,
+2025-10-14T23:43:56:   where: undefined,
+2025-10-14T23:43:56:   schema: undefined,
+2025-10-14T23:43:56:   table: undefined,
+2025-10-14T23:43:56:   column: undefined,
+2025-10-14T23:43:56:   dataType: undefined,
+2025-10-14T23:43:56:   constraint: undefined,
+2025-10-14T23:43:56:   file: 'parse_agg.c',
+2025-10-14T23:43:56:   line: '592',
+2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
+2025-10-14T23:43:56: }

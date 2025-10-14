@@ -140,7 +140,7 @@ router.post('/', createUserLimiter, [
       });
     }
 
-    const { username, email, password, full_name, phone, role, is_active = true } = req.body;
+    const { username, email, password, full_name, phone, role, is_active = true, work_zone } = req.body;
 
     // Check if username or email already exists
     const existingUser = await pool.query(
@@ -197,8 +197,8 @@ router.post('/', createUserLimiter, [
           ) VALUES (
             $1, $2, $3, $4, $5, 
             CURRENT_DATE, $6, 'Field Technician', 'field_operations',
-            'junior', 'Karawang', 8,
-            'offline', false, $7
+            'junior', $7, 8,
+            'offline', false, $8
           ) RETURNING *`,
           [
             newUser.id, 
@@ -207,6 +207,7 @@ router.post('/', createUserLimiter, [
             phone, 
             email,
             is_active ? 'active' : 'inactive',
+            work_zone || 'karawang', // Use provided work_zone or default to karawang
             req.user.id
           ]
         );
@@ -326,7 +327,7 @@ router.put('/:id', [
     }
 
     const { id } = req.params;
-    const { full_name, email, phone, role, is_active } = req.body;
+    const { full_name, email, phone, role, is_active, work_zone } = req.body;
 
     // Check permissions
     if (req.user.role !== 'admin' && req.user.role !== 'supervisor' && req.user.id !== parseInt(id)) {
@@ -494,8 +495,8 @@ router.put('/:id', [
           ) VALUES (
             $1, $2, $3, $4, $5, 
             CURRENT_DATE, $6, 'Field Technician', 'field_operations',
-            'junior', 'Karawang', 8,
-            'offline', false, $7
+            'junior', $7, 8,
+            'offline', false, $8
           )`,
           [
             updatedUser.id,
@@ -504,6 +505,7 @@ router.put('/:id', [
             updatedUser.phone,
             updatedUser.email,
             updatedUser.is_active ? 'active' : 'inactive',
+            work_zone || 'karawang',
             req.user.id
           ]
         );
