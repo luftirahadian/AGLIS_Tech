@@ -44,6 +44,9 @@ const { apiLimiter } = require('./middleware/rateLimiter');
 const { queryStatsMiddleware } = require('./middleware/queryLogger');
 const { cacheMiddleware, invalidateCache, getCacheStats } = require('./middleware/cacheMiddleware');
 
+// Import cron jobs
+const billingCron = require('./jobs/billingCron');
+
 const app = express();
 const server = createServer(app);
 
@@ -260,6 +263,31 @@ app.post('/api/performance/cache-clear', authMiddleware, async (req, res) => {
   res.json({ success: true, message: 'Cache cleared' });
 });
 
+// Billing automation endpoints (admin only)
+app.post('/api/billing/generate-monthly', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  try {
+    const result = await billingCron.triggerMonthlyInvoices(req.body.dry_run || false);
+    res.json({ success: true, data: result });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+app.post('/api/billing/check-overdue', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  try {
+    const result = await billingCron.triggerOverdueCheck();
+    res.json({ success: true, data: result });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 // Socket.IO for real-time updates
 io.on('connection', (socket) => {
   console.log('👤 User connected:', socket.id);
@@ -356,6 +384,13 @@ io.on('connection', (socket) => {
 
 // Make io available to routes
 app.set('io', io);
+
+// Start billing cron jobs
+if (process.env.ENABLE_BILLING_CRON === 'true') {
+  billingCron.startAll();
+} else {
+  console.log('⏸️  Billing cron jobs disabled (set ENABLE_BILLING_CRON=true to enable)');
+}
 
 // 404 handler
 app.use('*', (req, res) => {

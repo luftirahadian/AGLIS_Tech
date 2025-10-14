@@ -4322,3 +4322,1411 @@ Recent application errors:
 7|aglis-backend-1  | 2025-10-14T21:28:56:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
 7|aglis-backend-1  | 2025-10-14T21:28:56:   ]
 7|aglis-backend-1  | 2025-10-14T21:28:56: }
+7|aglis-backend-1  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:54:58: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:54:58:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:54:58:   ]
+7|aglis-backend-1  | 2025-10-14T21:54:58: }
+7|aglis-backend-1  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:54:58: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:54:58:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:54:58:   ]
+7|aglis-backend-1  | 2025-10-14T21:54:58: }
+8|aglis-backend-2  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:54:58: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:54:58:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:54:58:   ]
+8|aglis-backend-2  | 2025-10-14T21:54:58: }
+8|aglis-backend-2  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:54:58: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:54:58:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:54:58:   ]
+8|aglis-backend-2  | 2025-10-14T21:54:58: }
+9|aglis-backend-3  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:54:58: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:54:58:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:54:58:   ]
+9|aglis-backend-3  | 2025-10-14T21:54:58: }
+9|aglis-backend-3  | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:54:58: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:54:58:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:54:58:   ]
+9|aglis-backend-3  | 2025-10-14T21:54:58: }
+10|aglis-backend-4 | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:54:58: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:54:58:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:54:58:   ]
+10|aglis-backend-4 | 2025-10-14T21:54:58: }
+10|aglis-backend-4 | 2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:54:58: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:54:58:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:54:58:   ]
+10|aglis-backend-4 | 2025-10-14T21:54:58: }
+7|aglis-backend-1  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:03: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:03:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:03:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:03: }
+7|aglis-backend-1  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:03: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:03:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:03:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:03: }
+8|aglis-backend-2  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:03: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:03:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:03:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:03: }
+8|aglis-backend-2  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:03: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:03:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:03:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:03: }
+9|aglis-backend-3  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:03: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:03:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:03:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:03: }
+9|aglis-backend-3  | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:03: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:03:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:03:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:03: }
+10|aglis-backend-4 | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:03: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:03:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:03:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:03: }
+10|aglis-backend-4 | 2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:03: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:03:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:03:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:03: }
+8|aglis-backend-2  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:08: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:08:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:08:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:08: }
+8|aglis-backend-2  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:08: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:08:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:08:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:08: }
+7|aglis-backend-1  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:08: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:08:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:08:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:08: }
+7|aglis-backend-1  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:08: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:08:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:08:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:08: }
+10|aglis-backend-4 | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:08: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:08:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:08:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:08: }
+10|aglis-backend-4 | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:08: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:08:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:08:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:08: }
+9|aglis-backend-3  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:08: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:08:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:08:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:08: }
+9|aglis-backend-3  | 2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:08: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:08:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:08:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:08: }
+8|aglis-backend-2  | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:13: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:13: Require stack:
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:   requireStack: [
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13:   ]
+2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T21:55:13: }
+2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:13:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:13:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:13: }
+7|aglis-backend-1  | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:13: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13: Require stack:
+2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:   requireStack: [
+2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:13:   ]
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T21:55:13: }
+2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:13:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:13:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:13: }
+10|aglis-backend-4 | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:13: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:13:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:13:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:13: }
+10|aglis-backend-4 | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:13: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:13:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:13:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:13: }
+9|aglis-backend-3  | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:13: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:13:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:13:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:13: }
+9|aglis-backend-3  | 2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:13: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:13:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:13:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:13: }
+7|aglis-backend-1  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:18: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:18:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:18:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:18: }
+7|aglis-backend-1  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:18: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:18:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:18:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:18: }
+8|aglis-backend-2  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:18: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:18:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:18:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:18: }
+8|aglis-backend-2  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:18: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:18:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:18:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:18: }
+10|aglis-backend-4 | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:18: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:18:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:18:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:18: }
+10|aglis-backend-4 | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:18: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:18:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:18:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:18: }
+9|aglis-backend-3  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:18: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:18:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:18:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:18: }
+9|aglis-backend-3  | 2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:18: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:18:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:18:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:18: }
+7|aglis-backend-1  | 2025-10-14T21:55:22: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:22: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:22:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:22:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:22:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:22: }
+7|aglis-backend-1  | 2025-10-14T21:55:22: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:22: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:22:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:22:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:22:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:22: }
+8|aglis-backend-2  | 2025-10-14T21:55:22: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:22: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:22:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:22:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:22:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:22: }
+8|aglis-backend-2  | 2025-10-14T21:55:22: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:22: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:22: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:22:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:22:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:22:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:22:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:22: }
+10|aglis-backend-4 | 2025-10-14T21:55:23: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:23: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:23:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:23:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:23:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:23: }
+10|aglis-backend-4 | 2025-10-14T21:55:23: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:23: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:23:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:23:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:23:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:23: }
+9|aglis-backend-3  | 2025-10-14T21:55:23: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:23: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:23:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:23:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:23:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:23: }
+9|aglis-backend-3  | 2025-10-14T21:55:23: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:23: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:23:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:23:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:23:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:23: }
+7|aglis-backend-1  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:27: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:27:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:27:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:27: }
+7|aglis-backend-1  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:27: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:27:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:27:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:27: }
+8|aglis-backend-2  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:27: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:27:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:27:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:27: }
+8|aglis-backend-2  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:27: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:27:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:27:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:27: }
+10|aglis-backend-4 | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:27: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:27:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:27:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:27: }
+10|aglis-backend-4 | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:27: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:27:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:27:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:27: }
+9|aglis-backend-3  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:27: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:27:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:27:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:27: }
+9|aglis-backend-3  | 2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:27: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:27:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:27:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:27: }
+7|aglis-backend-1  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:32: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:32:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:32:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:32: }
+7|aglis-backend-1  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+7|aglis-backend-1  | 2025-10-14T21:55:32: Require stack:
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+7|aglis-backend-1  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-backend-1  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+7|aglis-backend-1  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+7|aglis-backend-1  | 2025-10-14T21:55:32:   requireStack: [
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+7|aglis-backend-1  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+7|aglis-backend-1  | 2025-10-14T21:55:32:   ]
+7|aglis-backend-1  | 2025-10-14T21:55:32: }
+8|aglis-backend-2  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:32: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:32:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:32:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:32: }
+8|aglis-backend-2  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+8|aglis-backend-2  | 2025-10-14T21:55:32: Require stack:
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+8|aglis-backend-2  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-backend-2  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+8|aglis-backend-2  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+8|aglis-backend-2  | 2025-10-14T21:55:32:   requireStack: [
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+8|aglis-backend-2  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+8|aglis-backend-2  | 2025-10-14T21:55:32:   ]
+8|aglis-backend-2  | 2025-10-14T21:55:32: }
+10|aglis-backend-4 | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:32: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:32:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:32:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:32: }
+10|aglis-backend-4 | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+10|aglis-backend-4 | 2025-10-14T21:55:32: Require stack:
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+10|aglis-backend-4 | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-backend-4 | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+10|aglis-backend-4 | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+10|aglis-backend-4 | 2025-10-14T21:55:32:   requireStack: [
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+10|aglis-backend-4 | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+10|aglis-backend-4 | 2025-10-14T21:55:32:   ]
+10|aglis-backend-4 | 2025-10-14T21:55:32: }
+9|aglis-backend-3  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:32: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:32:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:32:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:32: }
+9|aglis-backend-3  | 2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+9|aglis-backend-3  | 2025-10-14T21:55:32: Require stack:
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+9|aglis-backend-3  | 2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-backend-3  | 2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+9|aglis-backend-3  | 2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+9|aglis-backend-3  | 2025-10-14T21:55:32:   requireStack: [
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+9|aglis-backend-3  | 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+9|aglis-backend-3  | 2025-10-14T21:55:32:   ]
+9|aglis-backend-3  | 2025-10-14T21:55:32: }
