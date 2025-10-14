@@ -3606,3 +3606,179 @@ Recent application errors:
 10|aglis-backend-4 | 2025-10-14T10:46:27:   line: '320',
 10|aglis-backend-4 | 2025-10-14T10:46:27:   routine: 'pg_strtoint32'
 10|aglis-backend-4 | 2025-10-14T10:46:27: }
+8|aglis-backend-2  | 2025-10-14T11:08:09: Get ticket error: error: invalid input syntax for type integer: "new"
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+8|aglis-backend-2  | 2025-10-14T11:08:09:   length: 141,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   code: '22P02',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   position: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   where: "unnamed portal parameter $1 = '...'",
+8|aglis-backend-2  | 2025-10-14T11:08:09:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   file: 'numutils.c',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   line: '320',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   routine: 'pg_strtoint32'
+8|aglis-backend-2  | 2025-10-14T11:08:09: }
+8|aglis-backend-2  | 2025-10-14T11:08:09: Get ticket error: error: invalid input syntax for type integer: "new"
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T11:08:09:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+8|aglis-backend-2  | 2025-10-14T11:08:09:   length: 141,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   code: '22P02',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   position: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   where: "unnamed portal parameter $1 = '...'",
+8|aglis-backend-2  | 2025-10-14T11:08:09:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T11:08:09:   file: 'numutils.c',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   line: '320',
+8|aglis-backend-2  | 2025-10-14T11:08:09:   routine: 'pg_strtoint32'
+8|aglis-backend-2  | 2025-10-14T11:08:09: }
+9|aglis-backend-3  | 2025-10-14T11:08:10: Get ticket error: error: invalid input syntax for type integer: "new"
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T11:08:10:   length: 141,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   code: '22P02',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   position: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   where: "unnamed portal parameter $1 = '...'",
+9|aglis-backend-3  | 2025-10-14T11:08:10:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   file: 'numutils.c',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   line: '320',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   routine: 'pg_strtoint32'
+9|aglis-backend-3  | 2025-10-14T11:08:10: }
+9|aglis-backend-3  | 2025-10-14T11:08:10: Get ticket error: error: invalid input syntax for type integer: "new"
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T11:08:10:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T11:08:10:   length: 141,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   code: '22P02',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   position: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   where: "unnamed portal parameter $1 = '...'",
+9|aglis-backend-3  | 2025-10-14T11:08:10:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:10:   file: 'numutils.c',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   line: '320',
+9|aglis-backend-3  | 2025-10-14T11:08:10:   routine: 'pg_strtoint32'
+9|aglis-backend-3  | 2025-10-14T11:08:10: }
+9|aglis-backend-3  | 2025-10-14T11:08:26: Get ticket error: error: invalid input syntax for type integer: "new"
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T11:08:26:   length: 141,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   code: '22P02',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   position: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   where: "unnamed portal parameter $1 = '...'",
+9|aglis-backend-3  | 2025-10-14T11:08:26:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   file: 'numutils.c',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   line: '320',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   routine: 'pg_strtoint32'
+9|aglis-backend-3  | 2025-10-14T11:08:26: }
+9|aglis-backend-3  | 2025-10-14T11:08:26: Get ticket error: error: invalid input syntax for type integer: "new"
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T11:08:26:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T11:08:26:   length: 141,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   code: '22P02',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   position: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   where: "unnamed portal parameter $1 = '...'",
+9|aglis-backend-3  | 2025-10-14T11:08:26:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T11:08:26:   file: 'numutils.c',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   line: '320',
+9|aglis-backend-3  | 2025-10-14T11:08:26:   routine: 'pg_strtoint32'
+9|aglis-backend-3  | 2025-10-14T11:08:26: }
+7|aglis-backend-1  | 2025-10-14T11:08:27: Get ticket error: error: invalid input syntax for type integer: "new"
+7|aglis-backend-1  | 2025-10-14T11:08:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T11:08:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T11:08:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+7|aglis-backend-1  | 2025-10-14T11:08:27:   length: 141,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   code: '22P02',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   position: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   where: "unnamed portal parameter $1 = '...'",
+7|aglis-backend-1  | 2025-10-14T11:08:27:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T11:08:27:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   file: 'numutils.c',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   line: '320',
+2025-10-14T11:08:27: Get ticket error: error: invalid input syntax for type integer: "new"
+7|aglis-backend-1  | 2025-10-14T11:08:27:   routine: 'pg_strtoint32'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T11:08:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T11:08:27: }
+7|aglis-backend-1  | 2025-10-14T11:08:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T11:08:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+7|aglis-backend-1  | 2025-10-14T11:08:27:   length: 141,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   code: '22P02',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   position: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   where: "unnamed portal parameter $1 = '...'",
+7|aglis-backend-1  | 2025-10-14T11:08:27:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T11:08:27:   file: 'numutils.c',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   line: '320',
+7|aglis-backend-1  | 2025-10-14T11:08:27:   routine: 'pg_strtoint32'
+7|aglis-backend-1  | 2025-10-14T11:08:27: }

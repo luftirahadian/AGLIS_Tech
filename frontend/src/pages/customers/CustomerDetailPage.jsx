@@ -19,7 +19,6 @@ import ConfirmationModal from '../../components/ConfirmationModal'
 import EquipmentModal from '../../components/EquipmentModal'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import toast from 'react-hot-toast'
-import { Link as RouterLink } from 'react-router-dom'
 
 const CustomerDetailPage = () => {
   const { id } = useParams()
@@ -43,6 +42,10 @@ const CustomerDetailPage = () => {
   
   // State untuk create ticket modal
   const [showCreateTicketModal, setShowCreateTicketModal] = useState(false)
+  
+  // State untuk suspend/activate modals
+  const [showSuspendModal, setShowSuspendModal] = useState(false)
+  const [showActivateModal, setShowActivateModal] = useState(false)
 
   const { 
     data: customerData, 
@@ -267,29 +270,35 @@ const CustomerDetailPage = () => {
     }
   }
 
-  const handleQuickSuspend = async () => {
-    if (window.confirm(`Suspend customer ${customer.name}?`)) {
-      try {
-        await customerService.updateCustomer(customer.id, { account_status: 'suspended' })
-        toast.success('Customer suspended successfully')
-        refetch()
-      } catch (error) {
-        toast.error('Failed to suspend customer')
-        console.error('Suspend error:', error)
-      }
+  const handleQuickSuspend = () => {
+    setShowSuspendModal(true)
+  }
+  
+  const confirmSuspend = async () => {
+    try {
+      await customerService.updateCustomer(customer.id, { account_status: 'suspended' })
+      toast.success('✅ Customer suspended successfully')
+      refetch()
+      setShowSuspendModal(false)
+    } catch (error) {
+      toast.error('❌ Failed to suspend customer')
+      console.error('Suspend error:', error)
     }
   }
 
-  const handleQuickActivate = async () => {
-    if (window.confirm(`Activate customer ${customer.name}?`)) {
-      try {
-        await customerService.updateCustomer(customer.id, { account_status: 'active' })
-        toast.success('Customer activated successfully')
-        refetch()
-      } catch (error) {
-        toast.error('Failed to activate customer')
-        console.error('Activate error:', error)
-      }
+  const handleQuickActivate = () => {
+    setShowActivateModal(true)
+  }
+  
+  const confirmActivate = async () => {
+    try {
+      await customerService.updateCustomer(customer.id, { account_status: 'active' })
+      toast.success('✅ Customer activated successfully')
+      refetch()
+      setShowActivateModal(false)
+    } catch (error) {
+      toast.error('❌ Failed to activate customer')
+      console.error('Activate error:', error)
     }
   }
 
@@ -447,7 +456,10 @@ const CustomerDetailPage = () => {
           </div>
         </div>
         <div className="flex space-x-3">
-          <button className="btn-primary">
+          <button 
+            onClick={handleQuickCreateTicket}
+            className="btn-primary"
+          >
             <Plus className="h-4 w-4 mr-2" />
             Create Ticket
           </button>
@@ -1113,13 +1125,13 @@ const CustomerDetailPage = () => {
                     History semua tiket untuk customer ini
                   </p>
                 </div>
-                <RouterLink 
-                  to={`/tickets/create?customer_id=${customer.id}`}
+                <button 
+                  onClick={handleQuickCreateTicket}
                   className="btn-primary"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Create New Ticket
-                </RouterLink>
+                </button>
               </div>
 
               {ticketsLoading ? (
@@ -1131,13 +1143,13 @@ const CustomerDetailPage = () => {
                   <Activity className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <h3 className="text-lg font-medium text-gray-900 mb-2">No Tickets Found</h3>
                   <p className="text-gray-500 mb-4">Customer ini belum memiliki tiket</p>
-                  <RouterLink 
-                    to={`/tickets/create?customer_id=${customer.id}`}
+                  <button 
+                    onClick={handleQuickCreateTicket}
                     className="btn-primary inline-flex items-center"
                   >
                     <Plus className="h-4 w-4 mr-2" />
                     Create First Ticket
-                  </RouterLink>
+                  </button>
                 </div>
               ) : (
                 <div className="overflow-x-auto">
@@ -1526,6 +1538,48 @@ const CustomerDetailPage = () => {
             )}
           </div>
         )}
+      </ConfirmationModal>
+
+      {/* Suspend Customer Modal */}
+      <ConfirmationModal
+        isOpen={showSuspendModal}
+        onClose={() => setShowSuspendModal(false)}
+        onConfirm={confirmSuspend}
+        title="⚠️ Suspend Customer"
+        message={`Suspend customer "${customer.name}"?`}
+        confirmText="Ya, Suspend"
+        cancelText="Batal"
+        type="warning"
+      >
+        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 mt-2">
+          <p className="text-sm text-gray-700">
+            ⚠️ Account status akan berubah menjadi <span className="font-semibold text-orange-900">"Suspended"</span><br/>
+            🔒 Customer tidak dapat menggunakan layanan<br/>
+            📋 Data customer tetap tersimpan<br/>
+            ✅ Dapat di-activate kembali kapan saja
+          </p>
+        </div>
+      </ConfirmationModal>
+
+      {/* Activate Customer Modal */}
+      <ConfirmationModal
+        isOpen={showActivateModal}
+        onClose={() => setShowActivateModal(false)}
+        onConfirm={confirmActivate}
+        title="✅ Activate Customer"
+        message={`Activate customer "${customer.name}"?`}
+        confirmText="Ya, Activate"
+        cancelText="Batal"
+        type="success"
+      >
+        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-2">
+          <p className="text-sm text-gray-700">
+            ✅ Account status akan berubah menjadi <span className="font-semibold text-green-900">"Active"</span><br/>
+            🔓 Customer dapat menggunakan layanan kembali<br/>
+            📡 Layanan akan diaktifkan segera<br/>
+            💰 Billing akan berjalan normal
+          </p>
+        </div>
       </ConfirmationModal>
 
       {/* Create Ticket Modal */}

@@ -373,3 +373,47 @@
 2025-10-14T10:40:37:   line: '320',
 2025-10-14T10:40:37:   routine: 'pg_strtoint32'
 2025-10-14T10:40:37: }
+2025-10-14T11:08:10: Get ticket error: error: invalid input syntax for type integer: "new"
+2025-10-14T11:08:10:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T11:08:10:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T11:08:10:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T11:08:10:   length: 141,
+2025-10-14T11:08:10:   severity: 'ERROR',
+2025-10-14T11:08:10:   code: '22P02',
+2025-10-14T11:08:10:   detail: undefined,
+2025-10-14T11:08:10:   hint: undefined,
+2025-10-14T11:08:10:   position: undefined,
+2025-10-14T11:08:10:   internalPosition: undefined,
+2025-10-14T11:08:10:   internalQuery: undefined,
+2025-10-14T11:08:10:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T11:08:10:   schema: undefined,
+2025-10-14T11:08:10:   table: undefined,
+2025-10-14T11:08:10:   column: undefined,
+2025-10-14T11:08:10:   dataType: undefined,
+2025-10-14T11:08:10:   constraint: undefined,
+2025-10-14T11:08:10:   file: 'numutils.c',
+2025-10-14T11:08:10:   line: '320',
+2025-10-14T11:08:10:   routine: 'pg_strtoint32'
+2025-10-14T11:08:10: }
+2025-10-14T11:08:26: Get ticket error: error: invalid input syntax for type integer: "new"
+2025-10-14T11:08:26:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T11:08:26:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T11:08:26:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T11:08:26:   length: 141,
+2025-10-14T11:08:26:   severity: 'ERROR',
+2025-10-14T11:08:26:   code: '22P02',
+2025-10-14T11:08:26:   detail: undefined,
+2025-10-14T11:08:26:   hint: undefined,
+2025-10-14T11:08:26:   position: undefined,
+2025-10-14T11:08:26:   internalPosition: undefined,
+2025-10-14T11:08:26:   internalQuery: undefined,
+2025-10-14T11:08:26:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T11:08:26:   schema: undefined,
+2025-10-14T11:08:26:   table: undefined,
+2025-10-14T11:08:26:   column: undefined,
+2025-10-14T11:08:26:   dataType: undefined,
+2025-10-14T11:08:26:   constraint: undefined,
+2025-10-14T11:08:26:   file: 'numutils.c',
+2025-10-14T11:08:26:   line: '320',
+2025-10-14T11:08:26:   routine: 'pg_strtoint32'
+2025-10-14T11:08:26: }

@@ -522,3 +522,25 @@
 2025-10-14T10:46:26:   line: '320',
 2025-10-14T10:46:26:   routine: 'pg_strtoint32'
 2025-10-14T10:46:26: }
+2025-10-14T11:08:27: Get ticket error: error: invalid input syntax for type integer: "new"
+2025-10-14T11:08:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T11:08:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T11:08:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T11:08:27:   length: 141,
+2025-10-14T11:08:27:   severity: 'ERROR',
+2025-10-14T11:08:27:   code: '22P02',
+2025-10-14T11:08:27:   detail: undefined,
+2025-10-14T11:08:27:   hint: undefined,
+2025-10-14T11:08:27:   position: undefined,
+2025-10-14T11:08:27:   internalPosition: undefined,
+2025-10-14T11:08:27:   internalQuery: undefined,
+2025-10-14T11:08:27:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T11:08:27:   schema: undefined,
+2025-10-14T11:08:27:   table: undefined,
+2025-10-14T11:08:27:   column: undefined,
+2025-10-14T11:08:27:   dataType: undefined,
+2025-10-14T11:08:27:   constraint: undefined,
+2025-10-14T11:08:27:   file: 'numutils.c',
+2025-10-14T11:08:27:   line: '320',
+2025-10-14T11:08:27:   routine: 'pg_strtoint32'
+2025-10-14T11:08:27: }
