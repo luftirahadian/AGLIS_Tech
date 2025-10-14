@@ -1605,3 +1605,65 @@
 2025-10-14T08:33:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-14T08:33:29: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-14T08:33:29: 👤 User 17 (admin) authenticated: 8oMO9RlQOnFnPqEqAAAB
+2025-10-14T08:34:37: ✅ Connected to PostgreSQL database
+2025-10-14T08:34:37: ✅ Connected to PostgreSQL database
+2025-10-14T08:34:37: 103.55.224.49 - - [14/Oct/2025:01:34:37 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:36:08: ✅ Connected to PostgreSQL database
+2025-10-14T08:36:08: ✅ Connected to PostgreSQL database
+2025-10-14T08:36:08: 103.55.224.49 - - [14/Oct/2025:01:36:08 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:36:32: 103.55.224.49 - - [14/Oct/2025:01:36:32 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:37:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:37:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:37:29: 103.55.224.49 - - [14/Oct/2025:01:37:29 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:38:13: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T08:38:13: 🚀 Server running on 0.0.0.0:3002
+2025-10-14T08:38:13: 🌍 Environment: production
+2025-10-14T08:38:13: 📡 Local access: http://localhost:3002
+2025-10-14T08:38:13: 🌐 Network access: http://192.168.121.30:3002
+2025-10-14T08:38:13: 📝 CORS origins configured for local network access
+2025-10-14T08:38:13: ✅ Redis client connected for OTP storage
+2025-10-14T08:38:13: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T08:38:13: ✅ Redis client ready
+2025-10-14T08:39:08: ✅ Connected to PostgreSQL database
+2025-10-14T08:39:08: ✅ Connected to PostgreSQL database
+2025-10-14T08:39:08: 103.55.224.49 - - [14/Oct/2025:01:39:08 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:39:11: 103.55.224.49 - - [14/Oct/2025:01:39:11 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:39:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:39:11: 👤 User connected: 80Rb1zdJTio89vgtAAAB
+2025-10-14T08:39:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:39:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:39:11: 👤 User 17 (admin) authenticated: 80Rb1zdJTio89vgtAAAB
+2025-10-14T08:39:14: 103.55.224.49 - - [14/Oct/2025:01:39:14 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:39:21: 103.55.224.49 - - [14/Oct/2025:01:39:21 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:39:37: 103.55.224.49 - - [14/Oct/2025:01:39:37 +0000] "GET /api/packages HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:40:01: 103.55.225.241 - - [14/Oct/2025:01:40:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T08:40:38: ✅ Connected to PostgreSQL database
+2025-10-14T08:40:38: ✅ Connected to PostgreSQL database
+2025-10-14T08:40:38: 103.55.224.49 - - [14/Oct/2025:01:40:38 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:41:39: 👤 User disconnected: 80Rb1zdJTio89vgtAAAB
+2025-10-14T08:41:51: ✅ Connected to PostgreSQL database
+2025-10-14T08:41:51: 103.55.224.49 - - [14/Oct/2025:01:41:51 +0000] "GET /api/customers/8 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:41:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:41:51: 👤 User connected: HQeVwVEBOPAbR931AAAD
+2025-10-14T08:41:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:41:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:41:51: 👤 User 17 (admin) authenticated: HQeVwVEBOPAbR931AAAD
+2025-10-14T08:42:18: 103.55.224.49 - - [14/Oct/2025:01:42:18 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:42:34: 103.55.224.49 - - [14/Oct/2025:01:42:34 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:43:19: ✅ Connected to PostgreSQL database
+2025-10-14T08:43:19: ✅ Connected to PostgreSQL database
+2025-10-14T08:43:19: 103.55.224.49 - - [14/Oct/2025:01:43:19 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:43:51: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T08:43:51: 🚀 Server running on 0.0.0.0:3002
+2025-10-14T08:43:51: 🌍 Environment: production
+2025-10-14T08:43:51: 📡 Local access: http://localhost:3002
+2025-10-14T08:43:51: 🌐 Network access: http://192.168.121.30:3002
+2025-10-14T08:43:51: 📝 CORS origins configured for local network access
+2025-10-14T08:43:51: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T08:43:51: ✅ Redis client connected for OTP storage
+2025-10-14T08:43:51: ✅ Redis client ready
+2025-10-14T08:43:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:43:51: 👤 User connected: UK4hXc-iirz3ACeRAAAB
+2025-10-14T08:43:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:43:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:43:51: 👤 User 17 (admin) authenticated: UK4hXc-iirz3ACeRAAAB

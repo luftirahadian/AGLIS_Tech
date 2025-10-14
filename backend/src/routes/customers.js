@@ -539,8 +539,11 @@ router.get('/packages/list', async (req, res) => {
 // Add customer equipment
 router.post('/:id/equipment', [
   body('equipment_type').notEmpty().withMessage('Equipment type is required'),
-  body('brand').optional().notEmpty().withMessage('Brand cannot be empty'),
-  body('model').optional().notEmpty().withMessage('Model cannot be empty')
+  body('brand').notEmpty().withMessage('Brand is required'),
+  body('model').notEmpty().withMessage('Model is required'),
+  body('installation_date').optional().isDate().withMessage('Installation date must be valid'),
+  body('warranty_expiry').optional().isDate().withMessage('Warranty expiry must be valid'),
+  body('status').optional().isIn(['active', 'inactive', 'maintenance', 'faulty']).withMessage('Invalid status')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -553,7 +556,17 @@ router.post('/:id/equipment', [
     }
 
     const { id } = req.params;
-    const { equipment_type, brand, model, serial_number, mac_address, warranty_expiry, notes } = req.body;
+    const { 
+      equipment_type, 
+      brand, 
+      model, 
+      serial_number, 
+      mac_address, 
+      installation_date,
+      warranty_expiry, 
+      status,
+      notes 
+    } = req.body;
 
     // Verify customer exists
     const customerCheck = await pool.query('SELECT id FROM customers WHERE id = $1', [id]);
@@ -567,16 +580,33 @@ router.post('/:id/equipment', [
     const query = `
       INSERT INTO customer_equipment (
         customer_id, equipment_type, brand, model, serial_number, 
-        mac_address, installation_date, warranty_expiry, notes
+        mac_address, installation_date, warranty_expiry, status, notes
       )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING *
     `;
 
     const result = await pool.query(query, [
-      id, equipment_type, brand, model, serial_number,
-      mac_address, new Date(), warranty_expiry, notes
+      id, 
+      equipment_type, 
+      brand, 
+      model, 
+      serial_number || null,
+      mac_address || null, 
+      installation_date || new Date(), 
+      warranty_expiry || null,
+      status || 'active',
+      notes || null
     ]);
+
+    // Emit socket event for real-time update
+    const io = req.app.get('io');
+    if (io) {
+      io.to('role_admin').to('role_supervisor').emit('equipment-added', {
+        customer_id: parseInt(id),
+        equipment: result.rows[0]
+      });
+    }
 
     res.status(201).json({
       success: true,

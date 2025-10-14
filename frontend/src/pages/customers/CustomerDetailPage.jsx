@@ -16,6 +16,7 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
 import PaymentModal from '../../components/PaymentModal'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import EquipmentModal from '../../components/EquipmentModal'
 import toast from 'react-hot-toast'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -241,6 +242,17 @@ const CustomerDetailPage = () => {
     } finally {
       setShowDeleteEquipmentModal(false)
       setEquipmentToDelete(null)
+    }
+  }
+
+  const handleAddEquipment = async (equipmentData) => {
+    try {
+      await customerService.addEquipment(customer.id, equipmentData)
+      queryClient.invalidateQueries(['customer', id])
+      // Success toast will be shown by EquipmentModal
+    } catch (error) {
+      console.error('Add equipment error:', error)
+      throw error // Re-throw to let modal handle it
     }
   }
 
@@ -1458,25 +1470,13 @@ const CustomerDetailPage = () => {
         </div>
       </div>
 
-      {/* Modals - TODO: Implement proper forms */}
-      {showAddEquipment && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div className="mt-3 text-center">
-              <h3 className="text-lg font-medium text-gray-900">Add Equipment</h3>
-              <p className="text-sm text-gray-500 mt-2">Equipment form will be implemented</p>
-              <div className="mt-4">
-                <button
-                  onClick={() => setShowAddEquipment(false)}
-                  className="btn-secondary"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Equipment Modal */}
+      <EquipmentModal
+        isOpen={showAddEquipment}
+        onClose={() => setShowAddEquipment(false)}
+        customer={customer}
+        onSuccess={handleAddEquipment}
+      />
 
       {/* Payment Modal */}
       <PaymentModal
