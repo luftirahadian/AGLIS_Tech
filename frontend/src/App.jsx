@@ -28,6 +28,9 @@ import TrackingPage from './pages/public/TrackingPage'
 import RegistrationsPage from './pages/registrations/RegistrationsPage'
 import RegistrationDetailPage from './pages/registrations/RegistrationDetailPage'
 import RegistrationAnalyticsPage from './pages/registrations/RegistrationAnalyticsPage'
+import NotificationTemplatesPage from './pages/notifications/NotificationTemplatesPage'
+import NotificationAnalyticsPage from './pages/notifications/NotificationAnalyticsPage'
+import NotificationSettingsPage from './pages/notifications/NotificationSettingsPage'
 import LoadingSpinner from './components/LoadingSpinner'
 
 function App() {
@@ -86,6 +89,11 @@ function App() {
         <Route path="master-data/price-list" element={<PriceListPage />} />
         <Route path="master-data/equipment" element={<EquipmentPage />} />
         <Route path="master-data/odp" element={<ODPPage />} />
+        
+        {/* Notifications */}
+        <Route path="notifications/templates" element={<NotificationTemplatesPage />} />
+        <Route path="notifications/analytics" element={<NotificationAnalyticsPage />} />
+        <Route path="notifications/settings" element={<NotificationSettingsPage />} />
         
         {/* Users (Admin/Supervisor only) */}
         <Route path="users" element={<UsersPage />} />

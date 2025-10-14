@@ -13,7 +13,8 @@ import {
   Database,
   ChevronDown,
   ChevronRight,
-  UserPlus
+  UserPlus,
+  Bell
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -21,6 +22,7 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
   const { user } = useAuth()
   const location = useLocation()
   const [masterDataOpen, setMasterDataOpen] = useState(false)
+  const [notificationsOpen, setNotificationsOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState(null)
 
   const navigation = [
@@ -105,6 +107,26 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
       ]
     },
     {
+      name: 'Notifications',
+      icon: Bell,
+      roles: ['admin', 'supervisor'],
+      hasSubmenu: true,
+      submenu: [
+        {
+          name: 'Templates',
+          href: '/notifications/templates'
+        },
+        {
+          name: 'Analytics',
+          href: '/notifications/analytics'
+        },
+        {
+          name: 'Settings',
+          href: '/notifications/settings'
+        }
+      ]
+    },
+    {
       name: 'Users',
       href: '/users',
       icon: UserCheck,
@@ -177,12 +199,14 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
                 const isAnySubmenuActive = item.submenu?.some(sub => 
                   location.pathname.startsWith(sub.href)
                 )
-                const isOpen = masterDataOpen || isAnySubmenuActive
+                const submenuState = item.name === 'Master Data' ? masterDataOpen : notificationsOpen
+                const setSubmenuState = item.name === 'Master Data' ? setMasterDataOpen : setNotificationsOpen
+                const isOpen = submenuState || isAnySubmenuActive
                 
                 return (
                   <div key={item.name} className="relative group/submenu">
                     <button
-                      onClick={() => !collapsed && setMasterDataOpen(!masterDataOpen)}
+                      onClick={() => !collapsed && setSubmenuState(!submenuState)}
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}
                       className={`

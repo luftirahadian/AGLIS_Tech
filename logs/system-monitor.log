@@ -10556,3 +10556,132 @@ Recent PM2 Errors:
 7|aglis-backend-1   | 2025-10-14T11:08:27:   line: '320',
 7|aglis-backend-1   | 2025-10-14T11:08:27:   routine: 'pg_strtoint32'
 7|aglis-backend-1   | 2025-10-14T11:08:27: }
+==========================================
+AGLIS System Monitor - 2025-10-14 13:00:01
+==========================================
+
+🖥️  SYSTEM RESOURCES:
+-------------------
+CPU Usage:
+38.0
+
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           8.0Gi       1.7Gi       4.3Gi        27Mi       2.0Gi       6.2Gi
+Swap:          8.0Gi       0.0Ki       8.0Gi
+
+Disk Usage:
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/mapper/pve-vm--116--disk--0   79G  3.8G   71G   6% /
+none                              492K  4.0K  488K   1% /dev
+efivarfs                          256K  137K  115K  55% /sys/firmware/efi/efivars
+tmpfs                              40G   28K   40G   1% /dev/shm
+tmpfs                              16G  320K   16G   1% /run
+tmpfs                             5.0M     0  5.0M   0% /run/lock
+tmpfs                             7.9G   40K  7.9G   1% /run/user/1001
+
+Load Average:
+ 13:00:01 up 1 day,  9:11,  0 users,  load average: 2.02, 2.50, 2.92
+
+🌐 NETWORK STATUS:
+-----------------
+Active Connections:
+/home/aglis/AGLIS_Tech/scripts/monitoring/system-monitor.sh: line 29: netstat: command not found
+
+Network Traffic:
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+
+🗄️  DATABASE STATUS:
+------------------
+active
+Database Size:
+ pg_size_pretty 
+----------------
+ 14 MB
+(1 row)
+
+Active Connections:
+ count 
+-------
+    14
+(1 row)
+
+
+⚙️  APPLICATION STATUS:
+---------------------
+PM2 Status:
+┌────┬─────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7  │ aglis-backend-1     │ default     │ 1.0.0   │ fork    │ 541986   │ 13m    │ 45   │ online    │ 0%       │ 89.2mb   │ aglis    │ disabled │
+│ 8  │ aglis-backend-2     │ default     │ 1.0.0   │ fork    │ 541987   │ 13m    │ 45   │ online    │ 0%       │ 89.6mb   │ aglis    │ disabled │
+│ 9  │ aglis-backend-3     │ default     │ 1.0.0   │ fork    │ 542003   │ 13m    │ 45   │ online    │ 0%       │ 89.2mb   │ aglis    │ disabled │
+│ 10 │ aglis-backend-4     │ default     │ 1.0.0   │ fork    │ 542012   │ 13m    │ 45   │ online    │ 0%       │ 88.6mb   │ aglis    │ disabled │
+└────┴─────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Modules
+┌────┬──────────────────────────────┬───────────────┬──────────┬──────────┬──────┬──────────┬──────────┬──────────┐
+│ id │ module                       │ version       │ pid      │ status   │ ↺    │ cpu      │ mem      │ user     │
+├────┼──────────────────────────────┼───────────────┼──────────┼──────────┼──────┼──────────┼──────────┼──────────┤
+│ 1  │ pm2-logrotate                │ 3.0.0         │ 60058    │ online   │ 0    │ 0%       │ 68.1mb   │ aglis    │
+│ 0  │ pm2-server-monit             │ 3.0.0         │ 60047    │ online   │ 0    │ 0%       │ 60.0mb   │ aglis    │
+└────┴──────────────────────────────┴───────────────┴──────────┴──────────┴──────┴──────────┴──────────┴──────────┘
+
+Nginx Status:
+active
+
+SSL Certificate:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: portal.aglis.biz.id
+    Serial Number: 5f6961824a228370f30769559e6e00a8487
+    Key Type: RSA
+    Domains: portal.aglis.biz.id
+    Expiry Date: 2026-01-10 21:53:08+00:00 (VALID: 88 days)
+    Certificate Path: /etc/letsencrypt/live/portal.aglis.biz.id/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/portal.aglis.biz.id/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+📊 LOG SUMMARY:
+--------------
+Recent Nginx Errors:
+2025/10/13 18:46:33 [notice] 247912#247912: signal process started
+2025/10/13 18:59:02 [notice] 252953#252953: signal process started
+2025/10/13 21:46:27 [error] 252956#252956: *1181 open() "/home/aglis/AGLIS_Tech/backend/uploads/.env" failed (2: No such file or directory), client: 127.0.0.1, server: portal.aglis.biz.id, request: "GET //uploads/.env HTTP/1.1", host: "portal.aglis.biz.id", referrer: "https://www.google.com/"
+2025/10/14 10:35:24 [error] 252956#252956: *2590 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: portal.aglis.biz.id, request: "GET /tickets/13 HTTP/1.1", host: "portal.aglis.biz.id"
+2025/10/14 10:35:24 [error] 252956#252956: *2591 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: portal.aglis.biz.id, request: "GET /favicon.ico HTTP/1.1", host: "portal.aglis.biz.id", referrer: "https://portal.aglis.biz.id/tickets/13"
+
+Recent PM2 Errors:
+[TAILING] Tailing last 5 lines for [all] processes (change the value with --lines option)
+/home/aglis/.pm2/logs/pm2-server-monit-error.log last 5 lines:
+/home/aglis/.pm2/logs/pm2-logrotate-error.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-10.log last 5 lines:
+10|aglis-b | 2025-10-14T10:46:27:   constraint: undefined,
+10|aglis-b | 2025-10-14T10:46:27:   file: 'numutils.c',
+10|aglis-b | 2025-10-14T10:46:27:   line: '320',
+10|aglis-b | 2025-10-14T10:46:27:   routine: 'pg_strtoint32'
+10|aglis-b | 2025-10-14T10:46:27: }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-8.log last 5 lines:
+8|aglis-ba | 2025-10-14T11:08:09:   constraint: undefined,
+8|aglis-ba | 2025-10-14T11:08:09:   file: 'numutils.c',
+8|aglis-ba | 2025-10-14T11:08:09:   line: '320',
+8|aglis-ba | 2025-10-14T11:08:09:   routine: 'pg_strtoint32'
+8|aglis-ba | 2025-10-14T11:08:09: }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-9.log last 5 lines:
+9|aglis-ba | 2025-10-14T11:08:26:   constraint: undefined,
+9|aglis-ba | 2025-10-14T11:08:26:   file: 'numutils.c',
+9|aglis-ba | 2025-10-14T11:08:26:   line: '320',
+9|aglis-ba | 2025-10-14T11:08:26:   routine: 'pg_strtoint32'
+9|aglis-ba | 2025-10-14T11:08:26: }
+
+/home/aglis/AGLIS_Tech/logs/backend-error-7.log last 5 lines:
+7|aglis-ba | 2025-10-14T11:08:27:   constraint: undefined,
+7|aglis-ba | 2025-10-14T11:08:27:   file: 'numutils.c',
+7|aglis-ba | 2025-10-14T11:08:27:   line: '320',
+7|aglis-ba | 2025-10-14T11:08:27:   routine: 'pg_strtoint32'
+7|aglis-ba | 2025-10-14T11:08:27: }
+
