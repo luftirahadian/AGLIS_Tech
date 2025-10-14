@@ -36,6 +36,8 @@ const registrationRoutes = require('./routes/registrations');
 const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
 const invoiceRoutes = require('./routes/invoices');
 const paymentRoutes = require('./routes/payments');
+const skillLevelsRoutes = require('./routes/skillLevels');
+const specializationsRoutes = require('./routes/specializations');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -229,6 +231,8 @@ app.use('/api/registrations', registrationRoutes); // Public routes included, au
 app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);
 app.use('/api/invoices', authMiddleware, invoiceRoutes);
 app.use('/api/payments', authMiddleware, paymentRoutes);
+app.use('/api/skill-levels', authMiddleware, cacheMiddleware(600), skillLevelsRoutes); // Cache 10 min
+app.use('/api/specializations', authMiddleware, cacheMiddleware(600), specializationsRoutes); // Cache 10 min
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');
