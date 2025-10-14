@@ -1634,3 +1634,91 @@ Recent application errors:
 10|aglis-backend-4 | 2025-10-14T08:02:23:   line: '3647',
 10|aglis-backend-4 | 2025-10-14T08:02:23:   routine: 'errorMissingColumn'
 10|aglis-backend-4 | 2025-10-14T08:02:23: }
+9|aglis-backend-3  | 2025-10-14T08:33:24: Get ticket error: error: column h.assigned_technician_id does not exist
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+9|aglis-backend-3  | 2025-10-14T08:33:24:   length: 123,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   code: '42703',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   position: '288',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   where: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   line: '3647',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-14T08:33:24: }
+9|aglis-backend-3  | 2025-10-14T08:33:24: Get ticket error: error: column h.assigned_technician_id does not exist
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T08:33:24:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+9|aglis-backend-3  | 2025-10-14T08:33:24:   length: 123,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   code: '42703',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   position: '288',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   where: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T08:33:24:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   line: '3647',
+9|aglis-backend-3  | 2025-10-14T08:33:24:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-14T08:33:24: }
+10|aglis-backend-4 | 2025-10-14T08:33:25: Get ticket error: error: column h.assigned_technician_id does not exist
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+10|aglis-backend-4 | 2025-10-14T08:33:25:   length: 123,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   code: '42703',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   detail: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   hint: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   position: '288',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   where: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   schema: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   column: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   line: '3647',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-14T08:33:25: }
+10|aglis-backend-4 | 2025-10-14T08:33:25: Get ticket error: error: column h.assigned_technician_id does not exist
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-14T08:33:25:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+10|aglis-backend-4 | 2025-10-14T08:33:25:   length: 123,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   code: '42703',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   detail: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   hint: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   position: '288',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   where: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   schema: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   table: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   column: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-14T08:33:25:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   line: '3647',
+10|aglis-backend-4 | 2025-10-14T08:33:25:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-14T08:33:25: }
