@@ -35,6 +35,7 @@ const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
 const errorHandler = require('./middleware/errorHandler');
 const { authMiddleware } = require('./middleware/auth');
 const { apiLimiter } = require('./middleware/rateLimiter');
+const { queryStatsMiddleware } = require('./middleware/queryLogger');
 
 const app = express();
 const server = createServer(app);
@@ -125,6 +126,7 @@ app.set('trust proxy', 1);
 app.use(helmet());
 app.use(compression());
 app.use(morgan('combined'));
+app.use(queryStatsMiddleware); // Add query performance monitoring
 
 // Apply rate limiter to all API routes (100 requests per 15 minutes)
 app.use('/api/', apiLimiter);
@@ -211,6 +213,22 @@ app.use('/api/notifications', authMiddleware, notificationRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/registrations', registrationRoutes); // Public routes included, auth handled per route
 app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);
+
+// Query performance monitoring endpoint (admin only)
+const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');
+app.get('/api/performance/query-stats', authMiddleware, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  res.json({ success: true, data: getQueryStats() });
+});
+app.post('/api/performance/reset-stats', authMiddleware, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  resetQueryStats();
+  res.json({ success: true, message: 'Query stats reset' });
+});
 
 // Socket.IO for real-time updates
 io.on('connection', (socket) => {
