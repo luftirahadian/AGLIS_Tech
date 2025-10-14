@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
-import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, Download, Loader2, Copy, Check, UserPlus, PhoneCall, Mail as MailIcon, ShieldAlert, Trash2 } from 'lucide-react'
+import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCircle, Users, PlayCircle, PauseCircle, XCircle, FileCheck, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight, Download, Loader2, Copy, Check, User, UserPlus, PhoneCall, Mail as MailIcon, ShieldAlert, Trash2 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { ticketService } from '../../services/ticketService'
