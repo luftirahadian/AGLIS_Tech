@@ -234,6 +234,29 @@ router.post('/', createUserLimiter, [
         userAgent: req.get('user-agent')
       });
 
+      // Emit Socket.IO event for real-time updates
+      const io = req.app.get('io');
+      if (io) {
+        // Emit user-created event
+        io.emit('user-created', {
+          user: newUser,
+          technician: technicianProfile,
+          createdBy: req.user.id
+        });
+
+        // If technician, also emit technician-created event
+        if (role === 'technician' && technicianProfile) {
+          io.emit('technician-created', {
+            technician: technicianProfile,
+            user: newUser,
+            createdBy: req.user.id
+          });
+          console.log(`📡 Socket.IO: Emitted technician-created event for ${technicianProfile.employee_id}`);
+        }
+        
+        console.log(`📡 Socket.IO: Emitted user-created event for ${username}`);
+      }
+
       res.status(201).json({
         success: true,
         message: role === 'technician' 

@@ -140,6 +140,40 @@ export const NotificationProvider = ({ children }) => {
     }
   }, [queryClient, user]);
 
+  // Handle technician created event
+  const handleTechnicianCreated = useCallback((data) => {
+    console.log('👷 New technician created:', data);
+    
+    // Invalidate technician-related queries to refresh list
+    queryClient.invalidateQueries(['technicians']);
+    queryClient.invalidateQueries(['technician-stats']);
+    
+    // Dispatch custom event for TechniciansPage
+    window.dispatchEvent(new CustomEvent('technician-created', { detail: data }));
+    
+    // Show notification for admins/supervisors
+    if (user?.role === 'admin' || user?.role === 'supervisor') {
+      toast.success(`New technician added: ${data.technician?.employee_id || data.technician?.full_name}`);
+    }
+  }, [queryClient, user]);
+
+  // Handle user created event
+  const handleUserCreated = useCallback((data) => {
+    console.log('👤 New user created:', data);
+    
+    // If technician user, also invalidate technician queries
+    if (data.technician) {
+      queryClient.invalidateQueries(['technicians']);
+      queryClient.invalidateQueries(['technician-stats']);
+      
+      // Dispatch custom event
+      window.dispatchEvent(new CustomEvent('technician-created', { detail: data }));
+    }
+    
+    // Invalidate user-related queries
+    queryClient.invalidateQueries(['users']);
+  }, [queryClient]);
+
   // Handle system alerts
   const handleSystemAlert = useCallback((alert) => {
     console.log('⚠️ System alert:', alert);
@@ -229,6 +263,8 @@ export const NotificationProvider = ({ children }) => {
     socketService.on('notification', handleNewNotification);
     socketService.on('ticket_updated', handleTicketUpdate);
     socketService.on('technician_status_changed', handleTechnicianStatusChange);
+    socketService.on('technician-created', handleTechnicianCreated);
+    socketService.on('user-created', handleUserCreated);
     socketService.on('system_alert', handleSystemAlert);
     
     return () => {
@@ -237,9 +273,11 @@ export const NotificationProvider = ({ children }) => {
       socketService.off('notification', handleNewNotification);
       socketService.off('ticket_updated', handleTicketUpdate);
       socketService.off('technician_status_changed', handleTechnicianStatusChange);
+      socketService.off('technician-created', handleTechnicianCreated);
+      socketService.off('user-created', handleUserCreated);
       socketService.off('system_alert', handleSystemAlert);
     };
-  }, [isSocketConnected, handleNewNotification, handleTicketUpdate, handleTechnicianStatusChange, handleSystemAlert]);
+  }, [isSocketConnected, handleNewNotification, handleTicketUpdate, handleTechnicianStatusChange, handleTechnicianCreated, handleUserCreated, handleSystemAlert]);
 
   // Cleanup socket on unmount
   useEffect(() => {
