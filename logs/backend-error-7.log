@@ -103,3 +103,69 @@
 2025-10-14T07:47:04:   line: '1381',
 2025-10-14T07:47:04:   routine: 'parserOpenTable'
 2025-10-14T07:47:04: }
+2025-10-14T08:01:12: Error fetching service types: error: column "type_code" does not exist
+2025-10-14T08:01:12:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:01:12:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:01:12:     at async /home/aglis/AGLIS_Tech/backend/src/routes/serviceTypes.js:79:20 {
+2025-10-14T08:01:12:   length: 109,
+2025-10-14T08:01:12:   severity: 'ERROR',
+2025-10-14T08:01:12:   code: '42703',
+2025-10-14T08:01:12:   detail: undefined,
+2025-10-14T08:01:12:   hint: undefined,
+2025-10-14T08:01:12:   position: '19',
+2025-10-14T08:01:12:   internalPosition: undefined,
+2025-10-14T08:01:12:   internalQuery: undefined,
+2025-10-14T08:01:12:   where: undefined,
+2025-10-14T08:01:12:   schema: undefined,
+2025-10-14T08:01:12:   table: undefined,
+2025-10-14T08:01:12:   column: undefined,
+2025-10-14T08:01:12:   dataType: undefined,
+2025-10-14T08:01:12:   constraint: undefined,
+2025-10-14T08:01:12:   file: 'parse_relation.c',
+2025-10-14T08:01:12:   line: '3647',
+2025-10-14T08:01:12:   routine: 'errorMissingColumn'
+2025-10-14T08:01:12: }
+2025-10-14T08:01:16: Error fetching price list: error: relation "service_pricelist" does not exist
+2025-10-14T08:01:16:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:01:16:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:01:16:     at async /home/aglis/AGLIS_Tech/backend/src/routes/pricelist.js:117:25 {
+2025-10-14T08:01:16:   length: 116,
+2025-10-14T08:01:16:   severity: 'ERROR',
+2025-10-14T08:01:16:   code: '42P01',
+2025-10-14T08:01:16:   detail: undefined,
+2025-10-14T08:01:16:   hint: undefined,
+2025-10-14T08:01:16:   position: '31',
+2025-10-14T08:01:16:   internalPosition: undefined,
+2025-10-14T08:01:16:   internalQuery: undefined,
+2025-10-14T08:01:16:   where: undefined,
+2025-10-14T08:01:16:   schema: undefined,
+2025-10-14T08:01:16:   table: undefined,
+2025-10-14T08:01:16:   column: undefined,
+2025-10-14T08:01:16:   dataType: undefined,
+2025-10-14T08:01:16:   constraint: undefined,
+2025-10-14T08:01:16:   file: 'parse_relation.c',
+2025-10-14T08:01:16:   line: '1381',
+2025-10-14T08:01:16:   routine: 'parserOpenTable'
+2025-10-14T08:01:16: }
+2025-10-14T08:01:23: Error fetching ODPs: error: relation "odp" does not exist
+2025-10-14T08:01:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:01:23:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:01:23:     at async /home/aglis/AGLIS_Tech/backend/src/routes/odp.js:78:25 {
+2025-10-14T08:01:23:   length: 102,
+2025-10-14T08:01:23:   severity: 'ERROR',
+2025-10-14T08:01:23:   code: '42P01',
+2025-10-14T08:01:23:   detail: undefined,
+2025-10-14T08:01:23:   hint: undefined,
+2025-10-14T08:01:23:   position: '31',
+2025-10-14T08:01:23:   internalPosition: undefined,
+2025-10-14T08:01:23:   internalQuery: undefined,
+2025-10-14T08:01:23:   where: undefined,
+2025-10-14T08:01:23:   schema: undefined,
+2025-10-14T08:01:23:   table: undefined,
+2025-10-14T08:01:23:   column: undefined,
+2025-10-14T08:01:23:   dataType: undefined,
+2025-10-14T08:01:23:   constraint: undefined,
+2025-10-14T08:01:23:   file: 'parse_relation.c',
+2025-10-14T08:01:23:   line: '1381',
+2025-10-14T08:01:23:   routine: 'parserOpenTable'
+2025-10-14T08:01:23: }

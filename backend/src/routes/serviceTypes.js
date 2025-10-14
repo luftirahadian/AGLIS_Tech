@@ -5,12 +5,13 @@ const { body, param, validationResult } = require('express-validator');
 
 // Validation middleware for service types
 const validateServiceType = [
-  body('type_code').trim().notEmpty().withMessage('Type code wajib diisi')
-    .matches(/^[a-z_]+$/).withMessage('Type code harus lowercase dengan underscore'),
-  body('type_name').trim().notEmpty().withMessage('Type name wajib diisi'),
+  body('service_code').trim().notEmpty().withMessage('Service code wajib diisi')
+    .matches(/^[a-z_]+$/).withMessage('Service code harus lowercase dengan underscore'),
+  body('service_name').trim().notEmpty().withMessage('Service name wajib diisi'),
   body('description').optional().trim(),
-  body('icon').optional().trim(),
-  body('default_duration').optional().isInt({ min: 1 }).withMessage('Duration minimal 1 menit'),
+  body('category').optional().trim(),
+  body('estimated_duration').optional().isInt({ min: 1 }).withMessage('Duration minimal 1 menit'),
+  body('base_price').optional().isNumeric(),
   body('is_active').optional().isBoolean(),
   body('display_order').optional().isInt({ min: 0 })
 ];
@@ -21,8 +22,8 @@ router.get('/', async (req, res) => {
     const { active_only, search, sort_by, sort_order, page = 1, limit = 10 } = req.query;
     
     let query = `
-      SELECT id, type_code, type_name, description, icon, 
-             default_duration, is_active, display_order,
+      SELECT id, service_code, service_name, category, description,
+             estimated_duration, base_price, is_active, display_order,
              created_at, updated_at
       FROM service_types
     `;
@@ -37,7 +38,7 @@ router.get('/', async (req, res) => {
     
     if (search) {
       paramCount++;
-      conditions.push(`(type_name ILIKE $${paramCount} OR type_code ILIKE $${paramCount} OR description ILIKE $${paramCount})`);
+      conditions.push(`(service_name ILIKE $${paramCount} OR service_code ILIKE $${paramCount} OR description ILIKE $${paramCount})`);
       params.push(`%${search}%`);
     }
     
@@ -47,14 +48,15 @@ router.get('/', async (req, res) => {
     
     // Sorting
     const allowedSortColumns = {
-      'type_name': 'type_name',
-      'type_code': 'type_code',
+      'service_name': 'service_name',
+      'service_code': 'service_code',
       'display_order': 'display_order',
-      'default_duration': 'default_duration',
-      'is_active': 'is_active'
+      'estimated_duration': 'estimated_duration',
+      'is_active': 'is_active',
+      'category': 'category'
     };
     
-    const sortColumn = allowedSortColumns[sort_by] || 'display_order, type_name';
+    const sortColumn = allowedSortColumns[sort_by] || 'display_order, service_name';
     const sortDirection = sort_order === 'desc' ? 'DESC' : 'ASC';
     query += ` ORDER BY ${sortColumn} ${sortDirection}`;
     
@@ -105,8 +107,8 @@ router.get('/:id',
 
     try {
       const result = await pool.query(
-        `SELECT id, type_code, type_name, description, icon, 
-                default_duration, is_active, display_order,
+        `SELECT id, service_code, service_name, category, description,
+                estimated_duration, base_price, is_active, display_order,
                 created_at, updated_at
          FROM service_types
          WHERE id = $1`,
@@ -132,13 +134,13 @@ router.post('/', validateServiceType, async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { type_code, type_name, description, icon, default_duration, is_active, display_order } = req.body;
+  const { service_code, service_name, category, description, estimated_duration, base_price, is_active, display_order } = req.body;
 
   try {
-    // Check if type_code already exists
+    // Check if service_code already exists
     const existingType = await pool.query(
-      'SELECT id FROM service_types WHERE type_code = $1',
-      [type_code]
+      'SELECT id FROM service_types WHERE service_code = $1',
+      [service_code]
     );
 
     if (existingType.rows.length > 0) {
@@ -146,10 +148,10 @@ router.post('/', validateServiceType, async (req, res) => {
     }
 
     const result = await pool.query(
-      `INSERT INTO service_types (type_code, type_name, description, icon, default_duration, is_active, display_order)
-       VALUES ($1, $2, $3, $4, $5, $6, $7)
+      `INSERT INTO service_types (service_code, service_name, category, description, estimated_duration, base_price, is_active, display_order)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
        RETURNING *`,
-      [type_code, type_name, description, icon, default_duration || 120, is_active !== false, display_order || 0]
+      [service_code, service_name, category || 'other', description, estimated_duration || 120, base_price || 0, is_active !== false, display_order || 0]
     );
 
     res.status(201).json(result.rows[0]);
@@ -169,7 +171,7 @@ router.put('/:id',
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { type_code, type_name, description, icon, default_duration, is_active, display_order } = req.body;
+    const { service_code, service_name, category, description, estimated_duration, base_price, is_active, display_order } = req.body;
 
     try {
       // Check if service type exists
@@ -178,10 +180,10 @@ router.put('/:id',
         return res.status(404).json({ message: 'Service type tidak ditemukan' });
       }
 
-      // Check if new type_code conflicts with existing type (excluding current type)
+      // Check if new service_code conflicts with existing type (excluding current type)
       const codeCheck = await pool.query(
-        'SELECT id FROM service_types WHERE type_code = $1 AND id != $2',
-        [type_code, req.params.id]
+        'SELECT id FROM service_types WHERE service_code = $1 AND id != $2',
+        [service_code, req.params.id]
       );
 
       if (codeCheck.rows.length > 0) {
@@ -190,12 +192,12 @@ router.put('/:id',
 
       const result = await pool.query(
         `UPDATE service_types 
-         SET type_code = $1, type_name = $2, description = $3, icon = $4,
-             default_duration = $5, is_active = $6, display_order = $7,
+         SET service_code = $1, service_name = $2, category = $3, description = $4,
+             estimated_duration = $5, base_price = $6, is_active = $7, display_order = $8,
              updated_at = CURRENT_TIMESTAMP
-         WHERE id = $8
+         WHERE id = $9
          RETURNING *`,
-        [type_code, type_name, description, icon, default_duration, is_active, display_order, req.params.id]
+        [service_code, service_name, category, description, estimated_duration, base_price, is_active, display_order, req.params.id]
       );
 
       res.json(result.rows[0]);
@@ -217,7 +219,7 @@ router.delete('/:id',
 
     try {
       // Check if service type exists
-      const typeCheck = await pool.query('SELECT id, type_code FROM service_types WHERE id = $1', [req.params.id]);
+      const typeCheck = await pool.query('SELECT id, service_code FROM service_types WHERE id = $1', [req.params.id]);
       if (typeCheck.rows.length === 0) {
         return res.status(404).json({ message: 'Service type tidak ditemukan' });
       }
@@ -225,7 +227,7 @@ router.delete('/:id',
       // Check if service type is being used by tickets
       const ticketCheck = await pool.query(
         'SELECT COUNT(*) as count FROM tickets WHERE type = $1',
-        [typeCheck.rows[0].type_code]
+        [typeCheck.rows[0].service_code]
       );
 
       if (parseInt(ticketCheck.rows[0].count) > 0) {
@@ -236,8 +238,8 @@ router.delete('/:id',
 
       // Check if service type has categories
       const categoryCheck = await pool.query(
-        'SELECT COUNT(*) as count FROM service_categories WHERE service_type_code = $1',
-        [typeCheck.rows[0].type_code]
+        'SELECT COUNT(*) as count FROM service_categories WHERE service_service_code = $1',
+        [typeCheck.rows[0].service_code]
       );
 
       if (parseInt(categoryCheck.rows[0].count) > 0) {
