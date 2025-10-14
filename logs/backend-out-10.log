@@ -1520,3 +1520,38 @@
 2025-10-15T06:50:17: ✅ Connected to PostgreSQL database
 2025-10-15T06:50:17: ✅ Connected to PostgreSQL database
 2025-10-15T06:50:17: 103.55.224.49 - - [14/Oct/2025:23:50:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:51:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:51:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:51:17: 103.55.224.49 - - [14/Oct/2025:23:51:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:52:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:52:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:52:17: 103.55.224.49 - - [14/Oct/2025:23:52:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:53:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:17: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:17: 103.55.224.49 - - [14/Oct/2025:23:53:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:53:27: 👤 User disconnected: SSdp2bCrK_5dOhFmAAAB
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: 👤 User connected: mXlya1_yAj4fk-7uAAAD
+2025-10-15T06:53:27: 103.55.224.49 - - [14/Oct/2025:23:53:27 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: 👤 User disconnected: mXlya1_yAj4fk-7uAAAD
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: 👤 User connected: NK8_RrPzy_mU0DujAAAG
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: 👤 User disconnected: NK8_RrPzy_mU0DujAAAG
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:27: 👤 User connected: 05bt4ts4-tn31YJoAAAM
+2025-10-15T06:53:27: 103.55.224.49 - - [14/Oct/2025:23:53:27 +0000] "GET /api/technicians/4 HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:53:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:53:37: 🔍 Cache MISS: cache:GET:/grouped:active_only=true:admin...
+2025-10-15T06:53:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:53:37: 💾 Cached: cache:GET:/grouped:active_only=true:admin... (TTL: 600s)
+2025-10-15T06:53:37: 103.55.224.49 - - [14/Oct/2025:23:53:37 +0000] "GET /api/specializations/grouped?active_only=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:53:57: 103.55.224.49 - - [14/Oct/2025:23:53:57 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 437 "https://portal.aglis.biz.id/technicians/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:54:27: ✅ Connected to PostgreSQL database
+2025-10-15T06:54:27: ✅ Connected to PostgreSQL database
+2025-10-15T06:54:27: 103.55.224.49 - - [14/Oct/2025:23:54:27 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/13" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
