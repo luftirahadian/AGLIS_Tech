@@ -21174,3 +21174,103 @@ Recent PM2 Errors:
 8|aglis-backend-2   | 2025-10-14T23:43:56:   line: '592',
 8|aglis-backend-2   | 2025-10-14T23:43:56:   routine: 'check_agglevels_and_constraints'
 8|aglis-backend-2   | 2025-10-14T23:43:56: }
+==========================================
+AGLIS System Monitor - 2025-10-15 01:00:01
+==========================================
+
+🖥️  SYSTEM RESOURCES:
+-------------------
+CPU Usage:
+57.1
+
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           8.0Gi       1.9Gi       3.6Gi        28Mi       2.5Gi       6.1Gi
+Swap:          8.0Gi       0.0Ki       8.0Gi
+
+Disk Usage:
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/mapper/pve-vm--116--disk--0   79G  4.4G   70G   6% /
+none                              492K  4.0K  488K   1% /dev
+efivarfs                          256K  137K  115K  55% /sys/firmware/efi/efivars
+tmpfs                              40G   28K   40G   1% /dev/shm
+tmpfs                              16G  340K   16G   1% /run
+tmpfs                             5.0M     0  5.0M   0% /run/lock
+tmpfs                             7.9G   40K  7.9G   1% /run/user/1001
+
+Load Average:
+ 01:00:02 up 1 day, 21:11,  0 users,  load average: 2.53, 2.02, 2.39
+
+🌐 NETWORK STATUS:
+-----------------
+Active Connections:
+/home/aglis/AGLIS_Tech/scripts/monitoring/system-monitor.sh: line 29: netstat: command not found
+
+Network Traffic:
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+
+🗄️  DATABASE STATUS:
+------------------
+active
+Database Size:
+ pg_size_pretty 
+----------------
+ 15 MB
+(1 row)
+
+Active Connections:
+ count 
+-------
+     0
+(1 row)
+
+
+⚙️  APPLICATION STATUS:
+---------------------
+PM2 Status:
+┌────┬─────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7  │ aglis-backend-1     │ default     │ 1.0.0   │ fork    │ 679716   │ 70m    │ 73   │ online    │ 0%       │ 95.0mb   │ aglis    │ disabled │
+│ 8  │ aglis-backend-2     │ default     │ 1.0.0   │ fork    │ 679728   │ 70m    │ 63   │ online    │ 0%       │ 93.4mb   │ aglis    │ disabled │
+│ 9  │ aglis-backend-3     │ default     │ 1.0.0   │ fork    │ 679736   │ 70m    │ 63   │ online    │ 0%       │ 93.9mb   │ aglis    │ disabled │
+│ 10 │ aglis-backend-4     │ default     │ 1.0.0   │ fork    │ 679748   │ 70m    │ 63   │ online    │ 0%       │ 94.8mb   │ aglis    │ disabled │
+└────┴─────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Modules
+┌────┬──────────────────────────────┬───────────────┬──────────┬──────────┬──────┬──────────┬──────────┬──────────┐
+│ id │ module                       │ version       │ pid      │ status   │ ↺    │ cpu      │ mem      │ user     │
+├────┼──────────────────────────────┼───────────────┼──────────┼──────────┼──────┼──────────┼──────────┼──────────┤
+│ 1  │ pm2-logrotate                │ 3.0.0         │ 60058    │ online   │ 0    │ 0%       │ 70.7mb   │ aglis    │
+│ 0  │ pm2-server-monit             │ 3.0.0         │ 60047    │ online   │ 0    │ 0%       │ 63.2mb   │ aglis    │
+└────┴──────────────────────────────┴───────────────┴──────────┴──────────┴──────┴──────────┴──────────┴──────────┘
+
+Nginx Status:
+active
+
+SSL Certificate:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: portal.aglis.biz.id
+    Serial Number: 5f6961824a228370f30769559e6e00a8487
+    Key Type: RSA
+    Domains: portal.aglis.biz.id
+    Expiry Date: 2026-01-10 21:53:08+00:00 (VALID: 88 days)
+    Certificate Path: /etc/letsencrypt/live/portal.aglis.biz.id/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/portal.aglis.biz.id/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+📊 LOG SUMMARY:
+--------------
+Recent Nginx Errors:
+
+Recent PM2 Errors:
+[TAILING] Tailing last 5 lines for [all] processes (change the value with --lines option)
+/home/aglis/.pm2/logs/pm2-server-monit-error.log last 5 lines:
+/home/aglis/.pm2/logs/pm2-logrotate-error.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-8.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-9.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-10.log last 5 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-7.log last 5 lines:

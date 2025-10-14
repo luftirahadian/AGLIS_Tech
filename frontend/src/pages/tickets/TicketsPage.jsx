@@ -24,6 +24,7 @@ const TicketsPage = () => {
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
   const [isExporting, setIsExporting] = useState(false)
+  const [technicianView, setTechnicianView] = useState('my-tickets') // 'my-tickets' or 'available'
   const [filters, setFilters] = useState({
     search: '',
     status: '',
@@ -487,6 +488,51 @@ const TicketsPage = () => {
         </div>
       )}
 
+      {/* Technician View Toggle */}
+      {isTechnician && (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <Target className="h-5 w-5 text-blue-600 mr-2" />
+              <span className="text-sm font-medium text-gray-700">View Mode:</span>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => {
+                  setTechnicianView('my-tickets')
+                  setFilters({ ...filters, status: '' })
+                }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  technicianView === 'my-tickets'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                📋 My Tickets
+              </button>
+              <button
+                onClick={() => {
+                  setTechnicianView('available')
+                  setFilters({ ...filters, status: 'open' })
+                }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  technicianView === 'available'
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                🆓 Available Tickets
+              </button>
+            </div>
+          </div>
+          <div className="mt-3 text-xs text-gray-600">
+            {technicianView === 'my-tickets' 
+              ? '📌 Showing tickets assigned to you' 
+              : '🎯 Showing unassigned tickets you can claim'}
+          </div>
+        </div>
+      )}
+
       {/* Statistics Cards - Grouped by Status Type */}
       <div className="space-y-6">
         {/* Row 1: Overview + Active Tickets */}
@@ -847,7 +893,7 @@ const TicketsPage = () => {
                             </button>
                           )}
 
-                          {/* Quick Assign */}
+                          {/* Quick Assign - Admin/Supervisor */}
                           {canAssign && ticket.status !== 'completed' && ticket.status !== 'cancelled' && (
                             <button
                               onClick={(e) => handleQuickAssign(e, ticket)}
@@ -855,6 +901,41 @@ const TicketsPage = () => {
                               title="Quick Assign"
                             >
                               <UserPlus className="h-4 w-4 text-purple-600" />
+                            </button>
+                          )}
+
+                          {/* Assign to Me - Technician Only */}
+                          {isTechnician && ticket.status === 'open' && !ticket.assigned_technician_id && (
+                            <button
+                              onClick={async (e) => {
+                                e.stopPropagation()
+                                try {
+                                  // Get my technician profile
+                                  const techResponse = await fetch(`/api/technicians?user_id=${currentUser.id}`, {
+                                    headers: {
+                                      'Authorization': `Bearer ${localStorage.getItem('token')}`
+                                    }
+                                  })
+                                  const techData = await techResponse.json()
+                                  const myTechProfile = techData?.data?.technicians?.[0]
+                                  
+                                  if (!myTechProfile) {
+                                    toast.error('Technician profile not found')
+                                    return
+                                  }
+
+                                  // Assign ticket to me
+                                  await ticketService.assignTicket(ticket.id, myTechProfile.id)
+                                  toast.success('Ticket assigned to you!')
+                                  refetch()
+                                } catch (error) {
+                                  toast.error(error.response?.data?.message || 'Failed to assign ticket')
+                                }
+                              }}
+                              className="p-1.5 hover:bg-blue-100 rounded transition-colors"
+                              title="Assign to Me"
+                            >
+                              <User className="h-4 w-4 text-blue-600" />
                             </button>
                           )}
 

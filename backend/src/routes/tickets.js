@@ -65,6 +65,9 @@ router.get('/', async (req, res) => {
     let paramCount = 0;
 
     // Filter by technician if user is technician
+    // Technicians can see:
+    // 1. Tickets assigned to them (assigned, in_progress, completed)
+    // 2. Open tickets (for self-assignment)
     if (req.user.role === 'technician') {
       const techResult = await pool.query(
         'SELECT id FROM technicians WHERE user_id = $1',
@@ -72,7 +75,7 @@ router.get('/', async (req, res) => {
       );
       if (techResult.rows.length > 0) {
         paramCount++;
-        query += ` AND t.assigned_technician_id = $${paramCount}`;
+        query += ` AND (t.assigned_technician_id = $${paramCount} OR t.status = 'open')`;
         params.push(techResult.rows[0].id);
       }
     }
@@ -141,7 +144,7 @@ router.get('/', async (req, res) => {
       );
       if (techResult.rows.length > 0) {
         countParamCount++;
-        countQuery += ` AND t.assigned_technician_id = $${countParamCount}`;
+        countQuery += ` AND (t.assigned_technician_id = $${countParamCount} OR t.status = 'open')`;
         countParams.push(techResult.rows[0].id);
       }
     }
@@ -215,6 +218,22 @@ router.get('/', async (req, res) => {
 // Get ticket statistics (MUST be before /:id route)
 router.get('/stats/overview', async (req, res) => {
   try {
+    // Build base query with technician filter if needed
+    let whereClause = '1=1';
+    const params = [];
+    
+    // Filter stats by technician if user is technician
+    if (req.user.role === 'technician') {
+      const techResult = await pool.query(
+        'SELECT id FROM technicians WHERE user_id = $1',
+        [req.user.id]
+      );
+      if (techResult.rows.length > 0) {
+        whereClause = `(assigned_technician_id = $1 OR status = 'open')`;
+        params.push(techResult.rows[0].id);
+      }
+    }
+
     // Get all ticket counts by status in one query
     const statusResult = await pool.query(`
       SELECT 
@@ -226,7 +245,8 @@ router.get('/stats/overview', async (req, res) => {
         COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed_tickets,
         COUNT(CASE WHEN status = 'cancelled' THEN 1 END) as cancelled_tickets
       FROM tickets
-    `);
+      WHERE ${whereClause}
+    `, params);
 
     const counts = statusResult.rows[0];
 
@@ -235,7 +255,8 @@ router.get('/stats/overview', async (req, res) => {
       SELECT AVG(EXTRACT(EPOCH FROM (completed_at - created_at))/3600) as avg_hours
       FROM tickets
       WHERE status = 'completed' AND completed_at IS NOT NULL
-    `);
+        AND ${whereClause}
+    `, params);
     const avg_resolution_time = avgTimeResult.rows[0].avg_hours 
       ? parseFloat(avgTimeResult.rows[0].avg_hours).toFixed(1) 
       : '0.0';

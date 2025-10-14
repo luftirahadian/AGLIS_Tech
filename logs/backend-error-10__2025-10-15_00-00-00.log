@@ -1,0 +1,620 @@
+2025-10-14T02:26:15: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-14T02:26:15: Error message: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-14T02:26:15: Error stack: error: new row for relation "customer_registrations" violates check constraint "valid_status"
+2025-10-14T02:26:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T02:26:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T02:26:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:922:28
+2025-10-14T02:26:15: Error detail: Failing row contains (1, REG-20251013-0001, Test User, test789@example.com, 081234567890, null, null, Test Address, null, null, null, null, Jakarta, null, null, null, null, broadband, 1, null, null, customer_created, null, 17, 2025-10-13 10:03:39.66, null, 17, 2025-10-13 10:03:43.091, null, null, null, null, null, null, 4, 4, null, null, null, null, null, 2025-10-13 00:40:59.662549, 2025-10-13 19:26:15.51217).
+2025-10-14T02:26:15: SQL: undefined
+2025-10-14T02:42:07: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T02:42:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T02:42:07:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T02:42:07:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T02:42:07:   length: 113,
+2025-10-14T02:42:07:   severity: 'ERROR',
+2025-10-14T02:42:07:   code: '42P01',
+2025-10-14T02:42:07:   detail: undefined,
+2025-10-14T02:42:07:   hint: undefined,
+2025-10-14T02:42:07:   position: '823',
+2025-10-14T02:42:07:   internalPosition: undefined,
+2025-10-14T02:42:07:   internalQuery: undefined,
+2025-10-14T02:42:07:   where: undefined,
+2025-10-14T02:42:07:   schema: undefined,
+2025-10-14T02:42:07:   table: undefined,
+2025-10-14T02:42:07:   column: undefined,
+2025-10-14T02:42:07:   dataType: undefined,
+2025-10-14T02:42:07:   constraint: undefined,
+2025-10-14T02:42:07:   file: 'parse_relation.c',
+2025-10-14T02:42:07:   line: '1381',
+2025-10-14T02:42:07:   routine: 'parserOpenTable'
+2025-10-14T02:42:07: }
+2025-10-14T07:47:04: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+2025-10-14T07:47:04:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T07:47:04:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T07:47:04:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+2025-10-14T07:47:04:   length: 115,
+2025-10-14T07:47:04:   severity: 'ERROR',
+2025-10-14T07:47:04:   code: '42P01',
+2025-10-14T07:47:04:   detail: undefined,
+2025-10-14T07:47:04:   hint: undefined,
+2025-10-14T07:47:04:   position: '254',
+2025-10-14T07:47:04:   internalPosition: undefined,
+2025-10-14T07:47:04:   internalQuery: undefined,
+2025-10-14T07:47:04:   where: undefined,
+2025-10-14T07:47:04:   schema: undefined,
+2025-10-14T07:47:04:   table: undefined,
+2025-10-14T07:47:04:   column: undefined,
+2025-10-14T07:47:04:   dataType: undefined,
+2025-10-14T07:47:04:   constraint: undefined,
+2025-10-14T07:47:04:   file: 'parse_relation.c',
+2025-10-14T07:47:04:   line: '1381',
+2025-10-14T07:47:04:   routine: 'parserOpenTable'
+2025-10-14T07:47:04: }
+2025-10-14T08:01:10: Error fetching service categories: error: relation "service_categories" does not exist
+2025-10-14T08:01:10:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:01:10:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:01:10:     at async /home/aglis/AGLIS_Tech/backend/src/routes/serviceCategories.js:82:25 {
+2025-10-14T08:01:10:   length: 117,
+2025-10-14T08:01:10:   severity: 'ERROR',
+2025-10-14T08:01:10:   code: '42P01',
+2025-10-14T08:01:10:   detail: undefined,
+2025-10-14T08:01:10:   hint: undefined,
+2025-10-14T08:01:10:   position: '45',
+2025-10-14T08:01:10:   internalPosition: undefined,
+2025-10-14T08:01:10:   internalQuery: undefined,
+2025-10-14T08:01:10:   where: undefined,
+2025-10-14T08:01:10:   schema: undefined,
+2025-10-14T08:01:10:   table: undefined,
+2025-10-14T08:01:10:   column: undefined,
+2025-10-14T08:01:10:   dataType: undefined,
+2025-10-14T08:01:10:   constraint: undefined,
+2025-10-14T08:01:10:   file: 'parse_relation.c',
+2025-10-14T08:01:10:   line: '1381',
+2025-10-14T08:01:10:   routine: 'parserOpenTable'
+2025-10-14T08:01:10: }
+2025-10-14T08:01:23: Error fetching ODPs: error: relation "odp" does not exist
+2025-10-14T08:01:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:01:23:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:01:23:     at async /home/aglis/AGLIS_Tech/backend/src/routes/odp.js:78:25 {
+2025-10-14T08:01:23:   length: 102,
+2025-10-14T08:01:23:   severity: 'ERROR',
+2025-10-14T08:01:23:   code: '42P01',
+2025-10-14T08:01:23:   detail: undefined,
+2025-10-14T08:01:23:   hint: undefined,
+2025-10-14T08:01:23:   position: '31',
+2025-10-14T08:01:23:   internalPosition: undefined,
+2025-10-14T08:01:23:   internalQuery: undefined,
+2025-10-14T08:01:23:   where: undefined,
+2025-10-14T08:01:23:   schema: undefined,
+2025-10-14T08:01:23:   table: undefined,
+2025-10-14T08:01:23:   column: undefined,
+2025-10-14T08:01:23:   dataType: undefined,
+2025-10-14T08:01:23:   constraint: undefined,
+2025-10-14T08:01:23:   file: 'parse_relation.c',
+2025-10-14T08:01:23:   line: '1381',
+2025-10-14T08:01:23:   routine: 'parserOpenTable'
+2025-10-14T08:01:23: }
+2025-10-14T08:02:23: Error fetching service types: error: column "type_code" does not exist
+2025-10-14T08:02:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:02:23:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:02:23:     at async /home/aglis/AGLIS_Tech/backend/src/routes/serviceTypes.js:79:20 {
+2025-10-14T08:02:23:   length: 109,
+2025-10-14T08:02:23:   severity: 'ERROR',
+2025-10-14T08:02:23:   code: '42703',
+2025-10-14T08:02:23:   detail: undefined,
+2025-10-14T08:02:23:   hint: undefined,
+2025-10-14T08:02:23:   position: '19',
+2025-10-14T08:02:23:   internalPosition: undefined,
+2025-10-14T08:02:23:   internalQuery: undefined,
+2025-10-14T08:02:23:   where: undefined,
+2025-10-14T08:02:23:   schema: undefined,
+2025-10-14T08:02:23:   table: undefined,
+2025-10-14T08:02:23:   column: undefined,
+2025-10-14T08:02:23:   dataType: undefined,
+2025-10-14T08:02:23:   constraint: undefined,
+2025-10-14T08:02:23:   file: 'parse_relation.c',
+2025-10-14T08:02:23:   line: '3647',
+2025-10-14T08:02:23:   routine: 'errorMissingColumn'
+2025-10-14T08:02:23: }
+2025-10-14T08:33:25: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T08:33:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T08:33:25:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:33:25:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T08:33:25:   length: 123,
+2025-10-14T08:33:25:   severity: 'ERROR',
+2025-10-14T08:33:25:   code: '42703',
+2025-10-14T08:33:25:   detail: undefined,
+2025-10-14T08:33:25:   hint: undefined,
+2025-10-14T08:33:25:   position: '288',
+2025-10-14T08:33:25:   internalPosition: undefined,
+2025-10-14T08:33:25:   internalQuery: undefined,
+2025-10-14T08:33:25:   where: undefined,
+2025-10-14T08:33:25:   schema: undefined,
+2025-10-14T08:33:25:   table: undefined,
+2025-10-14T08:33:25:   column: undefined,
+2025-10-14T08:33:25:   dataType: undefined,
+2025-10-14T08:33:25:   constraint: undefined,
+2025-10-14T08:33:25:   file: 'parse_relation.c',
+2025-10-14T08:33:25:   line: '3647',
+2025-10-14T08:33:25:   routine: 'errorMissingColumn'
+2025-10-14T08:33:25: }
+2025-10-14T09:35:54: Update ticket status error: error: column "assigned_technician_id" of relation "ticket_status_history" does not exist
+2025-10-14T09:35:54:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T09:35:54:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:35:54:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:710:7 {
+2025-10-14T09:35:54:   length: 156,
+2025-10-14T09:35:54:   severity: 'ERROR',
+2025-10-14T09:35:54:   code: '42703',
+2025-10-14T09:35:54:   detail: undefined,
+2025-10-14T09:35:54:   hint: undefined,
+2025-10-14T09:35:54:   position: '90',
+2025-10-14T09:35:54:   internalPosition: undefined,
+2025-10-14T09:35:54:   internalQuery: undefined,
+2025-10-14T09:35:54:   where: undefined,
+2025-10-14T09:35:54:   schema: undefined,
+2025-10-14T09:35:54:   table: undefined,
+2025-10-14T09:35:54:   column: undefined,
+2025-10-14T09:35:54:   dataType: undefined,
+2025-10-14T09:35:54:   constraint: undefined,
+2025-10-14T09:35:54:   file: 'parse_target.c',
+2025-10-14T09:35:54:   line: '1075',
+2025-10-14T09:35:54:   routine: 'checkInsertTargets'
+2025-10-14T09:35:54: }
+2025-10-14T10:27:17: ReferenceError: path is not defined
+2025-10-14T10:27:17:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:17:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:22: ReferenceError: path is not defined
+2025-10-14T10:27:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:22:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:27: ReferenceError: path is not defined
+2025-10-14T10:27:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:27:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:32: ReferenceError: path is not defined
+2025-10-14T10:27:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:32:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:37: ReferenceError: path is not defined
+2025-10-14T10:27:37:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:37:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:37:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:37:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:37:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:37:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:42: ReferenceError: path is not defined
+2025-10-14T10:27:42:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:42:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:42:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:42:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:42:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:42:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:46: ReferenceError: path is not defined
+2025-10-14T10:27:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:46:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:51: ReferenceError: path is not defined
+2025-10-14T10:27:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:51:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:56: ReferenceError: path is not defined
+2025-10-14T10:27:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:27:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:27:56:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:27:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:27:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:27:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:27:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:28:01: ReferenceError: path is not defined
+2025-10-14T10:28:01:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/server.js:162:44)
+2025-10-14T10:28:01:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:28:01:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:28:01:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:28:01:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:28:01:     at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2025-10-14T10:28:01:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T10:28:01:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T10:28:01:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T10:28:01:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:45:33: Get ticket error: error: invalid input syntax for type integer: "new"
+2025-10-14T10:45:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T10:45:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:45:33:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T10:45:33:   length: 141,
+2025-10-14T10:45:33:   severity: 'ERROR',
+2025-10-14T10:45:33:   code: '22P02',
+2025-10-14T10:45:33:   detail: undefined,
+2025-10-14T10:45:33:   hint: undefined,
+2025-10-14T10:45:33:   position: undefined,
+2025-10-14T10:45:33:   internalPosition: undefined,
+2025-10-14T10:45:33:   internalQuery: undefined,
+2025-10-14T10:45:33:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T10:45:33:   schema: undefined,
+2025-10-14T10:45:33:   table: undefined,
+2025-10-14T10:45:33:   column: undefined,
+2025-10-14T10:45:33:   dataType: undefined,
+2025-10-14T10:45:33:   constraint: undefined,
+2025-10-14T10:45:33:   file: 'numutils.c',
+2025-10-14T10:45:33:   line: '320',
+2025-10-14T10:45:33:   routine: 'pg_strtoint32'
+2025-10-14T10:45:33: }
+2025-10-14T10:45:43: Get ticket error: error: invalid input syntax for type integer: "create"
+2025-10-14T10:45:43:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T10:45:43:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:45:43:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T10:45:43:   length: 144,
+2025-10-14T10:45:43:   severity: 'ERROR',
+2025-10-14T10:45:43:   code: '22P02',
+2025-10-14T10:45:43:   detail: undefined,
+2025-10-14T10:45:43:   hint: undefined,
+2025-10-14T10:45:43:   position: undefined,
+2025-10-14T10:45:43:   internalPosition: undefined,
+2025-10-14T10:45:43:   internalQuery: undefined,
+2025-10-14T10:45:43:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T10:45:43:   schema: undefined,
+2025-10-14T10:45:43:   table: undefined,
+2025-10-14T10:45:43:   column: undefined,
+2025-10-14T10:45:43:   dataType: undefined,
+2025-10-14T10:45:43:   constraint: undefined,
+2025-10-14T10:45:43:   file: 'numutils.c',
+2025-10-14T10:45:43:   line: '320',
+2025-10-14T10:45:43:   routine: 'pg_strtoint32'
+2025-10-14T10:45:43: }
+2025-10-14T10:46:27: Get ticket error: error: invalid input syntax for type integer: "create"
+2025-10-14T10:46:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T10:46:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:46:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T10:46:27:   length: 144,
+2025-10-14T10:46:27:   severity: 'ERROR',
+2025-10-14T10:46:27:   code: '22P02',
+2025-10-14T10:46:27:   detail: undefined,
+2025-10-14T10:46:27:   hint: undefined,
+2025-10-14T10:46:27:   position: undefined,
+2025-10-14T10:46:27:   internalPosition: undefined,
+2025-10-14T10:46:27:   internalQuery: undefined,
+2025-10-14T10:46:27:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T10:46:27:   schema: undefined,
+2025-10-14T10:46:27:   table: undefined,
+2025-10-14T10:46:27:   column: undefined,
+2025-10-14T10:46:27:   dataType: undefined,
+2025-10-14T10:46:27:   constraint: undefined,
+2025-10-14T10:46:27:   file: 'numutils.c',
+2025-10-14T10:46:27:   line: '320',
+2025-10-14T10:46:27:   routine: 'pg_strtoint32'
+2025-10-14T10:46:27: }
+2025-10-14T21:23:28: Mark all notifications read error: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   code: '42803',
+2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28:   where: undefined,
+2025-10-14T21:23:28:   schema: undefined,
+2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28: }
+2025-10-14T21:23:28: ❌ QUERY ERROR (4ms): {
+2025-10-14T21:23:28:   error: 'aggregate functions are not allowed in RETURNING',
+2025-10-14T21:23:28:   query: '\n' +
+2025-10-14T21:23:28:     '      UPDATE notifications \n' +
+2025-10-14T21:23:28:     '      SET is_read = TRUE, read_at = NOW() \n' +
+2025-10-14T21:23:28:     '      WHERE user_id = $1 AND is_read = FALSE\n' +
+2025-10-14T21:23:28:     '      RETURNING COUNT(*) as updat...'
+2025-10-14T21:23:28: }
+2025-10-14T21:23:28: error: aggregate functions are not allowed in RETURNING
+2025-10-14T21:23:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T21:23:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T21:23:28:   length: 132,
+2025-10-14T21:23:28:   severity: 'ERROR',
+2025-10-14T21:23:28:   code: '42803',
+2025-10-14T21:23:28:   detail: undefined,
+2025-10-14T21:23:28:   hint: undefined,
+2025-10-14T21:23:28:   position: '134',
+2025-10-14T21:23:28:   internalPosition: undefined,
+2025-10-14T21:23:28:   internalQuery: undefined,
+2025-10-14T21:23:28:   where: undefined,
+2025-10-14T21:23:28:   schema: undefined,
+2025-10-14T21:23:28:   table: undefined,
+2025-10-14T21:23:28:   column: undefined,
+2025-10-14T21:23:28:   dataType: undefined,
+2025-10-14T21:23:28:   constraint: undefined,
+2025-10-14T21:23:28:   file: 'parse_agg.c',
+2025-10-14T21:23:28:   line: '592',
+2025-10-14T21:23:28:   routine: 'check_agglevels_and_constraints'
+2025-10-14T21:23:28: }
+2025-10-14T21:54:58: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:54:58: Require stack:
+2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:54:58: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:54:58:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:54:58:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:54:58:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:54:58:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:54:58:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:54:58:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:54:58:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:54:58:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:54:58:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:54:58:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:54:58:   requireStack: [
+2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:54:58:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:54:58:   ]
+2025-10-14T21:54:58: }
+2025-10-14T21:55:03: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:03: Require stack:
+2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:03: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:03:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:03:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:03:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:03:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:03:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:03:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:03:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:03:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:03:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:03:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:03:   requireStack: [
+2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:03:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:03:   ]
+2025-10-14T21:55:03: }
+2025-10-14T21:55:08: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:08: Require stack:
+2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:08: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:08:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:08:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:08:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:08:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:08:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:08:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:08:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:08:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:08:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:08:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:08:   requireStack: [
+2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:08:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:08:   ]
+2025-10-14T21:55:08: }
+2025-10-14T21:55:13: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:13: Require stack:
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:13: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:13:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:13:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:13:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:13:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:13:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:13:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:13:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:13:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:13:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:13:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:13:   requireStack: [
+2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:13:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:13:   ]
+2025-10-14T21:55:13: }
+2025-10-14T21:55:18: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:18: Require stack:
+2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:18: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:18:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:18:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:18:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:18:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:18:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:18:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:18:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:18:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:18:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:18:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:18:   requireStack: [
+2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:18:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:18:   ]
+2025-10-14T21:55:18: }
+2025-10-14T21:55:23: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:23: Require stack:
+2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:23: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:23:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:23:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:23:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:23:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:23:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:23:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:23:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:23:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:23:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:23:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:23:   requireStack: [
+2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:23:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:23:   ]
+2025-10-14T21:55:23: }
+2025-10-14T21:55:27: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:27: Require stack:
+2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:27: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:27:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:27:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:27:   requireStack: [
+2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:27:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:27:   ]
+2025-10-14T21:55:27: }
+2025-10-14T21:55:32: Error: Cannot find module '../utils/notificationUtils'
+2025-10-14T21:55:32: Require stack:
+2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js
+2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js
+2025-10-14T21:55:32: - /home/aglis/AGLIS_Tech/backend/src/server.js
+2025-10-14T21:55:32:     at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+2025-10-14T21:55:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-14T21:55:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js:9:32)
+2025-10-14T21:55:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-14T21:55:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-14T21:55:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-14T21:55:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T21:55:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-14T21:55:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+2025-10-14T21:55:32:   code: 'MODULE_NOT_FOUND',
+2025-10-14T21:55:32:   requireStack: [
+2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/services/recurringBillingService.js',
+2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/jobs/billingCron.js',
+2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
+2025-10-14T21:55:32:   ]
+2025-10-14T21:55:32: }
+2025-10-14T22:11:34: Update user error: ReferenceError: username is not defined
+2025-10-14T22:11:34:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+2025-10-14T22:11:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T22:12:00: Update user error: ReferenceError: username is not defined
+2025-10-14T22:12:00:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
+2025-10-14T22:12:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T22:32:31: Get technicians error: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:31:   length: 175,
+2025-10-14T22:32:31:   severity: 'ERROR',
+2025-10-14T22:32:31:   code: '42803',
+2025-10-14T22:32:31:   detail: undefined,
+2025-10-14T22:32:31:   hint: undefined,
+2025-10-14T22:32:31:   position: '69',
+2025-10-14T22:32:31:   internalPosition: undefined,
+2025-10-14T22:32:31:   internalQuery: undefined,
+2025-10-14T22:32:31:   where: undefined,
+2025-10-14T22:32:31:   schema: undefined,
+2025-10-14T22:32:31:   table: undefined,
+2025-10-14T22:32:31:   column: undefined,
+2025-10-14T22:32:31:   dataType: undefined,
+2025-10-14T22:32:31:   constraint: undefined,
+2025-10-14T22:32:31:   file: 'parse_agg.c',
+2025-10-14T22:32:31:   line: '1421',
+2025-10-14T22:32:31:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:31: }
+2025-10-14T22:32:31: ❌ QUERY ERROR (5ms): {
+2025-10-14T22:32:31:   error: 'column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function',
+2025-10-14T22:32:31:   query: '\n' +
+2025-10-14T22:32:31:     '      SELECT t.*, \n' +
+2025-10-14T22:32:31:     '             u.username, u.email as user_email, u.last_login,\n' +
+2025-10-14T22:32:31:     '             COUNT(DISTINCT ts.id) as total_skills,\n' +
+2025-10-14T22:32:31:     '             COU...'
+2025-10-14T22:32:31: }
+2025-10-14T22:32:31: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:31:   length: 175,
+2025-10-14T22:32:31:   severity: 'ERROR',
+2025-10-14T22:32:31:   code: '42803',
+2025-10-14T22:32:31:   detail: undefined,
+2025-10-14T22:32:31:   hint: undefined,
+2025-10-14T22:32:31:   position: '69',
+2025-10-14T22:32:31:   internalPosition: undefined,
+2025-10-14T22:32:31:   internalQuery: undefined,
+2025-10-14T22:32:31:   where: undefined,
+2025-10-14T22:32:31:   schema: undefined,
+2025-10-14T22:32:31:   table: undefined,
+2025-10-14T22:32:31:   column: undefined,
+2025-10-14T22:32:31:   dataType: undefined,
+2025-10-14T22:32:31:   constraint: undefined,
+2025-10-14T22:32:31:   file: 'parse_agg.c',
+2025-10-14T22:32:31:   line: '1421',
+2025-10-14T22:32:31:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:31: }
