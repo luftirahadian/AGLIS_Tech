@@ -198,7 +198,7 @@ router.post('/', createUserLimiter, [
             $1, $2, $3, $4, $5, 
             CURRENT_DATE, $6, 'Field Technician', 'field_operations',
             'junior', $7, 8,
-            'offline', false, $8
+            'available', true, $8
           ) RETURNING *`,
           [
             newUser.id, 
