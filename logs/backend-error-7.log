@@ -280,3 +280,25 @@
 2025-10-14T09:04:07:   body: '"verified"',
 2025-10-14T09:04:07:   type: 'entity.parse.failed'
 2025-10-14T09:04:07: }
+2025-10-14T09:36:23: Update ticket status error: error: column "assigned_technician_id" of relation "ticket_status_history" does not exist
+2025-10-14T09:36:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T09:36:23:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:36:23:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:710:7 {
+2025-10-14T09:36:23:   length: 156,
+2025-10-14T09:36:23:   severity: 'ERROR',
+2025-10-14T09:36:23:   code: '42703',
+2025-10-14T09:36:23:   detail: undefined,
+2025-10-14T09:36:23:   hint: undefined,
+2025-10-14T09:36:23:   position: '90',
+2025-10-14T09:36:23:   internalPosition: undefined,
+2025-10-14T09:36:23:   internalQuery: undefined,
+2025-10-14T09:36:23:   where: undefined,
+2025-10-14T09:36:23:   schema: undefined,
+2025-10-14T09:36:23:   table: undefined,
+2025-10-14T09:36:23:   column: undefined,
+2025-10-14T09:36:23:   dataType: undefined,
+2025-10-14T09:36:23:   constraint: undefined,
+2025-10-14T09:36:23:   file: 'parse_target.c',
+2025-10-14T09:36:23:   line: '1075',
+2025-10-14T09:36:23:   routine: 'checkInsertTargets'
+2025-10-14T09:36:23: }

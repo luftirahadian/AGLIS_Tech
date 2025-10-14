@@ -52,13 +52,8 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
 
   // Auto-fill brand & model when equipment master selected
   useEffect(() => {
-    if (formData.equipment_master_id && equipmentMaster) {
-      // Handle both array and object response formats
-      const equipmentList = Array.isArray(equipmentMaster) 
-        ? equipmentMaster 
-        : equipmentMaster?.data || []
-      
-      const selectedEquipment = equipmentList.find(
+    if (formData.equipment_master_id && equipmentMaster && equipmentMaster.length > 0) {
+      const selectedEquipment = equipmentMaster.find(
         eq => eq.id === parseInt(formData.equipment_master_id)
       )
       
@@ -161,12 +156,8 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
     { value: 'tools', label: 'Tools', icon: Wifi, description: 'Installation & Maintenance Tools' }
   ]
 
-  // Handle both array and object response formats
-  const equipmentList = Array.isArray(equipmentMaster) 
-    ? equipmentMaster 
-    : equipmentMaster?.data || []
-  
-  const filteredEquipment = equipmentList.filter(
+  // equipmentService.getAll() now returns array directly
+  const filteredEquipment = (equipmentMaster || []).filter(
     eq => eq.category === selectedCategory && eq.is_active
   )
 
@@ -236,14 +227,25 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
 
               {/* Equipment Master Selection */}
               <div>
-                <label className="form-label">Select Equipment (Optional)</label>
+                <label className="form-label">
+                  Select Equipment (Optional)
+                  {filteredEquipment.length > 0 && (
+                    <span className="ml-2 text-xs text-gray-500">
+                      ({filteredEquipment.length} items tersedia)
+                    </span>
+                  )}
+                </label>
                 <select
                   name="equipment_master_id"
                   value={formData.equipment_master_id}
                   onChange={handleChange}
                   className="form-input"
                 >
-                  <option value="">-- Pilih dari Master Data atau isi manual --</option>
+                  <option value="">
+                    {filteredEquipment.length > 0 
+                      ? '-- Pilih dari Master Data atau isi manual --'
+                      : '-- Tidak ada equipment di kategori ini --'}
+                  </option>
                   {filteredEquipment.map((eq) => (
                     <option key={eq.id} value={eq.id}>
                       {eq.equipment_name} {eq.unit && `(${eq.unit})`}
@@ -251,7 +253,11 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
                   ))}
                 </select>
                 <p className="text-xs text-gray-500 mt-1">
-                  💡 Pilih dari master data atau isi form secara manual
+                  {filteredEquipment.length > 0 ? (
+                    <>💡 Pilih dari master data untuk auto-fill atau isi form secara manual</>
+                  ) : (
+                    <>⚠️ Tidak ada equipment di kategori "{selectedCategory}". Silakan isi form secara manual.</>
+                  )}
                 </p>
               </div>
 

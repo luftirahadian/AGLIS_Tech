@@ -15,10 +15,13 @@ const equipmentService = {
       
       const queryString = queryParams.toString()
       const response = await api.get(`/equipment${queryString ? '?' + queryString : ''}`)
-      return response
+      
+      // API interceptor returns response.data which is {success, data: [...]}
+      // Return the data array directly for easier consumption
+      return response.data || []
     } catch (error) {
-      console.error('❌ EquipmentService error:', error)
-      return { data: [], pagination: {} }
+      console.error('❌ EquipmentService.getAll error:', error)
+      return []
     }
   },
 
