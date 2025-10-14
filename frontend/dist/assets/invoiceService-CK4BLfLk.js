@@ -1,0 +1,2 @@
+import{a as i}from"./notifications-ZyiPPyps.js";const c={getAll:e=>i.get("/invoices",{params:e}),getById:e=>i.get(`/invoices/${e}`),create:e=>i.post("/invoices",e),update:(e,t)=>i.put(`/invoices/${e}`,t),delete:e=>i.delete(`/invoices/${e}`),markAsSent:e=>i.post(`/invoices/${e}/send`),getStatistics:e=>i.get("/invoices/statistics",{params:e}),checkOverdue:()=>i.post("/invoices/check-overdue")};export{c as i};
+//# sourceMappingURL=invoiceService-CK4BLfLk.js.map

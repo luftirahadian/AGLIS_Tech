@@ -39,6 +39,7 @@ const NotificationTemplatesPage = lazy(() => import('./pages/notifications/Notif
 const NotificationAnalyticsPage = lazy(() => import('./pages/notifications/NotificationAnalyticsPage'))
 const NotificationSettingsPage = lazy(() => import('./pages/notifications/NotificationSettingsPage'))
 const InvoicesPage = lazy(() => import('./pages/billing/InvoicesPage'))
+const InvoiceDetailPage = lazy(() => import('./pages/billing/InvoiceDetailPage'))
 const PaymentsPage = lazy(() => import('./pages/billing/PaymentsPage'))
 
 function App() {
@@ -111,6 +112,7 @@ function App() {
         
         {/* Billing */}
         <Route path="invoices" element={<InvoicesPage />} />
+        <Route path="invoices/:id" element={<InvoiceDetailPage />} />
         <Route path="payments" element={<PaymentsPage />} />
 
         {/* Profile */}
