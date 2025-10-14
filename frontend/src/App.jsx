@@ -1,37 +1,42 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import { useAuth } from './contexts/AuthContext'
 import { NotificationProvider } from './contexts/NotificationContext'
 import { PermissionProvider } from './contexts/PermissionContext'
 import Layout from './components/Layout'
+import LoadingSpinner from './components/LoadingSpinner'
+
+// Eager load critical pages
 import LoginPage from './pages/auth/LoginPage'
 import DashboardPage from './pages/DashboardPage'
-import AnalyticsDashboard from './pages/AnalyticsDashboard'
-import TicketsPage from './pages/tickets/TicketsPage'
-import TicketDetailPage from './pages/tickets/TicketDetailPage'
-import CustomersPage from './pages/customers/CustomersPage'
-import CustomerDetailPage from './pages/customers/CustomerDetailPage'
-import TechniciansPage from './pages/technicians/TechniciansPage'
-import TechnicianDetailPage from './pages/technicians/TechnicianDetailPage'
-import InventoryPage from './pages/inventory/InventoryPage'
-import InventoryStockPage from './pages/inventory/InventoryStockPage'
-import PackagesPage from './pages/masterdata/PackagesPage'
-import PriceListPage from './pages/masterdata/PriceListPage'
-import EquipmentPage from './pages/masterdata/EquipmentPage'
-import ODPPage from './pages/masterdata/ODPPage'
-import ServiceTypesPage from './pages/masterdata/ServiceTypesPage'
-import ServiceCategoriesPage from './pages/masterdata/ServiceCategoriesPage'
-import UsersPage from './pages/users/UsersPage'
-import PermissionsPage from './pages/PermissionsPage'
-import ProfilePage from './pages/ProfilePage'
-import RegisterPage from './pages/public/RegisterPage'
-import TrackingPage from './pages/public/TrackingPage'
-import RegistrationsPage from './pages/registrations/RegistrationsPage'
-import RegistrationDetailPage from './pages/registrations/RegistrationDetailPage'
-import RegistrationAnalyticsPage from './pages/registrations/RegistrationAnalyticsPage'
-import NotificationTemplatesPage from './pages/notifications/NotificationTemplatesPage'
-import NotificationAnalyticsPage from './pages/notifications/NotificationAnalyticsPage'
-import NotificationSettingsPage from './pages/notifications/NotificationSettingsPage'
-import LoadingSpinner from './components/LoadingSpinner'
+
+// Lazy load all other pages for better performance
+const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'))
+const TicketsPage = lazy(() => import('./pages/tickets/TicketsPage'))
+const TicketDetailPage = lazy(() => import('./pages/tickets/TicketDetailPage'))
+const CustomersPage = lazy(() => import('./pages/customers/CustomersPage'))
+const CustomerDetailPage = lazy(() => import('./pages/customers/CustomerDetailPage'))
+const TechniciansPage = lazy(() => import('./pages/technicians/TechniciansPage'))
+const TechnicianDetailPage = lazy(() => import('./pages/technicians/TechnicianDetailPage'))
+const InventoryPage = lazy(() => import('./pages/inventory/InventoryPage'))
+const InventoryStockPage = lazy(() => import('./pages/inventory/InventoryStockPage'))
+const PackagesPage = lazy(() => import('./pages/masterdata/PackagesPage'))
+const PriceListPage = lazy(() => import('./pages/masterdata/PriceListPage'))
+const EquipmentPage = lazy(() => import('./pages/masterdata/EquipmentPage'))
+const ODPPage = lazy(() => import('./pages/masterdata/ODPPage'))
+const ServiceTypesPage = lazy(() => import('./pages/masterdata/ServiceTypesPage'))
+const ServiceCategoriesPage = lazy(() => import('./pages/masterdata/ServiceCategoriesPage'))
+const UsersPage = lazy(() => import('./pages/users/UsersPage'))
+const PermissionsPage = lazy(() => import('./pages/PermissionsPage'))
+const ProfilePage = lazy(() => import('./pages/ProfilePage'))
+const RegisterPage = lazy(() => import('./pages/public/RegisterPage'))
+const TrackingPage = lazy(() => import('./pages/public/TrackingPage'))
+const RegistrationsPage = lazy(() => import('./pages/registrations/RegistrationsPage'))
+const RegistrationDetailPage = lazy(() => import('./pages/registrations/RegistrationDetailPage'))
+const RegistrationAnalyticsPage = lazy(() => import('./pages/registrations/RegistrationAnalyticsPage'))
+const NotificationTemplatesPage = lazy(() => import('./pages/notifications/NotificationTemplatesPage'))
+const NotificationAnalyticsPage = lazy(() => import('./pages/notifications/NotificationAnalyticsPage'))
+const NotificationSettingsPage = lazy(() => import('./pages/notifications/NotificationSettingsPage'))
 
 function App() {
   const { user, loading } = useAuth()
@@ -43,15 +48,16 @@ function App() {
   return (
     <PermissionProvider>
       <NotificationProvider>
-        <Routes>
-      {/* Public Routes */}
-      <Route 
-        path="/login" 
-        element={!user ? <LoginPage /> : <Navigate to="/dashboard" replace />} 
-      />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/track" element={<TrackingPage />} />
-      <Route path="/track/:registrationNumber" element={<TrackingPage />} />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            {/* Public Routes */}
+            <Route 
+              path="/login" 
+              element={!user ? <LoginPage /> : <Navigate to="/dashboard" replace />} 
+            />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/track" element={<TrackingPage />} />
+            <Route path="/track/:registrationNumber" element={<TrackingPage />} />
 
       {/* Protected Routes */}
       <Route 
@@ -106,9 +112,10 @@ function App() {
         <Route path="" element={<Navigate to="/dashboard" replace />} />
       </Route>
 
-      {/* Fallback */}
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          </Routes>
+        </Suspense>
       </NotificationProvider>
     </PermissionProvider>
   )

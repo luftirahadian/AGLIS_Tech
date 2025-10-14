@@ -40,6 +40,7 @@ const errorHandler = require('./middleware/errorHandler');
 const { authMiddleware } = require('./middleware/auth');
 const { apiLimiter } = require('./middleware/rateLimiter');
 const { queryStatsMiddleware } = require('./middleware/queryLogger');
+const { cacheMiddleware, invalidateCache, getCacheStats } = require('./middleware/cacheMiddleware');
 
 const app = express();
 const server = createServer(app);
@@ -199,7 +200,7 @@ app.use('/api/pricelist', (req, res, next) => {
   }
   // Other methods require auth
   return authMiddleware(req, res, next);
-}, pricelistRoutes);
+}, cacheMiddleware(600), pricelistRoutes); // Cache for 10 minutes
 // Packages API - allow public read access for registration form
 app.use('/api/packages', (req, res, next) => {
   // Allow GET requests without auth (for public registration)
@@ -208,11 +209,11 @@ app.use('/api/packages', (req, res, next) => {
   }
   // Other methods require auth
   return authMiddleware(req, res, next);
-}, packageRoutes);
-app.use('/api/equipment', authMiddleware, equipmentRoutes);
-app.use('/api/odp', authMiddleware, odpRoutes);
-app.use('/api/service-types', authMiddleware, serviceTypesRoutes);
-app.use('/api/service-categories', authMiddleware, serviceCategoriesRoutes);
+}, cacheMiddleware(300), packageRoutes); // Cache for 5 minutes
+app.use('/api/equipment', authMiddleware, cacheMiddleware(300), equipmentRoutes); // Cache 5 min
+app.use('/api/odp', authMiddleware, cacheMiddleware(180), odpRoutes); // Cache 3 min
+app.use('/api/service-types', authMiddleware, cacheMiddleware(600), serviceTypesRoutes); // Cache 10 min
+app.use('/api/service-categories', authMiddleware, cacheMiddleware(600), serviceCategoriesRoutes); // Cache 10 min
 app.use('/api/notifications', authMiddleware, notificationRoutes);
 app.use('/api/test-notifications', authMiddleware, testNotificationRoutes);
 app.use('/api/notification-templates', authMiddleware, notificationTemplatesRoutes);
@@ -222,7 +223,7 @@ app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/registrations', registrationRoutes); // Public routes included, auth handled per route
 app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);
 
-// Query performance monitoring endpoint (admin only)
+// Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');
 app.get('/api/performance/query-stats', authMiddleware, (req, res) => {
   if (req.user.role !== 'admin') {
@@ -236,6 +237,23 @@ app.post('/api/performance/reset-stats', authMiddleware, (req, res) => {
   }
   resetQueryStats();
   res.json({ success: true, message: 'Query stats reset' });
+});
+
+// Cache management endpoints (admin only)
+app.get('/api/performance/cache-stats', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  const stats = await getCacheStats();
+  res.json({ success: true, data: stats });
+});
+app.post('/api/performance/cache-clear', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin only' });
+  }
+  const { invalidateAllCache } = require('./middleware/cacheMiddleware');
+  await invalidateAllCache();
+  res.json({ success: true, message: 'Cache cleared' });
 });
 
 // Socket.IO for real-time updates
