@@ -5,13 +5,13 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
-const { authenticateToken, authorizeRoles } = require('../middleware/auth');
+const { authMiddleware, authorize } = require('../middleware/auth');
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // GET /api/skill-levels - Get all skill levels
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/', authenticateToken, async (req, res) => {
+router.get('/', authMiddleware, async (req, res) => {
   try {
     const { active_only = 'true' } = req.query;
 
@@ -54,7 +54,7 @@ router.get('/', authenticateToken, async (req, res) => {
 // GET /api/skill-levels/:code - Get specific skill level by code
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/:code', authenticateToken, async (req, res) => {
+router.get('/:code', authMiddleware, async (req, res) => {
   try {
     const { code } = req.params;
 
@@ -96,7 +96,7 @@ router.get('/:code', authenticateToken, async (req, res) => {
 // POST /api/skill-levels - Create new skill level (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.post('/', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.post('/', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const {
       code, name, display_order, description,
@@ -156,7 +156,7 @@ router.post('/', authenticateToken, authorizeRoles('admin'), async (req, res) =>
 // PUT /api/skill-levels/:id - Update skill level (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.put('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.put('/:id', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
     const {
@@ -223,7 +223,7 @@ router.put('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) 
 // DELETE /api/skill-levels/:id - Soft delete (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.delete('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.delete('/:id', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
 

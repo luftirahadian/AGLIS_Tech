@@ -1233,3 +1233,150 @@
 2025-10-15T06:20:00:     at Module.require (node:internal/modules/cjs/loader:1231:19)
 2025-10-15T06:20:00:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
 2025-10-15T06:20:00:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:30:53: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:30:53:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:30:53:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:30:53:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:30:53:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:30:53:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:30:53:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:30:53:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:30:53:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:30:53:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:30:53:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:30:57: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:30:57:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:30:57:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:30:57:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:30:57:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:30:57:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:30:57:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:30:57:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:30:57:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:30:57:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:30:57:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:02: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:02:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:02:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:02:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:02:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:02:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:02:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:02:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:02:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:02:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:02:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:07: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:07:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:07:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:07:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:07:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:07:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:07:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:07:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:07:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:07:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:07:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:12: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:12:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:12:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:12:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:12:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:12:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:12:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:12:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:12:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:12:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:12:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:17: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:17:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:17:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:17:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:17:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:17:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:17:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:21: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:21:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:21:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:21:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:21:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:21:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:21:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:21:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:21:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:21:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:21:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:26: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:26:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:26:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:26:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:26:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:26:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:26:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:26:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:26:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:26:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:26:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:31: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:31:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:31:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:31:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:31:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:31:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:31:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:31:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:31:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:31:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:31:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:36: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:33:05: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-15T06:33:05: ⏰ Starting billing cron jobs...
+2025-10-15T06:33:05:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-15T06:33:05:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-15T06:33:05: ✅ All billing cron jobs started successfully
+2025-10-15T06:33:05: 🚀 Server running on 0.0.0.0:3003
+2025-10-15T06:33:05: 🌍 Environment: production
+2025-10-15T06:33:05: 📡 Local access: http://localhost:3003
+2025-10-15T06:33:05: 🌐 Network access: http://192.168.121.30:3003
+2025-10-15T06:33:05: 📝 CORS origins configured for local network access
+2025-10-15T06:33:05: ✅ Redis Cache Connected
+2025-10-15T06:33:05: ✅ Redis clients connected for Socket.IO adapter
+2025-10-15T06:33:05: ✅ Redis client connected for OTP storage
+2025-10-15T06:33:05: ✅ Redis client ready
+2025-10-15T06:33:22: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:22: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-15T06:33:22: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Reset failed attempts for user 17
+2025-10-15T06:33:23: ✅ Successful login for admin
+2025-10-15T06:33:23: 103.55.224.49 - - [14/Oct/2025:23:33:23 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:23: 103.55.224.49 - - [14/Oct/2025:23:33:23 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: 103.55.224.49 - - [14/Oct/2025:23:33:23 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:23: 103.55.224.49 - - [14/Oct/2025:23:33:23 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 544 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:30: 103.55.224.49 - - [14/Oct/2025:23:33:30 +0000] "GET /api/technicians?search=&employment_status=&availability_status=&skill_level=&work_zone=&specialization=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:37: 103.55.224.49 - - [14/Oct/2025:23:33:37 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/technicians/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:37: 103.55.224.49 - - [14/Oct/2025:23:33:37 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:34:07: ✅ Connected to PostgreSQL database
+2025-10-15T06:34:07: ✅ Connected to PostgreSQL database
+2025-10-15T06:34:07: 103.55.224.49 - - [14/Oct/2025:23:34:07 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

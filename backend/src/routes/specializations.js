@@ -5,13 +5,13 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
-const { authenticateToken, authorizeRoles } = require('../middleware/auth');
+const { authMiddleware, authorize } = require('../middleware/auth');
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // GET /api/specializations/categories - Get all categories
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/categories', authenticateToken, async (req, res) => {
+router.get('/categories', authMiddleware, async (req, res) => {
   try {
     const { active_only = 'true' } = req.query;
 
@@ -47,7 +47,7 @@ router.get('/categories', authenticateToken, async (req, res) => {
 // GET /api/specializations - Get all specializations
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/', authenticateToken, async (req, res) => {
+router.get('/', authMiddleware, async (req, res) => {
   try {
     const { 
       category_id, 
@@ -114,7 +114,7 @@ router.get('/', authenticateToken, async (req, res) => {
 // GET /api/specializations/grouped - Get specializations grouped by category
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/grouped', authenticateToken, async (req, res) => {
+router.get('/grouped', authMiddleware, async (req, res) => {
   try {
     const { active_only = 'true' } = req.query;
 
@@ -166,7 +166,7 @@ router.get('/grouped', authenticateToken, async (req, res) => {
 // GET /api/specializations/:id - Get specific specialization
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.get('/:id', authenticateToken, async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -218,7 +218,7 @@ router.get('/:id', authenticateToken, async (req, res) => {
 // POST /api/specializations - Create specialization (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.post('/', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.post('/', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const {
       category_id, code, name, description,
@@ -275,7 +275,7 @@ router.post('/', authenticateToken, authorizeRoles('admin'), async (req, res) =>
 // PUT /api/specializations/:id - Update specialization (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.put('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.put('/:id', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
     const {
@@ -336,7 +336,7 @@ router.put('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) 
 // DELETE /api/specializations/:id - Soft delete (Admin only)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-router.delete('/:id', authenticateToken, authorizeRoles('admin'), async (req, res) => {
+router.delete('/:id', authMiddleware, authorize('admin'), async (req, res) => {
   try {
     const { id } = req.params;
 

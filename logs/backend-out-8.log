@@ -1296,3 +1296,32 @@
 2025-10-15T06:18:53: ✅ Connected to PostgreSQL database
 2025-10-15T06:18:53: ✅ Connected to PostgreSQL database
 2025-10-15T06:18:53: 103.55.224.49 - - [14/Oct/2025:23:18:53 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:05: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-15T06:33:05: ⏰ Starting billing cron jobs...
+2025-10-15T06:33:05:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-15T06:33:05:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-15T06:33:05: ✅ All billing cron jobs started successfully
+2025-10-15T06:33:05: 🚀 Server running on 0.0.0.0:3002
+2025-10-15T06:33:05: 🌍 Environment: production
+2025-10-15T06:33:05: 📡 Local access: http://localhost:3002
+2025-10-15T06:33:05: 🌐 Network access: http://192.168.121.30:3002
+2025-10-15T06:33:05: 📝 CORS origins configured for local network access
+2025-10-15T06:33:05: ✅ Redis Cache Connected
+2025-10-15T06:33:05: ✅ Redis clients connected for Socket.IO adapter
+2025-10-15T06:33:05: ✅ Redis client connected for OTP storage
+2025-10-15T06:33:05: ✅ Redis client ready
+2025-10-15T06:33:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:23: 👤 User connected: YoaiJLFofiyTiXjTAAAD
+2025-10-15T06:33:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:23: 👤 User disconnected: YoaiJLFofiyTiXjTAAAD
+2025-10-15T06:33:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:23: 👤 User connected: EtzS-_u_D0jXYlJbAAAJ
+2025-10-15T06:33:23: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:37: 👤 User disconnected: EtzS-_u_D0jXYlJbAAAJ
+2025-10-15T06:33:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:37: 👤 User connected: rjhVVcBjt7tmqdTFAAAP
+2025-10-15T06:33:37: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T06:33:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:37: ✅ Connected to PostgreSQL database
+2025-10-15T06:33:37: 103.55.224.49 - - [14/Oct/2025:23:33:37 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/technicians/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T06:33:37: 103.55.224.49 - - [14/Oct/2025:23:33:37 +0000] "GET /api/technicians/1 HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians/1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
