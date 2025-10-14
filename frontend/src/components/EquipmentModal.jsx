@@ -23,19 +23,23 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('devices')
 
-  // Fetch equipment master data
+  // Fetch equipment master data - Get ALL items (no pagination)
   const { data: equipmentMaster, isLoading: isLoadingEquipment } = useQuery(
-    'equipment-master',
+    'equipment-master-all',
     async () => {
-      const result = await equipmentService.getAll()
+      const result = await equipmentService.getAll({ limit: 1000 }) // Get all items
       console.log('🔍 Equipment Master Data Loaded:', {
         type: Array.isArray(result) ? 'Array' : typeof result,
         length: result?.length || 0,
-        sample: result?.[0]
+        sample: result?.[0],
+        categories: [...new Set(result?.map(eq => eq.category) || [])]
       })
       return result
     },
-    { enabled: isOpen }
+    { 
+      enabled: isOpen,
+      staleTime: 5 * 60 * 1000 // Cache for 5 minutes
+    }
   )
 
   // Reset form when modal opens
