@@ -321,7 +321,12 @@ const InvoicesPage = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {invoices.map((invoice) => (
-                  <tr key={invoice.id} className="hover:bg-gray-50">
+                  <tr 
+                    key={invoice.id} 
+                    onClick={() => navigate(`/invoices/${invoice.id}`)}
+                    className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                    title="Klik untuk lihat detail invoice"
+                  >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => navigate(`/invoices/${invoice.id}`)}
@@ -361,10 +366,16 @@ const InvoicesPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       {getStatusBadge(invoice.status)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center">
-                      <div className="flex items-center justify-center space-x-2">
+                    <td 
+                      className="px-6 py-4 whitespace-nowrap text-center"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="flex items-center justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
-                          onClick={() => navigate(`/invoices/${invoice.id}`)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/invoices/${invoice.id}`);
+                          }}
                           className="p-1 text-blue-600 hover:bg-blue-50 rounded"
                           title="View"
                         >
@@ -373,14 +384,20 @@ const InvoicesPage = () => {
                         {invoice.status === 'draft' && (
                           <>
                             <button
-                              onClick={() => navigate(`/invoices/${invoice.id}/edit`)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                navigate(`/invoices/${invoice.id}/edit`);
+                              }}
                               className="p-1 text-gray-600 hover:bg-gray-50 rounded"
                               title="Edit"
                             >
                               <Edit className="h-4 w-4" />
                             </button>
                             <button
-                              onClick={() => handleSend(invoice)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleSend(invoice);
+                              }}
                               className="p-1 text-green-600 hover:bg-green-50 rounded"
                               title="Send"
                             >
@@ -389,7 +406,10 @@ const InvoicesPage = () => {
                           </>
                         )}
                         <button
-                          onClick={() => handleDelete(invoice)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(invoice);
+                          }}
                           className="p-1 text-red-600 hover:bg-red-50 rounded"
                           title="Delete"
                         >

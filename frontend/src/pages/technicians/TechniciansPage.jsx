@@ -636,7 +636,12 @@ const TechniciansPage = () => {
                     </thead>
                     <tbody className="table-body">
                   {technicians.map((technician) => (
-                    <tr key={technician.id} className="hover:bg-gray-50">
+                    <tr 
+                      key={technician.id}
+                      onClick={() => handleViewTechnician(technician)}
+                      className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                      title="Klik untuk lihat detail technician"
+                    >
                       <td className="table-cell">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
@@ -698,7 +703,10 @@ const TechniciansPage = () => {
                       <td className="table-cell">
                         {getEmploymentBadge(technician.employment_status)}
                       </td>
-                      <td className="table-cell">
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <div className="space-y-2">
                           {/* Quick Status Change Dropdown */}
                           <select
@@ -747,10 +755,16 @@ const TechniciansPage = () => {
                           </div>
                         )}
                       </td>
-                      <td className="table-cell">
-                        <div className="flex justify-center">
+                      <td 
+                        className="table-cell"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
-                            onClick={() => handleViewTechnician(technician)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleViewTechnician(technician);
+                            }}
                             className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
                             title="View Details"
                           >

@@ -719,10 +719,20 @@ const UsersPage = () => {
                   </thead>
                   <tbody className="table-body">
                     {filteredUsers.map((user) => (
-                      <tr key={user.id} className={selectedUsers.includes(user.id) ? 'bg-blue-50' : ''}>
+                      <tr 
+                        key={user.id} 
+                        onClick={() => handleViewDetail(user)}
+                        className={`group cursor-pointer hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200 ${
+                          selectedUsers.includes(user.id) ? 'bg-blue-50' : 'hover:bg-blue-50'
+                        }`}
+                        title="Klik untuk lihat detail user"
+                      >
                         {/* Bulk Select Checkbox */}
                         {isAdmin && (
-                          <td className="table-cell">
+                          <td 
+                            className="table-cell"
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             {user.id !== currentUser?.id ? (
                               <input
                                 type="checkbox"
@@ -819,12 +829,18 @@ const UsersPage = () => {
                             {user.is_active ? 'Active' : 'Inactive'}
                           </span>
                         </td>
-                        <td className="table-cell text-center">
-                          <div className="flex justify-center space-x-1">
+                        <td 
+                          className="table-cell text-center"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="flex justify-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
                             {/* Edit: Admin & Supervisor can edit */}
                             {(isAdmin || isSupervisor) && (
                               <button
-                                onClick={() => handleEdit(user)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleEdit(user);
+                                }}
                                 className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
                                 title="Edit User"
                               >
@@ -834,7 +850,10 @@ const UsersPage = () => {
                             {/* Reset Password: Only Admin */}
                             {isAdmin && user.id !== currentUser?.id && (
                               <button
-                                onClick={() => handleResetPassword(user)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleResetPassword(user);
+                                }}
                                 className="inline-flex items-center justify-center w-8 h-8 text-orange-600 hover:text-orange-800 hover:bg-orange-50 rounded-md transition-colors"
                                 title="Reset Password"
                               >
@@ -844,7 +863,10 @@ const UsersPage = () => {
                             {/* Unlock Account: Only Admin, if account has failed attempts */}
                             {isAdmin && user.id !== currentUser?.id && (user.failed_login_attempts > 0 || user.locked_until) && (
                               <button
-                                onClick={() => handleUnlock(user)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleUnlock(user);
+                                }}
                                 className="inline-flex items-center justify-center w-8 h-8 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
                                 title={`Unlock Account (${user.failed_login_attempts || 0} failed attempts)`}
                               >
@@ -854,7 +876,10 @@ const UsersPage = () => {
                             {/* Delete: Only Admin can delete */}
                             {isAdmin && user.id !== currentUser?.id && (
                               <button
-                                onClick={() => handleDelete(user)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleDelete(user);
+                                }}
                                 className="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors"
                                 title="Delete User"
                               >

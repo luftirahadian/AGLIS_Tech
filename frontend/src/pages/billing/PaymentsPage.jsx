@@ -306,7 +306,12 @@ const PaymentsPage = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {payments.map((payment) => (
-                  <tr key={payment.id} className="hover:bg-gray-50">
+                  <tr 
+                    key={payment.id} 
+                    onClick={() => navigate(`/payments/${payment.id}`)}
+                    className="group cursor-pointer hover:bg-blue-50 hover:shadow-md hover:border-l-4 hover:border-l-blue-500 transition-all duration-200"
+                    title="Klik untuk lihat detail payment"
+                  >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-medium text-gray-900">
                         {payment.payment_number}
@@ -317,10 +322,16 @@ const PaymentsPage = () => {
                         </div>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td 
+                      className="px-6 py-4 whitespace-nowrap"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       {payment.invoice_number ? (
                         <button
-                          onClick={() => navigate(`/invoices/${payment.invoice_id}`)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/invoices/${payment.invoice_id}`);
+                          }}
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                         >
                           {payment.invoice_number}
@@ -351,11 +362,17 @@ const PaymentsPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       {getStatusBadge(payment.status)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center">
-                      <div className="flex items-center justify-center space-x-2">
+                    <td 
+                      className="px-6 py-4 whitespace-nowrap text-center"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="flex items-center justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         {payment.status === 'pending' && (
                           <button
-                            onClick={() => handleVerify(payment)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleVerify(payment);
+                            }}
                             className="p-1 text-green-600 hover:bg-green-50 rounded"
                             title="Verify"
                           >
@@ -363,7 +380,10 @@ const PaymentsPage = () => {
                           </button>
                         )}
                         <button
-                          onClick={() => navigate(`/payments/${payment.id}`)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/payments/${payment.id}`);
+                          }}
                           className="p-1 text-blue-600 hover:bg-blue-50 rounded"
                           title="View Details"
                         >
