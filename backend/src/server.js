@@ -27,6 +27,7 @@ const odpRoutes = require('./routes/odp');
 const serviceTypesRoutes = require('./routes/serviceTypes');
 const serviceCategoriesRoutes = require('./routes/serviceCategories');
 const notificationRoutes = require('./routes/notifications');
+const testNotificationRoutes = require('./routes/test-notifications');
 const analyticsRoutes = require('./routes/analytics');
 const registrationRoutes = require('./routes/registrations');
 const registrationAnalyticsRoutes = require('./routes/registrationAnalytics');
@@ -210,6 +211,7 @@ app.use('/api/odp', authMiddleware, odpRoutes);
 app.use('/api/service-types', authMiddleware, serviceTypesRoutes);
 app.use('/api/service-categories', authMiddleware, serviceCategoriesRoutes);
 app.use('/api/notifications', authMiddleware, notificationRoutes);
+app.use('/api/test-notifications', authMiddleware, testNotificationRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/registrations', registrationRoutes); // Public routes included, auth handled per route
 app.use('/api/registration-analytics', authMiddleware, registrationAnalyticsRoutes);

@@ -1,135 +1,70 @@
-import api from './api';
+import api from './api'
 
-export const notificationService = {
-  // Get user notifications with pagination and filters
+const notificationService = {
+  // Get notifications with pagination and filters
   getNotifications: async (params = {}) => {
-    const {
-      page = 1,
-      limit = 20,
-      type,
-      is_read,
-      priority,
-      include_archived = false
-    } = params;
-
-    const queryParams = new URLSearchParams({
-      page: page.toString(),
-      limit: limit.toString(),
-      include_archived: include_archived.toString()
-    });
-
-    if (type) queryParams.append('type', type);
-    if (is_read !== undefined) queryParams.append('is_read', is_read.toString());
-    if (priority) queryParams.append('priority', priority);
-
-    const response = await api.get(`/notifications?${queryParams}`);
-    return response;
+    const queryParams = new URLSearchParams()
+    
+    // Add pagination
+    if (params.page) queryParams.append('page', params.page)
+    if (params.limit) queryParams.append('limit', params.limit)
+    
+    // Add filters
+    if (params.type) queryParams.append('type', params.type)
+    if (params.is_read !== undefined) queryParams.append('is_read', params.is_read)
+    if (params.priority) queryParams.append('priority', params.priority)
+    if (params.include_archived) queryParams.append('include_archived', params.include_archived)
+    
+    const queryString = queryParams.toString()
+    const url = `/notifications${queryString ? `?${queryString}` : ''}`
+    
+    return api.get(url)
   },
 
   // Get single notification
   getNotification: async (id) => {
-    const response = await api.get(`/notifications/${id}`);
-    return response;
-  },
-
-  // Create notification (usually for system use)
-  createNotification: async (notificationData) => {
-    const response = await api.post('/notifications', notificationData);
-    return response;
+    return api.get(`/notifications/${id}`)
   },
 
   // Mark notification as read
   markAsRead: async (id) => {
-    const response = await api.patch(`/notifications/${id}/read`);
-    return response;
+    return api.patch(`/notifications/${id}/read`)
   },
 
   // Mark all notifications as read
   markAllAsRead: async () => {
-    const response = await api.patch('/notifications/read-all');
-    return response;
+    return api.patch('/notifications/read-all')
   },
 
   // Archive notification
-  archiveNotification: async (id) => {
-    const response = await api.patch(`/notifications/${id}/archive`);
-    return response;
+  archive: async (id) => {
+    return api.patch(`/notifications/${id}/archive`)
   },
 
   // Delete notification
-  deleteNotification: async (id) => {
-    const response = await api.delete(`/notifications/${id}`);
-    return response;
+  delete: async (id) => {
+    return api.delete(`/notifications/${id}`)
   },
 
   // Get notification settings
   getSettings: async () => {
-    const response = await api.get('/notifications/settings/preferences');
-    return response;
+    return api.get('/notifications/settings/preferences')
   },
 
   // Update notification settings
   updateSettings: async (settings) => {
-    const response = await api.put('/notifications/settings/preferences', settings);
-    return response;
+    return api.put('/notifications/settings/preferences', settings)
   },
 
   // Cleanup expired notifications (admin only)
   cleanupExpired: async () => {
-    const response = await api.delete('/notifications/cleanup/expired');
-    return response;
+    return api.delete('/notifications/cleanup/expired')
   },
 
-  // Get unread count
-  getUnreadCount: async () => {
-    const response = await api.get('/notifications?limit=1&is_read=false');
-    return response?.data?.unreadCount || 0;
-  },
-
-  // Helper methods for different notification types
-  createTicketNotification: async (ticketId, userId, type, message) => {
-    return notificationService.createNotification({
-      user_id: userId,
-      type: `ticket_${type}`,
-      title: `Ticket #${ticketId} ${type}`,
-      message,
-      data: { ticket_id: ticketId },
-      priority: type === 'urgent' ? 'high' : 'normal'
-    });
-  },
-
-  createSystemAlert: async (message, priority = 'normal', targetUsers = null) => {
-    const notifications = [];
-    
-    if (targetUsers && Array.isArray(targetUsers)) {
-      for (const userId of targetUsers) {
-        notifications.push(
-          notificationService.createNotification({
-            user_id: userId,
-            type: 'system_alert',
-            title: 'System Alert',
-            message,
-            priority
-          })
-        );
-      }
-      return Promise.all(notifications);
-    }
-    
-    // If no specific users, this would typically be handled by Socket.IO broadcast
-    return null;
-  },
-
-  createTechnicianNotification: async (technicianId, type, message, data = {}) => {
-    return notificationService.createNotification({
-      user_id: technicianId,
-      type: `technician_${type}`,
-      title: `Technician ${type}`,
-      message,
-      data,
-      priority: 'normal'
-    });
+  // Create notification (usually called by system)
+  create: async (notificationData) => {
+    return api.post('/notifications', notificationData)
   }
-};
+}
 
-export default notificationService;
+export default notificationService
