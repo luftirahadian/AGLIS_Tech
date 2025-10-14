@@ -1,7 +1,7 @@
 // ═══════════════════════════════════════════════════════════════
-// 👷 TECHNICIANS PAGE (IMPROVED)
+// 👷 TECHNICIANS PAGE (FULL ENHANCED VERSION)
 // ═══════════════════════════════════════════════════════════════
-// Aligned with new User-Technician sync workflow
+// Complete technician management with analytics & map view
 // ═══════════════════════════════════════════════════════════════
 
 import React, { useState, useEffect } from 'react'
@@ -9,15 +9,17 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { 
   Users, UserPlus, Search, MapPin, Phone, Mail, 
-  Star, Clock, Wrench, AlertCircle, CheckCircle, 
-  XCircle, Pause, User, Award, Eye, Ban, Play,
+  Star, Clock, Wrench, CheckCircle, 
+  XCircle, Pause, User, Award, Eye, 
   ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight,
-  Power, Info
+  Info, Download, Calendar, TrendingUp, Map as MapIcon,
+  List, BarChart3, Activity
 } from 'lucide-react'
 import { technicianService } from '../../services/technicianService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import toast from 'react-hot-toast'
+import * as XLSX from 'xlsx'
 
 const TechniciansPage = () => {
   const navigate = useNavigate()
@@ -34,6 +36,7 @@ const TechniciansPage = () => {
   const [sortBy, setSortBy] = useState('created_at')
   const [sortOrder, setSortOrder] = useState('DESC')
   const [limit, setLimit] = useState(10)
+  const [viewMode, setViewMode] = useState('table') // 'table' or 'map'
 
   // Fetch technicians
   const { data: techniciansData, isLoading, refetch } = useQuery(
@@ -75,7 +78,6 @@ const TechniciansPage = () => {
   }
 
   const handleCreateTechnicianUser = () => {
-    // Redirect to Users page with pre-filled role=technician
     navigate('/users?create=true&role=technician')
     toast.info('Create a user account with role "Technician"')
   }
@@ -100,6 +102,52 @@ const TechniciansPage = () => {
       setSortOrder('DESC')
     }
     setPage(1)
+  }
+
+  // Export to Excel
+  const handleExportExcel = () => {
+    const exportData = technicians.map(tech => ({
+      'Employee ID': tech.employee_id,
+      'Full Name': tech.full_name,
+      'Username': tech.username || 'N/A',
+      'Phone': tech.phone,
+      'Email': tech.email || '',
+      'Skill Level': tech.skill_level,
+      'Work Zone': tech.work_zone?.replace('_', ' '),
+      'Employment Status': tech.employment_status,
+      'Availability': tech.availability_status,
+      'Active Tickets': `${tech.active_tickets || 0}/${tech.max_daily_tickets || 8}`,
+      'Rating': tech.avg_customer_rating ? parseFloat(tech.avg_customer_rating).toFixed(1) : 'N/A',
+      'Completed Tickets': tech.total_tickets_completed || 0,
+      'Hire Date': tech.hire_date ? new Date(tech.hire_date).toLocaleDateString('id-ID') : '',
+      'Created At': new Date(tech.created_at).toLocaleDateString('id-ID')
+    }))
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Technicians')
+    
+    // Auto-width columns
+    worksheet['!cols'] = [
+      { wch: 12 }, // Employee ID
+      { wch: 20 }, // Full Name
+      { wch: 15 }, // Username
+      { wch: 15 }, // Phone
+      { wch: 25 }, // Email
+      { wch: 12 }, // Skill Level
+      { wch: 15 }, // Work Zone
+      { wch: 15 }, // Employment Status
+      { wch: 12 }, // Availability
+      { wch: 15 }, // Active Tickets
+      { wch: 8 },  // Rating
+      { wch: 15 }, // Completed Tickets
+      { wch: 12 }, // Hire Date
+      { wch: 12 }  // Created At
+    ]
+
+    const fileName = `technicians-export-${new Date().toISOString().split('T')[0]}.xlsx`
+    XLSX.writeFile(workbook, fileName)
+    toast.success(`Exported ${exportData.length} technicians to ${fileName}`)
   }
 
   const getSortIcon = (column) => {
@@ -133,7 +181,7 @@ const TechniciansPage = () => {
     const badges = {
       active: { color: 'bg-green-100 text-green-800', icon: CheckCircle, label: 'Active' },
       inactive: { color: 'bg-gray-100 text-gray-800', icon: Pause, label: 'Inactive' },
-      suspended: { color: 'bg-red-100 text-red-800', icon: Ban, label: 'Suspended' },
+      suspended: { color: 'bg-red-100 text-red-800', icon: XCircle, label: 'Suspended' },
       terminated: { color: 'bg-red-100 text-red-800', icon: XCircle, label: 'Terminated' }
     }
     const badge = badges[status] || badges.active
@@ -161,6 +209,69 @@ const TechniciansPage = () => {
         <Award className="h-3 w-3 mr-1" />
         {badge.label}
       </span>
+    )
+  }
+
+  // Get last login indicator
+  const getLastLoginIndicator = (lastLogin) => {
+    if (!lastLogin) {
+      return <span className="text-xs text-gray-400">Never</span>
+    }
+
+    const lastLoginDate = new Date(lastLogin)
+    const now = new Date()
+    const diffDays = Math.floor((now - lastLoginDate) / (1000 * 60 * 60 * 24))
+
+    if (diffDays === 0) {
+      return <span className="text-xs text-green-600 font-medium">Today</span>
+    } else if (diffDays <= 7) {
+      return <span className="text-xs text-yellow-600">{diffDays}d ago</span>
+    } else if (diffDays <= 30) {
+      return <span className="text-xs text-orange-600">{diffDays}d ago</span>
+    } else {
+      return <span className="text-xs text-red-600">&gt;30d ago</span>
+    }
+  }
+
+  // Get years of service
+  const getYearsOfService = (hireDate) => {
+    if (!hireDate) return 'N/A'
+    
+    const hire = new Date(hireDate)
+    const now = new Date()
+    const years = (now - hire) / (1000 * 60 * 60 * 24 * 365.25)
+    
+    if (years < 1) {
+      const months = Math.floor(years * 12)
+      return `${months}mo`
+    }
+    return `${years.toFixed(1)}y`
+  }
+
+  // Capacity progress bar
+  const CapacityBar = ({ current, max }) => {
+    const percentage = (current / max) * 100
+    const barColor = percentage >= 80 ? 'bg-red-500' : percentage >= 50 ? 'bg-yellow-500' : 'bg-green-500'
+    
+    return (
+      <div className="w-full">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-xs font-medium text-gray-700">{current}/{max}</span>
+          <span className={`text-xs font-semibold ${
+            percentage >= 80 ? 'text-red-600' : 
+            percentage >= 50 ? 'text-yellow-600' : 
+            'text-green-600'
+          }`}>
+            {percentage.toFixed(0)}%
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div 
+            className={`${barColor} h-2 rounded-full transition-all duration-300`}
+            style={{ width: `${Math.min(percentage, 100)}%` }}
+          ></div>
+        </div>
+      </div>
     )
   }
 
@@ -209,13 +320,23 @@ const TechniciansPage = () => {
         </div>
         <div className="mt-4 sm:mt-0 flex items-center space-x-3">
           {/* Info Badge */}
-          <div className="hidden sm:flex items-center px-3 py-2 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="hidden lg:flex items-center px-3 py-2 bg-blue-50 border border-blue-200 rounded-lg">
             <Info className="h-4 w-4 text-blue-600 mr-2" />
             <span className="text-xs text-blue-900">
               Create technician via Users page with role="Technician"
             </span>
           </div>
           
+          {/* Export Button */}
+          <button 
+            onClick={handleExportExcel}
+            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 flex items-center space-x-2"
+            title="Export to Excel"
+          >
+            <Download className="h-4 w-4" />
+            <span className="hidden sm:inline">Export</span>
+          </button>
+
           {/* Create Button */}
           <button 
             onClick={handleCreateTechnicianUser}
@@ -228,7 +349,7 @@ const TechniciansPage = () => {
       </div>
 
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         <KPICard
           icon={Users}
           title="Total Teknisi"
@@ -257,10 +378,18 @@ const TechniciansPage = () => {
           icon={XCircle}
           title="Offline"
           value={stats.offline_technicians || 0}
-          color="red"
+          color="gray"
           onClick={() => {
             handleFilterChange('availability_status', filters.availability_status === 'offline' ? '' : 'offline')
           }}
+        />
+        <KPICard
+          icon={Star}
+          title="Avg Rating"
+          value={stats.avg_customer_rating ? parseFloat(stats.avg_customer_rating).toFixed(1) : '0.0'}
+          format="decimal"
+          suffix="/5.0"
+          color="orange"
         />
       </div>
 
@@ -378,7 +507,7 @@ const TechniciansPage = () => {
 
         {/* Active Filters Badge */}
         {Object.values(filters).some(v => v) && (
-          <div className="mt-4 flex items-center space-x-2">
+          <div className="mt-4 flex items-center space-x-2 flex-wrap">
             <span className="text-sm text-gray-600">Active filters:</span>
             {Object.entries(filters).map(([key, value]) => 
               value ? (
@@ -413,266 +542,378 @@ const TechniciansPage = () => {
         )}
       </div>
 
-      {/* Technicians Table */}
-      <div className="card">
-        <div className="card-header">
-          <h2 className="text-lg font-semibold text-gray-900">
-            All Technicians
-            <span className="text-sm font-normal text-gray-500 ml-2">
-              ({pagination.total || 0} total)
-            </span>
-          </h2>
-        </div>
-        <div className="card-body p-0">
-          {technicians.length === 0 ? (
-            <div className="text-center py-12">
-              <Users className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-lg font-medium text-gray-900">No technicians found</h3>
-              <p className="mt-1 text-gray-500 mb-4">
-                Create a user account with role "Technician" to get started
-              </p>
-              <button onClick={handleCreateTechnicianUser} className="btn-primary">
-                <UserPlus className="h-4 w-4 mr-2" />
-                Create Technician User
-              </button>
-            </div>
-          ) : (
-            <>
-              <div className="overflow-x-auto">
-                <table className="table">
-                  <thead className="table-header">
-                    <tr>
-                      <th 
-                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
-                        onClick={() => handleSort('full_name')}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>Technician</span>
-                          {getSortIcon('full_name')}
-                        </div>
-                      </th>
-                      <th className="table-header-cell">User Account</th>
-                      <th className="table-header-cell">Contact</th>
-                      <th className="table-header-cell">Skills & Zone</th>
-                      <th className="table-header-cell">Employment</th>
-                      <th 
-                        className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
-                        onClick={() => handleSort('availability_status')}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>Availability</span>
-                          {getSortIcon('availability_status')}
-                        </div>
-                      </th>
-                      <th className="table-header-cell">Performance</th>
-                      <th className="table-header-cell text-center">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="table-body">
-                {technicians.map((technician) => (
-                  <tr key={technician.id} className="hover:bg-gray-50">
-                    <td className="table-cell">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10">
-                          <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                            <User className="h-5 w-5 text-blue-600" />
-                          </div>
-                        </div>
-                        <div className="ml-4">
-                          <div className="font-medium text-gray-900">
-                            {technician.full_name}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            ID: {technician.employee_id}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="table-cell">
-                      {technician.username ? (
-                        <div>
-                          <button
-                            onClick={() => handleViewUser(technician.user_id)}
-                            className="text-sm font-medium text-blue-600 hover:text-blue-800"
-                          >
-                            @{technician.username}
-                          </button>
-                          <div className="text-xs text-gray-500 mt-1">
-                            User ID: {technician.user_id}
-                          </div>
-                        </div>
-                      ) : (
-                        <span className="text-sm text-red-600">No user account</span>
-                      )}
-                    </td>
-                    <td className="table-cell">
-                      <div className="flex items-center mb-1">
-                        <Phone className="h-3 w-3 mr-1 text-gray-400" />
-                        <span className="text-sm">{technician.phone}</span>
-                      </div>
-                      {technician.email && (
-                        <div className="flex items-center text-sm text-gray-500">
-                          <Mail className="h-3 w-3 mr-1 text-gray-400" />
-                          {technician.email}
-                        </div>
-                      )}
-                    </td>
-                    <td className="table-cell">
-                      <div className="space-y-2">
-                        {getSkillLevelBadge(technician.skill_level)}
-                        <div className="flex items-center text-sm text-gray-500">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          {technician.work_zone?.replace('_', ' ')}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="table-cell">
-                      {getEmploymentBadge(technician.employment_status)}
-                    </td>
-                    <td className="table-cell">
-                      <div className="space-y-2">
-                        {/* Quick Status Change Dropdown */}
-                        <select
-                          value={technician.availability_status}
-                          onChange={(e) => handleQuickStatusChange(technician.id, e.target.value)}
-                          disabled={technician.employment_status !== 'active'}
-                          className={`text-xs font-medium rounded-full px-2 py-1 border-0 focus:ring-2 focus:ring-blue-500 ${
-                            technician.availability_status === 'available' ? 'bg-green-100 text-green-800' :
-                            technician.availability_status === 'busy' ? 'bg-yellow-100 text-yellow-800' :
-                            technician.availability_status === 'break' ? 'bg-blue-100 text-blue-800' :
-                            'bg-gray-100 text-gray-800'
-                          } ${technician.employment_status !== 'active' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-                        >
-                          <option value="available">Available</option>
-                          <option value="busy">Busy</option>
-                          <option value="break">Break</option>
-                          <option value="offline">Offline</option>
-                        </select>
-                        <div className="text-xs text-gray-500">
-                          Tickets: {technician.active_tickets || 0}/{technician.max_daily_tickets || 8}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="table-cell">
-                      <div className="flex items-center mb-1">
-                        <Star className="h-4 w-4 mr-1 text-yellow-400" />
-                        <span className="text-sm font-medium">
-                          {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
-                        </span>
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        Completed: {technician.total_tickets_completed || 0}
-                      </div>
-                    </td>
-                    <td className="table-cell">
-                      <div className="flex justify-center space-x-2">
-                        <button 
-                          onClick={() => handleViewTechnician(technician)}
-                          className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
-                          title="View Details"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      {/* View Mode Toggle */}
+      <div className="bg-white shadow rounded-lg p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setViewMode('table')}
+              className={`px-4 py-2 rounded-lg flex items-center space-x-2 ${
+                viewMode === 'table' 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <List className="h-4 w-4" />
+              <span>Table View</span>
+            </button>
+            <button
+              onClick={() => setViewMode('map')}
+              className={`px-4 py-2 rounded-lg flex items-center space-x-2 ${
+                viewMode === 'map' 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <MapIcon className="h-4 w-4" />
+              <span>Map View</span>
+            </button>
           </div>
+          
+          <div className="text-sm text-gray-600">
+            {technicians.length} technician{technicians.length !== 1 ? 's' : ''} displayed
+          </div>
+        </div>
+      </div>
 
-          {/* Pagination */}
-          {pagination.total > 0 && (
-            <div className="bg-white border-t border-gray-200 px-6 py-4">
-              <div className="flex items-center justify-between">
-                <div className="flex-1 flex justify-between sm:hidden">
-                  <button
-                    onClick={() => setPage(Math.max(1, page - 1))}
-                    disabled={page === 1}
-                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    onClick={() => setPage(Math.min(pagination.pages, page + 1))}
-                    disabled={page === pagination.pages}
-                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
-                </div>
-                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-700">Show</label>
-                      <select
-                        value={limit}
-                        onChange={(e) => {
-                          setLimit(parseInt(e.target.value))
-                          setPage(1)
-                        }}
-                        className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                      </select>
-                      <span className="text-sm text-gray-700">rows</span>
-                    </div>
-                    <div className="border-l border-gray-300 h-6"></div>
-                    <p className="text-sm text-gray-700">
-                      Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
-                      <span className="font-medium">
-                        {Math.min(page * limit, pagination.total)}
-                      </span>{' '}
-                      of <span className="font-medium">{pagination.total}</span> results
-                    </p>
-                  </div>
-                  <div>
-                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                      <button
-                        onClick={() => setPage(Math.max(1, page - 1))}
-                        disabled={page === 1}
-                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        <ChevronLeft className="h-5 w-5" />
-                      </button>
-                      {Array.from({ length: Math.min(pagination.pages, 10) }, (_, i) => {
-                        if (pagination.pages <= 10) return i + 1;
-                        if (page <= 5) return i + 1;
-                        if (page >= pagination.pages - 4) return pagination.pages - 9 + i;
-                        return page - 5 + i;
-                      }).map((pageNum) => (
-                        <button
-                          key={pageNum}
-                          onClick={() => setPage(pageNum)}
-                          className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                            page === pageNum
-                              ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                              : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                          }`}
+      {/* Table View */}
+      {viewMode === 'table' && (
+        <div className="card">
+          <div className="card-header">
+            <h2 className="text-lg font-semibold text-gray-900">
+              All Technicians
+              <span className="text-sm font-normal text-gray-500 ml-2">
+                ({pagination.total || 0} total)
+              </span>
+            </h2>
+          </div>
+          <div className="card-body p-0">
+            {technicians.length === 0 ? (
+              <div className="text-center py-12">
+                <Users className="mx-auto h-12 w-12 text-gray-400" />
+                <h3 className="mt-2 text-lg font-medium text-gray-900">No technicians found</h3>
+                <p className="mt-1 text-gray-500 mb-4">
+                  Create a user account with role "Technician" to get started
+                </p>
+                <button onClick={handleCreateTechnicianUser} className="btn-primary">
+                  <UserPlus className="h-4 w-4 mr-2" />
+                  Create Technician User
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="overflow-x-auto">
+                  <table className="table">
+                    <thead className="table-header">
+                      <tr>
+                        <th 
+                          className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                          onClick={() => handleSort('full_name')}
                         >
-                          {pageNum}
+                          <div className="flex items-center justify-between">
+                            <span>Technician</span>
+                            {getSortIcon('full_name')}
+                          </div>
+                        </th>
+                        <th className="table-header-cell">User Account</th>
+                        <th className="table-header-cell">Contact</th>
+                        <th className="table-header-cell">Skills & Zone</th>
+                        <th className="table-header-cell">Employment</th>
+                        <th 
+                          className="table-header-cell cursor-pointer hover:bg-gray-100 transition-colors"
+                          onClick={() => handleSort('availability_status')}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span>Availability</span>
+                            {getSortIcon('availability_status')}
+                          </div>
+                        </th>
+                        <th className="table-header-cell">Capacity</th>
+                        <th className="table-header-cell">Performance</th>
+                        <th className="table-header-cell">Service</th>
+                        <th className="table-header-cell text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="table-body">
+                  {technicians.map((technician) => (
+                    <tr key={technician.id} className="hover:bg-gray-50">
+                      <td className="table-cell">
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 h-10 w-10">
+                            <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                              <User className="h-5 w-5 text-blue-600" />
+                            </div>
+                          </div>
+                          <div className="ml-4">
+                            <div className="font-medium text-gray-900">
+                              {technician.full_name}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {technician.employee_id}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="table-cell">
+                        {technician.username ? (
+                          <div>
+                            <button
+                              onClick={() => handleViewUser(technician.user_id)}
+                              className="text-sm font-medium text-blue-600 hover:text-blue-800"
+                            >
+                              @{technician.username}
+                            </button>
+                            <div className="text-xs text-gray-500 mt-1">
+                              {getLastLoginIndicator(technician.last_login)}
+                            </div>
+                          </div>
+                        ) : (
+                          <span className="text-sm text-red-600 flex items-center">
+                            <XCircle className="h-3 w-3 mr-1" />
+                            No account
+                          </span>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        <div className="flex items-center mb-1">
+                          <Phone className="h-3 w-3 mr-1 text-gray-400" />
+                          <span className="text-sm">{technician.phone}</span>
+                        </div>
+                        {technician.email && (
+                          <div className="flex items-center text-xs text-gray-500">
+                            <Mail className="h-3 w-3 mr-1 text-gray-400" />
+                            {technician.email}
+                          </div>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        <div className="space-y-2">
+                          {getSkillLevelBadge(technician.skill_level)}
+                          <div className="flex items-center text-sm text-gray-500">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {technician.work_zone?.replace('_', ' ')}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="table-cell">
+                        {getEmploymentBadge(technician.employment_status)}
+                      </td>
+                      <td className="table-cell">
+                        <div className="space-y-2">
+                          {/* Quick Status Change Dropdown */}
+                          <select
+                            value={technician.availability_status}
+                            onChange={(e) => handleQuickStatusChange(technician.id, e.target.value)}
+                            disabled={technician.employment_status !== 'active'}
+                            className={`text-xs font-medium rounded-full px-2 py-1 border-0 focus:ring-2 focus:ring-blue-500 w-full ${
+                              technician.availability_status === 'available' ? 'bg-green-100 text-green-800' :
+                              technician.availability_status === 'busy' ? 'bg-yellow-100 text-yellow-800' :
+                              technician.availability_status === 'break' ? 'bg-blue-100 text-blue-800' :
+                              'bg-gray-100 text-gray-800'
+                            } ${technician.employment_status !== 'active' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                          >
+                            <option value="available">Available</option>
+                            <option value="busy">Busy</option>
+                            <option value="break">Break</option>
+                            <option value="offline">Offline</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td className="table-cell">
+                        <CapacityBar 
+                          current={parseInt(technician.active_tickets) || 0} 
+                          max={technician.max_daily_tickets || 8} 
+                        />
+                      </td>
+                      <td className="table-cell">
+                        <div className="flex items-center mb-1">
+                          <Star className="h-4 w-4 mr-1 text-yellow-400" />
+                          <span className="text-sm font-medium">
+                            {technician.avg_customer_rating ? parseFloat(technician.avg_customer_rating).toFixed(1) : 'N/A'}
+                          </span>
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Completed: {technician.total_tickets_completed || 0}
+                        </div>
+                      </td>
+                      <td className="table-cell">
+                        <div className="flex items-center text-xs text-gray-500 mb-1">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          {getYearsOfService(technician.hire_date)}
+                        </div>
+                        {technician.hire_date && (
+                          <div className="text-xs text-gray-400">
+                            {new Date(technician.hire_date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}
+                          </div>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        <div className="flex justify-center">
+                          <button 
+                            onClick={() => handleViewTechnician(technician)}
+                            className="inline-flex items-center justify-center w-8 h-8 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+                            title="View Details"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Pagination */}
+            {pagination.total > 0 && (
+              <div className="bg-white border-t border-gray-200 px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1 flex justify-between sm:hidden">
+                    <button
+                      onClick={() => setPage(Math.max(1, page - 1))}
+                      disabled={page === 1}
+                      className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      onClick={() => setPage(Math.min(pagination.pages, page + 1))}
+                      disabled={page === pagination.pages}
+                      className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Next
+                    </button>
+                  </div>
+                  <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <label className="text-sm text-gray-700">Show</label>
+                        <select
+                          value={limit}
+                          onChange={(e) => {
+                            setLimit(parseInt(e.target.value))
+                            setPage(1)
+                          }}
+                          className="form-input py-1 px-2 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        >
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                        </select>
+                        <span className="text-sm text-gray-700">rows</span>
+                      </div>
+                      <div className="border-l border-gray-300 h-6"></div>
+                      <p className="text-sm text-gray-700">
+                        Showing <span className="font-medium">{((page - 1) * limit) + 1}</span> to{' '}
+                        <span className="font-medium">
+                          {Math.min(page * limit, pagination.total)}
+                        </span>{' '}
+                        of <span className="font-medium">{pagination.total}</span> results
+                      </p>
+                    </div>
+                    <div>
+                      <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                        <button
+                          onClick={() => setPage(Math.max(1, page - 1))}
+                          disabled={page === 1}
+                          className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          <ChevronLeft className="h-5 w-5" />
                         </button>
-                      ))}
-                      <button
-                        onClick={() => setPage(Math.min(pagination.pages, page + 1))}
-                        disabled={page === pagination.pages}
-                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        <ChevronRight className="h-5 w-5" />
-                      </button>
-                    </nav>
+                        {Array.from({ length: Math.min(pagination.pages, 10) }, (_, i) => {
+                          if (pagination.pages <= 10) return i + 1;
+                          if (page <= 5) return i + 1;
+                          if (page >= pagination.pages - 4) return pagination.pages - 9 + i;
+                          return page - 5 + i;
+                        }).map((pageNum) => (
+                          <button
+                            key={pageNum}
+                            onClick={() => setPage(pageNum)}
+                            className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                              page === pageNum
+                                ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                                : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        ))}
+                        <button
+                          onClick={() => setPage(Math.min(pagination.pages, page + 1))}
+                          disabled={page === pagination.pages}
+                          className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </nav>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-          </>
-          )}
+            )}
+            </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* Map View */}
+      {viewMode === 'map' && (
+        <div className="card">
+          <div className="card-header">
+            <h2 className="text-lg font-semibold text-gray-900 flex items-center space-x-2">
+              <MapIcon className="h-5 w-5 text-blue-600" />
+              <span>Technician Locations</span>
+            </h2>
+          </div>
+          <div className="card-body">
+            <div className="bg-gray-100 rounded-lg p-8 text-center">
+              <MapIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Map View</h3>
+              <p className="text-gray-600 mb-4">
+                Interactive map showing technician locations and work zones
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
+                {technicians.filter(t => t.current_latitude && t.current_longitude).map(tech => (
+                  <div key={tech.id} className="bg-white rounded-lg p-4 border border-gray-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-medium text-gray-900">{tech.full_name}</span>
+                      {getAvailabilityBadge(tech.availability_status)}
+                    </div>
+                    <div className="text-xs text-gray-500 space-y-1">
+                      <div className="flex items-center">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        {tech.work_zone}
+                      </div>
+                      <div className="flex items-center">
+                        <Activity className="h-3 w-3 mr-1" />
+                        {tech.active_tickets || 0}/{tech.max_daily_tickets || 8} tickets
+                      </div>
+                      {tech.current_latitude && tech.current_longitude && (
+                        <div className="text-blue-600">
+                          📍 {parseFloat(tech.current_latitude).toFixed(4)}, {parseFloat(tech.current_longitude).toFixed(4)}
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => handleViewTechnician(tech)}
+                      className="mt-3 w-full px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                ))}
+              </div>
+              {technicians.filter(t => t.current_latitude && t.current_longitude).length === 0 && (
+                <p className="text-sm text-gray-500 mt-4">
+                  No technicians with location data available
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

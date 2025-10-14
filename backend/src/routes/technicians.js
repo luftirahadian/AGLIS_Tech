@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
     let query = `
       SELECT t.*, 
-             u.username, u.email as user_email,
+             u.username, u.email as user_email, u.last_login,
              COUNT(DISTINCT ts.id) as total_skills,
              COUNT(DISTINCT tt.id) as active_tickets,
              AVG(tp.customer_satisfaction_avg) as avg_customer_rating
