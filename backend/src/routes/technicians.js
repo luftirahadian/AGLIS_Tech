@@ -256,6 +256,22 @@ router.get('/:id', async (req, res) => {
     `;
     const equipmentResult = await pool.query(equipmentQuery, [id]);
 
+    // Get specializations from junction table
+    const specializationsQuery = `
+      SELECT 
+        ts.id, ts.proficiency_level, ts.years_experience, ts.acquired_date,
+        s.id as specialization_id, s.code as specialization_code, 
+        s.name as specialization_name, s.description,
+        s.difficulty_level, s.is_high_demand, s.is_critical_service,
+        sc.name as category_name, sc.code as category_code, sc.color as category_color
+      FROM technician_specializations ts
+      JOIN specializations s ON ts.specialization_id = s.id
+      JOIN specialization_categories sc ON s.category_id = sc.id
+      WHERE ts.technician_id = $1 AND ts.is_active = true
+      ORDER BY sc.display_order, s.display_order
+    `;
+    const specializationsResult = await pool.query(specializationsQuery, [id]);
+
     // Get recent location history
     const locationQuery = `
       SELECT * FROM technician_location_history
@@ -322,6 +338,7 @@ router.get('/:id', async (req, res) => {
         schedule: scheduleResult.rows,
         performance: performanceResult.rows,
         equipment: equipmentResult.rows,
+        specializations: specializationsResult.rows,
         location_history: locationResult.rows,
         active_tickets: ticketsResult.rows,
         recent_tickets: recentTicketsResult.rows,

@@ -76,6 +76,7 @@ const TechnicianDetailPage = () => {
   const recentTickets = technicianData.data.recent_tickets || []
   const activeTickets = technicianData.data.active_tickets || []
   const equipment = technicianData.data.equipment || []
+  const specializations = technicianData.data.specializations || []
 
   const formatDate = (dateString) => {
     if (!dateString) return '-'
@@ -669,32 +670,52 @@ const TechnicianDetailPage = () => {
                   <Target className="h-5 w-5 mr-2 text-gray-600" />
                   Specializations
                 </h3>
-                {(() => {
-                  // Parse specializations - handle both array and string formats
-                  let specs = [];
-                  if (technician.specializations) {
-                    if (Array.isArray(technician.specializations)) {
-                      specs = technician.specializations;
-                    } else if (typeof technician.specializations === 'string') {
-                      // If it's a string, split by space or comma
-                      specs = technician.specializations.split(/[\s,]+/).filter(s => s.trim());
-                    }
-                  }
-                  
-                  return specs.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                      {specs.map((spec, index) => (
-                        <span key={index} className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-medium rounded-lg border border-blue-200 shadow-sm">
-                          {spec.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
-                      <p className="text-gray-500 text-sm">Belum ada specialization yang tercatat</p>
-                    </div>
-                  );
-                })()}
+                {specializations && specializations.length > 0 ? (
+                  <div className="space-y-3">
+                    {specializations.map((spec) => (
+                      <div key={spec.id} className="flex items-start justify-between px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:border-blue-300 transition-all shadow-sm">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-sm font-semibold text-gray-900">{spec.specialization_name}</span>
+                            {spec.is_high_demand && (
+                              <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-medium rounded">High Demand</span>
+                            )}
+                            {spec.is_critical_service && (
+                              <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-medium rounded">Critical</span>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-3 text-xs text-gray-600">
+                            <span className="flex items-center">
+                              <span className="font-medium mr-1">Category:</span>
+                              <span style={{ color: spec.category_color || '#6b7280' }}>{spec.category_name}</span>
+                            </span>
+                            <span className="flex items-center">
+                              <span className="font-medium mr-1">Proficiency:</span>
+                              <span className={`capitalize ${spec.proficiency_level === 'expert' ? 'text-green-600 font-semibold' : spec.proficiency_level === 'intermediate' ? 'text-blue-600' : 'text-gray-600'}`}>
+                                {spec.proficiency_level}
+                              </span>
+                            </span>
+                            {spec.years_experience > 0 && (
+                              <span className="flex items-center">
+                                <span className="font-medium mr-1">Experience:</span>
+                                {spec.years_experience} years
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center ml-3">
+                          <span className="px-2 py-1 bg-white text-gray-600 text-xs font-medium rounded border border-gray-200">
+                            Level {spec.difficulty_level}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-center">
+                    <p className="text-gray-500 text-sm">Belum ada specialization yang tercatat</p>
+                  </div>
+                )}
               </div>
 
               {/* Certifications */}
