@@ -37,8 +37,9 @@ const EquipmentPage = () => {
     }
   )
 
-  const equipment = equipmentResponse?.data || []
-  const pagination = equipmentResponse?.pagination || {}
+  // equipmentService.getAll() now returns array directly
+  const equipment = equipmentResponse || []
+  const pagination = {} // Equipment API returns simple array, no pagination for now
 
   // Fetch all equipment for stats
   const { data: allEquipmentResponse } = useQuery(
@@ -49,7 +50,7 @@ const EquipmentPage = () => {
     }
   )
 
-  const allEquipment = allEquipmentResponse?.data || []
+  const allEquipment = allEquipmentResponse || []
   const totalEquipment = allEquipment.length
   const activeEquipment = allEquipment.filter(e => e.is_active).length
   const inactiveEquipment = allEquipment.filter(e => !e.is_active).length
