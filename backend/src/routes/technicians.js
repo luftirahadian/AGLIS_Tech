@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
       params.push(specialization);
     }
 
-    query += ` GROUP BY t.id, u.username, u.email`;
+    query += ` GROUP BY t.id, u.username, u.email, u.last_login`;
     
     // Dynamic sorting with whitelist for security
     const allowedSortColumns = {

@@ -568,3 +568,53 @@
 2025-10-14T22:12:00: Update user error: ReferenceError: username is not defined
 2025-10-14T22:12:00:     at /home/aglis/AGLIS_Tech/backend/src/routes/users.js:465:68
 2025-10-14T22:12:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T22:32:31: Get technicians error: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:31:   length: 175,
+2025-10-14T22:32:31:   severity: 'ERROR',
+2025-10-14T22:32:31:   code: '42803',
+2025-10-14T22:32:31:   detail: undefined,
+2025-10-14T22:32:31:   hint: undefined,
+2025-10-14T22:32:31:   position: '69',
+2025-10-14T22:32:31:   internalPosition: undefined,
+2025-10-14T22:32:31:   internalQuery: undefined,
+2025-10-14T22:32:31:   where: undefined,
+2025-10-14T22:32:31:   schema: undefined,
+2025-10-14T22:32:31:   table: undefined,
+2025-10-14T22:32:31:   column: undefined,
+2025-10-14T22:32:31:   dataType: undefined,
+2025-10-14T22:32:31:   constraint: undefined,
+2025-10-14T22:32:31:   file: 'parse_agg.c',
+2025-10-14T22:32:31:   line: '1421',
+2025-10-14T22:32:31:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:31: }
+2025-10-14T22:32:31: ❌ QUERY ERROR (5ms): {
+2025-10-14T22:32:31:   error: 'column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function',
+2025-10-14T22:32:31:   query: '\n' +
+2025-10-14T22:32:31:     '      SELECT t.*, \n' +
+2025-10-14T22:32:31:     '             u.username, u.email as user_email, u.last_login,\n' +
+2025-10-14T22:32:31:     '             COUNT(DISTINCT ts.id) as total_skills,\n' +
+2025-10-14T22:32:31:     '             COU...'
+2025-10-14T22:32:31: }
+2025-10-14T22:32:31: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:31:   length: 175,
+2025-10-14T22:32:31:   severity: 'ERROR',
+2025-10-14T22:32:31:   code: '42803',
+2025-10-14T22:32:31:   detail: undefined,
+2025-10-14T22:32:31:   hint: undefined,
+2025-10-14T22:32:31:   position: '69',
+2025-10-14T22:32:31:   internalPosition: undefined,
+2025-10-14T22:32:31:   internalQuery: undefined,
+2025-10-14T22:32:31:   where: undefined,
+2025-10-14T22:32:31:   schema: undefined,
+2025-10-14T22:32:31:   table: undefined,
+2025-10-14T22:32:31:   column: undefined,
+2025-10-14T22:32:31:   dataType: undefined,
+2025-10-14T22:32:31:   constraint: undefined,
+2025-10-14T22:32:31:   file: 'parse_agg.c',
+2025-10-14T22:32:31:   line: '1421',
+2025-10-14T22:32:31:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:31: }

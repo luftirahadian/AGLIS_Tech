@@ -565,3 +565,153 @@
 2025-10-14T21:55:32:     '/home/aglis/AGLIS_Tech/backend/src/server.js'
 2025-10-14T21:55:32:   ]
 2025-10-14T21:55:32: }
+2025-10-14T22:32:26: Get technicians error: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:26:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:26:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:26:   length: 175,
+2025-10-14T22:32:26:   severity: 'ERROR',
+2025-10-14T22:32:26:   code: '42803',
+2025-10-14T22:32:26:   detail: undefined,
+2025-10-14T22:32:26:   hint: undefined,
+2025-10-14T22:32:26:   position: '69',
+2025-10-14T22:32:26:   internalPosition: undefined,
+2025-10-14T22:32:26:   internalQuery: undefined,
+2025-10-14T22:32:26:   where: undefined,
+2025-10-14T22:32:26:   schema: undefined,
+2025-10-14T22:32:26:   table: undefined,
+2025-10-14T22:32:26:   column: undefined,
+2025-10-14T22:32:26:   dataType: undefined,
+2025-10-14T22:32:26:   constraint: undefined,
+2025-10-14T22:32:26:   file: 'parse_agg.c',
+2025-10-14T22:32:26:   line: '1421',
+2025-10-14T22:32:26:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:26: }
+2025-10-14T22:32:26: ❌ QUERY ERROR (6ms): {
+2025-10-14T22:32:26:   error: 'column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function',
+2025-10-14T22:32:26:   query: '\n' +
+2025-10-14T22:32:26:     '      SELECT t.*, \n' +
+2025-10-14T22:32:26:     '             u.username, u.email as user_email, u.last_login,\n' +
+2025-10-14T22:32:26:     '             COUNT(DISTINCT ts.id) as total_skills,\n' +
+2025-10-14T22:32:26:     '             COU...'
+2025-10-14T22:32:26: }
+2025-10-14T22:32:26: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:26:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:26:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:26:   length: 175,
+2025-10-14T22:32:26:   severity: 'ERROR',
+2025-10-14T22:32:26:   code: '42803',
+2025-10-14T22:32:26:   detail: undefined,
+2025-10-14T22:32:26:   hint: undefined,
+2025-10-14T22:32:26:   position: '69',
+2025-10-14T22:32:26:   internalPosition: undefined,
+2025-10-14T22:32:26:   internalQuery: undefined,
+2025-10-14T22:32:26:   where: undefined,
+2025-10-14T22:32:26:   schema: undefined,
+2025-10-14T22:32:26:   table: undefined,
+2025-10-14T22:32:26:   column: undefined,
+2025-10-14T22:32:26:   dataType: undefined,
+2025-10-14T22:32:26:   constraint: undefined,
+2025-10-14T22:32:26:   file: 'parse_agg.c',
+2025-10-14T22:32:26:   line: '1421',
+2025-10-14T22:32:26:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:26: }
+2025-10-14T22:32:27: Get technicians error: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:27:   length: 175,
+2025-10-14T22:32:27:   severity: 'ERROR',
+2025-10-14T22:32:27:   code: '42803',
+2025-10-14T22:32:27:   detail: undefined,
+2025-10-14T22:32:27:   hint: undefined,
+2025-10-14T22:32:27:   position: '69',
+2025-10-14T22:32:27:   internalPosition: undefined,
+2025-10-14T22:32:27:   internalQuery: undefined,
+2025-10-14T22:32:27:   where: undefined,
+2025-10-14T22:32:27:   schema: undefined,
+2025-10-14T22:32:27:   table: undefined,
+2025-10-14T22:32:27:   column: undefined,
+2025-10-14T22:32:27:   dataType: undefined,
+2025-10-14T22:32:27:   constraint: undefined,
+2025-10-14T22:32:27:   file: 'parse_agg.c',
+2025-10-14T22:32:27:   line: '1421',
+2025-10-14T22:32:27:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:27: }
+2025-10-14T22:32:27: ❌ QUERY ERROR (2ms): {
+2025-10-14T22:32:27:   error: 'column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function',
+2025-10-14T22:32:27:   query: '\n' +
+2025-10-14T22:32:27:     '      SELECT t.*, \n' +
+2025-10-14T22:32:27:     '             u.username, u.email as user_email, u.last_login,\n' +
+2025-10-14T22:32:27:     '             COUNT(DISTINCT ts.id) as total_skills,\n' +
+2025-10-14T22:32:27:     '             COU...'
+2025-10-14T22:32:27: }
+2025-10-14T22:32:27: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:27:   length: 175,
+2025-10-14T22:32:27:   severity: 'ERROR',
+2025-10-14T22:32:27:   code: '42803',
+2025-10-14T22:32:27:   detail: undefined,
+2025-10-14T22:32:27:   hint: undefined,
+2025-10-14T22:32:27:   position: '69',
+2025-10-14T22:32:27:   internalPosition: undefined,
+2025-10-14T22:32:27:   internalQuery: undefined,
+2025-10-14T22:32:27:   where: undefined,
+2025-10-14T22:32:27:   schema: undefined,
+2025-10-14T22:32:27:   table: undefined,
+2025-10-14T22:32:27:   column: undefined,
+2025-10-14T22:32:27:   dataType: undefined,
+2025-10-14T22:32:27:   constraint: undefined,
+2025-10-14T22:32:27:   file: 'parse_agg.c',
+2025-10-14T22:32:27:   line: '1421',
+2025-10-14T22:32:27:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:27: }
+2025-10-14T22:32:30: Get technicians error: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:30:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:30:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:30:   length: 175,
+2025-10-14T22:32:30:   severity: 'ERROR',
+2025-10-14T22:32:30:   code: '42803',
+2025-10-14T22:32:30:   detail: undefined,
+2025-10-14T22:32:30:   hint: undefined,
+2025-10-14T22:32:30:   position: '69',
+2025-10-14T22:32:30:   internalPosition: undefined,
+2025-10-14T22:32:30:   internalQuery: undefined,
+2025-10-14T22:32:30:   where: undefined,
+2025-10-14T22:32:30:   schema: undefined,
+2025-10-14T22:32:30:   table: undefined,
+2025-10-14T22:32:30:   column: undefined,
+2025-10-14T22:32:30:   dataType: undefined,
+2025-10-14T22:32:30:   constraint: undefined,
+2025-10-14T22:32:30:   file: 'parse_agg.c',
+2025-10-14T22:32:30:   line: '1421',
+2025-10-14T22:32:30:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:30: }
+2025-10-14T22:32:30: ❌ QUERY ERROR (2ms): {
+2025-10-14T22:32:30:   error: 'column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function',
+2025-10-14T22:32:30:   query: '\n' +
+2025-10-14T22:32:30:     '      SELECT t.*, \n' +
+2025-10-14T22:32:30:     '             u.username, u.email as user_email, u.last_login,\n' +
+2025-10-14T22:32:30:     '             COUNT(DISTINCT ts.id) as total_skills,\n' +
+2025-10-14T22:32:30:     '             COU...'
+2025-10-14T22:32:30: }
+2025-10-14T22:32:30: error: column "u.last_login" must appear in the GROUP BY clause or be used in an aggregate function
+2025-10-14T22:32:30:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T22:32:30:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-14T22:32:30:   length: 175,
+2025-10-14T22:32:30:   severity: 'ERROR',
+2025-10-14T22:32:30:   code: '42803',
+2025-10-14T22:32:30:   detail: undefined,
+2025-10-14T22:32:30:   hint: undefined,
+2025-10-14T22:32:30:   position: '69',
+2025-10-14T22:32:30:   internalPosition: undefined,
+2025-10-14T22:32:30:   internalQuery: undefined,
+2025-10-14T22:32:30:   where: undefined,
+2025-10-14T22:32:30:   schema: undefined,
+2025-10-14T22:32:30:   table: undefined,
+2025-10-14T22:32:30:   column: undefined,
+2025-10-14T22:32:30:   dataType: undefined,
+2025-10-14T22:32:30:   constraint: undefined,
+2025-10-14T22:32:30:   file: 'parse_agg.c',
+2025-10-14T22:32:30:   line: '1421',
+2025-10-14T22:32:30:   routine: 'check_ungrouped_columns_walker'
+2025-10-14T22:32:30: }
