@@ -2063,3 +2063,18 @@
 2025-10-14T10:17:38: 127.0.0.1 - - [14/Oct/2025:03:17:38 +0000] "PUT /api/tickets/15/status HTTP/1.1" 200 939 "-" "curl/7.81.0"
 2025-10-14T10:17:49: ✅ Connected to PostgreSQL database
 2025-10-14T10:17:49: 103.55.224.49 - - [14/Oct/2025:03:17:49 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:18:49: ✅ Connected to PostgreSQL database
+2025-10-14T10:18:49: ✅ Connected to PostgreSQL database
+2025-10-14T10:18:49: 103.55.224.49 - - [14/Oct/2025:03:18:49 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:19:30: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T10:19:30: 🚀 Server running on 0.0.0.0:3001
+2025-10-14T10:19:30: 🌍 Environment: production
+2025-10-14T10:19:30: 📡 Local access: http://localhost:3001
+2025-10-14T10:19:30: 🌐 Network access: http://192.168.121.30:3001
+2025-10-14T10:19:30: 📝 CORS origins configured for local network access
+2025-10-14T10:19:30: ✅ Redis client connected for OTP storage
+2025-10-14T10:19:30: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T10:19:30: ✅ Redis client ready
+2025-10-14T10:19:49: ✅ Connected to PostgreSQL database
+2025-10-14T10:19:49: ✅ Connected to PostgreSQL database
+2025-10-14T10:19:49: 103.55.224.49 - - [14/Oct/2025:03:19:49 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

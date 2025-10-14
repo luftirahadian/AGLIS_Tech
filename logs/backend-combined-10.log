@@ -2065,3 +2065,29 @@
 2025-10-14T10:17:46: ✅ Connected to PostgreSQL database
 2025-10-14T10:17:46: ✅ Connected to PostgreSQL database
 2025-10-14T10:17:46: 103.55.224.49 - - [14/Oct/2025:03:17:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/15" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:18:46: ✅ Connected to PostgreSQL database
+2025-10-14T10:18:46: ✅ Connected to PostgreSQL database
+2025-10-14T10:18:46: 103.55.224.49 - - [14/Oct/2025:03:18:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/15" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T10:19:30: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T10:19:30: 🚀 Server running on 0.0.0.0:3004
+2025-10-14T10:19:30: 🌍 Environment: production
+2025-10-14T10:19:30: 📡 Local access: http://localhost:3004
+2025-10-14T10:19:30: 🌐 Network access: http://192.168.121.30:3004
+2025-10-14T10:19:30: 📝 CORS origins configured for local network access
+2025-10-14T10:19:30: ✅ Redis client connected for OTP storage
+2025-10-14T10:19:30: ✅ Redis client ready
+2025-10-14T10:19:30: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: 👤 User connected: btIKGeQR3-eHtMG-AAAC
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: 👤 User connected: 0CWzc9Kqy-nZ_QCcAAAD
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: 👤 User connected: UUxngcfxgsFjP6XVAAAF
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:31: 👤 User 17 (admin) authenticated: UUxngcfxgsFjP6XVAAAF
+2025-10-14T10:19:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T10:19:46: ✅ Connected to PostgreSQL database
+2025-10-14T10:19:46: ✅ Connected to PostgreSQL database
+2025-10-14T10:19:46: 103.55.224.49 - - [14/Oct/2025:03:19:46 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/15" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

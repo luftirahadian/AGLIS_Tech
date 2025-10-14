@@ -623,15 +623,10 @@ router.put('/:id/status', [
       }
 
       // Handle completion_data and file uploads
-      // TODO: Add completion_data column to tickets table if needed for advanced completion features
       let completionDataToStore = null;
       
       if (completion_data && status === 'completed') {
-        console.log('⚠️ completion_data received but column does not exist in tickets table - skipping');
-        // Column completion_data doesn't exist in tickets table
-        // Commenting out until column is added
-        /*
-        console.log('Processing completion data with file uploads...');
+        console.log('📸 Processing completion data with file uploads...');
         
         // Clone completion data
         completionDataToStore = { ...completion_data };
@@ -698,7 +693,6 @@ router.put('/:id/status', [
           console.error('Error handling file uploads:', uploadError);
           throw uploadError;
         }
-        */
       }
 
       // Update ticket
