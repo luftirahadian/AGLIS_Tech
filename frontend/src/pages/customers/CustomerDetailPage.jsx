@@ -15,6 +15,7 @@ import socketService from '../../services/socketService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
 import PaymentModal from '../../components/PaymentModal'
+import ConfirmationModal from '../../components/ConfirmationModal'
 import toast from 'react-hot-toast'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -33,6 +34,10 @@ const CustomerDetailPage = () => {
   const [editedName, setEditedName] = useState('')
   const [editedPhone, setEditedPhone] = useState('')
   const [editedAddress, setEditedAddress] = useState('')
+  
+  // State untuk delete equipment
+  const [showDeleteEquipmentModal, setShowDeleteEquipmentModal] = useState(false)
+  const [equipmentToDelete, setEquipmentToDelete] = useState(null)
 
   const { 
     data: customerData, 
@@ -215,6 +220,27 @@ const CustomerDetailPage = () => {
       toast.error('❌ Gagal mencatat pembayaran')
       console.error('Add payment error:', error)
       throw error // Re-throw untuk PaymentModal handle loading state
+    }
+  }
+
+  const handleDeleteEquipment = (equipment) => {
+    setEquipmentToDelete(equipment)
+    setShowDeleteEquipmentModal(true)
+  }
+
+  const confirmDeleteEquipment = async () => {
+    if (!equipmentToDelete) return
+    
+    try {
+      await customerService.deleteEquipment(customer.id, equipmentToDelete.id)
+      toast.success('✅ Equipment berhasil dihapus!')
+      queryClient.invalidateQueries(['customer', id])
+    } catch (error) {
+      toast.error('❌ Gagal menghapus equipment')
+      console.error('Delete equipment error:', error)
+    } finally {
+      setShowDeleteEquipmentModal(false)
+      setEquipmentToDelete(null)
     }
   }
 
@@ -1291,7 +1317,7 @@ const CustomerDetailPage = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {equipment.map((item) => (
-                    <div key={item.id} className="border border-gray-200 rounded-lg p-4">
+                    <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow relative group">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center">
                           {item.equipment_type === 'modem' && <Wifi className="h-5 w-5 text-blue-500 mr-2" />}
@@ -1301,11 +1327,22 @@ const CustomerDetailPage = () => {
                             {item.equipment_type}
                           </span>
                         </div>
-                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          item.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                        }`}>
-                          {item.status}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                            item.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                          }`}>
+                            {item.status}
+                          </span>
+                          {item.status === 'active' && (
+                            <button
+                              onClick={() => handleDeleteEquipment(item)}
+                              className="opacity-0 group-hover:opacity-100 p-1.5 hover:bg-red-100 rounded transition-all"
+                              title="Hapus Equipment"
+                            >
+                              <Trash2 className="h-4 w-4 text-red-600" />
+                            </button>
+                          )}
+                        </div>
                       </div>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
@@ -1448,6 +1485,37 @@ const CustomerDetailPage = () => {
         customer={customer}
         onSuccess={handlePaymentSubmit}
       />
+
+      {/* Delete Equipment Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showDeleteEquipmentModal}
+        onClose={() => {
+          setShowDeleteEquipmentModal(false)
+          setEquipmentToDelete(null)
+        }}
+        onConfirm={confirmDeleteEquipment}
+        title="🗑️ Hapus Equipment"
+        message={equipmentToDelete ? `Hapus equipment "${equipmentToDelete.equipment_type}" - ${equipmentToDelete.brand} ${equipmentToDelete.model}?` : ''}
+        confirmText="Ya, Hapus"
+        cancelText="Batal"
+        type="danger"
+      >
+        {equipmentToDelete && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              🗑️ Equipment akan dihapus dari customer<br/>
+              📊 Status akan berubah menjadi "Inactive"<br/>
+              📝 Data historis tetap tersimpan<br/>
+              ⚠️ Equipment tidak akan muncul di list aktif
+            </p>
+            {equipmentToDelete.serial_number && (
+              <p className="text-xs text-gray-600 mt-2 pt-2 border-t border-red-200">
+                Serial: <span className="font-mono font-medium">{equipmentToDelete.serial_number}</span>
+              </p>
+            )}
+          </div>
+        )}
+      </ConfirmationModal>
     </div>
   )
 }

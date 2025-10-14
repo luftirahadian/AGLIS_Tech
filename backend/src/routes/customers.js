@@ -593,6 +593,67 @@ router.post('/:id/equipment', [
   }
 });
 
+// Delete customer equipment
+router.delete('/:customerId/equipment/:equipmentId', async (req, res) => {
+  try {
+    const { customerId, equipmentId } = req.params;
+
+    // Verify customer exists
+    const customerCheck = await pool.query('SELECT id FROM customers WHERE id = $1', [customerId]);
+    if (customerCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Customer not found'
+      });
+    }
+
+    // Verify equipment exists and belongs to customer
+    const equipmentCheck = await pool.query(
+      'SELECT id FROM customer_equipment WHERE id = $1 AND customer_id = $2',
+      [equipmentId, customerId]
+    );
+    
+    if (equipmentCheck.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Equipment not found or does not belong to this customer'
+      });
+    }
+
+    // Soft delete: update status to 'inactive' instead of hard delete
+    const query = `
+      UPDATE customer_equipment 
+      SET status = 'inactive', updated_at = CURRENT_TIMESTAMP
+      WHERE id = $1 AND customer_id = $2
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, [equipmentId, customerId]);
+
+    // Emit socket event for real-time update
+    const io = req.app.get('io');
+    if (io) {
+      io.to('role_admin').to('role_supervisor').emit('equipment-deleted', {
+        customer_id: parseInt(customerId),
+        equipment_id: parseInt(equipmentId)
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Equipment deleted successfully',
+      data: { equipment: result.rows[0] }
+    });
+
+  } catch (error) {
+    console.error('Delete equipment error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 // Add customer payment
 router.post('/:id/payments', [
   body('amount').isFloat({ min: 0 }).withMessage('Amount must be a positive number'),

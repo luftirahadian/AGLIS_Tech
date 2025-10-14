@@ -38,6 +38,12 @@ export const customerService = {
     return response
   },
 
+  // Delete equipment
+  deleteEquipment: async (customerId, equipmentId) => {
+    const response = await api.delete(`/customers/${customerId}/equipment/${equipmentId}`)
+    return response
+  },
+
   // Add payment record
   addPayment: async (customerId, paymentData) => {
     const response = await api.post(`/customers/${customerId}/payments`, paymentData)

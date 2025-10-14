@@ -86,3 +86,69 @@
 2025-10-14T03:54:28:   line: '1381',
 2025-10-14T03:54:28:   routine: 'parserOpenTable'
 2025-10-14T03:54:28: }
+2025-10-14T07:46:05: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T07:46:05:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T07:46:05:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T07:46:05:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T07:46:05:   length: 113,
+2025-10-14T07:46:05:   severity: 'ERROR',
+2025-10-14T07:46:05:   code: '42P01',
+2025-10-14T07:46:05:   detail: undefined,
+2025-10-14T07:46:05:   hint: undefined,
+2025-10-14T07:46:05:   position: '823',
+2025-10-14T07:46:05:   internalPosition: undefined,
+2025-10-14T07:46:05:   internalQuery: undefined,
+2025-10-14T07:46:05:   where: undefined,
+2025-10-14T07:46:05:   schema: undefined,
+2025-10-14T07:46:05:   table: undefined,
+2025-10-14T07:46:05:   column: undefined,
+2025-10-14T07:46:05:   dataType: undefined,
+2025-10-14T07:46:05:   constraint: undefined,
+2025-10-14T07:46:05:   file: 'parse_relation.c',
+2025-10-14T07:46:05:   line: '1381',
+2025-10-14T07:46:05:   routine: 'parserOpenTable'
+2025-10-14T07:46:05: }
+2025-10-14T07:47:02: Error fetching low stock alerts: error: relation "inventory_stock" does not exist
+2025-10-14T07:47:02:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T07:47:02:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T07:47:02:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:365:20 {
+2025-10-14T07:47:02:   length: 115,
+2025-10-14T07:47:02:   severity: 'ERROR',
+2025-10-14T07:47:02:   code: '42P01',
+2025-10-14T07:47:02:   detail: undefined,
+2025-10-14T07:47:02:   hint: undefined,
+2025-10-14T07:47:02:   position: '254',
+2025-10-14T07:47:02:   internalPosition: undefined,
+2025-10-14T07:47:02:   internalQuery: undefined,
+2025-10-14T07:47:02:   where: undefined,
+2025-10-14T07:47:02:   schema: undefined,
+2025-10-14T07:47:02:   table: undefined,
+2025-10-14T07:47:02:   column: undefined,
+2025-10-14T07:47:02:   dataType: undefined,
+2025-10-14T07:47:02:   constraint: undefined,
+2025-10-14T07:47:02:   file: 'parse_relation.c',
+2025-10-14T07:47:02:   line: '1381',
+2025-10-14T07:47:02:   routine: 'parserOpenTable'
+2025-10-14T07:47:02: }
+2025-10-14T07:47:04: Get inventory stats error: error: relation "inventory_stock" does not exist
+2025-10-14T07:47:04:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T07:47:04:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T07:47:04:     at async /home/aglis/AGLIS_Tech/backend/src/routes/inventoryStock.js:171:20 {
+2025-10-14T07:47:04:   length: 115,
+2025-10-14T07:47:04:   severity: 'ERROR',
+2025-10-14T07:47:04:   code: '42P01',
+2025-10-14T07:47:04:   detail: undefined,
+2025-10-14T07:47:04:   hint: undefined,
+2025-10-14T07:47:04:   position: '401',
+2025-10-14T07:47:04:   internalPosition: undefined,
+2025-10-14T07:47:04:   internalQuery: undefined,
+2025-10-14T07:47:04:   where: undefined,
+2025-10-14T07:47:04:   schema: undefined,
+2025-10-14T07:47:04:   table: undefined,
+2025-10-14T07:47:04:   column: undefined,
+2025-10-14T07:47:04:   dataType: undefined,
+2025-10-14T07:47:04:   constraint: undefined,
+2025-10-14T07:47:04:   file: 'parse_relation.c',
+2025-10-14T07:47:04:   line: '1381',
+2025-10-14T07:47:04:   routine: 'parserOpenTable'
+2025-10-14T07:47:04: }
