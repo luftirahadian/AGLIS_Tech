@@ -985,12 +985,9 @@ const RegisterPage = () => {
         <div className="mt-8 text-center">
           <p className="text-gray-600">
             Butuh bantuan? Hubungi kami di{' '}
-            <a href="https://wa.me/6281234567890" className="text-blue-600 hover:text-blue-700 font-medium">
-              WhatsApp
-            </a>
-            {' '}atau{' '}
-            <a href="tel:021-12345678" className="text-blue-600 hover:text-blue-700 font-medium">
-              021-12345678
+            <a href="https://wa.me/6281316003245" className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-1">
+              <Phone className="h-4 w-4" />
+              WhatsApp: 0813-1600-3245
             </a>
           </p>
         </div>

@@ -4,8 +4,7 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 import {
   User, Phone, Mail, MapPin, Package, Calendar,
   CheckCircle, XCircle, Clock, AlertCircle, FileText,
-  Home, UserCheck, ClipboardCheck, Settings, DollarSign,
-  PhoneCall, Mail as MailIcon
+  Home, UserCheck, ClipboardCheck, Settings, DollarSign
 } from 'lucide-react'
 import registrationService from '../../services/registrationService'
 import packageService from '../../services/packageService'
@@ -33,6 +32,14 @@ const RegistrationDetailPage = () => {
 
   // Create customer confirmation modal
   const [showCreateCustomerModal, setShowCreateCustomerModal] = useState(false)
+  
+  // Quick action modals
+  const [showVerifyModal, setShowVerifyModal] = useState(false)
+  const [showRejectModal, setShowRejectModal] = useState(false)
+  const [rejectReason, setRejectReasonInput] = useState('')
+  const [showApproveModal, setShowApproveModal] = useState(false)
+  const [showScheduleSurveyModal, setShowScheduleSurveyModal] = useState(false)
+  const [surveyDateInput, setSurveyDateInput] = useState(new Date().toISOString().split('T')[0])
 
   // Fetch registration detail
   const { data: registrationData, isLoading, error } = useQuery(
@@ -156,72 +163,87 @@ const RegistrationDetailPage = () => {
 
   // ==================== QUICK ACTION HANDLERS ====================
 
-  const handleQuickCall = () => {
-    window.location.href = `tel:${registration.phone}`
+  const handleQuickVerify = () => {
+    setShowVerifyModal(true)
   }
 
-  const handleQuickEmail = () => {
-    window.location.href = `mailto:${registration.email}`
-  }
-
-  const handleQuickVerify = async () => {
-    if (!window.confirm(`Verify registration ${registration.registration_number}?`)) return
-
+  const confirmQuickVerify = async () => {
     try {
       await registrationService.updateStatus(registration.id, 'verified', { notes: 'Quick verified' })
       toast.success(`Registration ${registration.registration_number} verified`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
+      setShowVerifyModal(false)
     } catch (error) {
       toast.error('Failed to verify registration')
       console.error('Quick verify error:', error)
     }
   }
 
-  const handleQuickReject = async () => {
-    const reason = window.prompt('Alasan reject:')
-    if (!reason) return
+  const handleQuickReject = () => {
+    setRejectReasonInput('')
+    setShowRejectModal(true)
+  }
+
+  const confirmQuickReject = async () => {
+    if (!rejectReason.trim()) {
+      toast.error('Alasan reject wajib diisi')
+      return
+    }
 
     try {
       await registrationService.updateStatus(registration.id, 'rejected', { 
-        rejection_reason: reason,
+        rejection_reason: rejectReason,
         notes: 'Quick rejected'
       })
       toast.success(`Registration ${registration.registration_number} rejected`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
+      setShowRejectModal(false)
+      setRejectReasonInput('')
     } catch (error) {
       toast.error('Failed to reject registration')
       console.error('Quick reject error:', error)
     }
   }
 
-  const handleQuickApprove = async () => {
-    if (!window.confirm(`Approve registration ${registration.registration_number}?`)) return
+  const handleQuickApprove = () => {
+    setShowApproveModal(true)
+  }
 
+  const confirmQuickApprove = async () => {
     try {
       await registrationService.updateStatus(registration.id, 'approved', { notes: 'Quick approved' })
       toast.success(`Registration ${registration.registration_number} approved`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
+      setShowApproveModal(false)
     } catch (error) {
       toast.error('Failed to approve registration')
       console.error('Quick approve error:', error)
     }
   }
 
-  const handleQuickScheduleSurvey = async () => {
-    const surveyDate = window.prompt('Survey date (YYYY-MM-DD):', new Date().toISOString().split('T')[0])
-    if (!surveyDate) return
+  const handleQuickScheduleSurvey = () => {
+    setSurveyDateInput(new Date().toISOString().split('T')[0])
+    setShowScheduleSurveyModal(true)
+  }
+
+  const confirmQuickScheduleSurvey = async () => {
+    if (!surveyDateInput) {
+      toast.error('Tanggal survey wajib diisi')
+      return
+    }
 
     try {
       await registrationService.updateStatus(registration.id, 'survey_scheduled', { 
-        survey_date: surveyDate,
+        survey_date: surveyDateInput,
         notes: 'Survey scheduled via quick action'
       })
       toast.success(`Survey scheduled for ${registration.registration_number}`)
       queryClient.invalidateQueries(['registration', id])
       queryClient.invalidateQueries('registrations')
+      setShowScheduleSurveyModal(false)
     } catch (error) {
       toast.error('Failed to schedule survey')
       console.error('Quick schedule survey error:', error)
@@ -406,28 +428,6 @@ const RegistrationDetailPage = () => {
               <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
             </div>
             <div className="flex items-center gap-3">
-              {/* Quick Call */}
-              {registration.phone && (
-                <button
-                  onClick={handleQuickCall}
-                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
-                >
-                  <PhoneCall className="h-4 w-4" />
-                  Call Customer
-                </button>
-              )}
-
-              {/* Quick Email */}
-              {registration.email && (
-                <button
-                  onClick={handleQuickEmail}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
-                >
-                  <MailIcon className="h-4 w-4" />
-                  Email Customer
-                </button>
-              )}
-
               {/* Quick Verify (only for pending) */}
               {canVerify && registration.status === 'pending_verification' && (
                 <button
@@ -728,129 +728,6 @@ const RegistrationDetailPage = () => {
           {/* ACTIONS TAB */}
           {activeTab === 'actions' && (
             <div className="space-y-6">
-              {/* Quick Actions in Actions Tab */}
-              {!['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-sm border border-blue-200 p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-blue-600 rounded-lg">
-                        <CheckCircle className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900">Quick Actions</h3>
-                        <p className="text-sm text-gray-600">Tindakan cepat untuk status registrasi ini</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {/* Quick Verify (only for pending) */}
-                    {canVerify && registration.status === 'pending_verification' && (
-                      <button
-                        onClick={handleQuickVerify}
-                        className="px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <UserCheck className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Verifikasi Data</div>
-                          <div className="text-xs text-blue-100">Validasi & approve data</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Quick Approve (only for verified) */}
-                    {canApprove && registration.status === 'verified' && (
-                      <button
-                        onClick={handleQuickApprove}
-                        className="px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <CheckCircle className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Approve Langsung</div>
-                          <div className="text-xs text-green-100">Setujui pendaftaran</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Quick Schedule Survey (only for verified) */}
-                    {canVerify && registration.status === 'verified' && (
-                      <button
-                        onClick={handleQuickScheduleSurvey}
-                        className="px-6 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <Calendar className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Jadwalkan Survey</div>
-                          <div className="text-xs text-orange-100">Atur jadwal survey</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Quick Create Customer (only for approved) */}
-                    {canCreateCustomer && registration.status === 'approved' && !registration.customer_id && (
-                      <button
-                        onClick={handleCreateCustomer}
-                        className="px-6 py-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <Home className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Buat Customer</div>
-                          <div className="text-xs text-purple-100">Create customer & ticket</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Quick Reject (only for non-final statuses) */}
-                    {canReject && !['customer_created', 'rejected', 'cancelled'].includes(registration.status) && (
-                      <button
-                        onClick={handleQuickReject}
-                        className="px-6 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <XCircle className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Reject Registrasi</div>
-                          <div className="text-xs text-red-100">Tolak dengan alasan</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Contact Actions - Always Available */}
-                    {registration.phone && (
-                      <button
-                        onClick={handleQuickCall}
-                        className="px-6 py-4 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <PhoneCall className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Call Customer</div>
-                          <div className="text-xs text-emerald-100">{registration.phone}</div>
-                        </div>
-                      </button>
-                    )}
-
-                    {registration.email && (
-                      <button
-                        onClick={handleQuickEmail}
-                        className="px-6 py-4 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 text-sm font-medium inline-flex items-center justify-center gap-3 transition-all hover:shadow-lg"
-                      >
-                        <MailIcon className="h-5 w-5" />
-                        <div className="text-left">
-                          <div className="font-semibold">Email Customer</div>
-                          <div className="text-xs text-cyan-100">{registration.email?.substring(0, 20)}</div>
-                        </div>
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Info Text */}
-                  <div className="mt-4 pt-4 border-t border-blue-200">
-                    <p className="text-xs text-gray-600 flex items-center gap-2">
-                      <AlertCircle className="h-4 w-4" />
-                      <span>Gunakan quick actions untuk proses lebih cepat, atau gunakan form detail di bawah untuk kontrol lebih lengkap</span>
-                    </p>
-                  </div>
-                </div>
-              )}
               {/* Approved - Create Customer */}
               {registration.status === 'approved' && !registration.customer_id && (
                 <div>
@@ -1599,6 +1476,113 @@ const RegistrationDetailPage = () => {
                 🔗 Status registrasi akan di-update
               </p>
             </div>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Verify Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showVerifyModal}
+        onClose={() => setShowVerifyModal(false)}
+        onConfirm={confirmQuickVerify}
+        title="✅ Verifikasi Data Registrasi"
+        message={registration ? `Verifikasi data pendaftaran dari "${registration.full_name}"?` : ''}
+        confirmText="Ya, Verifikasi"
+        cancelText="Batal"
+        type="info"
+      >
+        {registration && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              ✅ Status akan berubah menjadi <span className="font-semibold text-blue-900">"Verified"</span><br/>
+              📋 Data sudah diperiksa dan valid<br/>
+              ⏭️ Registrasi siap untuk diproses lebih lanjut
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Approve Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showApproveModal}
+        onClose={() => setShowApproveModal(false)}
+        onConfirm={confirmQuickApprove}
+        title="✅ Approve Registrasi"
+        message={registration ? `Setujui pendaftaran dari "${registration.full_name}"?` : ''}
+        confirmText="Ya, Approve"
+        cancelText="Batal"
+        type="success"
+      >
+        {registration && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              ✅ Status akan berubah menjadi <span className="font-semibold text-green-900">"Approved"</span><br/>
+              🎉 Pendaftaran disetujui<br/>
+              ⏭️ Siap untuk dibuat customer & ticket instalasi
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Schedule Survey Modal */}
+      <ConfirmationModal
+        isOpen={showScheduleSurveyModal}
+        onClose={() => setShowScheduleSurveyModal(false)}
+        onConfirm={confirmQuickScheduleSurvey}
+        title="📅 Jadwalkan Survey"
+        message={registration ? `Jadwalkan survey untuk "${registration.full_name}"` : ''}
+        confirmText="Ya, Jadwalkan"
+        cancelText="Batal"
+        type="warning"
+      >
+        {registration && (
+          <div className="mt-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Tanggal Survey *
+            </label>
+            <input
+              type="date"
+              value={surveyDateInput}
+              onChange={(e) => setSurveyDateInput(e.target.value)}
+              min={new Date().toISOString().split('T')[0]}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            />
+            <p className="mt-2 text-xs text-gray-600">
+              📅 Status akan berubah menjadi <span className="font-semibold">"Survey Scheduled"</span>
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Reject Modal */}
+      <ConfirmationModal
+        isOpen={showRejectModal}
+        onClose={() => {
+          setShowRejectModal(false)
+          setRejectReasonInput('')
+        }}
+        onConfirm={confirmQuickReject}
+        title="❌ Reject Registrasi"
+        message={registration ? `Tolak pendaftaran dari "${registration.full_name}"?` : ''}
+        confirmText="Ya, Reject"
+        cancelText="Batal"
+        type="danger"
+      >
+        {registration && (
+          <div className="mt-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Alasan Reject *
+            </label>
+            <textarea
+              value={rejectReason}
+              onChange={(e) => setRejectReasonInput(e.target.value)}
+              rows={3}
+              placeholder="Tuliskan alasan reject..."
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 resize-none"
+            />
+            <p className="mt-2 text-xs text-gray-600">
+              ❌ Status akan berubah menjadi <span className="font-semibold">"Rejected"</span>
+            </p>
           </div>
         )}
       </ConfirmationModal>

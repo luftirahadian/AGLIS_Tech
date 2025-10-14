@@ -20,3 +20,48 @@
 2025-10-14T02:41:54:   line: '1381',
 2025-10-14T02:41:54:   routine: 'parserOpenTable'
 2025-10-14T02:41:54: }
+2025-10-14T03:37:20: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T03:37:20:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T03:37:20:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T03:37:20:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T03:37:20:   length: 113,
+2025-10-14T03:37:20:   severity: 'ERROR',
+2025-10-14T03:37:20:   code: '42P01',
+2025-10-14T03:37:20:   detail: undefined,
+2025-10-14T03:37:20:   hint: undefined,
+2025-10-14T03:37:20:   position: '823',
+2025-10-14T03:37:20:   internalPosition: undefined,
+2025-10-14T03:37:20:   internalQuery: undefined,
+2025-10-14T03:37:20:   where: undefined,
+2025-10-14T03:37:20:   schema: undefined,
+2025-10-14T03:37:20:   table: undefined,
+2025-10-14T03:37:20:   column: undefined,
+2025-10-14T03:37:20:   dataType: undefined,
+2025-10-14T03:37:20:   constraint: undefined,
+2025-10-14T03:37:20:   file: 'parse_relation.c',
+2025-10-14T03:37:20:   line: '1381',
+2025-10-14T03:37:20:   routine: 'parserOpenTable'
+2025-10-14T03:37:20: }
+2025-10-14T03:42:17: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T03:42:17:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T03:42:17:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T03:42:17:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T03:42:17:   length: 113,
+2025-10-14T03:42:17:   severity: 'ERROR',
+2025-10-14T03:42:17:   code: '42P01',
+2025-10-14T03:42:17:   detail: undefined,
+2025-10-14T03:42:17:   hint: undefined,
+2025-10-14T03:42:17:   position: '823',
+2025-10-14T03:42:17:   internalPosition: undefined,
+2025-10-14T03:42:17:   internalQuery: undefined,
+2025-10-14T03:42:17:   where: undefined,
+2025-10-14T03:42:17:   schema: undefined,
+2025-10-14T03:42:17:   table: undefined,
+2025-10-14T03:42:17:   column: undefined,
+2025-10-14T03:42:17:   dataType: undefined,
+2025-10-14T03:42:17:   constraint: undefined,
+2025-10-14T03:42:17:   file: 'parse_relation.c',
+2025-10-14T03:42:17:   line: '1381',
+2025-10-14T03:42:17:   routine: 'parserOpenTable'
+2025-10-14T03:42:17: }
+2025-10-14T04:00:35: reCAPTCHA verification error: timeout of 5000ms exceeded

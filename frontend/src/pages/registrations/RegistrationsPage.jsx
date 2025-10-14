@@ -50,6 +50,15 @@ const RegistrationsPage = () => {
   // Create customer confirmation modal
   const [showCreateCustomerModal, setShowCreateCustomerModal] = useState(false)
   const [customerToCreate, setCustomerToCreate] = useState(null)
+  
+  // Quick action modals
+  const [showQuickVerifyModal, setShowQuickVerifyModal] = useState(false)
+  const [showQuickRejectModal, setShowQuickRejectModal] = useState(false)
+  const [showQuickApproveModal, setShowQuickApproveModal] = useState(false)
+  const [showQuickScheduleSurveyModal, setShowQuickScheduleSurveyModal] = useState(false)
+  const [quickActionTarget, setQuickActionTarget] = useState(null)
+  const [quickRejectReason, setQuickRejectReason] = useState('')
+  const [quickSurveyDate, setQuickSurveyDate] = useState(new Date().toISOString().split('T')[0])
 
   // Format currency helper
   const formatCurrency = (amount) => {
@@ -406,36 +415,53 @@ const RegistrationsPage = () => {
 
   // ==================== QUICK ACTION HANDLERS ====================
 
-  const handleQuickVerify = async (e, registration) => {
+  const handleQuickVerify = (e, registration) => {
     e.stopPropagation()
-    
-    if (!window.confirm(`Verify registration ${registration.registration_number}?`)) return
+    setQuickActionTarget(registration)
+    setShowQuickVerifyModal(true)
+  }
+
+  const confirmQuickVerify = async () => {
+    if (!quickActionTarget) return
 
     try {
-      await registrationService.updateStatus(registration.id, 'verified', { notes: 'Quick verified' })
-      toast.success(`Registration ${registration.registration_number} verified`)
+      await registrationService.updateStatus(quickActionTarget.id, 'verified', { notes: 'Quick verified' })
+      toast.success(`Registration ${quickActionTarget.registration_number} verified`)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
+      setShowQuickVerifyModal(false)
+      setQuickActionTarget(null)
     } catch (error) {
       toast.error('Failed to verify registration')
       console.error('Quick verify error:', error)
     }
   }
 
-  const handleQuickReject = async (e, registration) => {
+  const handleQuickReject = (e, registration) => {
     e.stopPropagation()
-    
-    const reason = window.prompt('Alasan reject:')
-    if (!reason) return
+    setQuickActionTarget(registration)
+    setQuickRejectReason('')
+    setShowQuickRejectModal(true)
+  }
+
+  const confirmQuickReject = async () => {
+    if (!quickActionTarget) return
+    if (!quickRejectReason.trim()) {
+      toast.error('Alasan reject wajib diisi')
+      return
+    }
 
     try {
-      await registrationService.updateStatus(registration.id, 'rejected', { 
-        rejection_reason: reason,
+      await registrationService.updateStatus(quickActionTarget.id, 'rejected', { 
+        rejection_reason: quickRejectReason,
         notes: 'Quick rejected'
       })
-      toast.success(`Registration ${registration.registration_number} rejected`)
+      toast.success(`Registration ${quickActionTarget.registration_number} rejected`)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
+      setShowQuickRejectModal(false)
+      setQuickActionTarget(null)
+      setQuickRejectReason('')
     } catch (error) {
       toast.error('Failed to reject registration')
       console.error('Quick reject error:', error)
@@ -458,36 +484,52 @@ const RegistrationsPage = () => {
     setShowCreateCustomerModal(true)
   }
 
-  const handleQuickApprove = async (e, registration) => {
+  const handleQuickApprove = (e, registration) => {
     e.stopPropagation()
-    
-    if (!window.confirm(`Approve registration ${registration.registration_number}?`)) return
+    setQuickActionTarget(registration)
+    setShowQuickApproveModal(true)
+  }
+
+  const confirmQuickApprove = async () => {
+    if (!quickActionTarget) return
 
     try {
-      await registrationService.updateStatus(registration.id, 'approved', { notes: 'Quick approved' })
-      toast.success(`Registration ${registration.registration_number} approved`)
+      await registrationService.updateStatus(quickActionTarget.id, 'approved', { notes: 'Quick approved' })
+      toast.success(`Registration ${quickActionTarget.registration_number} approved`)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
+      setShowQuickApproveModal(false)
+      setQuickActionTarget(null)
     } catch (error) {
       toast.error('Failed to approve registration')
       console.error('Quick approve error:', error)
     }
   }
 
-  const handleQuickScheduleSurvey = async (e, registration) => {
+  const handleQuickScheduleSurvey = (e, registration) => {
     e.stopPropagation()
-    
-    const surveyDate = window.prompt('Survey date (YYYY-MM-DD):', new Date().toISOString().split('T')[0])
-    if (!surveyDate) return
+    setQuickActionTarget(registration)
+    setQuickSurveyDate(new Date().toISOString().split('T')[0])
+    setShowQuickScheduleSurveyModal(true)
+  }
+
+  const confirmQuickScheduleSurvey = async () => {
+    if (!quickActionTarget) return
+    if (!quickSurveyDate) {
+      toast.error('Tanggal survey wajib diisi')
+      return
+    }
 
     try {
-      await registrationService.updateStatus(registration.id, 'survey_scheduled', { 
-        survey_date: surveyDate,
+      await registrationService.updateStatus(quickActionTarget.id, 'survey_scheduled', { 
+        survey_date: quickSurveyDate,
         notes: 'Survey scheduled via quick action'
       })
-      toast.success(`Survey scheduled for ${registration.registration_number}`)
+      toast.success(`Survey scheduled for ${quickActionTarget.registration_number}`)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
+      setShowQuickScheduleSurveyModal(false)
+      setQuickActionTarget(null)
     } catch (error) {
       toast.error('Failed to schedule survey')
       console.error('Quick schedule survey error:', error)
@@ -1649,6 +1691,115 @@ const RegistrationsPage = () => {
                 📧 Notifikasi akan dikirim
               </p>
             </div>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Verify Modal */}
+      <ConfirmationModal
+        isOpen={showQuickVerifyModal}
+        onClose={() => {
+          setShowQuickVerifyModal(false)
+          setQuickActionTarget(null)
+        }}
+        onConfirm={confirmQuickVerify}
+        title="✅ Verifikasi Data"
+        message={quickActionTarget ? `Verifikasi data pendaftaran dari "${quickActionTarget.full_name}"?` : ''}
+        confirmText="Ya, Verifikasi"
+        cancelText="Batal"
+        type="info"
+      >
+        {quickActionTarget && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              ✅ Status akan berubah menjadi <span className="font-semibold text-blue-900">"Verified"</span><br/>
+              📋 Data sudah diperiksa dan valid
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Approve Modal */}
+      <ConfirmationModal
+        isOpen={showQuickApproveModal}
+        onClose={() => {
+          setShowQuickApproveModal(false)
+          setQuickActionTarget(null)
+        }}
+        onConfirm={confirmQuickApprove}
+        title="✅ Approve Registrasi"
+        message={quickActionTarget ? `Setujui pendaftaran dari "${quickActionTarget.full_name}"?` : ''}
+        confirmText="Ya, Approve"
+        cancelText="Batal"
+        type="success"
+      >
+        {quickActionTarget && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              ✅ Status akan berubah menjadi <span className="font-semibold text-green-900">"Approved"</span><br/>
+              🎉 Pendaftaran disetujui
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Schedule Survey Modal */}
+      <ConfirmationModal
+        isOpen={showQuickScheduleSurveyModal}
+        onClose={() => {
+          setShowQuickScheduleSurveyModal(false)
+          setQuickActionTarget(null)
+        }}
+        onConfirm={confirmQuickScheduleSurvey}
+        title="📅 Jadwalkan Survey"
+        message={quickActionTarget ? `Jadwalkan survey untuk "${quickActionTarget.full_name}"` : ''}
+        confirmText="Ya, Jadwalkan"
+        cancelText="Batal"
+        type="warning"
+      >
+        {quickActionTarget && (
+          <div className="mt-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Tanggal Survey *
+            </label>
+            <input
+              type="date"
+              value={quickSurveyDate}
+              onChange={(e) => setQuickSurveyDate(e.target.value)}
+              min={new Date().toISOString().split('T')[0]}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            />
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Quick Reject Modal */}
+      <ConfirmationModal
+        isOpen={showQuickRejectModal}
+        onClose={() => {
+          setShowQuickRejectModal(false)
+          setQuickActionTarget(null)
+          setQuickRejectReason('')
+        }}
+        onConfirm={confirmQuickReject}
+        title="❌ Reject Registrasi"
+        message={quickActionTarget ? `Tolak pendaftaran dari "${quickActionTarget.full_name}"?` : ''}
+        confirmText="Ya, Reject"
+        cancelText="Batal"
+        type="danger"
+      >
+        {quickActionTarget && (
+          <div className="mt-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Alasan Reject *
+            </label>
+            <textarea
+              value={quickRejectReason}
+              onChange={(e) => setQuickRejectReason(e.target.value)}
+              rows={3}
+              placeholder="Tuliskan alasan reject..."
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 resize-none"
+            />
           </div>
         )}
       </ConfirmationModal>

@@ -793,3 +793,153 @@ Recent application errors:
 7|aglis-backend-1  | 2025-10-14T02:42:08:   line: '1381',
 7|aglis-backend-1  | 2025-10-14T02:42:08:   routine: 'parserOpenTable'
 7|aglis-backend-1  | 2025-10-14T02:42:08: }
+8|aglis-backend-2  | 2025-10-14T03:37:19: Get ticket error: error: relation "service_types" does not exist
+8|aglis-backend-2  | 2025-10-14T03:37:19:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T03:37:19:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T03:37:19:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+8|aglis-backend-2  | 2025-10-14T03:37:19:   length: 113,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T03:37:19:   code: '42P01',
+8|aglis-backend-2  | 2025-10-14T03:37:19:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   position: '823',
+8|aglis-backend-2  | 2025-10-14T03:37:19:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:37:19:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-14T03:37:19:   line: '1381',
+8|aglis-backend-2  | 2025-10-14T03:37:19:   routine: 'parserOpenTable'
+8|aglis-backend-2  | 2025-10-14T03:37:19: }
+9|aglis-backend-3  | 2025-10-14T03:37:20: Get ticket error: error: relation "service_types" does not exist
+9|aglis-backend-3  | 2025-10-14T03:37:20:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T03:37:20:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T03:37:20:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T03:37:20:   length: 113,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T03:37:20:   code: '42P01',
+9|aglis-backend-3  | 2025-10-14T03:37:20:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   position: '823',
+9|aglis-backend-3  | 2025-10-14T03:37:20:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   where: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T03:37:20:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T03:37:20:   line: '1381',
+9|aglis-backend-3  | 2025-10-14T03:37:20:   routine: 'parserOpenTable'
+9|aglis-backend-3  | 2025-10-14T03:37:20: }
+8|aglis-backend-2  | 2025-10-14T03:42:16: Get ticket error: error: relation "service_types" does not exist
+8|aglis-backend-2  | 2025-10-14T03:42:16:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T03:42:16:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T03:42:16:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+8|aglis-backend-2  | 2025-10-14T03:42:16:   length: 113,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T03:42:16:   code: '42P01',
+8|aglis-backend-2  | 2025-10-14T03:42:16:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   position: '823',
+8|aglis-backend-2  | 2025-10-14T03:42:16:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:42:16:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-14T03:42:16:   line: '1381',
+8|aglis-backend-2  | 2025-10-14T03:42:16:   routine: 'parserOpenTable'
+8|aglis-backend-2  | 2025-10-14T03:42:16: }
+9|aglis-backend-3  | 2025-10-14T03:42:17: Get ticket error: error: relation "service_types" does not exist
+9|aglis-backend-3  | 2025-10-14T03:42:17:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T03:42:17:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T03:42:17:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+9|aglis-backend-3  | 2025-10-14T03:42:17:   length: 113,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-14T03:42:17:   code: '42P01',
+9|aglis-backend-3  | 2025-10-14T03:42:17:   detail: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   hint: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   position: '823',
+9|aglis-backend-3  | 2025-10-14T03:42:17:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   where: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   schema: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T03:42:17:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T03:42:17:   line: '1381',
+9|aglis-backend-3  | 2025-10-14T03:42:17:   routine: 'parserOpenTable'
+9|aglis-backend-3  | 2025-10-14T03:42:17: }
+7|aglis-backend-1  | 2025-10-14T03:54:27: Get ticket error: error: relation "service_types" does not exist
+7|aglis-backend-1  | 2025-10-14T03:54:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T03:54:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T03:54:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+7|aglis-backend-1  | 2025-10-14T03:54:27:   length: 113,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T03:54:27:   code: '42P01',
+7|aglis-backend-1  | 2025-10-14T03:54:27:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   position: '823',
+7|aglis-backend-1  | 2025-10-14T03:54:27:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   where: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T03:54:27:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-14T03:54:27:   line: '1381',
+7|aglis-backend-1  | 2025-10-14T03:54:27:   routine: 'parserOpenTable'
+7|aglis-backend-1  | 2025-10-14T03:54:27: }
+8|aglis-backend-2  | 2025-10-14T03:54:28: Get ticket error: error: relation "service_types" does not exist
+8|aglis-backend-2  | 2025-10-14T03:54:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-14T03:54:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T03:54:28:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+8|aglis-backend-2  | 2025-10-14T03:54:28:   length: 113,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T03:54:28:   code: '42P01',
+8|aglis-backend-2  | 2025-10-14T03:54:28:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   position: '823',
+8|aglis-backend-2  | 2025-10-14T03:54:28:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T03:54:28:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-14T03:54:28:   line: '1381',
+8|aglis-backend-2  | 2025-10-14T03:54:28:   routine: 'parserOpenTable'
+8|aglis-backend-2  | 2025-10-14T03:54:28: }
+9|aglis-backend-3  | 2025-10-14T04:00:35: reCAPTCHA verification error: timeout of 5000ms exceeded
+7|aglis-backend-1  | 2025-10-14T04:02:23: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at JSON.parse (<anonymous>)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1  | 2025-10-14T04:02:23:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 2025-10-14T04:02:23:   expose: true,
+7|aglis-backend-1  | 2025-10-14T04:02:23:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T04:02:23:   status: 400,
+7|aglis-backend-1  | 2025-10-14T04:02:23:   body: '"approved"',
+7|aglis-backend-1  | 2025-10-14T04:02:23:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T04:02:23: }

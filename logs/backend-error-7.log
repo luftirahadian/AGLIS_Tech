@@ -20,3 +20,42 @@
 2025-10-14T02:42:08:   line: '1381',
 2025-10-14T02:42:08:   routine: 'parserOpenTable'
 2025-10-14T02:42:08: }
+2025-10-14T03:54:27: Get ticket error: error: relation "service_types" does not exist
+2025-10-14T03:54:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T03:54:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T03:54:27:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T03:54:27:   length: 113,
+2025-10-14T03:54:27:   severity: 'ERROR',
+2025-10-14T03:54:27:   code: '42P01',
+2025-10-14T03:54:27:   detail: undefined,
+2025-10-14T03:54:27:   hint: undefined,
+2025-10-14T03:54:27:   position: '823',
+2025-10-14T03:54:27:   internalPosition: undefined,
+2025-10-14T03:54:27:   internalQuery: undefined,
+2025-10-14T03:54:27:   where: undefined,
+2025-10-14T03:54:27:   schema: undefined,
+2025-10-14T03:54:27:   table: undefined,
+2025-10-14T03:54:27:   column: undefined,
+2025-10-14T03:54:27:   dataType: undefined,
+2025-10-14T03:54:27:   constraint: undefined,
+2025-10-14T03:54:27:   file: 'parse_relation.c',
+2025-10-14T03:54:27:   line: '1381',
+2025-10-14T03:54:27:   routine: 'parserOpenTable'
+2025-10-14T03:54:27: }
+2025-10-14T04:02:23: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T04:02:23:     at JSON.parse (<anonymous>)
+2025-10-14T04:02:23:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T04:02:23:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T04:02:23:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T04:02:23:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T04:02:23:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T04:02:23:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T04:02:23:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T04:02:23:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T04:02:23:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T04:02:23:   expose: true,
+2025-10-14T04:02:23:   statusCode: 400,
+2025-10-14T04:02:23:   status: 400,
+2025-10-14T04:02:23:   body: '"approved"',
+2025-10-14T04:02:23:   type: 'entity.parse.failed'
+2025-10-14T04:02:23: }
