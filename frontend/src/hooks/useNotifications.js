@@ -34,7 +34,7 @@ export const useNotifications = (params = {}) => {
 
   // Socket.IO real-time updates
   useEffect(() => {
-    if (!socketService.isConnected()) {
+    if (!socketService.isConnected) {
       socketService.connect()
     }
 
@@ -285,7 +285,7 @@ export const useUnreadCount = () => {
 
   // Socket.IO real-time updates for unread count
   useEffect(() => {
-    if (!socketService.isConnected()) {
+    if (!socketService.isConnected) {
       socketService.connect()
     }
 
