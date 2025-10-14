@@ -41,9 +41,12 @@ const KPICard = memo(({
   const change = calculateChange();
 
   const formatValue = (val) => {
+    // Ensure val is a number
+    const numVal = typeof val === 'string' ? parseFloat(val) : val;
+    
     if (format === 'currency') {
       // Use compact notation for large numbers
-      if (val >= 1000000) {
+      if (numVal >= 1000000) {
         return new Intl.NumberFormat('id-ID', {
           style: 'currency',
           currency: 'IDR',
@@ -51,22 +54,22 @@ const KPICard = memo(({
           maximumFractionDigits: 1,
           notation: 'compact',
           compactDisplay: 'short'
-        }).format(val);
+        }).format(numVal);
       }
       return new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR',
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
-      }).format(val);
+      }).format(numVal);
     }
     if (format === 'percentage') {
-      return `${val.toFixed(1)}%`;
+      return `${numVal.toFixed(1)}%`;
     }
     if (format === 'decimal') {
-      return val.toFixed(1);
+      return numVal.toFixed(1);
     }
-    return val.toLocaleString();
+    return numVal.toLocaleString();
   };
 
   return (
