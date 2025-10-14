@@ -826,16 +826,25 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
       console.log('✅ Transaction BEGIN');
 
       // Generate customer ID - Format: AGLSyyyymmddxxxx (4 digits)
-      const countResult = await client.query(
-        "SELECT COUNT(*) FROM customers WHERE DATE(created_at) = CURRENT_DATE"
-      );
-      const dailyCount = parseInt(countResult.rows[0].count) + 1;
-      // Use local date instead of UTC to match database CURRENT_DATE
+      // Use MAX approach for reliability
       const now = new Date();
       const year = now.getFullYear();
       const month = String(now.getMonth() + 1).padStart(2, '0');
       const day = String(now.getDate()).padStart(2, '0');
       const today = `${year}${month}${day}`;
+      
+      const maxResult = await client.query(
+        "SELECT customer_id FROM customers WHERE customer_id LIKE $1 ORDER BY customer_id DESC LIMIT 1",
+        [`AGLS${today}%`]
+      );
+      
+      let dailyCount = 1;
+      if (maxResult.rows.length > 0) {
+        const lastId = maxResult.rows[0].customer_id;
+        const lastNumber = parseInt(lastId.slice(-4));
+        dailyCount = lastNumber + 1;
+      }
+      
       const customer_id = `AGLS${today}${dailyCount.toString().padStart(4, '0')}`;
 
       // Generate username and password (username must be unique!)
@@ -883,10 +892,19 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
 
       // Create installation ticket - Format: TKTyyyymmddxxx
       // Get daily ticket count (not customer count)
-      const ticketCountResult = await client.query(
-        'SELECT COUNT(*) FROM tickets WHERE DATE(created_at) = CURRENT_DATE'
+      // Generate ticket number - Use MAX approach for reliability
+      const maxTicketResult = await client.query(
+        "SELECT ticket_number FROM tickets WHERE ticket_number LIKE $1 ORDER BY ticket_number DESC LIMIT 1",
+        [`TKT${today}%`]
       );
-      const dailyTicketCount = parseInt(ticketCountResult.rows[0].count) + 1;
+      
+      let dailyTicketCount = 1;
+      if (maxTicketResult.rows.length > 0) {
+        const lastTicketNumber = maxTicketResult.rows[0].ticket_number;
+        const lastNumber = parseInt(lastTicketNumber.slice(-3));
+        dailyTicketCount = lastNumber + 1;
+      }
+      
       const ticketNumber = `TKT${today}${dailyTicketCount.toString().padStart(3, '0')}`;
       const sla_due_date = new Date();
       sla_due_date.setHours(sla_due_date.getHours() + 48); // 48 hours SLA for installation

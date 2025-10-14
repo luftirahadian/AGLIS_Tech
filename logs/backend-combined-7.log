@@ -1305,3 +1305,518 @@
 2025-10-14T08:44:09: ✅ Connected to PostgreSQL database
 2025-10-14T08:44:09: ✅ Connected to PostgreSQL database
 2025-10-14T08:44:09: 103.55.224.49 - - [14/Oct/2025:01:44:09 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:45:29: 103.55.224.49 - - [14/Oct/2025:01:45:29 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:34: 103.55.224.49 - - [14/Oct/2025:01:45:34 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:39: ✅ Connected to PostgreSQL database
+2025-10-14T08:45:39: 103.55.224.49 - - [14/Oct/2025:01:45:39 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:41: 103.55.224.49 - - [14/Oct/2025:01:45:41 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:41: 103.55.224.49 - - [14/Oct/2025:01:45:41 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:41: 103.55.224.49 - - [14/Oct/2025:01:45:41 +0000] "GET /api/customers/8 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:47: 103.55.224.49 - - [14/Oct/2025:01:45:47 +0000] "GET /api/packages HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:50: 103.55.224.49 - - [14/Oct/2025:01:45:50 +0000] "GET /api/equipment HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:52: 103.55.224.49 - - [14/Oct/2025:01:45:52 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/8" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:54: 103.55.224.49 - - [14/Oct/2025:01:45:54 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:45:58: 103.55.224.49 - - [14/Oct/2025:01:45:58 +0000] "GET /api/customers/7 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/7" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:05: 103.55.224.49 - - [14/Oct/2025:01:46:05 +0000] "GET /api/packages?is_active=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:05: 103.55.224.49 - - [14/Oct/2025:01:46:05 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:11: 103.55.224.49 - - [14/Oct/2025:01:46:11 +0000] "GET /api/registrations/5 HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:31: 103.55.224.49 - - [14/Oct/2025:01:46:31 +0000] "GET /api/registrations/public/status/REG-20251013-0004 HTTP/1.1" 200 502 "https://portal.aglis.biz.id/track/REG-20251013-0004" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:54: ✅ Connected to PostgreSQL database
+2025-10-14T08:46:54: 103.55.224.49 - - [14/Oct/2025:01:46:54 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/track/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:46:58: 103.55.224.49 - - [14/Oct/2025:01:46:58 +0000] "GET /api/registrations/public/status/REG-20251013-0004 HTTP/1.1" 200 502 "https://portal.aglis.biz.id/track/REG-20251013-0004" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:47:04: 103.55.224.49 - - [14/Oct/2025:01:47:04 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:47:04: 103.55.224.49 - - [14/Oct/2025:01:47:04 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:47:42: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:47:42: 🔍 OTP VERIFY (Redis): Phone=628197670700, InputOTP=247730, Key=otp:628197670700, Process=428320
+2025-10-14T08:47:42: 📦 STORED OTP: 247730, Expires: 2025-10-14T01:52:29.541Z, Attempts: 0, Source: Redis
+2025-10-14T08:47:42: ✅ OTP VERIFIED: Phone=628197670700
+2025-10-14T08:47:42: 103.55.224.49 - - [14/Oct/2025:01:47:42 +0000] "POST /api/registrations/public/verify-otp HTTP/1.1" 200 65 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:31: ✅ Connected to PostgreSQL database
+2025-10-14T08:48:31: 103.55.224.49 - - [14/Oct/2025:01:48:31 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:31: ✅ Connected to PostgreSQL database
+2025-10-14T08:48:31: 103.55.224.49 - - [14/Oct/2025:01:48:31 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:39: 103.55.224.49 - - [14/Oct/2025:01:48:39 +0000] "GET /api/customers/stats HTTP/1.1" 200 253 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:47: 103.55.224.49 - - [14/Oct/2025:01:48:47 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:47: 103.55.224.49 - - [14/Oct/2025:01:48:47 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:48:49: 103.55.224.49 - - [14/Oct/2025:01:48:49 +0000] "GET /api/registrations/stats HTTP/1.1" 200 259 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:49:15: 103.55.224.49 - - [14/Oct/2025:01:49:15 +0000] "GET /api/registrations/stats HTTP/1.1" 200 259 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:49:27: 103.55.224.49 - - [14/Oct/2025:01:49:27 +0000] "GET /api/registration-analytics/trends?days=30 HTTP/1.1" 200 181 "https://portal.aglis.biz.id/registration-analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:49:32: 103.55.224.49 - - [14/Oct/2025:01:49:32 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:49:32: 103.55.224.49 - - [14/Oct/2025:01:49:32 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:49:47: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:49:47:   expose: true,
+2025-10-14T08:49:47:   statusCode: 400,
+2025-10-14T08:49:47:   status: 400,
+2025-10-14T08:49:47:   body: '"verified"',
+2025-10-14T08:49:47:   type: 'entity.parse.failed'
+2025-10-14T08:49:47: }
+2025-10-14T08:49:47: 103.55.224.49 - - [14/Oct/2025:01:49:47 +0000] "PUT /api/registrations/6/status HTTP/1.1" 400 71 "https://portal.aglis.biz.id/registrations/6" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:51:02: ✅ Connected to PostgreSQL database
+2025-10-14T08:51:02: ✅ Connected to PostgreSQL database
+2025-10-14T08:51:02: 103.55.224.49 - - [14/Oct/2025:01:51:02 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:51:59: ✅ Connected to PostgreSQL database
+2025-10-14T08:51:59: ✅ Connected to PostgreSQL database
+2025-10-14T08:51:59: 103.55.224.49 - - [14/Oct/2025:01:51:59 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 422 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:51:59: ✅ Connected to PostgreSQL database
+2025-10-14T08:51:59: 103.55.224.49 - - [14/Oct/2025:01:51:59 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: ✅ Connected to PostgreSQL database
+2025-10-14T08:52:29: 103.55.224.49 - - [14/Oct/2025:01:52:29 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:52:53: 103.55.224.49 - - [14/Oct/2025:01:52:53 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:52:56: 103.55.224.49 - - [14/Oct/2025:01:52:56 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:26: 103.55.224.49 - - [14/Oct/2025:01:53:26 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:53:31: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T08:53:31: 🚀 Server running on 0.0.0.0:3001
+2025-10-14T08:53:31: 🌍 Environment: production
+2025-10-14T08:53:31: 📡 Local access: http://localhost:3001
+2025-10-14T08:53:31: 🌐 Network access: http://192.168.121.30:3001
+2025-10-14T08:53:31: 📝 CORS origins configured for local network access
+2025-10-14T08:53:31: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T08:53:31: ✅ Redis client connected for OTP storage
+2025-10-14T08:53:31: ✅ Redis client ready
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:53:34: 103.55.224.49 - - [14/Oct/2025:01:53:34 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:53:52: 125.17.108.32 - - [14/Oct/2025:01:53:52 +0000] "GET /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 45 "-" "libredtail-http"
+2025-10-14T08:54:18: ✅ Connected to PostgreSQL database
+2025-10-14T08:54:18: 103.55.224.49 - - [14/Oct/2025:01:54:18 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:54:21: ✅ Connected to PostgreSQL database
+2025-10-14T08:54:21: 103.55.224.49 - - [14/Oct/2025:01:54:21 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:54:34: 103.55.224.49 - - [14/Oct/2025:01:54:34 +0000] "GET /api/registrations/6 HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/6" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:54:49: 103.55.224.49 - - [14/Oct/2025:01:54:49 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:55:04: 103.55.224.49 - - [14/Oct/2025:01:55:04 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:55:35: ✅ Connected to PostgreSQL database
+2025-10-14T08:55:35: 103.55.224.49 - - [14/Oct/2025:01:55:35 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:55:58: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:55:58: ❌ Failed login attempt for admin - Attempt 1
+2025-10-14T08:55:58: 127.0.0.1 - - [14/Oct/2025:01:55:58 +0000] "POST /api/auth/login HTTP/1.1" 401 86 "-" "curl/7.81.0"
+2025-10-14T08:56:05: 103.55.224.49 - - [14/Oct/2025:01:56:05 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:56:11: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:56:12: ❌ Failed login attempt for admin - Attempt 2
+2025-10-14T08:56:12: 127.0.0.1 - - [14/Oct/2025:01:56:12 +0000] "POST /api/auth/login HTTP/1.1" 401 86 "-" "curl/7.81.0"
+2025-10-14T08:56:18: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:56:18: ❌ Failed login attempt for admin - Attempt 3
+2025-10-14T08:56:18: 127.0.0.1 - - [14/Oct/2025:01:56:18 +0000] "POST /api/auth/login HTTP/1.1" 401 131 "-" "curl/7.81.0"
+2025-10-14T08:56:20: 103.55.224.49 - - [14/Oct/2025:01:56:20 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:56:35: 103.55.224.49 - - [14/Oct/2025:01:56:35 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: ✅ Connected to PostgreSQL database
+2025-10-14T08:57:05: 103.55.224.49 - - [14/Oct/2025:01:57:05 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:57:07: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:57:08: ❌ Failed login attempt for admin - Attempt 4
+2025-10-14T08:57:08: 127.0.0.1 - - [14/Oct/2025:01:57:08 +0000] "POST /api/auth/login HTTP/1.1" 401 131 "-" "curl/7.81.0"
+2025-10-14T08:57:21: 103.55.224.49 - - [14/Oct/2025:01:57:21 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:57:22: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:57:23: ❌ Failed login attempt for admin - Attempt 1
+2025-10-14T08:57:23: 127.0.0.1 - - [14/Oct/2025:01:57:23 +0000] "POST /api/auth/login HTTP/1.1" 401 86 "-" "curl/7.81.0"
+2025-10-14T08:57:25: 103.55.224.49 - - [14/Oct/2025:01:57:25 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:57:34: 103.55.224.49 - - [14/Oct/2025:01:57:34 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/6" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:58:16: 127.0.0.1 - - [14/Oct/2025:01:58:16 +0000] "POST /api/auth/login HTTP/1.1" 429 131 "-" "curl/7.81.0"
+2025-10-14T08:58:25: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T08:58:25: 🚀 Server running on 0.0.0.0:3001
+2025-10-14T08:58:25: 🌍 Environment: production
+2025-10-14T08:58:25: 📡 Local access: http://localhost:3001
+2025-10-14T08:58:25: 🌐 Network access: http://192.168.121.30:3001
+2025-10-14T08:58:25: 📝 CORS origins configured for local network access
+2025-10-14T08:58:25: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T08:58:25: ✅ Redis client connected for OTP storage
+2025-10-14T08:58:25: ✅ Redis client ready
+2025-10-14T08:58:34: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:58:34: ✅ Connected to PostgreSQL database
+2025-10-14T08:58:34: ✅ Reset failed attempts for user 17
+2025-10-14T08:58:34: ✅ Successful login for admin
+2025-10-14T08:58:34: 127.0.0.1 - - [14/Oct/2025:01:58:34 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "-" "curl/7.81.0"
+2025-10-14T08:58:35: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:58:35: 127.0.0.1 - - [14/Oct/2025:01:58:35 +0000] "POST /api/registrations/public HTTP/1.1" 400 161 "-" "curl/7.81.0"
+2025-10-14T08:58:35: ✅ Connected to PostgreSQL database
+2025-10-14T08:58:35: 103.55.224.49 - - [14/Oct/2025:01:58:35 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/6" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:59:02: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:59:02: ✅ Reset failed attempts for user 17
+2025-10-14T08:59:02: ✅ Successful login for admin
+2025-10-14T08:59:02: 127.0.0.1 - - [14/Oct/2025:01:59:02 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "-" "curl/7.81.0"
+2025-10-14T08:59:03: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:59:03: 📱 WhatsApp sent to 6281200025435 via fonnte
+2025-10-14T08:59:03: 📱 WhatsApp confirmation sent: {
+2025-10-14T08:59:03:   success: true,
+2025-10-14T08:59:03:   data: {
+2025-10-14T08:59:03:     detail: 'success! message in queue',
+2025-10-14T08:59:03:     id: [ '125777620' ],
+2025-10-14T08:59:03:     process: 'pending',
+2025-10-14T08:59:03:     quota: { '628179380800': [Object] },
+2025-10-14T08:59:03:     requestid: 144954692,
+2025-10-14T08:59:03:     status: true,
+2025-10-14T08:59:03:     target: [ '6281200025435' ]
+2025-10-14T08:59:03:   },
+2025-10-14T08:59:03:   provider: 'fonnte'
+2025-10-14T08:59:03: }
+2025-10-14T08:59:03: 127.0.0.1 - - [14/Oct/2025:01:59:03 +0000] "POST /api/registrations/public HTTP/1.1" 201 221 "-" "curl/7.81.0"
+2025-10-14T08:59:05: 127.0.0.1 - - [14/Oct/2025:01:59:05 +0000] "POST /api/registrations/7/quick-verify HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T08:59:35: ✅ Connected to PostgreSQL database
+2025-10-14T08:59:35: ✅ Connected to PostgreSQL database
+2025-10-14T08:59:35: 103.55.224.49 - - [14/Oct/2025:01:59:35 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/6" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:59:51: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:59:51: ✅ Reset failed attempts for user 17
+2025-10-14T08:59:51: ✅ Successful login for admin
+2025-10-14T08:59:51: 127.0.0.1 - - [14/Oct/2025:01:59:51 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "-" "curl/7.81.0"
+2025-10-14T08:59:52: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T08:59:52: 📱 WhatsApp sent to 6281200023457 via fonnte
+2025-10-14T08:59:52: 📱 WhatsApp confirmation sent: {
+2025-10-14T08:59:52:   success: true,
+2025-10-14T08:59:52:   data: {
+2025-10-14T08:59:52:     detail: 'success! message in queue',
+2025-10-14T08:59:52:     id: [ '125777744' ],
+2025-10-14T08:59:52:     process: 'pending',
+2025-10-14T08:59:52:     quota: { '628179380800': [Object] },
+2025-10-14T08:59:52:     requestid: 144955480,
+2025-10-14T08:59:52:     status: true,
+2025-10-14T08:59:52:     target: [ '6281200023457' ]
+2025-10-14T08:59:52:   },
+2025-10-14T08:59:52:   provider: 'fonnte'
+2025-10-14T08:59:52: }
+2025-10-14T08:59:52: 127.0.0.1 - - [14/Oct/2025:01:59:52 +0000] "POST /api/registrations/public HTTP/1.1" 201 221 "-" "curl/7.81.0"
+2025-10-14T08:59:52: 103.55.224.49 - - [14/Oct/2025:01:59:52 +0000] "GET /api/registrations/stats HTTP/1.1" 200 259 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:59:54: 📱 WhatsApp sent to 6281200023457 via fonnte
+2025-10-14T08:59:54: 📱 WhatsApp status update sent: {
+2025-10-14T08:59:54:   success: true,
+2025-10-14T08:59:54:   data: {
+2025-10-14T08:59:54:     detail: 'success! message in queue',
+2025-10-14T08:59:54:     id: [ '125777748' ],
+2025-10-14T08:59:54:     process: 'pending',
+2025-10-14T08:59:54:     quota: { '628179380800': [Object] },
+2025-10-14T08:59:54:     requestid: 144955504,
+2025-10-14T08:59:54:     status: true,
+2025-10-14T08:59:54:     target: [ '6281200023457' ]
+2025-10-14T08:59:54:   },
+2025-10-14T08:59:54:   provider: 'fonnte'
+2025-10-14T08:59:54: }
+2025-10-14T08:59:54: 📡 [Socket.IO] Registration status update emitted: pending_verification → verified
+2025-10-14T08:59:54: 127.0.0.1 - - [14/Oct/2025:01:59:54 +0000] "PUT /api/registrations/8/status HTTP/1.1" 200 1179 "-" "curl/7.81.0"
+2025-10-14T08:59:55: 📱 WhatsApp sent to 6281200023457 via fonnte
+2025-10-14T08:59:55: 📱 WhatsApp status update sent: {
+2025-10-14T08:59:55:   success: true,
+2025-10-14T08:59:55:   data: {
+2025-10-14T08:59:55:     detail: 'success! message in queue',
+2025-10-14T08:59:55:     id: [ '125777754' ],
+2025-10-14T08:59:55:     process: 'pending',
+2025-10-14T08:59:55:     quota: { '628179380800': [Object] },
+2025-10-14T08:59:55:     requestid: 144955516,
+2025-10-14T08:59:55:     status: true,
+2025-10-14T08:59:55:     target: [ '6281200023457' ]
+2025-10-14T08:59:55:   },
+2025-10-14T08:59:55:   provider: 'fonnte'
+2025-10-14T08:59:55: }
+2025-10-14T08:59:55: 📡 [Socket.IO] Registration status update emitted: verified → approved
+2025-10-14T08:59:55: 127.0.0.1 - - [14/Oct/2025:01:59:55 +0000] "PUT /api/registrations/8/status HTTP/1.1" 200 1232 "-" "curl/7.81.0"
+2025-10-14T08:59:55: 103.55.224.49 - - [14/Oct/2025:01:59:55 +0000] "GET /api/registrations/stats HTTP/1.1" 200 259 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T08:59:57: 📝 Starting customer creation for registration ID: 8
+2025-10-14T08:59:57: 📋 Registration data: {
+2025-10-14T08:59:57:   name: 'Test User Workflow 1760407191',
+2025-10-14T08:59:57:   email: 'test.workflow.1760407191@email.com',
+2025-10-14T08:59:57:   phone: '081200023457',
+2025-10-14T08:59:57:   ktp: '3216000000024033'
+2025-10-14T08:59:57: }
+2025-10-14T08:59:57: ✅ Transaction BEGIN
+2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+2025-10-14T08:59:57: SQL: undefined
+2025-10-14T08:59:57: 127.0.0.1 - - [14/Oct/2025:01:59:57 +0000] "POST /api/registrations/8/create-customer HTTP/1.1" 500 51 "-" "curl/7.81.0"
+2025-10-14T09:00:08: 103.55.224.49 - - [14/Oct/2025:02:00:08 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:00:08: 103.55.224.49 - - [14/Oct/2025:02:00:08 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:00:25: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T09:00:25:   expose: true,
+2025-10-14T09:00:25:   statusCode: 400,
+2025-10-14T09:00:25:   status: 400,
+2025-10-14T09:00:25:   body: '"verified"',
+2025-10-14T09:00:25:   type: 'entity.parse.failed'
+2025-10-14T09:00:25: }
+2025-10-14T09:00:25: 103.55.224.49 - - [14/Oct/2025:02:00:25 +0000] "PUT /api/registrations/7/status HTTP/1.1" 400 71 "https://portal.aglis.biz.id/registrations/7" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:00:59: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T09:00:59: 🚀 Server running on 0.0.0.0:3001
+2025-10-14T09:00:59: 🌍 Environment: production
+2025-10-14T09:00:59: 📡 Local access: http://localhost:3001
+2025-10-14T09:00:59: 🌐 Network access: http://192.168.121.30:3001
+2025-10-14T09:00:59: 📝 CORS origins configured for local network access
+2025-10-14T09:00:59: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T09:00:59: ✅ Redis client connected for OTP storage
+2025-10-14T09:00:59: ✅ Redis client ready
+2025-10-14T09:01:07: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T09:01:07: ✅ Connected to PostgreSQL database
+2025-10-14T09:01:07: ✅ Reset failed attempts for user 17
+2025-10-14T09:01:07: ✅ Successful login for admin
+2025-10-14T09:01:07: 127.0.0.1 - - [14/Oct/2025:02:01:07 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "-" "curl/7.81.0"
+2025-10-14T09:01:08: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T09:01:08: 📱 WhatsApp sent to 6281200017918 via fonnte
+2025-10-14T09:01:08: 📱 WhatsApp confirmation sent: {
+2025-10-14T09:01:08:   success: true,
+2025-10-14T09:01:08:   data: {
+2025-10-14T09:01:08:     detail: 'success! message in queue',
+2025-10-14T09:01:08:     id: [ '125778715' ],
+2025-10-14T09:01:08:     process: 'pending',
+2025-10-14T09:01:08:     quota: { '628179380800': [Object] },
+2025-10-14T09:01:08:     requestid: 144959737,
+2025-10-14T09:01:08:     status: true,
+2025-10-14T09:01:08:     target: [ '6281200017918' ]
+2025-10-14T09:01:08:   },
+2025-10-14T09:01:08:   provider: 'fonnte'
+2025-10-14T09:01:08: }
+2025-10-14T09:01:08: ✅ Connected to PostgreSQL database
+2025-10-14T09:01:08: 127.0.0.1 - - [14/Oct/2025:02:01:08 +0000] "POST /api/registrations/public HTTP/1.1" 201 221 "-" "curl/7.81.0"
+2025-10-14T09:01:08: 103.55.224.49 - - [14/Oct/2025:02:01:08 +0000] "GET /api/registrations/stats HTTP/1.1" 200 259 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:01:11: 📱 WhatsApp sent to 6281200017918 via fonnte
+2025-10-14T09:01:11: 📱 WhatsApp status update sent: {
+2025-10-14T09:01:11:   success: true,
+2025-10-14T09:01:11:   data: {
+2025-10-14T09:01:11:     detail: 'success! message in queue',
+2025-10-14T09:01:11:     id: [ '125778727' ],
+2025-10-14T09:01:11:     process: 'pending',
+2025-10-14T09:01:11:     quota: { '628179380800': [Object] },
+2025-10-14T09:01:11:     requestid: 144959863,
+2025-10-14T09:01:11:     status: true,
+2025-10-14T09:01:11:     target: [ '6281200017918' ]
+2025-10-14T09:01:11:   },
+2025-10-14T09:01:11:   provider: 'fonnte'
+2025-10-14T09:01:11: }
+2025-10-14T09:01:11: 📡 [Socket.IO] Registration status update emitted: pending_verification → verified
+2025-10-14T09:01:11: 127.0.0.1 - - [14/Oct/2025:02:01:11 +0000] "PUT /api/registrations/9/status HTTP/1.1" 200 1179 "-" "curl/7.81.0"
+2025-10-14T09:01:11: 103.55.224.49 - - [14/Oct/2025:02:01:11 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:01:12: 📱 WhatsApp sent to 6281200017918 via fonnte
+2025-10-14T09:01:12: 📱 WhatsApp status update sent: {
+2025-10-14T09:01:12:   success: true,
+2025-10-14T09:01:12:   data: {
+2025-10-14T09:01:12:     detail: 'success! message in queue',
+2025-10-14T09:01:12:     id: [ '125778737' ],
+2025-10-14T09:01:12:     process: 'pending',
+2025-10-14T09:01:12:     quota: { '628179380800': [Object] },
+2025-10-14T09:01:12:     requestid: 144959918,
+2025-10-14T09:01:12:     status: true,
+2025-10-14T09:01:12:     target: [ '6281200017918' ]
+2025-10-14T09:01:12:   },
+2025-10-14T09:01:12:   provider: 'fonnte'
+2025-10-14T09:01:12: }
+2025-10-14T09:01:12: 📡 [Socket.IO] Registration status update emitted: verified → approved
+2025-10-14T09:01:12: 127.0.0.1 - - [14/Oct/2025:02:01:12 +0000] "PUT /api/registrations/9/status HTTP/1.1" 200 1232 "-" "curl/7.81.0"
+2025-10-14T09:01:12: 103.55.224.49 - - [14/Oct/2025:02:01:12 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:01:14: 📝 Starting customer creation for registration ID: 9
+2025-10-14T09:01:14: 📋 Registration data: {
+2025-10-14T09:01:14:   name: 'Test User Workflow 1760407267',
+2025-10-14T09:01:14:   email: 'test.workflow.1760407267@email.com',
+2025-10-14T09:01:14:   phone: '081200017918',
+2025-10-14T09:01:14:   ktp: '3216000000028532'
+2025-10-14T09:01:14: }
+2025-10-14T09:01:14: ✅ Transaction BEGIN
+2025-10-14T09:01:14: ✅ Customer created: {
+2025-10-14T09:01:14:   id: 10,
+2025-10-14T09:01:14:   customer_id: 'AGLS202510140005',
+2025-10-14T09:01:14:   name: 'Test User Workflow 1760407267',
+2025-10-14T09:01:14:   ktp: '3216000000028532'
+2025-10-14T09:01:14: }
+2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+2025-10-14T09:01:14: SQL: undefined
+2025-10-14T09:01:14: 127.0.0.1 - - [14/Oct/2025:02:01:14 +0000] "POST /api/registrations/9/create-customer HTTP/1.1" 500 51 "-" "curl/7.81.0"
+2025-10-14T09:01:38: 103.55.224.49 - - [14/Oct/2025:02:01:38 +0000] "GET /api/notifications?page=1&limit=50&include_archived=false&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:01: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-14T09:02:01: 🚀 Server running on 0.0.0.0:3001
+2025-10-14T09:02:01: 🌍 Environment: production
+2025-10-14T09:02:01: 📡 Local access: http://localhost:3001
+2025-10-14T09:02:01: 🌐 Network access: http://192.168.121.30:3001
+2025-10-14T09:02:01: 📝 CORS origins configured for local network access
+2025-10-14T09:02:01: ✅ Redis client connected for OTP storage
+2025-10-14T09:02:01: ✅ Redis client ready
+2025-10-14T09:02:01: ✅ Redis clients connected for Socket.IO adapter
+2025-10-14T09:02:03: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T09:02:03: ✅ Connected to PostgreSQL database
+2025-10-14T09:02:03: ✅ Reset failed attempts for user 17
+2025-10-14T09:02:03: ✅ Successful login for admin
+2025-10-14T09:02:03: 127.0.0.1 - - [14/Oct/2025:02:02:03 +0000] "POST /api/auth/login HTTP/1.1" 200 343 "-" "curl/7.81.0"
+2025-10-14T09:02:04: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-14T09:02:04: 📱 WhatsApp sent to 6281200009528 via fonnte
+2025-10-14T09:02:04: 📱 WhatsApp confirmation sent: {
+2025-10-14T09:02:04:   success: true,
+2025-10-14T09:02:04:   data: {
+2025-10-14T09:02:04:     detail: 'success! message in queue',
+2025-10-14T09:02:04:     id: [ '125778927' ],
+2025-10-14T09:02:04:     process: 'pending',
+2025-10-14T09:02:04:     quota: { '628179380800': [Object] },
+2025-10-14T09:02:04:     requestid: 144961435,
+2025-10-14T09:02:04:     status: true,
+2025-10-14T09:02:04:     target: [ '6281200009528' ]
+2025-10-14T09:02:04:   },
+2025-10-14T09:02:04:   provider: 'fonnte'
+2025-10-14T09:02:04: }
+2025-10-14T09:02:04: ✅ Connected to PostgreSQL database
+2025-10-14T09:02:04: 127.0.0.1 - - [14/Oct/2025:02:02:04 +0000] "POST /api/registrations/public HTTP/1.1" 201 222 "-" "curl/7.81.0"
+2025-10-14T09:02:05: 103.55.224.49 - - [14/Oct/2025:02:02:05 +0000] "GET /api/registrations/stats HTTP/1.1" 200 261 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:07: 📱 WhatsApp sent to 6281200009528 via fonnte
+2025-10-14T09:02:07: 📱 WhatsApp status update sent: {
+2025-10-14T09:02:07:   success: true,
+2025-10-14T09:02:07:   data: {
+2025-10-14T09:02:07:     detail: 'success! message in queue',
+2025-10-14T09:02:07:     id: [ '125778937' ],
+2025-10-14T09:02:07:     process: 'pending',
+2025-10-14T09:02:07:     quota: { '628179380800': [Object] },
+2025-10-14T09:02:07:     requestid: 144961608,
+2025-10-14T09:02:07:     status: true,
+2025-10-14T09:02:07:     target: [ '6281200009528' ]
+2025-10-14T09:02:07:   },
+2025-10-14T09:02:07:   provider: 'fonnte'
+2025-10-14T09:02:07: }
+2025-10-14T09:02:07: 📡 [Socket.IO] Registration status update emitted: pending_verification → verified
+2025-10-14T09:02:07: 127.0.0.1 - - [14/Oct/2025:02:02:07 +0000] "PUT /api/registrations/10/status HTTP/1.1" 200 1180 "-" "curl/7.81.0"
+2025-10-14T09:02:07: 103.55.224.49 - - [14/Oct/2025:02:02:07 +0000] "GET /api/registrations/stats HTTP/1.1" 200 261 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:08: 📱 WhatsApp sent to 6281200009528 via fonnte
+2025-10-14T09:02:08: 📱 WhatsApp status update sent: {
+2025-10-14T09:02:08:   success: true,
+2025-10-14T09:02:08:   data: {
+2025-10-14T09:02:08:     detail: 'success! message in queue',
+2025-10-14T09:02:08:     id: [ '125778938' ],
+2025-10-14T09:02:08:     process: 'pending',
+2025-10-14T09:02:08:     quota: { '628179380800': [Object] },
+2025-10-14T09:02:08:     requestid: 144961699,
+2025-10-14T09:02:08:     status: true,
+2025-10-14T09:02:08:     target: [ '6281200009528' ]
+2025-10-14T09:02:08:   },
+2025-10-14T09:02:08:   provider: 'fonnte'
+2025-10-14T09:02:08: }
+2025-10-14T09:02:08: 📡 [Socket.IO] Registration status update emitted: verified → approved
+2025-10-14T09:02:08: 127.0.0.1 - - [14/Oct/2025:02:02:08 +0000] "PUT /api/registrations/10/status HTTP/1.1" 200 1233 "-" "curl/7.81.0"
+2025-10-14T09:02:08: 103.55.224.49 - - [14/Oct/2025:02:02:08 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:10: 📝 Starting customer creation for registration ID: 10
+2025-10-14T09:02:10: 📋 Registration data: {
+2025-10-14T09:02:10:   name: 'Test User Workflow 1760407323',
+2025-10-14T09:02:10:   email: 'test.workflow.1760407323@email.com',
+2025-10-14T09:02:10:   phone: '081200009528',
+2025-10-14T09:02:10:   ktp: '3216000000008902'
+2025-10-14T09:02:10: }
+2025-10-14T09:02:10: ✅ Transaction BEGIN
+2025-10-14T09:02:10: ✅ Customer created: {
+2025-10-14T09:02:10:   id: 11,
+2025-10-14T09:02:10:   customer_id: 'AGLS202510140005',
+2025-10-14T09:02:10:   name: 'Test User Workflow 1760407323',
+2025-10-14T09:02:10:   ktp: '3216000000008902'
+2025-10-14T09:02:10: }
+2025-10-14T09:02:10: ✅ Ticket created: { id: 12, ticket_number: 'TKT20251014005', customer_id: 11 }
+2025-10-14T09:02:10: 📝 Updating registration 10 with customer_id=11, ticket_id=12
+2025-10-14T09:02:10: ✅ Registration updated: {
+2025-10-14T09:02:10:   id: 10,
+2025-10-14T09:02:10:   status: 'customer_created',
+2025-10-14T09:02:10:   customer_id: 11,
+2025-10-14T09:02:10:   installation_ticket_id: 12
+2025-10-14T09:02:10: }
+2025-10-14T09:02:10: ✅ Transaction COMMITTED
+2025-10-14T09:02:10: ✅ Customer AGLS202510140005 and ticket TKT20251014005 created from registration REG20251014005
+2025-10-14T09:02:10: 127.0.0.1 - - [14/Oct/2025:02:02:10 +0000] "POST /api/registrations/10/create-customer HTTP/1.1" 200 2148 "-" "curl/7.81.0"
+2025-10-14T09:02:10: 103.55.224.49 - - [14/Oct/2025:02:02:10 +0000] "GET /api/registrations?search=&status=&dateFilter=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:12: 127.0.0.1 - - [14/Oct/2025:02:02:12 +0000] "GET /api/customers/11 HTTP/1.1" 200 1781 "-" "curl/7.81.0"
+2025-10-14T09:02:13: 127.0.0.1 - - [14/Oct/2025:02:02:13 +0000] "POST /api/customers/11/equipment HTTP/1.1" 201 462 "-" "curl/7.81.0"
+2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:14:   length: 123,
+2025-10-14T09:02:14:   severity: 'ERROR',
+2025-10-14T09:02:14:   code: '42703',
+2025-10-14T09:02:14:   detail: undefined,
+2025-10-14T09:02:14:   hint: undefined,
+2025-10-14T09:02:14:   position: '288',
+2025-10-14T09:02:14:   internalPosition: undefined,
+2025-10-14T09:02:14:   internalQuery: undefined,
+2025-10-14T09:02:14:   where: undefined,
+2025-10-14T09:02:14:   schema: undefined,
+2025-10-14T09:02:14:   table: undefined,
+2025-10-14T09:02:14:   column: undefined,
+2025-10-14T09:02:14:   dataType: undefined,
+2025-10-14T09:02:14:   constraint: undefined,
+2025-10-14T09:02:14:   file: 'parse_relation.c',
+2025-10-14T09:02:14:   line: '3647',
+2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+2025-10-14T09:02:14: }
+2025-10-14T09:02:14: 127.0.0.1 - - [14/Oct/2025:02:02:14 +0000] "GET /api/tickets/12 HTTP/1.1" 500 51 "-" "curl/7.81.0"
+2025-10-14T09:02:15: 103.55.224.49 - - [14/Oct/2025:02:02:15 +0000] "GET /api/packages?is_active=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-14T09:02:15: 127.0.0.1 - - [14/Oct/2025:02:02:15 +0000] "GET /api/technicians?limit=1 HTTP/1.1" 200 1185 "-" "curl/7.81.0"
+2025-10-14T09:02:15: 127.0.0.1 - - [14/Oct/2025:02:02:15 +0000] "PUT /api/tickets/12 HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T09:02:16: 127.0.0.1 - - [14/Oct/2025:02:02:16 +0000] "PUT /api/tickets/12 HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T09:02:17: 127.0.0.1 - - [14/Oct/2025:02:02:17 +0000] "PUT /api/tickets/12 HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-14T09:02:18: 127.0.0.1 - - [14/Oct/2025:02:02:18 +0000] "GET /api/customers/11 HTTP/1.1" 200 2164 "-" "curl/7.81.0"
+2025-10-14T09:02:19: 127.0.0.1 - - [14/Oct/2025:02:02:19 +0000] "GET /api/registrations/10 HTTP/1.1" 200 1470 "-" "curl/7.81.0"
+2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:31:   length: 123,
+2025-10-14T09:02:31:   severity: 'ERROR',
+2025-10-14T09:02:31:   code: '42703',
+2025-10-14T09:02:31:   detail: undefined,
+2025-10-14T09:02:31:   hint: undefined,
+2025-10-14T09:02:31:   position: '288',
+2025-10-14T09:02:31:   internalPosition: undefined,
+2025-10-14T09:02:31:   internalQuery: undefined,
+2025-10-14T09:02:31:   where: undefined,
+2025-10-14T09:02:31:   schema: undefined,
+2025-10-14T09:02:31:   table: undefined,
+2025-10-14T09:02:31:   column: undefined,
+2025-10-14T09:02:31:   dataType: undefined,
+2025-10-14T09:02:31:   constraint: undefined,
+2025-10-14T09:02:31:   file: 'parse_relation.c',
+2025-10-14T09:02:31:   line: '3647',
+2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+2025-10-14T09:02:31: }
+2025-10-14T09:02:31: 103.55.224.49 - - [14/Oct/2025:02:02:31 +0000] "GET /api/tickets/12 HTTP/1.1" 500 51 "https://portal.aglis.biz.id/tickets/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

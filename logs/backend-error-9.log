@@ -175,3 +175,25 @@
 2025-10-14T08:33:24:   line: '3647',
 2025-10-14T08:33:24:   routine: 'errorMissingColumn'
 2025-10-14T08:33:24: }
+2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:32:   length: 123,
+2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:   code: '42703',
+2025-10-14T09:02:32:   detail: undefined,
+2025-10-14T09:02:32:   hint: undefined,
+2025-10-14T09:02:32:   position: '288',
+2025-10-14T09:02:32:   internalPosition: undefined,
+2025-10-14T09:02:32:   internalQuery: undefined,
+2025-10-14T09:02:32:   where: undefined,
+2025-10-14T09:02:32:   schema: undefined,
+2025-10-14T09:02:32:   table: undefined,
+2025-10-14T09:02:32:   column: undefined,
+2025-10-14T09:02:32:   dataType: undefined,
+2025-10-14T09:02:32:   constraint: undefined,
+2025-10-14T09:02:32:   file: 'parse_relation.c',
+2025-10-14T09:02:32:   line: '3647',
+2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+2025-10-14T09:02:32: }

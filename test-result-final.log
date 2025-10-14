@@ -1,0 +1,22 @@
+==================================
+🚀 FULL WORKFLOW API TEST
+==================================
+
+[0;34m📍 STEP 1: LOGIN AS ADMIN[0m
+[0;32m✅ Logged in successfully[0m
+[1;33mℹ️  Token: eyJhbGciOiJIUzI1NiIs...[0m
+[0;34m📍 STEP 2: CREATE PUBLIC REGISTRATION[0m
+[0;32m✅ Registration created[0m
+[1;33mℹ️  Registration ID: 8[0m
+[1;33mℹ️  Registration Number: REG20251014003[0m
+[1;33mℹ️  Email: test.workflow.1760407191@email.com[0m
+[1;33mℹ️  Phone: 081200023457[0m
+[0;34m📍 STEP 3: VERIFY REGISTRATION[0m
+[0;32m✅ Registration verified[0m
+[1;33mℹ️  Status: verified[0m
+[0;34m📍 STEP 4: APPROVE REGISTRATION[0m
+[0;32m✅ Registration approved[0m
+[1;33mℹ️  Status: approved[0m
+[0;34m📍 STEP 5: CREATE CUSTOMER & INSTALLATION TICKET[0m
+[0;31m❌ Customer creation failed[0m
+{"success":false,"message":"Internal server error"}

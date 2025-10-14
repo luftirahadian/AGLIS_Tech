@@ -5406,3 +5406,668 @@ Recent PM2 Errors:
 10|aglis-backend-4 | 2025-10-14T08:33:25:   line: '3647',
 10|aglis-backend-4 | 2025-10-14T08:33:25:   routine: 'errorMissingColumn'
 10|aglis-backend-4 | 2025-10-14T08:33:25: }
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14: Error: SyntaxError: Unexpected token " in JSON at position 0
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at JSON.parse (<anonymous>)
+8|aglis-backend-2   | 2025-10-14T08:46:14: Error: SyntaxError: Unexpected token " in JSON at position 0
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at JSON.parse (<anonymous>)
+2025-10-14T08:46:14:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:46:14: Error: SyntaxError: Unexpected token " in JSON at position 0
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:46:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:46:14:     at JSON.parse (<anonymous>)
+2025-10-14T08:46:14:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:46:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:46:14:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:46:14:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:46:14:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+8|aglis-backend-2   | 2025-10-14T08:46:14: Error: SyntaxError: Unexpected token " in JSON at position 0
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+8|aglis-backend-2   | 2025-10-14T08:46:14:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at JSON.parse (<anonymous>)
+2025-10-14T08:46:14:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:46:14:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:46:14:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:46:14: Error: SyntaxError: Unexpected token " in JSON at position 0
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:46:14:     at endReadableNT (node:internal/streams/readable:1400:12) {
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T08:46:14:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at JSON.parse (<anonymous>)
+8|aglis-backend-2   | 2025-10-14T08:46:14:   expose: true,
+2025-10-14T08:46:14:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at IncomingMessage.emit (node:events:517:28)
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T08:46:14:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:46:14:   statusCode: 400,
+2025-10-14T08:46:14:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+8|aglis-backend-2  | 2025-10-14T08:46:14:     at endReadableNT (node:internal/streams/readable:1400:12) {
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T08:46:14:   status: 400,
+2025-10-14T08:46:14:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:46:14:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:46:14:   expose: true,
+2025-10-14T08:46:14:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+8|aglis-backend-2  | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:   body: '"verified"',
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T08:46:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+8|aglis-backend-2  | 2025-10-14T08:46:14:   statusCode: 400,
+2025-10-14T08:46:14:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T08:46:14:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:46:14:   type: 'entity.parse.failed'
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T08:46:14:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:46:14:   expose: true,
+2025-10-14T08:46:14:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:46:14: }
+2025-10-14T08:46:14:   status: 400,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T08:46:14:   statusCode: 400,
+2025-10-14T08:46:14:   body: '"verified"',
+2025-10-14T08:46:14:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:46:14:   status: 400,
+2025-10-14T08:46:14:   type: 'entity.parse.failed'
+2025-10-14T08:46:14:     at IncomingMessage.emit (node:events:517:28)
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14: }
+2025-10-14T08:46:14:   body: '"verified"',
+2025-10-14T08:46:14:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T08:46:14:     at endReadableNT (node:internal/streams/readable:1400:12) {
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:   type: 'entity.parse.failed'
+2025-10-14T08:46:14:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:46:14:   expose: true,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14: }
+2025-10-14T08:46:14:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:46:14:   statusCode: 400,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:   expose: true,
+2025-10-14T08:46:14:   status: 400,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:   statusCode: 400,
+2025-10-14T08:46:14:   body: '"verified"',
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:   status: 400,
+2025-10-14T08:46:14:   type: 'entity.parse.failed'
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T08:46:14:   body: '"verified"',
+2025-10-14T08:46:14: }
+8|aglis-backend-2  | 2025-10-14T08:46:14:   type: 'entity.parse.failed'
+8|aglis-backend-2  | 2025-10-14T08:46:14: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1  | 2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:   expose: true,
+7|aglis-backend-1  | 2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:   statusCode: 400,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:49:47:   status: 400,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:   body: '"verified"',
+2025-10-14T08:49:47:   expose: true,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:   statusCode: 400,
+2025-10-14T08:49:47:   type: 'entity.parse.failed'
+2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47: }
+2025-10-14T08:49:47:   expose: true,
+2025-10-14T08:49:47:   status: 400,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:   statusCode: 400,
+2025-10-14T08:49:47:   body: '"verified"',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:   status: 400,
+2025-10-14T08:49:47:   type: 'entity.parse.failed'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47: }
+2025-10-14T08:49:47:   body: '"verified"',
+7|aglis-backend-1   | 2025-10-14T08:49:47:   type: 'entity.parse.failed'
+7|aglis-backend-1   | 2025-10-14T08:49:47: }
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T08:49:47: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at JSON.parse (<anonymous>)
+2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1   | 2025-10-14T08:49:47:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1   | 2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T08:49:47:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1   | 2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1  | 2025-10-14T08:49:47:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1   | 2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T08:49:47:   expose: true,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T08:49:47:   statusCode: 400,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:   expose: true,
+2025-10-14T08:49:47:   status: 400,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:   statusCode: 400,
+2025-10-14T08:49:47:   body: '"verified"',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:49:47:   status: 400,
+2025-10-14T08:49:47:   type: 'entity.parse.failed'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:49:47: }
+2025-10-14T08:49:47:   body: '"verified"',
+7|aglis-backend-1  | 2025-10-14T08:49:47:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T08:49:47: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1   | 2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1   | 2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+7|aglis-backend-1   | 2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+7|aglis-backend-1  | 2025-10-14T08:59:57: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1   | 2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1   | 2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1   | 2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+7|aglis-backend-1  | 2025-10-14T08:59:57: SQL: undefined
+7|aglis-backend-1   | 2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+7|aglis-backend-1   | 2025-10-14T08:59:57: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+7|aglis-backend-1  | 2025-10-14T08:59:57: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error message: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 2025-10-14T08:59:57: Error stack: error: duplicate key value violates unique constraint "customers_customer_id_key"
+7|aglis-backend-1  | 2025-10-14T08:59:57:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-14T08:59:57:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T08:59:57:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:860:30
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+2025-10-14T08:59:57: Error detail: Key (customer_id)=(AGLS202510140001) already exists.
+7|aglis-backend-1   | 2025-10-14T08:59:57: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T08:59:57: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+7|aglis-backend-1  | 2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1   | 2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1   | 2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+7|aglis-backend-1   | 2025-10-14T09:00:25:   expose: true,
+2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:00:25:   statusCode: 400,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:   status: 400,
+2025-10-14T09:00:25:   expose: true,
+2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T09:00:25:   body: '"verified"',
+2025-10-14T09:00:25:   statusCode: 400,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+2025-10-14T09:00:25:   type: 'entity.parse.failed'
+2025-10-14T09:00:25:   status: 400,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+2025-10-14T09:00:25: }
+2025-10-14T09:00:25: Error: SyntaxError: Unexpected token " in JSON at position 0
+7|aglis-backend-1   | 2025-10-14T09:00:25:   body: '"verified"',
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:00:25:   expose: true,
+7|aglis-backend-1   | 2025-10-14T09:00:25:     at JSON.parse (<anonymous>)
+2025-10-14T09:00:25:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1   | 2025-10-14T09:00:25: }
+7|aglis-backend-1   | 2025-10-14T09:00:25:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T09:00:25:   expose: true,
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at createStrictSyntaxError (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:169:10)
+7|aglis-backend-1   | 2025-10-14T09:00:25:   status: 400,
+7|aglis-backend-1  | 2025-10-14T09:00:25:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at parse (/home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/types/json.js:86:15)
+2025-10-14T09:00:25:   body: '"verified"',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:   status: 400,
+2025-10-14T09:00:25:     at /home/aglis/AGLIS_Tech/backend/node_modules/body-parser/lib/read.js:128:18
+2025-10-14T09:00:25:   type: 'entity.parse.failed'
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:00:25:   body: '"verified"',
+2025-10-14T09:00:25:     at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+2025-10-14T09:00:25: }
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:00:25:   type: 'entity.parse.failed'
+7|aglis-backend-1   | 2025-10-14T09:00:25:     at invokeCallback (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:238:16)
+2025-10-14T09:00:25: }
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at done (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:227:7)
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at IncomingMessage.onEnd (/home/aglis/AGLIS_Tech/backend/node_modules/raw-body/index.js:287:7)
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at IncomingMessage.emit (node:events:517:28)
+7|aglis-backend-1  | 2025-10-14T09:00:25:     at endReadableNT (node:internal/streams/readable:1400:12) {
+7|aglis-backend-1  | 2025-10-14T09:00:25:   expose: true,
+7|aglis-backend-1  | 2025-10-14T09:00:25:   statusCode: 400,
+7|aglis-backend-1  | 2025-10-14T09:00:25:   status: 400,
+7|aglis-backend-1  | 2025-10-14T09:00:25:   body: '"verified"',
+7|aglis-backend-1  | 2025-10-14T09:00:25:   type: 'entity.parse.failed'
+7|aglis-backend-1  | 2025-10-14T09:00:25: }
+7|aglis-backend-1  | 2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1   | 2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1  | 2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:01:14: SQL: undefined
+2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+2025-10-14T09:01:14: ❌❌❌ CREATE CUSTOMER ERROR ❌❌❌
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 2025-10-14T09:01:14: Error message: duplicate key value violates unique constraint "tickets_ticket_number_key"
+2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1   | 2025-10-14T09:01:14: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:01:14: SQL: undefined
+2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+7|aglis-backend-1   | 2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+7|aglis-backend-1   | 2025-10-14T09:01:14: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error stack: error: duplicate key value violates unique constraint "tickets_ticket_number_key"
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:01:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/registrations.js:912:28
+7|aglis-backend-1  | 2025-10-14T09:01:14: Error detail: Key (ticket_number)=(TKT20251014001) already exists.
+7|aglis-backend-1  | 2025-10-14T09:01:14: SQL: undefined
+7|aglis-backend-1  | 2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 2025-10-14T09:02:14:   length: 123,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   position: '288',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:02:14:   internalPosition: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:14:   internalQuery: undefined,
+2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1   | 2025-10-14T09:02:14:   where: undefined,
+2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   schema: undefined,
+2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-14T09:02:14:   table: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:14:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   length: 123,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   length: 123,
+2025-10-14T09:02:14:   length: 123,
+2025-10-14T09:02:14:   dataType: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   severity: 'ERROR',
+2025-10-14T09:02:14:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   severity: 'ERROR',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:   constraint: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:14:   code: '42703',
+2025-10-14T09:02:14:   code: '42703',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:   code: '42703',
+2025-10-14T09:02:14:   file: 'parse_relation.c',
+2025-10-14T09:02:14:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:   line: '3647',
+7|aglis-backend-1   | 2025-10-14T09:02:14:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   detail: undefined,
+2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+2025-10-14T09:02:14:   hint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14: }
+2025-10-14T09:02:14:   position: '288',
+2025-10-14T09:02:14:   hint: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14:   internalPosition: undefined,
+2025-10-14T09:02:14:   hint: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:14:   position: '288',
+2025-10-14T09:02:14:   internalQuery: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14:   position: '288',
+2025-10-14T09:02:14:   where: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:14:   internalPosition: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:14:   schema: undefined,
+2025-10-14T09:02:14:   internalPosition: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   table: undefined,
+2025-10-14T09:02:14:   internalQuery: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   internalQuery: undefined,
+2025-10-14T09:02:14:   column: undefined,
+2025-10-14T09:02:14:   where: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   schema: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   constraint: undefined,
+2025-10-14T09:02:14:   where: undefined,
+2025-10-14T09:02:14:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14:   column: undefined,
+2025-10-14T09:02:14:   schema: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:   dataType: undefined,
+2025-10-14T09:02:14:   table: undefined,
+2025-10-14T09:02:14:   file: 'parse_relation.c',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14:   constraint: undefined,
+2025-10-14T09:02:14:   column: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:14:   line: '3647',
+2025-10-14T09:02:14:   file: 'parse_relation.c',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:14:   dataType: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-14T09:02:14:   line: '3647',
+7|aglis-backend-1   | 2025-10-14T09:02:14:   constraint: undefined,
+2025-10-14T09:02:14: }
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+2025-10-14T09:02:14:   file: 'parse_relation.c',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:14: }
+2025-10-14T09:02:14:   line: '3647',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-14T09:02:14: }
+7|aglis-backend-1  | 2025-10-14T09:02:14: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:02:14:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 2025-10-14T09:02:14:   length: 123,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   position: '288',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   where: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:14:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   line: '3647',
+7|aglis-backend-1  | 2025-10-14T09:02:14:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-14T09:02:14: }
+7|aglis-backend-1  | 2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 2025-10-14T09:02:31:   length: 123,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   hint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   position: '288',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   internalPosition: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:02:31:   internalQuery: undefined,
+2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:31:   where: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:31:   schema: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-14T09:02:31:   table: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:31:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:31:   dataType: undefined,
+2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:31:   constraint: undefined,
+2025-10-14T09:02:31:   length: 123,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   length: 123,
+2025-10-14T09:02:31:   file: 'parse_relation.c',
+2025-10-14T09:02:31:   severity: 'ERROR',
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   line: '3647',
+2025-10-14T09:02:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   code: '42703',
+2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   code: '42703',
+2025-10-14T09:02:31: }
+2025-10-14T09:02:31:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   detail: undefined,
+2025-10-14T09:02:31:   hint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   hint: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   position: '288',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   position: '288',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   internalPosition: undefined,
+2025-10-14T09:02:31:   internalPosition: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:31:   internalQuery: undefined,
+2025-10-14T09:02:31:   internalQuery: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   where: undefined,
+2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:31:   where: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   schema: undefined,
+2025-10-14T09:02:31:   schema: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   table: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   column: undefined,
+2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-14T09:02:31:   dataType: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:31:   constraint: undefined,
+2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:31:   file: 'parse_relation.c',
+2025-10-14T09:02:31:   length: 123,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:31:   line: '3647',
+2025-10-14T09:02:31:   severity: 'ERROR',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+2025-10-14T09:02:31:   code: '42703',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-14T09:02:31: }
+2025-10-14T09:02:31:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   hint: undefined,
+2025-10-14T09:02:31:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   position: '288',
+2025-10-14T09:02:31:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   dataType: undefined,
+2025-10-14T09:02:31:   internalPosition: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-14T09:02:31:   constraint: undefined,
+2025-10-14T09:02:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   file: 'parse_relation.c',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   where: undefined,
+2025-10-14T09:02:31:   line: '3647',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   schema: undefined,
+2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-14T09:02:31:   table: undefined,
+2025-10-14T09:02:31: }
+7|aglis-backend-1   | 2025-10-14T09:02:31:   column: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   dataType: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   constraint: undefined,
+7|aglis-backend-1   | 2025-10-14T09:02:31:   file: 'parse_relation.c',
+7|aglis-backend-1   | 2025-10-14T09:02:31:   line: '3647',
+7|aglis-backend-1   | 2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+7|aglis-backend-1   | 2025-10-14T09:02:31: }
+7|aglis-backend-1  | 2025-10-14T09:02:31: Get ticket error: error: column h.assigned_technician_id does not exist
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-14T09:02:31:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+7|aglis-backend-1  | 2025-10-14T09:02:31:   length: 123,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   position: '288',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-14T09:02:31:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   line: '3647',
+7|aglis-backend-1  | 2025-10-14T09:02:31:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-14T09:02:31: }
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-14T09:02:32:   length: 123,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   code: '42703',
+2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   detail: undefined,
+2025-10-14T09:02:32:   length: 123,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:   hint: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   position: '288',
+9|aglis-backend-3   | 2025-10-14T09:02:32:   code: '42703',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   internalPosition: undefined,
+2025-10-14T09:02:32:   detail: undefined,
+2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   internalQuery: undefined,
+2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T09:02:32:   hint: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   where: undefined,
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   position: '288',
+9|aglis-backend-3   | 2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T09:02:32:   schema: undefined,
+2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:32:   table: undefined,
+9|aglis-backend-3  | 2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   internalPosition: undefined,
+2025-10-14T09:02:32:   column: undefined,
+2025-10-14T09:02:32:   length: 123,
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   length: 123,
+2025-10-14T09:02:32:   dataType: undefined,
+2025-10-14T09:02:32: Get ticket error: error: column h.assigned_technician_id does not exist
+2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:   internalQuery: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:   code: '42703',
+9|aglis-backend-3  | 2025-10-14T09:02:32:   where: undefined,
+2025-10-14T09:02:32:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-14T09:02:32:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T09:02:32:   detail: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-14T09:02:32:   schema: undefined,
+2025-10-14T09:02:32:   hint: undefined,
+2025-10-14T09:02:32:   code: '42703',
+2025-10-14T09:02:32:   line: '3647',
+9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   position: '288',
+2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+2025-10-14T09:02:32:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:323:27 {
+2025-10-14T09:02:32:   table: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   internalPosition: undefined,
+2025-10-14T09:02:32: }
+2025-10-14T09:02:32:   column: undefined,
+9|aglis-backend-3  | 2025-10-14T09:02:32:   detail: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   length: 123,
+2025-10-14T09:02:32:   internalQuery: undefined,
+9|aglis-backend-3   | 2025-10-14T09:02:32:   dataType: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-14T09:02:32:   where: undefined,
+2025-10-14T09:02:32:   hint: undefined,
+2025-10-14T09:02:32:   constraint: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   severity: 'ERROR',
+2025-10-14T09:02:32:   position: '288',
+2025-10-14T09:02:32:   file: 'parse_relation.c',
+2025-10-14T09:02:32:   schema: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   internalPosition: undefined,
+2025-10-14T09:02:32:   line: '3647',
+2025-10-14T09:02:32:   table: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   code: '42703',
+2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   column: undefined,
+2025-10-14T09:02:32:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-14T09:02:32:   detail: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-14T09:02:32: }
+9|aglis-backend-3  | 2025-10-14T09:02:32:   dataType: undefined,
+2025-10-14T09:02:32:   where: undefined,
+2025-10-14T09:02:32:   hint: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   constraint: undefined,
+2025-10-14T09:02:32:   schema: undefined,
+2025-10-14T09:02:32:   position: '288',
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   file: 'parse_relation.c',
+2025-10-14T09:02:32:   table: undefined,
+2025-10-14T09:02:32:   internalPosition: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-14T09:02:32:   line: '3647',
+9|aglis-backend-3  | 2025-10-14T09:02:32:   column: undefined,
+2025-10-14T09:02:32:   internalQuery: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+2025-10-14T09:02:32:   dataType: undefined,
+2025-10-14T09:02:32:   where: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32: }
+2025-10-14T09:02:32:   constraint: undefined,
+2025-10-14T09:02:32:   schema: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   file: 'parse_relation.c',
+2025-10-14T09:02:32:   table: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-14T09:02:32:   line: '3647',
+2025-10-14T09:02:32:   column: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   dataType: undefined,
+2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-14T09:02:32:   constraint: undefined,
+2025-10-14T09:02:32: }
+9|aglis-backend-3  | 2025-10-14T09:02:32:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-14T09:02:32:   line: '3647',
+9|aglis-backend-3  | 2025-10-14T09:02:32:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-14T09:02:32: }

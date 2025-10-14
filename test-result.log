@@ -1,0 +1,16 @@
+==================================
+🚀 FULL WORKFLOW API TEST
+==================================
+
+[0;34m📍 STEP 1: LOGIN AS ADMIN[0m
+[0;32m✅ Logged in successfully[0m
+[1;33mℹ️  Token: eyJhbGciOiJIUzI1NiIs...[0m
+[0;34m📍 STEP 2: CREATE PUBLIC REGISTRATION[0m
+[0;32m✅ Registration created[0m
+[1;33mℹ️  Registration ID: 7[0m
+[1;33mℹ️  Registration Number: REG20251014002[0m
+[1;33mℹ️  Email: test.workflow.1760407142@email.com[0m
+[1;33mℹ️  Phone: 081200025435[0m
+[0;34m📍 STEP 3: VERIFY REGISTRATION[0m
+[0;31m❌ Verification failed[0m
+{"success":false,"message":"Route not found"}
