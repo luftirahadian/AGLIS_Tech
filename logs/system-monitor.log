@@ -6486,3 +6486,113 @@ Recent PM2 Errors:
 7|aglis-backend-1  | 2025-10-14T10:07:34:   line: '1075',
 7|aglis-backend-1  | 2025-10-14T10:07:34:   routine: 'checkInsertTargets'
 7|aglis-backend-1  | 2025-10-14T10:07:34: }
+8|aglis-backend-2  | 2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2  | 2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   length: 138,
+2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+2025-10-14T10:14:46:   code: '42703',
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46:   length: 138,
+2025-10-14T10:14:46:   detail: undefined,
+2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T10:14:46:   severity: 'ERROR',
+8|aglis-backend-2   | 2025-10-14T10:14:46:   hint: undefined,
+2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   position: '147',
+8|aglis-backend-2   | 2025-10-14T10:14:46:   code: '42703',
+8|aglis-backend-2  | 2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+8|aglis-backend-2   | 2025-10-14T10:14:46:   internalPosition: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+2025-10-14T10:14:46:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   length: 138,
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T10:14:46:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   severity: 'ERROR',
+2025-10-14T10:14:46:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T10:14:46:   where: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T10:14:46:   position: '147',
+2025-10-14T10:14:46:   code: '42703',
+2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:14:46:   schema: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46:   detail: undefined,
+2025-10-14T10:14:46:   table: undefined,
+2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+2025-10-14T10:14:46:   internalPosition: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46:   column: undefined,
+2025-10-14T10:14:46:   hint: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46:   length: 138,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   internalQuery: undefined,
+2025-10-14T10:14:46:   dataType: undefined,
+2025-10-14T10:14:46:   position: '147',
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   severity: 'ERROR',
+2025-10-14T10:14:46:   where: undefined,
+2025-10-14T10:14:46:   constraint: undefined,
+2025-10-14T10:14:46:   internalPosition: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   code: '42703',
+8|aglis-backend-2   | 2025-10-14T10:14:46:   file: 'analyze.c',
+2025-10-14T10:14:46:   schema: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T10:14:46:   internalQuery: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46:   detail: undefined,
+2025-10-14T10:14:46:   line: '2469',
+8|aglis-backend-2   | 2025-10-14T10:14:46:   table: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T10:14:46:   where: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+2025-10-14T10:14:46:   hint: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   schema: undefined,
+2025-10-14T10:14:46:   position: '147',
+2025-10-14T10:14:46: }
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T10:14:46:   table: undefined,
+2025-10-14T10:14:46:   dataType: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   internalPosition: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46:   column: undefined,
+2025-10-14T10:14:46:   constraint: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T10:14:46:   internalQuery: undefined,
+2025-10-14T10:14:46:   dataType: undefined,
+2025-10-14T10:14:46:   file: 'analyze.c',
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-14T10:14:46:   where: undefined,
+2025-10-14T10:14:46:   constraint: undefined,
+2025-10-14T10:14:46:   line: '2469',
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   schema: undefined,
+2025-10-14T10:14:46:   file: 'analyze.c',
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+2025-10-14T10:14:46:   line: '2469',
+8|aglis-backend-2   | 2025-10-14T10:14:46:   table: undefined,
+8|aglis-backend-2   | 2025-10-14T10:14:46: }
+8|aglis-backend-2  | 2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+2025-10-14T10:14:46:   column: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-14T10:14:46: }
+2025-10-14T10:14:46:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   constraint: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-14T10:14:46:   file: 'analyze.c',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   line: '2469',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+8|aglis-backend-2  | 2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+2025-10-14T10:14:46: }
+8|aglis-backend-2  | 2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2  | 2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+8|aglis-backend-2  | 2025-10-14T10:14:46:   length: 138,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   code: '42703',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   detail: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   hint: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   position: '147',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   where: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   schema: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   table: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   column: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-14T10:14:46:   file: 'analyze.c',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   line: '2469',
+8|aglis-backend-2  | 2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+8|aglis-backend-2  | 2025-10-14T10:14:46: }

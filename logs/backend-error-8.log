@@ -191,3 +191,25 @@
 2025-10-14T08:46:14:   body: '"verified"',
 2025-10-14T08:46:14:   type: 'entity.parse.failed'
 2025-10-14T08:46:14: }
+2025-10-14T10:14:46: Update ticket status error: error: column "completion_data" of relation "tickets" does not exist
+2025-10-14T10:14:46:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-14T10:14:46:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:14:46:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:706:22 {
+2025-10-14T10:14:46:   length: 138,
+2025-10-14T10:14:46:   severity: 'ERROR',
+2025-10-14T10:14:46:   code: '42703',
+2025-10-14T10:14:46:   detail: undefined,
+2025-10-14T10:14:46:   hint: undefined,
+2025-10-14T10:14:46:   position: '147',
+2025-10-14T10:14:46:   internalPosition: undefined,
+2025-10-14T10:14:46:   internalQuery: undefined,
+2025-10-14T10:14:46:   where: undefined,
+2025-10-14T10:14:46:   schema: undefined,
+2025-10-14T10:14:46:   table: undefined,
+2025-10-14T10:14:46:   column: undefined,
+2025-10-14T10:14:46:   dataType: undefined,
+2025-10-14T10:14:46:   constraint: undefined,
+2025-10-14T10:14:46:   file: 'analyze.c',
+2025-10-14T10:14:46:   line: '2469',
+2025-10-14T10:14:46:   routine: 'transformUpdateTargetList'
+2025-10-14T10:14:46: }
