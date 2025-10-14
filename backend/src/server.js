@@ -38,6 +38,7 @@ const invoiceRoutes = require('./routes/invoices');
 const paymentRoutes = require('./routes/payments');
 const skillLevelsRoutes = require('./routes/skillLevels');
 const specializationsRoutes = require('./routes/specializations');
+const technicianSpecializationsRoutes = require('./routes/technicianSpecializations');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -196,6 +197,7 @@ app.use('/api/users', authMiddleware, userRoutes);
 app.use('/api/permissions', authMiddleware, permissionsRoutes);
 app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
+app.use('/api/technicians', authMiddleware, technicianSpecializationsRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
 app.use('/api/inventory-stock', authMiddleware, inventoryStockRoutes);

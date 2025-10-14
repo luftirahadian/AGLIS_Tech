@@ -124,6 +124,14 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
         {
           name: 'ODP',
           href: '/master-data/odp'
+        },
+        {
+          name: 'Skill Levels',
+          href: '/master-data/skill-levels'
+        },
+        {
+          name: 'Specializations',
+          href: '/master-data/specializations'
         }
       ]
     },

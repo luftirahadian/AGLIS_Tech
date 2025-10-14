@@ -29,6 +29,8 @@ const ServiceTypesPage = lazy(() => import('./pages/masterdata/ServiceTypesPage'
 const ServiceCategoriesPage = lazy(() => import('./pages/masterdata/ServiceCategoriesPage'))
 const UsersPage = lazy(() => import('./pages/users/UsersPage'))
 const PermissionsPage = lazy(() => import('./pages/PermissionsPage'))
+const SkillLevelsPage = lazy(() => import('./pages/master-data/SkillLevelsPage'))
+const SpecializationsPage = lazy(() => import('./pages/master-data/SpecializationsPage'))
 const ProfilePage = lazy(() => import('./pages/ProfilePage'))
 const RegisterPage = lazy(() => import('./pages/public/RegisterPage'))
 const TrackingPage = lazy(() => import('./pages/public/TrackingPage'))
@@ -110,6 +112,10 @@ function App() {
         {/* Users (Admin/Supervisor only) */}
         <Route path="users" element={<UsersPage />} />
         <Route path="permissions" element={<PermissionsPage />} />
+        
+        {/* Master Data */}
+        <Route path="master-data/skill-levels" element={<SkillLevelsPage />} />
+        <Route path="master-data/specializations" element={<SpecializationsPage />} />
         
         {/* Billing */}
         <Route path="invoices" element={<InvoicesPage />} />
