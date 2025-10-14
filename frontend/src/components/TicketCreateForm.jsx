@@ -31,17 +31,29 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   })
 
   // Get customers for dropdown
-  const { data: customersData, isLoading: customersLoading } = useQuery(
+  const { data: customersData, isLoading: customersLoading, error: customersError } = useQuery(
     'customers',
     () => customerService.getCustomers({ limit: 100 }),
-    { enabled: isOpen }
+    { 
+      enabled: isOpen,
+      onError: (error) => {
+        console.error('Failed to load customers:', error)
+        toast.error('Failed to load customers data')
+      }
+    }
   )
 
   // Get service types from master data
-  const { data: serviceTypes, isLoading: serviceTypesLoading } = useQuery(
+  const { data: serviceTypes, isLoading: serviceTypesLoading, error: serviceTypesError } = useQuery(
     'service-types-active',
     () => serviceTypeService.getAll(true),
-    { enabled: isOpen }
+    { 
+      enabled: isOpen,
+      onError: (error) => {
+        console.error('Failed to load service types:', error)
+        toast.error('Failed to load service types data')
+      }
+    }
   )
 
   // Get all service categories
@@ -275,6 +287,22 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
 
   if (!isOpen) return null
 
+  // Show loading state if critical data is still loading
+  if (customersLoading || serviceTypesLoading) {
+    return (
+      <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="flex items-center justify-center p-12">
+            <div className="text-center">
+              <LoadingSpinner size="lg" className="mx-auto mb-4" />
+              <p className="text-gray-600">Loading ticket creation form...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -288,6 +316,22 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
             <X className="h-5 w-5 text-gray-500" />
           </button>
         </div>
+
+        {/* Error Display */}
+        {(customersError || serviceTypesError) && (
+          <div className="p-4 bg-red-50 border-l-4 border-red-400">
+            <div className="flex">
+              <AlertCircle className="h-5 w-5 text-red-400" />
+              <div className="ml-3">
+                <p className="text-sm text-red-700">
+                  {customersError && "Failed to load customers. "}
+                  {serviceTypesError && "Failed to load service types. "}
+                  Please refresh the page and try again.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-6">
