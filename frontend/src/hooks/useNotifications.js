@@ -47,11 +47,8 @@ export const useNotifications = (params = {}) => {
         
         return {
           ...oldData,
-          data: {
-            ...oldData.data,
-            notifications: [notification, ...oldData.data.notifications],
-            unreadCount: oldData.data.unreadCount + 1
-          }
+          notifications: [notification, ...oldData.notifications],
+          unreadCount: oldData.unreadCount + 1
         }
       })
 
@@ -93,15 +90,12 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            data: {
-              ...oldData.data,
-              notifications: oldData.data.notifications.map(notification =>
-                notification.id === id
-                  ? { ...notification, is_read: true, read_at: new Date().toISOString() }
-                  : notification
-              ),
-              unreadCount: Math.max(0, oldData.data.unreadCount - 1)
-            }
+            notifications: oldData.notifications.map(notification =>
+              notification.id === id
+                ? { ...notification, is_read: true, read_at: new Date().toISOString() }
+                : notification
+            ),
+            unreadCount: Math.max(0, oldData.unreadCount - 1)
           }
         })
         
@@ -125,15 +119,12 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            data: {
-              ...oldData.data,
-              notifications: oldData.data.notifications.map(notification => ({
-                ...notification,
-                is_read: true,
-                read_at: new Date().toISOString()
-              })),
-              unreadCount: 0
-            }
+            notifications: oldData.notifications.map(notification => ({
+              ...notification,
+              is_read: true,
+              read_at: new Date().toISOString()
+            })),
+            unreadCount: 0
           }
         })
         
@@ -158,11 +149,8 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            data: {
-              ...oldData.data,
-              notifications: oldData.data.notifications.filter(notification => notification.id !== id),
-              unreadCount: Math.max(0, oldData.data.unreadCount - 1)
-            }
+            notifications: oldData.notifications.filter(notification => notification.id !== id),
+            unreadCount: Math.max(0, oldData.unreadCount - 1)
           }
         })
         
@@ -187,11 +175,8 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            data: {
-              ...oldData.data,
-              notifications: oldData.data.notifications.filter(notification => notification.id !== id),
-              unreadCount: Math.max(0, oldData.data.unreadCount - 1)
-            }
+            notifications: oldData.notifications.filter(notification => notification.id !== id),
+            unreadCount: Math.max(0, oldData.unreadCount - 1)
           }
         })
         
@@ -206,8 +191,8 @@ export const useNotifications = (params = {}) => {
   )
 
   return {
-    notifications: notificationsData?.data?.notifications || [],
-    pagination: notificationsData?.data?.pagination,
+    notifications: notificationsData?.notifications || [],
+    pagination: notificationsData?.pagination,
     unreadCount,
     isLoading,
     error,
