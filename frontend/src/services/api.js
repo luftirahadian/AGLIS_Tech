@@ -6,7 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 // Create axios instance
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 30000, // Increased from 10s to 30s for slow queries
   headers: {
     'Content-Type': 'application/json',
   },
@@ -41,6 +41,20 @@ api.interceptors.response.use(
   },
   (error) => {
     const message = error.response?.data?.message || 'An error occurred'
+    
+    // Handle timeout errors
+    if (error.code === 'ECONNABORTED') {
+      console.warn('⏱️ API Timeout:', error.config?.url)
+      toast.error('Request timeout. Server might be slow, please try again.')
+      return Promise.reject(error)
+    }
+    
+    // Handle network errors
+    if (error.code === 'ERR_NETWORK') {
+      console.error('🌐 Network Error:', error.message)
+      toast.error('Network error. Please check your connection.')
+      return Promise.reject(error)
+    }
     
     // Handle specific error cases
     if (error.response?.status === 401) {
