@@ -8,6 +8,7 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const { createAdapter } = require('@socket.io/redis-adapter');
 const { createClient } = require('redis');
+const path = require('path');
 require('dotenv').config({ path: require('path').join(__dirname, '../../backend/config.env') });
 
 // Import routes
@@ -159,7 +160,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Static files for uploads with CORS headers
-app.use('/uploads', cors(), express.static('uploads', {
+app.use('/uploads', cors(), express.static(path.join(__dirname, '../../backend/uploads'), {
   setHeaders: (res, path) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
