@@ -63,10 +63,14 @@ const NotificationTemplatesPage = () => {
       const newTemplate = {
         ...template,
         template_code: `${template.template_code}_COPY`,
-        template_name: `${template.name} (Copy)`,
+        template_name: `${template.template_name} (Copy)`,
         id: undefined,
         created_at: undefined,
-        updated_at: undefined
+        updated_at: undefined,
+        created_by: undefined,
+        updated_by: undefined,
+        created_by_username: undefined,
+        updated_by_username: undefined
       };
       return templateService.create(newTemplate);
     },
@@ -105,9 +109,10 @@ const NotificationTemplatesPage = () => {
   const handlePreview = async (template) => {
     try {
       const result = await templateService.preview(template.id);
-      setPreviewData(result.data);
+      setPreviewData(result);
       setShowPreviewModal(true);
     } catch (error) {
+      console.error('❌ Preview error:', error);
       toast.error('Gagal memuat preview');
     }
   };

@@ -269,7 +269,7 @@ const TemplateEditorModal = ({ template, onClose, onSuccess }) => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Title Template * 
-                  <span className="text-xs text-gray-500 ml-2">Use {{variable}} for placeholders</span>
+                  <span className="text-xs text-gray-500 ml-2">Use {'{{'} variable {'}'} for placeholders</span>
                 </label>
                 <input
                   type="text"
@@ -286,7 +286,7 @@ const TemplateEditorModal = ({ template, onClose, onSuccess }) => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Message Template *
-                  <span className="text-xs text-gray-500 ml-2">Use {{variable}} for placeholders</span>
+                  <span className="text-xs text-gray-500 ml-2">Use {'{{'} variable {'}'} for placeholders</span>
                 </label>
                 <textarea
                   value={formData.message_template}
@@ -306,22 +306,22 @@ const TemplateEditorModal = ({ template, onClose, onSuccess }) => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Variables (Auto-detected)
               </label>
-              {formData.variables.length === 0 ? (
+              {!formData.variables || formData.variables.length === 0 ? (
                 <p className="text-sm text-gray-500 italic">
-                  No variables detected. Use {{variable}} syntax in templates.
+                  No variables detected. Use {'{{'} variable {'}'} syntax in templates.
                 </p>
               ) : (
                 <div className="space-y-2">
-                  {formData.variables.map(variable => (
-                    <div key={variable} className="flex items-center space-x-2">
+                  {formData.variables.map((varName) => (
+                    <div key={varName} className="flex items-center space-x-2">
                       <span className="text-sm font-mono bg-purple-100 text-purple-700 px-2 py-1 rounded">
-                        {`{{${variable}}}`}
+                        {`{{${varName}}}`}
                       </span>
                       <input
                         type="text"
-                        value={formData.example_data[variable] || ''}
-                        onChange={(e) => updateExampleData(variable, e.target.value)}
-                        placeholder={`Example value for ${variable}`}
+                        value={formData.example_data?.[varName] || ''}
+                        onChange={(e) => updateExampleData(varName, e.target.value)}
+                        placeholder={`Example value for ${varName}`}
                         className="flex-1 px-3 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
