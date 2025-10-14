@@ -12,6 +12,8 @@ import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
 import { ticketService } from '../../services/ticketService'
 import socketService from '../../services/socketService'
+import invoiceService from '../../services/invoiceService'
+import paymentService from '../../services/paymentService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
 import PaymentModal from '../../components/PaymentModal'
@@ -421,6 +423,19 @@ const CustomerDetailPage = () => {
     }
   }
 
+  // Fetch customer invoices
+  const { data: invoicesData } = useQuery(
+    ['customer-invoices', id],
+    () => invoiceService.getAll({ customer_id: id, limit: 50 }),
+    {
+      enabled: !!id && activeTab === 'billing',
+      staleTime: 30000
+    }
+  );
+
+  const customerInvoices = invoicesData?.data?.invoices || [];
+  const invoiceStats = invoicesData?.data?.statistics || {};
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: User },
     { 
@@ -435,6 +450,12 @@ const CustomerDetailPage = () => {
       label: 'Equipment', 
       icon: Router,
       badge: equipment.length || null
+    },
+    { 
+      id: 'billing', 
+      label: 'Billing', 
+      icon: FileText,
+      badge: customerInvoices.length || null
     },
     { 
       id: 'payments', 
@@ -1404,6 +1425,141 @@ const CustomerDetailPage = () => {
                       )}
                     </div>
                   ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Billing Tab */}
+          {activeTab === 'billing' && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <h4 className="text-lg font-medium text-gray-900">Invoices & Billing</h4>
+                  <p className="text-sm text-gray-600">Manage customer invoices and billing</p>
+                </div>
+                <button 
+                  onClick={() => navigate(`/invoices/new?customer_id=${id}`)}
+                  className="btn-primary"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Create Invoice
+                </button>
+              </div>
+
+              {/* Billing Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-blue-50 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-blue-900">Total Billed</p>
+                      <p className="text-2xl font-bold text-blue-700">
+                        {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(invoiceStats.total_billed || 0)}
+                      </p>
+                    </div>
+                    <FileText className="h-8 w-8 text-blue-600" />
+                  </div>
+                </div>
+
+                <div className="bg-green-50 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-green-900">Total Paid</p>
+                      <p className="text-2xl font-bold text-green-700">
+                        {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(invoiceStats.total_paid || 0)}
+                      </p>
+                    </div>
+                    <CheckCircle className="h-8 w-8 text-green-600" />
+                  </div>
+                </div>
+
+                <div className="bg-orange-50 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-orange-900">Outstanding</p>
+                      <p className="text-2xl font-bold text-orange-700">
+                        {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(invoiceStats.total_outstanding || 0)}
+                      </p>
+                    </div>
+                    <AlertCircle className="h-8 w-8 text-orange-600" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Invoices List */}
+              {customerInvoices.length === 0 ? (
+                <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+                  <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No Invoices</h3>
+                  <p className="text-gray-500 mb-4">Customer ini belum memiliki invoice</p>
+                  <button 
+                    onClick={() => navigate(`/invoices/new?customer_id=${id}`)}
+                    className="btn-primary inline-flex items-center"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Create First Invoice
+                  </button>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Invoice #</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Date</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Due Date</th>
+                        <th className="px-4 py-3 text-right text-xs font-semibold text-gray-700 uppercase">Amount</th>
+                        <th className="px-4 py-3 text-right text-xs font-semibold text-gray-700 uppercase">Outstanding</th>
+                        <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">Status</th>
+                        <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {customerInvoices.map((invoice) => (
+                        <tr key={invoice.id} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-sm font-medium text-blue-600">
+                            <button onClick={() => navigate(`/invoices/${invoice.id}`)}>
+                              {invoice.invoice_number}
+                            </button>
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-900">
+                            {new Date(invoice.invoice_date).toLocaleDateString('id-ID')}
+                          </td>
+                          <td className="px-4 py-3 text-sm">
+                            <span className={new Date(invoice.due_date) < new Date() && invoice.status !== 'paid' ? 'text-red-600 font-semibold' : 'text-gray-900'}>
+                              {new Date(invoice.due_date).toLocaleDateString('id-ID')}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold text-right text-gray-900">
+                            {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(invoice.total_amount)}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold text-right">
+                            <span className={invoice.outstanding_amount > 0 ? 'text-orange-600' : 'text-green-600'}>
+                              {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(invoice.outstanding_amount)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-center">
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                              invoice.status === 'paid' ? 'bg-green-100 text-green-800' :
+                              invoice.status === 'overdue' ? 'bg-red-100 text-red-800' :
+                              invoice.status === 'partial' ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-gray-100 text-gray-800'
+                            }`}>
+                              {invoice.status}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-center">
+                            <button
+                              onClick={() => navigate(`/invoices/${invoice.id}`)}
+                              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                            >
+                              View
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               )}
             </div>

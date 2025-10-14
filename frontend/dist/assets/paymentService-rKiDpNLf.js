@@ -1,2 +1,0 @@
-import{a as e}from"./notifications-ZyiPPyps.js";const a={getAll:t=>e.get("/payments",{params:t}),getById:t=>e.get(`/payments/${t}`),create:t=>e.post("/payments",t),update:(t,s)=>e.put(`/payments/${t}`,s),delete:t=>e.delete(`/payments/${t}`),verify:t=>e.post(`/payments/${t}/verify`),refund:(t,s)=>e.post(`/payments/${t}/refund`,s),getStatistics:t=>e.get("/payments/statistics",{params:t})};export{a as p};
-//# sourceMappingURL=paymentService-rKiDpNLf.js.map
