@@ -5,10 +5,11 @@ import {
   User, Phone, Mail, MapPin, Award, Star, Calendar, Activity, 
   CheckCircle, Clock, AlertCircle, Wrench, Shield, Target,
   Edit, Save, X, PhoneCall, Send, MessageCircle, Briefcase,
-  TrendingUp, BarChart3
+  TrendingUp, BarChart3, Plus, Trash2
 } from 'lucide-react'
 import BackButton from '../../components/common/BackButton'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import AddSpecializationModal from '../../components/AddSpecializationModal'
 import { technicianService } from '../../services/technicianService'
 import toast from 'react-hot-toast'
 
@@ -23,6 +24,7 @@ const TechnicianDetailPage = () => {
     skill: false
   })
   const [editValues, setEditValues] = useState({})
+  const [showAddSpecModal, setShowAddSpecModal] = useState(false)
 
   const { data: technicianData, isLoading, error } = useQuery(
     ['technician', id],
@@ -666,10 +668,19 @@ const TechnicianDetailPage = () => {
 
               {/* Specializations */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Target className="h-5 w-5 mr-2 text-gray-600" />
-                  Specializations
-                </h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                    <Target className="h-5 w-5 mr-2 text-gray-600" />
+                    Specializations
+                  </h3>
+                  <button
+                    onClick={() => setShowAddSpecModal(true)}
+                    className="flex items-center px-3 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+                  >
+                    <Plus className="h-4 w-4 mr-1" />
+                    Add Specialization
+                  </button>
+                </div>
                 {specializations && specializations.length > 0 ? (
                   <div className="space-y-3">
                     {specializations.map((spec) => (
@@ -871,6 +882,17 @@ const TechnicianDetailPage = () => {
           )}
         </div>
       </div>
+
+      {/* Add Specialization Modal */}
+      <AddSpecializationModal
+        isOpen={showAddSpecModal}
+        onClose={() => setShowAddSpecModal(false)}
+        technicianId={id}
+        onSuccess={() => {
+          queryClient.invalidateQueries(['technician', id])
+          setShowAddSpecModal(false)
+        }}
+      />
     </div>
   )
 }
