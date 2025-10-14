@@ -47,8 +47,8 @@ export const useNotifications = (params = {}) => {
         
         return {
           ...oldData,
-          notifications: [notification, ...oldData.notifications],
-          unreadCount: oldData.unreadCount + 1
+          notifications: [notification, ...(oldData.notifications || [])],
+          unreadCount: (oldData.unreadCount || 0) + 1
         }
       })
 
@@ -90,12 +90,12 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            notifications: oldData.notifications.map(notification =>
+            notifications: (oldData.notifications || []).map(notification =>
               notification.id === id
                 ? { ...notification, is_read: true, read_at: new Date().toISOString() }
                 : notification
             ),
-            unreadCount: Math.max(0, oldData.unreadCount - 1)
+            unreadCount: Math.max(0, (oldData.unreadCount || 0) - 1)
           }
         })
         
@@ -119,7 +119,7 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            notifications: oldData.notifications.map(notification => ({
+            notifications: (oldData.notifications || []).map(notification => ({
               ...notification,
               is_read: true,
               read_at: new Date().toISOString()
@@ -149,8 +149,8 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            notifications: oldData.notifications.filter(notification => notification.id !== id),
-            unreadCount: Math.max(0, oldData.unreadCount - 1)
+            notifications: (oldData.notifications || []).filter(notification => notification.id !== id),
+            unreadCount: Math.max(0, (oldData.unreadCount || 0) - 1)
           }
         })
         
@@ -175,8 +175,8 @@ export const useNotifications = (params = {}) => {
           
           return {
             ...oldData,
-            notifications: oldData.notifications.filter(notification => notification.id !== id),
-            unreadCount: Math.max(0, oldData.unreadCount - 1)
+            notifications: (oldData.notifications || []).filter(notification => notification.id !== id),
+            unreadCount: Math.max(0, (oldData.unreadCount || 0) - 1)
           }
         })
         
