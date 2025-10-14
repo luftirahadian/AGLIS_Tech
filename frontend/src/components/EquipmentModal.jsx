@@ -53,7 +53,12 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
   // Auto-fill brand & model when equipment master selected
   useEffect(() => {
     if (formData.equipment_master_id && equipmentMaster) {
-      const selectedEquipment = equipmentMaster.find(
+      // Handle both array and object response formats
+      const equipmentList = Array.isArray(equipmentMaster) 
+        ? equipmentMaster 
+        : equipmentMaster?.data || []
+      
+      const selectedEquipment = equipmentList.find(
         eq => eq.id === parseInt(formData.equipment_master_id)
       )
       
@@ -156,9 +161,14 @@ const EquipmentModal = ({ isOpen, onClose, customer, onSuccess }) => {
     { value: 'tools', label: 'Tools', icon: Wifi, description: 'Installation & Maintenance Tools' }
   ]
 
-  const filteredEquipment = equipmentMaster?.filter(
+  // Handle both array and object response formats
+  const equipmentList = Array.isArray(equipmentMaster) 
+    ? equipmentMaster 
+    : equipmentMaster?.data || []
+  
+  const filteredEquipment = equipmentList.filter(
     eq => eq.category === selectedCategory && eq.is_active
-  ) || []
+  )
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center p-4">
