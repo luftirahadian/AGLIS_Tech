@@ -10,7 +10,7 @@ import equipmentService from '../services/equipmentService'
 import LoadingSpinner from './LoadingSpinner'
 import toast from 'react-hot-toast'
 
-const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
+const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedCustomer, setSelectedCustomer] = useState(null)
   const [availableCategories, setAvailableCategories] = useState([])
@@ -61,6 +61,14 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess }) => {
   const selectedType = watch('type')
   const selectedCategory = watch('category')
   const selectedCustomerId = watch('customer_id')
+
+  // Pre-select customer if provided
+  useEffect(() => {
+    if (preSelectedCustomer && isOpen) {
+      setValue('customer_id', preSelectedCustomer.id)
+      setSelectedCustomer(preSelectedCustomer)
+    }
+  }, [preSelectedCustomer, isOpen, setValue])
 
   // Auto-fill customer data when customer is selected
   useEffect(() => {

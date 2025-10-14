@@ -17,6 +17,7 @@ import BackButton from '../../components/common/BackButton'
 import PaymentModal from '../../components/PaymentModal'
 import ConfirmationModal from '../../components/ConfirmationModal'
 import EquipmentModal from '../../components/EquipmentModal'
+import TicketCreateForm from '../../components/TicketCreateForm'
 import toast from 'react-hot-toast'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -39,6 +40,9 @@ const CustomerDetailPage = () => {
   // State untuk delete equipment
   const [showDeleteEquipmentModal, setShowDeleteEquipmentModal] = useState(false)
   const [equipmentToDelete, setEquipmentToDelete] = useState(null)
+  
+  // State untuk create ticket modal
+  const [showCreateTicketModal, setShowCreateTicketModal] = useState(false)
 
   const { 
     data: customerData, 
@@ -199,7 +203,14 @@ const CustomerDetailPage = () => {
   }
 
   const handleQuickCreateTicket = () => {
-    navigate('/tickets/new', { state: { customer: customer } })
+    setShowCreateTicketModal(true)
+  }
+  
+  const handleCreateTicketSuccess = (newTicket) => {
+    toast.success(`✅ Ticket ${newTicket.ticket_number} created successfully`)
+    queryClient.invalidateQueries(['customer', id])
+    queryClient.invalidateQueries('tickets')
+    setShowCreateTicketModal(false)
   }
 
   const handleQuickAddPayment = () => {
@@ -1516,6 +1527,14 @@ const CustomerDetailPage = () => {
           </div>
         )}
       </ConfirmationModal>
+
+      {/* Create Ticket Modal */}
+      <TicketCreateForm
+        isOpen={showCreateTicketModal}
+        onClose={() => setShowCreateTicketModal(false)}
+        onSuccess={handleCreateTicketSuccess}
+        preSelectedCustomer={customer}
+      />
     </div>
   )
 }

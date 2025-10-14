@@ -323,3 +323,47 @@
 2025-10-14T10:28:01:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
 2025-10-14T10:28:01:     at Module.load (node:internal/modules/cjs/loader:1203:32)
 2025-10-14T10:28:01:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-14T10:37:49: Get ticket error: error: invalid input syntax for type integer: "new"
+2025-10-14T10:37:49:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T10:37:49:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:37:49:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T10:37:49:   length: 141,
+2025-10-14T10:37:49:   severity: 'ERROR',
+2025-10-14T10:37:49:   code: '22P02',
+2025-10-14T10:37:49:   detail: undefined,
+2025-10-14T10:37:49:   hint: undefined,
+2025-10-14T10:37:49:   position: undefined,
+2025-10-14T10:37:49:   internalPosition: undefined,
+2025-10-14T10:37:49:   internalQuery: undefined,
+2025-10-14T10:37:49:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T10:37:49:   schema: undefined,
+2025-10-14T10:37:49:   table: undefined,
+2025-10-14T10:37:49:   column: undefined,
+2025-10-14T10:37:49:   dataType: undefined,
+2025-10-14T10:37:49:   constraint: undefined,
+2025-10-14T10:37:49:   file: 'numutils.c',
+2025-10-14T10:37:49:   line: '320',
+2025-10-14T10:37:49:   routine: 'pg_strtoint32'
+2025-10-14T10:37:49: }
+2025-10-14T10:40:36: Get ticket error: error: invalid input syntax for type integer: "create"
+2025-10-14T10:40:36:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-14T10:40:36:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-14T10:40:36:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:292:20 {
+2025-10-14T10:40:36:   length: 144,
+2025-10-14T10:40:36:   severity: 'ERROR',
+2025-10-14T10:40:36:   code: '22P02',
+2025-10-14T10:40:36:   detail: undefined,
+2025-10-14T10:40:36:   hint: undefined,
+2025-10-14T10:40:36:   position: undefined,
+2025-10-14T10:40:36:   internalPosition: undefined,
+2025-10-14T10:40:36:   internalQuery: undefined,
+2025-10-14T10:40:36:   where: "unnamed portal parameter $1 = '...'",
+2025-10-14T10:40:36:   schema: undefined,
+2025-10-14T10:40:36:   table: undefined,
+2025-10-14T10:40:36:   column: undefined,
+2025-10-14T10:40:36:   dataType: undefined,
+2025-10-14T10:40:36:   constraint: undefined,
+2025-10-14T10:40:36:   file: 'numutils.c',
+2025-10-14T10:40:36:   line: '320',
+2025-10-14T10:40:36:   routine: 'pg_strtoint32'
+2025-10-14T10:40:36: }
