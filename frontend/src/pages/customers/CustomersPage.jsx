@@ -12,6 +12,7 @@ import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
+import ConfirmationModal from '../../components/ConfirmationModal'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { exportToExcel, formatCurrency, formatDate, formatDateOnly } from '../../utils/exportToExcel'
@@ -46,6 +47,15 @@ const CustomersPage = () => {
   
   // Copy to clipboard state
   const [copiedField, setCopiedField] = useState(null)
+  
+  // Delete confirmation modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [customerToDelete, setCustomerToDelete] = useState(null)
+  
+  // Bulk action modal states
+  const [showBulkSuspendModal, setShowBulkSuspendModal] = useState(false)
+  const [showBulkActivateModal, setShowBulkActivateModal] = useState(false)
+  const [showBulkDeleteModal, setShowBulkDeleteModal] = useState(false)
 
   // Fetch customers with filters
   const { 
@@ -127,16 +137,25 @@ const CustomersPage = () => {
     setPagination(prev => ({ ...prev, page: newPage }))
   }
 
-  const handleDeleteCustomer = async (customerId, customerName) => {
-    if (window.confirm(`Apakah Anda yakin ingin menonaktifkan customer ${customerName}?`)) {
-      try {
-        await customerService.deleteCustomer(customerId)
-        toast.success('Customer berhasil dinonaktifkan')
-        refetchCustomers()
-      } catch (error) {
-        toast.error('Gagal menonaktifkan customer')
-        console.error('Delete customer error:', error)
-      }
+  const handleDeleteCustomer = (customerId, customerName) => {
+    setCustomerToDelete({ id: customerId, name: customerName })
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteCustomer = async () => {
+    if (!customerToDelete) return
+    
+    try {
+      await customerService.deleteCustomer(customerToDelete.id)
+      toast.success('Customer berhasil dinonaktifkan')
+      refetchCustomers()
+      queryClient.invalidateQueries('customer-stats')
+    } catch (error) {
+      toast.error('Gagal menonaktifkan customer')
+      console.error('Delete customer error:', error)
+    } finally {
+      setShowDeleteModal(false)
+      setCustomerToDelete(null)
     }
   }
 
@@ -303,15 +322,15 @@ const CustomersPage = () => {
 
   // ==================== BULK ACTION HANDLERS ====================
 
-  const handleBulkSuspend = async () => {
+  const handleBulkSuspend = () => {
     if (selectedCustomers.length === 0) {
       toast.error('Pilih customer terlebih dahulu')
       return
     }
+    setShowBulkSuspendModal(true)
+  }
 
-    if (!window.confirm(`Suspend ${selectedCustomers.length} customer yang dipilih?`)) {
-      return
-    }
+  const confirmBulkSuspend = async () => {
 
     try {
       let successCount = 0
@@ -330,6 +349,7 @@ const CustomersPage = () => {
       if (successCount > 0) {
         toast.success(`✅ ${successCount} customer berhasil di-suspend${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
         refetchCustomers()
+        queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
       } else {
@@ -338,18 +358,20 @@ const CustomersPage = () => {
     } catch (error) {
       console.error('Bulk suspend error:', error)
       toast.error('Terjadi kesalahan saat suspend customer')
+    } finally {
+      setShowBulkSuspendModal(false)
     }
   }
 
-  const handleBulkActivate = async () => {
+  const handleBulkActivate = () => {
     if (selectedCustomers.length === 0) {
       toast.error('Pilih customer terlebih dahulu')
       return
     }
+    setShowBulkActivateModal(true)
+  }
 
-    if (!window.confirm(`Aktifkan ${selectedCustomers.length} customer yang dipilih?`)) {
-      return
-    }
+  const confirmBulkActivate = async () => {
 
     try {
       let successCount = 0
@@ -368,6 +390,7 @@ const CustomersPage = () => {
       if (successCount > 0) {
         toast.success(`✅ ${successCount} customer berhasil diaktifkan${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
         refetchCustomers()
+        queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
       } else {
@@ -376,18 +399,20 @@ const CustomersPage = () => {
     } catch (error) {
       console.error('Bulk activate error:', error)
       toast.error('Terjadi kesalahan saat aktifkan customer')
+    } finally {
+      setShowBulkActivateModal(false)
     }
   }
 
-  const handleBulkDelete = async () => {
+  const handleBulkDelete = () => {
     if (selectedCustomers.length === 0) {
       toast.error('Pilih customer terlebih dahulu')
       return
     }
+    setShowBulkDeleteModal(true)
+  }
 
-    if (!window.confirm(`⚠️ PERINGATAN: Hapus ${selectedCustomers.length} customer yang dipilih?\n\nCustomer akan dinonaktifkan dan tidak bisa login.`)) {
-      return
-    }
+  const confirmBulkDelete = async () => {
 
     try {
       let successCount = 0
@@ -406,6 +431,7 @@ const CustomersPage = () => {
       if (successCount > 0) {
         toast.success(`✅ ${successCount} customer berhasil dihapus${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
         refetchCustomers()
+        queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
       } else {
@@ -414,6 +440,8 @@ const CustomersPage = () => {
     } catch (error) {
       console.error('Bulk delete error:', error)
       toast.error('Terjadi kesalahan saat hapus customer')
+    } finally {
+      setShowBulkDeleteModal(false)
     }
   }
 
@@ -1120,6 +1148,92 @@ const CustomersPage = () => {
         onClose={handleCloseForm}
         onSuccess={handleFormSuccess}
       />
+
+      {/* Delete Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showDeleteModal}
+        onClose={() => {
+          setShowDeleteModal(false)
+          setCustomerToDelete(null)
+        }}
+        onConfirm={confirmDeleteCustomer}
+        title="⚠️ Nonaktifkan Customer"
+        message={customerToDelete ? `Nonaktifkan customer "${customerToDelete.name}"?` : ''}
+        confirmText="Ya, Nonaktifkan"
+        cancelText="Batal"
+        type="danger"
+      >
+        {customerToDelete && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mt-2">
+            <p className="text-sm text-gray-700">
+              ⚠️ Customer akan dinonaktifkan dari sistem<br/>
+              📊 Data historis tetap tersimpan<br/>
+              🔄 Customer dapat diaktifkan kembali nanti
+            </p>
+          </div>
+        )}
+      </ConfirmationModal>
+
+      {/* Bulk Suspend Modal */}
+      <ConfirmationModal
+        isOpen={showBulkSuspendModal}
+        onClose={() => setShowBulkSuspendModal(false)}
+        onConfirm={confirmBulkSuspend}
+        title="⚠️ Suspend Multiple Customers"
+        message={`Suspend ${selectedCustomers.length} customer yang dipilih?`}
+        confirmText="Ya, Suspend"
+        cancelText="Batal"
+        type="warning"
+      >
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mt-2">
+          <p className="text-sm text-gray-700">
+            ⚠️ {selectedCustomers.length} customer akan di-suspend<br/>
+            🚫 Customer tidak bisa menggunakan layanan<br/>
+            🔄 Status dapat diubah kembali nanti
+          </p>
+        </div>
+      </ConfirmationModal>
+
+      {/* Bulk Activate Modal */}
+      <ConfirmationModal
+        isOpen={showBulkActivateModal}
+        onClose={() => setShowBulkActivateModal(false)}
+        onConfirm={confirmBulkActivate}
+        title="✅ Activate Multiple Customers"
+        message={`Aktifkan ${selectedCustomers.length} customer yang dipilih?`}
+        confirmText="Ya, Aktifkan"
+        cancelText="Batal"
+        type="success"
+      >
+        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-2">
+          <p className="text-sm text-gray-700">
+            ✅ {selectedCustomers.length} customer akan diaktifkan<br/>
+            📡 Customer dapat menggunakan layanan kembali<br/>
+            🎯 Status akun menjadi "Active"
+          </p>
+        </div>
+      </ConfirmationModal>
+
+      {/* Bulk Delete Modal */}
+      <ConfirmationModal
+        isOpen={showBulkDeleteModal}
+        onClose={() => setShowBulkDeleteModal(false)}
+        onConfirm={confirmBulkDelete}
+        title="🗑️ Hapus Multiple Customers"
+        message={`Hapus ${selectedCustomers.length} customer yang dipilih?`}
+        confirmText="Ya, Hapus"
+        cancelText="Batal"
+        type="danger"
+      >
+        <div className="bg-red-50 border border-red-200 rounded-lg p-3 mt-2">
+          <p className="text-sm text-gray-700">
+            ⚠️ <strong>PERINGATAN:</strong> {selectedCustomers.length} customer akan dihapus!<br/>
+            🚫 Customer akan dinonaktifkan dan tidak bisa login<br/>
+            📊 Data historis tetap tersimpan untuk audit<br/>
+            ⚠️ Aksi ini membutuhkan konfirmasi admin
+          </p>
+        </div>
+      </ConfirmationModal>
     </div>
   )
 }

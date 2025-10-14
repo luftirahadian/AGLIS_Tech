@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import {
   User, Phone, Mail, MapPin, Package, CreditCard,
   Calendar, Activity, Plus, Trash2, Edit,
   Wifi, Router, Cable, DollarSign, Clock, Star, AlertCircle,
-  CheckCircle, XCircle, Zap, Globe, Shield, ChevronRight
+  CheckCircle, XCircle, Zap, Globe, Shield, ChevronRight,
+  PhoneCall, Mail as MailIcon, MessageCircle, FileText, RefreshCw, Wallet
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
 import packageService from '../../services/packageService'
 import { ticketService } from '../../services/ticketService'
+import socketService from '../../services/socketService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import BackButton from '../../components/common/BackButton'
 import toast from 'react-hot-toast'
@@ -18,6 +20,7 @@ import { Link as RouterLink } from 'react-router-dom'
 const CustomerDetailPage = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const [activeTab, setActiveTab] = useState('overview')
   const [showAddEquipment, setShowAddEquipment] = useState(false)
   const [showAddPayment, setShowAddPayment] = useState(false)
@@ -67,6 +70,56 @@ const CustomerDetailPage = () => {
   const customerTickets = Array.isArray(ticketsData?.data?.tickets) 
     ? ticketsData.data.tickets 
     : []
+
+  // Listen to socket events for real-time updates
+  useEffect(() => {
+    const handleCustomerUpdate = (data) => {
+      if (data.customer && data.customer.id === parseInt(id)) {
+        queryClient.invalidateQueries(['customer', id])
+        toast.success('Customer data updated')
+        console.log('🔄 Customer data refreshed')
+      }
+    }
+
+    const handlePaymentAdded = (data) => {
+      if (data.customer_id === parseInt(id)) {
+        queryClient.invalidateQueries(['customer', id])
+        toast.success('New payment added')
+        console.log('💰 Payment added')
+      }
+    }
+
+    const handleEquipmentAdded = (data) => {
+      if (data.customer_id === parseInt(id)) {
+        queryClient.invalidateQueries(['customer', id])
+        toast.success('Equipment added')
+        console.log('🔧 Equipment added')
+      }
+    }
+
+    const handleTicketUpdate = (data) => {
+      if (data.ticket && data.ticket.customer_id === parseInt(id)) {
+        queryClient.invalidateQueries(['customer-tickets', id])
+        console.log('🎫 Ticket updated')
+      }
+    }
+
+    // Register socket event listeners
+    socketService.on('customer-updated', handleCustomerUpdate)
+    socketService.on('payment-added', handlePaymentAdded)
+    socketService.on('equipment-added', handleEquipmentAdded)
+    socketService.on('ticket-updated', handleTicketUpdate)
+    socketService.on('ticket-created', handleTicketUpdate)
+
+    return () => {
+      // Cleanup listeners
+      socketService.off('customer-updated', handleCustomerUpdate)
+      socketService.off('payment-added', handlePaymentAdded)
+      socketService.off('equipment-added', handleEquipmentAdded)
+      socketService.off('ticket-updated', handleTicketUpdate)
+      socketService.off('ticket-created', handleTicketUpdate)
+    }
+  }, [id, queryClient])
 
   if (isLoading) {
     return (
@@ -121,6 +174,55 @@ const CustomerDetailPage = () => {
       .split('_')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ')
+  }
+
+  // ==================== QUICK ACTION HANDLERS ====================
+  
+  const handleQuickCall = () => {
+    window.location.href = `tel:${customer.phone}`
+  }
+
+  const handleQuickEmail = () => {
+    window.location.href = `mailto:${customer.email}`
+  }
+
+  const handleQuickWhatsApp = () => {
+    const phoneNumber = customer.phone.replace(/^0/, '62') // Convert 08xx to 628xx
+    window.open(`https://wa.me/${phoneNumber}`, '_blank')
+  }
+
+  const handleQuickCreateTicket = () => {
+    navigate('/tickets/new', { state: { customer: customer } })
+  }
+
+  const handleQuickAddPayment = () => {
+    setShowAddPayment(true)
+  }
+
+  const handleQuickSuspend = async () => {
+    if (window.confirm(`Suspend customer ${customer.name}?`)) {
+      try {
+        await customerService.updateCustomer(customer.id, { account_status: 'suspended' })
+        toast.success('Customer suspended successfully')
+        refetch()
+      } catch (error) {
+        toast.error('Failed to suspend customer')
+        console.error('Suspend error:', error)
+      }
+    }
+  }
+
+  const handleQuickActivate = async () => {
+    if (window.confirm(`Activate customer ${customer.name}?`)) {
+      try {
+        await customerService.updateCustomer(customer.id, { account_status: 'active' })
+        toast.success('Customer activated successfully')
+        refetch()
+      } catch (error) {
+        toast.error('Failed to activate customer')
+        console.error('Activate error:', error)
+      }
+    }
   }
 
   const getStatusBadge = (status, type = 'account') => {
@@ -600,6 +702,87 @@ const CustomerDetailPage = () => {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Zap className="h-5 w-5 text-gray-400" />
+            <span className="text-sm font-medium text-gray-700">Quick Actions:</span>
+          </div>
+          <div className="flex items-center gap-3 flex-wrap">
+            {/* Call Customer */}
+            {customer.phone && (
+              <button
+                onClick={handleQuickCall}
+                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+              >
+                <PhoneCall className="h-4 w-4" />
+                Call Customer
+              </button>
+            )}
+
+            {/* Email Customer */}
+            {customer.email && (
+              <button
+                onClick={handleQuickEmail}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+              >
+                <MailIcon className="h-4 w-4" />
+                Email Customer
+              </button>
+            )}
+
+            {/* WhatsApp */}
+            {customer.phone && (
+              <button
+                onClick={handleQuickWhatsApp}
+                className="px-4 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </button>
+            )}
+
+            {/* Create Ticket */}
+            <button
+              onClick={handleQuickCreateTicket}
+              className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+            >
+              <FileText className="h-4 w-4" />
+              Create Ticket
+            </button>
+
+            {/* Add Payment */}
+            <button
+              onClick={handleQuickAddPayment}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+            >
+              <Wallet className="h-4 w-4" />
+              Add Payment
+            </button>
+
+            {/* Suspend/Activate */}
+            {customer.account_status === 'active' ? (
+              <button
+                onClick={handleQuickSuspend}
+                className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+              >
+                <XCircle className="h-4 w-4" />
+                Suspend
+              </button>
+            ) : customer.account_status === 'suspended' ? (
+              <button
+                onClick={handleQuickActivate}
+                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm font-medium inline-flex items-center gap-2 transition-colors"
+              >
+                <CheckCircle className="h-4 w-4" />
+                Activate
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
