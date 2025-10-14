@@ -120,9 +120,9 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
       if (category && category.estimated_duration) {
         setValue('estimated_duration', category.estimated_duration)
       }
-    } else if (selectedType && serviceTypes) {
+    } else if (selectedType && serviceTypes?.data) {
       // Fallback to service type default duration
-      const serviceType = serviceTypes.find(st => st.type_code === selectedType)
+      const serviceType = serviceTypes.data.find(st => st.type_code === selectedType)
       if (serviceType && serviceType.default_duration) {
         setValue('estimated_duration', serviceType.default_duration)
       }
@@ -132,7 +132,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   // Auto-fill Title when Customer, Service Type, and Category are selected
   useEffect(() => {
     if (selectedCustomer && selectedType) {
-      const serviceType = serviceTypes?.find(st => st.type_code === selectedType)
+      const serviceType = serviceTypes?.data?.find(st => st.type_code === selectedType)
       const category = availableCategories.find(cat => cat.category_code === selectedCategory)
       
       let title = ''
@@ -151,7 +151,7 @@ const TicketCreateForm = ({ isOpen, onClose, onSuccess, preSelectedCustomer }) =
   // Auto-fill Description based on Service Type (formatted & detailed)
   useEffect(() => {
     if (selectedCustomer && selectedType) {
-      const serviceType = serviceTypes?.find(st => st.type_code === selectedType)
+      const serviceType = serviceTypes?.data?.find(st => st.type_code === selectedType)
       const category = availableCategories.find(cat => cat.category_code === selectedCategory)
       
       // Format customer package info
