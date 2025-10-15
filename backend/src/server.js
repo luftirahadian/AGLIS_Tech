@@ -238,6 +238,7 @@ app.use('/api/skill-levels', authMiddleware, cacheMiddleware(600), skillLevelsRo
 app.use('/api/specializations', authMiddleware, cacheMiddleware(600), specializationsRoutes); // Cache 10 min
 app.use('/api/whatsapp-groups', authMiddleware, whatsappGroupsRoutes); // WhatsApp groups management
 app.use('/api/whatsapp-notifications', authMiddleware, require('./routes/whatsappNotifications')); // WhatsApp notification triggers
+app.use('/api/whatsapp-templates', authMiddleware, require('./routes/whatsappTemplates')); // WhatsApp template management
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');

@@ -206,6 +206,10 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
             {
               name: 'WhatsApp Groups',
               href: '/master-data/whatsapp-groups'
+            },
+            {
+              name: 'WhatsApp Templates',
+              href: '/master-data/whatsapp-templates'
             }
           ]
         },
