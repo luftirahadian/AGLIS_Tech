@@ -449,3 +449,59 @@
 2025-10-16T02:21:25: 🚨 Triggered 1 alert(s)
 2025-10-16T02:21:25:    - SLA Violation (high): 2
 2025-10-16T02:21:42: 127.0.0.1 - - [15/Oct/2025:19:21:42 +0000] "GET /api/alerts/stats HTTP/1.1" 401 63 "-" "curl/7.81.0"
+2025-10-16T02:25:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:25:00: 🔍 Checking system alerts...
+2025-10-16T02:25:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:30:00: 🔍 Starting SLA check...
+2025-10-16T02:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:30:00: 📋 Found 4 active tickets to check
+2025-10-16T02:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1854 minutes overdue!
+2025-10-16T02:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1366 minutes overdue!
+2025-10-16T02:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1343 minutes overdue!
+2025-10-16T02:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1322 minutes overdue!
+2025-10-16T02:30:00: 🔍 Checking system alerts...
+2025-10-16T02:30:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:35:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:35:00: 🔍 Checking system alerts...
+2025-10-16T02:35:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:40:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:40:00: 🔍 Checking system alerts...
+2025-10-16T02:40:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:40:01: 103.55.225.241 - - [15/Oct/2025:19:40:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-16T02:45:00: 🔍 Starting SLA check...
+2025-10-16T02:45:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:45:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:45:00: 📋 Found 4 active tickets to check
+2025-10-16T02:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1869 minutes overdue!
+2025-10-16T02:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1381 minutes overdue!
+2025-10-16T02:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1358 minutes overdue!
+2025-10-16T02:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1337 minutes overdue!
+2025-10-16T02:45:00: 🔍 Checking system alerts...
+2025-10-16T02:45:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:50:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:50:00: 🔍 Checking system alerts...
+2025-10-16T02:50:00: ✅ No alerts triggered - System healthy
+2025-10-16T02:55:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:55:00: 🔍 Checking system alerts...
+2025-10-16T02:55:00: ✅ No alerts triggered - System healthy
+2025-10-16T03:00:00: 🔍 Starting SLA check...
+2025-10-16T03:00:00: ✅ Connected to PostgreSQL database
+2025-10-16T03:00:00: ✅ Connected to PostgreSQL database
+2025-10-16T03:00:00: 📋 Found 4 active tickets to check
+2025-10-16T03:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T03:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1884 minutes overdue!
+2025-10-16T03:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1396 minutes overdue!
+2025-10-16T03:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1373 minutes overdue!
+2025-10-16T03:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1352 minutes overdue!
+2025-10-16T03:00:00: 🔍 Checking system alerts...
+2025-10-16T03:00:00: ✅ No alerts triggered - System healthy
+2025-10-16T03:00:01: 103.55.225.241 - - [15/Oct/2025:20:00:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-16T03:04:56: ✅ Connected to PostgreSQL database
+2025-10-16T03:04:56: 127.0.0.1 - - [15/Oct/2025:20:04:56 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-16T03:05:00: 🔍 Checking system alerts...
+2025-10-16T03:05:00: ✅ No alerts triggered - System healthy
+2025-10-16T03:08:29: ✅ Connected to PostgreSQL database
+2025-10-16T03:08:29: 127.0.0.1 - - [15/Oct/2025:20:08:29 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
