@@ -218,3 +218,51 @@
 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T08:47:34: Test WhatsApp group error: error: value too long for type character varying(20)
+2025-10-15T08:47:34:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T08:47:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T08:47:34:   length: 98,
+2025-10-15T08:47:34:   severity: 'ERROR',
+2025-10-15T08:47:34:   code: '22001',
+2025-10-15T08:47:34:   detail: undefined,
+2025-10-15T08:47:34:   hint: undefined,
+2025-10-15T08:47:34:   position: undefined,
+2025-10-15T08:47:34:   internalPosition: undefined,
+2025-10-15T08:47:34:   internalQuery: undefined,
+2025-10-15T08:47:34:   where: undefined,
+2025-10-15T08:47:34:   schema: undefined,
+2025-10-15T08:47:34:   table: undefined,
+2025-10-15T08:47:34:   column: undefined,
+2025-10-15T08:47:34:   dataType: undefined,
+2025-10-15T08:47:34:   constraint: undefined,
+2025-10-15T08:47:34:   file: 'varchar.c',
+2025-10-15T08:47:34:   line: '632',
+2025-10-15T08:47:34:   routine: 'varchar'
+2025-10-15T08:47:34: }
+2025-10-15T08:47:34: ❌ QUERY ERROR (4ms): {
+2025-10-15T08:47:34:   error: 'value too long for type character varying(20)',
+2025-10-15T08:47:34:   query: 'INSERT INTO whatsapp_notifications (\n' +
+2025-10-15T08:47:34:     '        group_id, recipient_type, phone_number, message, status, provider, provider_response\n' +
+2025-10-15T08:47:34:     '      ) VALUES ($1, ...'
+2025-10-15T08:47:34: }
+2025-10-15T08:47:34: error: value too long for type character varying(20)
+2025-10-15T08:47:34:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T08:47:34:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T08:47:34:   length: 98,
+2025-10-15T08:47:34:   severity: 'ERROR',
+2025-10-15T08:47:34:   code: '22001',
+2025-10-15T08:47:34:   detail: undefined,
+2025-10-15T08:47:34:   hint: undefined,
+2025-10-15T08:47:34:   position: undefined,
+2025-10-15T08:47:34:   internalPosition: undefined,
+2025-10-15T08:47:34:   internalQuery: undefined,
+2025-10-15T08:47:34:   where: undefined,
+2025-10-15T08:47:34:   schema: undefined,
+2025-10-15T08:47:34:   table: undefined,
+2025-10-15T08:47:34:   column: undefined,
+2025-10-15T08:47:34:   dataType: undefined,
+2025-10-15T08:47:34:   constraint: undefined,
+2025-10-15T08:47:34:   file: 'varchar.c',
+2025-10-15T08:47:34:   line: '632',
+2025-10-15T08:47:34:   routine: 'varchar'
+2025-10-15T08:47:34: }
