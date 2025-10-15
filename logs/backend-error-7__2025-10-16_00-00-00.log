@@ -1,0 +1,809 @@
+2025-10-15T06:19:17: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:17:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:17:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:17:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:17:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:17:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:17:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:22: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:22:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:22:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:22:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:26: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:26:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:26:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:26:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:26:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:26:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:26:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:26:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:26:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:26:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:26:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:31: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:31:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:31:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:31:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:31:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:31:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:31:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:31:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:31:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:31:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:31:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:36: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:36:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:41: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:41:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:41:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:41:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:41:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:41:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:41:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:41:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:41:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:41:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:41:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:46: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:46:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:46:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:50: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:50:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:50:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:50:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:50:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:50:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:50:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:50:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:50:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:50:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:50:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:19:55: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:19:55:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:19:55:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:19:55:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:19:55:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:19:55:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:19:55:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:19:55:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:19:55:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:19:55:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:19:55:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:20:00: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:20:00:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:20:00:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:20:00:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:20:00:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:20:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:20:00:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:20:00:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:20:00:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:20:00:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:20:00:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:17: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:17:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:17:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:17:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:17:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:17:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:17:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:22: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:22:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:22:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:22:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:22:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:22:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:22:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:22:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:22:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:22:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:22:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:27: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:27:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:27:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:27:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:27:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:27:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:27:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:27:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:27:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:27:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:27:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:32: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:32:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:32:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:32:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:32:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:32:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:32:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:32:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:32:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:32:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:32:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:36: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:36:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:41: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:41:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:41:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:41:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:41:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:41:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:41:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:41:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:41:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:41:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:41:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:46: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:46:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:46:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:46:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:46:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:46:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:46:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:46:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:46:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:46:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:46:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:51: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:51:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:51:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:51:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:51:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:51:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:51:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:51:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:51:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:51:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:51:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:25:56: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:25:56:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:25:56:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:25:56:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:25:56:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:25:56:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:25:56:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:25:56:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:25:56:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:25:56:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:25:56:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:26:00: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:26:00:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:26:00:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:26:00:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:26:00:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:26:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:26:00:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:26:00:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:26:00:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:26:00:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:26:00:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:30:53: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:30:53:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:30:53:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:30:53:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:30:53:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:30:53:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:30:53:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:30:53:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:30:53:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:30:53:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:30:53:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:30:57: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:30:57:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:30:57:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:30:57:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:30:57:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:30:57:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:30:57:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:30:57:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:30:57:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:30:57:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:30:57:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:02: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:02:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:02:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:02:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:02:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:02:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:02:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:02:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:02:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:02:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:02:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:07: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:07:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:07:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:07:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:07:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:07:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:07:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:07:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:07:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:07:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:07:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:12: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:12:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:12:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:12:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:12:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:12:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:12:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:12:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:12:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:12:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:12:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:17: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:17:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:17:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:17:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:17:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:17:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:17:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:17:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:17:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:17:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:17:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:21: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:21:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:21:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:21:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:21:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:21:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:21:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:21:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:21:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:21:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:21:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:26: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:26:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:26:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:26:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:26:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:26:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:26:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:26:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:26:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:26:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:26:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:31: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:31:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:31:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:31:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:31:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:31:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:31:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:31:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:31:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:31:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:31:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T06:31:36: Error: Route.get() requires a callback function but got a [object Undefined]
+2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+2025-10-15T10:02:28: 🚨 OVERDUE: Ticket #TKT20251014001 is 866 minutes overdue!
+2025-10-15T10:02:28: 🚨 OVERDUE: Ticket #TKT20251013006 is 379 minutes overdue!
+2025-10-15T10:02:28: 🚨 OVERDUE: Ticket #TKT20251013007 is 355 minutes overdue!
+2025-10-15T10:02:28: 🚨 OVERDUE: Ticket #TKT20251014010 is 335 minutes overdue!
+2025-10-15T10:14:09: 🚨 OVERDUE: Ticket #TKT20251014001 is 878 minutes overdue!
+2025-10-15T10:14:09: 🚨 OVERDUE: Ticket #TKT20251013006 is 390 minutes overdue!
+2025-10-15T10:14:09: 🚨 OVERDUE: Ticket #TKT20251013007 is 367 minutes overdue!
+2025-10-15T10:14:09: 🚨 OVERDUE: Ticket #TKT20251014010 is 346 minutes overdue!
+2025-10-15T10:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 879 minutes overdue!
+2025-10-15T10:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 391 minutes overdue!
+2025-10-15T10:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 368 minutes overdue!
+2025-10-15T10:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 347 minutes overdue!
+2025-10-15T10:24:24: 🚨 OVERDUE: Ticket #TKT20251014001 is 888 minutes overdue!
+2025-10-15T10:24:24: 🚨 OVERDUE: Ticket #TKT20251013006 is 401 minutes overdue!
+2025-10-15T10:24:24: 🚨 OVERDUE: Ticket #TKT20251013007 is 377 minutes overdue!
+2025-10-15T10:24:24: 🚨 OVERDUE: Ticket #TKT20251014010 is 357 minutes overdue!
+2025-10-15T10:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 894 minutes overdue!
+2025-10-15T10:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 406 minutes overdue!
+2025-10-15T10:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 383 minutes overdue!
+2025-10-15T10:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 362 minutes overdue!
+2025-10-15T10:41:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 905 minutes overdue!
+2025-10-15T10:41:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 417 minutes overdue!
+2025-10-15T10:41:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 394 minutes overdue!
+2025-10-15T10:41:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 374 minutes overdue!
+2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 909 minutes overdue!
+2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 421 minutes overdue!
+2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 398 minutes overdue!
+2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 377 minutes overdue!
+2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+2025-10-15T11:00:00:   query: '\n' +
+2025-10-15T11:00:00:     '        SELECT \n' +
+2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+2025-10-15T11:13:31: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:13:31:   length: 150,
+2025-10-15T11:13:31:   severity: 'ERROR',
+2025-10-15T11:13:31:   code: '42703',
+2025-10-15T11:13:31:   detail: undefined,
+2025-10-15T11:13:31:   hint: undefined,
+2025-10-15T11:13:31:   position: '78',
+2025-10-15T11:13:31:   internalPosition: undefined,
+2025-10-15T11:13:31:   internalQuery: undefined,
+2025-10-15T11:13:31:   where: undefined,
+2025-10-15T11:13:31:   schema: undefined,
+2025-10-15T11:13:31:   table: undefined,
+2025-10-15T11:13:31:   column: undefined,
+2025-10-15T11:13:31:   dataType: undefined,
+2025-10-15T11:13:31:   constraint: undefined,
+2025-10-15T11:13:31:   file: 'parse_target.c',
+2025-10-15T11:13:31:   line: '1075',
+2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+2025-10-15T11:13:31: }
+2025-10-15T11:13:31: ❌ QUERY ERROR (1ms): {
+2025-10-15T11:13:31:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+2025-10-15T11:13:31:   query: '\n' +
+2025-10-15T11:13:31:     '        INSERT INTO whatsapp_notifications \n' +
+2025-10-15T11:13:31:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+2025-10-15T11:13:31: }
+2025-10-15T11:13:31: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:13:31:   length: 150,
+2025-10-15T11:13:31:   severity: 'ERROR',
+2025-10-15T11:13:31:   code: '42703',
+2025-10-15T11:13:31:   detail: undefined,
+2025-10-15T11:13:31:   hint: undefined,
+2025-10-15T11:13:31:   position: '78',
+2025-10-15T11:13:31:   internalPosition: undefined,
+2025-10-15T11:13:31:   internalQuery: undefined,
+2025-10-15T11:13:31:   where: undefined,
+2025-10-15T11:13:31:   schema: undefined,
+2025-10-15T11:13:31:   table: undefined,
+2025-10-15T11:13:31:   column: undefined,
+2025-10-15T11:13:31:   dataType: undefined,
+2025-10-15T11:13:31:   constraint: undefined,
+2025-10-15T11:13:31:   file: 'parse_target.c',
+2025-10-15T11:13:31:   line: '1075',
+2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+2025-10-15T11:13:31: }
+2025-10-15T11:14:06: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:14:06:   length: 150,
+2025-10-15T11:14:06:   severity: 'ERROR',
+2025-10-15T11:14:06:   code: '42703',
+2025-10-15T11:14:06:   detail: undefined,
+2025-10-15T11:14:06:   hint: undefined,
+2025-10-15T11:14:06:   position: '78',
+2025-10-15T11:14:06:   internalPosition: undefined,
+2025-10-15T11:14:06:   internalQuery: undefined,
+2025-10-15T11:14:06:   where: undefined,
+2025-10-15T11:14:06:   schema: undefined,
+2025-10-15T11:14:06:   table: undefined,
+2025-10-15T11:14:06:   column: undefined,
+2025-10-15T11:14:06:   dataType: undefined,
+2025-10-15T11:14:06:   constraint: undefined,
+2025-10-15T11:14:06:   file: 'parse_target.c',
+2025-10-15T11:14:06:   line: '1075',
+2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+2025-10-15T11:14:06: }
+2025-10-15T11:14:06: ❌ QUERY ERROR (1ms): {
+2025-10-15T11:14:06:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+2025-10-15T11:14:06:   query: '\n' +
+2025-10-15T11:14:06:     '        INSERT INTO whatsapp_notifications \n' +
+2025-10-15T11:14:06:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+2025-10-15T11:14:06: }
+2025-10-15T11:14:06: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:14:06:   length: 150,
+2025-10-15T11:14:06:   severity: 'ERROR',
+2025-10-15T11:14:06:   code: '42703',
+2025-10-15T11:14:06:   detail: undefined,
+2025-10-15T11:14:06:   hint: undefined,
+2025-10-15T11:14:06:   position: '78',
+2025-10-15T11:14:06:   internalPosition: undefined,
+2025-10-15T11:14:06:   internalQuery: undefined,
+2025-10-15T11:14:06:   where: undefined,
+2025-10-15T11:14:06:   schema: undefined,
+2025-10-15T11:14:06:   table: undefined,
+2025-10-15T11:14:06:   column: undefined,
+2025-10-15T11:14:06:   dataType: undefined,
+2025-10-15T11:14:06:   constraint: undefined,
+2025-10-15T11:14:06:   file: 'parse_target.c',
+2025-10-15T11:14:06:   line: '1075',
+2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+2025-10-15T11:14:06: }
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+2025-10-15T11:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 954 minutes overdue!
+2025-10-15T11:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 466 minutes overdue!
+2025-10-15T11:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 443 minutes overdue!
+2025-10-15T11:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 422 minutes overdue!
+2025-10-15T11:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 969 minutes overdue!
+2025-10-15T11:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 481 minutes overdue!
+2025-10-15T11:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 458 minutes overdue!
+2025-10-15T11:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 437 minutes overdue!
+2025-10-15T11:45:49: 🚨 OVERDUE: Ticket #TKT20251014001 is 970 minutes overdue!
+2025-10-15T11:45:49: 🚨 OVERDUE: Ticket #TKT20251013006 is 482 minutes overdue!
+2025-10-15T11:45:49: 🚨 OVERDUE: Ticket #TKT20251013007 is 459 minutes overdue!
+2025-10-15T11:45:49: 🚨 OVERDUE: Ticket #TKT20251014010 is 438 minutes overdue!
+2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251014001 is 979 minutes overdue!
+2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251013006 is 492 minutes overdue!
+2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251013007 is 469 minutes overdue!
+2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251014010 is 448 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 984 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 496 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 473 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 452 minutes overdue!
+2025-10-15T12:14:15: 🚨 OVERDUE: Ticket #TKT20251014001 is 998 minutes overdue!
+2025-10-15T12:14:15: 🚨 OVERDUE: Ticket #TKT20251013006 is 510 minutes overdue!
+2025-10-15T12:14:15: 🚨 OVERDUE: Ticket #TKT20251013007 is 487 minutes overdue!
+2025-10-15T12:14:15: 🚨 OVERDUE: Ticket #TKT20251014010 is 467 minutes overdue!
+2025-10-15T12:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 999 minutes overdue!
+2025-10-15T12:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 511 minutes overdue!
+2025-10-15T12:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 488 minutes overdue!
+2025-10-15T12:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 467 minutes overdue!
+2025-10-15T12:18:44: 🚨 OVERDUE: Ticket #TKT20251014001 is 1002 minutes overdue!
+2025-10-15T12:18:44: 🚨 OVERDUE: Ticket #TKT20251013006 is 515 minutes overdue!
+2025-10-15T12:18:44: 🚨 OVERDUE: Ticket #TKT20251013007 is 492 minutes overdue!
+2025-10-15T12:18:44: 🚨 OVERDUE: Ticket #TKT20251014010 is 471 minutes overdue!
+2025-10-15T12:28:07: 🚨 OVERDUE: Ticket #TKT20251014001 is 1012 minutes overdue!
+2025-10-15T12:28:07: 🚨 OVERDUE: Ticket #TKT20251013006 is 524 minutes overdue!
+2025-10-15T12:28:07: 🚨 OVERDUE: Ticket #TKT20251013007 is 501 minutes overdue!
+2025-10-15T12:28:07: 🚨 OVERDUE: Ticket #TKT20251014010 is 480 minutes overdue!
+2025-10-15T12:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1014 minutes overdue!
+2025-10-15T12:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 526 minutes overdue!
+2025-10-15T12:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 503 minutes overdue!
+2025-10-15T12:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 482 minutes overdue!
+2025-10-15T12:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1029 minutes overdue!
+2025-10-15T12:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 541 minutes overdue!
+2025-10-15T12:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 518 minutes overdue!
+2025-10-15T12:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 497 minutes overdue!
+2025-10-15T12:55:25: 🚨 OVERDUE: Ticket #TKT20251014001 is 1039 minutes overdue!
+2025-10-15T12:55:25: 🚨 OVERDUE: Ticket #TKT20251013006 is 552 minutes overdue!
+2025-10-15T12:55:25: 🚨 OVERDUE: Ticket #TKT20251013007 is 528 minutes overdue!
+2025-10-15T12:55:25: 🚨 OVERDUE: Ticket #TKT20251014010 is 508 minutes overdue!
+2025-10-15T12:56:20: 🚨 OVERDUE: Ticket #TKT20251014001 is 1040 minutes overdue!
+2025-10-15T12:56:20: 🚨 OVERDUE: Ticket #TKT20251013006 is 552 minutes overdue!
+2025-10-15T12:56:20: 🚨 OVERDUE: Ticket #TKT20251013007 is 529 minutes overdue!
+2025-10-15T12:56:20: 🚨 OVERDUE: Ticket #TKT20251014010 is 509 minutes overdue!
+2025-10-15T13:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1044 minutes overdue!
+2025-10-15T13:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 556 minutes overdue!
+2025-10-15T13:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 533 minutes overdue!
+2025-10-15T13:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 512 minutes overdue!
+2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014001 is 1049 minutes overdue!
+2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251013006 is 561 minutes overdue!
+2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251013007 is 538 minutes overdue!
+2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014010 is 517 minutes overdue!
+2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:   severity: 'ERROR',
+2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   position: undefined,
+2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   table: undefined,
+2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   dataType: undefined,
+2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   file: 'analyze.c',
+2025-10-15T13:07:01:   line: '3179',
+2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+2025-10-15T13:07:01: }
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1059 minutes overdue!
+2025-10-15T13:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 571 minutes overdue!
+2025-10-15T13:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 548 minutes overdue!
+2025-10-15T13:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 527 minutes overdue!
+2025-10-15T13:26:49: 🚨 OVERDUE: Ticket #TKT20251014001 is 1071 minutes overdue!
+2025-10-15T13:26:49: 🚨 OVERDUE: Ticket #TKT20251013006 is 583 minutes overdue!
+2025-10-15T13:26:49: 🚨 OVERDUE: Ticket #TKT20251013007 is 560 minutes overdue!
+2025-10-15T13:26:49: 🚨 OVERDUE: Ticket #TKT20251014010 is 539 minutes overdue!
+2025-10-15T13:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1074 minutes overdue!
+2025-10-15T13:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 586 minutes overdue!
+2025-10-15T13:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 563 minutes overdue!
+2025-10-15T13:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 542 minutes overdue!
+2025-10-15T13:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1089 minutes overdue!
+2025-10-15T13:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 601 minutes overdue!
+2025-10-15T13:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 578 minutes overdue!
+2025-10-15T13:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 557 minutes overdue!
+2025-10-15T14:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1104 minutes overdue!
+2025-10-15T14:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 616 minutes overdue!
+2025-10-15T14:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 593 minutes overdue!
+2025-10-15T14:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 572 minutes overdue!
+2025-10-15T14:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1119 minutes overdue!
+2025-10-15T14:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 631 minutes overdue!
+2025-10-15T14:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 608 minutes overdue!
+2025-10-15T14:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 587 minutes overdue!
+2025-10-15T14:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1134 minutes overdue!
+2025-10-15T14:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 646 minutes overdue!
+2025-10-15T14:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 623 minutes overdue!
+2025-10-15T14:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 602 minutes overdue!
+2025-10-15T14:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1149 minutes overdue!
+2025-10-15T14:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 661 minutes overdue!
+2025-10-15T14:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 638 minutes overdue!
+2025-10-15T14:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 617 minutes overdue!
+2025-10-15T15:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1164 minutes overdue!
+2025-10-15T15:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 676 minutes overdue!
+2025-10-15T15:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 653 minutes overdue!
+2025-10-15T15:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 632 minutes overdue!
+2025-10-15T15:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1179 minutes overdue!
+2025-10-15T15:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 691 minutes overdue!
+2025-10-15T15:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 668 minutes overdue!
+2025-10-15T15:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 647 minutes overdue!
+2025-10-15T15:15:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T15:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1194 minutes overdue!
+2025-10-15T15:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 706 minutes overdue!
+2025-10-15T15:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 683 minutes overdue!
+2025-10-15T15:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 662 minutes overdue!
+2025-10-15T15:30:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T15:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1209 minutes overdue!
+2025-10-15T15:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 721 minutes overdue!
+2025-10-15T15:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 698 minutes overdue!
+2025-10-15T15:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 677 minutes overdue!
+2025-10-15T15:45:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T16:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1224 minutes overdue!
+2025-10-15T16:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 736 minutes overdue!
+2025-10-15T16:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 713 minutes overdue!
+2025-10-15T16:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 692 minutes overdue!
+2025-10-15T16:00:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T16:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1239 minutes overdue!
+2025-10-15T16:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 751 minutes overdue!
+2025-10-15T16:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 728 minutes overdue!
+2025-10-15T16:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 707 minutes overdue!
+2025-10-15T16:15:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T16:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1254 minutes overdue!
+2025-10-15T16:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 766 minutes overdue!
+2025-10-15T16:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 743 minutes overdue!
+2025-10-15T16:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 722 minutes overdue!
+2025-10-15T16:30:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T16:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1269 minutes overdue!
+2025-10-15T16:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 781 minutes overdue!
+2025-10-15T16:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 758 minutes overdue!
+2025-10-15T16:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 737 minutes overdue!
+2025-10-15T16:45:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T17:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1284 minutes overdue!
+2025-10-15T17:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 796 minutes overdue!
+2025-10-15T17:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 773 minutes overdue!
+2025-10-15T17:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 752 minutes overdue!
+2025-10-15T17:00:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T17:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1299 minutes overdue!
+2025-10-15T17:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 811 minutes overdue!
+2025-10-15T17:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 788 minutes overdue!
+2025-10-15T17:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 767 minutes overdue!
+2025-10-15T17:15:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T17:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1314 minutes overdue!
+2025-10-15T17:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 826 minutes overdue!
+2025-10-15T17:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 803 minutes overdue!
+2025-10-15T17:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 782 minutes overdue!
+2025-10-15T17:30:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T17:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1329 minutes overdue!
+2025-10-15T17:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 841 minutes overdue!
+2025-10-15T17:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 818 minutes overdue!
+2025-10-15T17:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 797 minutes overdue!
+2025-10-15T17:45:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T18:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1344 minutes overdue!
+2025-10-15T18:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 856 minutes overdue!
+2025-10-15T18:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 833 minutes overdue!
+2025-10-15T18:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 812 minutes overdue!
+2025-10-15T18:00:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T18:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1359 minutes overdue!
+2025-10-15T18:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 871 minutes overdue!
+2025-10-15T18:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 848 minutes overdue!
+2025-10-15T18:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 827 minutes overdue!
+2025-10-15T18:15:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T18:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1374 minutes overdue!
+2025-10-15T18:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 886 minutes overdue!
+2025-10-15T18:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 863 minutes overdue!
+2025-10-15T18:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 842 minutes overdue!
+2025-10-15T18:30:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T18:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1389 minutes overdue!
+2025-10-15T18:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 901 minutes overdue!
+2025-10-15T18:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 878 minutes overdue!
+2025-10-15T18:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 857 minutes overdue!
+2025-10-15T18:45:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T19:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1404 minutes overdue!
+2025-10-15T19:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 916 minutes overdue!
+2025-10-15T19:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 893 minutes overdue!
+2025-10-15T19:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 872 minutes overdue!
+2025-10-15T19:00:00: ⚠️ Failed to send SLA warning for ticket #TKT20251013010: undefined
+2025-10-15T19:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1419 minutes overdue!
+2025-10-15T19:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 931 minutes overdue!
+2025-10-15T19:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 908 minutes overdue!
+2025-10-15T19:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 887 minutes overdue!
+2025-10-15T19:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 13 minutes overdue!
+2025-10-15T19:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1434 minutes overdue!
+2025-10-15T19:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 946 minutes overdue!
+2025-10-15T19:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 923 minutes overdue!
+2025-10-15T19:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 902 minutes overdue!
+2025-10-15T19:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 28 minutes overdue!
+2025-10-15T19:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1449 minutes overdue!
+2025-10-15T19:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 961 minutes overdue!
+2025-10-15T19:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 938 minutes overdue!
+2025-10-15T19:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 917 minutes overdue!
+2025-10-15T19:45:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 43 minutes overdue!
+2025-10-15T20:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1464 minutes overdue!
+2025-10-15T20:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 976 minutes overdue!
+2025-10-15T20:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 953 minutes overdue!
+2025-10-15T20:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 932 minutes overdue!
+2025-10-15T20:00:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 58 minutes overdue!
+2025-10-15T20:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1479 minutes overdue!
+2025-10-15T20:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 991 minutes overdue!
+2025-10-15T20:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 968 minutes overdue!
+2025-10-15T20:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 947 minutes overdue!
+2025-10-15T20:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 73 minutes overdue!
+2025-10-15T20:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1494 minutes overdue!
+2025-10-15T20:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1006 minutes overdue!
+2025-10-15T20:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 983 minutes overdue!
+2025-10-15T20:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 962 minutes overdue!
+2025-10-15T20:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 88 minutes overdue!
+2025-10-15T20:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1509 minutes overdue!
+2025-10-15T20:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1021 minutes overdue!
+2025-10-15T20:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 998 minutes overdue!
+2025-10-15T20:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 977 minutes overdue!
+2025-10-15T20:45:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 103 minutes overdue!
+2025-10-15T21:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1524 minutes overdue!
+2025-10-15T21:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1036 minutes overdue!
+2025-10-15T21:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1013 minutes overdue!
+2025-10-15T21:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 992 minutes overdue!
+2025-10-15T21:00:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 118 minutes overdue!
+2025-10-15T21:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1539 minutes overdue!
+2025-10-15T21:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1051 minutes overdue!
+2025-10-15T21:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1028 minutes overdue!
+2025-10-15T21:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1007 minutes overdue!
+2025-10-15T21:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 133 minutes overdue!
+2025-10-15T21:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1554 minutes overdue!
+2025-10-15T21:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1066 minutes overdue!
+2025-10-15T21:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1043 minutes overdue!
+2025-10-15T21:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1022 minutes overdue!
+2025-10-15T21:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 148 minutes overdue!
+2025-10-15T21:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1569 minutes overdue!
+2025-10-15T21:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1081 minutes overdue!
+2025-10-15T21:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1058 minutes overdue!
+2025-10-15T21:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1037 minutes overdue!
+2025-10-15T21:45:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 163 minutes overdue!
+2025-10-15T22:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1584 minutes overdue!
+2025-10-15T22:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1096 minutes overdue!
+2025-10-15T22:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1073 minutes overdue!
+2025-10-15T22:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1052 minutes overdue!
+2025-10-15T22:00:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 178 minutes overdue!
+2025-10-15T22:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1599 minutes overdue!
+2025-10-15T22:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1111 minutes overdue!
+2025-10-15T22:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1088 minutes overdue!
+2025-10-15T22:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1067 minutes overdue!
+2025-10-15T22:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 193 minutes overdue!
+2025-10-15T22:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1614 minutes overdue!
+2025-10-15T22:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1126 minutes overdue!
+2025-10-15T22:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1103 minutes overdue!
+2025-10-15T22:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1082 minutes overdue!
+2025-10-15T22:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 208 minutes overdue!
+2025-10-15T22:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1629 minutes overdue!
+2025-10-15T22:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1141 minutes overdue!
+2025-10-15T22:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1118 minutes overdue!
+2025-10-15T22:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1097 minutes overdue!
+2025-10-15T22:45:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 223 minutes overdue!
+2025-10-15T23:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1644 minutes overdue!
+2025-10-15T23:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1156 minutes overdue!
+2025-10-15T23:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1133 minutes overdue!
+2025-10-15T23:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1112 minutes overdue!
+2025-10-15T23:00:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 238 minutes overdue!
+2025-10-15T23:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1659 minutes overdue!
+2025-10-15T23:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1171 minutes overdue!
+2025-10-15T23:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1148 minutes overdue!
+2025-10-15T23:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1127 minutes overdue!
+2025-10-15T23:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 253 minutes overdue!
+2025-10-15T23:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1674 minutes overdue!
+2025-10-15T23:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1186 minutes overdue!
+2025-10-15T23:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1163 minutes overdue!
+2025-10-15T23:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1142 minutes overdue!
+2025-10-15T23:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 268 minutes overdue!
+2025-10-15T23:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1689 minutes overdue!
+2025-10-15T23:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1201 minutes overdue!
+2025-10-15T23:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1178 minutes overdue!
+2025-10-15T23:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1157 minutes overdue!
+2025-10-15T23:45:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 283 minutes overdue!

@@ -156,6 +156,7 @@ class WhatsAppNotificationService {
       // Format message data
       const messageData = {
         ticketNumber: ticket.ticket_number,
+        customerName: ticket.customer_name,
         oldStatus: oldStatus,
         newStatus: newStatus,
         technicianName: ticket.technician_name || 'Tim Kami',
@@ -184,9 +185,97 @@ class WhatsAppNotificationService {
         error: sendResult.error
       });
 
+      // If ticket is completed, send notification to WhatsApp groups
+      if (newStatus === 'completed') {
+        await this.notifyGroupTicketCompletion(ticketId, ticket, messageData);
+      }
+
       return sendResult;
     } catch (error) {
       console.error('Error sending ticket status update:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 2b. Send Ticket Completion to WhatsApp Groups
+   */
+  async notifyGroupTicketCompletion(ticketId, ticket, messageData) {
+    try {
+      // Get active WhatsApp groups that want ticket completion notifications
+      const groupsQuery = `
+        SELECT id, name, phone_number, group_chat_id
+        FROM whatsapp_groups
+        WHERE is_active = TRUE
+          AND (notification_types @> '["ticket_completed"]'::jsonb 
+               OR notification_types @> '["all"]'::jsonb)
+      `;
+      
+      const groupsResult = await pool.query(groupsQuery);
+      
+      if (groupsResult.rows.length === 0) {
+        console.log('No WhatsApp groups configured for ticket completion notifications');
+        return { success: true, message: 'No groups configured' };
+      }
+
+      // Create group-friendly message
+      const groupMessage = `🎉 *TICKET COMPLETED*
+
+Ticket: #${ticket.ticket_number}
+Customer: ${messageData.customerName || ticket.customer_name || 'N/A'}
+Teknisi: ${messageData.technicianName}
+
+⏱️ Selesai: ${messageData.completedAt}
+⌛ Durasi: ${messageData.duration}
+
+📝 Masalah: ${messageData.issue}
+
+✅ Solusi: ${messageData.solution || 'Telah diselesaikan'}
+
+_AGLIS Net - Excellent Service!_ 🌐`;
+
+      // Send to all configured groups
+      const results = [];
+      for (const group of groupsResult.rows) {
+        const targetNumber = group.group_chat_id || group.phone_number;
+        
+        if (!targetNumber) {
+          console.warn(`Group ${group.name} has no phone number or group chat ID`);
+          continue;
+        }
+
+        const sendResult = await this.whatsappService.sendMessage(targetNumber, groupMessage);
+        
+        // Log group notification
+        await this.logNotification({
+          ticket_id: ticketId,
+          group_id: group.id,
+          phone_number: targetNumber,
+          recipient_type: 'group',
+          notification_type: 'ticket_completed',
+          message: groupMessage,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push({
+          group: group.name,
+          success: sendResult.success,
+          error: sendResult.error
+        });
+
+        console.log(`📱 Ticket completion sent to group "${group.name}": ${sendResult.success ? 'SUCCESS' : 'FAILED'}`);
+      }
+
+      return {
+        success: true,
+        groups_notified: results.length,
+        results: results
+      };
+
+    } catch (error) {
+      console.error('Error sending group ticket completion notification:', error);
       return { success: false, error: error.message };
     }
   }
