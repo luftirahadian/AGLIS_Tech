@@ -192,6 +192,9 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Health Check Routes (no auth required for monitoring)
+app.use('/api/health', require('./routes/health'));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authMiddleware, userRoutes);

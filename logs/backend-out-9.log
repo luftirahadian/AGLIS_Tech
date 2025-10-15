@@ -269,3 +269,69 @@
 2025-10-16T01:15:00: ✅ Connected to PostgreSQL database
 2025-10-16T01:15:00: 📋 Found 4 active tickets to check
 2025-10-16T01:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:30:00: 🔍 Starting SLA check...
+2025-10-16T01:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T01:30:00: 📋 Found 4 active tickets to check
+2025-10-16T01:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:30:01: 103.55.225.241 - - [15/Oct/2025:18:30:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-16T01:45:00: 🔍 Starting SLA check...
+2025-10-16T01:45:00: ✅ Connected to PostgreSQL database
+2025-10-16T01:45:00: 📋 Found 4 active tickets to check
+2025-10-16T01:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:45:01: 103.55.225.241 - - [15/Oct/2025:18:45:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-16T01:45:26: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T01:45:26: ⏰ Starting billing cron jobs...
+2025-10-16T01:45:26:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T01:45:26:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T01:45:26: ✅ All billing cron jobs started successfully
+2025-10-16T01:45:26: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T01:45:26: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T01:45:26: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T01:45:26: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T01:45:26: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T01:45:26: ✅ WhatsApp notification jobs started successfully
+2025-10-16T01:45:26:    - SLA Monitor: Every 15 minutes
+2025-10-16T01:45:26:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T01:45:26:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T01:45:26:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T01:45:26: 🚀 Server running on 0.0.0.0:3003
+2025-10-16T01:45:26: 🌍 Environment: production
+2025-10-16T01:45:26: 📡 Local access: http://localhost:3003
+2025-10-16T01:45:26: 🌐 Network access: http://192.168.121.30:3003
+2025-10-16T01:45:26: 📝 CORS origins configured for local network access
+2025-10-16T01:45:26: ✅ Redis Cache Connected
+2025-10-16T01:45:26: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T01:45:26: ✅ Redis client connected for OTP storage
+2025-10-16T01:45:26: ✅ Redis client ready
+2025-10-16T01:45:31: 🔍 Starting SLA check...
+2025-10-16T01:45:31: ✅ Connected to PostgreSQL database
+2025-10-16T01:45:31: 📋 Found 4 active tickets to check
+2025-10-16T01:45:31: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:46:01: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T01:46:01: ⏰ Starting billing cron jobs...
+2025-10-16T01:46:01:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T01:46:01:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T01:46:01: ✅ All billing cron jobs started successfully
+2025-10-16T01:46:01: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T01:46:01: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T01:46:01: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T01:46:01: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T01:46:01: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T01:46:01: ✅ WhatsApp notification jobs started successfully
+2025-10-16T01:46:01:    - SLA Monitor: Every 15 minutes
+2025-10-16T01:46:01:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T01:46:01:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T01:46:01:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T01:46:01: 🚀 Server running on 0.0.0.0:3003
+2025-10-16T01:46:01: 🌍 Environment: production
+2025-10-16T01:46:01: 📡 Local access: http://localhost:3003
+2025-10-16T01:46:01: 🌐 Network access: http://192.168.121.30:3003
+2025-10-16T01:46:01: 📝 CORS origins configured for local network access
+2025-10-16T01:46:01: ✅ Redis Cache Connected
+2025-10-16T01:46:01: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T01:46:01: ✅ Redis client connected for OTP storage
+2025-10-16T01:46:01: ✅ Redis client ready
+2025-10-16T01:46:06: 🔍 Starting SLA check...
+2025-10-16T01:46:06: ✅ Connected to PostgreSQL database
+2025-10-16T01:46:06: 📋 Found 4 active tickets to check
+2025-10-16T01:46:06: ✅ SLA check completed. Warnings sent: 0

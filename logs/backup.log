@@ -1,0 +1,1388 @@
+[2025-10-16 01:40:08] 🔄 Starting database backup...
+[2025-10-16 01:40:09] ✅ Database backup successful: aglis_db_20251016_014008.sql.gz (0MB)
+[2025-10-16 01:40:09] 📦 Total backups stored: 1
+[2025-10-16 01:40:09] ✅ Backup process completed successfully
+[2025-10-16 01:40:21] 🔍 Starting backup verification...
+[2025-10-16 01:40:21] 📁 Latest backup: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:40:21] ✅ Backup age OK: 0 hours
+[2025-10-16 01:40:21] ❌ Backup file too small: 0MB (expected > 1MB)
+{"detail":"success! message in queue","id":["126102694"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9959,"remaining":9958,"used":1}},"requestid":148189190,"status":true,"target":["628179380800"]}[2025-10-16 01:41:04] 🔍 Starting backup verification...
+[2025-10-16 01:41:04] 📁 Latest backup: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:04] ✅ Backup age OK: 0 hours
+[2025-10-16 01:41:04] ✅ Backup size OK: 64KB
+[2025-10-16 01:41:04] ✅ Backup file integrity OK (gzip valid)
+[2025-10-16 01:41:04] ✅✅✅ Backup verification SUCCESSFUL
+[2025-10-16 01:41:04] 📊 Backup summary:
+[2025-10-16 01:41:04]    - File: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:04]    - Size: 0MB
+[2025-10-16 01:41:04]    - Age: 0 hours
+[2025-10-16 01:41:04]    - Status: Valid & ready for restore
+[2025-10-16 01:41:11] 📁 Using latest backup: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:11] 🔄 Starting restore test...
+[2025-10-16 01:41:11] 🗑️  Dropping test database if exists...
+NOTICE:  database "aglis_restore_test" does not exist, skipping
+DROP DATABASE
+[2025-10-16 01:41:11] 📦 Creating test database...
+ERROR:  permission denied to create database
+[2025-10-16 01:41:11] ❌ Failed to create test database
+[2025-10-16 01:41:55] 🔍 Starting backup verification...
+[2025-10-16 01:41:55] 📁 Latest backup: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:55] ✅ Backup age OK: 0 hours
+[2025-10-16 01:41:55] ✅ Backup size OK: 64KB
+[2025-10-16 01:41:55] ✅ Backup file integrity OK (gzip valid)
+[2025-10-16 01:41:55] ✅✅✅ Backup verification SUCCESSFUL
+[2025-10-16 01:41:55] 📊 Backup summary:
+[2025-10-16 01:41:55]    - File: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:55]    - Size: 0MB
+[2025-10-16 01:41:55]    - Age: 0 hours
+[2025-10-16 01:41:55]    - Status: Valid & ready for restore
+[2025-10-16 01:41:55] 📁 Using latest backup: aglis_db_20251016_014008.sql.gz
+[2025-10-16 01:41:55] 🔄 Starting restore test...
+[2025-10-16 01:41:55] 🗑️  Dropping test database if exists...
+NOTICE:  database "aglis_restore_test" does not exist, skipping
+DROP DATABASE
+[2025-10-16 01:41:55] 📦 Creating test database...
+CREATE DATABASE
+[2025-10-16 01:41:55] ✅ Test database created
+[2025-10-16 01:41:55] 🔄 Restoring backup to test database...
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ERROR:  must be member of role "postgres"
+CREATE FUNCTION
+ERROR:  must be member of role "postgres"
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ERROR:  must be member of role "postgres"
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ERROR:  must be member of role "postgres"
+SET
+SET
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE SEQUENCE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE SEQUENCE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  must be member of role "postgres"
+COMMENT
+CREATE SEQUENCE
+ERROR:  must be member of role "postgres"
+ALTER SEQUENCE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+COPY 0
+COPY 0
+COPY 0
+COPY 0
+COPY 22
+COPY 0
+COPY 32
+COPY 12
+COPY 0
+COPY 12
+COPY 33
+COPY 0
+COPY 18
+COPY 0
+COPY 33
+COPY 0
+COPY 0
+COPY 0
+COPY 0
+COPY 0
+COPY 0
+COPY 8
+COPY 0
+COPY 10
+COPY 1
+COPY 10
+COPY 87
+COPY 27
+COPY 4
+COPY 0
+COPY 36
+COPY 118
+COPY 52
+COPY 25
+COPY 7
+COPY 21
+COPY 4
+COPY 6
+COPY 28
+COPY 5
+COPY 13
+COPY 7
+COPY 3
+COPY 15
+COPY 17
+COPY 31
+COPY 13
+COPY 65
+COPY 18
+COPY 12
+COPY 0
+COPY 18
+COPY 8
+COPY 15
+COPY 94
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     22
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     32
+(1 row)
+
+ setval 
+--------
+     12
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     18
+(1 row)
+
+ setval 
+--------
+     33
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     18
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     66
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+   1000
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      8
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     18
+(1 row)
+
+ setval 
+--------
+     10
+(1 row)
+
+ setval 
+--------
+     87
+(1 row)
+
+ setval 
+--------
+     27
+(1 row)
+
+ setval 
+--------
+      4
+(1 row)
+
+ setval 
+--------
+   1000
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     36
+(1 row)
+
+ setval 
+--------
+    118
+(1 row)
+
+ setval 
+--------
+     65
+(1 row)
+
+ setval 
+--------
+     47
+(1 row)
+
+ setval 
+--------
+      7
+(1 row)
+
+ setval 
+--------
+      4
+(1 row)
+
+ setval 
+--------
+      6
+(1 row)
+
+ setval 
+--------
+     28
+(1 row)
+
+ setval 
+--------
+      5
+(1 row)
+
+ setval 
+--------
+     26
+(1 row)
+
+ setval 
+--------
+     14
+(1 row)
+
+ setval 
+--------
+      6
+(1 row)
+
+ setval 
+--------
+     30
+(1 row)
+
+ setval 
+--------
+     34
+(1 row)
+
+ setval 
+--------
+     31
+(1 row)
+
+ setval 
+--------
+     13
+(1 row)
+
+ setval 
+--------
+     65
+(1 row)
+
+ setval 
+--------
+     27
+(1 row)
+
+ setval 
+--------
+     12
+(1 row)
+
+ setval 
+--------
+      1
+(1 row)
+
+ setval 
+--------
+     26
+(1 row)
+
+ setval 
+--------
+      8
+(1 row)
+
+ setval 
+--------
+     22
+(1 row)
+
+ setval 
+--------
+     95
+(1 row)
+
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMENT
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ERROR:  must be member of role "postgres"
+ERROR:  must be member of role "postgres"
+[2025-10-16 01:41:57] ✅ Backup restored successfully to test database
+[2025-10-16 01:41:57] 🔍 Verifying restored data...
+[2025-10-16 01:41:57] 📊 Restored database stats:
+[2025-10-16 01:41:57]    - Tables: 55
+[2025-10-16 01:41:57]    - Users: 18
+[2025-10-16 01:41:57]    - Tickets: 18
+[2025-10-16 01:41:57] 🗑️  Cleaning up test database...
+DROP DATABASE
+[2025-10-16 01:41:57] ✅✅✅ RESTORE TEST SUCCESSFUL
+[2025-10-16 01:41:57] 🎉 Backup is valid and can be restored!
+[2025-10-16 01:42:04] 🔄 Starting file uploads backup...
+sending incremental file list
+./
+tickets/
+tickets/attenuation/
+tickets/attenuation/ticket_10/
+tickets/attenuation/ticket_10/1760292508248_1624b61f47468e73_Screenshot_2025_08_2.png
+tickets/attenuation/ticket_12/
+tickets/attenuation/ticket_12/1760413014363_6f1cfbb81df0ee05_Screenshot_2025_10_1.png
+tickets/attenuation/ticket_13/
+tickets/attenuation/ticket_13/1760412729221_0cc860b2bc4c3a1b_Screenshot_2025_09_1.png
+tickets/attenuation/ticket_14/
+tickets/attenuation/ticket_14/1759897682713_8ec047c42a4ad007_test_photo.jpg
+tickets/attenuation/ticket_14/1759897790651_17f6d43b1e4bd718_test_photo.jpg
+tickets/attenuation/ticket_14/1760412149430_1dc183ed36368283_Screenshot_2025_10_0.png
+tickets/attenuation/ticket_15/
+tickets/attenuation/ticket_15/1760411686814_86ba9000020d3ad4_Screenshot_2025_10_0.png
+tickets/attenuation/ticket_17/
+tickets/attenuation/ticket_17/1759900255715_5d4f0c378cddb6fb_atten_siti.jpg
+tickets/attenuation/ticket_19/
+tickets/attenuation/ticket_19/1760415048957_b1ca753753fa0a4f_Screenshot_2025_10_0.png
+tickets/attenuation/ticket_22/
+tickets/attenuation/ticket_22/1760482231770_4596b1ff952b15db_Screenshot_2025_10_1.png
+tickets/attenuation/ticket_23/
+tickets/attenuation/ticket_23/1760501646579_a585b8aa6a5aeaac_Screenshot_2025_09_0.png
+tickets/attenuation/ticket_24/
+tickets/attenuation/ticket_24/1760549448880_0eaac55e7ed5ca42_Screenshot_2025_03_0.png
+tickets/attenuation/ticket_27/
+tickets/attenuation/ticket_27/1760547330346_0e43637708401341_Screenshot_2025_07_1.png
+tickets/attenuation/ticket_6/
+tickets/attenuation/ticket_6/1760482474368_730e8aff3e1ed9a8_Screenshot_2025_07_2.png
+tickets/attenuation/ticket_7/
+tickets/attenuation/ticket_7/1760292255429_ebf85560dfc81807_Screenshot_2025_09_1.png
+tickets/attenuation/ticket_7/1760482521239_948e8a73efb770bb_Screenshot_2025_08_1.png
+tickets/attenuation/ticket_8/
+tickets/attenuation/ticket_8/1760291224588_815df7ed46ef96c6_Screenshot_2025_09_3.png
+tickets/attenuation/ticket_8/1760482410744_abbeaa3c2ee740c5_Screenshot_2025_07_1.png
+tickets/attenuation/ticket_9/
+tickets/attenuation/ticket_9/1760283033342_f5d32d468289f526_Screenshot_2025_10_0.png
+tickets/modem_sn/
+tickets/modem_sn/ticket_10/
+tickets/modem_sn/ticket_10/1760292508253_524760563323aeb6_Screenshot_2025_09_0.png
+tickets/modem_sn/ticket_12/
+tickets/modem_sn/ticket_12/1760413014368_5515fd68976e8c73_Screenshot_2025_09_3.png
+tickets/modem_sn/ticket_13/
+tickets/modem_sn/ticket_13/1760412729226_4ca3ac1df4c2434c_Screenshot_2025_09_1.png
+tickets/modem_sn/ticket_14/
+tickets/modem_sn/ticket_14/1760412149431_d8dc2a72fdadf03f_Screenshot_2025_09_3.png
+tickets/modem_sn/ticket_15/
+tickets/modem_sn/ticket_15/1760411686816_c78b8db8d25cd8d1_Screenshot_2025_09_3.png
+tickets/modem_sn/ticket_17/
+tickets/modem_sn/ticket_17/1759900255718_27e30e0737feb84f_modem_siti.jpg
+tickets/modem_sn/ticket_23/
+tickets/modem_sn/ticket_23/1760501646580_9f94a20ed31b0dee_Screenshot_2025_08_2.png
+tickets/modem_sn/ticket_24/
+tickets/modem_sn/ticket_24/1760549448880_9f0954d7f7ad968d_Screenshot_2025_02_2.png
+tickets/modem_sn/ticket_27/
+tickets/modem_sn/ticket_27/1760547330347_f21da29c163c69a8_Screenshot_2025_07_1.png
+tickets/modem_sn/ticket_6/
+tickets/modem_sn/ticket_6/1760482474369_7e6baf51dc73e471_Screenshot_2025_09_3.png
+tickets/modem_sn/ticket_7/
+tickets/modem_sn/ticket_7/1760292255434_63dabcf796e06d8a_Screenshot_2025_09_1.png
+tickets/modem_sn/ticket_7/1760482521240_02b07d72106fc2a3_Screenshot_2025_08_0.png
+tickets/modem_sn/ticket_8/
+tickets/modem_sn/ticket_8/1760291224590_87c0b5c2c78c7395_Screenshot_2025_09_3.png
+tickets/modem_sn/ticket_8/1760482410744_589f20e9d9505ea8_Screenshot_2025_09_0.png
+tickets/modem_sn/ticket_9/
+tickets/modem_sn/ticket_9/1760283033345_e61130e5c560fe54_Screenshot_2025_10_0.png
+tickets/otdr/
+tickets/otdr/ticket_10/
+tickets/otdr/ticket_10/1760292508244_ed5b29f2b6decb71_Screenshot_2025_08_2.png
+tickets/otdr/ticket_12/
+tickets/otdr/ticket_12/1760413014361_d265e5fd80ced55c_Screenshot_2025_09_3.png
+tickets/otdr/ticket_13/
+tickets/otdr/ticket_13/1760412729214_8d3a177878301f87_Screenshot_2025_09_3.png
+tickets/otdr/ticket_14/
+tickets/otdr/ticket_14/1760412149425_fa4389d35ab6dad1_Screenshot_2025_10_0.png
+tickets/otdr/ticket_15/
+tickets/otdr/ticket_15/1760411686809_e14c1ace0dd3507d_Screenshot_2025_10_0.png
+tickets/otdr/ticket_17/
+tickets/otdr/ticket_17/1759900255714_d2ae29aba2df4371_otdr_siti.jpg
+tickets/otdr/ticket_23/
+tickets/otdr/ticket_23/1760501646578_9159a14f5bb71074_Screenshot_2025_07_1.png
+tickets/otdr/ticket_24/
+tickets/otdr/ticket_24/1760549448878_8efb6ff97fecbb2e_Screenshot_2025_03_0.png
+tickets/otdr/ticket_27/
+tickets/otdr/ticket_27/1760547330345_d515da66c814c99f_Screenshot_2025_07_1.png
+tickets/otdr/ticket_6/
+tickets/otdr/ticket_6/1760482474366_184c1112acb2c344_Screenshot_2025_08_2.png
+tickets/otdr/ticket_7/
+tickets/otdr/ticket_7/1760292255426_3e631cac4d2265c2_Screenshot_2025_09_1.png
+tickets/otdr/ticket_7/1760482521238_d82e5557f17ba5c8_Screenshot_2025_08_0.png
+tickets/otdr/ticket_8/
+tickets/otdr/ticket_8/1760291224583_7d32b68702cb8052_Screenshot_2025_09_3.png
+tickets/otdr/ticket_8/1760482410740_8517ca412d4e3ee5_Screenshot_2025_08_1.png
+tickets/otdr/ticket_9/
+tickets/otdr/ticket_9/1760283033338_d8b47eec19c473e3_Screenshot_2025_10_0.png
+
+sent 21,705,652 bytes  received 1,262 bytes  43,413,828.00 bytes/sec
+total size is 26,342,089  speedup is 1.21
+[2025-10-16 01:42:05] ✅ File sync successful: 49 files, Total size: 26M
+[2025-10-16 01:42:05] ✅ File uploads backup completed
+[2025-10-16 01:42:11] 🔄 Starting configuration backup...
+[2025-10-16 01:42:11] ✅ Configuration backup successful: config_20251016_014211.tar.gz (1KB)
+[2025-10-16 01:42:11] 📦 Total config backups: 1
+[2025-10-16 01:42:11] ✅ Configuration backup completed
