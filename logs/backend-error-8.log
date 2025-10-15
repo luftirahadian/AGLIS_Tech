@@ -294,3 +294,61 @@
 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 421 minutes overdue!
 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 398 minutes overdue!
 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 377 minutes overdue!
+2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+2025-10-15T11:00:00:   query: '\n' +
+2025-10-15T11:00:00:     '        SELECT \n' +
+2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00: }
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!

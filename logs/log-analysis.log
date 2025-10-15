@@ -9393,3 +9393,1131 @@ Recent application errors:
 10|aglis-backend-4 | 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 421 minutes overdue!
 10|aglis-backend-4 | 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 398 minutes overdue!
 10|aglis-backend-4 | 2025-10-15T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 377 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     '        SELECT \n' +
+2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 2025-10-15T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+10|aglis-backend-4 | 2025-10-15T11:00:00: }
+10|aglis-backend-4 | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+2025-10-15T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:   table: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+2025-10-15T11:00:00:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-15T11:00:00: }
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-15T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   internalPosition: undefined,
+2025-10-15T11:00:00:   code: '42703',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   position: '63',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   constraint: undefined,
+2025-10-15T11:00:00:   where: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00:   line: '3647',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+2025-10-15T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   line: '3647',
+2025-10-15T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+8|aglis-backend-2  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+2025-10-15T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-15T11:00:00: }
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+2025-10-15T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   position: '63',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   hint: undefined,
+2025-10-15T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   position: '63',
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   line: '3647',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   internalQuery: undefined,
+2025-10-15T11:00:00: }
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   where: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   schema: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-15T11:00:00: }
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-15T11:00:00: }
+8|aglis-backend-2  | 2025-10-15T11:00:00: ❌ QUERY ERROR (3ms): {
+8|aglis-backend-2  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 2025-10-15T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+8|aglis-backend-2  | 2025-10-15T11:00:00: }
+8|aglis-backend-2  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-15T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   where: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+2025-10-15T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+2025-10-15T11:00:00:   table: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00:   column: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T11:00:00:   dataType: undefined,
+2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-15T11:00:00: }
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T11:00:00: }
+2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00: ❌ QUERY ERROR (4ms): {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-15T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-15T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-15T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-15T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-15T11:00:00: }
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 924 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 436 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 413 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 392 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:13:27: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+10|aglis-backend-4 | 2025-10-15T11:13:27: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+2025-10-15T11:13:27: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   code: '42703',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27: ❌ QUERY ERROR (1ms): {
+2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   query: '\n' +
+2025-10-15T11:13:27:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:     '        INSERT INTO whatsapp_notifications \n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+2025-10-15T11:13:27:   internalQuery: undefined,
+2025-10-15T11:13:27: ❌ QUERY ERROR (1ms): {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+2025-10-15T11:13:27:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   query: '\n' +
+2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:     '        INSERT INTO whatsapp_notifications \n' +
+2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27: }
+2025-10-15T11:13:27:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+10|aglis-backend-4 | 2025-10-15T11:13:27: ❌ QUERY ERROR (1ms): {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   query: '\n' +
+10|aglis-backend-4 | 2025-10-15T11:13:27:     '        INSERT INTO whatsapp_notifications \n' +
+10|aglis-backend-4 | 2025-10-15T11:13:27:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+10|aglis-backend-4 | 2025-10-15T11:13:27: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   code: '42703',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+10|aglis-backend-4 | 2025-10-15T11:13:27: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:13:27:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:13:27:   code: '42703',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+2025-10-15T11:13:27:   length: 150,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   severity: 'ERROR',
+2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   code: '42703',
+2025-10-15T11:13:27:   internalPosition: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   detail: undefined,
+2025-10-15T11:13:27:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   hint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   where: undefined,
+2025-10-15T11:13:27:   position: '78',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   internalPosition: undefined,
+2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   internalQuery: undefined,
+2025-10-15T11:13:27:   column: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   where: undefined,
+2025-10-15T11:13:27:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+2025-10-15T11:13:27:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   column: undefined,
+2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   dataType: undefined,
+2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:13:27:   constraint: undefined,
+2025-10-15T11:13:27: }
+10|aglis-backend-4 | 2025-10-15T11:13:27:   file: 'parse_target.c',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   line: '1075',
+10|aglis-backend-4 | 2025-10-15T11:13:27:   routine: 'checkInsertTargets'
+10|aglis-backend-4 | 2025-10-15T11:13:27: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   query: '\n' +
+2025-10-15T11:13:31: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:13:31:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+2025-10-15T11:13:31: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:13:31: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:13:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:13:31:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:13:31:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:13:31:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:13:31: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:14:06:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:14:06:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   query: '\n' +
+7|aglis-backend-1  | 2025-10-15T11:14:06:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:14:06:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: ❌ QUERY ERROR (1ms): {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   query: '\n' +
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T11:14:06:     '        INSERT INTO whatsapp_notifications \n' +
+7|aglis-backend-1  | 2025-10-15T11:14:06: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T11:14:06:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+7|aglis-backend-1  | 2025-10-15T11:14:06: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-15T11:14:06:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-15T11:14:06:   length: 150,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   code: '42703',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   position: '78',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T11:14:06:   file: 'parse_target.c',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   line: '1075',
+7|aglis-backend-1  | 2025-10-15T11:14:06:   routine: 'checkInsertTargets'
+7|aglis-backend-1  | 2025-10-15T11:14:06: }
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 939 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!

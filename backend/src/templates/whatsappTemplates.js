@@ -600,6 +600,46 @@ CS 24/7: ${supportPhone}
 Selamat menikmati internet super cepat! 🌟
 
 _AGLIS Net - Your Trusted Internet Partner_`;
+  },
+
+  /**
+   * 16. OTP VERIFICATION - Customer Registration
+   */
+  otpVerification: (data) => {
+    const { customerName, otpCode, expiryMinutes, purpose } = data;
+    
+    return `🔐 *KODE VERIFIKASI AGLIS*
+
+Hi ${customerName},
+
+Kode verifikasi Anda: ${otpCode}
+
+⏰ Berlaku: ${expiryMinutes} menit
+📱 Untuk: ${purpose}
+
+*JANGAN BERIKAN kode ini kepada siapapun!*
+
+AGLIS Net - Secure & Reliable 🌐`;
+  },
+
+  /**
+   * 17. OTP LOGIN - Customer Portal Login
+   */
+  otpLogin: (data) => {
+    const { customerName, otpCode, expiryMinutes, portalUrl } = data;
+    
+    return `🔑 *KODE LOGIN AGLIS*
+
+Hi ${customerName},
+
+Kode login Anda: ${otpCode}
+
+⏰ Berlaku: ${expiryMinutes} menit
+🌐 Portal: ${portalUrl}
+
+*JANGAN BERIKAN kode ini kepada siapapun!*
+
+AGLIS Net - Secure Access 🔐`;
   }
 };
 
