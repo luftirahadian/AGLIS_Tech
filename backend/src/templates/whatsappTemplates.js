@@ -336,6 +336,270 @@ ${actions.map(a => `• ${a}`).join('\n')}
 _Updates: Every 30 minutes_
 
 ⚠️ All hands on deck!`;
+  },
+
+  // ============================================
+  // PHASE 3: CUSTOMER ENGAGEMENT & RETENTION
+  // ============================================
+
+  /**
+   * 10. WELCOME MESSAGE - After Activation
+   */
+  welcomeMessage: (data) => {
+    const {
+      customerName,
+      customerId,
+      packageName,
+      price,
+      billingDate,
+      wifiName,
+      wifiPassword,
+      speedMbps,
+      supportPhone
+    } = data;
+
+    return `🎉 *SELAMAT DATANG DI AGLIS NET!*
+
+Dear ${customerName},
+
+Selamat! Instalasi Anda telah selesai dan internet Anda sudah AKTIF! 🚀
+
+👤 *Customer ID:* ${customerId}
+📦 *Package:* ${packageName} (${speedMbps} Mbps)
+💰 *Tagihan Bulanan:* Rp ${price?.toLocaleString('id-ID')}
+📅 *Tanggal Tagihan:* Setiap tanggal ${billingDate}
+
+🌐 *Informasi WiFi Anda:*
+📶 Nama WiFi: ${wifiName}
+🔒 Password: ${wifiPassword}
+
+*Tips Penggunaan:*
+• Jangan share password dengan orang lain
+• Ganti password secara berkala
+• Hubungi CS jika ada masalah
+• Download speedtest app untuk cek kecepatan
+
+📞 *Customer Support:* ${supportPhone}
+📱 *Portal:* portal.aglis.biz.id
+
+Nikmati internet cepat & stabil dari AGLIS Net! 🌟
+
+_Terima kasih telah mempercayai kami!_`;
+  },
+
+  /**
+   * 11. PACKAGE UPGRADE OFFER - Marketing
+   */
+  packageUpgradeOffer: (data) => {
+    const {
+      customerName,
+      currentPackage,
+      currentPrice,
+      currentSpeed,
+      upgradePackage,
+      upgradePrice,
+      upgradeSpeed,
+      discount,
+      benefits,
+      validUntil
+    } = data;
+
+    const priceDiff = upgradePrice - currentPrice;
+
+    return `🎁 *SPECIAL UPGRADE OFFER FOR YOU!*
+
+Hi ${customerName}! 👋
+
+Kami punya penawaran menarik untuk Anda!
+
+*Paket Saat Ini:*
+📦 ${currentPackage} - ${currentSpeed} Mbps
+💰 Rp ${currentPrice?.toLocaleString('id-ID')}/bulan
+
+*🔥 UPGRADE KE:*
+📦 ${upgradePackage} - ${upgradeSpeed} Mbps
+💰 Rp ${upgradePrice?.toLocaleString('id-ID')}/bulan
+${discount ? `🎉 DISKON: ${discount}% untuk 3 bulan pertama!` : ''}
+
+*Hanya tambah:* Rp ${priceDiff?.toLocaleString('id-ID')}/bulan!
+
+*Benefits:*
+${benefits.map(b => `✅ ${b}`).join('\n')}
+
+⏰ *Promo Valid:* ${validUntil}
+
+*Cara Upgrade:*
+1️⃣ Reply "YES" ke pesan ini
+2️⃣ Atau hub CS: 0821-xxxx-xxxx
+3️⃣ Atau via portal: portal.aglis.biz.id
+
+_Jangan lewatkan kesempatan ini! Upgrade sekarang! 🚀_`;
+  },
+
+  /**
+   * 12. CUSTOMER SATISFACTION SURVEY - Feedback
+   */
+  satisfactionSurvey: (data) => {
+    const {
+      customerName,
+      ticketNumber,
+      technicianName,
+      serviceType,
+      completedDate,
+      surveyUrl
+    } = data;
+
+    return `⭐ *RATE OUR SERVICE*
+
+Hi ${customerName}!
+
+Teknisi kami ${technicianName} sudah menyelesaikan:
+🎫 Ticket: #${ticketNumber}
+📋 Service: ${serviceType}
+✅ Completed: ${completedDate}
+
+*Bagaimana pengalaman Anda?*
+
+⭐⭐⭐⭐⭐ - Excellent
+⭐⭐⭐⭐ - Good
+⭐⭐⭐ - Average
+⭐⭐ - Poor
+⭐ - Very Poor
+
+📝 *Quick Feedback:*
+Reply dengan angka (1-5) atau klik:
+${surveyUrl}
+
+*Kritik & Saran:*
+Tuliskan feedback Anda untuk membantu kami improve!
+
+Feedback Anda sangat berharga untuk kami! 🙏
+
+_Thank you for choosing AGLIS Net!_`;
+  },
+
+  /**
+   * 13. TECHNICIAN PERFORMANCE - Team Motivation
+   */
+  technicianPerformance: (data) => {
+    const {
+      technicianName,
+      period,
+      ticketsCompleted,
+      averageRating,
+      slaAchievement,
+      rank,
+      totalTechnicians,
+      topPerformerBonus,
+      improvements
+    } = data;
+
+    return `🏆 *YOUR PERFORMANCE REPORT*
+
+Hey ${technicianName}! 👋
+
+*${period} Summary:*
+
+📊 *Statistics:*
+• Tickets Completed: ${ticketsCompleted} ✅
+• Avg Customer Rating: ${averageRating}/5.0 ${'⭐'.repeat(Math.round(averageRating))}
+• SLA Achievement: ${slaAchievement}%
+• Team Rank: #${rank} of ${totalTechnicians}
+
+${averageRating >= 4.5 ? `💪 *EXCELLENT WORK!* You're a top performer!` : ''}
+${slaAchievement >= 95 ? `⚡ *100% ON-TIME DELIVERY!* Amazing!` : ''}
+${rank <= 3 ? `🥇 *TOP 3 TECHNICIAN!* Keep it up!` : ''}
+
+${topPerformerBonus ? `🎁 *Bonus:* Rp ${topPerformerBonus?.toLocaleString('id-ID')} (Top Performer)` : ''}
+
+${improvements && improvements.length > 0 ? `*Areas to Improve:*\n${improvements.map(i => `• ${i}`).join('\n')}` : ''}
+
+Continue the great work! 💪
+
+_Your dedication makes AGLIS Net better every day!_`;
+  },
+
+  /**
+   * 14. PROMOTION CAMPAIGN - Marketing
+   */
+  promotionCampaign: (data) => {
+    const {
+      customerName,
+      campaignTitle,
+      offer,
+      discount,
+      validUntil,
+      terms,
+      ctaText,
+      ctaLink
+    } = data;
+
+    return `🎉 *${campaignTitle.toUpperCase()}*
+
+Hi ${customerName}! 👋
+
+${offer}
+
+${discount ? `🔥 *DISKON ${discount}%!*` : ''}
+
+⏰ *Berlaku sampai:* ${validUntil}
+
+${terms ? `*Syarat & Ketentuan:*\n${terms.map(t => `• ${t}`).join('\n')}` : ''}
+
+*${ctaText || 'Dapatkan Sekarang!'}*
+👉 ${ctaLink || 'Reply YES atau hubungi CS'}
+
+_Limited time offer! Jangan sampai kehabisan!_ ⚡`;
+  },
+
+  /**
+   * 15. SERVICE ACTIVATION - After Installation Complete
+   */
+  serviceActivation: (data) => {
+    const {
+      customerName,
+      customerId,
+      packageName,
+      activationDate,
+      wifiSSID,
+      wifiPassword,
+      portalUrl,
+      supportPhone
+    } = data;
+
+    return `✅ *LAYANAN ANDA SUDAH AKTIF!*
+
+Selamat ${customerName}! 🎉
+
+Internet Anda sudah AKTIF dan siap digunakan!
+
+📋 *Detail Layanan:*
+👤 Customer ID: ${customerId}
+📦 Package: ${packageName}
+📅 Aktif sejak: ${activationDate}
+
+🌐 *WiFi Credentials:*
+📶 SSID: ${wifiSSID}
+🔒 Password: ${wifiPassword}
+
+*Cara Connect:*
+1. Cari WiFi "${wifiSSID}"
+2. Masukkan password
+3. Mulai browsing! 🚀
+
+📱 *Self Service Portal:*
+${portalUrl}
+• Lihat tagihan
+• Bayar online
+• Submit ticket
+• Upgrade package
+
+📞 *Butuh Bantuan?*
+CS 24/7: ${supportPhone}
+
+Selamat menikmati internet super cepat! 🌟
+
+_AGLIS Net - Your Trusted Internet Partner_`;
   }
 };
 

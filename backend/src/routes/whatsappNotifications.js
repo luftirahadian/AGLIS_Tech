@@ -220,5 +220,193 @@ router.get('/stats', authMiddleware, async (req, res) => {
   }
 });
 
+// ============================================
+// PHASE 3: CUSTOMER ENGAGEMENT ENDPOINTS
+// ============================================
+
+/**
+ * POST /api/whatsapp-notifications/welcome/:customerId
+ * Send welcome message to new customer
+ */
+router.post('/welcome/:customerId', authMiddleware, authorize('admin', 'customer_service'), async (req, res) => {
+  try {
+    const { customerId } = req.params;
+    const result = await whatsappNotificationService.sendWelcomeMessage(customerId);
+
+    if (result.success) {
+      res.json({
+        success: true,
+        message: 'Welcome message sent successfully'
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send welcome message',
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('Welcome message API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+/**
+ * POST /api/whatsapp-notifications/upgrade-offer/:customerId
+ * Send package upgrade offer to customer
+ */
+router.post('/upgrade-offer/:customerId', authMiddleware, authorize('admin', 'manager'), [
+  body('upgradePackageId').isInt().withMessage('Upgrade package ID is required')
+], async (req, res) => {
+  try {
+    const { customerId } = req.params;
+    const { upgradePackageId } = req.body;
+
+    const result = await whatsappNotificationService.sendUpgradeOffer(
+      customerId,
+      upgradePackageId
+    );
+
+    if (result.success) {
+      res.json({
+        success: true,
+        message: 'Upgrade offer sent successfully'
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send upgrade offer',
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('Upgrade offer API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+/**
+ * POST /api/whatsapp-notifications/survey/:ticketId
+ * Send satisfaction survey after ticket completion
+ */
+router.post('/survey/:ticketId', authMiddleware, async (req, res) => {
+  try {
+    const { ticketId } = req.params;
+    const result = await whatsappNotificationService.sendSatisfactionSurvey(ticketId);
+
+    if (result.success) {
+      res.json({
+        success: true,
+        message: 'Satisfaction survey sent successfully'
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send survey',
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('Survey API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+/**
+ * POST /api/whatsapp-notifications/promotion-campaign
+ * Send promotion campaign to targeted customers
+ */
+router.post('/promotion-campaign', authMiddleware, authorize('admin', 'manager'), [
+  body('campaignTitle').notEmpty().withMessage('Campaign title is required'),
+  body('offer').notEmpty().withMessage('Offer description is required'),
+  body('validUntil').notEmpty().withMessage('Valid until date is required'),
+  body('targetCustomers').optional()
+], async (req, res) => {
+  try {
+    const campaignData = {
+      campaignTitle: req.body.campaignTitle,
+      offer: req.body.offer,
+      discount: req.body.discount,
+      validUntil: req.body.validUntil,
+      terms: req.body.terms,
+      ctaText: req.body.ctaText,
+      ctaLink: req.body.ctaLink
+    };
+
+    const result = await whatsappNotificationService.sendPromotionCampaign(
+      campaignData,
+      req.body.targetCustomers || 'all'
+    );
+
+    if (result.success) {
+      res.json({
+        success: true,
+        message: `Promotion sent to ${result.totalSent}/${result.totalCustomers} customers`,
+        data: {
+          totalSent: result.totalSent,
+          totalFailed: result.totalFailed,
+          totalCustomers: result.totalCustomers
+        }
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send promotion campaign',
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('Promotion campaign API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
+/**
+ * POST /api/whatsapp-notifications/technician-performance/:technicianId
+ * Send performance report to specific technician (manual)
+ */
+router.post('/technician-performance/:technicianId', authMiddleware, authorize('admin', 'supervisor', 'manager'), async (req, res) => {
+  try {
+    const { technicianId } = req.params;
+    const period = req.body.period || 'This Week';
+
+    const result = await whatsappNotificationService.sendTechnicianPerformance(
+      technicianId,
+      period
+    );
+
+    if (result.success) {
+      res.json({
+        success: true,
+        message: 'Performance report sent successfully'
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send performance report',
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('Performance report API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+});
+
 module.exports = router;
 

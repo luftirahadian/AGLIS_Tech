@@ -927,6 +927,364 @@ _Questions? Hubungi CS: 0821-xxxx-xxxx_`;
       return { success: false, error: error.message };
     }
   }
+
+  // ============================================
+  // PHASE 3: CUSTOMER ENGAGEMENT & RETENTION
+  // ============================================
+
+  /**
+   * 10. Send Welcome Message after Service Activation
+   */
+  async sendWelcomeMessage(customerId) {
+    try {
+      const query = `
+        SELECT 
+          c.customer_id,
+          c.name,
+          c.phone,
+          c.wifi_ssid,
+          c.wifi_password,
+          p.name as package_name,
+          p.speed_mbps,
+          p.price,
+          c.billing_day_of_month,
+          c.activated_at
+        FROM customers c
+        LEFT JOIN packages p ON c.package_id = p.id
+        WHERE c.id = $1
+      `;
+
+      const result = await pool.query(query, [customerId]);
+      
+      if (result.rows.length === 0) {
+        throw new Error('Customer not found');
+      }
+
+      const customer = result.rows[0];
+
+      if (!customer.phone) {
+        console.warn(`No phone number for customer ${customer.customer_id}`);
+        return { success: false, error: 'No customer phone' };
+      }
+
+      const messageData = {
+        customerName: customer.name,
+        customerId: customer.customer_id,
+        packageName: customer.package_name,
+        price: customer.price,
+        billingDate: customer.billing_day_of_month || 1,
+        wifiName: customer.wifi_ssid || 'AGLIS-NET-' + customer.customer_id.slice(-4),
+        wifiPassword: customer.wifi_password || '********',
+        speedMbps: customer.speed_mbps || 100,
+        supportPhone: '0821-xxxx-xxxx'
+      };
+
+      const message = this.templates.welcomeMessage(messageData);
+      const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
+
+      await this.logNotification({
+        recipient_phone: customer.phone,
+        recipient_type: 'customer',
+        notification_type: 'welcome_message',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending welcome message:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 11. Send Package Upgrade Offer
+   */
+  async sendUpgradeOffer(customerId, upgradePackageId) {
+    try {
+      const query = `
+        SELECT 
+          c.name as customer_name,
+          c.phone,
+          current_pkg.name as current_package,
+          current_pkg.price as current_price,
+          current_pkg.speed_mbps as current_speed,
+          upgrade_pkg.name as upgrade_package,
+          upgrade_pkg.price as upgrade_price,
+          upgrade_pkg.speed_mbps as upgrade_speed
+        FROM customers c
+        LEFT JOIN packages current_pkg ON c.package_id = current_pkg.id
+        LEFT JOIN packages upgrade_pkg ON upgrade_pkg.id = $2
+        WHERE c.id = $1
+      `;
+
+      const result = await pool.query(query, [customerId, upgradePackageId]);
+      
+      if (result.rows.length === 0) {
+        throw new Error('Customer or package not found');
+      }
+
+      const data = result.rows[0];
+
+      if (!data.phone) {
+        return { success: false, error: 'No customer phone' };
+      }
+
+      const messageData = {
+        customerName: data.customer_name,
+        currentPackage: data.current_package,
+        currentPrice: data.current_price,
+        currentSpeed: data.current_speed,
+        upgradePackage: data.upgrade_package,
+        upgradePrice: data.upgrade_price,
+        upgradeSpeed: data.upgrade_speed,
+        discount: 20, // 20% discount for first 3 months
+        benefits: [
+          `${data.upgrade_speed}x kecepatan lebih cepat`,
+          'Streaming 4K tanpa buffer',
+          'Support multiple devices',
+          'Free installation upgrade',
+          'No contract extension'
+        ],
+        validUntil: '31 Oktober 2025'
+      };
+
+      const message = this.templates.packageUpgradeOffer(messageData);
+      const sendResult = await this.whatsappService.sendMessage(data.phone, message);
+
+      await this.logNotification({
+        recipient_phone: data.phone,
+        recipient_type: 'customer',
+        notification_type: 'upgrade_offer',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending upgrade offer:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 12. Send Customer Satisfaction Survey
+   */
+  async sendSatisfactionSurvey(ticketId) {
+    try {
+      const query = `
+        SELECT 
+          t.ticket_number,
+          t.title as service_type,
+          t.completed_at,
+          c.name as customer_name,
+          c.phone as customer_phone,
+          tech.full_name as technician_name
+        FROM tickets t
+        LEFT JOIN customers c ON t.customer_id = c.id
+        LEFT JOIN technicians tech ON t.assigned_technician_id = tech.id
+        WHERE t.id = $1 AND t.status = 'completed'
+      `;
+
+      const result = await pool.query(query, [ticketId]);
+      
+      if (result.rows.length === 0) {
+        return { success: false, error: 'Ticket not found or not completed' };
+      }
+
+      const ticket = result.rows[0];
+
+      if (!ticket.customer_phone) {
+        return { success: false, error: 'No customer phone' };
+      }
+
+      const messageData = {
+        customerName: ticket.customer_name,
+        ticketNumber: ticket.ticket_number,
+        technicianName: ticket.technician_name,
+        serviceType: ticket.service_type,
+        completedDate: new Date(ticket.completed_at).toLocaleDateString('id-ID'),
+        surveyUrl: `${process.env.FRONTEND_URL}/tickets/${ticketId}/rate`
+      };
+
+      const message = this.templates.satisfactionSurvey(messageData);
+      const sendResult = await this.whatsappService.sendMessage(ticket.customer_phone, message);
+
+      await this.logNotification({
+        ticket_id: ticketId,
+        recipient_phone: ticket.customer_phone,
+        recipient_type: 'customer',
+        notification_type: 'satisfaction_survey',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending satisfaction survey:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 13. Send Technician Performance Report
+   */
+  async sendTechnicianPerformance(technicianId, period = 'This Week') {
+    try {
+      // Get technician performance data
+      const query = `
+        SELECT 
+          tech.full_name as technician_name,
+          u.phone,
+          COUNT(t.id) as tickets_completed,
+          COALESCE(AVG(t.customer_rating), 0) as average_rating,
+          COUNT(CASE WHEN t.actual_duration <= t.expected_duration THEN 1 END)::float / 
+            NULLIF(COUNT(*), 0) * 100 as sla_achievement
+        FROM technicians tech
+        LEFT JOIN users u ON tech.user_id = u.id
+        LEFT JOIN tickets t ON tech.id = t.assigned_technician_id 
+          AND t.status = 'completed'
+          AND t.completed_at >= CURRENT_DATE - INTERVAL '7 days'
+        WHERE tech.id = $1
+        GROUP BY tech.id, tech.full_name, u.phone
+      `;
+
+      const result = await pool.query(query, [technicianId]);
+      
+      if (result.rows.length === 0) {
+        return { success: false, error: 'Technician not found' };
+      }
+
+      const tech = result.rows[0];
+
+      if (!tech.phone) {
+        return { success: false, error: 'No technician phone' };
+      }
+
+      // Get rank
+      const rankQuery = `
+        SELECT tech_id, ROW_NUMBER() OVER (ORDER BY avg_rating DESC, tickets DESC) as rank
+        FROM (
+          SELECT 
+            t.assigned_technician_id as tech_id,
+            COUNT(*) as tickets,
+            AVG(customer_rating) as avg_rating
+          FROM tickets t
+          WHERE t.status = 'completed'
+            AND t.completed_at >= CURRENT_DATE - INTERVAL '7 days'
+          GROUP BY t.assigned_technician_id
+        ) ranked
+      `;
+
+      const rankResult = await pool.query(rankQuery);
+      const techRank = rankResult.rows.find(r => r.tech_id === technicianId);
+
+      const messageData = {
+        technicianName: tech.technician_name,
+        period: period,
+        ticketsCompleted: parseInt(tech.tickets_completed),
+        averageRating: parseFloat(tech.average_rating).toFixed(1),
+        slaAchievement: parseInt(tech.sla_achievement || 0),
+        rank: techRank ? parseInt(techRank.rank) : 0,
+        totalTechnicians: rankResult.rows.length,
+        topPerformerBonus: techRank && techRank.rank <= 3 ? 500000 : null,
+        improvements: tech.average_rating < 4.0 ? ['Improve response time', 'Better communication'] : []
+      };
+
+      const message = this.templates.technicianPerformance(messageData);
+      const sendResult = await this.whatsappService.sendMessage(tech.phone, message);
+
+      await this.logNotification({
+        recipient_phone: tech.phone,
+        recipient_type: 'technician',
+        notification_type: 'performance_report',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending technician performance:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 14. Send Promotion Campaign
+   */
+  async sendPromotionCampaign(campaignData, targetCustomers = 'all') {
+    try {
+      let query = `
+        SELECT id, name, phone
+        FROM customers
+        WHERE status = 'active' AND phone IS NOT NULL
+      `;
+
+      // Filter by target if specified
+      if (targetCustomers !== 'all') {
+        if (targetCustomers.package_id) {
+          query += ` AND package_id = ${targetCustomers.package_id}`;
+        }
+        if (targetCustomers.city) {
+          query += ` AND city ILIKE '%${targetCustomers.city}%'`;
+        }
+      }
+
+      const result = await pool.query(query);
+      const customers = result.rows;
+
+      if (customers.length === 0) {
+        return { success: false, error: 'No customers found' };
+      }
+
+      const results = [];
+      for (const customer of customers) {
+        const messageData = {
+          customerName: customer.name,
+          ...campaignData
+        };
+
+        const message = this.templates.promotionCampaign(messageData);
+        const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
+
+        await this.logNotification({
+          recipient_phone: customer.phone,
+          recipient_type: 'customer',
+          notification_type: 'promotion_campaign',
+          message: message,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push(sendResult);
+
+        // Delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+
+      console.log(`📱 Promotion campaign sent to ${customers.length} customers`);
+
+      return {
+        success: results.some(r => r.success),
+        totalSent: results.filter(r => r.success).length,
+        totalFailed: results.filter(r => !r.success).length,
+        totalCustomers: customers.length,
+        results: results
+      };
+    } catch (error) {
+      console.error('Error sending promotion campaign:', error);
+      return { success: false, error: error.message };
+    }
+  }
 }
 
 // Export singleton instance
