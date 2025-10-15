@@ -198,6 +198,9 @@ app.use('/api/health', require('./routes/health'));
 // Alert Management Routes
 app.use('/api/alerts', authMiddleware, require('./routes/alerts'));
 
+// Customer Portal Routes (public auth endpoints)
+app.use('/api/customer-portal', require('./routes/customerPortal'));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authMiddleware, userRoutes);
