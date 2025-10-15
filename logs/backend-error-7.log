@@ -570,3 +570,29 @@
 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251013006 is 561 minutes overdue!
 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251013007 is 538 minutes overdue!
 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014010 is 517 minutes overdue!
+2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:   severity: 'ERROR',
+2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   position: undefined,
+2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   table: undefined,
+2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   dataType: undefined,
+2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   file: 'analyze.c',
+2025-10-15T13:07:01:   line: '3179',
+2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+2025-10-15T13:07:01: }
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!

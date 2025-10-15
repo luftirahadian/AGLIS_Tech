@@ -430,16 +430,19 @@ router.post('/', [
     try {
       await client.query('BEGIN');
       
-      // Generate ticket number WITHIN transaction with SELECT FOR UPDATE to prevent race condition
+      // Generate ticket number WITHIN transaction with advisory lock to prevent race condition
       const dateResult = await client.query('SELECT CURRENT_DATE as today');
       const today = dateResult.rows[0].today.toISOString().slice(0, 10).replace(/-/g, '');
+      
+      // Use advisory lock based on date (hash of date string to get integer)
+      const lockId = parseInt(today) % 2147483647; // Convert date to lock ID
+      await client.query('SELECT pg_advisory_xact_lock($1)', [lockId]);
       
       // Use MAX + 1 instead of COUNT to handle gaps from deleted tickets
       const countResult = await client.query(
         `SELECT COALESCE(MAX(CAST(SUBSTRING(ticket_number FROM 12) AS INTEGER)), 0) as max_num
          FROM tickets 
-         WHERE ticket_number LIKE 'TKT' || $1 || '%'
-         FOR UPDATE`,
+         WHERE ticket_number LIKE 'TKT' || $1 || '%'`,
         [today]
       );
       const dailyCount = parseInt(countResult.rows[0].max_num) + 1;

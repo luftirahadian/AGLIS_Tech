@@ -38668,3 +38668,1043 @@ Recent PM2 Errors:
 10|aglis-backend-4 | 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014010 is 517 minutes overdue!
 10|aglis-backend-4  | 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014010 is 517 minutes overdue!
 10|aglis-backend-4 | 2025-10-15T13:04:55: 🚨 OVERDUE: Ticket #TKT20251014010 is 517 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2   | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2   | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   length: 115,
+2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   code: '0A000',
+2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   detail: undefined,
+2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   detail: undefined,
+2025-10-15T13:06:15:   hint: undefined,
+2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:15:   position: undefined,
+2025-10-15T13:06:15:   hint: undefined,
+2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:15:   internalPosition: undefined,
+2025-10-15T13:06:15:   position: undefined,
+2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   internalQuery: undefined,
+2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:15:   internalPosition: undefined,
+2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   where: undefined,
+2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:15:   internalQuery: undefined,
+2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   schema: undefined,
+2025-10-15T13:06:15:   length: 115,
+2025-10-15T13:06:15:   where: undefined,
+2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   table: undefined,
+2025-10-15T13:06:15:   severity: 'ERROR',
+2025-10-15T13:06:15:   schema: undefined,
+2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   code: '0A000',
+2025-10-15T13:06:15:   dataType: undefined,
+2025-10-15T13:06:15:   column: undefined,
+2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   dataType: undefined,
+2025-10-15T13:06:15:   column: undefined,
+2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   constraint: undefined,
+2025-10-15T13:06:15:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   file: 'analyze.c',
+2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+2025-10-15T13:06:15:   file: 'analyze.c',
+2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: }
+2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:   line: '3179',
+2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: }
+2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: }
+2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+8|aglis-backend-2  | 2025-10-15T13:06:15: }
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+8|aglis-backend-2   | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2   | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   dataType: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 2025-10-15T13:06:15: }
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2  | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   internalQuery: undefined,
+2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   schema: undefined,
+2025-10-15T13:06:15:   length: 115,
+2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   dataType: undefined,
+2025-10-15T13:06:15:   hint: undefined,
+2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   hint: undefined,
+2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   internalPosition: undefined,
+2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   internalPosition: undefined,
+2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   internalQuery: undefined,
+2025-10-15T13:06:15:   schema: undefined,
+2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   where: undefined,
+2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   column: undefined,
+2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2   | 2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   dataType: undefined,
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   column: undefined,
+2025-10-15T13:06:15: }
+2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2   | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2   | 2025-10-15T13:06:15:   dataType: undefined,
+2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2   | 2025-10-15T13:06:15:   length: 115,
+2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:06:15:   severity: 'ERROR',
+2025-10-15T13:06:15:   line: '3179',
+2025-10-15T13:06:15: }
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:06:15: }
+2025-10-15T13:06:15: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+8|aglis-backend-2  | 2025-10-15T13:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+8|aglis-backend-2  | 2025-10-15T13:06:15:   length: 115,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   code: '0A000',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   detail: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   position: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   detail: undefined,
+2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   hint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   position: undefined,
+2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T13:06:15:   dataType: undefined,
+2025-10-15T13:06:15:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T13:06:15:   file: 'analyze.c',
+2025-10-15T13:06:15:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:15:   where: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15: }
+8|aglis-backend-2  | 2025-10-15T13:06:15:   schema: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   table: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   column: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-15T13:06:15:   file: 'analyze.c',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   line: '3179',
+8|aglis-backend-2  | 2025-10-15T13:06:15:   routine: 'CheckSelectLocking'
+8|aglis-backend-2  | 2025-10-15T13:06:15: }
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3  | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3   | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3   | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+9|aglis-backend-3   | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   length: 115,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:   severity: 'ERROR',
+2025-10-15T13:06:42:   length: 115,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:   code: '0A000',
+9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:   severity: 'ERROR',
+2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3   | 2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:   code: '0A000',
+9|aglis-backend-3   | 2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   detail: undefined,
+2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   hint: undefined,
+2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:   hint: undefined,
+2025-10-15T13:06:42:   position: undefined,
+2025-10-15T13:06:42:   hint: undefined,
+2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   position: undefined,
+2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalQuery: undefined,
+2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalPosition: undefined,
+2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalPosition: undefined,
+2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalQuery: undefined,
+2025-10-15T13:06:42:   where: undefined,
+2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   where: undefined,
+2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42:   where: undefined,
+2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   schema: undefined,
+2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   column: undefined,
+2025-10-15T13:06:42:   schema: undefined,
+2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   column: undefined,
+2025-10-15T13:06:42:   table: undefined,
+2025-10-15T13:06:42:   dataType: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   constraint: undefined,
+2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   column: undefined,
+2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   constraint: undefined,
+2025-10-15T13:06:42:   file: 'analyze.c',
+2025-10-15T13:06:42:   dataType: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   file: 'analyze.c',
+2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3   | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:42:   line: '3179',
+2025-10-15T13:06:42:   line: '3179',
+2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: }
+2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:42:   file: 'analyze.c',
+2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: }
+2025-10-15T13:06:42: }
+2025-10-15T13:06:42:   line: '3179',
+2025-10-15T13:06:42: }
+9|aglis-backend-3   | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3   | 2025-10-15T13:06:42: }
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3   | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   severity: 'ERROR',
+2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   detail: undefined,
+2025-10-15T13:06:42:   length: 115,
+2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   severity: 'ERROR',
+2025-10-15T13:06:42:   hint: undefined,
+2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   code: '0A000',
+2025-10-15T13:06:42:   position: undefined,
+2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalPosition: undefined,
+2025-10-15T13:06:42:   detail: undefined,
+2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalQuery: undefined,
+2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   position: undefined,
+2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalPosition: undefined,
+2025-10-15T13:06:42:   schema: undefined,
+2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   column: undefined,
+2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   where: undefined,
+2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   schema: undefined,
+2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   table: undefined,
+2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3   | 2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3   | 2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3   | 2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:42:   dataType: undefined,
+2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3   | 9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42: }
+2025-10-15T13:06:42:   constraint: undefined,
+2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:06:42:   file: 'analyze.c',
+2025-10-15T13:06:42: }
+9|aglis-backend-3   | 2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3   | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3   | 2025-10-15T13:06:42: }
+9|aglis-backend-3  | 2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+9|aglis-backend-3  | 2025-10-15T13:06:42:   length: 115,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   code: '0A000',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:06:42: }
+2025-10-15T13:06:42: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-15T13:06:42:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+9|aglis-backend-3  | 2025-10-15T13:06:42:   length: 115,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   code: '0A000',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   detail: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   hint: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   position: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   where: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   schema: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   table: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   column: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-15T13:06:42:   file: 'analyze.c',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   line: '3179',
+9|aglis-backend-3  | 2025-10-15T13:06:42:   routine: 'CheckSelectLocking'
+9|aglis-backend-3  | 2025-10-15T13:06:42: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+10|aglis-backend-4  | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   severity: 'ERROR',
+2025-10-15T13:06:47:   severity: 'ERROR',
+2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   code: '0A000',
+2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   detail: undefined,
+2025-10-15T13:06:47:   detail: undefined,
+2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   position: undefined,
+2025-10-15T13:06:47:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   internalPosition: undefined,
+2025-10-15T13:06:47:   internalPosition: undefined,
+2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   internalQuery: undefined,
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:06:47:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   internalPosition: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-15T13:06:47:   internalQuery: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+10|aglis-backend-4  | 2025-10-15T13:06:47:   table: undefined,
+2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   length: 115,
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   column: undefined,
+2025-10-15T13:06:47:   dataType: undefined,
+2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   constraint: undefined,
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4 | 2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   severity: 'ERROR',
+2025-10-15T13:06:47:   constraint: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   detail: undefined,
+2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4 | 2025-10-15T13:06:47:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   file: 'analyze.c',
+2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47:   file: 'analyze.c',
+2025-10-15T13:06:47:   code: '0A000',
+2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   position: undefined,
+2025-10-15T13:06:47: }
+10|aglis-backend-4 | 2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4  | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+10|aglis-backend-4  | 2025-10-15T13:06:47:   internalPosition: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   detail: undefined,
+2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+10|aglis-backend-4  | 2025-10-15T13:06:47: }
+2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4  | 2025-10-15T13:06:47:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47: }
+10|aglis-backend-4  | 2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   where: undefined,
+2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:47:   hint: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   table: undefined,
+2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   dataType: undefined,
+2025-10-15T13:06:47:   internalPosition: undefined,
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   constraint: undefined,
+2025-10-15T13:06:47:   detail: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   internalQuery: undefined,
+2025-10-15T13:06:47:   file: 'analyze.c',
+2025-10-15T13:06:47:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:47:   where: undefined,
+2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47: }
+10|aglis-backend-4  | 2025-10-15T13:06:47:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   internalQuery: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   table: undefined,
+2025-10-15T13:06:47:   schema: undefined,
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   column: undefined,
+2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   dataType: undefined,
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4  | 2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+10|aglis-backend-4  | 2025-10-15T13:06:47:   constraint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   constraint: undefined,
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4  | 2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 2025-10-15T13:06:47:   code: '0A000',
+2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4 | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4  | 2025-10-15T13:06:47:   detail: undefined,
+2025-10-15T13:06:47: }
+2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47:   length: 115,
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   position: undefined,
+2025-10-15T13:06:47:   severity: 'ERROR',
+2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   internalPosition: undefined,
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4  | 10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   internalQuery: undefined,
+2025-10-15T13:06:47: }
+2025-10-15T13:06:47:   detail: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   hint: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   schema: undefined,
+2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   table: undefined,
+2025-10-15T13:06:47:   internalPosition: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   column: undefined,
+2025-10-15T13:06:47:   internalQuery: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4  | 2025-10-15T13:06:47:   where: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   constraint: undefined,
+2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   file: 'analyze.c',
+2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   line: '3179',
+2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:06:47:   constraint: undefined,
+2025-10-15T13:06:47: }
+10|aglis-backend-4  | 2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4  | 2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4  | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+10|aglis-backend-4  | 2025-10-15T13:06:47: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4 | 2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:47: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+10|aglis-backend-4 | 2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-15T13:06:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+10|aglis-backend-4 | 2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:06:47:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   hint: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   length: 115,
+2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   internalPosition: undefined,
+2025-10-15T13:06:47:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   internalQuery: undefined,
+2025-10-15T13:06:47:   code: '0A000',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   where: undefined,
+2025-10-15T13:06:47:   detail: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   hint: undefined,
+2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   column: undefined,
+2025-10-15T13:06:47:   position: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   dataType: undefined,
+2025-10-15T13:06:47:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   internalQuery: undefined,
+2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   line: '3179',
+2025-10-15T13:06:47:   where: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   schema: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   table: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   column: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-15T13:06:47:   file: 'analyze.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47:   line: '3179',
+10|aglis-backend-4 | 2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+2025-10-15T13:06:47:   routine: 'CheckSelectLocking'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:06:47: }
+2025-10-15T13:06:47: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1  | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:   length: 115,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1  | 2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   length: 115,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   position: undefined,
+2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   position: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   where: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   column: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   table: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   column: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   file: 'analyze.c',
+2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   constraint: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   dataType: undefined,
+2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   constraint: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1   | 2025-10-15T13:07:01: }
+2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1   | 2025-10-15T13:07:01: }
+2025-10-15T13:07:01: }
+7|aglis-backend-1  | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 2025-10-15T13:07:01: }
+7|aglis-backend-1   | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+7|aglis-backend-1   | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1   | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1   | 2025-10-15T13:07:01:   length: 115,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   hint: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   where: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   schema: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   column: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   constraint: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1  | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+7|aglis-backend-1   | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01: }
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01:   length: 115,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   length: 115,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   severity: 'ERROR',
+2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   position: undefined,
+2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   where: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   schema: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   schema: undefined,
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   column: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   file: 'analyze.c',
+2025-10-15T13:07:01: }
+2025-10-15T13:07:01:   constraint: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   line: '3179',
+2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   line: '3179',
+2025-10-15T13:07:01: }
+7|aglis-backend-1  | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 2025-10-15T13:07:01: }
+7|aglis-backend-1  | 2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+7|aglis-backend-1  | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-15T13:07:01: Create ticket error: error: FOR UPDATE is not allowed with aggregate functions
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg/lib/client.js:545:17
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1   | 2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:     at async /home/aglis/AGLIS_Tech/backend/src/routes/tickets.js:438:27 {
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   length: 115,
+2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1   | 2025-10-15T13:07:01:   severity: 'ERROR',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   code: '0A000',
+2025-10-15T13:07:01:   code: '0A000',
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   detail: undefined,
+2025-10-15T13:07:01:   detail: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   hint: undefined,
+2025-10-15T13:07:01:   hint: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   internalPosition: undefined,
+2025-10-15T13:07:01:   position: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   internalQuery: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   where: undefined,
+2025-10-15T13:07:01:   internalPosition: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   schema: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   internalQuery: undefined,
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 7|aglis-backend-1  | 2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01:   where: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   constraint: undefined,
+2025-10-15T13:07:01:   schema: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   line: '3179',
+2025-10-15T13:07:01:   table: undefined,
+7|aglis-backend-1   | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:01:   column: undefined,
+2025-10-15T13:07:01: }
+7|aglis-backend-1  | 2025-10-15T13:07:01:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-15T13:07:01:   file: 'analyze.c',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   line: '3179',
+7|aglis-backend-1  | 2025-10-15T13:07:01:   routine: 'CheckSelectLocking'
+7|aglis-backend-1  | 2025-10-15T13:07:01: }
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1   | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+7|aglis-backend-1   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+7|aglis-backend-1  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+8|aglis-backend-2   | 8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+8|aglis-backend-2   | 8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2  | 8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2   | 8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+8|aglis-backend-2  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4  | 10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+10|aglis-backend-4 | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3   | 9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3   | 9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014001 is 1051 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013006 is 564 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251013007 is 541 minutes overdue!
+9|aglis-backend-3   | 2025-10-15T13:07:46: 🚨 OVERDUE: Ticket #TKT20251014010 is 520 minutes overdue!
