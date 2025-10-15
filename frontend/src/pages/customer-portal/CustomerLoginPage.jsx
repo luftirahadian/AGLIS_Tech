@@ -14,18 +14,29 @@ const CustomerLoginPage = () => {
   const handleRequestOTP = async (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log('🔵 handleRequestOTP called, phone:', phone);
 
     try {
+      console.log('🔵 Sending request to /customer-portal/request-otp');
       const response = await api.post('/customer-portal/request-otp', { phone });
+      console.log('🔵 Full response:', response);
+      console.log('🔵 response.success:', response.success);
+      console.log('🔵 response.data:', response.data);
       
-      if (response.data.success) {
+      if (response.success) {
+        console.log('🔵 Success! Showing toast and changing step to OTP');
         toast.success('Kode OTP telah dikirim ke WhatsApp Anda!');
         setStep('otp');
+        console.log('🔵 Step changed to: otp');
+      } else {
+        console.log('❌ response.success is false or undefined');
       }
     } catch (error) {
+      console.error('❌ Error:', error);
       toast.error(error.response?.data?.message || 'Gagal mengirim OTP');
     } finally {
       setLoading(false);
+      console.log('🔵 Loading set to false');
     }
   };
 

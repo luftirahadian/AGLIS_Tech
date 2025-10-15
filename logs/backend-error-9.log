@@ -130,3 +130,30 @@
 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+2025-10-16T05:53:31: 🚨 OVERDUE: Ticket #TKT20251014001 is 2057 minutes overdue!
+2025-10-16T05:53:31: 🚨 OVERDUE: Ticket #TKT20251013006 is 1570 minutes overdue!
+2025-10-16T05:53:31: 🚨 OVERDUE: Ticket #TKT20251013007 is 1546 minutes overdue!
+2025-10-16T05:53:31: 🚨 OVERDUE: Ticket #TKT20251014010 is 1526 minutes overdue!
+2025-10-16T05:55:20: 🚨 OVERDUE: Ticket #TKT20251014001 is 2059 minutes overdue!
+2025-10-16T05:55:20: 🚨 OVERDUE: Ticket #TKT20251013006 is 1571 minutes overdue!
+2025-10-16T05:55:20: 🚨 OVERDUE: Ticket #TKT20251013007 is 1548 minutes overdue!
+2025-10-16T05:55:20: 🚨 OVERDUE: Ticket #TKT20251014010 is 1528 minutes overdue!
+2025-10-16T05:56:14: 🚨 OVERDUE: Ticket #TKT20251014001 is 2060 minutes overdue!
+2025-10-16T05:56:14: 🚨 OVERDUE: Ticket #TKT20251013006 is 1572 minutes overdue!
+2025-10-16T05:56:14: 🚨 OVERDUE: Ticket #TKT20251013007 is 1549 minutes overdue!
+2025-10-16T05:56:14: 🚨 OVERDUE: Ticket #TKT20251014010 is 1529 minutes overdue!
+2025-10-16T06:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2064 minutes overdue!
+2025-10-16T06:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1576 minutes overdue!
+2025-10-16T06:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1553 minutes overdue!
+2025-10-16T06:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1532 minutes overdue!
+2025-10-16T06:03:17: ❌ Error storing OTP: SimpleError: ERR value is not an integer or out of range
+2025-10-16T06:03:17:     at #decodeSimpleError (/home/aglis/AGLIS_Tech/backend/node_modules/@redis/client/dist/lib/RESP/decoder.js:459:13)
+2025-10-16T06:03:17:     at #decodeTypeValue (/home/aglis/AGLIS_Tech/backend/node_modules/@redis/client/dist/lib/RESP/decoder.js:104:91)
+2025-10-16T06:03:17:     at Decoder.write (/home/aglis/AGLIS_Tech/backend/node_modules/@redis/client/dist/lib/RESP/decoder.js:74:38)
+2025-10-16T06:03:17:     at RedisSocket.<anonymous> (/home/aglis/AGLIS_Tech/backend/node_modules/@redis/client/dist/lib/client/index.js:399:37)
+2025-10-16T06:03:17:     at RedisSocket.emit (node:events:517:28)
+2025-10-16T06:03:17:     at Socket.<anonymous> (/home/aglis/AGLIS_Tech/backend/node_modules/@redis/client/dist/lib/client/socket.js:205:38)
+2025-10-16T06:03:17:     at Socket.emit (node:events:517:28)
+2025-10-16T06:03:17:     at addChunk (node:internal/streams/readable:368:12)
+2025-10-16T06:03:17:     at readableAddChunk (node:internal/streams/readable:341:9)
+2025-10-16T06:03:17:     at Readable.push (node:internal/streams/readable:278:10)
