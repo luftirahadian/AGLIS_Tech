@@ -640,6 +640,35 @@ Kode login Anda: ${otpCode}
 *JANGAN BERIKAN kode ini kepada siapapun!*
 
 AGLIS Net - Secure Access 🔐`;
+  },
+
+  /**
+   * 18. REGISTRATION CONFIRMATION - Customer Registration
+   */
+  registrationConfirmation: (data) => {
+    const { customerName, registrationNumber, packageName, price, trackingUrl } = data;
+    
+    return `🎉 *REGISTRASI BERHASIL!*
+
+Dear ${customerName},
+
+Registration: #${registrationNumber}
+Package: ${packageName}
+Price: Rp ${price}/bulan
+
+Status: ✅ Diterima & Diproses
+
+*Next Steps:*
+✅ 1. Verifikasi data (Done)
+⏳ 2. Survey lokasi (Pending)
+⏳ 3. Instalasi
+⏳ 4. Aktivasi
+
+📱 Track: ${trackingUrl}
+
+Tim kami akan menghubungi dalam 1x24 jam
+
+_AGLIS Net - Connecting You Better!_ 🌐`;
   }
 };
 

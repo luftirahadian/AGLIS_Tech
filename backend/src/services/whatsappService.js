@@ -352,8 +352,16 @@ class WhatsAppService {
    * Send OTP via WhatsApp
    */
   async sendOTP(phone, otp, name = '') {
-    const greeting = name ? `Halo ${name},\n\n` : 'Halo,\n\n';
-    const message = `${greeting}Kode OTP Anda untuk verifikasi pendaftaran ISP Technician Management adalah:\n\n*${otp}*\n\nKode ini berlaku selama 5 menit.\nJangan berikan kode ini kepada siapapun.\n\nTerima kasih!`;
+    // Use OTP template
+    const templates = require('../templates/whatsappTemplates');
+    const messageData = {
+      customerName: name || 'Customer',
+      otpCode: otp,
+      expiryMinutes: '5',
+      purpose: 'Verifikasi registrasi'
+    };
+    
+    const message = templates.otpVerification(messageData);
 
     return this.sendMessage(phone, message);
   }
@@ -362,7 +370,17 @@ class WhatsAppService {
    * Send registration confirmation
    */
   async sendRegistrationConfirmation(phone, data) {
-    const message = `Halo ${data.name},\n\nTerima kasih telah mendaftar sebagai customer ISP kami!\n\n📋 *Nomor Registrasi:* ${data.registration_number}\n📦 *Paket:* ${data.package_name}\n💰 *Harga:* Rp ${data.price?.toLocaleString('id-ID')}/bulan\n\nTim kami akan segera menghubungi Anda untuk proses verifikasi dan survey lokasi.\n\nAnda dapat cek status pendaftaran Anda di:\n${data.tracking_url}\n\nTerima kasih!`;
+    // Use registration confirmation template
+    const templates = require('../templates/whatsappTemplates');
+    const messageData = {
+      customerName: data.name,
+      registrationNumber: data.registration_number,
+      packageName: data.package_name,
+      price: data.price?.toLocaleString('id-ID'),
+      trackingUrl: data.tracking_url
+    };
+    
+    const message = templates.registrationConfirmation(messageData);
 
     return this.sendMessage(phone, message);
   }
