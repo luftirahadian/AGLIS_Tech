@@ -3141,3 +3141,23 @@
 2025-10-15T10:41:21: 🔍 Starting SLA check...
 2025-10-15T10:41:21: 📋 Found 5 active tickets to check
 2025-10-15T10:41:21: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T10:41:49: ✅ Connected to PostgreSQL database
+2025-10-15T10:41:49: 103.55.224.49 - - [15/Oct/2025:03:41:49 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: 🔍 Cache MISS: cache:GET:/grouped:active_only=true:admin...
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: ✅ Connected to PostgreSQL database
+2025-10-15T10:42:45: 💾 Cached: cache:GET:/grouped:active_only=true:admin... (TTL: 600s)
+2025-10-15T10:42:45: 103.55.224.49 - - [15/Oct/2025:03:42:45 +0000] "GET /api/specializations/grouped?active_only=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/specializations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:42:59: 103.55.224.49 - - [15/Oct/2025:03:42:59 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:43:00: 👤 User disconnected: cNU3YYjxCoCQt6c7AAAB
+2025-10-15T10:43:00: 103.55.224.49 - - [15/Oct/2025:03:43:00 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:43:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T10:43:00: 👤 User connected: MBjxg7UYtUtrmYSRAAAH
+2025-10-15T10:43:00: 103.55.224.49 - - [15/Oct/2025:03:43:00 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:43:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T10:43:15: 103.55.224.49 - - [15/Oct/2025:03:43:15 +0000] "GET /api/whatsapp-templates?category=payment HTTP/1.1" 200 26 "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:43:19: 103.55.224.49 - - [15/Oct/2025:03:43:19 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 200 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
