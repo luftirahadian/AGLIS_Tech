@@ -1838,3 +1838,12 @@
 2025-10-15T07:31:23: ✅ Connected to PostgreSQL database
 2025-10-15T07:31:23: ✅ Connected to PostgreSQL database
 2025-10-15T07:31:23: 103.55.224.49 - - [15/Oct/2025:00:31:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/permissions" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T07:31:53: ✅ Connected to PostgreSQL database
+2025-10-15T07:31:53: ✅ Connected to PostgreSQL database
+2025-10-15T07:31:53: 103.55.224.49 - - [15/Oct/2025:00:31:53 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/permissions" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T07:32:23: ✅ Connected to PostgreSQL database
+2025-10-15T07:32:23: ✅ Connected to PostgreSQL database
+2025-10-15T07:32:23: 103.55.224.49 - - [15/Oct/2025:00:32:23 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/permissions" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T07:32:53: ✅ Connected to PostgreSQL database
+2025-10-15T07:32:53: ✅ Connected to PostgreSQL database
+2025-10-15T07:32:53: 103.55.224.49 - - [15/Oct/2025:00:32:53 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/permissions" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
