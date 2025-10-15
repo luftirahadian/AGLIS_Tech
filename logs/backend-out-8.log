@@ -720,3 +720,6 @@
 2025-10-16T05:45:00: ✅ SLA check completed. Warnings sent: 0
 2025-10-16T05:45:00: 🔍 Checking system alerts...
 2025-10-16T05:45:00: ✅ No alerts triggered - System healthy
+2025-10-16T05:46:25: ✅ Connected to PostgreSQL database
+2025-10-16T05:46:25: ✅ Connected to PostgreSQL database
+2025-10-16T05:46:25: 103.55.224.49 - - [15/Oct/2025:22:46:25 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
