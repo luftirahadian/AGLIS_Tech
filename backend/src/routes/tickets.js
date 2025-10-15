@@ -2,6 +2,7 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 const { saveBase64File, getFileUrl, validateFile } = require('../utils/fileUpload');
+const whatsappNotificationService = require('../services/whatsappNotificationService');
 
 // Helper function to create notification
 const createNotification = async (userId, type, title, message, data = null) => {
@@ -815,6 +816,23 @@ router.put('/:id/status', [
         console.log(`📡 Socket.IO: Events emitted for ticket ${id} status update (${oldStatus} → ${status})`);
       }
 
+      // 📱 PHASE 1: Send WhatsApp notification to customer on status change
+      // Only notify customer on significant status changes
+      const notifiableStatuses = ['assigned', 'in_progress', 'completed', 'cancelled'];
+      if (notifiableStatuses.includes(status) && status !== oldStatus) {
+        whatsappNotificationService.notifyTicketStatusUpdate(id, oldStatus, status)
+          .then(whatsappResult => {
+            if (whatsappResult.success) {
+              console.log(`📱 WhatsApp status update sent to customer for ticket #${id} (${oldStatus} → ${status})`);
+            } else {
+              console.warn(`⚠️ WhatsApp status notification failed for ticket #${id}:`, whatsappResult.error);
+            }
+          })
+          .catch(err => {
+            console.error(`❌ WhatsApp status notification error for ticket #${id}:`, err);
+          });
+      }
+
       res.json({
         success: true,
         message: 'Ticket status updated successfully',
@@ -957,6 +975,19 @@ router.put('/:id/assign', [
 
         console.log(`📡 Socket.IO: Events emitted for ticket ${id} assignment to technician ${technician_id}`);
       }
+
+      // 📱 PHASE 1: Send WhatsApp notification to technician
+      whatsappNotificationService.notifyTicketAssignment(id)
+        .then(whatsappResult => {
+          if (whatsappResult.success) {
+            console.log(`📱 WhatsApp ticket assignment notification sent to technician for ticket #${id}`);
+          } else {
+            console.warn(`⚠️ WhatsApp notification failed for ticket #${id}:`, whatsappResult.error);
+          }
+        })
+        .catch(err => {
+          console.error(`❌ WhatsApp notification error for ticket #${id}:`, err);
+        });
 
       res.json({
         success: true,

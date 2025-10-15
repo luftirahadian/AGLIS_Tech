@@ -400,6 +400,20 @@ if (process.env.ENABLE_BILLING_CRON === 'true') {
   console.log('⏸️  Billing cron jobs disabled (set ENABLE_BILLING_CRON=true to enable)');
 }
 
+// 📱 PHASE 1: Start WhatsApp notification jobs
+console.log('⏰ Starting WhatsApp notification jobs...');
+try {
+  const slaMonitor = require('./jobs/slaMonitor');
+  const paymentReminder = require('./jobs/paymentReminder');
+  
+  slaMonitor.start();
+  paymentReminder.start();
+  
+  console.log('✅ WhatsApp notification jobs started successfully');
+} catch (error) {
+  console.error('❌ Failed to start WhatsApp notification jobs:', error);
+}
+
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
