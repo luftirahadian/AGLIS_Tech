@@ -415,17 +415,6 @@ router.post('/', [
       });
     }
 
-    // Generate ticket number - use database date to avoid timezone issues
-    const dateResult = await pool.query('SELECT CURRENT_DATE as today');
-    const today = dateResult.rows[0].today.toISOString().slice(0, 10).replace(/-/g, '');
-    const countResult = await pool.query(
-      'SELECT COUNT(*) FROM tickets WHERE DATE(created_at) = CURRENT_DATE'
-    );
-    const dailyCount = parseInt(countResult.rows[0].count) + 1;
-    
-    // Use shorter format to fit within 20 character limit
-    const ticket_number = `TKT${today}${dailyCount.toString().padStart(3, '0')}`;
-
     // Calculate SLA due date based on priority
     const slaHours = {
       'critical': 2,
@@ -440,6 +429,23 @@ router.post('/', [
     
     try {
       await client.query('BEGIN');
+      
+      // Generate ticket number WITHIN transaction with SELECT FOR UPDATE to prevent race condition
+      const dateResult = await client.query('SELECT CURRENT_DATE as today');
+      const today = dateResult.rows[0].today.toISOString().slice(0, 10).replace(/-/g, '');
+      
+      // Use MAX + 1 instead of COUNT to handle gaps from deleted tickets
+      const countResult = await client.query(
+        `SELECT COALESCE(MAX(CAST(SUBSTRING(ticket_number FROM 12) AS INTEGER)), 0) as max_num
+         FROM tickets 
+         WHERE ticket_number LIKE 'TKT' || $1 || '%'
+         FOR UPDATE`,
+        [today]
+      );
+      const dailyCount = parseInt(countResult.rows[0].max_num) + 1;
+      
+      // Use shorter format to fit within 20 character limit
+      const ticket_number = `TKT${today}${dailyCount.toString().padStart(3, '0')}`;
 
       // Insert ticket
       const ticketQuery = `
