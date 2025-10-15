@@ -29,12 +29,12 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
   const [hoveredItem, setHoveredItem] = useState(null)
   
   // State for collapsible sections
-  const [coreOpsOpen, setCoreOpsOpen] = useState(true)
-  const [customerMgmtOpen, setCustomerMgmtOpen] = useState(true)
-  const [financialOpen, setFinancialOpen] = useState(true)
-  const [operationsOpen, setOperationsOpen] = useState(true)
-  const [analyticsOpen, setAnalyticsOpen] = useState(true)
-  const [systemAdminOpen, setSystemAdminOpen] = useState(true)
+  const [coreOpsOpen, setCoreOpsOpen] = useState(true)  // ✅ OPEN by default
+  const [customerMgmtOpen, setCustomerMgmtOpen] = useState(false)  // ❌ CLOSED by default
+  const [financialOpen, setFinancialOpen] = useState(false)  // ❌ CLOSED by default
+  const [operationsOpen, setOperationsOpen] = useState(false)  // ❌ CLOSED by default
+  const [analyticsOpen, setAnalyticsOpen] = useState(false)  // ❌ CLOSED by default
+  const [systemAdminOpen, setSystemAdminOpen] = useState(false)  // ❌ CLOSED by default
   
   // State for nested submenus (existing)
   const [masterDataOpen, setMasterDataOpen] = useState(false)
