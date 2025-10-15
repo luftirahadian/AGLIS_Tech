@@ -1261,3 +1261,32 @@
 2025-10-16T06:25:00: 🔍 Checking system alerts...
 2025-10-16T06:25:00: ✅ No alerts triggered - System healthy
 2025-10-16T06:25:06: 103.55.224.49 - - [15/Oct/2025:23:25:06 +0000] "GET /api/customer-portal/profile HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:25:56: ✅ Connected to PostgreSQL database
+2025-10-16T06:25:56: 103.55.224.49 - - [15/Oct/2025:23:25:56 +0000] "GET /api/customers?search=&customer_type=&service_type=&account_status=&payment_status=&package_id=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:26:04: 103.55.224.49 - - [15/Oct/2025:23:26:04 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:26:10: ✅ Connected to PostgreSQL database
+2025-10-16T06:26:10: 103.55.224.49 - - [15/Oct/2025:23:26:10 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/17" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:26:40: ✅ Connected to PostgreSQL database
+2025-10-16T06:26:40: ✅ Connected to PostgreSQL database
+2025-10-16T06:26:40: 103.55.224.49 - - [15/Oct/2025:23:26:40 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/customers/17" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:26:59: 103.55.224.49 - - [15/Oct/2025:23:26:59 +0000] "GET /api/customer-portal/tickets?limit=5 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:27:38: ✅ Connected to PostgreSQL database
+2025-10-16T06:27:38: 103.55.224.49 - - [15/Oct/2025:23:27:38 +0000] "GET /api/customer-portal/tickets?limit=5 HTTP/1.1" 304 - "https://portal.aglis.biz.id/customer/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:28:10: ✅ Connected to PostgreSQL database
+2025-10-16T06:28:10: ✅ Connected to PostgreSQL database
+2025-10-16T06:28:10: 103.55.224.49 - - [15/Oct/2025:23:28:10 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/customers/17" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:29:02: ✅ Connected to PostgreSQL database
+2025-10-16T06:29:02: 103.55.224.49 - - [15/Oct/2025:23:29:02 +0000] "GET /api/customer-portal/tickets HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/tickets?v=fixed" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:29:21: 103.55.224.49 - - [15/Oct/2025:23:29:21 +0000] "GET /api/customer-portal/profile HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:30:00: 🔍 Starting SLA check...
+2025-10-16T06:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T06:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T06:30:00: 📋 Found 4 active tickets to check
+2025-10-16T06:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T06:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2094 minutes overdue!
+2025-10-16T06:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1606 minutes overdue!
+2025-10-16T06:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1583 minutes overdue!
+2025-10-16T06:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1562 minutes overdue!
+2025-10-16T06:30:00: 🔍 Checking system alerts...
+2025-10-16T06:30:00: ✅ No alerts triggered - System healthy
+2025-10-16T06:30:02: 103.55.225.241 - - [15/Oct/2025:23:30:02 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"

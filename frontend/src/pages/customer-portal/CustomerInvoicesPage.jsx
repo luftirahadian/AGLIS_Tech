@@ -20,7 +20,7 @@ const CustomerInvoicesPage = () => {
     }
   );
 
-  const invoices = data?.data?.invoices || [];
+  const invoices = data?.data?.invoices || data?.invoices || [];
 
   const getStatusBadge = (status) => {
     const badges = {

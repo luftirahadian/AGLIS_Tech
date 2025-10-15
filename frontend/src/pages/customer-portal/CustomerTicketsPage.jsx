@@ -48,7 +48,7 @@ const CustomerTicketsPage = () => {
     }
   );
 
-  const tickets = data?.data?.tickets || [];
+  const tickets = data?.data?.tickets || data?.tickets || [];
 
   const getStatusBadge = (status) => {
     const badges = {
