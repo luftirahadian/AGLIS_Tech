@@ -1563,3 +1563,5 @@
 2025-10-16T06:40:28: 103.55.224.49 - - [15/Oct/2025:23:40:28 +0000] "GET /api/customer-portal/tickets?limit=5 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard?refresh=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-16T06:41:53: ✅ Connected to PostgreSQL database
 2025-10-16T06:41:53: 103.55.224.49 - - [15/Oct/2025:23:41:53 +0000] "GET /api/customer-portal/tickets?limit=5 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:43:23: ✅ Connected to PostgreSQL database
+2025-10-16T06:43:23: 103.55.224.49 - - [15/Oct/2025:23:43:23 +0000] "GET /api/customer-portal/dashboard/stats HTTP/1.1" 200 231 "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
