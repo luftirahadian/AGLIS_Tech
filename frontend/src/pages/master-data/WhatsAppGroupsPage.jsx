@@ -178,13 +178,20 @@ const WhatsAppGroupsPage = () => {
   const notificationTypeOptions = [
     { value: 'ticket_assigned', label: 'Ticket Assigned' },
     { value: 'new_ticket', label: 'New Ticket' },
+    { value: 'ticket_completed', label: 'Ticket Completed' },
     { value: 'sla_warning', label: 'SLA Warning' },
     { value: 'urgent_alert', label: 'Urgent Alert' },
     { value: 'escalation', label: 'Escalation' },
     { value: 'daily_summary', label: 'Daily Summary' },
     { value: 'weekly_report', label: 'Weekly Report' },
     { value: 'system_alert', label: 'System Alert' },
-    { value: 'performance_alert', label: 'Performance Alert' }
+    { value: 'performance_alert', label: 'Performance Alert' },
+    { value: 'new_registration', label: 'New Registration' },
+    { value: 'customer_complaint', label: 'Customer Complaint' },
+    { value: 'payment_alert', label: 'Payment Alert' },
+    { value: 'kpi_alert', label: 'KPI Alert' },
+    { value: 'critical_incident', label: 'Critical Incident' },
+    { value: 'outage', label: 'Outage' }
   ]
 
   if (isLoading) {

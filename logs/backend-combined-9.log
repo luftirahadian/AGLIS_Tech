@@ -40,3 +40,14 @@
 2025-10-16T00:07:37: 🚨 OVERDUE: Ticket #TKT20251013007 is 1201 minutes overdue!
 2025-10-16T00:07:37: 🚨 OVERDUE: Ticket #TKT20251014010 is 1180 minutes overdue!
 2025-10-16T00:07:37: 🚨 OVERDUE: Ticket #TKT20251013010 is 306 minutes overdue!
+2025-10-16T00:09:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:09:31: 103.55.224.49 - - [15/Oct/2025:17:09:31 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/customers/18" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:09:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:09:31: 103.55.224.49 - - [15/Oct/2025:17:09:31 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/18" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:09:36: 103.55.224.49 - - [15/Oct/2025:17:09:36 +0000] "GET /api/whatsapp-groups? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:10:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:10:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:10:31: 103.55.224.49 - - [15/Oct/2025:17:10:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:11:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:11:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:11:31: 103.55.224.49 - - [15/Oct/2025:17:11:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
