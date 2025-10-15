@@ -8822,3 +8822,94 @@ Recent application errors:
 9|aglis-backend-3  | 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
 9|aglis-backend-3  | 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
 9|aglis-backend-3  | 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+==========================================
+AGLIS Log Analyzer - 2025-10-15 08:00:01
+==========================================
+
+📊 NGINX ACCESS LOG ANALYSIS:
+----------------------------
+Top 10 IP addresses:
+   1319 127.0.0.1
+
+Top 10 requested URLs:
+    130 /
+    109 /login
+     99 /register
+     70 /favicon.svg
+     70 /aglis-logo.png
+     45 /assets/ui-vendor-DFmaqm_b.js
+     45 /assets/socket-BFcXWKeu.js
+     45 /assets/react-vendor-BQ7pSkNi.js
+     45 /assets/react-query-B7OIdD7u.js
+     45 /assets/notifications-DGuCqj8i.js
+
+HTTP Status Codes:
+   1034 200
+    269 304
+     12 405
+      4 400
+
+Requests in last hour:
+0
+
+❌ NGINX ERROR LOG ANALYSIS:
+---------------------------
+Recent errors (last 10):
+
+Error frequency (last 24h):
+0
+
+⚙️  PM2 APPLICATION LOGS:
+------------------------
+Recent application errors:
+[TAILING] Tailing last 10 lines for [all] processes (change the value with --lines option)
+/home/aglis/.pm2/logs/pm2-server-monit-error.log last 10 lines:
+/home/aglis/.pm2/logs/pm2-logrotate-error.log last 10 lines:
+/home/aglis/AGLIS_Tech/logs/backend-error-7.log last 10 lines:
+7|aglis-ba | 2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+7|aglis-ba | 2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+7|aglis-ba | 2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+7|aglis-ba | 2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+7|aglis-ba | 2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+7|aglis-ba | 2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+7|aglis-ba | 2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+7|aglis-ba | 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+7|aglis-ba | 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+7|aglis-ba | 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+
+/home/aglis/AGLIS_Tech/logs/backend-error-10.log last 10 lines:
+10|aglis-b | 2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+10|aglis-b | 2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+10|aglis-b | 2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+10|aglis-b | 2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+10|aglis-b | 2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+10|aglis-b | 2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+10|aglis-b | 2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+10|aglis-b | 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+10|aglis-b | 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+10|aglis-b | 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+
+/home/aglis/AGLIS_Tech/logs/backend-error-8.log last 10 lines:
+8|aglis-ba | 2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+8|aglis-ba | 2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+8|aglis-ba | 2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+8|aglis-ba | 2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+8|aglis-ba | 2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+8|aglis-ba | 2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+8|aglis-ba | 2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+8|aglis-ba | 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+8|aglis-ba | 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+8|aglis-ba | 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+
+/home/aglis/AGLIS_Tech/logs/backend-error-9.log last 10 lines:
+9|aglis-ba | 2025-10-15T06:31:36:     at Route.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/route.js:216:15)
+9|aglis-ba | 2025-10-15T06:31:36:     at proto.<computed> [as get] (/home/aglis/AGLIS_Tech/backend/node_modules/express/lib/router/index.js:521:19)
+9|aglis-ba | 2025-10-15T06:31:36:     at Object.<anonymous> (/home/aglis/AGLIS_Tech/backend/src/routes/skillLevels.js:14:8)
+9|aglis-ba | 2025-10-15T06:31:36:     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+9|aglis-ba | 2025-10-15T06:31:36:     at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+9|aglis-ba | 2025-10-15T06:31:36:     at Module.load (node:internal/modules/cjs/loader:1203:32)
+9|aglis-ba | 2025-10-15T06:31:36:     at Module._load (node:internal/modules/cjs/loader:1019:12)
+9|aglis-ba | 2025-10-15T06:31:36:     at Module.require (node:internal/modules/cjs/loader:1231:19)
+9|aglis-ba | 2025-10-15T06:31:36:     at Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+9|aglis-ba | 2025-10-15T06:31:36:     at require (node:internal/modules/helpers:177:18)
+
