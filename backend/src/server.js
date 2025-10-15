@@ -39,6 +39,7 @@ const paymentRoutes = require('./routes/payments');
 const skillLevelsRoutes = require('./routes/skillLevels');
 const specializationsRoutes = require('./routes/specializations');
 const technicianSpecializationsRoutes = require('./routes/technicianSpecializations');
+const whatsappGroupsRoutes = require('./routes/whatsappGroups');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -235,6 +236,7 @@ app.use('/api/invoices', authMiddleware, invoiceRoutes);
 app.use('/api/payments', authMiddleware, paymentRoutes);
 app.use('/api/skill-levels', authMiddleware, cacheMiddleware(600), skillLevelsRoutes); // Cache 10 min
 app.use('/api/specializations', authMiddleware, cacheMiddleware(600), specializationsRoutes); // Cache 10 min
+app.use('/api/whatsapp-groups', authMiddleware, whatsappGroupsRoutes); // WhatsApp groups management
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');

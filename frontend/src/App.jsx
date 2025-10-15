@@ -31,6 +31,7 @@ const UsersPage = lazy(() => import('./pages/users/UsersPage'))
 const PermissionsPage = lazy(() => import('./pages/PermissionsPage'))
 const SkillLevelsPage = lazy(() => import('./pages/master-data/SkillLevelsPage'))
 const SpecializationsPage = lazy(() => import('./pages/master-data/SpecializationsPage'))
+const WhatsAppGroupsPage = lazy(() => import('./pages/master-data/WhatsAppGroupsPage'))
 const ProfilePage = lazy(() => import('./pages/ProfilePage'))
 const RegisterPage = lazy(() => import('./pages/public/RegisterPage'))
 const TrackingPage = lazy(() => import('./pages/public/TrackingPage'))
@@ -116,7 +117,8 @@ function App() {
         {/* Master Data */}
         <Route path="master-data/skill-levels" element={<SkillLevelsPage />} />
         <Route path="master-data/specializations" element={<SpecializationsPage />} />
-        
+        <Route path="master-data/whatsapp-groups" element={<WhatsAppGroupsPage />} />
+
         {/* Billing */}
         <Route path="invoices" element={<InvoicesPage />} />
         <Route path="invoices/new" element={<InvoiceCreatePage />} />

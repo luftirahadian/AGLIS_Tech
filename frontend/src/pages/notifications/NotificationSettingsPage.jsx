@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { 
   Settings, Bell, Moon, Filter, Clock, Trash2, 
-  Smartphone, Globe, Mail, MessageSquare, CheckCircle
+  Smartphone, Globe, Mail, MessageSquare, CheckCircle, MessageCircle
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import settingsService from '../../services/notificationSettingsService';
@@ -203,6 +203,36 @@ const NotificationSettingsPage = () => {
                       />
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     </label>
+                  </div>
+                </div>
+
+                {/* WhatsApp Notifications */}
+                <div className="border border-gray-200 rounded-lg p-6 hover:border-green-300 transition-colors">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-green-100 rounded-lg">
+                        <MessageCircle className="h-6 w-6 text-green-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">WhatsApp Notifications</h4>
+                        <p className="text-sm text-gray-600">Receive via WhatsApp</p>
+                      </div>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.whatsapp_notifications}
+                        onChange={(e) => handleSettingChange('whatsapp_notifications', e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                  </div>
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-3">
+                    <p className="text-xs text-green-700 flex items-center">
+                      <CheckCircle className="h-4 w-4 mr-1" />
+                      <strong>NEW!</strong> Notifikasi langsung ke WhatsApp Anda untuk respons lebih cepat
+                    </p>
                   </div>
                 </div>
 

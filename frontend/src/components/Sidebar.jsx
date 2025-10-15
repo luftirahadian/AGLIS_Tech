@@ -202,6 +202,10 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
             {
               name: 'Specializations',
               href: '/master-data/specializations'
+            },
+            {
+              name: 'WhatsApp Groups',
+              href: '/master-data/whatsapp-groups'
             }
           ]
         },
