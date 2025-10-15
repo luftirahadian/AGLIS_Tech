@@ -3331,3 +3331,30 @@
 2025-10-15T10:43:00: 103.55.224.49 - - [15/Oct/2025:03:43:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-15T10:43:14: 103.55.224.49 - - [15/Oct/2025:03:43:14 +0000] "GET /api/whatsapp-templates?category=ticket HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-15T10:43:17: 103.55.224.49 - - [15/Oct/2025:03:43:17 +0000] "GET /api/whatsapp-templates?category=marketing HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:44:00: ✅ Connected to PostgreSQL database
+2025-10-15T10:44:00: ✅ Connected to PostgreSQL database
+2025-10-15T10:44:00: 103.55.224.49 - - [15/Oct/2025:03:44:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:45:00: 🔍 Starting SLA check...
+2025-10-15T10:45:00: ✅ Connected to PostgreSQL database
+2025-10-15T10:45:00: 📋 Found 5 active tickets to check
+2025-10-15T10:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T10:45:01: 103.55.225.241 - - [15/Oct/2025:03:45:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-15T10:50:01: 103.55.225.241 - - [15/Oct/2025:03:50:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-15T10:50:43: 👤 User disconnected: E0ocwPtV-uGQNUTgAAAD
+2025-10-15T10:50:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T10:50:44: 👤 User connected: i-CaWRkaqDxA2jORAAAJ
+2025-10-15T10:50:44: ✅ Connected to PostgreSQL database
+2025-10-15T10:50:44: ✅ Connected to PostgreSQL database
+2025-10-15T10:50:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T10:50:44: 103.55.224.49 - - [15/Oct/2025:03:50:44 +0000] "GET /api/whatsapp-groups? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:50:44: ✅ Connected to PostgreSQL database
+2025-10-15T10:50:44: 103.55.224.49 - - [15/Oct/2025:03:50:44 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:51:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:51:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:51:14: 103.55.224.49 - - [15/Oct/2025:03:51:14 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:52:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:52:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:52:14: 103.55.224.49 - - [15/Oct/2025:03:52:14 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:53:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:53:14: ✅ Connected to PostgreSQL database
+2025-10-15T10:53:14: 103.55.224.49 - - [15/Oct/2025:03:53:14 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

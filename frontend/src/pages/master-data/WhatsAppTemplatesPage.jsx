@@ -22,22 +22,31 @@ const WhatsAppTemplatesPage = () => {
   });
 
   // Fetch templates
-  const { data: templatesData, isLoading } = useQuery(
+  const { data: templatesData, isLoading, error, isError } = useQuery(
     ['whatsapp-templates', categoryFilter, searchTerm],
     async () => {
       const params = new URLSearchParams();
       if (categoryFilter !== 'all') params.append('category', categoryFilter);
       if (searchTerm) params.append('search', searchTerm);
       
+      console.log('Fetching templates with params:', params.toString());
       const response = await api.get(`/whatsapp-templates?${params.toString()}`);
+      console.log('Templates response:', response.data);
       return response.data;
     },
     {
-      staleTime: 60000
+      staleTime: 60000,
+      onError: (err) => {
+        console.error('Error fetching templates:', err);
+        toast.error('Failed to load templates: ' + (err.response?.data?.message || err.message));
+      }
     }
   );
 
   const templates = templatesData?.data || [];
+  
+  console.log('Templates data:', templatesData);
+  console.log('Templates array:', templates);
 
   // Mutations
   const createMutation = useMutation(
@@ -153,8 +162,29 @@ const WhatsAppTemplatesPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="flex flex-col items-center justify-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+        <p className="text-gray-600">Loading templates...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex flex-col items-center justify-center h-64">
+        <div className="text-red-600 mb-4">
+          <svg className="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Failed to Load Templates</h3>
+        <p className="text-gray-600 mb-4">{error?.response?.data?.message || error?.message || 'Unknown error'}</p>
+        <button
+          onClick={() => queryClient.invalidateQueries(['whatsapp-templates'])}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -273,9 +303,30 @@ const WhatsAppTemplatesPage = () => {
         <div className="bg-white rounded-lg border border-gray-200 p-12 text-center">
           <MessageSquare className="h-16 w-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">No templates found</h3>
-          <p className="text-gray-600 mb-4">Create your first WhatsApp message template</p>
+          <p className="text-gray-600 mb-4">
+            {categoryFilter !== 'all' || searchTerm 
+              ? 'No templates match your filters. Try clearing filters or create a new template.'
+              : 'Create your first WhatsApp message template'
+            }
+          </p>
+          
+          {/* Debug Info */}
+          <div className="bg-gray-50 border border-gray-300 rounded p-3 mb-4 text-left text-xs font-mono">
+            <div><strong>Debug Info:</strong></div>
+            <div>Category Filter: {categoryFilter}</div>
+            <div>Search Term: {searchTerm || '(empty)'}</div>
+            <div>Response Success: {templatesData?.success ? 'Yes' : 'No'}</div>
+            <div>Data Array Length: {templatesData?.data?.length || 0}</div>
+            <div>Is Loading: {isLoading ? 'Yes' : 'No'}</div>
+            <div>Has Error: {isError ? 'Yes' : 'No'}</div>
+          </div>
+          
           <button
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              setCategoryFilter('all');
+              setSearchTerm('');
+              setShowModal(true);
+            }}
             className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
           >
             <Plus className="h-5 w-5 mr-2" />
