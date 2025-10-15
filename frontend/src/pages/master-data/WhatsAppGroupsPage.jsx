@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { MessageCircle, Plus, Edit2, Trash2, Send, Activity, CheckCircle, XCircle, AlertCircle } from 'lucide-react'
+import { MessageCircle, Plus, Edit2, Trash2, Send, CheckCircle, XCircle, AlertCircle, X } from 'lucide-react'
 import whatsappGroupService from '../../services/whatsappGroupService'
 import toast from 'react-hot-toast'
 import LoadingSpinner from '../../components/LoadingSpinner'
@@ -13,6 +13,48 @@ const WhatsAppGroupsPage = () => {
   const [showTestModal, setShowTestModal] = useState(false)
   const [testingGroup, setTestingGroup] = useState(null)
   const [testMessage, setTestMessage] = useState('')
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    category: 'technicians',
+    work_zone: '',
+    phone_number: '',
+    group_chat_id: '',
+    notification_types: ['ticket_assigned', 'new_ticket', 'sla_warning'],
+    priority_filter: 'normal',
+    is_active: true
+  })
+
+  // Reset form when modal opens/closes
+  useEffect(() => {
+    if (showModal && editingGroup) {
+      setFormData({
+        name: editingGroup.name || '',
+        description: editingGroup.description || '',
+        category: editingGroup.category || 'technicians',
+        work_zone: editingGroup.work_zone || '',
+        phone_number: editingGroup.phone_number || '',
+        group_chat_id: editingGroup.group_chat_id || '',
+        notification_types: editingGroup.notification_types || [],
+        priority_filter: editingGroup.priority_filter || 'normal',
+        is_active: editingGroup.is_active !== undefined ? editingGroup.is_active : true
+      })
+    } else if (showModal && !editingGroup) {
+      setFormData({
+        name: '',
+        description: '',
+        category: 'technicians',
+        work_zone: '',
+        phone_number: '',
+        group_chat_id: '',
+        notification_types: ['ticket_assigned', 'new_ticket', 'sla_warning'],
+        priority_filter: 'normal',
+        is_active: true
+      })
+    }
+  }, [showModal, editingGroup])
 
   // Fetch groups
   const { data, isLoading } = useQuery(
@@ -26,6 +68,36 @@ const WhatsAppGroupsPage = () => {
   )
 
   const groups = data?.data?.groups || []
+
+  // Create mutation
+  const createMutation = useMutation(
+    (data) => whatsappGroupService.create(data),
+    {
+      onSuccess: () => {
+        toast.success('WhatsApp group created successfully!')
+        queryClient.invalidateQueries(['whatsapp-groups'])
+        setShowModal(false)
+      },
+      onError: (error) => {
+        toast.error(error.response?.data?.message || 'Failed to create group')
+      }
+    }
+  )
+
+  // Update mutation
+  const updateMutation = useMutation(
+    ({ id, data }) => whatsappGroupService.update(id, data),
+    {
+      onSuccess: () => {
+        toast.success('WhatsApp group updated successfully!')
+        queryClient.invalidateQueries(['whatsapp-groups'])
+        setShowModal(false)
+      },
+      onError: (error) => {
+        toast.error(error.response?.data?.message || 'Failed to update group')
+      }
+    }
+  )
 
   // Delete mutation
   const deleteMutation = useMutation(
@@ -55,6 +127,21 @@ const WhatsAppGroupsPage = () => {
       }
     }
   )
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    if (!formData.name || !formData.category) {
+      toast.error('Name and category are required')
+      return
+    }
+    
+    if (editingGroup) {
+      updateMutation.mutate({ id: editingGroup.id, data: formData })
+    } else {
+      createMutation.mutate(formData)
+    }
+  }
 
   const handleDelete = (group) => {
     if (window.confirm(`Hapus WhatsApp group "${group.name}"?`)) {
@@ -88,6 +175,18 @@ const WhatsAppGroupsPage = () => {
     return badges[category] || 'bg-gray-100 text-gray-700'
   }
 
+  const notificationTypeOptions = [
+    { value: 'ticket_assigned', label: 'Ticket Assigned' },
+    { value: 'new_ticket', label: 'New Ticket' },
+    { value: 'sla_warning', label: 'SLA Warning' },
+    { value: 'urgent_alert', label: 'Urgent Alert' },
+    { value: 'escalation', label: 'Escalation' },
+    { value: 'daily_summary', label: 'Daily Summary' },
+    { value: 'weekly_report', label: 'Weekly Report' },
+    { value: 'system_alert', label: 'System Alert' },
+    { value: 'performance_alert', label: 'Performance Alert' }
+  ]
+
   if (isLoading) {
     return <LoadingSpinner />
   }
@@ -119,7 +218,7 @@ const WhatsAppGroupsPage = () => {
         </div>
 
         {/* Filter */}
-        <div className="mt-4 flex gap-2">
+        <div className="mt-4 flex gap-2 flex-wrap">
           {['all', 'technicians', 'supervisors', 'managers', 'noc', 'customer_service'].map(cat => (
             <button
               key={cat}
@@ -233,6 +332,212 @@ const WhatsAppGroupsPage = () => {
         </div>
       )}
 
+      {/* CREATE/UPDATE Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold flex items-center">
+                <MessageCircle className="h-5 w-5 mr-2 text-green-600" />
+                {editingGroup ? 'Edit WhatsApp Group' : 'Tambah WhatsApp Group'}
+              </h3>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Nama Group <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Contoh: Teknisi Purwakarta"
+                  required
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Deskripsi
+                </label>
+                <textarea
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  rows={2}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Deskripsi singkat tentang group ini..."
+                />
+              </div>
+
+              {/* Category & Work Zone */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Category <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    required
+                  >
+                    <option value="technicians">Technicians</option>
+                    <option value="supervisors">Supervisors</option>
+                    <option value="managers">Managers</option>
+                    <option value="noc">NOC</option>
+                    <option value="customer_service">Customer Service</option>
+                    <option value="all">All</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Work Zone
+                  </label>
+                  <select
+                    value={formData.work_zone}
+                    onChange={(e) => setFormData({ ...formData, work_zone: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option value="">All Zones</option>
+                    <option value="karawang">Karawang</option>
+                    <option value="bekasi">Bekasi</option>
+                    <option value="cikampek">Cikampek</option>
+                    <option value="purwakarta">Purwakarta</option>
+                    <option value="subang">Subang</option>
+                    <option value="bandung">Bandung</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Phone Number & Chat ID */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.phone_number}
+                    onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    placeholder="628123456789"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Format: 628xxxxxxxxx</p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Group Chat ID
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.group_chat_id}
+                    onChange={(e) => setFormData({ ...formData, group_chat_id: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    placeholder="Optional"
+                  />
+                </div>
+              </div>
+
+              {/* Notification Types */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Notification Types
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {notificationTypeOptions.map(option => (
+                    <label key={option.value} className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.notification_types.includes(option.value)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setFormData({
+                              ...formData,
+                              notification_types: [...formData.notification_types, option.value]
+                            })
+                          } else {
+                            setFormData({
+                              ...formData,
+                              notification_types: formData.notification_types.filter(t => t !== option.value)
+                            })
+                          }
+                        }}
+                        className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                      />
+                      <span className="text-sm text-gray-700">{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Priority Filter & Active Status */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Priority Filter
+                  </label>
+                  <select
+                    value={formData.priority_filter}
+                    onChange={(e) => setFormData({ ...formData, priority_filter: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                  </select>
+                  <p className="text-xs text-gray-500 mt-1">Minimum priority untuk notifikasi</p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Status
+                  </label>
+                  <label className="flex items-center space-x-2 mt-2">
+                    <input
+                      type="checkbox"
+                      checked={formData.is_active}
+                      onChange={(e) => setFormData({ ...formData, is_active: e.target.checked })}
+                      className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                    />
+                    <span className="text-sm text-gray-700">Active</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-2 pt-4 border-t border-gray-200">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  disabled={createMutation.isLoading || updateMutation.isLoading}
+                  className="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+                >
+                  {(createMutation.isLoading || updateMutation.isLoading) ? 'Saving...' : (editingGroup ? 'Update' : 'Tambah')}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Test Modal */}
       {showTestModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -288,4 +593,3 @@ const WhatsAppGroupsPage = () => {
 }
 
 export default WhatsAppGroupsPage
-
