@@ -43,23 +43,32 @@ const CustomerLoginPage = () => {
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log('🟢 handleVerifyOTP called, phone:', phone, 'otp:', otp);
 
     try {
+      console.log('🟢 Sending verify request');
       const response = await api.post('/customer-portal/verify-otp', { phone, otp });
+      console.log('🟢 Verify response:', response);
       
-      if (response.data.success) {
+      if (response.success) {
+        console.log('🟢 Login SUCCESS! Token:', response.data?.token?.substring(0, 20) + '...');
         // Store token
-        localStorage.setItem('customerToken', response.data.data.token);
-        localStorage.setItem('customerData', JSON.stringify(response.data.data.customer));
+        localStorage.setItem('customerToken', response.data.token);
+        localStorage.setItem('customerData', JSON.stringify(response.data.customer));
         
         toast.success('Login berhasil!');
+        console.log('🟢 Navigating to /customer/dashboard');
         navigate('/customer/dashboard');
+      } else {
+        console.log('❌ response.success is false');
       }
     } catch (error) {
+      console.error('❌ Verify error:', error);
       toast.error(error.response?.data?.message || 'Kode OTP salah atau expired');
       setOtp('');
     } finally {
       setLoading(false);
+      console.log('🟢 Loading set to false');
     }
   };
 

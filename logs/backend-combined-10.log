@@ -1181,3 +1181,266 @@
 2025-10-16T06:03:22: ✅ Connected to PostgreSQL database
 2025-10-16T06:03:22: ✅ Connected to PostgreSQL database
 2025-10-16T06:03:22: 103.55.224.49 - - [15/Oct/2025:23:03:22 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:03:41: 👤 User disconnected: VpZckSPOyPjoDRgoAAAB
+2025-10-16T06:03:41: 103.55.224.49 - - [15/Oct/2025:23:03:41 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:03:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:03:41: 👤 User connected: tfRtW3MsI9KcFkF1AAAJ
+2025-10-16T06:03:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:03:41: 👤 User 17 (admin) authenticated: tfRtW3MsI9KcFkF1AAAJ
+2025-10-16T06:03:41: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:04:03: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:04:03: 🔍 OTP VERIFY (Memory): Phone=62817102070, InputOTP=245361, Process=948139, StorageSize=0
+2025-10-16T06:04:03: ❌ OTP NOT FOUND: Phone=62817102070
+2025-10-16T06:04:03: Verify OTP error: error: duplicate key value violates unique constraint "customer_sessions_session_token_key"
+2025-10-16T06:04:03:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T06:04:03:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T06:04:03:   length: 471,
+2025-10-16T06:04:03:   severity: 'ERROR',
+2025-10-16T06:04:03:   code: '23505',
+2025-10-16T06:04:03:   detail: 'Key (session_token)=(eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklkIjoxNywiY3VzdG9tZXJDb2RlIjoiQUdMUzIwMjUxMDE1MDAwMSIsInR5cGUiOiJjdXN0b21lciIsImlhdCI6MTc2MDU2OTQ0MywiZXhwIjoxNzYxMTc0MjQzfQ.f3cgxED7Hd7jJE2lGYBk9UC3vXQp50A20sG-YZhILJg) already exists.',
+2025-10-16T06:04:03:   hint: undefined,
+2025-10-16T06:04:03:   position: undefined,
+2025-10-16T06:04:03:   internalPosition: undefined,
+2025-10-16T06:04:03:   internalQuery: undefined,
+2025-10-16T06:04:03:   where: undefined,
+2025-10-16T06:04:03:   schema: 'public',
+2025-10-16T06:04:03:   table: 'customer_sessions',
+2025-10-16T06:04:03:   column: undefined,
+2025-10-16T06:04:03:   dataType: undefined,
+2025-10-16T06:04:03:   constraint: 'customer_sessions_session_token_key',
+2025-10-16T06:04:03:   file: 'nbtinsert.c',
+2025-10-16T06:04:03:   line: '663',
+2025-10-16T06:04:03:   routine: '_bt_check_unique'
+2025-10-16T06:04:03: }
+2025-10-16T06:04:03: ❌ QUERY ERROR (3ms): {
+2025-10-16T06:04:03:   error: 'duplicate key value violates unique constraint "customer_sessions_session_token_key"',
+2025-10-16T06:04:03:   query: 'INSERT INTO customer_sessions (customer_id, session_token, ip_address, user_agent, expires_at)\n' +
+2025-10-16T06:04:03:     "       VALUES ($1, $2, $3, $4, NOW() + INTERVAL '7 days..."
+2025-10-16T06:04:03: }
+2025-10-16T06:04:03: 103.55.224.49 - - [15/Oct/2025:23:04:03 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 500 61 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:04:03: error: duplicate key value violates unique constraint "customer_sessions_session_token_key"
+2025-10-16T06:04:03:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T06:04:03:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T06:04:03:   length: 471,
+2025-10-16T06:04:03:   severity: 'ERROR',
+2025-10-16T06:04:03:   code: '23505',
+2025-10-16T06:04:03:   detail: 'Key (session_token)=(eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklkIjoxNywiY3VzdG9tZXJDb2RlIjoiQUdMUzIwMjUxMDE1MDAwMSIsInR5cGUiOiJjdXN0b21lciIsImlhdCI6MTc2MDU2OTQ0MywiZXhwIjoxNzYxMTc0MjQzfQ.f3cgxED7Hd7jJE2lGYBk9UC3vXQp50A20sG-YZhILJg) already exists.',
+2025-10-16T06:04:03:   hint: undefined,
+2025-10-16T06:04:03:   position: undefined,
+2025-10-16T06:04:03:   internalPosition: undefined,
+2025-10-16T06:04:03:   internalQuery: undefined,
+2025-10-16T06:04:03:   where: undefined,
+2025-10-16T06:04:03:   schema: 'public',
+2025-10-16T06:04:03:   table: 'customer_sessions',
+2025-10-16T06:04:03:   column: undefined,
+2025-10-16T06:04:03:   dataType: undefined,
+2025-10-16T06:04:03:   constraint: 'customer_sessions_session_token_key',
+2025-10-16T06:04:03:   file: 'nbtinsert.c',
+2025-10-16T06:04:03:   line: '663',
+2025-10-16T06:04:03:   routine: '_bt_check_unique'
+2025-10-16T06:04:03: }
+2025-10-16T06:05:00: ✅ Connected to PostgreSQL database
+2025-10-16T06:05:00: 🔍 Checking system alerts...
+2025-10-16T06:05:00: ✅ No alerts triggered - System healthy
+2025-10-16T06:05:01: 103.55.225.241 - - [15/Oct/2025:23:05:01 +0000] "GET /api/health HTTP/1.1" 200 700 "-" "curl/7.81.0"
+2025-10-16T06:05:54: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T06:05:54: ⏰ Starting billing cron jobs...
+2025-10-16T06:05:54:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T06:05:54:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T06:05:54: ✅ All billing cron jobs started successfully
+2025-10-16T06:05:54: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T06:05:54: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T06:05:54: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T06:05:54: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T06:05:54: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T06:05:54: ✅ WhatsApp notification jobs started successfully
+2025-10-16T06:05:54:    - SLA Monitor: Every 15 minutes
+2025-10-16T06:05:54:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T06:05:54:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T06:05:54:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T06:05:54: ⏰ Starting Alert Monitoring System...
+2025-10-16T06:05:54: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-16T06:05:54: ✅ Alert Monitoring System started successfully
+2025-10-16T06:05:54:    - System Health Checks: Every 5 minutes
+2025-10-16T06:05:54:    - Alert Rules: 8 default rules active
+2025-10-16T06:05:54:    - Notifications: WhatsApp + Email
+2025-10-16T06:05:54: 🚀 Server running on 0.0.0.0:3004
+2025-10-16T06:05:54: 🌍 Environment: production
+2025-10-16T06:05:54: 📡 Local access: http://localhost:3004
+2025-10-16T06:05:54: 🌐 Network access: http://192.168.121.30:3004
+2025-10-16T06:05:54: 📝 CORS origins configured for local network access
+2025-10-16T06:05:54: ✅ Redis Cache Connected
+2025-10-16T06:05:54: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T06:05:54: ✅ Redis client connected for OTP storage
+2025-10-16T06:05:54: ✅ Redis client ready
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: 👤 User connected: coxJ5PcdR6VotusCAAAD
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: 👤 User connected: pGNjxv16df1dIcIeAAAE
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: 👤 User connected: -EczyYLAmbnSp6tCAAAF
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: 👤 User connected: gAXlpPmbV17B3h0kAAAH
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:05:54: 👤 User 17 (admin) authenticated: gAXlpPmbV17B3h0kAAAH
+2025-10-16T06:05:59: 🔍 Starting SLA check...
+2025-10-16T06:05:59: ✅ Connected to PostgreSQL database
+2025-10-16T06:05:59: 📋 Found 4 active tickets to check
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251014001 is 2070 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251013006 is 1582 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251013007 is 1559 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251014010 is 1538 minutes overdue!
+2025-10-16T06:05:59: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T06:05:59: ✅ Connected to PostgreSQL database
+2025-10-16T06:05:59: 🔍 Checking system alerts...
+2025-10-16T06:05:59: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-16T06:05:59: 🚨 Alert triggered: SLA Violation (high)
+2025-10-16T06:05:59: 🚨 Triggered 1 alert(s)
+2025-10-16T06:05:59:    - SLA Violation (high): 2
+2025-10-16T06:06:15: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:15: ❌ Error storing OTP: TypeError: redisClient.expire is not a function
+2025-10-16T06:06:15:     at WhatsAppService.storeOTP (/home/aglis/AGLIS_Tech/backend/src/services/whatsappService.js:621:27)
+2025-10-16T06:06:15:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-16T06:06:15:     at async /home/aglis/AGLIS_Tech/backend/src/routes/customerPortal.js:122:5
+2025-10-16T06:06:15: ✅ WhatsApp sent to 62817102070 via fonnte (primary)
+2025-10-16T06:06:15: 103.55.224.49 - - [15/Oct/2025:23:06:15 +0000] "POST /api/customer-portal/request-otp HTTP/1.1" 200 117 "https://portal.aglis.biz.id/customer/login?test=full" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:06:49: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T06:06:49: ⏰ Starting billing cron jobs...
+2025-10-16T06:06:49:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T06:06:49:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T06:06:49: ✅ All billing cron jobs started successfully
+2025-10-16T06:06:49: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T06:06:49: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T06:06:49: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T06:06:49: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T06:06:49: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T06:06:49: ✅ WhatsApp notification jobs started successfully
+2025-10-16T06:06:49:    - SLA Monitor: Every 15 minutes
+2025-10-16T06:06:49:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T06:06:49:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T06:06:49:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T06:06:49: ⏰ Starting Alert Monitoring System...
+2025-10-16T06:06:49: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-16T06:06:49: ✅ Alert Monitoring System started successfully
+2025-10-16T06:06:49:    - System Health Checks: Every 5 minutes
+2025-10-16T06:06:49:    - Alert Rules: 8 default rules active
+2025-10-16T06:06:49:    - Notifications: WhatsApp + Email
+2025-10-16T06:06:49: 🚀 Server running on 0.0.0.0:3004
+2025-10-16T06:06:49: 🌍 Environment: production
+2025-10-16T06:06:49: 📡 Local access: http://localhost:3004
+2025-10-16T06:06:49: 🌐 Network access: http://192.168.121.30:3004
+2025-10-16T06:06:49: 📝 CORS origins configured for local network access
+2025-10-16T06:06:49: ✅ Redis Cache Connected
+2025-10-16T06:06:49: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T06:06:49: ✅ Redis client connected for OTP storage
+2025-10-16T06:06:49: ✅ Redis client ready
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: 👤 User connected: aKkrSqmrEQ8Il2eMAAAD
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: 👤 User connected: 9bpd36nfVdQIH12TAAAE
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: 👤 User connected: iqDe-102_k_Y0h2zAAAF
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: 👤 User connected: a4MH5x2yRsmEIS9nAAAH
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:50: 👤 User 17 (admin) authenticated: a4MH5x2yRsmEIS9nAAAH
+2025-10-16T06:06:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:06:54: 🔍 Starting SLA check...
+2025-10-16T06:06:54: ✅ Connected to PostgreSQL database
+2025-10-16T06:06:54: 📋 Found 4 active tickets to check
+2025-10-16T06:06:54: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251014001 is 2071 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251013006 is 1583 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251013007 is 1560 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251014010 is 1539 minutes overdue!
+2025-10-16T06:06:54: ✅ Connected to PostgreSQL database
+2025-10-16T06:06:54: 🔍 Checking system alerts...
+2025-10-16T06:06:55: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-16T06:06:55: 🚨 Alert triggered: SLA Violation (high)
+2025-10-16T06:06:55: 🚨 Triggered 1 alert(s)
+2025-10-16T06:06:55:    - SLA Violation (high): 2
+2025-10-16T06:07:30: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:07:30: 🔍 OTP VERIFY (Redis): Phone=62817102070, InputOTP=253921, Key=otp:62817102070, Process=950638
+2025-10-16T06:07:30: Verify OTP error: RangeError: Invalid time value
+2025-10-16T06:07:30:     at Date.toISOString (<anonymous>)
+2025-10-16T06:07:30:     at WhatsAppService.verifyOTP (/home/aglis/AGLIS_Tech/backend/src/services/whatsappService.js:696:84)
+2025-10-16T06:07:30:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-16T06:07:30:     at async /home/aglis/AGLIS_Tech/backend/src/routes/customerPortal.js:175:21
+2025-10-16T06:07:30: 103.55.224.49 - - [15/Oct/2025:23:07:30 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 500 61 "https://portal.aglis.biz.id/customer/login?final=test" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:08:15: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T06:08:15: ⏰ Starting billing cron jobs...
+2025-10-16T06:08:15:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T06:08:15:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T06:08:15: ✅ All billing cron jobs started successfully
+2025-10-16T06:08:15: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T06:08:15: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T06:08:15: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T06:08:15: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T06:08:15: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T06:08:15: ✅ WhatsApp notification jobs started successfully
+2025-10-16T06:08:15:    - SLA Monitor: Every 15 minutes
+2025-10-16T06:08:15:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T06:08:15:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T06:08:15:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T06:08:15: ⏰ Starting Alert Monitoring System...
+2025-10-16T06:08:15: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-16T06:08:15: ✅ Alert Monitoring System started successfully
+2025-10-16T06:08:15:    - System Health Checks: Every 5 minutes
+2025-10-16T06:08:15:    - Alert Rules: 8 default rules active
+2025-10-16T06:08:15:    - Notifications: WhatsApp + Email
+2025-10-16T06:08:15: 🚀 Server running on 0.0.0.0:3004
+2025-10-16T06:08:15: 🌍 Environment: production
+2025-10-16T06:08:15: 📡 Local access: http://localhost:3004
+2025-10-16T06:08:15: 🌐 Network access: http://192.168.121.30:3004
+2025-10-16T06:08:15: 📝 CORS origins configured for local network access
+2025-10-16T06:08:16: ✅ Redis Cache Connected
+2025-10-16T06:08:16: ✅ Redis client connected for OTP storage
+2025-10-16T06:08:16: ✅ Redis client ready
+2025-10-16T06:08:16: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: 👤 User connected: Llp1rnnatZeMe62LAAAD
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: 👤 User connected: mGQ2zXnpARyqEACmAAAE
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: 👤 User connected: xXwTgTSjBKBPJUCAAAAF
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: 👤 User connected: pJRBWvjdjxdUkrnZAAAH
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:16: 👤 User 17 (admin) authenticated: pJRBWvjdjxdUkrnZAAAH
+2025-10-16T06:08:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T06:08:20: 🔍 Starting SLA check...
+2025-10-16T06:08:20: ✅ Connected to PostgreSQL database
+2025-10-16T06:08:20: 📋 Found 4 active tickets to check
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251014001 is 2072 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251013006 is 1584 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251013007 is 1561 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251014010 is 1541 minutes overdue!
+2025-10-16T06:08:20: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T06:08:21: 🔍 Checking system alerts...
+2025-10-16T06:08:21: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-16T06:08:21: 🚨 Alert triggered: SLA Violation (high)
+2025-10-16T06:08:21: 🚨 Triggered 1 alert(s)
+2025-10-16T06:08:21:    - SLA Violation (high): 2
+2025-10-16T06:08:42: ✅ Connected to PostgreSQL database
+2025-10-16T06:08:42: 103.55.224.49 - - [15/Oct/2025:23:08:42 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:10:00: ✅ Connected to PostgreSQL database
+2025-10-16T06:10:00: 🔍 Checking system alerts...
+2025-10-16T06:10:00: ✅ No alerts triggered - System healthy
+2025-10-16T06:10:01: 103.55.225.241 - - [15/Oct/2025:23:10:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-16T06:11:12: ✅ Connected to PostgreSQL database
+2025-10-16T06:11:12: ✅ Connected to PostgreSQL database
+2025-10-16T06:11:12: 103.55.224.49 - - [15/Oct/2025:23:11:12 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:11:16: 103.55.224.49 - - [15/Oct/2025:23:11:16 +0000] "GET /api/customer-portal/tickets?limit=5 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T06:12:12: ✅ Connected to PostgreSQL database
+2025-10-16T06:12:12: ✅ Connected to PostgreSQL database
+2025-10-16T06:12:12: 103.55.224.49 - - [15/Oct/2025:23:12:12 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

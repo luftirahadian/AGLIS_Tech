@@ -614,11 +614,18 @@ _AGLIS Net - Connecting You Better!_ 🌐`;
 
     try {
       // Try to store in Redis first
-      if (this.useRedis) {
-        const key = `otp:${formattedPhone}`;
-        await redisClient.set(key, JSON.stringify(otpData), { EX: expiryMinutes * 60 });
-        console.log(`💾 OTP STORED (Redis): Phone=${formattedPhone}, OTP=${otp}, Purpose=${purpose}, Expiry=${expiryMinutes}min, Process=${process.pid}`);
-        return { success: true, storage: 'redis' };
+      if (this.useRedis && redisClient.isReady) {
+        try {
+          const key = `otp:${formattedPhone}`;
+          const expirySeconds = expiryMinutes * 60;
+          // Use SETEX command format: SETEX key seconds value
+          await redisClient.sendCommand(['SETEX', key, expirySeconds.toString(), JSON.stringify(otpData)]);
+          console.log(`💾 OTP STORED (Redis): Phone=${formattedPhone}, OTP=${otp}, Purpose=${purpose}, Expiry=${expiryMinutes}min, Process=${process.pid}`);
+          return { success: true, storage: 'redis' };
+        } catch (redisError) {
+          console.error('❌ Redis store failed, falling back to memory:', redisError.message);
+          // Fall through to memory storage
+        }
       }
 
       // Fallback to memory storage
@@ -686,9 +693,9 @@ _AGLIS Net - Connecting You Better!_ 🌐`;
       };
     }
 
-    console.log(`📦 STORED OTP: ${stored.otp}, Expires: ${new Date(stored.expires).toISOString()}, Attempts: ${stored.attempts}, Source: ${isFromRedis ? 'Redis' : 'Memory'}`);
+    console.log(`📦 STORED OTP: ${stored.otp}, Expires: ${new Date(stored.expiresAt).toISOString()}, Attempts: ${stored.attempts || 0}, Source: ${isFromRedis ? 'Redis' : 'Memory'}`);
 
-    if (Date.now() > stored.expires) {
+    if (Date.now() > stored.expiresAt) {
       // Delete from both storages
       if (isFromRedis) {
         await redisClient.del(`otp:${formattedPhone}`).catch(e => console.error('Redis delete error:', e));

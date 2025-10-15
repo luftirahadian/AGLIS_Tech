@@ -158,3 +158,15 @@
 2025-10-16T06:01:55:     at addChunk (node:internal/streams/readable:368:12)
 2025-10-16T06:01:55:     at readableAddChunk (node:internal/streams/readable:341:9)
 2025-10-16T06:01:55:     at Readable.push (node:internal/streams/readable:278:10)
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251014001 is 2070 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251013006 is 1582 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251013007 is 1559 minutes overdue!
+2025-10-16T06:05:59: 🚨 OVERDUE: Ticket #TKT20251014010 is 1538 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251014001 is 2071 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251013006 is 1583 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251013007 is 1560 minutes overdue!
+2025-10-16T06:06:54: 🚨 OVERDUE: Ticket #TKT20251014010 is 1539 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251014001 is 2072 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251013006 is 1584 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251013007 is 1561 minutes overdue!
+2025-10-16T06:08:20: 🚨 OVERDUE: Ticket #TKT20251014010 is 1541 minutes overdue!
