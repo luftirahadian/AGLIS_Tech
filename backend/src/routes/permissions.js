@@ -36,7 +36,7 @@ router.get('/role/:role', authMiddleware, authorize('admin', 'supervisor'), asyn
     const { role } = req.params;
     
     // Validate role
-    const validRoles = ['admin', 'supervisor', 'technician', 'customer_service'];
+    const validRoles = ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service'];
     if (!validRoles.includes(role)) {
       return res.status(400).json({
         success: false,
@@ -74,7 +74,7 @@ router.get('/matrix', authMiddleware, authorize('admin'), async (req, res) => {
     const permissionsResult = await pool.query(permissionsQuery);
     
     // Get role permissions for all roles
-    const roles = ['admin', 'supervisor', 'technician', 'customer_service'];
+    const roles = ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service'];
     const matrix = {};
     
     for (const role of roles) {
@@ -115,7 +115,7 @@ router.put('/role/:role', authMiddleware, authorize('admin'), async (req, res) =
     const { permissions } = req.body; // Array of { permissionId, granted }
     
     // Validate role
-    const validRoles = ['supervisor', 'technician', 'customer_service'];
+    const validRoles = ['supervisor', 'manager', 'noc', 'technician', 'customer_service'];
     if (!validRoles.includes(role)) {
       return res.status(400).json({
         success: false,
