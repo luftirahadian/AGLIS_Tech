@@ -120,6 +120,8 @@ const PermissionsPage = () => {
 
   const roles = [
     { value: 'supervisor', label: 'Supervisor', color: 'blue' },
+    { value: 'manager', label: 'Manager', color: 'purple' },
+    { value: 'noc', label: 'NOC', color: 'indigo' },
     { value: 'technician', label: 'Technician', color: 'green' },
     { value: 'customer_service', label: 'Customer Service', color: 'yellow' }
   ]
