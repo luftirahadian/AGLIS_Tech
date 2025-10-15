@@ -17,172 +17,239 @@ import {
   Bell,
   Zap,
   FileText,
-  CreditCard
+  CreditCard,
+  DollarSign,
+  TrendingUp
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
 const Sidebar = ({ isOpen, onClose, collapsed }) => {
   const { user } = useAuth()
   const location = useLocation()
+  const [hoveredItem, setHoveredItem] = useState(null)
+  
+  // State for collapsible sections
+  const [coreOpsOpen, setCoreOpsOpen] = useState(true)
+  const [customerMgmtOpen, setCustomerMgmtOpen] = useState(true)
+  const [financialOpen, setFinancialOpen] = useState(true)
+  const [operationsOpen, setOperationsOpen] = useState(true)
+  const [analyticsOpen, setAnalyticsOpen] = useState(true)
+  const [systemAdminOpen, setSystemAdminOpen] = useState(true)
+  
+  // State for nested submenus (existing)
   const [masterDataOpen, setMasterDataOpen] = useState(false)
   const [notificationsOpen, setNotificationsOpen] = useState(false)
-  const [hoveredItem, setHoveredItem] = useState(null)
 
-  const navigation = [
-    // 📊 CORE OPERATIONS (Daily Use)
+  const navigationSections = [
     {
-      name: 'Dashboard',
-      href: '/dashboard',
+      id: 'core-operations',
+      section: 'Core Operations',
       icon: LayoutDashboard,
-      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
-    },
-    {
-      name: 'Tickets',
-      href: '/tickets',
-      icon: Ticket,
-      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
-    },
-    
-    // 👥 CUSTOMER MANAGEMENT
-    {
-      name: 'Customers',
-      href: '/customers',
-      icon: Users,
-      roles: ['admin', 'supervisor', 'manager', 'noc', 'customer_service']
-    },
-    {
-      name: 'Registrations',
-      href: '/registrations',
-      icon: UserPlus,
-      roles: ['admin', 'supervisor', 'manager', 'customer_service']
-    },
-    
-    // 💰 FINANCIAL MANAGEMENT
-    {
-      name: 'Invoices',
-      href: '/invoices',
-      icon: FileText,
-      roles: ['admin', 'supervisor', 'customer_service']
-    },
-    {
-      name: 'Payments',
-      href: '/payments',
-      icon: CreditCard,
-      roles: ['admin', 'supervisor', 'customer_service']
-    },
-    
-    // 🔧 OPERATIONS
-    {
-      name: 'Technicians',
-      href: '/technicians',
-      icon: Wrench,
-      roles: ['admin', 'supervisor', 'manager', 'noc']
-    },
-    {
-      name: 'Inventory',
-      href: '/inventory-stock',
-      icon: Package,
-      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician']
-    },
-    
-    // 📈 ANALYTICS & REPORTS
-    {
-      name: 'Analytics',
-      href: '/analytics',
-      icon: BarChart3,
-      roles: ['admin', 'supervisor', 'manager', 'noc']
-    },
-    {
-      name: 'Reg Analytics',
-      href: '/registration-analytics',
-      icon: BarChart3,
-      roles: ['admin', 'supervisor', 'manager']
-    },
-    {
-      name: 'Performance',
-      href: '/performance',
-      icon: Zap,
-      roles: ['admin', 'manager']
-    },
-    
-    // ⚙️ SYSTEM & ADMIN (Less Frequent)
-    {
-      name: 'Master Data',
-      icon: Database,
-      roles: ['admin', 'supervisor'],
-      hasSubmenu: true,
-      submenu: [
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service'],
+      isOpen: coreOpsOpen,
+      setIsOpen: setCoreOpsOpen,
+      items: [
         {
-          name: 'Service Types',
-          href: '/master-data/service-types'
+          name: 'Dashboard',
+          href: '/dashboard',
+          icon: LayoutDashboard,
+          roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
         },
         {
-          name: 'Service Categories',
-          href: '/master-data/service-categories'
-        },
-        {
-          name: 'Paket Langganan',
-          href: '/master-data/packages'
-        },
-        {
-          name: 'Price List',
-          href: '/master-data/price-list'
-        },
-        {
-          name: 'Equipment',
-          href: '/master-data/equipment'
-        },
-        {
-          name: 'ODP',
-          href: '/master-data/odp'
-        },
-        {
-          name: 'Skill Levels',
-          href: '/master-data/skill-levels'
-        },
-        {
-          name: 'Specializations',
-          href: '/master-data/specializations'
+          name: 'Tickets',
+          href: '/tickets',
+          icon: Ticket,
+          roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
         }
       ]
     },
     {
-      name: 'Notifications',
-      icon: Bell,
-      roles: ['admin', 'supervisor'],
-      hasSubmenu: true,
-      submenu: [
+      id: 'customer-management',
+      section: 'Customer Management',
+      icon: Users,
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'customer_service'],
+      isOpen: customerMgmtOpen,
+      setIsOpen: setCustomerMgmtOpen,
+      items: [
         {
-          name: 'Templates',
-          href: '/notifications/templates'
+          name: 'Customers',
+          href: '/customers',
+          icon: Users,
+          roles: ['admin', 'supervisor', 'manager', 'noc', 'customer_service']
         },
+        {
+          name: 'Registrations',
+          href: '/registrations',
+          icon: UserPlus,
+          roles: ['admin', 'supervisor', 'manager', 'customer_service']
+        }
+      ]
+    },
+    {
+      id: 'financial-management',
+      section: 'Financial',
+      icon: DollarSign,
+      roles: ['admin', 'supervisor', 'customer_service'],
+      isOpen: financialOpen,
+      setIsOpen: setFinancialOpen,
+      items: [
+        {
+          name: 'Invoices',
+          href: '/invoices',
+          icon: FileText,
+          roles: ['admin', 'supervisor', 'customer_service']
+        },
+        {
+          name: 'Payments',
+          href: '/payments',
+          icon: CreditCard,
+          roles: ['admin', 'supervisor', 'customer_service']
+        }
+      ]
+    },
+    {
+      id: 'operations',
+      section: 'Operations',
+      icon: Wrench,
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician'],
+      isOpen: operationsOpen,
+      setIsOpen: setOperationsOpen,
+      items: [
+        {
+          name: 'Technicians',
+          href: '/technicians',
+          icon: Wrench,
+          roles: ['admin', 'supervisor', 'manager', 'noc']
+        },
+        {
+          name: 'Inventory',
+          href: '/inventory-stock',
+          icon: Package,
+          roles: ['admin', 'supervisor', 'manager', 'noc', 'technician']
+        }
+      ]
+    },
+    {
+      id: 'analytics-reports',
+      section: 'Analytics & Reports',
+      icon: TrendingUp,
+      roles: ['admin', 'supervisor', 'manager', 'noc'],
+      isOpen: analyticsOpen,
+      setIsOpen: setAnalyticsOpen,
+      items: [
         {
           name: 'Analytics',
-          href: '/notifications/analytics'
+          href: '/analytics',
+          icon: BarChart3,
+          roles: ['admin', 'supervisor', 'manager', 'noc']
         },
         {
-          name: 'Settings',
-          href: '/notifications/settings'
+          name: 'Reg Analytics',
+          href: '/registration-analytics',
+          icon: BarChart3,
+          roles: ['admin', 'supervisor', 'manager']
+        },
+        {
+          name: 'Performance',
+          href: '/performance',
+          icon: Zap,
+          roles: ['admin', 'manager']
         }
       ]
     },
     {
-      name: 'Users',
-      href: '/users',
-      icon: UserCheck,
-      roles: ['admin', 'supervisor']
-    },
-    {
-      name: 'Permissions',
-      href: '/permissions',
+      id: 'system-admin',
+      section: 'System & Admin',
       icon: Shield,
-      roles: ['admin']
+      roles: ['admin', 'supervisor'],
+      isOpen: systemAdminOpen,
+      setIsOpen: setSystemAdminOpen,
+      items: [
+        {
+          name: 'Master Data',
+          icon: Database,
+          roles: ['admin', 'supervisor'],
+          hasSubmenu: true,
+          submenu: [
+            {
+              name: 'Service Types',
+              href: '/master-data/service-types'
+            },
+            {
+              name: 'Service Categories',
+              href: '/master-data/service-categories'
+            },
+            {
+              name: 'Paket Langganan',
+              href: '/master-data/packages'
+            },
+            {
+              name: 'Price List',
+              href: '/master-data/price-list'
+            },
+            {
+              name: 'Equipment',
+              href: '/master-data/equipment'
+            },
+            {
+              name: 'ODP',
+              href: '/master-data/odp'
+            },
+            {
+              name: 'Skill Levels',
+              href: '/master-data/skill-levels'
+            },
+            {
+              name: 'Specializations',
+              href: '/master-data/specializations'
+            }
+          ]
+        },
+        {
+          name: 'Notifications',
+          icon: Bell,
+          roles: ['admin', 'supervisor'],
+          hasSubmenu: true,
+          submenu: [
+            {
+              name: 'Templates',
+              href: '/notifications/templates'
+            },
+            {
+              name: 'Analytics',
+              href: '/notifications/analytics'
+            },
+            {
+              name: 'Settings',
+              href: '/notifications/settings'
+            }
+          ]
+        },
+        {
+          name: 'Users',
+          href: '/users',
+          icon: UserCheck,
+          roles: ['admin', 'supervisor']
+        },
+        {
+          name: 'Permissions',
+          href: '/permissions',
+          icon: Shield,
+          roles: ['admin']
+        }
+      ]
     }
   ]
 
-  const filteredNavigation = navigation.filter(item => 
-    item.roles.includes(user?.role)
-  )
+  // Filter sections based on user role
+  const filteredSections = navigationSections
+    .map(section => ({
+      ...section,
+      items: section.items.filter(item => item.roles.includes(user?.role))
+    }))
+    .filter(section => 
+      section.roles.includes(user?.role) && section.items.length > 0
+    )
 
   return (
     <>
@@ -209,173 +276,148 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
               <img 
                 src="/aglis-logo.svg" 
                 alt="AGLIS Net" 
-                className="h-8 w-auto"
+                className="h-8 w-8"
               />
             </div>
             {!collapsed && (
-              <div className="ml-3 transition-opacity duration-300">
-                <h2 className="text-lg font-semibold text-gray-900 whitespace-nowrap">AGLIS</h2>
-              </div>
+              <h2 className="ml-3 text-lg font-semibold text-gray-800 whitespace-nowrap">
+                AGLIS
+              </h2>
             )}
           </div>
-          
           {/* Close button for mobile */}
           <button
             onClick={onClose}
-            className="p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 lg:hidden"
+            className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Navigation */}
-        <nav className="mt-6 px-3">
-          <div className="space-y-1">
-            {filteredNavigation.map((item) => {
-              const Icon = item.icon
-              
-              // Handle submenu items
-              if (item.hasSubmenu) {
-                const isAnySubmenuActive = item.submenu?.some(sub => 
-                  location.pathname.startsWith(sub.href)
-                )
-                const submenuState = item.name === 'Master Data' ? masterDataOpen : notificationsOpen
-                const setSubmenuState = item.name === 'Master Data' ? setMasterDataOpen : setNotificationsOpen
-                const isOpen = submenuState || isAnySubmenuActive
-                
-                return (
-                  <div key={item.name} className="relative group/submenu">
-                    <button
-                      onClick={() => !collapsed && setSubmenuState(!submenuState)}
-                      onMouseEnter={() => setHoveredItem(item.name)}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      className={`
-                        w-full group flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors
-                        ${isAnySubmenuActive
-                          ? 'bg-blue-100 text-blue-700' 
-                          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                        }
-                        ${collapsed ? 'justify-center' : ''}
-                      `}
-                    >
-                      <div className="flex items-center">
-                        <Icon className={`
-                          h-5 w-5 flex-shrink-0
-                          ${collapsed ? '' : 'mr-3'}
-                          ${isAnySubmenuActive ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
-                        `} />
-                        {!collapsed && item.name}
-                      </div>
-                      {!collapsed && (
-                        isOpen ? (
-                          <ChevronDown className="h-4 w-4" />
-                        ) : (
-                          <ChevronRight className="h-4 w-4" />
-                        )
-                      )}
-                    </button>
-                    
-                    {/* Tooltip for collapsed mode */}
-                    {collapsed && hoveredItem === item.name && (
-                      <div className="absolute left-full ml-2 top-0 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap z-50 shadow-lg">
-                        {item.name}
-                        <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
-                      </div>
-                    )}
-                    
-                    {isOpen && !collapsed && (
-                      <div className="ml-8 mt-1 space-y-1">
-                        {item.submenu.map((subItem) => {
-                          const isSubActive = location.pathname === subItem.href
-                          
-                          return (
-                            <NavLink
-                              key={subItem.name}
-                              to={subItem.href}
-                              className={`
-                                block px-3 py-2 text-sm rounded-lg transition-colors
-                                ${isSubActive
-                                  ? 'bg-blue-50 text-blue-700 font-medium'
-                                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                                }
-                              `}
-                              onClick={onClose}
-                            >
-                              {subItem.name}
-                            </NavLink>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </div>
-                )
-              }
-              
-              // Regular menu items
-              const isActive = location.pathname.startsWith(item.href)
-              
-              return (
-                <div key={item.name} className="relative group/item">
-                  <NavLink
-                    to={item.href}
-                    onMouseEnter={() => setHoveredItem(item.name)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    className={`
-                      group flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors
-                      ${isActive 
-                        ? 'bg-blue-100 text-blue-700' 
-                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                      }
-                      ${collapsed ? 'justify-center' : ''}
-                    `}
-                    onClick={onClose}
-                  >
-                    <Icon className={`
-                      h-5 w-5 flex-shrink-0
-                      ${collapsed ? '' : 'mr-3'}
-                      ${isActive ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
-                    `} />
-                    {!collapsed && item.name}
-                  </NavLink>
-                  
-                  {/* Tooltip for collapsed mode */}
-                  {collapsed && hoveredItem === item.name && (
-                    <div className="absolute left-full ml-2 top-0 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap z-50 shadow-lg">
-                      {item.name}
-                      <div className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
-                    </div>
+        <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto h-[calc(100vh-8rem)]">
+          {filteredSections.map((section) => (
+            <div key={section.id} className="mb-2">
+              {/* Section Header */}
+              <button
+                onClick={() => section.setIsOpen(!section.isOpen)}
+                className={`
+                  w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md
+                  transition-colors duration-150
+                  ${collapsed ? 'justify-center' : ''}
+                  text-gray-600 hover:bg-gray-100 hover:text-gray-900
+                `}
+                onMouseEnter={() => !collapsed && setHoveredItem(section.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className="flex items-center flex-1 min-w-0">
+                  <section.icon className={`flex-shrink-0 h-5 w-5 ${collapsed ? '' : 'mr-3'}`} />
+                  {!collapsed && (
+                    <span className="truncate font-semibold text-xs uppercase tracking-wide">
+                      {section.section}
+                    </span>
                   )}
                 </div>
-              )
-            })}
-          </div>
-        </nav>
+                {!collapsed && (
+                  section.isOpen ? 
+                    <ChevronDown className="h-4 w-4 flex-shrink-0" /> : 
+                    <ChevronRight className="h-4 w-4 flex-shrink-0" />
+                )}
+              </button>
 
-        {/* User Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
-          <div className={`flex items-center ${collapsed ? 'justify-center' : ''}`}>
-            <div className="flex-shrink-0 relative group">
-              <div className="h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center cursor-pointer">
-                <span className="text-white font-medium text-sm">
-                  {user?.full_name?.charAt(0)?.toUpperCase()}
-                </span>
-              </div>
-              
-              {/* Tooltip for collapsed mode */}
-              {collapsed && (
-                <div className="hidden group-hover:block absolute left-full ml-2 bottom-0 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap z-50 shadow-lg min-w-max">
-                  <p className="font-medium">{user?.full_name}</p>
-                  <p className="text-xs text-gray-300 capitalize">
-                    {user?.role?.replace('_', ' ')}
-                  </p>
-                  <div className="absolute left-0 bottom-3 -translate-x-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+              {/* Section Items */}
+              {section.isOpen && !collapsed && (
+                <div className="mt-1 space-y-1 ml-2">
+                  {section.items.map((item) => {
+                    if (item.hasSubmenu) {
+                      // Nested submenu item (Master Data, Notifications)
+                      const isSubmenuOpen = item.name === 'Master Data' ? masterDataOpen : notificationsOpen
+                      const setSubmenuOpen = item.name === 'Master Data' ? setMasterDataOpen : setNotificationsOpen
+                      
+                      return (
+                        <div key={item.name}>
+                          <button
+                            onClick={() => setSubmenuOpen(!isSubmenuOpen)}
+                            className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                          >
+                            <div className="flex items-center">
+                              <item.icon className="mr-3 flex-shrink-0 h-4 w-4" />
+                              <span>{item.name}</span>
+                            </div>
+                            {isSubmenuOpen ? 
+                              <ChevronDown className="h-4 w-4" /> : 
+                              <ChevronRight className="h-4 w-4" />
+                            }
+                          </button>
+                          
+                          {isSubmenuOpen && (
+                            <div className="ml-8 mt-1 space-y-1">
+                              {item.submenu.map((subItem) => (
+                                <NavLink
+                                  key={subItem.href}
+                                  to={subItem.href}
+                                  className={({ isActive }) => `
+                                    flex items-center px-3 py-2 text-sm rounded-md transition-colors
+                                    ${isActive
+                                      ? 'bg-blue-50 text-blue-700 font-medium'
+                                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                    }
+                                  `}
+                                >
+                                  <span className="truncate">{subItem.name}</span>
+                                </NavLink>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    }
+
+                    // Regular menu item
+                    return (
+                      <NavLink
+                        key={item.href}
+                        to={item.href}
+                        className={({ isActive }) => `
+                          flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors
+                          ${isActive
+                            ? 'bg-blue-50 text-blue-700'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                          }
+                        `}
+                      >
+                        <item.icon className="mr-3 flex-shrink-0 h-4 w-4" />
+                        <span className="truncate">{item.name}</span>
+                      </NavLink>
+                    )
+                  })}
+                </div>
+              )}
+
+              {/* Tooltip for collapsed sidebar */}
+              {collapsed && hoveredItem === section.id && (
+                <div className="absolute left-20 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+                  {section.section}
                 </div>
               )}
             </div>
+          ))}
+        </nav>
+
+        {/* User Profile */}
+        <div className="flex-shrink-0 border-t border-gray-200 p-4">
+          <div className="flex items-center">
+            <div className={`flex-shrink-0 ${collapsed ? 'mx-auto' : ''}`}>
+              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
+                {user?.full_name?.charAt(0) || user?.username?.charAt(0) || 'U'}
+              </div>
+            </div>
             {!collapsed && (
-              <div className="ml-3 overflow-hidden">
-                <p className="text-sm font-medium text-gray-900 truncate">{user?.full_name}</p>
-                <p className="text-xs text-gray-500 capitalize truncate">
+              <div className="ml-3 min-w-0 flex-1">
+                <p className="text-sm font-medium text-gray-700 truncate">
+                  {user?.full_name || user?.username}
+                </p>
+                <p className="text-xs text-gray-500 truncate capitalize">
                   {user?.role?.replace('_', ' ')}
                 </p>
               </div>
