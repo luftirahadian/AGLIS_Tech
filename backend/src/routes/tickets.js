@@ -816,7 +816,22 @@ router.put('/:id/status', [
         console.log(`📡 Socket.IO: Events emitted for ticket ${id} status update (${oldStatus} → ${status})`);
       }
 
-      // 📱 PHASE 1: Send WhatsApp notification to customer on status change
+      // 📱 PHASE 1: Send WhatsApp notification to technician on assignment
+      if (assigned_technician_id && assigned_technician_id !== ticket.assigned_technician_id) {
+        whatsappNotificationService.notifyTicketAssignment(id)
+          .then(whatsappResult => {
+            if (whatsappResult.success) {
+              console.log(`📱 WhatsApp ticket assignment notification sent to technician for ticket #${id}`);
+            } else {
+              console.warn(`⚠️ WhatsApp assignment notification failed for ticket #${id}:`, whatsappResult.error);
+            }
+          })
+          .catch(err => {
+            console.error(`❌ WhatsApp assignment notification error for ticket #${id}:`, err);
+          });
+      }
+
+      // 📱 PHASE 2: Send WhatsApp notification to customer on status change
       // Only notify customer on significant status changes
       const notifiableStatuses = ['assigned', 'in_progress', 'completed', 'cancelled'];
       if (notifiableStatuses.includes(status) && status !== oldStatus) {

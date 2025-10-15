@@ -3620,3 +3620,40 @@
 2025-10-15T12:18:44: ✅ Connected to PostgreSQL database
 2025-10-15T12:18:44: 📋 Found 6 active tickets to check
 2025-10-15T12:18:44: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T12:20:39: ✅ Connected to PostgreSQL database
+2025-10-15T12:20:39: 103.55.224.49 - - [15/Oct/2025:05:20:39 +0000] "GET /api/tickets/24 HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:21:01: 103.55.224.49 - - [15/Oct/2025:05:21:01 +0000] "GET /api/tickets/24 HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:21:58: ✅ Connected to PostgreSQL database
+2025-10-15T12:21:58: ✅ Connected to PostgreSQL database
+2025-10-15T12:21:58: 103.55.224.49 - - [15/Oct/2025:05:21:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:28:02: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-15T12:28:02: ⏰ Starting billing cron jobs...
+2025-10-15T12:28:02:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-15T12:28:02:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-15T12:28:02: ✅ All billing cron jobs started successfully
+2025-10-15T12:28:02: ⏰ Starting WhatsApp notification jobs...
+2025-10-15T12:28:02: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-15T12:28:02: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-15T12:28:02: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-15T12:28:02: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-15T12:28:02: ✅ WhatsApp notification jobs started successfully
+2025-10-15T12:28:02:    - SLA Monitor: Every 15 minutes
+2025-10-15T12:28:02:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-15T12:28:02:    - Daily Summary: Daily at 18:00 WIB
+2025-10-15T12:28:02:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-15T12:28:02: 🚀 Server running on 0.0.0.0:3002
+2025-10-15T12:28:02: 🌍 Environment: production
+2025-10-15T12:28:02: 📡 Local access: http://localhost:3002
+2025-10-15T12:28:02: 🌐 Network access: http://192.168.121.30:3002
+2025-10-15T12:28:02: 📝 CORS origins configured for local network access
+2025-10-15T12:28:02: ✅ Redis Cache Connected
+2025-10-15T12:28:02: ✅ Redis client connected for OTP storage
+2025-10-15T12:28:02: ✅ Redis clients connected for Socket.IO adapter
+2025-10-15T12:28:02: ✅ Redis client ready
+2025-10-15T12:28:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:28:03: 👤 User connected: 5ERlWqgY_tz2RJM6AAAB
+2025-10-15T12:28:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:28:07: 🔍 Starting SLA check...
+2025-10-15T12:28:07: ✅ Connected to PostgreSQL database
+2025-10-15T12:28:07: 📋 Found 6 active tickets to check
+2025-10-15T12:28:07: ✅ SLA check completed. Warnings sent: 0
