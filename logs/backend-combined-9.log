@@ -2911,3 +2911,22 @@
 2025-10-15T10:24:24: 🚨 OVERDUE: Ticket #TKT20251014010 is 357 minutes overdue!
 2025-10-15T10:24:24: ✅ SLA check completed. Warnings sent: 0
 2025-10-15T10:24:28: 103.55.224.49 - - [15/Oct/2025:03:24:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:24:58: ✅ Connected to PostgreSQL database
+2025-10-15T10:24:58: ✅ Connected to PostgreSQL database
+2025-10-15T10:24:58: 103.55.224.49 - - [15/Oct/2025:03:24:58 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:25:28: 103.55.224.49 - - [15/Oct/2025:03:25:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:25:58: ✅ Connected to PostgreSQL database
+2025-10-15T10:25:58: ✅ Connected to PostgreSQL database
+2025-10-15T10:25:58: 103.55.224.49 - - [15/Oct/2025:03:25:58 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:26:28: ✅ Connected to PostgreSQL database
+2025-10-15T10:26:28: ✅ Connected to PostgreSQL database
+2025-10-15T10:26:28: 103.55.224.49 - - [15/Oct/2025:03:26:28 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:26:58: ✅ Connected to PostgreSQL database
+2025-10-15T10:26:59: ✅ Connected to PostgreSQL database
+2025-10-15T10:26:59: 103.55.224.49 - - [15/Oct/2025:03:26:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:27:29: ✅ Connected to PostgreSQL database
+2025-10-15T10:27:29: ✅ Connected to PostgreSQL database
+2025-10-15T10:27:29: 103.55.224.49 - - [15/Oct/2025:03:27:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T10:27:59: ✅ Connected to PostgreSQL database
+2025-10-15T10:27:59: ✅ Connected to PostgreSQL database
+2025-10-15T10:27:59: 103.55.224.49 - - [15/Oct/2025:03:27:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
