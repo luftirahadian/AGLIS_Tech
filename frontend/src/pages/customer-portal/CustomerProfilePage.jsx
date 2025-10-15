@@ -21,7 +21,8 @@ const CustomerProfilePage = () => {
     },
     {
       onSuccess: (data) => {
-        setFormData(data.data);
+        // Axios interceptor already extracted response.data
+        setFormData(data);
       }
     }
   );
@@ -82,7 +83,10 @@ const CustomerProfilePage = () => {
           </div>
           {!isEditing && (
             <button
-              onClick={() => setIsEditing(true)}
+              onClick={() => {
+                setFormData(profile); // Re-populate formData when clicking edit
+                setIsEditing(true);
+              }}
               className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <Edit2 className="h-4 w-4" />

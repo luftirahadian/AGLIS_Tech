@@ -78,7 +78,7 @@ const CustomerDashboardPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Tiket Aktif</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.tickets?.active_tickets || 0}</p>
+                <p className="text-3xl font-bold text-gray-900">{parseInt(stats.tickets?.active_tickets) || 0}</p>
               </div>
               <div className="p-3 bg-blue-100 rounded-lg">
                 <Clock className="h-8 w-8 text-blue-600" />
@@ -91,7 +91,7 @@ const CustomerDashboardPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Tiket Selesai</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.tickets?.completed_tickets || 0}</p>
+                <p className="text-3xl font-bold text-gray-900">{parseInt(stats.tickets?.completed_tickets) || 0}</p>
               </div>
               <div className="p-3 bg-green-100 rounded-lg">
                 <CheckCircle className="h-8 w-8 text-green-600" />
@@ -104,7 +104,7 @@ const CustomerDashboardPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Invoice Pending</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.invoices?.pending_invoices || 0}</p>
+                <p className="text-3xl font-bold text-gray-900">{parseInt(stats.invoices?.pending_invoices) || 0}</p>
               </div>
               <div className="p-3 bg-yellow-100 rounded-lg">
                 <FileText className="h-8 w-8 text-yellow-600" />
@@ -118,7 +118,7 @@ const CustomerDashboardPage = () => {
               <div>
                 <p className="text-sm text-gray-600 mb-1">Tagihan</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  Rp {(stats.invoices?.outstanding_amount || 0).toLocaleString('id-ID')}
+                  Rp {(parseFloat(stats.invoices?.outstanding_amount) || 0).toLocaleString('id-ID')}
                 </p>
               </div>
               <div className="p-3 bg-red-100 rounded-lg">
@@ -232,7 +232,11 @@ const CustomerDashboardPage = () => {
           ) : (
             <div className="space-y-3">
               {tickets.map(ticket => (
-                <div key={ticket.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                <div 
+                  key={ticket.id} 
+                  onClick={() => navigate(`/customer/tickets/${ticket.id}`)}
+                  className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-md cursor-pointer transition-all"
+                >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
@@ -266,30 +270,24 @@ const CustomerDashboardPage = () => {
                             {ticket.technician_name}
                           </span>
                         )}
-                      </div>
                     </div>
-                    <button
-                      onClick={() => navigate(`/customer/tickets/${ticket.id}`)}
-                      className="ml-4 px-3 py-1 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                    >
-                      Detail
-                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        )}
 
-          {tickets.length > 0 && (
-            <div className="mt-4 text-center">
-              <button
-                onClick={() => navigate('/customer/tickets')}
-                className="text-sm text-blue-600 hover:text-blue-700 font-medium"
-              >
-                Lihat Semua Tiket →
-              </button>
-            </div>
-          )}
+        {tickets.length > 0 && (
+          <div className="mt-4 text-center">
+            <button
+              onClick={() => navigate('/customer/tickets')}
+              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Lihat Semua Tiket →
+            </button>
+          </div>
+        )}
         </div>
       </div>
     </CustomerPortalLayout>

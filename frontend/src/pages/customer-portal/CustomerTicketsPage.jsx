@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { Ticket, Plus, Calendar, User, AlertCircle, CheckCircle, Clock, X } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -6,6 +7,7 @@ import api from '../../services/api';
 import CustomerPortalLayout from '../../components/CustomerPortalLayout';
 
 const CustomerTicketsPage = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [showNewTicketModal, setShowNewTicketModal] = useState(false);
   const [filter, setFilter] = useState('all');
@@ -138,7 +140,11 @@ const CustomerTicketsPage = () => {
         ) : (
           <div className="space-y-4">
             {tickets.map((ticket) => (
-              <div key={ticket.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+              <div 
+                key={ticket.id} 
+                onClick={() => navigate(`/customer/tickets/${ticket.id}`)}
+                className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md cursor-pointer transition-all"
+              >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">

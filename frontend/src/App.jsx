@@ -52,6 +52,7 @@ const CustomerLoginPage = lazy(() => import('./pages/customer-portal/CustomerLog
 const CustomerDashboardPage = lazy(() => import('./pages/customer-portal/CustomerDashboardPage'))
 const CustomerInvoicesPage = lazy(() => import('./pages/customer-portal/CustomerInvoicesPage'))
 const CustomerTicketsPage = lazy(() => import('./pages/customer-portal/CustomerTicketsPage'))
+const CustomerTicketDetailPage = lazy(() => import('./pages/customer-portal/CustomerTicketDetailPage'))
 const CustomerProfilePage = lazy(() => import('./pages/customer-portal/CustomerProfilePage'))
 const CustomerFAQPage = lazy(() => import('./pages/customer-portal/CustomerFAQPage'))
 
@@ -81,6 +82,7 @@ function App() {
             <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
             <Route path="/customer/invoices" element={<CustomerInvoicesPage />} />
             <Route path="/customer/tickets" element={<CustomerTicketsPage />} />
+            <Route path="/customer/tickets/:id" element={<CustomerTicketDetailPage />} />
             <Route path="/customer/profile" element={<CustomerProfilePage />} />
             <Route path="/customer/faq" element={<CustomerFAQPage />} />
 
