@@ -93,7 +93,7 @@ class WhatsAppNotificationService {
       await this.logNotification({
         ticket_id: ticketId,
         phone_number: phone,
-        recipient_type: 'technician',
+        recipient_type: 'individual',
         notification_type: 'ticket_assignment',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -176,7 +176,7 @@ class WhatsAppNotificationService {
       await this.logNotification({
         ticket_id: ticketId,
         phone_number: ticket.customer_phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'ticket_status_update',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -265,7 +265,7 @@ class WhatsAppNotificationService {
         await this.logNotification({
           ticket_id: ticketId,
           phone_number: supervisor.phone,
-          recipient_type: 'supervisor',
+          recipient_type: 'individual',
           notification_type: 'sla_warning',
           message: message,
           status: sendResult.success ? 'sent' : 'failed',
@@ -362,7 +362,7 @@ class WhatsAppNotificationService {
       await this.logNotification({
         invoice_id: invoiceId,
         phone_number: invoice.customer_phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'payment_reminder',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -508,7 +508,7 @@ class WhatsAppNotificationService {
 
       await this.logNotification({
         phone_number: registration.customer_phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'installation_schedule',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -582,7 +582,7 @@ _AGLIS Net - Always Connected_`;
         
         await this.logNotification({
           phone_number: customer.phone,
-          recipient_type: 'customer',
+          recipient_type: 'individual',
           notification_type: 'maintenance_notification',
           message: message,
           status: sendResult.success ? 'sent' : 'failed',
@@ -659,7 +659,7 @@ _AGLIS Net - Always Connected_`;
 
       await this.logNotification({
         phone_number: registration.customer_phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'registration_confirmation',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -971,7 +971,7 @@ _AGLIS Net - Always Connected_`;
 
       await this.logNotification({
         phone_number: customer.phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'welcome_message',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -1043,7 +1043,7 @@ _AGLIS Net - Always Connected_`;
 
       await this.logNotification({
         phone_number: data.phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'upgrade_offer',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -1104,7 +1104,7 @@ _AGLIS Net - Always Connected_`;
       await this.logNotification({
         ticket_id: ticketId,
         phone_number: ticket.customer_phone,
-        recipient_type: 'customer',
+        recipient_type: 'individual',
         notification_type: 'satisfaction_survey',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -1189,7 +1189,7 @@ _AGLIS Net - Always Connected_`;
 
       await this.logNotification({
         phone_number: tech.phone,
-        recipient_type: 'technician',
+        recipient_type: 'individual',
         notification_type: 'performance_report',
         message: message,
         status: sendResult.success ? 'sent' : 'failed',
@@ -1244,7 +1244,7 @@ _AGLIS Net - Always Connected_`;
 
         await this.logNotification({
           phone_number: customer.phone,
-          recipient_type: 'customer',
+          recipient_type: 'individual',
           notification_type: 'promotion_campaign',
           message: message,
           status: sendResult.success ? 'sent' : 'failed',
