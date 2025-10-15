@@ -24,6 +24,12 @@ class WhatsAppService {
     this.enabled = process.env.WHATSAPP_ENABLED === 'true';
     this.useRedis = process.env.USE_REDIS_FOR_OTP !== 'false'; // Default to true
     
+    // Failover configuration
+    this.enableFailover = process.env.WHATSAPP_ENABLE_FAILOVER === 'true';
+    this.backupProvider = process.env.WHATSAPP_BACKUP_PROVIDER || 'wablas';
+    this.backupApiToken = process.env.WHATSAPP_BACKUP_API_TOKEN;
+    this.backupApiUrl = process.env.WHATSAPP_BACKUP_API_URL;
+    
     // Initialize Redis connection for OTP storage
     if (this.useRedis) {
       redisClient.connect().catch(err => {
@@ -187,7 +193,7 @@ class WhatsAppService {
   }
 
   /**
-   * Main method to send WhatsApp message
+   * Main method to send WhatsApp message with automatic failover
    */
   async sendMessage(phone, message, options = {}) {
     if (!this.enabled) {
@@ -217,7 +223,7 @@ class WhatsAppService {
 
     const target = this.formatPhoneNumber(phone);
 
-    // Send based on provider
+    // Try primary provider first
     try {
       let result;
       
@@ -235,15 +241,109 @@ class WhatsAppService {
           result = await this.sendViaFonnte(target, message, options);
       }
 
-      // Log WhatsApp activity
-      console.log(`📱 WhatsApp ${result.success ? 'sent' : 'failed'} to ${target} via ${this.provider}`);
+      // If primary succeeds, return result
+      if (result.success) {
+        console.log(`✅ WhatsApp sent to ${target} via ${this.provider} (primary)`);
+        return result;
+      }
 
+      // If primary failed and failover is enabled, try backup provider
+      if (!result.success && this.enableFailover && this.backupApiToken) {
+        console.warn(`⚠️ Primary provider ${this.provider} failed, attempting failover to ${this.backupProvider}...`);
+        const failoverResult = await this.sendViaBackupProvider(target, message, options);
+        
+        if (failoverResult.success) {
+          console.log(`✅ WhatsApp sent to ${target} via ${this.backupProvider} (failover)`);
+          return {
+            ...failoverResult,
+            failover: true,
+            primaryError: result.error
+          };
+        } else {
+          console.error(`❌ Both providers failed. Primary: ${result.error}, Backup: ${failoverResult.error}`);
+          return {
+            success: false,
+            error: `Both providers failed. Primary (${this.provider}): ${result.error}, Backup (${this.backupProvider}): ${failoverResult.error}`,
+            primaryError: result.error,
+            backupError: failoverResult.error
+          };
+        }
+      }
+
+      // No failover configured or backup not available
+      console.error(`❌ WhatsApp failed to ${target} via ${this.provider}`);
       return result;
+      
     } catch (error) {
       console.error('WhatsApp Service Error:', error);
       return {
         success: false,
         error: error.message
+      };
+    }
+  }
+
+  /**
+   * Send message via backup provider (failover)
+   */
+  async sendViaBackupProvider(target, message, options = {}) {
+    try {
+      const data = {
+        phone: target,
+        message: message,
+        ...options
+      };
+
+      let response;
+      
+      switch (this.backupProvider) {
+        case 'wablas':
+          response = await axios.post(this.backupApiUrl, data, {
+            headers: {
+              'Authorization': this.backupApiToken,
+              'Content-Type': 'application/json'
+            }
+          });
+          break;
+        case 'fonnte':
+          response = await axios.post('https://api.fonnte.com/send', {
+            target: target,
+            message: message,
+            ...options
+          }, {
+            headers: {
+              'Authorization': this.backupApiToken,
+              'Content-Type': 'application/json'
+            }
+          });
+          break;
+        case 'woowa':
+          response = await axios.post('https://api.woowa.id/v1/messages', {
+            phone_number: target,
+            message: message,
+            ...options
+          }, {
+            headers: {
+              'Authorization': `Bearer ${this.backupApiToken}`,
+              'Content-Type': 'application/json'
+            }
+          });
+          break;
+        default:
+          throw new Error(`Unknown backup provider: ${this.backupProvider}`);
+      }
+
+      return {
+        success: true,
+        data: response.data,
+        provider: this.backupProvider
+      };
+    } catch (error) {
+      console.error(`Backup provider ${this.backupProvider} error:`, error.response?.data || error.message);
+      return {
+        success: false,
+        error: error.response?.data || error.message,
+        provider: this.backupProvider
       };
     }
   }

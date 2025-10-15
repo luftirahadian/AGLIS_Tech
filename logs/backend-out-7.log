@@ -2273,3 +2273,89 @@
 2025-10-15T09:24:00: 103.55.224.49 - - [15/Oct/2025:02:24:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-15T09:24:00: 103.55.224.49 - - [15/Oct/2025:02:24:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 2025-10-15T09:24:30: 103.55.224.49 - - [15/Oct/2025:02:24:30 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:25:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:25:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:25:00: 103.55.224.49 - - [15/Oct/2025:02:25:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:25:30: ✅ Connected to PostgreSQL database
+2025-10-15T09:25:30: 103.55.224.49 - - [15/Oct/2025:02:25:30 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:26:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:26:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:26:00: 103.55.224.49 - - [15/Oct/2025:02:26:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:27:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:27:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:27:00: 103.55.224.49 - - [15/Oct/2025:02:27:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:28:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:28:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:28:00: 103.55.224.49 - - [15/Oct/2025:02:28:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:29:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:29:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:29:00: 103.55.224.49 - - [15/Oct/2025:02:29:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:30:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:30:00: ✅ Connected to PostgreSQL database
+2025-10-15T09:30:00: 103.55.224.49 - - [15/Oct/2025:02:30:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:30:30: ✅ Connected to PostgreSQL database
+2025-10-15T09:30:30: ✅ Connected to PostgreSQL database
+2025-10-15T09:30:30: 103.55.224.49 - - [15/Oct/2025:02:30:30 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:31:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:31:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:31:31: 103.55.224.49 - - [15/Oct/2025:02:31:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:32:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:32:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:32:31: 103.55.224.49 - - [15/Oct/2025:02:32:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:33:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:33:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:33:31: 103.55.224.49 - - [15/Oct/2025:02:33:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:34:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:34:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:34:31: 103.55.224.49 - - [15/Oct/2025:02:34:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:35:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:35:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:35:31: 103.55.224.49 - - [15/Oct/2025:02:35:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:36:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:36:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:36:31: 103.55.224.49 - - [15/Oct/2025:02:36:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:37:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:37:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:37:31: 103.55.224.49 - - [15/Oct/2025:02:37:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 528 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:38:30: ✅ Connected to PostgreSQL database
+2025-10-15T09:38:30: ✅ Connected to PostgreSQL database
+2025-10-15T09:38:30: 103.55.224.49 - - [15/Oct/2025:02:38:30 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:38:31: 103.55.224.49 - - [15/Oct/2025:02:38:31 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:38:31: 103.55.224.49 - - [15/Oct/2025:02:38:31 +0000] "GET /api/whatsapp-groups? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:38:31: 103.55.224.49 - - [15/Oct/2025:02:38:31 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:38:31: 103.55.224.49 - - [15/Oct/2025:02:38:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:39:01: ✅ Connected to PostgreSQL database
+2025-10-15T09:39:01: ✅ Connected to PostgreSQL database
+2025-10-15T09:39:01: 103.55.224.49 - - [15/Oct/2025:02:39:01 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:39:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:39:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:39:31: 103.55.224.49 - - [15/Oct/2025:02:39:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:40:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:40:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:40:31: 103.55.224.49 - - [15/Oct/2025:02:40:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:41:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:41:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:41:31: 103.55.224.49 - - [15/Oct/2025:02:41:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:42:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:42:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:42:31: 103.55.224.49 - - [15/Oct/2025:02:42:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:43:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:43:31: ✅ Connected to PostgreSQL database
+2025-10-15T09:43:31: 103.55.224.49 - - [15/Oct/2025:02:43:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T09:44:27: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-15T09:44:27: ⏰ Starting billing cron jobs...
+2025-10-15T09:44:27:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-15T09:44:27:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-15T09:44:27: ✅ All billing cron jobs started successfully
+2025-10-15T09:44:27: 🚀 Server running on 0.0.0.0:3001
+2025-10-15T09:44:27: 🌍 Environment: production
+2025-10-15T09:44:27: 📡 Local access: http://localhost:3001
+2025-10-15T09:44:27: 🌐 Network access: http://192.168.121.30:3001
+2025-10-15T09:44:27: 📝 CORS origins configured for local network access
+2025-10-15T09:44:27: ✅ Redis Cache Connected
+2025-10-15T09:44:27: ✅ Redis clients connected for Socket.IO adapter
+2025-10-15T09:44:27: ✅ Redis client connected for OTP storage
+2025-10-15T09:44:27: ✅ Redis client ready
+2025-10-15T09:44:27: ✅ Connected to PostgreSQL database
+2025-10-15T09:44:27: ✅ Connected to PostgreSQL database
+2025-10-15T09:44:27: 103.55.224.49 - - [15/Oct/2025:02:44:27 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 529 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
