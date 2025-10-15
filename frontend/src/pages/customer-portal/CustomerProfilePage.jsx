@@ -45,7 +45,7 @@ const CustomerProfilePage = () => {
     }
   );
 
-  const profile = profileData?.data || {};
+  const profile = profileData || {};
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -186,7 +186,7 @@ const CustomerLoginPage = () => {
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600 text-center">
               Butuh bantuan?{' '}
-              <a href="https://wa.me/628179380800" className="text-blue-600 hover:text-blue-700 font-medium">
+              <a href="https://wa.me/6281316003245" className="text-blue-600 hover:text-blue-700 font-medium">
                 Hubungi Customer Service
               </a>
             </p>

@@ -55,7 +55,7 @@ const CustomerDashboardPage = () => {
   );
 
   const stats = statsData?.data || {};
-  const profile = profileData?.data || {};
+  const profile = profileData || {};
   const tickets = ticketsData?.data?.tickets || [];
 
   if (statsLoading || profileLoading) {

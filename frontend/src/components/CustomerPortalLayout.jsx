@@ -44,7 +44,7 @@ const CustomerPortalLayout = ({ children }) => {
 
             <div className="flex items-center space-x-4">
               <a
-                href="https://wa.me/628179380800"
+                href="https://wa.me/6281316003245"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
@@ -101,7 +101,7 @@ const CustomerPortalLayout = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-center text-sm text-gray-600">
             © 2025 AGLIS Net. All rights reserved. | 
-            <a href="https://wa.me/628179380800" className="text-blue-600 hover:text-blue-700 ml-1">
+            <a href="https://wa.me/6281316003245" className="text-blue-600 hover:text-blue-700 ml-1">
               Customer Service
             </a>
           </p>

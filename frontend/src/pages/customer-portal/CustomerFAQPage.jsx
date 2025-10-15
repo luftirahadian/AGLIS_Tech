@@ -17,7 +17,7 @@ const CustomerFAQPage = () => {
         },
         {
           question: 'Bagaimana cara menghubungi customer service?',
-          answer: 'Anda dapat menghubungi CS melalui WhatsApp di 0817-9380-800, atau klik tombol "Hubungi CS" di header portal ini.'
+          answer: 'Anda dapat menghubungi CS melalui WhatsApp di 0813-1600-3245, atau klik tombol "Hubungi CS" di header portal ini.'
         },
         {
           question: 'Apakah saya bisa mengubah paket internet?',
@@ -198,7 +198,7 @@ const CustomerFAQPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
-              href="https://wa.me/628179380800"
+              href="https://wa.me/6281316003245"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-3 px-4 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg hover:bg-opacity-30 transition-all"
@@ -206,18 +206,18 @@ const CustomerFAQPage = () => {
               <MessageCircle className="h-6 w-6" />
               <div>
                 <p className="font-semibold">WhatsApp</p>
-                <p className="text-sm text-blue-100">0817-9380-800</p>
+                <p className="text-sm text-blue-100">0813-1600-3245</p>
               </div>
             </a>
             
             <a
-              href="tel:+628179380800"
+              href="tel:+6281316003245"
               className="flex items-center space-x-3 px-4 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg hover:bg-opacity-30 transition-all"
             >
               <Phone className="h-6 w-6" />
               <div>
                 <p className="font-semibold">Telepon</p>
-                <p className="text-sm text-blue-100">0817-9380-800</p>
+                <p className="text-sm text-blue-100">0813-1600-3245</p>
               </div>
             </a>
             
