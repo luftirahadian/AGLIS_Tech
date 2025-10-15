@@ -51,3 +51,120 @@
 2025-10-16T00:11:31: ✅ Connected to PostgreSQL database
 2025-10-16T00:11:31: ✅ Connected to PostgreSQL database
 2025-10-16T00:11:31: 103.55.224.49 - - [15/Oct/2025:17:11:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:12:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:12:31: ✅ Connected to PostgreSQL database
+2025-10-16T00:12:31: 103.55.224.49 - - [15/Oct/2025:17:12:31 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:13:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:13:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:13:32: 103.55.224.49 - - [15/Oct/2025:17:13:32 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:14:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:14:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:14:32: 103.55.224.49 - - [15/Oct/2025:17:14:32 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:15:00: 🔍 Starting SLA check...
+2025-10-16T00:15:00: 📋 Found 6 active tickets to check
+2025-10-16T00:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T00:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1719 minutes overdue!
+2025-10-16T00:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1231 minutes overdue!
+2025-10-16T00:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1208 minutes overdue!
+2025-10-16T00:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1187 minutes overdue!
+2025-10-16T00:15:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 313 minutes overdue!
+2025-10-16T00:15:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:15:02: 103.55.224.49 - - [15/Oct/2025:17:15:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:16:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:16:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:16:02: 103.55.224.49 - - [15/Oct/2025:17:16:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:17:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:17:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:17:02: 103.55.224.49 - - [15/Oct/2025:17:17:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:18:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:18:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:18:02: 103.55.224.49 - - [15/Oct/2025:17:18:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:19:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:19:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:19:02: 103.55.224.49 - - [15/Oct/2025:17:19:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:20:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:20:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:20:02: 103.55.224.49 - - [15/Oct/2025:17:20:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:21:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:21:02: ✅ Connected to PostgreSQL database
+2025-10-16T00:21:02: 103.55.224.49 - - [15/Oct/2025:17:21:02 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:22:32: ✅ Connected to PostgreSQL database
+2025-10-16T00:22:32: 103.55.224.49 - - [15/Oct/2025:17:22:32 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:33: 103.55.224.49 - - [15/Oct/2025:17:22:33 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:33: 103.55.224.49 - - [15/Oct/2025:17:22:33 +0000] "GET /api/whatsapp-groups? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:45: 103.55.224.49 - - [15/Oct/2025:17:22:45 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:45: 103.55.224.49 - - [15/Oct/2025:17:22:45 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:22:51: 103.55.224.49 - - [15/Oct/2025:17:22:51 +0000] "GET /api/whatsapp-groups? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:23:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:23:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:23:45: 103.55.224.49 - - [15/Oct/2025:17:23:45 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:24:39: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:24:39: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-16T00:24:39: ✅ Connected to PostgreSQL database
+2025-10-16T00:24:39: ❌ Failed login attempt for admin - Attempt 5
+2025-10-16T00:24:39: 103.55.224.49 - - [15/Oct/2025:17:24:39 +0000] "POST /api/auth/login HTTP/1.1" 423 154 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:25:15: ✅ Connected to PostgreSQL database
+2025-10-16T00:25:15: ✅ Connected to PostgreSQL database
+2025-10-16T00:25:15: 103.55.224.49 - - [15/Oct/2025:17:25:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:26:15: ✅ Connected to PostgreSQL database
+2025-10-16T00:26:15: ✅ Connected to PostgreSQL database
+2025-10-16T00:26:15: 103.55.224.49 - - [15/Oct/2025:17:26:15 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:27:12: 103.55.224.49 - - [15/Oct/2025:17:27:12 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:27:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:27:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:27:45: 103.55.224.49 - - [15/Oct/2025:17:27:45 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:28:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:28:45: ✅ Connected to PostgreSQL database
+2025-10-16T00:28:45: 103.55.224.49 - - [15/Oct/2025:17:28:45 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:29:11: 103.55.224.49 - - [15/Oct/2025:17:29:11 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:29:11: 103.55.224.49 - - [15/Oct/2025:17:29:11 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:29:19: 103.55.224.49 - - [15/Oct/2025:17:29:19 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:29:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:29:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:29:49: 103.55.224.49 - - [15/Oct/2025:17:29:49 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:30:00: 🔍 Starting SLA check...
+2025-10-16T00:30:00: 📋 Found 6 active tickets to check
+2025-10-16T00:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T00:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 1734 minutes overdue!
+2025-10-16T00:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1246 minutes overdue!
+2025-10-16T00:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1223 minutes overdue!
+2025-10-16T00:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1202 minutes overdue!
+2025-10-16T00:30:00: 🚨 OVERDUE: Ticket #TKT20251013010 is 328 minutes overdue!
+2025-10-16T00:30:02: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T00:30:02: ⏰ Starting billing cron jobs...
+2025-10-16T00:30:02:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T00:30:02:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T00:30:02: ✅ All billing cron jobs started successfully
+2025-10-16T00:30:02: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T00:30:02: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T00:30:02: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T00:30:02: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T00:30:02: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T00:30:02: ✅ WhatsApp notification jobs started successfully
+2025-10-16T00:30:02:    - SLA Monitor: Every 15 minutes
+2025-10-16T00:30:02:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T00:30:02:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T00:30:02:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T00:30:02: 🚀 Server running on 0.0.0.0:3003
+2025-10-16T00:30:02: 🌍 Environment: production
+2025-10-16T00:30:02: 📡 Local access: http://localhost:3003
+2025-10-16T00:30:02: 🌐 Network access: http://192.168.121.30:3003
+2025-10-16T00:30:02: 📝 CORS origins configured for local network access
+2025-10-16T00:30:02: ✅ Redis Cache Connected
+2025-10-16T00:30:02: ✅ Redis client connected for OTP storage
+2025-10-16T00:30:02: ✅ Redis client ready
+2025-10-16T00:30:02: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T00:30:02: 103.55.225.241 - - [15/Oct/2025:17:30:02 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-16T00:30:07: 🔍 Starting SLA check...
+2025-10-16T00:30:07: ✅ Connected to PostgreSQL database
+2025-10-16T00:30:07: 📋 Found 6 active tickets to check
+2025-10-16T00:30:07: 🚨 OVERDUE: Ticket #TKT20251014001 is 1734 minutes overdue!
+2025-10-16T00:30:07: 🚨 OVERDUE: Ticket #TKT20251013006 is 1246 minutes overdue!
+2025-10-16T00:30:07: 🚨 OVERDUE: Ticket #TKT20251013007 is 1223 minutes overdue!
+2025-10-16T00:30:07: 🚨 OVERDUE: Ticket #TKT20251014010 is 1202 minutes overdue!
+2025-10-16T00:30:07: 🚨 OVERDUE: Ticket #TKT20251013010 is 328 minutes overdue!
+2025-10-16T00:30:07: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T00:30:10: 🔍 Cache MISS: cache:GET:/::admin...
+2025-10-16T00:30:10: 💾 Cached: cache:GET:/::admin... (TTL: 180s)
+2025-10-16T00:30:10: 103.55.224.49 - - [15/Oct/2025:17:30:10 +0000] "GET /api/odp HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

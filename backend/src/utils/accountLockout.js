@@ -5,7 +5,7 @@ const pool = require('../config/database');
  * Prevents brute force attacks by locking accounts after repeated failed login attempts
  * 
  * Lockout Tiers:
- * - Tier 1: 5 failed attempts → Lock for 15 minutes
+ * - Tier 1: 5 failed attempts → Lock for 5 minutes
  * - Tier 2: 10 failed attempts → Lock for 1 hour
  * - Tier 3: 15 failed attempts → Lock indefinitely (requires admin unlock)
  */
@@ -13,7 +13,7 @@ const pool = require('../config/database');
 const LOCKOUT_CONFIG = {
   // Tier 1: First lockout (temporary)
   MAX_ATTEMPTS_TIER_1: 5,
-  LOCKOUT_DURATION_TIER_1: 15 * 60 * 1000, // 15 minutes in milliseconds
+  LOCKOUT_DURATION_TIER_1: 5 * 60 * 1000, // 5 minutes in milliseconds
   
   // Tier 2: Second lockout (longer temporary)
   MAX_ATTEMPTS_TIER_2: 10,
@@ -140,9 +140,9 @@ async function recordFailedLogin(username, ipAddress, userAgent) {
       lockoutMessage = `Account locked for 1 hour after ${failedAttempts} failed attempts.`;
       tier = 2;
     } else if (failedAttempts >= LOCKOUT_CONFIG.MAX_ATTEMPTS_TIER_1) {
-      // Tier 1: 15 minutes lock
+      // Tier 1: 5 minutes lock
       lockedUntil = new Date(now.getTime() + LOCKOUT_CONFIG.LOCKOUT_DURATION_TIER_1);
-      lockoutMessage = `Account locked for 15 minutes after ${failedAttempts} failed attempts.`;
+      lockoutMessage = `Account locked for 5 minutes after ${failedAttempts} failed attempts.`;
       tier = 1;
     }
     
