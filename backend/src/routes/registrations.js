@@ -4,6 +4,7 @@ const pool = require('../config/database');
 const { authMiddleware } = require('../middleware/auth');
 const { saveBase64File, getFileUrl } = require('../utils/fileUpload');
 const whatsappService = require('../services/whatsappService');
+const whatsappNotificationService = require('../services/whatsappNotificationService');
 const { publicRegistrationLimiter } = require('../middleware/rateLimiter');
 const { verifyCaptchaMiddleware } = require('../utils/recaptchaVerify');
 

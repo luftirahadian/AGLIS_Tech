@@ -440,6 +440,493 @@ class WhatsAppNotificationService {
       return null;
     }
   }
+
+  // ============================================
+  // PHASE 2: MEDIUM PRIORITY NOTIFICATIONS
+  // ============================================
+
+  /**
+   * 5. Send Installation Schedule Notification to Customer
+   */
+  async notifyInstallationSchedule(registrationId) {
+    try {
+      const query = `
+        SELECT 
+          r.id,
+          r.registration_number,
+          r.installation_date,
+          r.installation_time,
+          c.name as customer_name,
+          c.phone as customer_phone,
+          c.address,
+          p.name as package_name,
+          tech.full_name as technician_name,
+          tech.phone as technician_phone
+        FROM registrations r
+        LEFT JOIN customers c ON r.customer_id = c.id
+        LEFT JOIN packages p ON r.package_id = p.id
+        LEFT JOIN technicians tech ON r.assigned_technician_id = tech.id
+        WHERE r.id = $1
+      `;
+
+      const result = await pool.query(query, [registrationId]);
+      
+      if (result.rows.length === 0) {
+        throw new Error('Registration not found');
+      }
+
+      const registration = result.rows[0];
+
+      if (!registration.customer_phone) {
+        console.warn(`No phone number for customer on registration #${registration.registration_number}`);
+        return { success: false, error: 'No customer phone number' };
+      }
+
+      const messageData = {
+        customerName: registration.customer_name,
+        packageName: registration.package_name,
+        address: registration.address,
+        date: new Date(registration.installation_date).toLocaleDateString('id-ID', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }),
+        time: registration.installation_time || '09:00 - 17:00',
+        technicianName: registration.technician_name || 'Akan ditentukan',
+        technicianPhone: registration.technician_phone || 'Akan diinfokan',
+        preparations: [
+          'Pastikan ada yang bisa menerima teknisi',
+          'Siapkan KTP & dokumen registrasi',
+          'Akses ke lokasi instalasi router',
+          'Pastikan jalur kabel dapat dipasang'
+        ]
+      };
+
+      const message = this.templates.installationSchedule(messageData);
+      const sendResult = await this.whatsappService.sendMessage(registration.customer_phone, message);
+
+      await this.logNotification({
+        recipient_phone: registration.customer_phone,
+        recipient_type: 'customer',
+        notification_type: 'installation_schedule',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending installation schedule:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 6. Send Maintenance Notification to Affected Customers
+   */
+  async notifyMaintenance(maintenanceData) {
+    try {
+      const {
+        type,
+        area,
+        startDate,
+        startTime,
+        duration,
+        impact,
+        reason
+      } = maintenanceData;
+
+      // Get customers in affected area
+      const query = `
+        SELECT DISTINCT c.id, c.name, c.phone, c.address
+        FROM customers c
+        WHERE c.status = 'active'
+          AND c.address ILIKE $1
+          AND c.phone IS NOT NULL
+      `;
+
+      const result = await pool.query(query, [`%${area}%`]);
+      const customers = result.rows;
+
+      if (customers.length === 0) {
+        console.warn(`No customers found in area: ${area}`);
+        return { success: false, error: 'No customers in area' };
+      }
+
+      const message = `🔧 *PEMBERITAHUAN MAINTENANCE*
+
+Dear Customer,
+
+Kami akan melakukan ${type}:
+
+📅 Tanggal: ${startDate}
+⏰ Waktu: ${startTime} (${duration})
+🌍 Area: ${area}
+
+${impact ? `⚠️ Impact: ${impact}` : ''}
+
+Tujuan: ${reason}
+
+Mohon maaf atas ketidaknyamanan. Kami akan berusaha menyelesaikan secepat mungkin.
+
+Terima kasih atas pengertiannya! 🙏
+
+_AGLIS Net - Always Connected_`;
+
+      // Send to all affected customers
+      const results = [];
+      for (const customer of customers) {
+        const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
+        
+        await this.logNotification({
+          recipient_phone: customer.phone,
+          recipient_type: 'customer',
+          notification_type: 'maintenance_notification',
+          message: message,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push(sendResult);
+
+        // Small delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+
+      console.log(`📱 Maintenance notification sent to ${customers.length} customers in ${area}`);
+
+      return {
+        success: results.some(r => r.success),
+        totalSent: results.filter(r => r.success).length,
+        totalFailed: results.filter(r => !r.success).length,
+        results: results
+      };
+    } catch (error) {
+      console.error('Error sending maintenance notification:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 7. Send Registration Confirmation to New Customer
+   */
+  async notifyRegistrationConfirmation(registrationId) {
+    try {
+      const query = `
+        SELECT 
+          r.id,
+          r.registration_number,
+          r.status,
+          c.name as customer_name,
+          c.phone as customer_phone,
+          c.address,
+          p.name as package_name,
+          p.price
+        FROM registrations r
+        LEFT JOIN customers c ON r.customer_id = c.id
+        LEFT JOIN packages p ON r.package_id = p.id
+        WHERE r.id = $1
+      `;
+
+      const result = await pool.query(query, [registrationId]);
+      
+      if (result.rows.length === 0) {
+        throw new Error('Registration not found');
+      }
+
+      const registration = result.rows[0];
+
+      if (!registration.customer_phone) {
+        console.warn(`No phone number for customer on registration #${registration.registration_number}`);
+        return { success: false, error: 'No customer phone number' };
+      }
+
+      const message = `🎉 *REGISTRASI BERHASIL!*
+
+Dear ${registration.customer_name},
+
+Registration: #${registration.registration_number}
+Package: ${registration.package_name}
+Price: Rp ${registration.price?.toLocaleString('id-ID')}/bulan
+
+Status: ✅ Diterima & Diproses
+
+*Next Steps:*
+✅ 1. Verifikasi data (Done)
+⏳ 2. Survey lokasi (Pending)
+⏳ 3. Instalasi
+⏳ 4. Aktivasi
+
+📱 Track: ${process.env.FRONTEND_URL}/registrations/${registration.registration_number}
+
+Tim kami akan menghubungi Anda dalam 1x24 jam untuk survey lokasi.
+
+Terima kasih telah memilih AGLIS Net! 🚀
+
+_Questions? Hubungi CS: 0821-xxxx-xxxx_`;
+
+      const sendResult = await this.whatsappService.sendMessage(registration.customer_phone, message);
+
+      await this.logNotification({
+        recipient_phone: registration.customer_phone,
+        recipient_type: 'customer',
+        notification_type: 'registration_confirmation',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      return sendResult;
+    } catch (error) {
+      console.error('Error sending registration confirmation:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 8. Send Daily Summary to Managers and Supervisors
+   */
+  async sendDailySummary() {
+    try {
+      const today = new Date().toLocaleDateString('id-ID', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      // Get ticket statistics for today
+      const ticketStats = await pool.query(`
+        SELECT 
+          COUNT(*) as total_tickets,
+          COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed,
+          COUNT(CASE WHEN status = 'in_progress' THEN 1 END) as in_progress,
+          COUNT(CASE WHEN status IN ('open', 'assigned') THEN 1 END) as pending
+        FROM tickets
+        WHERE DATE(created_at) = CURRENT_DATE
+      `);
+
+      // Get technician statistics
+      const techStats = await pool.query(`
+        SELECT 
+          COUNT(CASE WHEN availability_status = 'available' THEN 1 END) as active_technicians,
+          COUNT(*) as total_technicians
+        FROM technicians
+        WHERE employment_status = 'active'
+      `);
+
+      // Get average completion
+      const avgStats = await pool.query(`
+        SELECT 
+          COALESCE(AVG(ticket_count), 0) as avg_completion
+        FROM (
+          SELECT t.assigned_technician_id, COUNT(*) as ticket_count
+          FROM tickets t
+          WHERE DATE(t.completed_at) = CURRENT_DATE
+          GROUP BY t.assigned_technician_id
+        ) as tech_tickets
+      `);
+
+      // Get SLA achievement
+      const slaStats = await pool.query(`
+        SELECT 
+          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / 
+          NULLIF(COUNT(*), 0) * 100 as sla_achievement
+        FROM tickets
+        WHERE status = 'completed' AND DATE(completed_at) = CURRENT_DATE
+      `);
+
+      // Get overdue tickets
+      const overdueStats = await pool.query(`
+        SELECT COUNT(*) as overdue_tickets
+        FROM tickets t
+        WHERE status IN ('open', 'assigned', 'in_progress')
+          AND created_at + (CASE priority
+            WHEN 'urgent' THEN INTERVAL '4 hours'
+            WHEN 'high' THEN INTERVAL '8 hours'
+            WHEN 'normal' THEN INTERVAL '24 hours'
+            ELSE INTERVAL '48 hours'
+          END) < NOW()
+      `);
+
+      const stats = ticketStats.rows[0];
+      const techData = techStats.rows[0];
+      const avgData = avgStats.rows[0];
+      const slaData = slaStats.rows[0];
+      const overdueData = overdueStats.rows[0];
+
+      const messageData = {
+        date: today,
+        totalTickets: parseInt(stats.total_tickets),
+        completed: parseInt(stats.completed),
+        inProgress: parseInt(stats.in_progress),
+        pending: parseInt(stats.pending),
+        activeTechnicians: parseInt(techData.active_technicians),
+        totalTechnicians: parseInt(techData.total_technicians),
+        avgCompletion: parseFloat(avgData.avg_completion).toFixed(1),
+        slaAchievement: parseFloat(slaData.sla_achievement || 0).toFixed(0),
+        overdueTickets: parseInt(overdueData.overdue_tickets),
+        nearSlaTickets: 0, // TODO: Calculate near SLA
+        dashboardUrl: `${process.env.FRONTEND_URL}/dashboard`
+      };
+
+      const message = this.templates.dailySummary(messageData);
+
+      // Get manager and supervisor phones
+      const recipients = await pool.query(`
+        SELECT phone, full_name, role
+        FROM users
+        WHERE role IN ('manager', 'supervisor', 'admin')
+          AND is_active = true
+          AND phone IS NOT NULL
+      `);
+
+      if (recipients.rows.length === 0) {
+        console.warn('No managers/supervisors found');
+        return { success: false, error: 'No recipients' };
+      }
+
+      // Send to all recipients
+      const results = [];
+      for (const recipient of recipients.rows) {
+        const sendResult = await this.whatsappService.sendMessage(recipient.phone, message);
+        
+        await this.logNotification({
+          recipient_phone: recipient.phone,
+          recipient_type: recipient.role,
+          notification_type: 'daily_summary',
+          message: message,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push(sendResult);
+
+        // Small delay
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+
+      console.log(`📱 Daily summary sent to ${recipients.rows.length} managers/supervisors`);
+
+      return {
+        success: results.some(r => r.success),
+        totalSent: results.filter(r => r.success).length,
+        results: results
+      };
+    } catch (error) {
+      console.error('Error sending daily summary:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * 9. Send Emergency Alert to All Team
+   */
+  async sendEmergencyAlert(alertData) {
+    try {
+      const {
+        type,
+        area,
+        customersAffected,
+        status,
+        eta,
+        actions
+      } = alertData;
+
+      const messageData = {
+        type: type,
+        area: area,
+        customersAffected: customersAffected,
+        status: status,
+        eta: eta,
+        actions: actions || [
+          'NOC: Investigating root cause',
+          'CS: Notify affected customers',
+          'Technicians: Standby for deployment'
+        ]
+      };
+
+      const message = this.templates.emergencyAlert(messageData);
+
+      // Get all active staff (technicians, supervisors, managers, NOC, CS)
+      const recipients = await pool.query(`
+        SELECT DISTINCT phone, full_name, role
+        FROM users
+        WHERE role IN ('technician', 'supervisor', 'manager', 'noc', 'customer_service', 'admin')
+          AND is_active = true
+          AND phone IS NOT NULL
+      `);
+
+      if (recipients.rows.length === 0) {
+        console.warn('No team members found');
+        return { success: false, error: 'No recipients' };
+      }
+
+      // Also send to WhatsApp groups
+      const groups = await pool.query(`
+        SELECT id, name, group_chat_id
+        FROM whatsapp_groups
+        WHERE is_active = true
+          AND group_chat_id IS NOT NULL
+          AND category IN ('technicians', 'supervisors', 'managers', 'noc')
+      `);
+
+      // Send to individuals
+      const results = [];
+      for (const recipient of recipients.rows) {
+        const sendResult = await this.whatsappService.sendMessage(recipient.phone, message);
+        
+        await this.logNotification({
+          recipient_phone: recipient.phone,
+          recipient_type: recipient.role,
+          notification_type: 'emergency_alert',
+          message: message,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push(sendResult);
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+
+      // Send to groups
+      for (const group of groups.rows) {
+        const sendResult = await this.whatsappService.sendMessage(group.group_chat_id, message);
+        
+        await this.logNotification({
+          group_id: group.id,
+          recipient_phone: group.group_chat_id,
+          recipient_type: 'group',
+          notification_type: 'emergency_alert',
+          message: message,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push(sendResult);
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+
+      console.log(`🚨 Emergency alert sent to ${recipients.rows.length} individuals and ${groups.rows.length} groups`);
+
+      return {
+        success: results.some(r => r.success),
+        totalSent: results.filter(r => r.success).length,
+        totalRecipients: recipients.rows.length + groups.rows.length,
+        results: results
+      };
+    } catch (error) {
+      console.error('Error sending emergency alert:', error);
+      return { success: false, error: error.message };
+    }
+  }
 }
 
 // Export singleton instance

@@ -237,6 +237,7 @@ app.use('/api/payments', authMiddleware, paymentRoutes);
 app.use('/api/skill-levels', authMiddleware, cacheMiddleware(600), skillLevelsRoutes); // Cache 10 min
 app.use('/api/specializations', authMiddleware, cacheMiddleware(600), specializationsRoutes); // Cache 10 min
 app.use('/api/whatsapp-groups', authMiddleware, whatsappGroupsRoutes); // WhatsApp groups management
+app.use('/api/whatsapp-notifications', authMiddleware, require('./routes/whatsappNotifications')); // WhatsApp notification triggers
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');
@@ -400,16 +401,21 @@ if (process.env.ENABLE_BILLING_CRON === 'true') {
   console.log('⏸️  Billing cron jobs disabled (set ENABLE_BILLING_CRON=true to enable)');
 }
 
-// 📱 PHASE 1: Start WhatsApp notification jobs
+// 📱 PHASE 1 & 2: Start WhatsApp notification jobs
 console.log('⏰ Starting WhatsApp notification jobs...');
 try {
   const slaMonitor = require('./jobs/slaMonitor');
   const paymentReminder = require('./jobs/paymentReminder');
+  const dailySummary = require('./jobs/dailySummary');
   
   slaMonitor.start();
   paymentReminder.start();
+  dailySummary.start();
   
   console.log('✅ WhatsApp notification jobs started successfully');
+  console.log('   - SLA Monitor: Every 15 minutes');
+  console.log('   - Payment Reminder: Daily at 09:00 WIB');
+  console.log('   - Daily Summary: Daily at 18:00 WIB');
 } catch (error) {
   console.error('❌ Failed to start WhatsApp notification jobs:', error);
 }
