@@ -54,7 +54,7 @@ const CustomerDashboardPage = () => {
     }
   );
 
-  const stats = statsData?.data || {};
+  const stats = statsData || {};
   const profile = profileData || {};
   const tickets = ticketsData?.data?.tickets || ticketsData?.tickets || [];
 
