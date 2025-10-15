@@ -50,6 +50,10 @@ const PaymentsPage = lazy(() => import('./pages/billing/PaymentsPage'))
 // Customer Portal Pages
 const CustomerLoginPage = lazy(() => import('./pages/customer-portal/CustomerLoginPage'))
 const CustomerDashboardPage = lazy(() => import('./pages/customer-portal/CustomerDashboardPage'))
+const CustomerInvoicesPage = lazy(() => import('./pages/customer-portal/CustomerInvoicesPage'))
+const CustomerTicketsPage = lazy(() => import('./pages/customer-portal/CustomerTicketsPage'))
+const CustomerProfilePage = lazy(() => import('./pages/customer-portal/CustomerProfilePage'))
+const CustomerFAQPage = lazy(() => import('./pages/customer-portal/CustomerFAQPage'))
 
 function App() {
   const { user, loading } = useAuth()
@@ -75,6 +79,10 @@ function App() {
             {/* Customer Portal Routes */}
             <Route path="/customer/login" element={<CustomerLoginPage />} />
             <Route path="/customer/dashboard" element={<CustomerDashboardPage />} />
+            <Route path="/customer/invoices" element={<CustomerInvoicesPage />} />
+            <Route path="/customer/tickets" element={<CustomerTicketsPage />} />
+            <Route path="/customer/profile" element={<CustomerProfilePage />} />
+            <Route path="/customer/faq" element={<CustomerFAQPage />} />
 
       {/* Protected Routes */}
       <Route 

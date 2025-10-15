@@ -16131,3 +16131,108 @@ Recent application errors:
 10|aglis-backend-4 | 2025-10-16T05:30:11: 🚨 OVERDUE: Ticket #TKT20251013006 is 1546 minutes overdue!
 10|aglis-backend-4 | 2025-10-16T05:30:11: 🚨 OVERDUE: Ticket #TKT20251013007 is 1523 minutes overdue!
 10|aglis-backend-4 | 2025-10-16T05:30:11: 🚨 OVERDUE: Ticket #TKT20251014010 is 1503 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:35:01: Request OTP error: TypeError: whatsappService.storeOTP is not a function
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at /home/aglis/AGLIS_Tech/backend/src/routes/customerPortal.js:122:27
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-16T05:35:01: Request OTP error: TypeError: whatsappService.storeOTP is not a function
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at /home/aglis/AGLIS_Tech/backend/src/routes/customerPortal.js:122:27
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+9|aglis-backend-3  | 2025-10-16T05:35:01: Request OTP error: TypeError: whatsappService.storeOTP is not a function
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at /home/aglis/AGLIS_Tech/backend/src/routes/customerPortal.js:122:27
+9|aglis-backend-3  | 2025-10-16T05:35:01:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014001 is 2047 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013006 is 1559 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251013007 is 1536 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:43:21: 🚨 OVERDUE: Ticket #TKT20251014010 is 1516 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2049 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1561 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1538 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T05:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1517 minutes overdue!

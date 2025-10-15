@@ -2,12 +2,12 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { 
-  LayoutDashboard, Ticket, FileText, User, LogOut,
-  Clock, CheckCircle, XCircle, AlertTriangle, DollarSign,
+  Ticket, FileText, User,
+  Clock, CheckCircle, DollarSign,
   Phone, Mail, MapPin, Package, Calendar
 } from 'lucide-react';
-import toast from 'react-hot-toast';
 import api from '../../services/api';
+import CustomerPortalLayout from '../../components/CustomerPortalLayout';
 
 const CustomerDashboardPage = () => {
   const navigate = useNavigate();
@@ -58,50 +58,19 @@ const CustomerDashboardPage = () => {
   const profile = profileData?.data || {};
   const tickets = ticketsData?.data?.tickets || [];
 
-  const handleLogout = () => {
-    localStorage.removeItem('customerToken');
-    localStorage.removeItem('customerData');
-    toast.success('Logout berhasil');
-    navigate('/customer/login');
-  };
-
   if (statsLoading || profileLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-600 border-t-transparent"></div>
-      </div>
+      <CustomerPortalLayout>
+        <div className="flex justify-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-600 border-t-transparent"></div>
+        </div>
+      </CustomerPortalLayout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-green-600 rounded-lg flex items-center justify-center">
-                <LayoutDashboard className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Customer Portal</h1>
-                <p className="text-sm text-gray-600">Welcome, {customerData.name || profile.name}!</p>
-              </div>
-            </div>
-
-            <button
-              onClick={handleLogout}
-              className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-            >
-              <LogOut className="h-4 w-4" />
-              <span>Logout</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <CustomerPortalLayout>
+      <div className="max-w-7xl mx-auto">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Active Tickets */}
@@ -322,8 +291,8 @@ const CustomerDashboardPage = () => {
             </div>
           )}
         </div>
-      </main>
-    </div>
+      </div>
+    </CustomerPortalLayout>
   );
 };
 
