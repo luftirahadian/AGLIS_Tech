@@ -582,6 +582,8 @@ const UsersPage = () => {
               <option value="all">Semua Role</option>
               <option value="admin">Admin</option>
               <option value="supervisor">Supervisor</option>
+              <option value="manager">Manager</option>
+              <option value="noc">NOC</option>
               <option value="technician">Technician</option>
               <option value="customer_service">Customer Service</option>
             </select>
