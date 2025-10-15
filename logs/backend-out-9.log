@@ -335,3 +335,56 @@
 2025-10-16T01:46:06: ✅ Connected to PostgreSQL database
 2025-10-16T01:46:06: 📋 Found 4 active tickets to check
 2025-10-16T01:46:06: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:00:00: 🔍 Starting SLA check...
+2025-10-16T02:00:00: 💳 Starting payment reminder job...
+2025-10-16T02:00:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:00:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:00:00: 📋 Found 4 active tickets to check
+2025-10-16T02:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:00:00: 📋 Found 0 invoices needing reminders
+2025-10-16T02:00:00: ✅ Payment reminder job completed. Reminders sent: 0/0
+2025-10-16T02:05:01: ✅ Connected to PostgreSQL database
+2025-10-16T02:05:01: 103.55.225.241 - - [15/Oct/2025:19:05:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-16T02:15:00: 🔍 Starting SLA check...
+2025-10-16T02:15:00: ✅ Connected to PostgreSQL database
+2025-10-16T02:15:00: 📋 Found 4 active tickets to check
+2025-10-16T02:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:21:20: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-16T02:21:20: ⏰ Starting billing cron jobs...
+2025-10-16T02:21:20:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-16T02:21:20:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-16T02:21:20: ✅ All billing cron jobs started successfully
+2025-10-16T02:21:20: ⏰ Starting WhatsApp notification jobs...
+2025-10-16T02:21:20: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-16T02:21:20: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-16T02:21:20: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-16T02:21:20: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-16T02:21:20: ✅ WhatsApp notification jobs started successfully
+2025-10-16T02:21:20:    - SLA Monitor: Every 15 minutes
+2025-10-16T02:21:20:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-16T02:21:20:    - Daily Summary: Daily at 18:00 WIB
+2025-10-16T02:21:20:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-16T02:21:20: ⏰ Starting Alert Monitoring System...
+2025-10-16T02:21:20: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-16T02:21:20: ✅ Alert Monitoring System started successfully
+2025-10-16T02:21:20:    - System Health Checks: Every 5 minutes
+2025-10-16T02:21:20:    - Alert Rules: 8 default rules active
+2025-10-16T02:21:20:    - Notifications: WhatsApp + Email
+2025-10-16T02:21:20: 🚀 Server running on 0.0.0.0:3003
+2025-10-16T02:21:20: 🌍 Environment: production
+2025-10-16T02:21:20: 📡 Local access: http://localhost:3003
+2025-10-16T02:21:20: 🌐 Network access: http://192.168.121.30:3003
+2025-10-16T02:21:20: 📝 CORS origins configured for local network access
+2025-10-16T02:21:20: ✅ Redis Cache Connected
+2025-10-16T02:21:20: ✅ Redis clients connected for Socket.IO adapter
+2025-10-16T02:21:20: ✅ Redis client connected for OTP storage
+2025-10-16T02:21:20: ✅ Redis client ready
+2025-10-16T02:21:25: 🔍 Starting SLA check...
+2025-10-16T02:21:25: ✅ Connected to PostgreSQL database
+2025-10-16T02:21:25: 📋 Found 4 active tickets to check
+2025-10-16T02:21:25: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T02:21:25: 🔍 Checking system alerts...
+2025-10-16T02:21:25: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-16T02:21:25: 🚨 Alert triggered: SLA Violation (high)
+2025-10-16T02:21:25: 🚨 Triggered 1 alert(s)
+2025-10-16T02:21:25:    - SLA Violation (high): 2

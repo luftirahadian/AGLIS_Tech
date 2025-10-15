@@ -195,6 +195,9 @@ app.get('/health', (req, res) => {
 // Health Check Routes (no auth required for monitoring)
 app.use('/api/health', require('./routes/health'));
 
+// Alert Management Routes
+app.use('/api/alerts', authMiddleware, require('./routes/alerts'));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authMiddleware, userRoutes);
@@ -425,6 +428,20 @@ try {
   console.log('   - Weekly Performance: Every Monday at 08:00 WIB');
 } catch (error) {
   console.error('❌ Failed to start WhatsApp notification jobs:', error);
+}
+
+// 🚨 WEEK 2: Start Alert Monitoring System
+console.log('⏰ Starting Alert Monitoring System...');
+try {
+  const alertMonitor = require('./jobs/alertMonitor');
+  alertMonitor.start();
+  
+  console.log('✅ Alert Monitoring System started successfully');
+  console.log('   - System Health Checks: Every 5 minutes');
+  console.log('   - Alert Rules: 8 default rules active');
+  console.log('   - Notifications: WhatsApp + Email');
+} catch (error) {
+  console.error('❌ Failed to start Alert Monitoring System:', error);
 }
 
 // 404 handler
