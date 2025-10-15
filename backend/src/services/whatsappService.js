@@ -597,6 +597,53 @@ _AGLIS Net - Connecting You Better!_ 🌐`;
   }
 
   /**
+   * Store OTP in Redis or memory for verification
+   * @param {string} phone - Phone number
+   * @param {string} otp - OTP code
+   * @param {number} expiryMinutes - Expiry time in minutes
+   * @param {string} purpose - Purpose of OTP (registration, login, etc)
+   */
+  async storeOTP(phone, otp, expiryMinutes = 10, purpose = 'verification') {
+    const formattedPhone = this.formatPhoneNumber(phone);
+    const otpData = {
+      otp,
+      createdAt: Date.now(),
+      expiresAt: Date.now() + (expiryMinutes * 60 * 1000),
+      purpose
+    };
+
+    try {
+      // Try to store in Redis first
+      if (this.useRedis) {
+        const key = `otp:${formattedPhone}`;
+        await redisClient.set(key, JSON.stringify(otpData), { EX: expiryMinutes * 60 });
+        console.log(`💾 OTP STORED (Redis): Phone=${formattedPhone}, OTP=${otp}, Purpose=${purpose}, Expiry=${expiryMinutes}min, Process=${process.pid}`);
+        return { success: true, storage: 'redis' };
+      }
+
+      // Fallback to memory storage
+      if (!this.otpStorage) {
+        this.otpStorage = new Map();
+      }
+      this.otpStorage.set(formattedPhone, otpData);
+      console.log(`💾 OTP STORED (Memory): Phone=${formattedPhone}, OTP=${otp}, Purpose=${purpose}, Expiry=${expiryMinutes}min, Process=${process.pid}`);
+      
+      // Set timeout to clear from memory
+      setTimeout(() => {
+        if (this.otpStorage) {
+          this.otpStorage.delete(formattedPhone);
+          console.log(`🗑️ OTP EXPIRED (Memory): Phone=${formattedPhone}, Process=${process.pid}`);
+        }
+      }, expiryMinutes * 60 * 1000);
+
+      return { success: true, storage: 'memory' };
+    } catch (error) {
+      console.error('❌ Error storing OTP:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
    * Verify OTP
    * Checks Redis first, falls back to memory if Redis unavailable
    */
