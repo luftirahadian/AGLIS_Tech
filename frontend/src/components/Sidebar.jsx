@@ -29,60 +29,35 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
   const [hoveredItem, setHoveredItem] = useState(null)
 
   const navigation = [
+    // 📊 CORE OPERATIONS (Daily Use)
     {
       name: 'Dashboard',
       href: '/dashboard',
       icon: LayoutDashboard,
-      roles: ['admin', 'supervisor', 'technician', 'customer_service']
-    },
-    {
-      name: 'Analytics',
-      href: '/analytics',
-      icon: BarChart3,
-      roles: ['admin', 'supervisor']
-    },
-    {
-      name: 'Performance',
-      href: '/performance',
-      icon: Zap,
-      roles: ['admin']
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
     },
     {
       name: 'Tickets',
       href: '/tickets',
       icon: Ticket,
-      roles: ['admin', 'supervisor', 'technician', 'customer_service']
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician', 'customer_service']
     },
+    
+    // 👥 CUSTOMER MANAGEMENT
     {
       name: 'Customers',
       href: '/customers',
       icon: Users,
-      roles: ['admin', 'supervisor', 'customer_service']
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'customer_service']
     },
     {
       name: 'Registrations',
       href: '/registrations',
       icon: UserPlus,
-      roles: ['admin', 'supervisor', 'customer_service']
+      roles: ['admin', 'supervisor', 'manager', 'customer_service']
     },
-    {
-      name: 'Reg Analytics',
-      href: '/registration-analytics',
-      icon: BarChart3,
-      roles: ['admin', 'supervisor']
-    },
-    {
-      name: 'Technicians',
-      href: '/technicians',
-      icon: Wrench,
-      roles: ['admin', 'supervisor']
-    },
-    {
-      name: 'Inventory',
-      href: '/inventory-stock',
-      icon: Package,
-      roles: ['admin', 'supervisor', 'technician']
-    },
+    
+    // 💰 FINANCIAL MANAGEMENT
     {
       name: 'Invoices',
       href: '/invoices',
@@ -95,6 +70,42 @@ const Sidebar = ({ isOpen, onClose, collapsed }) => {
       icon: CreditCard,
       roles: ['admin', 'supervisor', 'customer_service']
     },
+    
+    // 🔧 OPERATIONS
+    {
+      name: 'Technicians',
+      href: '/technicians',
+      icon: Wrench,
+      roles: ['admin', 'supervisor', 'manager', 'noc']
+    },
+    {
+      name: 'Inventory',
+      href: '/inventory-stock',
+      icon: Package,
+      roles: ['admin', 'supervisor', 'manager', 'noc', 'technician']
+    },
+    
+    // 📈 ANALYTICS & REPORTS
+    {
+      name: 'Analytics',
+      href: '/analytics',
+      icon: BarChart3,
+      roles: ['admin', 'supervisor', 'manager', 'noc']
+    },
+    {
+      name: 'Reg Analytics',
+      href: '/registration-analytics',
+      icon: BarChart3,
+      roles: ['admin', 'supervisor', 'manager']
+    },
+    {
+      name: 'Performance',
+      href: '/performance',
+      icon: Zap,
+      roles: ['admin', 'manager']
+    },
+    
+    // ⚙️ SYSTEM & ADMIN (Less Frequent)
     {
       name: 'Master Data',
       icon: Database,
