@@ -257,3 +257,13 @@
 2025-10-16T00:50:20: ✅ Connected to PostgreSQL database
 2025-10-16T00:50:20: ✅ Connected to PostgreSQL database
 2025-10-16T00:50:20: 103.55.224.49 - - [15/Oct/2025:17:50:20 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T01:00:00: 🔍 Starting SLA check...
+2025-10-16T01:00:00: ✅ Connected to PostgreSQL database
+2025-10-16T01:00:00: 📋 Found 4 active tickets to check
+2025-10-16T01:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:05:01: 103.55.225.241 - - [15/Oct/2025:18:05:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-16T01:15:00: 🔍 Starting SLA check...
+2025-10-16T01:15:00: ✅ Connected to PostgreSQL database
+2025-10-16T01:15:00: 📋 Found 4 active tickets to check
+2025-10-16T01:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T01:25:01: 103.55.225.241 - - [15/Oct/2025:18:25:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
