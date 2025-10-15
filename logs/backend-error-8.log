@@ -352,3 +352,55 @@
 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 451 minutes overdue!
 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 428 minutes overdue!
 2025-10-15T11:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 407 minutes overdue!
+2025-10-15T11:21:50: Update template error: error: invalid input syntax for type json
+2025-10-15T11:21:50:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:21:50:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:21:50:   length: 208,
+2025-10-15T11:21:50:   severity: 'ERROR',
+2025-10-15T11:21:50:   code: '22P02',
+2025-10-15T11:21:50:   detail: 'Expected ":", but found ",".',
+2025-10-15T11:21:50:   hint: undefined,
+2025-10-15T11:21:50:   position: undefined,
+2025-10-15T11:21:50:   internalPosition: undefined,
+2025-10-15T11:21:50:   internalQuery: undefined,
+2025-10-15T11:21:50:   where: 'JSON data, line 1: {"invoice_number",...\n' +
+2025-10-15T11:21:50:     "unnamed portal parameter $5 = '...'",
+2025-10-15T11:21:50:   schema: undefined,
+2025-10-15T11:21:50:   table: undefined,
+2025-10-15T11:21:50:   column: undefined,
+2025-10-15T11:21:50:   dataType: undefined,
+2025-10-15T11:21:50:   constraint: undefined,
+2025-10-15T11:21:50:   file: 'jsonfuncs.c',
+2025-10-15T11:21:50:   line: '627',
+2025-10-15T11:21:50:   routine: 'json_ereport_error'
+2025-10-15T11:21:50: }
+2025-10-15T11:21:50: ❌ QUERY ERROR (2ms): {
+2025-10-15T11:21:50:   error: 'invalid input syntax for type json',
+2025-10-15T11:21:50:   query: 'UPDATE whatsapp_message_templates\n' +
+2025-10-15T11:21:50:     '       SET name = COALESCE($1, name),\n' +
+2025-10-15T11:21:50:     '           category = COALESCE($2, category),\n' +
+2025-10-15T11:21:50:     '           description = $3,\n' +
+2025-10-15T11:21:50:     '   ...'
+2025-10-15T11:21:50: }
+2025-10-15T11:21:50: error: invalid input syntax for type json
+2025-10-15T11:21:50:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T11:21:50:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T11:21:50:   length: 208,
+2025-10-15T11:21:50:   severity: 'ERROR',
+2025-10-15T11:21:50:   code: '22P02',
+2025-10-15T11:21:50:   detail: 'Expected ":", but found ",".',
+2025-10-15T11:21:50:   hint: undefined,
+2025-10-15T11:21:50:   position: undefined,
+2025-10-15T11:21:50:   internalPosition: undefined,
+2025-10-15T11:21:50:   internalQuery: undefined,
+2025-10-15T11:21:50:   where: 'JSON data, line 1: {"invoice_number",...\n' +
+2025-10-15T11:21:50:     "unnamed portal parameter $5 = '...'",
+2025-10-15T11:21:50:   schema: undefined,
+2025-10-15T11:21:50:   table: undefined,
+2025-10-15T11:21:50:   column: undefined,
+2025-10-15T11:21:50:   dataType: undefined,
+2025-10-15T11:21:50:   constraint: undefined,
+2025-10-15T11:21:50:   file: 'jsonfuncs.c',
+2025-10-15T11:21:50:   line: '627',
+2025-10-15T11:21:50:   routine: 'json_ereport_error'
+2025-10-15T11:21:50: }

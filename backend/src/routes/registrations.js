@@ -244,7 +244,7 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
       const packageInfo = packageCheck.rows[0];
 
       // Send WhatsApp confirmation to customer
-      const trackingUrl = `${process.env.REGISTRATION_TRACKING_URL || 'http://localhost:3000/track'}/${registration.registration_number}`;
+      const trackingUrl = `${process.env.FRONTEND_URL || 'https://portal.aglis.biz.id'}/track/${registration.registration_number}`;
       
       const waResult = await whatsappService.sendRegistrationConfirmation(phone, {
         name: full_name,
