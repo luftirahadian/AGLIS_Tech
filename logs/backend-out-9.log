@@ -143,3 +143,120 @@
 2025-10-16T00:30:10: 🔍 Cache MISS: cache:GET:/::admin...
 2025-10-16T00:30:10: 💾 Cached: cache:GET:/::admin... (TTL: 180s)
 2025-10-16T00:30:10: 103.55.224.49 - - [15/Oct/2025:17:30:10 +0000] "GET /api/odp HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:30:48: ✅ Connected to PostgreSQL database
+2025-10-16T00:30:48: 103.55.224.49 - - [15/Oct/2025:17:30:48 +0000] "GET /api/tickets/24 HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:31:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:31:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:31:19: 103.55.224.49 - - [15/Oct/2025:17:31:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:32:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:32:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:32:19: 103.55.224.49 - - [15/Oct/2025:17:32:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:33:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:33:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:33:19: 103.55.224.49 - - [15/Oct/2025:17:33:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:34:10: ✅ Connected to PostgreSQL database
+2025-10-16T00:34:10: 103.55.224.49 - - [15/Oct/2025:17:34:10 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 200 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:34:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:34:19: 103.55.224.49 - - [15/Oct/2025:17:34:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:34:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:34:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:34:49: 103.55.224.49 - - [15/Oct/2025:17:34:49 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:35:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:35:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:35:49: 103.55.224.49 - - [15/Oct/2025:17:35:49 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:36:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:36:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:36:19: 103.55.224.49 - - [15/Oct/2025:17:36:19 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:36:31: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:36:31: 103.55.224.49 - - [15/Oct/2025:17:36:31 +0000] "PUT /api/whatsapp-groups/6 HTTP/1.1" 200 491 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:36:41: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:36:41: 103.55.224.49 - - [15/Oct/2025:17:36:41 +0000] "PUT /api/whatsapp-groups/4 HTTP/1.1" 200 502 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:36:56: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:36:56: 103.55.224.49 - - [15/Oct/2025:17:36:56 +0000] "PUT /api/whatsapp-groups/4 HTTP/1.1" 200 525 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:37:02: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:37:02: 103.55.224.49 - - [15/Oct/2025:17:37:02 +0000] "PUT /api/whatsapp-groups/6 HTTP/1.1" 200 514 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:37:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:37:19: 103.55.224.49 - - [15/Oct/2025:17:37:19 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/master-data/whatsapp-groups" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:37:33: 🔍 Cache MISS: cache:GET:/::admin...
+2025-10-16T00:37:33: 💾 Cached: cache:GET:/::admin... (TTL: 180s)
+2025-10-16T00:37:33: 103.55.224.49 - - [15/Oct/2025:17:37:33 +0000] "GET /api/odp HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:37:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:37:49: 103.55.224.49 - - [15/Oct/2025:17:37:49 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:38:04: 103.55.224.49 - - [15/Oct/2025:17:38:04 +0000] "GET /api/users/activity-logs/list?limit=15 HTTP/1.1" 200 - "https://portal.aglis.biz.id/users" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:38:36: ✅ Connected to PostgreSQL database
+2025-10-16T00:38:36: 103.55.224.49 - - [15/Oct/2025:17:38:36 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:39:01: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T00:39:01: === TICKET STATUS UPDATE ===
+2025-10-16T00:39:01: Ticket ID: 21
+2025-10-16T00:39:01: New Status: completed
+2025-10-16T00:39:01: Assigned Technician ID: undefined
+2025-10-16T00:39:01: Full Request Body: {
+2025-10-16T00:39:01:   "status": "completed",
+2025-10-16T00:39:01:   "notes": "✅ PEKERJAAN SELESAI\n\nTeknisi: Lufti Rahadiansyah (TEC0002)\nCustomer: Ega Nabila (AGLS202510140003)\nTipe: repair\nCompletion: 16/10/2025 00:39\n\nStatus: \"in_progress\" → \"Completed\"\n\nrepair untuk Ega Nabila telah selesai dikerjakan dengan baik. Semua pekerjaan telah diselesaikan sesuai SLA. Ticket ditutup.",
+2025-10-16T00:39:01:   "resolution_notes": "Ticket repair untuk Ega Nabila telah diselesaikan dengan baik. Semua pekerjaan yang diperlukan telah dikerjakan sesuai SLA. Testing telah dilakukan dan hasilnya memuaskan. Customer confirm satisfied dengan hasil pekerjaan. Tidak ada outstanding issue. Ticket ditutup dengan status completed.",
+2025-10-16T00:39:01:   "customer_rating": "5",
+2025-10-16T00:39:01:   "completion_data": {
+2025-10-16T00:39:01:     "odp_location": "ODP-KRW-003-C15",
+2025-10-16T00:39:01:     "odp_id": 3,
+2025-10-16T00:39:01:     "otdr_photo": null,
+2025-10-16T00:39:01:     "final_attenuation": "24",
+2025-10-16T00:39:01:     "attenuation_photo": null,
+2025-10-16T00:39:01:     "wifi_name": "",
+2025-10-16T00:39:01:     "wifi_password": "",
+2025-10-16T00:39:01:     "modem_sn_photo": null,
+2025-10-16T00:39:01:     "repair_date": "2025-10-16T00:38"
+2025-10-16T00:39:01:   }
+2025-10-16T00:39:01: }
+2025-10-16T00:39:01: 📸 Processing completion data with file uploads...
+2025-10-16T00:39:01: 📡 Socket.IO: Events emitted for ticket 21 status update (in_progress → completed)
+2025-10-16T00:39:01: 103.55.224.49 - - [15/Oct/2025:17:39:01 +0000] "PUT /api/tickets/21/status HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:39:01: ✅ Connected to PostgreSQL database
+2025-10-16T00:39:02: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-16T00:39:02: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-16T00:39:02: 📱 Ticket completion sent to group "Teknisi Karawang": SUCCESS
+2025-10-16T00:39:02: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-16T00:39:02: 📱 Ticket completion sent to group "Developer": SUCCESS
+2025-10-16T00:39:02: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-16T00:39:02: 📱 Ticket completion sent to group "Supervisor Team": SUCCESS
+2025-10-16T00:39:02: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-16T00:39:02: 📱 Ticket completion sent to group "Management": SUCCESS
+2025-10-16T00:39:02: 📱 WhatsApp status update sent to customer for ticket #21 (in_progress → completed)
+2025-10-16T00:39:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:39:49: ✅ Connected to PostgreSQL database
+2025-10-16T00:39:49: 103.55.224.49 - - [15/Oct/2025:17:39:49 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:40:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:40:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:40:19: 103.55.224.49 - - [15/Oct/2025:17:40:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:41:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:41:19: ✅ Connected to PostgreSQL database
+2025-10-16T00:41:19: 103.55.224.49 - - [15/Oct/2025:17:41:19 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:42:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:42:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:42:20: 103.55.224.49 - - [15/Oct/2025:17:42:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:43:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:43:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:43:20: 103.55.224.49 - - [15/Oct/2025:17:43:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:44:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:44:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:44:20: 103.55.224.49 - - [15/Oct/2025:17:44:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:45:00: 🔍 Starting SLA check...
+2025-10-16T00:45:00: ✅ Connected to PostgreSQL database
+2025-10-16T00:45:00: 📋 Found 4 active tickets to check
+2025-10-16T00:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T00:45:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:45:20: 103.55.224.49 - - [15/Oct/2025:17:45:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:46:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:46:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:46:20: 103.55.224.49 - - [15/Oct/2025:17:46:20 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:48:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:48:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:48:20: 103.55.224.49 - - [15/Oct/2025:17:48:20 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets/21" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:48:50: ✅ Connected to PostgreSQL database
+2025-10-16T00:48:50: ✅ Connected to PostgreSQL database
+2025-10-16T00:48:50: 103.55.224.49 - - [15/Oct/2025:17:48:50 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:49:50: ✅ Connected to PostgreSQL database
+2025-10-16T00:49:50: ✅ Connected to PostgreSQL database
+2025-10-16T00:49:50: 103.55.224.49 - - [15/Oct/2025:17:49:50 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 438 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T00:50:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:50:20: ✅ Connected to PostgreSQL database
+2025-10-16T00:50:20: 103.55.224.49 - - [15/Oct/2025:17:50:20 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
