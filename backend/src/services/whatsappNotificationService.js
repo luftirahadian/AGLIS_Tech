@@ -92,7 +92,7 @@ class WhatsAppNotificationService {
       // Log notification
       await this.logNotification({
         ticket_id: ticketId,
-        recipient_phone: phone,
+        phone_number: phone,
         recipient_type: 'technician',
         notification_type: 'ticket_assignment',
         message: message,
@@ -175,7 +175,7 @@ class WhatsAppNotificationService {
       // Log notification
       await this.logNotification({
         ticket_id: ticketId,
-        recipient_phone: ticket.customer_phone,
+        phone_number: ticket.customer_phone,
         recipient_type: 'customer',
         notification_type: 'ticket_status_update',
         message: message,
@@ -264,7 +264,7 @@ class WhatsAppNotificationService {
         // Log notification
         await this.logNotification({
           ticket_id: ticketId,
-          recipient_phone: supervisor.phone,
+          phone_number: supervisor.phone,
           recipient_type: 'supervisor',
           notification_type: 'sla_warning',
           message: message,
@@ -361,7 +361,7 @@ class WhatsAppNotificationService {
       // Log notification
       await this.logNotification({
         invoice_id: invoiceId,
-        recipient_phone: invoice.customer_phone,
+        phone_number: invoice.customer_phone,
         recipient_type: 'customer',
         notification_type: 'payment_reminder',
         message: message,
@@ -415,7 +415,7 @@ class WhatsAppNotificationService {
     try {
       const query = `
         INSERT INTO whatsapp_notifications 
-        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, provider, error_message)
+        (ticket_id, invoice_id, phone_number, recipient_type, notification_type, message, status, provider, error_message)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         RETURNING id
       `;
@@ -423,7 +423,7 @@ class WhatsAppNotificationService {
       const values = [
         data.ticket_id || null,
         data.invoice_id || null,
-        data.recipient_phone,
+        data.phone_number,
         data.recipient_type,
         data.notification_type,
         data.message,
@@ -507,7 +507,7 @@ class WhatsAppNotificationService {
       const sendResult = await this.whatsappService.sendMessage(registration.customer_phone, message);
 
       await this.logNotification({
-        recipient_phone: registration.customer_phone,
+        phone_number: registration.customer_phone,
         recipient_type: 'customer',
         notification_type: 'installation_schedule',
         message: message,
@@ -581,7 +581,7 @@ _AGLIS Net - Always Connected_`;
         const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
         
         await this.logNotification({
-          recipient_phone: customer.phone,
+          phone_number: customer.phone,
           recipient_type: 'customer',
           notification_type: 'maintenance_notification',
           message: message,
@@ -658,7 +658,7 @@ _AGLIS Net - Always Connected_`;
       const sendResult = await this.whatsappService.sendMessage(registration.customer_phone, message);
 
       await this.logNotification({
-        recipient_phone: registration.customer_phone,
+        phone_number: registration.customer_phone,
         recipient_type: 'customer',
         notification_type: 'registration_confirmation',
         message: message,
@@ -783,7 +783,7 @@ _AGLIS Net - Always Connected_`;
         const sendResult = await this.whatsappService.sendMessage(recipient.phone, message);
         
         await this.logNotification({
-          recipient_phone: recipient.phone,
+          phone_number: recipient.phone,
           recipient_type: recipient.role,
           notification_type: 'daily_summary',
           message: message,
@@ -869,7 +869,7 @@ _AGLIS Net - Always Connected_`;
         const sendResult = await this.whatsappService.sendMessage(recipient.phone, message);
         
         await this.logNotification({
-          recipient_phone: recipient.phone,
+          phone_number: recipient.phone,
           recipient_type: recipient.role,
           notification_type: 'emergency_alert',
           message: message,
@@ -888,7 +888,7 @@ _AGLIS Net - Always Connected_`;
         
         await this.logNotification({
           group_id: group.id,
-          recipient_phone: group.group_chat_id,
+          phone_number: group.group_chat_id,
           recipient_type: 'group',
           notification_type: 'emergency_alert',
           message: message,
@@ -970,7 +970,7 @@ _AGLIS Net - Always Connected_`;
       const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
 
       await this.logNotification({
-        recipient_phone: customer.phone,
+        phone_number: customer.phone,
         recipient_type: 'customer',
         notification_type: 'welcome_message',
         message: message,
@@ -1042,7 +1042,7 @@ _AGLIS Net - Always Connected_`;
       const sendResult = await this.whatsappService.sendMessage(data.phone, message);
 
       await this.logNotification({
-        recipient_phone: data.phone,
+        phone_number: data.phone,
         recipient_type: 'customer',
         notification_type: 'upgrade_offer',
         message: message,
@@ -1103,7 +1103,7 @@ _AGLIS Net - Always Connected_`;
 
       await this.logNotification({
         ticket_id: ticketId,
-        recipient_phone: ticket.customer_phone,
+        phone_number: ticket.customer_phone,
         recipient_type: 'customer',
         notification_type: 'satisfaction_survey',
         message: message,
@@ -1188,7 +1188,7 @@ _AGLIS Net - Always Connected_`;
       const sendResult = await this.whatsappService.sendMessage(tech.phone, message);
 
       await this.logNotification({
-        recipient_phone: tech.phone,
+        phone_number: tech.phone,
         recipient_type: 'technician',
         notification_type: 'performance_report',
         message: message,
@@ -1243,7 +1243,7 @@ _AGLIS Net - Always Connected_`;
         const sendResult = await this.whatsappService.sendMessage(customer.phone, message);
 
         await this.logNotification({
-          recipient_phone: customer.phone,
+          phone_number: customer.phone,
           recipient_type: 'customer',
           notification_type: 'promotion_campaign',
           message: message,

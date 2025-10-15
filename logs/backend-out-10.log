@@ -3800,3 +3800,129 @@
 2025-10-15T11:55:38: ✅ Connected to PostgreSQL database
 2025-10-15T11:55:38: 📋 Found 5 active tickets to check
 2025-10-15T11:55:38: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T11:56:17: ✅ Connected to PostgreSQL database
+2025-10-15T11:56:17: ✅ Connected to PostgreSQL database
+2025-10-15T11:56:17: 103.55.224.49 - - [15/Oct/2025:04:56:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/track/REG20251015002" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:00:00: 🔍 Starting SLA check...
+2025-10-15T12:00:00: ✅ Connected to PostgreSQL database
+2025-10-15T12:00:00: 📋 Found 5 active tickets to check
+2025-10-15T12:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T12:00:01: 103.55.225.241 - - [15/Oct/2025:05:00:01 +0000] "GET /api/health HTTP/1.1" 404 45 "-" "curl/7.81.0"
+2025-10-15T12:04:27: 👤 User disconnected: 0zR60YE66RCVQ0IFAAAD
+2025-10-15T12:04:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:04:27: 103.55.224.49 - - [15/Oct/2025:05:04:27 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:04:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:27: 👤 User connected: QOlbLWLBSpzOnuvFAAAJ
+2025-10-15T12:04:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:04:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:27: 👤 User disconnected: QOlbLWLBSpzOnuvFAAAJ
+2025-10-15T12:04:27: 103.55.224.49 - - [15/Oct/2025:05:04:27 +0000] "GET /api/whatsapp-templates? HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:04:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:27: 👤 User connected: LP74V-Hjrc3wvCo9AAAP
+2025-10-15T12:04:27: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:32: 🔍 Cache MISS: cache:GET:/::public...
+2025-10-15T12:04:32: 💾 Cached: cache:GET:/::public... (TTL: 300s)
+2025-10-15T12:04:32: 103.55.224.49 - - [15/Oct/2025:05:04:32 +0000] "GET /api/packages HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:04:39: 👤 User disconnected: EcDkClS5UKcChfyyAAAF
+2025-10-15T12:04:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:39: 👤 User connected: lxlcEnMeFxGz7HKeAAAR
+2025-10-15T12:04:39: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:41: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:42: ✅ WhatsApp sent to 62817102070 via fonnte (primary)
+2025-10-15T12:04:42: 📱 WhatsApp status update sent: {
+2025-10-15T12:04:42:   success: true,
+2025-10-15T12:04:42:   data: {
+2025-10-15T12:04:42:     detail: 'success! message in queue',
+2025-10-15T12:04:42:     id: [ '126007589' ],
+2025-10-15T12:04:42:     process: 'pending',
+2025-10-15T12:04:42:     quota: { '628179380800': [Object] },
+2025-10-15T12:04:42:     requestid: 147067319,
+2025-10-15T12:04:42:     status: true,
+2025-10-15T12:04:42:     target: [ '62817102070' ]
+2025-10-15T12:04:42:   },
+2025-10-15T12:04:42:   provider: 'fonnte'
+2025-10-15T12:04:42: }
+2025-10-15T12:04:42: 📡 [Socket.IO] Registration status update emitted: verified → approved
+2025-10-15T12:04:42: 103.55.224.49 - - [15/Oct/2025:05:04:42 +0000] "PUT /api/registrations/12/status HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:04:42: 👤 User disconnected: lxlcEnMeFxGz7HKeAAAR
+2025-10-15T12:04:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:42: 👤 User connected: BxJYNkO1XrIfmnwLAAAT
+2025-10-15T12:04:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:04:57: ✅ Connected to PostgreSQL database
+2025-10-15T12:04:57: 103.55.224.49 - - [15/Oct/2025:05:04:57 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:05:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:05:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:05:27: 103.55.224.49 - - [15/Oct/2025:05:05:27 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:06:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:06:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:06:27: 103.55.224.49 - - [15/Oct/2025:05:06:27 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:07:05: ✅ Connected to PostgreSQL database
+2025-10-15T12:07:05: 103.55.224.49 - - [15/Oct/2025:05:07:05 +0000] "GET /api/registrations/12 HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:07:57: ✅ Connected to PostgreSQL database
+2025-10-15T12:07:57: ✅ Connected to PostgreSQL database
+2025-10-15T12:07:57: 103.55.224.49 - - [15/Oct/2025:05:07:57 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/registrations/12" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:11:16: ✅ Connected to PostgreSQL database
+2025-10-15T12:11:16: 103.55.224.49 - - [15/Oct/2025:05:11:16 +0000] "GET /api/customers/18 HTTP/1.1" 200 - "https://portal.aglis.biz.id/customers/18" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:11:20: 🔍 Cache MISS: cache:GET:/::admin...
+2025-10-15T12:11:20: 💾 Cached: cache:GET:/::admin... (TTL: 180s)
+2025-10-15T12:11:20: 103.55.224.49 - - [15/Oct/2025:05:11:20 +0000] "GET /api/odp HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:11:28: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:11:28: === TICKET STATUS UPDATE ===
+2025-10-15T12:11:28: Ticket ID: 24
+2025-10-15T12:11:28: New Status: assigned
+2025-10-15T12:11:28: Assigned Technician ID: 13
+2025-10-15T12:11:28: Full Request Body: {
+2025-10-15T12:11:28:   "status": "assigned",
+2025-10-15T12:11:28:   "notes": "📋 TICKET ASSIGNMENT\n\nTiket installation (TKT20251015002) berhasil di-assign.\n\nTeknisi: Dani (TEC0005)\nCustomer: Udin (AGLS202510150002)\nLokasi: Jalan kertanegara no.136 Grand Taruma\nPackage: Home Gold 75M\n\nStatus berubah: \"open\" → \"Assigned\"\n\nTeknisi akan segera menghubungi customer untuk koordinasi jadwal pekerjaan. Estimasi penyelesaian: 120 menit setelah mulai dikerjakan.",
+2025-10-15T12:11:28:   "assigned_technician_id": 13
+2025-10-15T12:11:28: }
+2025-10-15T12:11:28: 📡 Socket.IO: Events emitted for ticket 24 status update (open → assigned)
+2025-10-15T12:11:28: 103.55.224.49 - - [15/Oct/2025:05:11:28 +0000] "PUT /api/tickets/24/status HTTP/1.1" 200 839 "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:11:28: ✅ Connected to PostgreSQL database
+2025-10-15T12:11:28: ✅ WhatsApp sent to 62817102070 via fonnte (primary)
+2025-10-15T12:11:28: 📱 WhatsApp status update sent to customer for ticket #24 (open → assigned)
+2025-10-15T12:12:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:12:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:12:27: 103.55.224.49 - - [15/Oct/2025:05:12:27 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:13:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:13:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:13:27: 103.55.224.49 - - [15/Oct/2025:05:13:27 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-15T12:14:10: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-15T12:14:10: ⏰ Starting billing cron jobs...
+2025-10-15T12:14:11:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-15T12:14:11:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-15T12:14:11: ✅ All billing cron jobs started successfully
+2025-10-15T12:14:11: ⏰ Starting WhatsApp notification jobs...
+2025-10-15T12:14:11: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-15T12:14:11: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-15T12:14:11: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-15T12:14:11: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-15T12:14:11: ✅ WhatsApp notification jobs started successfully
+2025-10-15T12:14:11:    - SLA Monitor: Every 15 minutes
+2025-10-15T12:14:11:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-15T12:14:11:    - Daily Summary: Daily at 18:00 WIB
+2025-10-15T12:14:11:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-15T12:14:11: 🚀 Server running on 0.0.0.0:3004
+2025-10-15T12:14:11: 🌍 Environment: production
+2025-10-15T12:14:11: 📡 Local access: http://localhost:3004
+2025-10-15T12:14:11: 🌐 Network access: http://192.168.121.30:3004
+2025-10-15T12:14:11: 📝 CORS origins configured for local network access
+2025-10-15T12:14:11: ✅ Redis Cache Connected
+2025-10-15T12:14:11: ✅ Redis clients connected for Socket.IO adapter
+2025-10-15T12:14:11: ✅ Redis client connected for OTP storage
+2025-10-15T12:14:11: ✅ Redis client ready
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:11: 👤 User connected: HDutedB0CVD63AMmAAAB
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:11: 👤 User connected: AKAkwy6oNj7UO7gbAAAE
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:11: 👤 User connected: tz3jLvqnL5Tkk0QOAAAF
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:11: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-15T12:14:16: 🔍 Starting SLA check...
+2025-10-15T12:14:16: ✅ Connected to PostgreSQL database
+2025-10-15T12:14:16: 📋 Found 6 active tickets to check
+2025-10-15T12:14:16: ✅ SLA check completed. Warnings sent: 0
+2025-10-15T12:14:27: ✅ Connected to PostgreSQL database
+2025-10-15T12:14:27: 103.55.224.49 - - [15/Oct/2025:05:14:27 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 508 "https://portal.aglis.biz.id/tickets/24" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

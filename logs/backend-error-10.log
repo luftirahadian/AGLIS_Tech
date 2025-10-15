@@ -418,3 +418,59 @@
 2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251013006 is 492 minutes overdue!
 2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251013007 is 469 minutes overdue!
 2025-10-15T11:55:38: 🚨 OVERDUE: Ticket #TKT20251014010 is 448 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 984 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 496 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 473 minutes overdue!
+2025-10-15T12:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 452 minutes overdue!
+2025-10-15T12:11:28: Error logging notification: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T12:11:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T12:11:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T12:11:28:   length: 150,
+2025-10-15T12:11:28:   severity: 'ERROR',
+2025-10-15T12:11:28:   code: '42703',
+2025-10-15T12:11:28:   detail: undefined,
+2025-10-15T12:11:28:   hint: undefined,
+2025-10-15T12:11:28:   position: '78',
+2025-10-15T12:11:28:   internalPosition: undefined,
+2025-10-15T12:11:28:   internalQuery: undefined,
+2025-10-15T12:11:28:   where: undefined,
+2025-10-15T12:11:28:   schema: undefined,
+2025-10-15T12:11:28:   table: undefined,
+2025-10-15T12:11:28:   column: undefined,
+2025-10-15T12:11:28:   dataType: undefined,
+2025-10-15T12:11:28:   constraint: undefined,
+2025-10-15T12:11:28:   file: 'parse_target.c',
+2025-10-15T12:11:28:   line: '1075',
+2025-10-15T12:11:28:   routine: 'checkInsertTargets'
+2025-10-15T12:11:28: }
+2025-10-15T12:11:28: ❌ QUERY ERROR (2ms): {
+2025-10-15T12:11:28:   error: 'column "recipient_phone" of relation "whatsapp_notifications" does not exist',
+2025-10-15T12:11:28:   query: '\n' +
+2025-10-15T12:11:28:     '        INSERT INTO whatsapp_notifications \n' +
+2025-10-15T12:11:28:     '        (ticket_id, invoice_id, recipient_phone, recipient_type, notification_type, message, status, prov...'
+2025-10-15T12:11:28: }
+2025-10-15T12:11:28: error: column "recipient_phone" of relation "whatsapp_notifications" does not exist
+2025-10-15T12:11:28:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-15T12:11:28:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-15T12:11:28:   length: 150,
+2025-10-15T12:11:28:   severity: 'ERROR',
+2025-10-15T12:11:28:   code: '42703',
+2025-10-15T12:11:28:   detail: undefined,
+2025-10-15T12:11:28:   hint: undefined,
+2025-10-15T12:11:28:   position: '78',
+2025-10-15T12:11:28:   internalPosition: undefined,
+2025-10-15T12:11:28:   internalQuery: undefined,
+2025-10-15T12:11:28:   where: undefined,
+2025-10-15T12:11:28:   schema: undefined,
+2025-10-15T12:11:28:   table: undefined,
+2025-10-15T12:11:28:   column: undefined,
+2025-10-15T12:11:28:   dataType: undefined,
+2025-10-15T12:11:28:   constraint: undefined,
+2025-10-15T12:11:28:   file: 'parse_target.c',
+2025-10-15T12:11:28:   line: '1075',
+2025-10-15T12:11:28:   routine: 'checkInsertTargets'
+2025-10-15T12:11:28: }
+2025-10-15T12:14:16: 🚨 OVERDUE: Ticket #TKT20251014001 is 998 minutes overdue!
+2025-10-15T12:14:16: 🚨 OVERDUE: Ticket #TKT20251013006 is 510 minutes overdue!
+2025-10-15T12:14:16: 🚨 OVERDUE: Ticket #TKT20251013007 is 487 minutes overdue!
+2025-10-15T12:14:16: 🚨 OVERDUE: Ticket #TKT20251014010 is 467 minutes overdue!
