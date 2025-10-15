@@ -644,29 +644,16 @@ _AGLIS Net - Always Connected_`;
         return { success: false, error: 'No customer phone number' };
       }
 
-      const message = `🎉 *REGISTRASI BERHASIL!*
+      // Use registration confirmation template
+      const messageData = {
+        customerName: registration.customer_name,
+        registrationNumber: registration.registration_number,
+        packageName: registration.package_name,
+        price: registration.price?.toLocaleString('id-ID'),
+        trackingUrl: `${process.env.FRONTEND_URL || 'https://portal.aglis.biz.id'}/track/${registration.registration_number}`
+      };
 
-Dear ${registration.customer_name},
-
-Registration: #${registration.registration_number}
-Package: ${registration.package_name}
-Price: Rp ${registration.price?.toLocaleString('id-ID')}/bulan
-
-Status: ✅ Diterima & Diproses
-
-*Next Steps:*
-✅ 1. Verifikasi data (Done)
-⏳ 2. Survey lokasi (Pending)
-⏳ 3. Instalasi
-⏳ 4. Aktivasi
-
-📱 Track: ${process.env.FRONTEND_URL}/registrations/${registration.registration_number}
-
-Tim kami akan menghubungi Anda dalam 1x24 jam untuk survey lokasi.
-
-Terima kasih telah memilih AGLIS Net! 🚀
-
-_Questions? Hubungi CS: 0821-xxxx-xxxx_`;
+      const message = this.templates.registrationConfirmation(messageData);
 
       const sendResult = await this.whatsappService.sendMessage(registration.customer_phone, message);
 

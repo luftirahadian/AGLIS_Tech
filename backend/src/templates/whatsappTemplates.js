@@ -78,11 +78,11 @@ _Mohon segera ditangani. Terima kasih!_`;
       message += `Teknisi: ${technicianName}\n`;
       message += `Selesai: ${completedAt}\n`;
       message += `Durasi: ${duration}\n\n`;
-      message += `Masalah: ${issue}\n`;
+      message += `Masalah: ${issue}\n\n`;
       if (solution) {
-        message += `Solusi: ${solution}\n`;
+        message += `Solusi: ${solution}\n\n`;
       }
-      message += `\n⭐ Rate our service: ${ratingUrl}\n`;
+      message += `⭐ Rate our service: ${ratingUrl}\n`;
       message += `\n_Terima kasih atas kepercayaan Anda!_`;
     }
 

@@ -389,29 +389,89 @@ class WhatsAppService {
    * Send verification status update
    */
   async sendVerificationUpdate(phone, data) {
-    const statusMessages = {
-      verified: '✅ Data Anda telah diverifikasi',
-      survey_scheduled: '📅 Survey lokasi telah dijadwalkan',
-      approved: '🎉 Pendaftaran Anda telah disetujui',
-      rejected: '❌ Mohon maaf, pendaftaran Anda ditolak'
-    };
+    // Use template for verification update
+    const templates = require('../templates/whatsappTemplates');
+    
+    // Map status to appropriate message
+    let message;
+    if (data.status === 'verified') {
+      message = `✅ *VERIFIKASI BERHASIL*
 
-    let message = `Halo ${data.name},\n\n${statusMessages[data.status] || 'Status pendaftaran Anda telah diupdate'}.\n\n`;
+Dear ${data.name},
 
-    if (data.status === 'survey_scheduled' && data.survey_date) {
-      message += `📅 *Jadwal Survey:* ${data.survey_date}\n\n`;
+Data pendaftaran Anda telah diverifikasi!
+
+📋 Registration: #${data.registration_number}
+Status: ✅ Terverifikasi
+
+*Next Steps:*
+⏳ Survey lokasi akan dijadwalkan
+⏳ Instalasi
+⏳ Aktivasi
+
+Kami akan menghubungi Anda segera.
+
+_AGLIS Net - Connecting You Better!_ 🌐`;
+    } else if (data.status === 'survey_scheduled') {
+      message = `📅 *SURVEY DIJADWALKAN*
+
+Dear ${data.name},
+
+Survey lokasi telah dijadwalkan!
+
+📋 Registration: #${data.registration_number}
+📅 Jadwal Survey: ${data.survey_date || 'Akan dikonfirmasi'}
+
+Tim survey kami akan menghubungi Anda.
+
+_AGLIS Net - Connecting You Better!_ 🌐`;
+    } else if (data.status === 'approved') {
+      message = `🎉 *PENDAFTARAN DISETUJUI*
+
+Dear ${data.name},
+
+Selamat! Pendaftaran Anda telah disetujui!
+
+📋 Registration: #${data.registration_number}
+Status: ✅ Approved
+
+*Next Steps:*
+⏳ Penjadwalan instalasi
+⏳ Instalasi oleh teknisi
+⏳ Aktivasi layanan
+
+Kami akan segera menjadwalkan instalasi.
+
+_AGLIS Net - Connecting You Better!_ 🌐`;
+    } else if (data.status === 'rejected') {
+      message = `❌ *PENDAFTARAN DITOLAK*
+
+Dear ${data.name},
+
+Mohon maaf, pendaftaran Anda tidak dapat diproses.
+
+📋 Registration: #${data.registration_number}
+${data.rejection_reason ? `\n*Alasan:* ${data.rejection_reason}\n` : ''}
+*Anda dapat:*
+- Mendaftar kembali dengan data yang benar
+- Hubungi CS untuk informasi lebih lanjut
+
+📞 Customer Service: 0821-xxxx-xxxx
+
+_AGLIS Net - We're here to help!_ 🌐`;
+    } else {
+      message = `📱 *UPDATE STATUS*
+
+Dear ${data.name},
+
+Status pendaftaran Anda telah diupdate.
+
+📋 Registration: #${data.registration_number}
+
+Kami akan menghubungi Anda untuk informasi lebih lanjut.
+
+_AGLIS Net - Connecting You Better!_ 🌐`;
     }
-
-    if (data.status === 'approved') {
-      message += `Selamat! Kami akan segera menjadwalkan instalasi untuk Anda.\n\n`;
-    }
-
-    if (data.status === 'rejected' && data.rejection_reason) {
-      message += `*Alasan:* ${data.rejection_reason}\n\n`;
-      message += `Anda dapat mendaftar kembali atau hubungi kami untuk informasi lebih lanjut.\n\n`;
-    }
-
-    message += `📋 *Nomor Registrasi:* ${data.registration_number}\n\nTerima kasih!`;
 
     return this.sendMessage(phone, message);
   }
@@ -420,7 +480,19 @@ class WhatsAppService {
    * Send installation schedule
    */
   async sendInstallationSchedule(phone, data) {
-    const message = `Halo ${data.name},\n\n🎉 Instalasi Anda telah dijadwalkan!\n\n📅 *Tanggal:* ${data.installation_date}\n⏰ *Waktu:* ${data.installation_time}\n👷 *Teknisi:* ${data.technician_name}\n📦 *Paket:* ${data.package_name}\n📍 *Alamat:* ${data.address}\n\nTim teknisi kami akan datang sesuai jadwal. Pastikan ada yang bisa menerima teknisi di lokasi.\n\nJika ada pertanyaan, hubungi kami.\n\nTerima kasih!`;
+    // Use installation schedule template
+    const templates = require('../templates/whatsappTemplates');
+    const messageData = {
+      customerName: data.name,
+      installationDate: data.installation_date,
+      installationTime: data.installation_time,
+      technicianName: data.technician_name,
+      technicianPhone: data.technician_phone || '0821-xxxx-xxxx',
+      packageName: data.package_name,
+      address: data.address
+    };
+    
+    const message = templates.installationSchedule(messageData);
 
     return this.sendMessage(phone, message);
   }
@@ -429,7 +501,22 @@ class WhatsAppService {
    * Send welcome message after activation
    */
   async sendWelcomeMessage(phone, data) {
-    const message = `Selamat datang di ISP kami, ${data.name}! 🎉\n\n✅ Instalasi selesai!\n👤 *ID Customer:* ${data.customer_id}\n📦 *Paket:* ${data.package_name}\n💰 *Tagihan Bulanan:* Rp ${data.price?.toLocaleString('id-ID')}\n📅 *Tanggal Tagihan:* ${data.billing_date}\n\n🌐 *Informasi WiFi:*\nNama: ${data.wifi_name}\nPassword: ${data.wifi_password}\n\nNikmati layanan internet cepat kami!\n\nUntuk bantuan, hubungi customer service kami.\n\nTerima kasih! 🚀`;
+    // Use welcome message template
+    const templates = require('../templates/whatsappTemplates');
+    const messageData = {
+      customerName: data.name,
+      customerId: data.customer_id,
+      packageName: data.package_name,
+      speed: data.speed || '20 Mbps',
+      monthlyPrice: data.price?.toLocaleString('id-ID'),
+      billingDate: data.billing_date,
+      wifiName: data.wifi_name,
+      wifiPassword: data.wifi_password,
+      portalUrl: process.env.FRONTEND_URL || 'https://portal.aglis.biz.id',
+      csPhone: '0821-xxxx-xxxx'
+    };
+    
+    const message = templates.welcomeMessage(messageData);
 
     return this.sendMessage(phone, message);
   }
@@ -438,8 +525,18 @@ class WhatsAppService {
    * Send reminder for payment
    */
   async sendPaymentReminder(phone, data) {
-    const daysLeft = data.days_left || 3;
-    const message = `Halo ${data.name},\n\n💰 *Pengingat Pembayaran*\n\nTagihan internet Anda akan jatuh tempo dalam ${daysLeft} hari.\n\n📋 *Detail:*\n- Periode: ${data.period}\n- Jumlah: Rp ${data.amount?.toLocaleString('id-ID')}\n- Jatuh Tempo: ${data.due_date}\n\nSilakan lakukan pembayaran sebelum tanggal jatuh tempo agar layanan Anda tidak terganggu.\n\nTerima kasih!`;
+    // Use payment reminder template
+    const templates = require('../templates/whatsappTemplates');
+    const messageData = {
+      customerName: data.name,
+      invoiceNumber: data.invoice_number || 'INV-XXXXX',
+      amount: data.amount?.toLocaleString('id-ID'),
+      dueDate: data.due_date,
+      period: data.period,
+      paymentUrl: `${process.env.FRONTEND_URL || 'https://portal.aglis.biz.id'}/payments/${data.invoice_id || ''}`
+    };
+    
+    const message = templates.paymentReminder(messageData);
 
     return this.sendMessage(phone, message);
   }
