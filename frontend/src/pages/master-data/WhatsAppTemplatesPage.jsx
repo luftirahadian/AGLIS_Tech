@@ -43,7 +43,8 @@ const WhatsAppTemplatesPage = () => {
     }
   );
 
-  const templates = templatesData?.data || [];
+  // Fix: API returns array directly, not wrapped in {data: [...]}
+  const templates = Array.isArray(templatesData) ? templatesData : (templatesData?.data || []);
   
   console.log('Templates data:', templatesData);
   console.log('Templates array:', templates);
@@ -315,8 +316,8 @@ const WhatsAppTemplatesPage = () => {
             <div><strong>Debug Info:</strong></div>
             <div>Category Filter: {categoryFilter}</div>
             <div>Search Term: {searchTerm || '(empty)'}</div>
-            <div>Response Success: {templatesData?.success ? 'Yes' : 'No'}</div>
-            <div>Data Array Length: {templatesData?.data?.length || 0}</div>
+            <div>Response Success: {Array.isArray(templatesData) ? 'Yes' : (templatesData?.success ? 'Yes' : 'No')}</div>
+            <div>Data Array Length: {Array.isArray(templatesData) ? templatesData.length : (templatesData?.data?.length || 0)}</div>
             <div>Is Loading: {isLoading ? 'Yes' : 'No'}</div>
             <div>Has Error: {isError ? 'Yes' : 'No'}</div>
           </div>
