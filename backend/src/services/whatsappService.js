@@ -47,8 +47,14 @@ class WhatsAppService {
    * Format phone number to WhatsApp format
    * Input: 081234567890, +62812345678, 62812345678
    * Output: 6281234567890
+   * Also supports group chat IDs: 120363419722776103@g.us
    */
   formatPhoneNumber(phone) {
+    // If it's a group chat ID (contains @g.us), return as-is
+    if (phone.includes('@g.us')) {
+      return phone;
+    }
+    
     // Remove all non-digit characters
     let formatted = phone.replace(/\D/g, '');
     
@@ -66,9 +72,15 @@ class WhatsAppService {
   }
 
   /**
-   * Validate Indonesian WhatsApp number
+   * Validate Indonesian WhatsApp number or group chat ID
    */
   isValidWhatsAppNumber(phone) {
+    // Group chat ID format: digits@g.us
+    if (phone.includes('@g.us')) {
+      const groupPattern = /^\d+@g\.us$/;
+      return groupPattern.test(phone);
+    }
+    
     const formatted = this.formatPhoneNumber(phone);
     // Indonesian number pattern: 62 + (8XX) + 7-11 digits
     const pattern = /^628\d{8,11}$/;
