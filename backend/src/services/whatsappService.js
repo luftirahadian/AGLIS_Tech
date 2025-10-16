@@ -88,9 +88,12 @@ class WhatsAppService {
     }
     
     const formatted = this.formatPhoneNumber(phone);
-    // Indonesian number pattern: 62 + (8XX) + 7-11 digits
-    const pattern = /^628\d{8,11}$/;
-    return pattern.test(formatted);
+    // Indonesian number pattern: 62 + mobile (8XX) or fixed-line (2X, 3X, etc) + digits
+    // Mobile: 628XX... (8-11 additional digits)
+    // Fixed-line: 622X..., 623X..., etc. (area codes)
+    const mobilePattern = /^628\d{8,11}$/;
+    const fixedLinePattern = /^62[2-9]\d{8,11}$/;
+    return mobilePattern.test(formatted) || fixedLinePattern.test(formatted);
   }
 
   /**
