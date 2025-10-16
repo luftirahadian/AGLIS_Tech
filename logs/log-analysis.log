@@ -22055,3 +22055,931 @@ Recent application errors:
 10|aglis-backend-4 | 2025-10-16T10:35:54: 🚨 OVERDUE: Ticket #TKT20251013006 is 1852 minutes overdue!
 10|aglis-backend-4 | 2025-10-16T10:35:54: 🚨 OVERDUE: Ticket #TKT20251013007 is 1829 minutes overdue!
 10|aglis-backend-4 | 2025-10-16T10:35:54: 🚨 OVERDUE: Ticket #TKT20251014010 is 1808 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+8|aglis-backend-2  | 8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2349 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1861 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1838 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T10:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1817 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+10|aglis-backend-4 | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+9|aglis-backend-3  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+7|aglis-backend-1  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   query: '\n' +
+2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:     '        SELECT \n' +
+2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00: }
+2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 7|aglis-backend-1  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00: }
+2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T11:00:00: }
+2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ QUERY ERROR (5ms): {
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+2025-10-16T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 9|aglis-backend-3  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ QUERY ERROR (5ms): {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ QUERY ERROR (5ms): {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   column: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   line: '3647',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   query: '\n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '        SELECT \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+7|aglis-backend-1  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+7|aglis-backend-1  | 2025-10-16T11:00:00: }
+7|aglis-backend-1  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+7|aglis-backend-1  | 2025-10-16T11:00:00:   detail: undefined,
+2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+2025-10-16T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   length: 117,
+2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+7|aglis-backend-1  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   hint: undefined,
+2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   position: '63',
+2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+2025-10-16T11:00:00:   internalQuery: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+2025-10-16T11:00:00:   table: undefined,
+7|aglis-backend-1  | 9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   dataType: undefined,
+2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 7|aglis-backend-1  | 2025-10-16T11:00:00:   constraint: undefined,
+2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ QUERY ERROR (5ms): {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   query: '\n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '        SELECT \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+9|aglis-backend-3  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+9|aglis-backend-3  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+9|aglis-backend-3  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+9|aglis-backend-3  | 2025-10-16T11:00:00:   length: 117,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   severity: 'ERROR',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   code: '42703',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   detail: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   hint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   position: '63',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalPosition: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   internalQuery: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   where: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   schema: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   table: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   column: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   dataType: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   constraint: undefined,
+9|aglis-backend-3  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   line: '3647',
+9|aglis-backend-3  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+9|aglis-backend-3  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ QUERY ERROR (7ms): {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ QUERY ERROR (7ms): {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ QUERY ERROR (7ms): {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ QUERY ERROR (7ms): {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   query: '\n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '        SELECT \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+8|aglis-backend-2  | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+8|aglis-backend-2  | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+8|aglis-backend-2  | 2025-10-16T11:00:00:   length: 117,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   severity: 'ERROR',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   code: '42703',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   detail: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   hint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   position: '63',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalPosition: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   internalQuery: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   where: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   schema: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   table: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   column: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   dataType: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   constraint: undefined,
+8|aglis-backend-2  | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   line: '3647',
+8|aglis-backend-2  | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+8|aglis-backend-2  | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+2025-10-16T11:00:00: Error sending daily summary: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   detail: undefined,
+2025-10-16T11:00:00:   length: 117,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+2025-10-16T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+2025-10-16T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00: }
+2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+2025-10-16T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:   code: '42703',
+2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: ❌ QUERY ERROR (4ms): {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   error: 'column "expected_duration" does not exist',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   query: '\n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '        SELECT \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          COUNT(CASE WHEN actual_duration <= expected_duration THEN 1 END)::float / \n' +
+10|aglis-backend-4 | 2025-10-16T11:00:00:     '          NULLIF(COUNT(*), 0) * 100 as sla_achie...'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+10|aglis-backend-4 | 2025-10-16T11:00:00: ❌ Daily summary failed: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00: error: column "expected_duration" does not exist
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+10|aglis-backend-4 | 2025-10-16T11:00:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|aglis-backend-4 | 2025-10-16T11:00:00:   length: 117,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   severity: 'ERROR',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   code: '42703',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   detail: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   hint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   position: '63',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalPosition: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   internalQuery: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   where: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   schema: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   table: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   column: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   dataType: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   constraint: undefined,
+10|aglis-backend-4 | 2025-10-16T11:00:00:   file: 'parse_relation.c',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   line: '3647',
+10|aglis-backend-4 | 2025-10-16T11:00:00:   routine: 'errorMissingColumn'
+10|aglis-backend-4 | 2025-10-16T11:00:00: }
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2364 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1876 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1853 minutes overdue!
+8|aglis-backend-2  | 2025-10-16T11:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1832 minutes overdue!

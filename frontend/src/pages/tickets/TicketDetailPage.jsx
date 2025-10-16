@@ -225,51 +225,20 @@ const TicketDetailPage = () => {
           </div>
         </div>
 
-        {/* Technician Team Card */}
-        {(ticket.team && ticket.team.length > 0) || ticket.assigned_technician_id ? (
-          <div className="card">
-            <div className="card-body">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center">
-                  <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">
-                      {ticket.team && ticket.team.length > 1 ? 'Technician Team' : 'Technician'}
-                    </p>
-                    {ticket.team && ticket.team.length > 1 && (
-                      <p className="text-xs text-gray-500">{ticket.team.length} teknisi assigned</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-              
-              {/* Import and use TechnicianTeamDisplay component */}
-              {ticket.team && ticket.team.length > 0 ? (
-                <TechnicianTeamDisplay 
-                  team={ticket.team} 
-                  leadId={ticket.assigned_technician_id} 
-                />
-              ) : (
-                <Link to={`/technicians/${ticket.assigned_technician_id}`} className="hover:bg-gray-50 p-2 rounded block">
-                  <p className="text-lg font-semibold text-gray-900">{ticket.technician_name}</p>
-                  <p className="text-xs text-gray-500">{ticket.employee_id}</p>
-                </Link>
-              )}
-            </div>
-          </div>
-        ) : (
-          <div className="card">
-            <div className="card-body">
-              <div className="flex items-center">
-                <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Technician</p>
-                  <p className="text-lg font-semibold text-gray-900">Unassigned</p>
+        {/* Status Card */}
+        <div className="card">
+          <div className="card-body">
+            <div className="flex items-center">
+              <Ticket className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
+              <div>
+                <p className="text-sm font-medium text-gray-600">Status</p>
+                <div className="mt-1">
+                  {getStatusBadge(ticket.status)}
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Quick Actions */}
@@ -834,6 +803,66 @@ const TicketDetailPage = () => {
                     </span>
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Technician Team Card */}
+          {(ticket.team && ticket.team.length > 0) || ticket.assigned_technician_id ? (
+            <div className="card">
+              <div className="card-header">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {ticket.team && ticket.team.length > 1 ? 'Technician Team' : 'Assigned Technician'}
+                  </h3>
+                  {ticket.team && ticket.team.length > 1 && (
+                    <span className="text-xs text-gray-500 bg-purple-100 px-2 py-1 rounded-full">
+                      {ticket.team.length} teknisi
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="card-body">
+                {/* Display team or single technician */}
+                {ticket.team && ticket.team.length > 0 ? (
+                  <TechnicianTeamDisplay 
+                    team={ticket.team} 
+                    leadId={ticket.assigned_technician_id} 
+                  />
+                ) : (
+                  <Link to={`/technicians/${ticket.assigned_technician_id}`} className="hover:bg-gray-50 p-3 rounded-lg block transition-colors">
+                    <div className="flex items-start space-x-3">
+                      <User className="h-6 w-6 text-purple-600 mt-1" />
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-gray-900">{ticket.technician_name}</p>
+                        <p className="text-xs text-gray-500 mt-1">{ticket.employee_id}</p>
+                        {ticket.technician_phone && (
+                          <a 
+                            href={`https://wa.me/${ticket.technician_phone}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-green-600 hover:text-green-700 flex items-center text-xs mt-2"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Phone className="h-3 w-3 mr-1" /> {ticket.technician_phone}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="card">
+              <div className="card-header">
+                <h3 className="text-lg font-semibold text-gray-900">Assigned Technician</h3>
+              </div>
+              <div className="card-body">
+                <div className="flex items-center">
+                  <User className="h-6 w-6 text-gray-400 mr-3" />
+                  <p className="text-sm text-gray-500">Unassigned</p>
+                </div>
               </div>
             </div>
           )}
