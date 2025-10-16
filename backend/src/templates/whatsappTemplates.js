@@ -732,6 +732,94 @@ Role Anda: ${roleText}
 📱 View detail: ${detailUrl}
 
 _AGLIS Net - Together We Achieve More!_ 🤝`;
+  },
+
+  /**
+   * 21. TICKET CREATED - Customer Confirmation
+   */
+  ticketCreatedCustomer: (data) => {
+    const { customerName, ticketNumber, type, title, trackingUrl } = data;
+    
+    return `✅ *TICKET BERHASIL DIBUAT*
+
+Hi ${customerName},
+Ticket Anda telah berhasil dibuat!
+
+Ticket: #${ticketNumber}
+Jenis: ${type}
+Judul: ${title}
+
+Status: ⏳ Open (Menunggu Assignment)
+
+Ticket Anda sedang diproses. 
+Tim kami akan segera menindaklanjuti.
+
+📱 Track ticket: ${trackingUrl}
+
+Anda akan menerima update via WhatsApp saat teknisi di-assign.
+
+_AGLIS Net - Fast Response!_ 🚀`;
+  },
+
+  /**
+   * 22. TICKET CREATED - Supervisor Group Alert
+   */
+  ticketCreatedSupervisor: (data) => {
+    const { ticketNumber, customerName, customerPhone, type, priority, title, assignUrl } = data;
+    
+    const priorityEmoji = {
+      critical: '🔴',
+      high: '🟠',
+      normal: '🟢',
+      low: '⚪'
+    }[priority] || '🟢';
+    
+    return `🆕 *TICKET BARU - PERLU ASSIGNMENT!*
+
+${priorityEmoji} #${ticketNumber}
+
+Customer: ${customerName}
+Phone: ${customerPhone}
+Type: ${type}
+Priority: ${priority.toUpperCase()}
+Judul: ${title}
+
+⏳ Status: Open (Unassigned)
+
+*Action needed: Assign teknisi ASAP*
+
+📱 Assign sekarang: ${assignUrl}
+
+_AGLIS Net - Quick Response Team!_ ⚡`;
+  },
+
+  /**
+   * 23. TICKET CREATED - Technician Group Broadcast
+   */
+  ticketCreatedTechnicians: (data) => {
+    const { ticketNumber, customerName, type, priority, location, description } = data;
+    
+    const priorityEmoji = {
+      critical: '🔴 URGENT',
+      high: '🟠 HIGH',
+      normal: '🟢 NORMAL',
+      low: '⚪ LOW'
+    }[priority] || '🟢 NORMAL';
+    
+    return `🔔 *TICKET TERSEDIA!*
+
+${priorityEmoji}
+
+#${ticketNumber} - ${type}
+Customer: ${customerName}
+Lokasi: ${location}
+
+Detail: ${description}
+
+Siapa yang available untuk handle ticket ini?
+Koordinasi dengan supervisor untuk assignment.
+
+_AGLIS Net - Team Available!_ 💪`;
   }
 };
 

@@ -549,6 +549,15 @@ router.post('/', [
         console.log(`📡 Socket.IO: Events emitted for new ticket ${ticket.ticket_number}`);
       }
 
+      // Send WhatsApp notifications (async - don't wait)
+      whatsappNotificationService.notifyTicketCreated(ticket.id)
+        .then(result => {
+          console.log(`✅ WhatsApp notifications sent for ticket #${ticket.ticket_number}:`, result);
+        })
+        .catch(err => {
+          console.error(`❌ Failed to send WhatsApp notifications for ticket #${ticket.ticket_number}:`, err);
+        });
+
       res.status(201).json({
         success: true,
         message: 'Ticket created successfully',

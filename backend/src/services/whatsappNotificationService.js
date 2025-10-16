@@ -1482,6 +1482,190 @@ _AGLIS Net - Always Connected_`;
       return { success: false, error: error.message };
     }
   }
+
+  /**
+   * Send notifications when new ticket is created
+   * Sends to: Customer, Supervisor Group, Technician Group
+   */
+  async notifyTicketCreated(ticketId) {
+    try {
+      console.log(`📱 Sending ticket created notifications for ticket #${ticketId}`);
+
+      // Get ticket and customer details
+      const ticketQuery = `
+        SELECT 
+          t.*,
+          c.name as customer_name,
+          c.phone as customer_phone,
+          c.address as customer_address
+        FROM tickets t
+        JOIN customers c ON t.customer_id = c.id
+        WHERE t.id = $1
+      `;
+      const ticketResult = await pool.query(ticketQuery, [ticketId]);
+
+      if (ticketResult.rows.length === 0) {
+        console.error(`Ticket #${ticketId} not found`);
+        return { success: false, error: 'Ticket not found' };
+      }
+
+      const ticket = ticketResult.rows[0];
+      const frontendUrl = process.env.FRONTEND_URL || 'https://portal.aglis.biz.id';
+      
+      const results = {
+        customer: null,
+        supervisorGroup: null,
+        technicianGroup: null
+      };
+
+      // 1. Send to CUSTOMER
+      if (ticket.customer_phone) {
+        const customerMessage = this.templates.ticketCreatedCustomer({
+          customerName: ticket.customer_name,
+          ticketNumber: ticket.ticket_number,
+          type: this.formatTicketType(ticket.type),
+          title: ticket.title,
+          trackingUrl: `${frontendUrl}/tickets/${ticket.id}`
+        });
+
+        const customerResult = await this.whatsappService.sendMessage(
+          ticket.customer_phone,
+          customerMessage
+        );
+
+        await this.logNotification({
+          ticket_id: ticket.id,
+          phone_number: ticket.customer_phone,
+          recipient_type: 'individual',
+          notification_type: 'ticket_created',
+          message: customerMessage,
+          status: customerResult.success ? 'sent' : 'failed',
+          provider: customerResult.provider,
+          error: customerResult.error
+        });
+
+        results.customer = customerResult;
+        console.log(`📱 Customer notification: ${customerResult.success ? 'SUCCESS' : 'FAILED'}`);
+      }
+
+      // 2. Send to SUPERVISOR GROUP
+      const supervisorGroupQuery = `
+        SELECT phone_number, name 
+        FROM whatsapp_groups 
+        WHERE is_active = TRUE 
+        AND notification_types @> ARRAY['ticket_created']::varchar[]
+        AND name ILIKE '%supervisor%'
+        LIMIT 1
+      `;
+      const supervisorGroup = await pool.query(supervisorGroupQuery);
+
+      if (supervisorGroup.rows.length > 0) {
+        const group = supervisorGroup.rows[0];
+        const supervisorMessage = this.templates.ticketCreatedSupervisor({
+          ticketNumber: ticket.ticket_number,
+          customerName: ticket.customer_name,
+          customerPhone: ticket.customer_phone,
+          type: this.formatTicketType(ticket.type),
+          priority: ticket.priority,
+          title: ticket.title,
+          assignUrl: `${frontendUrl}/tickets`
+        });
+
+        const supervisorResult = await this.whatsappService.sendMessage(
+          group.phone_number,
+          supervisorMessage
+        );
+
+        await this.logNotification({
+          ticket_id: ticket.id,
+          phone_number: group.phone_number,
+          recipient_type: 'group',
+          notification_type: 'ticket_created',
+          message: supervisorMessage,
+          status: supervisorResult.success ? 'sent' : 'failed',
+          provider: supervisorResult.provider,
+          error: supervisorResult.error
+        });
+
+        results.supervisorGroup = supervisorResult;
+        console.log(`📱 Supervisor group notification: ${supervisorResult.success ? 'SUCCESS' : 'FAILED'}`);
+      }
+
+      // 3. Send to TECHNICIAN GROUP
+      const technicianGroupQuery = `
+        SELECT phone_number, name 
+        FROM whatsapp_groups 
+        WHERE is_active = TRUE 
+        AND notification_types @> ARRAY['ticket_created']::varchar[]
+        AND name ILIKE '%teknisi%'
+        LIMIT 1
+      `;
+      const technicianGroup = await pool.query(technicianGroupQuery);
+
+      if (technicianGroup.rows.length > 0) {
+        const group = technicianGroup.rows[0];
+        const technicianMessage = this.templates.ticketCreatedTechnicians({
+          ticketNumber: ticket.ticket_number,
+          customerName: ticket.customer_name,
+          type: this.formatTicketType(ticket.type),
+          priority: ticket.priority,
+          location: ticket.customer_address || 'Check detail',
+          description: ticket.description.substring(0, 100) + (ticket.description.length > 100 ? '...' : '')
+        });
+
+        const technicianResult = await this.whatsappService.sendMessage(
+          group.phone_number,
+          technicianMessage
+        );
+
+        await this.logNotification({
+          ticket_id: ticket.id,
+          phone_number: group.phone_number,
+          recipient_type: 'group',
+          notification_type: 'ticket_created',
+          message: technicianMessage,
+          status: technicianResult.success ? 'sent' : 'failed',
+          provider: technicianResult.provider,
+          error: technicianResult.error
+        });
+
+        results.technicianGroup = technicianResult;
+        console.log(`📱 Technician group notification: ${technicianResult.success ? 'SUCCESS' : 'FAILED'}`);
+      }
+
+      console.log(`✅ Ticket created notifications completed for #${ticket.ticket_number}`);
+      
+      return {
+        success: true,
+        results: results
+      };
+
+    } catch (error) {
+      console.error('Error sending ticket created notifications:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * Helper: Format ticket type for display
+   */
+  formatTicketType(type) {
+    const types = {
+      installation: 'Installation',
+      repair: 'Repair',
+      maintenance: 'Maintenance',
+      upgrade: 'Upgrade',
+      downgrade: 'Downgrade',
+      wifi_setup: 'WiFi Setup',
+      dismantle: 'Dismantle',
+      speed_test: 'Speed Test',
+      bandwidth_upgrade: 'Bandwidth Upgrade',
+      redundancy_setup: 'Redundancy Setup',
+      network_config: 'Network Config',
+      security_audit: 'Security Audit'
+    };
+    return types[type] || type;
+  }
 }
 
 // Export singleton instance
