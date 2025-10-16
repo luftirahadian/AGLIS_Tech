@@ -209,6 +209,7 @@ app.use('/api/customers', authMiddleware, customerRoutes);
 app.use('/api/technicians', authMiddleware, technicianRoutes);
 app.use('/api/technicians', authMiddleware, technicianSpecializationsRoutes);
 app.use('/api/tickets', authMiddleware, ticketRoutes);
+app.use('/api/tickets', authMiddleware, require('./routes/ticketTeam')); // Multi-technician team management
 app.use('/api/inventory', authMiddleware, inventoryRoutes);
 app.use('/api/inventory-stock', authMiddleware, inventoryStockRoutes);
 // Pricelist API - allow public read access for customer transparency

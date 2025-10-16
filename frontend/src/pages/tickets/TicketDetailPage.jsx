@@ -23,6 +23,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import StatusUpdateForm from '../../components/StatusUpdateForm'
 import BackButton from '../../components/common/BackButton'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import TechnicianTeamDisplay from '../../components/TechnicianTeamDisplay'
 import toast from 'react-hot-toast'
 
 const TicketDetailPage = () => {
@@ -224,20 +225,38 @@ const TicketDetailPage = () => {
           </div>
         </div>
 
-        {/* Technician Card - Clickable if assigned */}
-        {ticket.assigned_technician_id ? (
-          <Link to={`/technicians/${ticket.assigned_technician_id}`} className="card hover:shadow-lg transition-shadow cursor-pointer">
+        {/* Technician Team Card */}
+        {(ticket.team && ticket.team.length > 0) || ticket.assigned_technician_id ? (
+          <div className="card">
             <div className="card-body">
-              <div className="flex items-center">
-                <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Technician</p>
-                  <p className="text-lg font-semibold text-gray-900">{ticket.technician_name}</p>
-                  <p className="text-xs text-gray-500">{ticket.employee_id}</p>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <User className="h-8 w-8 text-purple-600 bg-purple-100 rounded-lg p-2 mr-3" />
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">
+                      {ticket.team && ticket.team.length > 1 ? 'Technician Team' : 'Technician'}
+                    </p>
+                    {ticket.team && ticket.team.length > 1 && (
+                      <p className="text-xs text-gray-500">{ticket.team.length} teknisi assigned</p>
+                    )}
+                  </div>
                 </div>
               </div>
+              
+              {/* Import and use TechnicianTeamDisplay component */}
+              {ticket.team && ticket.team.length > 0 ? (
+                <TechnicianTeamDisplay 
+                  team={ticket.team} 
+                  leadId={ticket.assigned_technician_id} 
+                />
+              ) : (
+                <Link to={`/technicians/${ticket.assigned_technician_id}`} className="hover:bg-gray-50 p-2 rounded block">
+                  <p className="text-lg font-semibold text-gray-900">{ticket.technician_name}</p>
+                  <p className="text-xs text-gray-500">{ticket.employee_id}</p>
+                </Link>
+              )}
             </div>
-          </Link>
+          </div>
         ) : (
           <div className="card">
             <div className="card-body">

@@ -1361,6 +1361,127 @@ _AGLIS Net - Always Connected_`;
       return { success: false, error: error.message };
     }
   }
+
+  /**
+   * Send team assignment notification
+   * Sends different messages for lead vs members
+   */
+  async notifyTechnicianTeamAssignment(ticketId, technicianId, role, teamMembers) {
+    try {
+      // Get ticket and technician details
+      const ticketQuery = `
+        SELECT t.*, c.name as customer_name, c.address as customer_address
+        FROM tickets t
+        JOIN customers c ON t.customer_id = c.id
+        WHERE t.id = $1
+      `;
+      const ticketResult = await pool.query(ticketQuery, [ticketId]);
+      
+      if (ticketResult.rows.length === 0) {
+        return { success: false, error: 'Ticket not found' };
+      }
+
+      const ticket = ticketResult.rows[0];
+
+      const techResult = await pool.query(
+        'SELECT * FROM technicians WHERE id = $1',
+        [technicianId]
+      );
+
+      if (techResult.rows.length === 0) {
+        return { success: false, error: 'Technician not found' };
+      }
+
+      const technician = techResult.rows[0];
+      const detailUrl = `${process.env.FRONTEND_URL || 'https://portal.aglis.biz.id'}/tickets/${ticketId}`;
+
+      let message;
+
+      if (role === 'lead') {
+        // Lead technician message
+        const otherMembers = teamMembers
+          .filter(m => m.technician_id !== technicianId)
+          .map(m => ({ name: m.full_name, role: m.role }));
+
+        const messageData = {
+          technicianName: technician.full_name,
+          ticketNumber: ticket.ticket_number,
+          customerName: ticket.customer_name,
+          location: ticket.customer_address || 'See detail',
+          teamMembers: otherMembers,
+          teamCount: teamMembers.length,
+          detailUrl
+        };
+
+        message = this.templates.teamAssignmentLead(messageData);
+      } else {
+        // Team member/support message
+        const leadTech = teamMembers.find(m => m.role === 'lead');
+
+        const messageData = {
+          technicianName: technician.full_name,
+          ticketNumber: ticket.ticket_number,
+          customerName: ticket.customer_name,
+          location: ticket.customer_address || 'See detail',
+          leadName: leadTech?.full_name || 'TBA',
+          leadPhone: leadTech?.phone || '-',
+          role: role,
+          detailUrl
+        };
+
+        message = this.templates.teamAssignmentMember(messageData);
+      }
+
+      // Send WhatsApp
+      const sendResult = await this.whatsappService.sendMessage(technician.phone, message);
+
+      // Log notification
+      await this.logNotification({
+        ticket_id: ticketId,
+        phone_number: technician.phone,
+        recipient_type: 'individual',
+        notification_type: 'team_assignment',
+        message: message,
+        status: sendResult.success ? 'sent' : 'failed',
+        provider: sendResult.provider,
+        error: sendResult.error
+      });
+
+      console.log(`📱 Team assignment notification sent to ${technician.full_name} (${role}): ${sendResult.success ? 'SUCCESS' : 'FAILED'}`);
+
+      return sendResult;
+
+    } catch (error) {
+      console.error('Error sending team assignment notification:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * Send notification when technician is added to existing team
+   */
+  async notifyTechnicianAdded(ticketId, technicianId, role) {
+    try {
+      // Get current team
+      const teamQuery = `
+        SELECT 
+          tt.*,
+          t.full_name,
+          t.phone
+        FROM ticket_technicians tt
+        JOIN technicians t ON tt.technician_id = t.id
+        WHERE tt.ticket_id = $1 AND tt.is_active = TRUE
+      `;
+      const teamResult = await pool.query(teamQuery, [ticketId]);
+
+      // Send notification
+      return await this.notifyTechnicianTeamAssignment(ticketId, technicianId, role, teamResult.rows);
+
+    } catch (error) {
+      console.error('Error notifying technician added:', error);
+      return { success: false, error: error.message };
+    }
+  }
 }
 
 // Export singleton instance

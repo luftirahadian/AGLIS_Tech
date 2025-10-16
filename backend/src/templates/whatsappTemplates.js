@@ -669,6 +669,69 @@ Status: ✅ Diterima & Diproses
 Tim kami akan menghubungi dalam 1x24 jam
 
 _AGLIS Net - Connecting You Better!_ 🌐`;
+  },
+
+  /**
+   * 19. TEAM ASSIGNMENT - Lead Technician
+   */
+  teamAssignmentLead: (data) => {
+    const { technicianName, ticketNumber, customerName, location, teamMembers, teamCount, detailUrl } = data;
+    
+    const membersList = teamMembers.map(m => `   - ${m.name} (${m.role})`).join('\n');
+    
+    return `🎫 *TICKET ASSIGNED - LEAD TECHNICIAN*
+
+Hi ${technicianName},
+Anda ditunjuk sebagai *LEAD TECHNICIAN*!
+
+Ticket: #${ticketNumber}
+Customer: ${customerName}
+Lokasi: ${location}
+
+👥 *Tim Anda (${teamCount} teknisi):*
+${membersList}
+
+*Tanggung Jawab:*
+✅ Koordinasi tim
+✅ Update progress
+✅ Quality control
+
+📱 View detail: ${detailUrl}
+
+_AGLIS Net - Teamwork Makes The Dream Work!_ 🚀`;
+  },
+
+  /**
+   * 20. TEAM ASSIGNMENT - Team Member
+   */
+  teamAssignmentMember: (data) => {
+    const { technicianName, ticketNumber, customerName, location, leadName, leadPhone, role, detailUrl } = data;
+    
+    const roleText = role === 'support' ? 'Support' : 'Team Member';
+    
+    return `🎫 *TICKET ASSIGNED - ${roleText.toUpperCase()}*
+
+Hi ${technicianName},
+Anda ditambahkan ke tim ticket!
+
+Ticket: #${ticketNumber}
+Customer: ${customerName}
+Lokasi: ${location}
+
+👤 *Lead Technician:*
+   ${leadName}
+   📱 ${leadPhone}
+
+Role Anda: ${roleText}
+
+*Koordinasi dengan lead untuk:*
+✅ Pembagian tugas
+✅ Jadwal kerja
+✅ Update progress
+
+📱 View detail: ${detailUrl}
+
+_AGLIS Net - Together We Achieve More!_ 🤝`;
   }
 };
 

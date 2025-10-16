@@ -342,10 +342,32 @@ router.get('/:id', async (req, res) => {
     `;
     const historyResult = await pool.query(historyQuery, [id]);
 
+    // Get ticket team (multiple technicians)
+    const teamQuery = `
+      SELECT 
+        tt.*,
+        t.full_name,
+        t.phone,
+        t.email,
+        t.specialization
+      FROM ticket_technicians tt
+      JOIN technicians t ON tt.technician_id = t.id
+      WHERE tt.ticket_id = $1 AND tt.is_active = TRUE
+      ORDER BY 
+        CASE tt.role 
+          WHEN 'lead' THEN 1
+          WHEN 'member' THEN 2
+          WHEN 'support' THEN 3
+        END,
+        tt.assigned_at ASC
+    `;
+    const teamResult = await pool.query(teamQuery, [id]);
+
     const ticket = {
       ...result.rows[0],
       attachments: attachmentsResult.rows,
-      status_history: historyResult.rows
+      status_history: historyResult.rows,
+      team: teamResult.rows
     };
 
     res.json({

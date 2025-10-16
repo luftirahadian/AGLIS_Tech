@@ -6,6 +6,7 @@ import toast from 'react-hot-toast'
 import { ticketService } from '../../services/ticketService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
+import TeamAssignmentModal from '../../components/TeamAssignmentModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import { exportToExcel, formatCurrency, formatDate } from '../../utils/exportToExcel'
@@ -18,6 +19,7 @@ const TicketsPage = () => {
   
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [showAssignmentModal, setShowAssignmentModal] = useState(false)
+  const [showTeamAssignmentModal, setShowTeamAssignmentModal] = useState(false)
   const [selectedTicketForAssignment, setSelectedTicketForAssignment] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [limit, setLimit] = useState(10)
@@ -140,6 +142,11 @@ const TicketsPage = () => {
   const handleAssignTicket = (ticket) => {
     setSelectedTicketForAssignment(ticket)
     setShowAssignmentModal(true)
+  }
+
+  const handleTeamAssignTicket = (ticket) => {
+    setSelectedTicketForAssignment(ticket)
+    setShowTeamAssignmentModal(true)
   }
 
   // Export tickets to Excel
@@ -346,6 +353,12 @@ const TicketsPage = () => {
     e.stopPropagation() // Prevent row click
     setSelectedTicketForAssignment(ticket)
     setShowAssignmentModal(true)
+  }
+
+  const handleQuickTeamAssign = (e, ticket) => {
+    e.stopPropagation() // Prevent row click
+    setSelectedTicketForAssignment(ticket)
+    setShowTeamAssignmentModal(true)
   }
 
   const handleQuickComplete = async (e, ticket) => {
@@ -895,13 +908,22 @@ const TicketsPage = () => {
 
                           {/* Quick Assign - Admin/Supervisor */}
                           {canAssign && ticket.status !== 'completed' && ticket.status !== 'cancelled' && (
-                            <button
-                              onClick={(e) => handleQuickAssign(e, ticket)}
-                              className="p-1.5 hover:bg-purple-100 rounded transition-colors"
-                              title="Quick Assign"
-                            >
-                              <UserPlus className="h-4 w-4 text-purple-600" />
-                            </button>
+                            <>
+                              <button
+                                onClick={(e) => handleQuickAssign(e, ticket)}
+                                className="p-1.5 hover:bg-purple-100 rounded transition-colors"
+                                title="Assign Single Technician"
+                              >
+                                <UserPlus className="h-4 w-4 text-purple-600" />
+                              </button>
+                              <button
+                                onClick={(e) => handleQuickTeamAssign(e, ticket)}
+                                className="p-1.5 hover:bg-blue-100 rounded transition-colors"
+                                title="Assign Team (Multiple Technicians)"
+                              >
+                                <Users className="h-4 w-4 text-blue-600" />
+                              </button>
+                            </>
                           )}
 
                           {/* Assign to Me - Technician Only */}
@@ -1076,6 +1098,16 @@ const TicketsPage = () => {
       <SmartAssignmentModal
         isOpen={showAssignmentModal}
         onClose={closeAssignmentModal}
+        ticket={selectedTicketForAssignment}
+      />
+
+      {/* Team Assignment Modal (Multi-Technician) */}
+      <TeamAssignmentModal
+        isOpen={showTeamAssignmentModal}
+        onClose={() => {
+          setShowTeamAssignmentModal(false);
+          setSelectedTicketForAssignment(null);
+        }}
         ticket={selectedTicketForAssignment}
       />
     </div>
