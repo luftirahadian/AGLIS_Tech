@@ -211,10 +211,12 @@ const TeamAssignmentModal = ({ isOpen, onClose, ticket }) => {
 
   // Fetch available technicians
   const { data: techniciansData, isLoading } = useQuery(
-    'technicians-active',
+    ['technicians-active', { status: 'active' }],
     () => technicianService.getTechnicians({ status: 'active' }),
     {
-      enabled: isOpen
+      enabled: isOpen,
+      staleTime: 30000, // 30 seconds
+      refetchOnWindowFocus: false
     }
   );
 
@@ -241,7 +243,18 @@ const TeamAssignmentModal = ({ isOpen, onClose, ticket }) => {
     }
   );
 
-  const technicians = techniciansData?.data || techniciansData || [];
+  // Extract technicians array - handle different response structures
+  // API returns: { success: true, data: { technicians: [], pagination: {} } }
+  const technicians = techniciansData?.data?.technicians || 
+                     techniciansData?.technicians || 
+                     (Array.isArray(techniciansData?.data) ? techniciansData.data : []) ||
+                     (Array.isArray(techniciansData) ? techniciansData : []) ||
+                     [];
+
+  // Debug log
+  console.log('📊 [TeamAssignmentModal] techniciansData:', techniciansData);
+  console.log('📊 [TeamAssignmentModal] technicians array:', technicians);
+  console.log('📊 [TeamAssignmentModal] technicians count:', technicians.length);
 
   const handleSubmit = (e) => {
     e.preventDefault();
