@@ -349,7 +349,7 @@ router.get('/:id', async (req, res) => {
         t.full_name,
         t.phone,
         t.email,
-        t.specialization
+        t.specializations
       FROM ticket_technicians tt
       JOIN technicians t ON tt.technician_id = t.id
       WHERE tt.ticket_id = $1 AND tt.is_active = TRUE

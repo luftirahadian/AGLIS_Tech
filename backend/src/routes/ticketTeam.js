@@ -20,7 +20,7 @@ router.get('/:ticketId/team', async (req, res) => {
         t.full_name,
         t.phone,
         t.email,
-        t.specialization,
+        t.specializations,
         u.full_name as assigned_by_name
       FROM ticket_technicians tt
       JOIN technicians t ON tt.technician_id = t.id

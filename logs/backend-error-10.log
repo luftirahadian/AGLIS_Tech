@@ -313,3 +313,169 @@
 2025-10-16T08:31:34: 🚨 OVERDUE: Ticket #TKT20251013006 is 1728 minutes overdue!
 2025-10-16T08:31:34: 🚨 OVERDUE: Ticket #TKT20251013007 is 1705 minutes overdue!
 2025-10-16T08:31:34: 🚨 OVERDUE: Ticket #TKT20251014010 is 1684 minutes overdue!
+2025-10-16T08:36:49: Get ticket error: error: column t.specialization does not exist
+2025-10-16T08:36:49:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:36:49:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:36:49:   length: 178,
+2025-10-16T08:36:49:   severity: 'ERROR',
+2025-10-16T08:36:49:   code: '42703',
+2025-10-16T08:36:49:   detail: undefined,
+2025-10-16T08:36:49:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:36:49:   position: '93',
+2025-10-16T08:36:49:   internalPosition: undefined,
+2025-10-16T08:36:49:   internalQuery: undefined,
+2025-10-16T08:36:49:   where: undefined,
+2025-10-16T08:36:49:   schema: undefined,
+2025-10-16T08:36:49:   table: undefined,
+2025-10-16T08:36:49:   column: undefined,
+2025-10-16T08:36:49:   dataType: undefined,
+2025-10-16T08:36:49:   constraint: undefined,
+2025-10-16T08:36:49:   file: 'parse_relation.c',
+2025-10-16T08:36:49:   line: '3647',
+2025-10-16T08:36:49:   routine: 'errorMissingColumn'
+2025-10-16T08:36:49: }
+2025-10-16T08:36:49: ❌ QUERY ERROR (5ms): {
+2025-10-16T08:36:49:   error: 'column t.specialization does not exist',
+2025-10-16T08:36:49:   query: '\n' +
+2025-10-16T08:36:49:     '      SELECT \n' +
+2025-10-16T08:36:49:     '        tt.*,\n' +
+2025-10-16T08:36:49:     '        t.full_name,\n' +
+2025-10-16T08:36:49:     '        t.phone,\n' +
+2025-10-16T08:36:49:     '        t.email,\n' +
+2025-10-16T08:36:49:     '        t.specialization\n' +
+2025-10-16T08:36:49:     '      FROM ticket_technicians tt\n' +
+2025-10-16T08:36:49:     '      JO...'
+2025-10-16T08:36:49: }
+2025-10-16T08:36:49: error: column t.specialization does not exist
+2025-10-16T08:36:49:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:36:49:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:36:49:   length: 178,
+2025-10-16T08:36:49:   severity: 'ERROR',
+2025-10-16T08:36:49:   code: '42703',
+2025-10-16T08:36:49:   detail: undefined,
+2025-10-16T08:36:49:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:36:49:   position: '93',
+2025-10-16T08:36:49:   internalPosition: undefined,
+2025-10-16T08:36:49:   internalQuery: undefined,
+2025-10-16T08:36:49:   where: undefined,
+2025-10-16T08:36:49:   schema: undefined,
+2025-10-16T08:36:49:   table: undefined,
+2025-10-16T08:36:49:   column: undefined,
+2025-10-16T08:36:49:   dataType: undefined,
+2025-10-16T08:36:49:   constraint: undefined,
+2025-10-16T08:36:49:   file: 'parse_relation.c',
+2025-10-16T08:36:49:   line: '3647',
+2025-10-16T08:36:49:   routine: 'errorMissingColumn'
+2025-10-16T08:36:49: }
+2025-10-16T08:36:53: Get ticket error: error: column t.specialization does not exist
+2025-10-16T08:36:53:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:36:53:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:36:53:   length: 178,
+2025-10-16T08:36:53:   severity: 'ERROR',
+2025-10-16T08:36:53:   code: '42703',
+2025-10-16T08:36:53:   detail: undefined,
+2025-10-16T08:36:53:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:36:53:   position: '93',
+2025-10-16T08:36:53:   internalPosition: undefined,
+2025-10-16T08:36:53:   internalQuery: undefined,
+2025-10-16T08:36:53:   where: undefined,
+2025-10-16T08:36:53:   schema: undefined,
+2025-10-16T08:36:53:   table: undefined,
+2025-10-16T08:36:53:   column: undefined,
+2025-10-16T08:36:53:   dataType: undefined,
+2025-10-16T08:36:53:   constraint: undefined,
+2025-10-16T08:36:53:   file: 'parse_relation.c',
+2025-10-16T08:36:53:   line: '3647',
+2025-10-16T08:36:53:   routine: 'errorMissingColumn'
+2025-10-16T08:36:53: }
+2025-10-16T08:36:53: ❌ QUERY ERROR (1ms): {
+2025-10-16T08:36:53:   error: 'column t.specialization does not exist',
+2025-10-16T08:36:53:   query: '\n' +
+2025-10-16T08:36:53:     '      SELECT \n' +
+2025-10-16T08:36:53:     '        tt.*,\n' +
+2025-10-16T08:36:53:     '        t.full_name,\n' +
+2025-10-16T08:36:53:     '        t.phone,\n' +
+2025-10-16T08:36:53:     '        t.email,\n' +
+2025-10-16T08:36:53:     '        t.specialization\n' +
+2025-10-16T08:36:53:     '      FROM ticket_technicians tt\n' +
+2025-10-16T08:36:53:     '      JO...'
+2025-10-16T08:36:53: }
+2025-10-16T08:36:53: error: column t.specialization does not exist
+2025-10-16T08:36:53:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:36:53:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:36:53:   length: 178,
+2025-10-16T08:36:53:   severity: 'ERROR',
+2025-10-16T08:36:53:   code: '42703',
+2025-10-16T08:36:53:   detail: undefined,
+2025-10-16T08:36:53:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:36:53:   position: '93',
+2025-10-16T08:36:53:   internalPosition: undefined,
+2025-10-16T08:36:53:   internalQuery: undefined,
+2025-10-16T08:36:53:   where: undefined,
+2025-10-16T08:36:53:   schema: undefined,
+2025-10-16T08:36:53:   table: undefined,
+2025-10-16T08:36:53:   column: undefined,
+2025-10-16T08:36:53:   dataType: undefined,
+2025-10-16T08:36:53:   constraint: undefined,
+2025-10-16T08:36:53:   file: 'parse_relation.c',
+2025-10-16T08:36:53:   line: '3647',
+2025-10-16T08:36:53:   routine: 'errorMissingColumn'
+2025-10-16T08:36:53: }
+2025-10-16T08:38:02: Get ticket error: error: column t.specialization does not exist
+2025-10-16T08:38:02:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:38:02:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:38:02:   length: 178,
+2025-10-16T08:38:02:   severity: 'ERROR',
+2025-10-16T08:38:02:   code: '42703',
+2025-10-16T08:38:02:   detail: undefined,
+2025-10-16T08:38:02:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:38:02:   position: '93',
+2025-10-16T08:38:02:   internalPosition: undefined,
+2025-10-16T08:38:02:   internalQuery: undefined,
+2025-10-16T08:38:02:   where: undefined,
+2025-10-16T08:38:02:   schema: undefined,
+2025-10-16T08:38:02:   table: undefined,
+2025-10-16T08:38:02:   column: undefined,
+2025-10-16T08:38:02:   dataType: undefined,
+2025-10-16T08:38:02:   constraint: undefined,
+2025-10-16T08:38:02:   file: 'parse_relation.c',
+2025-10-16T08:38:02:   line: '3647',
+2025-10-16T08:38:02:   routine: 'errorMissingColumn'
+2025-10-16T08:38:02: }
+2025-10-16T08:38:02: ❌ QUERY ERROR (1ms): {
+2025-10-16T08:38:02:   error: 'column t.specialization does not exist',
+2025-10-16T08:38:02:   query: '\n' +
+2025-10-16T08:38:02:     '      SELECT \n' +
+2025-10-16T08:38:02:     '        tt.*,\n' +
+2025-10-16T08:38:02:     '        t.full_name,\n' +
+2025-10-16T08:38:02:     '        t.phone,\n' +
+2025-10-16T08:38:02:     '        t.email,\n' +
+2025-10-16T08:38:02:     '        t.specialization\n' +
+2025-10-16T08:38:02:     '      FROM ticket_technicians tt\n' +
+2025-10-16T08:38:02:     '      JO...'
+2025-10-16T08:38:02: }
+2025-10-16T08:38:02: error: column t.specialization does not exist
+2025-10-16T08:38:02:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T08:38:02:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T08:38:02:   length: 178,
+2025-10-16T08:38:02:   severity: 'ERROR',
+2025-10-16T08:38:02:   code: '42703',
+2025-10-16T08:38:02:   detail: undefined,
+2025-10-16T08:38:02:   hint: 'Perhaps you meant to reference the column "t.specializations".',
+2025-10-16T08:38:02:   position: '93',
+2025-10-16T08:38:02:   internalPosition: undefined,
+2025-10-16T08:38:02:   internalQuery: undefined,
+2025-10-16T08:38:02:   where: undefined,
+2025-10-16T08:38:02:   schema: undefined,
+2025-10-16T08:38:02:   table: undefined,
+2025-10-16T08:38:02:   column: undefined,
+2025-10-16T08:38:02:   dataType: undefined,
+2025-10-16T08:38:02:   constraint: undefined,
+2025-10-16T08:38:02:   file: 'parse_relation.c',
+2025-10-16T08:38:02:   line: '3647',
+2025-10-16T08:38:02:   routine: 'errorMissingColumn'
+2025-10-16T08:38:02: }
+2025-10-16T08:40:33: 🚨 OVERDUE: Ticket #TKT20251014001 is 2224 minutes overdue!
+2025-10-16T08:40:33: 🚨 OVERDUE: Ticket #TKT20251013006 is 1737 minutes overdue!
+2025-10-16T08:40:33: 🚨 OVERDUE: Ticket #TKT20251013007 is 1713 minutes overdue!
+2025-10-16T08:40:33: 🚨 OVERDUE: Ticket #TKT20251014010 is 1693 minutes overdue!
