@@ -256,3 +256,73 @@
 2025-10-16T07:39:44: 🚨 OVERDUE: Ticket #TKT20251013006 is 1676 minutes overdue!
 2025-10-16T07:39:44: 🚨 OVERDUE: Ticket #TKT20251013007 is 1653 minutes overdue!
 2025-10-16T07:39:44: 🚨 OVERDUE: Ticket #TKT20251014010 is 1632 minutes overdue!
+2025-10-16T07:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2169 minutes overdue!
+2025-10-16T07:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1681 minutes overdue!
+2025-10-16T07:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1658 minutes overdue!
+2025-10-16T07:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1637 minutes overdue!
+2025-10-16T07:49:51: 🚨 OVERDUE: Ticket #TKT20251014001 is 2174 minutes overdue!
+2025-10-16T07:49:51: 🚨 OVERDUE: Ticket #TKT20251013006 is 1686 minutes overdue!
+2025-10-16T07:49:51: 🚨 OVERDUE: Ticket #TKT20251013007 is 1663 minutes overdue!
+2025-10-16T07:49:51: 🚨 OVERDUE: Ticket #TKT20251014010 is 1642 minutes overdue!
+2025-10-16T07:56:13: 🚨 OVERDUE: Ticket #TKT20251014001 is 2180 minutes overdue!
+2025-10-16T07:56:13: 🚨 OVERDUE: Ticket #TKT20251013006 is 1692 minutes overdue!
+2025-10-16T07:56:13: 🚨 OVERDUE: Ticket #TKT20251013007 is 1669 minutes overdue!
+2025-10-16T07:56:13: 🚨 OVERDUE: Ticket #TKT20251014010 is 1649 minutes overdue!
+2025-10-16T07:57:47: Error sending ticket created notifications: error: operator does not exist: jsonb @> character varying[]
+2025-10-16T07:57:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T07:57:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T07:57:47:   length: 214,
+2025-10-16T07:57:47:   severity: 'ERROR',
+2025-10-16T07:57:47:   code: '42883',
+2025-10-16T07:57:47:   detail: undefined,
+2025-10-16T07:57:47:   hint: 'No operator matches the given name and argument types. You might need to add explicit type casts.',
+2025-10-16T07:57:47:   position: '130',
+2025-10-16T07:57:47:   internalPosition: undefined,
+2025-10-16T07:57:47:   internalQuery: undefined,
+2025-10-16T07:57:47:   where: undefined,
+2025-10-16T07:57:47:   schema: undefined,
+2025-10-16T07:57:47:   table: undefined,
+2025-10-16T07:57:47:   column: undefined,
+2025-10-16T07:57:47:   dataType: undefined,
+2025-10-16T07:57:47:   constraint: undefined,
+2025-10-16T07:57:47:   file: 'parse_oper.c',
+2025-10-16T07:57:47:   line: '647',
+2025-10-16T07:57:47:   routine: 'op_error'
+2025-10-16T07:57:47: }
+2025-10-16T07:57:47: ❌ QUERY ERROR (3ms): {
+2025-10-16T07:57:47:   error: 'operator does not exist: jsonb @> character varying[]',
+2025-10-16T07:57:47:   query: '\n' +
+2025-10-16T07:57:47:     '        SELECT phone_number, name \n' +
+2025-10-16T07:57:47:     '        FROM whatsapp_groups \n' +
+2025-10-16T07:57:47:     '        WHERE is_active = TRUE \n' +
+2025-10-16T07:57:47:     "        AND notification_types @> ARRAY['ticket_crea..."
+2025-10-16T07:57:47: }
+2025-10-16T07:57:47: error: operator does not exist: jsonb @> character varying[]
+2025-10-16T07:57:47:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-16T07:57:47:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-10-16T07:57:47:   length: 214,
+2025-10-16T07:57:47:   severity: 'ERROR',
+2025-10-16T07:57:47:   code: '42883',
+2025-10-16T07:57:47:   detail: undefined,
+2025-10-16T07:57:47:   hint: 'No operator matches the given name and argument types. You might need to add explicit type casts.',
+2025-10-16T07:57:47:   position: '130',
+2025-10-16T07:57:47:   internalPosition: undefined,
+2025-10-16T07:57:47:   internalQuery: undefined,
+2025-10-16T07:57:47:   where: undefined,
+2025-10-16T07:57:47:   schema: undefined,
+2025-10-16T07:57:47:   table: undefined,
+2025-10-16T07:57:47:   column: undefined,
+2025-10-16T07:57:47:   dataType: undefined,
+2025-10-16T07:57:47:   constraint: undefined,
+2025-10-16T07:57:47:   file: 'parse_oper.c',
+2025-10-16T07:57:47:   line: '647',
+2025-10-16T07:57:47:   routine: 'op_error'
+2025-10-16T07:57:47: }
+2025-10-16T08:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2184 minutes overdue!
+2025-10-16T08:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1696 minutes overdue!
+2025-10-16T08:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1673 minutes overdue!
+2025-10-16T08:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1652 minutes overdue!
+2025-10-16T08:03:50: 🚨 OVERDUE: Ticket #TKT20251014001 is 2188 minutes overdue!
+2025-10-16T08:03:50: 🚨 OVERDUE: Ticket #TKT20251013006 is 1700 minutes overdue!
+2025-10-16T08:03:50: 🚨 OVERDUE: Ticket #TKT20251013007 is 1677 minutes overdue!
+2025-10-16T08:03:50: 🚨 OVERDUE: Ticket #TKT20251014010 is 1656 minutes overdue!

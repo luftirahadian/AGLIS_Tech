@@ -1553,7 +1553,7 @@ _AGLIS Net - Always Connected_`;
         SELECT phone_number, name 
         FROM whatsapp_groups 
         WHERE is_active = TRUE 
-        AND notification_types @> ARRAY['ticket_created']::varchar[]
+        AND notification_types::text LIKE '%ticket_created%'
         AND name ILIKE '%supervisor%'
         LIMIT 1
       `;
@@ -1596,7 +1596,7 @@ _AGLIS Net - Always Connected_`;
         SELECT phone_number, name 
         FROM whatsapp_groups 
         WHERE is_active = TRUE 
-        AND notification_types @> ARRAY['ticket_created']::varchar[]
+        AND notification_types::text LIKE '%ticket_created%'
         AND name ILIKE '%teknisi%'
         LIMIT 1
       `;
