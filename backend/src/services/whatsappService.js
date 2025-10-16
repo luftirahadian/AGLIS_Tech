@@ -563,11 +563,11 @@ _AGLIS Net - Connecting You Better!_ 🌐`;
    */
   async saveOTP(phone, otp) {
     const formattedPhone = this.formatPhoneNumber(phone);
-    const expires = Date.now() + (5 * 60 * 1000); // 5 minutes
+    const expiresAt = Date.now() + (5 * 60 * 1000); // 5 minutes
     
     const otpData = {
       otp,
-      expires,
+      expiresAt,
       attempts: 0
     };
 
