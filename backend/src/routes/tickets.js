@@ -597,13 +597,14 @@ router.put('/:id/status', [
     }
 
     const { id } = req.params;
-    const { status, notes, work_notes, resolution_notes, customer_rating, customer_feedback, assigned_technician_id, completion_data } = req.body;
+    const { status, notes, work_notes, resolution_notes, customer_rating, customer_feedback, assigned_technician_id, team_assignment, completion_data } = req.body;
     
     // Debug log
     console.log('=== TICKET STATUS UPDATE ===');
     console.log('Ticket ID:', id);
     console.log('New Status:', status);
     console.log('Assigned Technician ID:', assigned_technician_id);
+    console.log('Team Assignment:', team_assignment);
     console.log('Full Request Body:', JSON.stringify(req.body, null, 2));
 
     // Get current ticket
@@ -826,6 +827,33 @@ router.put('/:id/status', [
         }
       }
 
+      // Handle team assignment if provided (multiple technicians)
+      if (team_assignment && Array.isArray(team_assignment) && team_assignment.length > 0) {
+        console.log('👥 Processing team assignment...');
+        
+        // Deactivate all existing assignments
+        await client.query(
+          'UPDATE ticket_technicians SET is_active = FALSE WHERE ticket_id = $1 AND is_active = TRUE',
+          [id]
+        );
+        
+        // Insert new team members
+        for (const member of team_assignment) {
+          await client.query(
+            `INSERT INTO ticket_technicians (ticket_id, technician_id, role, assigned_at, notes, is_active)
+             VALUES ($1, $2, $3, NOW(), $4, TRUE)
+             ON CONFLICT (ticket_id, technician_id) DO UPDATE SET
+               role = EXCLUDED.role,
+               assigned_at = NOW(),
+               notes = EXCLUDED.notes,
+               is_active = TRUE`,
+            [id, member.technician_id, member.role, member.notes || null]
+          );
+        }
+        
+        console.log(`✅ Team assignment completed: ${team_assignment.length} technicians assigned`);
+      }
+
       await client.query('COMMIT');
 
       // Emit Socket.IO events for real-time updates
@@ -856,8 +884,32 @@ router.put('/:id/status', [
         console.log(`📡 Socket.IO: Events emitted for ticket ${id} status update (${oldStatus} → ${status})`);
       }
 
-      // 📱 PHASE 1: Send WhatsApp notification to technician on assignment
-      if (assigned_technician_id && assigned_technician_id !== ticket.assigned_technician_id) {
+      // 📱 PHASE 1: Send WhatsApp notification for technician assignment
+      if (team_assignment && Array.isArray(team_assignment) && team_assignment.length > 0) {
+        // Team assignment - send notifications to all team members
+        console.log('📱 Sending team assignment notifications...');
+        
+        // Fetch team details for notifications
+        const teamQuery = `
+          SELECT 
+            tt.*,
+            t.full_name,
+            t.phone,
+            t.email
+          FROM ticket_technicians tt
+          JOIN technicians t ON tt.technician_id = t.id
+          WHERE tt.ticket_id = $1 AND tt.is_active = TRUE
+        `;
+        const teamResult = await pool.query(teamQuery, [id]);
+        
+        // Send notification to each team member
+        for (const member of team_assignment) {
+          whatsappNotificationService.notifyTechnicianTeamAssignment(id, member.technician_id, member.role, teamResult.rows)
+            .then(result => console.log(`📱 Team notification sent to tech ${member.technician_id}:`, result.success ? 'SUCCESS' : 'FAILED'))
+            .catch(err => console.error(`❌ Team notification error for tech ${member.technician_id}:`, err));
+        }
+      } else if (assigned_technician_id && assigned_technician_id !== ticket.assigned_technician_id) {
+        // Single technician assignment - send single assignment notification
         whatsappNotificationService.notifyTicketAssignment(id)
           .then(whatsappResult => {
             if (whatsappResult.success) {

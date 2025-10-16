@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Clock, CheckCircle, XCircle, Pause, Play, Upload, Image as ImageIcon } from 'lucide-react'
+import { Clock, CheckCircle, XCircle, Pause, Play, Upload, Image as ImageIcon, Users, UserPlus, Trash2, Star } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import LoadingSpinner from './LoadingSpinner'
 import { useQuery } from 'react-query'
@@ -12,6 +12,11 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
   const { user } = useAuth()
   const [selectedStatus, setSelectedStatus] = useState(ticket.status)
   const [selectedTechnician, setSelectedTechnician] = useState(ticket.assigned_technician_id || '')
+  
+  // Multiple technician assignment states
+  const [assignmentMode, setAssignmentMode] = useState('single') // 'single' or 'multiple'
+  const [teamMembers, setTeamMembers] = useState([]) // Array of {technician_id, role, full_name, employee_id}
+  const [showAddTechnicianDropdown, setShowAddTechnicianDropdown] = useState(false)
   
   // Auto-select status if pre-selected from Quick Actions
   useEffect(() => {
@@ -285,9 +290,21 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
     }
     
     // Validation: jika pilih 'assigned' dari status 'open', harus pilih teknisi
-    if (selectedStatus === 'assigned' && ticket.status === 'open' && !selectedTechnician) {
-      alert('Please select a technician when assigning the ticket for the first time')
-      return
+    if (selectedStatus === 'assigned' && ticket.status === 'open') {
+      if (assignmentMode === 'single' && !selectedTechnician) {
+        alert('Please select a technician when assigning the ticket for the first time')
+        return
+      }
+      if (assignmentMode === 'multiple') {
+        if (teamMembers.length === 0) {
+          alert('Please add at least 1 technician to the team')
+          return
+        }
+        if (!teamMembers.find(m => m.role === 'lead')) {
+          alert('Please designate one technician as Lead')
+          return
+        }
+      }
     }
 
     // PHASE 1: Conditional Smart Notes - Contextual & Informative
@@ -535,14 +552,33 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
       customer_feedback: data.customer_feedback || undefined
     }
 
-    // Kirim assigned_technician_id jika:
+    // Kirim assigned_technician_id atau team assignment jika:
     // 1. Status berubah ke 'assigned' dari 'open' (assign pertama kali)
     // 2. Atau ada technician yang dipilih di form (re-assign)
-    if (selectedStatus === 'assigned' && selectedTechnician) {
-      updateData.assigned_technician_id = parseInt(selectedTechnician, 10)
-      console.log('=== FRONTEND: Sending technician assignment ===');
-      console.log('Selected Technician:', selectedTechnician);
-      console.log('Parsed Technician ID:', updateData.assigned_technician_id);
+    if (selectedStatus === 'assigned') {
+      if (assignmentMode === 'single' && selectedTechnician) {
+        // Single technician assignment
+        updateData.assigned_technician_id = parseInt(selectedTechnician, 10)
+        console.log('=== FRONTEND: Sending SINGLE technician assignment ===');
+        console.log('Selected Technician:', selectedTechnician);
+        console.log('Parsed Technician ID:', updateData.assigned_technician_id);
+      } else if (assignmentMode === 'multiple' && teamMembers.length > 0) {
+        // Multiple technicians (team) assignment
+        updateData.team_assignment = teamMembers.map(member => ({
+          technician_id: member.technician_id,
+          role: member.role,
+          notes: null
+        }))
+        // Set lead as main assigned_technician_id
+        const lead = teamMembers.find(m => m.role === 'lead')
+        if (lead) {
+          updateData.assigned_technician_id = lead.technician_id
+        }
+        console.log('=== FRONTEND: Sending TEAM assignment ===');
+        console.log('Team Members:', teamMembers.length);
+        console.log('Team Data:', updateData.team_assignment);
+        console.log('Lead Technician ID:', updateData.assigned_technician_id);
+      }
       console.log('Ticket Current Status:', ticket.status);
       console.log('New Status:', selectedStatus);
     }
@@ -724,28 +760,241 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
 
           {/* Technician Selection (when status is 'assigned') */}
           {selectedStatus === 'assigned' && (
-            <div>
-              <label className="form-label">
-                {ticket.status === 'open' ? 'Assign to Technician *' : 'Re-assign to Technician (optional)'}
-              </label>
-              <select
-                className={`form-input ${ticket.status === 'open' && !selectedTechnician ? 'border-red-500' : ''}`}
-                value={selectedTechnician}
-                onChange={(e) => setSelectedTechnician(e.target.value)}
-                disabled={techniciansLoading}
-              >
-                <option value="">
-                  {ticket.assigned_technician_id ? 'Keep current technician' : 'Select a technician...'}
-                </option>
-                {techniciansData?.data?.technicians?.map((tech) => (
-                  <option key={tech.id} value={tech.id}>
-                    {tech.full_name || tech.user_full_name} ({tech.employee_id || tech.employee_code}) - {tech.skill_level}
-                  </option>
-                ))}
-              </select>
-              {ticket.status === 'open' && !selectedTechnician && (
-                <p className="form-error">Technician selection is required for first assignment</p>
-              )}
+            <div className="space-y-4">
+              <div>
+                <label className="form-label mb-3">
+                  {ticket.status === 'open' ? 'Assign to Technician(s) *' : 'Re-assign Technician(s) (optional)'}
+                </label>
+                
+                {/* Assignment Mode Toggle */}
+                <div className="flex items-center gap-6 mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">Assignment Mode:</span>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      className="form-radio h-4 w-4 text-blue-600"
+                      checked={assignmentMode === 'single'}
+                      onChange={() => {
+                        setAssignmentMode('single')
+                        setTeamMembers([])
+                      }}
+                    />
+                    <span className="ml-2 text-sm text-gray-700">Single Technician</span>
+                  </label>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      className="form-radio h-4 w-4 text-blue-600"
+                      checked={assignmentMode === 'multiple'}
+                      onChange={() => {
+                        setAssignmentMode('multiple')
+                        setSelectedTechnician('')
+                      }}
+                    />
+                    <span className="ml-2 text-sm text-gray-700 flex items-center gap-1">
+                      <Users className="h-4 w-4" />
+                      Multiple Technicians (Team)
+                    </span>
+                  </label>
+                </div>
+
+                {/* SINGLE TECHNICIAN MODE */}
+                {assignmentMode === 'single' && (
+                  <div>
+                    <select
+                      className={`form-input ${ticket.status === 'open' && !selectedTechnician ? 'border-red-500' : ''}`}
+                      value={selectedTechnician}
+                      onChange={(e) => setSelectedTechnician(e.target.value)}
+                      disabled={techniciansLoading}
+                    >
+                      <option value="">
+                        {ticket.assigned_technician_id ? 'Keep current technician' : 'Select a technician...'}
+                      </option>
+                      {techniciansData?.data?.technicians?.map((tech) => (
+                        <option key={tech.id} value={tech.id}>
+                          {tech.full_name || tech.user_full_name} ({tech.employee_id || tech.employee_code}) - {tech.skill_level}
+                        </option>
+                      ))}
+                    </select>
+                    {ticket.status === 'open' && !selectedTechnician && (
+                      <p className="form-error">Technician selection is required for first assignment</p>
+                    )}
+                  </div>
+                )}
+
+                {/* MULTIPLE TECHNICIANS MODE */}
+                {assignmentMode === 'multiple' && (
+                  <div className="space-y-3">
+                    {/* Team Members Table */}
+                    {teamMembers.length > 0 && (
+                      <div className="border border-gray-200 rounded-lg overflow-hidden">
+                        <table className="min-w-full divide-y divide-gray-200">
+                          <thead className="bg-gray-50">
+                            <tr>
+                              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Technician
+                              </th>
+                              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Role
+                              </th>
+                              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Contact
+                              </th>
+                              <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Action
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            {teamMembers.map((member, index) => (
+                              <tr key={member.technician_id} className="hover:bg-gray-50">
+                                <td className="px-4 py-3 whitespace-nowrap">
+                                  <div className="flex items-center">
+                                    {member.role === 'lead' && (
+                                      <Star className="h-4 w-4 text-yellow-500 mr-2" />
+                                    )}
+                                    <div>
+                                      <div className="text-sm font-medium text-gray-900">
+                                        {member.full_name}
+                                      </div>
+                                      <div className="text-xs text-gray-500">
+                                        {member.employee_id}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="px-4 py-3 whitespace-nowrap">
+                                  <select
+                                    className="text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                    value={member.role}
+                                    onChange={(e) => {
+                                      const newRole = e.target.value
+                                      setTeamMembers(prev => {
+                                        // If changing to lead, demote other leads to member
+                                        if (newRole === 'lead') {
+                                          return prev.map((m, i) => ({
+                                            ...m,
+                                            role: i === index ? 'lead' : (m.role === 'lead' ? 'member' : m.role)
+                                          }))
+                                        }
+                                        // Just update this member's role
+                                        return prev.map((m, i) => 
+                                          i === index ? { ...m, role: newRole } : m
+                                        )
+                                      })
+                                    }}
+                                  >
+                                    <option value="lead">Lead</option>
+                                    <option value="member">Member</option>
+                                    <option value="support">Support</option>
+                                  </select>
+                                </td>
+                                <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                  {member.phone || '-'}
+                                </td>
+                                <td className="px-4 py-3 whitespace-nowrap text-center">
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      setTeamMembers(prev => prev.filter((_, i) => i !== index))
+                                    }}
+                                    className="inline-flex items-center px-2 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded transition-colors"
+                                  >
+                                    <Trash2 className="h-4 w-4" />
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+
+                    {/* Add Technician Dropdown */}
+                    {showAddTechnicianDropdown ? (
+                      <div className="flex items-center gap-2">
+                        <select
+                          className="form-input flex-1"
+                          onChange={(e) => {
+                            const techId = parseInt(e.target.value)
+                            if (!techId) return
+                            
+                            const tech = techniciansData?.data?.technicians?.find(t => t.id === techId)
+                            if (!tech) return
+                            
+                            // Check if already added
+                            if (teamMembers.find(m => m.technician_id === techId)) {
+                              alert('Technician already added to team')
+                              return
+                            }
+                            
+                            // Determine role: first member is lead, others are members
+                            const role = teamMembers.length === 0 ? 'lead' : 'member'
+                            
+                            setTeamMembers(prev => [...prev, {
+                              technician_id: techId,
+                              full_name: tech.full_name || tech.user_full_name,
+                              employee_id: tech.employee_id || tech.employee_code,
+                              phone: tech.phone || '',
+                              role: role
+                            }])
+                            
+                            setShowAddTechnicianDropdown(false)
+                          }}
+                          autoFocus
+                        >
+                          <option value="">Select technician to add...</option>
+                          {techniciansData?.data?.technicians
+                            ?.filter(tech => !teamMembers.find(m => m.technician_id === tech.id))
+                            ?.map((tech) => (
+                              <option key={tech.id} value={tech.id}>
+                                {tech.full_name || tech.user_full_name} ({tech.employee_id || tech.employee_code}) - {tech.skill_level}
+                              </option>
+                            ))}
+                        </select>
+                        <button
+                          type="button"
+                          onClick={() => setShowAddTechnicianDropdown(false)}
+                          className="px-3 py-2 text-sm text-gray-600 hover:text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setShowAddTechnicianDropdown(true)}
+                        disabled={techniciansLoading}
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <UserPlus className="h-4 w-4" />
+                        Add Technician to Team
+                      </button>
+                    )}
+
+                    {/* Validation Messages */}
+                    {teamMembers.length === 0 && ticket.status === 'open' && (
+                      <p className="text-sm text-red-600">At least 1 technician is required</p>
+                    )}
+                    {teamMembers.length > 0 && !teamMembers.find(m => m.role === 'lead') && (
+                      <p className="text-sm text-yellow-600">⚠️ Please designate one technician as Lead</p>
+                    )}
+
+                    {/* Info Box */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <p className="text-sm text-blue-700">
+                        <strong>💡 Team Assignment Tips:</strong>
+                      </p>
+                      <ul className="text-sm text-blue-600 mt-2 space-y-1 ml-4 list-disc">
+                        <li>Add 2+ technicians to form a team</li>
+                        <li>One technician must be designated as <strong>Lead</strong> (coordinator)</li>
+                        <li>Lead is responsible for coordination and progress updates</li>
+                        <li>All team members will receive WhatsApp notifications</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
