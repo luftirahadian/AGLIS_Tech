@@ -1681,3 +1681,35 @@
 2025-10-16T07:29:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-16T07:29:08: 👤 User disconnected: fhCnUiFz2sPWxA_bAAAP
 2025-10-16T07:29:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:00: 🔍 Starting SLA check...
+2025-10-16T07:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T07:30:00: ✅ Connected to PostgreSQL database
+2025-10-16T07:30:00: 📋 Found 4 active tickets to check
+2025-10-16T07:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-16T07:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 2154 minutes overdue!
+2025-10-16T07:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 1666 minutes overdue!
+2025-10-16T07:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 1643 minutes overdue!
+2025-10-16T07:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 1622 minutes overdue!
+2025-10-16T07:30:00: 🔍 Checking system alerts...
+2025-10-16T07:30:00: ✅ No alerts triggered - System healthy
+2025-10-16T07:30:01: 103.55.225.241 - - [16/Oct/2025:00:30:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-16T07:30:03: 103.55.224.49 - - [16/Oct/2025:00:30:03 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T07:30:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:03: 👤 User connected: xIToov3JYFg3ZPWqAAAR
+2025-10-16T07:30:03: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:03: 👤 User disconnected: xIToov3JYFg3ZPWqAAAR
+2025-10-16T07:30:59: ✅ Connected to PostgreSQL database
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 👤 User connected: ozeNRTA5Lp4D_uKOAAAT
+2025-10-16T07:30:59: 103.55.224.49 - - [16/Oct/2025:00:30:59 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/tickets?nocache=2" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 103.55.224.49 - - [16/Oct/2025:00:30:59 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 200 "https://portal.aglis.biz.id/tickets?nocache=2" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 👤 User disconnected: ozeNRTA5Lp4D_uKOAAAT
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 👤 User connected: xvetfsIISPo4EB6jAAAW
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 👤 User disconnected: xvetfsIISPo4EB6jAAAW
+2025-10-16T07:30:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-16T07:30:59: 👤 User connected: KXQesu_05I4MhabcAAAa
+2025-10-16T07:31:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id

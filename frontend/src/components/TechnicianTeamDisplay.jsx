@@ -133,5 +133,5 @@ const TechnicianTeamDisplay = ({ team = [], leadId }) => {
   );
 };
 
-export default MultiTechnicianSelector;
+export default TechnicianTeamDisplay;
 
