@@ -273,9 +273,17 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
       // Emit Socket.IO event for real-time update
       const io = req.app.get('io');
       if (io) {
+        console.log('📡 [Socket.IO] Emitting new_registration event:', {
+          registration_number: registration.registration_number,
+          full_name: registration.full_name,
+          rooms: ['role_admin', 'role_supervisor', 'role_customer_service']
+        });
         io.to('role_admin').to('role_supervisor').to('role_customer_service').emit('new_registration', {
           registration: registration
         });
+        console.log('✅ [Socket.IO] new_registration event emitted successfully');
+      } else {
+        console.warn('⚠️ [Socket.IO] io object not available, event not emitted');
       }
 
       res.status(201).json({
