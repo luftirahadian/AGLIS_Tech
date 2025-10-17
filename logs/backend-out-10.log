@@ -1718,3 +1718,6 @@
 2025-10-17T23:05:30: 📦 STORED OTP: 267045, Expires: 2025-10-17T16:10:23.368Z, Attempts: 0, Source: Redis
 2025-10-17T23:05:30: ✅ OTP VERIFIED: Phone=6281299887766
 2025-10-17T23:05:30: 103.55.225.241 - - [17/Oct/2025:16:05:30 +0000] "POST /api/registrations/public/verify-otp HTTP/1.1" 200 65 "-" "curl/7.81.0"
+2025-10-17T23:06:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:18: 103.55.224.49 - - [17/Oct/2025:16:06:18 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"

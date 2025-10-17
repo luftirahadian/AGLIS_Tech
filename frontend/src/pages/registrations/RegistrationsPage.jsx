@@ -557,13 +557,26 @@ const RegistrationsPage = () => {
     }
 
     const handleNewRegistration = (data) => {
-      console.log('✨ New registration received:', data)
+      console.log('✨ [RegistrationsPage] New registration event received:', data)
+      console.log('📋 [RegistrationsPage] Registration details:', {
+        registration_number: data.registration?.registration_number,
+        full_name: data.registration?.full_name,
+        phone: data.registration?.phone
+      })
+      
+      // Invalidate queries to refetch data
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
+      
+      console.log('🔄 [RegistrationsPage] Queries invalidated, data will refetch')
+      
+      // Show toast notification
       toast.success(`Pendaftaran baru dari ${data.registration?.full_name || 'customer'}!`, {
         duration: 4000,
         icon: '🎉'
       })
+      
+      console.log('🎊 [RegistrationsPage] Toast notification shown')
     }
 
     const handleCustomerCreated = (data) => {

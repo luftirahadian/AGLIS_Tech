@@ -1675,3 +1675,6 @@
 2025-10-17T23:05:23: ✅ WhatsApp sent to 6281299887766 via fonnte (primary)
 2025-10-17T23:05:23: 103.55.225.241 - - [17/Oct/2025:16:05:23 +0000] "POST /api/registrations/public/request-otp HTTP/1.1" 200 78 "-" "curl/7.81.0"
 2025-10-17T23:05:48: 103.55.224.49 - - [17/Oct/2025:16:05:48 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:06:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:48: 103.55.224.49 - - [17/Oct/2025:16:06:48 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
