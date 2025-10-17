@@ -550,7 +550,7 @@ const RegistrationsPage = () => {
   // Listen to socket events for real-time updates
   useEffect(() => {
     const handleRegistrationUpdate = (data) => {
-      console.log('🔄 Registration update received:', data)
+      console.log('🔄 [RegistrationsPage] Registration update received:', data)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
       toast.success('Data registrasi telah diperbarui!')
@@ -571,28 +571,46 @@ const RegistrationsPage = () => {
       console.log('🔄 [RegistrationsPage] Queries invalidated, data will refetch')
       
       // Show toast notification
-      toast.success(`Pendaftaran baru dari ${data.registration?.full_name || 'customer'}!`, {
-        duration: 4000,
-        icon: '🎉'
+      toast.success(`🎉 Pendaftaran baru dari ${data.registration?.full_name || 'customer'}!`, {
+        duration: 5000,
+        icon: '🎉',
+        style: {
+          background: '#10B981',
+          color: '#fff',
+          fontWeight: 'bold'
+        }
       })
       
       console.log('🎊 [RegistrationsPage] Toast notification shown')
     }
 
     const handleCustomerCreated = (data) => {
-      console.log('👤 Customer created:', data)
+      console.log('👤 [RegistrationsPage] Customer created:', data)
       queryClient.invalidateQueries(['registrations'])
       queryClient.invalidateQueries('registration-stats')
     }
 
-    // Register Socket.IO listeners
-    socketService.on('new_registration', handleNewRegistration)
-    socketService.on('registration-updated', handleRegistrationUpdate)
-    socketService.on('registration_updated', handleRegistrationUpdate)
-    socketService.on('customer-created', handleCustomerCreated)
-    socketService.on('registration_status_changed', handleRegistrationUpdate)
+    // Wait for socket to be connected before registering listeners
+    const setupListeners = () => {
+      if (!socketService.isConnected) {
+        console.log('⏳ [RegistrationsPage] Socket not connected yet, waiting...')
+        setTimeout(setupListeners, 500) // Retry after 500ms
+        return
+      }
 
-    console.log('📡 Socket.IO listeners registered for registrations')
+      console.log('🔌 [RegistrationsPage] Socket connected, registering listeners...')
+      
+      // Register Socket.IO listeners
+      socketService.on('new_registration', handleNewRegistration)
+      socketService.on('registration-updated', handleRegistrationUpdate)
+      socketService.on('registration_updated', handleRegistrationUpdate)
+      socketService.on('customer-created', handleCustomerCreated)
+      socketService.on('registration_status_changed', handleRegistrationUpdate)
+
+      console.log('📡 [RegistrationsPage] Socket.IO listeners registered for registrations')
+    }
+
+    setupListeners()
 
     return () => {
       // Cleanup listeners
@@ -601,7 +619,7 @@ const RegistrationsPage = () => {
       socketService.off('registration_updated', handleRegistrationUpdate)
       socketService.off('customer-created', handleCustomerCreated)
       socketService.off('registration_status_changed', handleRegistrationUpdate)
-      console.log('📡 Socket.IO listeners cleaned up')
+      console.log('📡 [RegistrationsPage] Socket.IO listeners cleaned up')
     }
   }, [queryClient])
 

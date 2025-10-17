@@ -125,6 +125,10 @@ const io = new Server(server, {
   },
   // Add namespace configuration
   path: '/socket.io/',
+  // Connection stability settings
+  pingTimeout: 60000, // 60 seconds
+  pingInterval: 25000, // 25 seconds
+  connectTimeout: 45000, // 45 seconds
   // Use Redis adapter for cluster mode
   adapter: createAdapter(pubClient, subClient)
 });
