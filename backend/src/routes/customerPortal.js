@@ -147,10 +147,12 @@ AGLIS Net - Secure Access 🔐`;
     });
 
   } catch (error) {
-    console.error('Request OTP error:', error);
+    console.error('❌ [CUSTOMER PORTAL] Request OTP error:', error);
+    console.error('❌ [CUSTOMER PORTAL] Error stack:', error.stack);
     res.status(500).json({
       success: false,
-      message: 'Gagal mengirim OTP. Silakan coba lagi.'
+      message: 'Gagal mengirim OTP. Silakan coba lagi.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
@@ -171,13 +173,18 @@ router.post('/verify-otp', [
 
     const { phone, otp } = req.body;
 
-    // Verify OTP
-    const isValid = await whatsappService.verifyOTP(phone, otp, 'customer_login');
+    console.log(`🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: ${phone}, OTP: ${otp.substring(0, 2)}****`);
 
-    if (!isValid) {
+    // Verify OTP
+    const verifyResult = await whatsappService.verifyOTP(phone, otp);
+
+    console.log(`🔐 [CUSTOMER PORTAL] Verify result:`, verifyResult);
+
+    if (!verifyResult.success) {
       return res.status(401).json({
         success: false,
-        message: 'Kode OTP salah atau sudah expired.'
+        message: verifyResult.error || 'Kode OTP salah atau sudah expired.',
+        attemptsLeft: verifyResult.attemptsLeft
       });
     }
 
@@ -237,10 +244,12 @@ router.post('/verify-otp', [
     });
 
   } catch (error) {
-    console.error('Verify OTP error:', error);
+    console.error('❌ [CUSTOMER PORTAL] Verify OTP error:', error);
+    console.error('❌ [CUSTOMER PORTAL] Error stack:', error.stack);
     res.status(500).json({
       success: false,
-      message: 'Login gagal. Silakan coba lagi.'
+      message: 'Login gagal. Silakan coba lagi.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
