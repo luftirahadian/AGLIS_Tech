@@ -1303,3 +1303,14 @@
 2025-10-17T20:30:13: 🚨 Alert triggered: SLA Violation (high)
 2025-10-17T20:30:13: 🚨 Triggered 1 alert(s)
 2025-10-17T20:30:13:    - SLA Violation (high): 5
+2025-10-17T20:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:35:00: 🔍 Checking system alerts...
+2025-10-17T20:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:35:55: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T20:35:55: ✅ Connected to PostgreSQL database
+2025-10-17T20:35:55: 💾 OTP STORED (Memory): Phone=628197670700, OTP=143684, Purpose=customer_login, Expiry=10min, Process=1157551
+2025-10-17T20:35:55: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T20:35:55: 103.55.224.49 - - [17/Oct/2025:13:35:55 +0000] "POST /api/customer-portal/request-otp HTTP/1.1" 200 117 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T20:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:40:00: 🔍 Checking system alerts...
+2025-10-17T20:40:00: ✅ No alerts triggered - System healthy

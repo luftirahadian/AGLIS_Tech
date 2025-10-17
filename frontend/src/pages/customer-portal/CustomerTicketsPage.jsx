@@ -21,21 +21,15 @@ const CustomerTicketsPage = () => {
   const { data, isLoading } = useQuery(
     ['customer-tickets', filter],
     async () => {
-      const token = localStorage.getItem('customerToken');
       const statusFilter = filter !== 'all' ? `?status=${filter}` : '';
-      const response = await api.get(`/customer-portal/tickets${statusFilter}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get(`/customer-portal/tickets${statusFilter}`);
       return response.data;
     }
   );
 
   const createTicketMutation = useMutation(
     async (ticketData) => {
-      const token = localStorage.getItem('customerToken');
-      return api.post('/customer-portal/tickets', ticketData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      return api.post('/customer-portal/tickets', ticketData);
     },
     {
       onSuccess: () => {

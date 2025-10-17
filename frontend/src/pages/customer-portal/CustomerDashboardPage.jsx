@@ -19,10 +19,7 @@ const CustomerDashboardPage = () => {
   const { data: statsData, isLoading: statsLoading } = useQuery(
     'customer-dashboard-stats',
     async () => {
-      const token = localStorage.getItem('customerToken');
-      const response = await api.get('/customer-portal/dashboard/stats', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/customer-portal/dashboard/stats');
       return response.data;
     },
     {
@@ -34,10 +31,7 @@ const CustomerDashboardPage = () => {
   const { data: profileData, isLoading: profileLoading } = useQuery(
     'customer-profile',
     async () => {
-      const token = localStorage.getItem('customerToken');
-      const response = await api.get('/customer-portal/profile', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/customer-portal/profile');
       return response.data;
     }
   );
@@ -46,10 +40,7 @@ const CustomerDashboardPage = () => {
   const { data: ticketsData, isLoading: ticketsLoading } = useQuery(
     'customer-recent-tickets',
     async () => {
-      const token = localStorage.getItem('customerToken');
-      const response = await api.get('/customer-portal/tickets?limit=5', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/customer-portal/tickets?limit=5');
       return response.data;
     }
   );

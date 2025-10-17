@@ -1372,3 +1372,10 @@
 2025-10-17T20:30:13: 🚨 Alert triggered: SLA Violation (high)
 2025-10-17T20:30:13: 🚨 Triggered 1 alert(s)
 2025-10-17T20:30:13:    - SLA Violation (high): 5
+2025-10-17T20:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:35:00: 🔍 Checking system alerts...
+2025-10-17T20:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:36:35: 103.55.224.49 - - [17/Oct/2025:13:36:35 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T20:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:40:00: 🔍 Checking system alerts...
+2025-10-17T20:40:00: ✅ No alerts triggered - System healthy

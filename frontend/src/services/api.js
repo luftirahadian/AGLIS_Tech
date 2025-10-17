@@ -15,7 +15,14 @@ const api = axios.create({
 // Request interceptor to add auth token and disable cache for GET requests
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token')
+    // Check if this is a customer portal request
+    const isCustomerPortalRequest = config.url?.includes('/customer-portal')
+    
+    // Use appropriate token based on request type
+    const token = isCustomerPortalRequest 
+      ? localStorage.getItem('customerToken')
+      : localStorage.getItem('token')
+    
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -58,15 +65,26 @@ api.interceptors.response.use(
     
     // Handle specific error cases
     if (error.response?.status === 401) {
+      // Check if this is a customer portal page
+      const isCustomerPortal = window.location.pathname.startsWith('/customer')
+      
       // Don't redirect if on public pages
-      const publicPaths = ['/register', '/track', '/login']
+      const publicPaths = ['/register', '/track', '/login', '/customer/login']
       const isPublicPage = publicPaths.some(path => window.location.pathname.startsWith(path))
       
       if (!isPublicPage) {
-        // Unauthorized - redirect to login
-        localStorage.removeItem('token')
-        window.location.href = '/login'
-        toast.error('Session expired. Please login again.')
+        if (isCustomerPortal) {
+          // Customer portal - redirect to customer login
+          localStorage.removeItem('customerToken')
+          localStorage.removeItem('customerData')
+          window.location.href = '/customer/login'
+          toast.error('Session expired. Please login again.')
+        } else {
+          // Admin portal - redirect to admin login
+          localStorage.removeItem('token')
+          window.location.href = '/login'
+          toast.error('Session expired. Please login again.')
+        }
       }
     } else if (error.response?.status === 403) {
       toast.error('Access denied. Insufficient permissions.')

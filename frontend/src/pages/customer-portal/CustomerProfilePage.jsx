@@ -13,10 +13,7 @@ const CustomerProfilePage = () => {
   const { data: profileData, isLoading } = useQuery(
     'customer-profile',
     async () => {
-      const token = localStorage.getItem('customerToken');
-      const response = await api.get('/customer-portal/profile', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/customer-portal/profile');
       return response.data;
     },
     {
@@ -29,10 +26,7 @@ const CustomerProfilePage = () => {
 
   const updateProfileMutation = useMutation(
     async (data) => {
-      const token = localStorage.getItem('customerToken');
-      return api.put('/customer-portal/profile', data, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      return api.put('/customer-portal/profile', data);
     },
     {
       onSuccess: () => {

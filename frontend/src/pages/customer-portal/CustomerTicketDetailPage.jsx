@@ -15,10 +15,7 @@ const CustomerTicketDetailPage = () => {
   const { data: ticketData, isLoading } = useQuery(
     ['customer-ticket-detail', id],
     async () => {
-      const token = localStorage.getItem('customerToken');
-      const response = await api.get(`/customer-portal/tickets`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get(`/customer-portal/tickets`);
       // Find the specific ticket
       const tickets = response?.data?.tickets || response?.tickets || [];
       return tickets.find(t => t.id === parseInt(id));
