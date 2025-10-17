@@ -1998,3 +1998,59 @@
 2025-10-17T22:45:58: 🚨 Alert triggered: SLA Violation (high)
 2025-10-17T22:45:58: 🚨 Triggered 1 alert(s)
 2025-10-17T22:45:58:    - SLA Violation (high): 5
+2025-10-17T22:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:50:00: 🔍 Checking system alerts...
+2025-10-17T22:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:50:01: 103.55.225.241 - - [17/Oct/2025:15:50:01 +0000] "GET /api/health HTTP/1.1" 200 700 "-" "curl/7.81.0"
+2025-10-17T22:50:57: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:50:57: 🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: 08197670700, OTP: 13****
+2025-10-17T22:50:57: 🔍 OTP VERIFY (Memory): Phone=628197670700, InputOTP=134412, Process=1172290, StorageSize=0
+2025-10-17T22:50:57: ❌ OTP NOT FOUND: Phone=628197670700
+2025-10-17T22:50:57: 🔐 [CUSTOMER PORTAL] Verify result: { success: false, error: 'OTP tidak ditemukan atau sudah kadaluarsa' }
+2025-10-17T22:50:57: 103.55.224.49 - - [17/Oct/2025:15:50:57 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 401 71 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:52:43: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T22:52:43: ⏰ Starting billing cron jobs...
+2025-10-17T22:52:43:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T22:52:43:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T22:52:43: ✅ All billing cron jobs started successfully
+2025-10-17T22:52:43: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T22:52:43: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T22:52:43: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T22:52:43: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T22:52:43: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T22:52:43: ✅ WhatsApp notification jobs started successfully
+2025-10-17T22:52:43:    - SLA Monitor: Every 15 minutes
+2025-10-17T22:52:43:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T22:52:43:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T22:52:43:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T22:52:43: ⏰ Starting Alert Monitoring System...
+2025-10-17T22:52:43: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T22:52:43: ✅ Alert Monitoring System started successfully
+2025-10-17T22:52:43:    - System Health Checks: Every 5 minutes
+2025-10-17T22:52:43:    - Alert Rules: 8 default rules active
+2025-10-17T22:52:43:    - Notifications: WhatsApp + Email
+2025-10-17T22:52:43: 🚀 Server running on 0.0.0.0:3001
+2025-10-17T22:52:43: 🌍 Environment: production
+2025-10-17T22:52:43: 📡 Local access: http://localhost:3001
+2025-10-17T22:52:43: 🌐 Network access: http://192.168.121.30:3001
+2025-10-17T22:52:43: 📝 CORS origins configured for local network access
+2025-10-17T22:52:43: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T22:52:43: ✅ Redis Cache Connected
+2025-10-17T22:52:43: ✅ Redis client ready for OTP operations
+2025-10-17T22:52:43: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T22:52:43: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T22:52:48: 🔍 Starting SLA check...
+2025-10-17T22:52:48: ✅ Connected to PostgreSQL database
+2025-10-17T22:52:48: 📋 Found 5 active tickets to check
+2025-10-17T22:52:48: 🚨 OVERDUE: Ticket #TKT20251014001 is 4517 minutes overdue!
+2025-10-17T22:52:48: 🚨 OVERDUE: Ticket #TKT20251013006 is 4029 minutes overdue!
+2025-10-17T22:52:48: 🚨 OVERDUE: Ticket #TKT20251013007 is 4006 minutes overdue!
+2025-10-17T22:52:48: 🚨 OVERDUE: Ticket #TKT20251014010 is 3985 minutes overdue!
+2025-10-17T22:52:48: 🚨 OVERDUE: Ticket #TKT20251015003 is 1341 minutes overdue!
+2025-10-17T22:52:48: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:52:48: ✅ Connected to PostgreSQL database
+2025-10-17T22:52:48: 🔍 Checking system alerts...
+2025-10-17T22:52:48: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:52:48: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:52:48: 🚨 Triggered 1 alert(s)
+2025-10-17T22:52:48:    - SLA Violation (high): 5

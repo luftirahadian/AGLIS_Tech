@@ -617,16 +617,22 @@ _AGLIS Net - Connecting You Better!_ 🌐`;
 
     try {
       // Try to store in Redis first
-      if (this.useRedis && redisClient.isReady) {
+      if (this.useRedis) {
         try {
+          // Ensure Redis is connected
+          await redisClient.connect();
+          
           const key = `otp:${formattedPhone}`;
           const expirySeconds = expiryMinutes * 60;
-          // Use SETEX command format: SETEX key seconds value
-          await redisClient.sendCommand(['SETEX', key, expirySeconds.toString(), JSON.stringify(otpData)]);
+          
+          // Store in Redis with expiry
+          await redisClient.set(key, JSON.stringify(otpData), expirySeconds);
+          
           console.log(`💾 OTP STORED (Redis): Phone=${formattedPhone}, OTP=${otp}, Purpose=${purpose}, Expiry=${expiryMinutes}min, Process=${process.pid}`);
           return { success: true, storage: 'redis' };
         } catch (redisError) {
           console.error('❌ Redis store failed, falling back to memory:', redisError.message);
+          console.error('❌ Redis error stack:', redisError.stack);
           // Fall through to memory storage
         }
       }
