@@ -1775,3 +1775,223 @@
 2025-10-17T20:40:00: ✅ Connected to PostgreSQL database
 2025-10-17T20:40:00: 🔍 Checking system alerts...
 2025-10-17T20:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:45:00: 🔍 Starting SLA check...
+2025-10-17T20:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:45:00: 📋 Found 5 active tickets to check
+2025-10-17T20:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4389 minutes overdue!
+2025-10-17T20:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3901 minutes overdue!
+2025-10-17T20:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3878 minutes overdue!
+2025-10-17T20:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3857 minutes overdue!
+2025-10-17T20:45:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1213 minutes overdue!
+2025-10-17T20:45:00: 🔍 Checking system alerts...
+2025-10-17T20:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:50:00: 🔍 Checking system alerts...
+2025-10-17T20:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:50:01: 103.55.225.241 - - [17/Oct/2025:13:50:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T20:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:55:00: 🔍 Checking system alerts...
+2025-10-17T20:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:00:00: 🔍 Starting SLA check...
+2025-10-17T21:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:00:00: 📋 Found 5 active tickets to check
+2025-10-17T21:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4404 minutes overdue!
+2025-10-17T21:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3916 minutes overdue!
+2025-10-17T21:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3893 minutes overdue!
+2025-10-17T21:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3872 minutes overdue!
+2025-10-17T21:00:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1228 minutes overdue!
+2025-10-17T21:00:00: 🔍 Checking system alerts...
+2025-10-17T21:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:05:00: 🔍 Checking system alerts...
+2025-10-17T21:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:10:00: 🔍 Checking system alerts...
+2025-10-17T21:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:10:01: 103.55.225.241 - - [17/Oct/2025:14:10:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T21:15:00: 🔍 Starting SLA check...
+2025-10-17T21:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:15:00: 📋 Found 5 active tickets to check
+2025-10-17T21:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4419 minutes overdue!
+2025-10-17T21:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3931 minutes overdue!
+2025-10-17T21:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3908 minutes overdue!
+2025-10-17T21:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3887 minutes overdue!
+2025-10-17T21:15:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1243 minutes overdue!
+2025-10-17T21:15:00: 🔍 Checking system alerts...
+2025-10-17T21:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:20:00: 🔍 Checking system alerts...
+2025-10-17T21:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:25:00: 🔍 Checking system alerts...
+2025-10-17T21:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:30:00: 🔍 Starting SLA check...
+2025-10-17T21:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:30:00: 📋 Found 5 active tickets to check
+2025-10-17T21:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4434 minutes overdue!
+2025-10-17T21:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3946 minutes overdue!
+2025-10-17T21:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3923 minutes overdue!
+2025-10-17T21:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3902 minutes overdue!
+2025-10-17T21:30:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1258 minutes overdue!
+2025-10-17T21:30:00: 🔍 Checking system alerts...
+2025-10-17T21:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:30:02: 103.55.225.241 - - [17/Oct/2025:14:30:02 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T21:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:35:00: 🔍 Checking system alerts...
+2025-10-17T21:35:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T21:35:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T21:35:00: 🚨 Triggered 1 alert(s)
+2025-10-17T21:35:00:    - SLA Violation (high): 5
+2025-10-17T21:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:40:00: 🔍 Checking system alerts...
+2025-10-17T21:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:45:00: 🔍 Starting SLA check...
+2025-10-17T21:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:45:00: 📋 Found 5 active tickets to check
+2025-10-17T21:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4449 minutes overdue!
+2025-10-17T21:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3961 minutes overdue!
+2025-10-17T21:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3938 minutes overdue!
+2025-10-17T21:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3917 minutes overdue!
+2025-10-17T21:45:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1273 minutes overdue!
+2025-10-17T21:45:00: 🔍 Checking system alerts...
+2025-10-17T21:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:50:00: 🔍 Checking system alerts...
+2025-10-17T21:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:50:02: 103.55.225.241 - - [17/Oct/2025:14:50:02 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T21:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:55:00: 🔍 Checking system alerts...
+2025-10-17T21:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:00:00: 🔍 Starting SLA check...
+2025-10-17T22:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:00:00: 📋 Found 5 active tickets to check
+2025-10-17T22:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:00:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4464 minutes overdue!
+2025-10-17T22:00:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3976 minutes overdue!
+2025-10-17T22:00:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3953 minutes overdue!
+2025-10-17T22:00:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3932 minutes overdue!
+2025-10-17T22:00:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1288 minutes overdue!
+2025-10-17T22:00:00: 🔍 Checking system alerts...
+2025-10-17T22:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:05:00: 🔍 Checking system alerts...
+2025-10-17T22:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:10:00: 🔍 Checking system alerts...
+2025-10-17T22:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:10:01: 103.55.225.241 - - [17/Oct/2025:15:10:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T22:15:00: 🔍 Starting SLA check...
+2025-10-17T22:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:15:00: 📋 Found 5 active tickets to check
+2025-10-17T22:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:15:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4479 minutes overdue!
+2025-10-17T22:15:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 3991 minutes overdue!
+2025-10-17T22:15:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3968 minutes overdue!
+2025-10-17T22:15:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3947 minutes overdue!
+2025-10-17T22:15:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1303 minutes overdue!
+2025-10-17T22:15:00: 🔍 Checking system alerts...
+2025-10-17T22:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:20:00: 🔍 Checking system alerts...
+2025-10-17T22:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:25:00: 🔍 Checking system alerts...
+2025-10-17T22:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:30:00: 🔍 Starting SLA check...
+2025-10-17T22:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:30:00: 📋 Found 5 active tickets to check
+2025-10-17T22:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:30:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4494 minutes overdue!
+2025-10-17T22:30:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 4006 minutes overdue!
+2025-10-17T22:30:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3983 minutes overdue!
+2025-10-17T22:30:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3962 minutes overdue!
+2025-10-17T22:30:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1318 minutes overdue!
+2025-10-17T22:30:00: 🔍 Checking system alerts...
+2025-10-17T22:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:30:01: 103.55.225.241 - - [17/Oct/2025:15:30:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T22:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:35:00: 🔍 Checking system alerts...
+2025-10-17T22:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:40:00: 🔍 Checking system alerts...
+2025-10-17T22:40:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:40:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:40:00: 🚨 Triggered 1 alert(s)
+2025-10-17T22:40:00:    - SLA Violation (high): 5
+2025-10-17T22:42:59: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:42:59: 🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: 08197670700, OTP: 45****
+2025-10-17T22:42:59: 🔍 OTP VERIFY (Memory): Phone=628197670700, InputOTP=457629, Process=1157553, StorageSize=0
+2025-10-17T22:42:59: ❌ OTP NOT FOUND: Phone=628197670700
+2025-10-17T22:42:59: 🔐 [CUSTOMER PORTAL] Verify result: { success: false, error: 'OTP tidak ditemukan atau sudah kadaluarsa' }
+2025-10-17T22:42:59: 103.55.224.49 - - [17/Oct/2025:15:42:59 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 401 71 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:45:00: 🔍 Starting SLA check...
+2025-10-17T22:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:00: 📋 Found 5 active tickets to check
+2025-10-17T22:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:45:00: 🚨 OVERDUE: Ticket #TKT20251014001 is 4509 minutes overdue!
+2025-10-17T22:45:00: 🚨 OVERDUE: Ticket #TKT20251013006 is 4021 minutes overdue!
+2025-10-17T22:45:00: 🚨 OVERDUE: Ticket #TKT20251013007 is 3998 minutes overdue!
+2025-10-17T22:45:00: 🚨 OVERDUE: Ticket #TKT20251014010 is 3977 minutes overdue!
+2025-10-17T22:45:00: 🚨 OVERDUE: Ticket #TKT20251015003 is 1333 minutes overdue!
+2025-10-17T22:45:00: 🔍 Checking system alerts...
+2025-10-17T22:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:45:53: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T22:45:53: ⏰ Starting billing cron jobs...
+2025-10-17T22:45:53:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T22:45:53:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T22:45:53: ✅ All billing cron jobs started successfully
+2025-10-17T22:45:53: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T22:45:53: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T22:45:53: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T22:45:53: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T22:45:53: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T22:45:53: ✅ WhatsApp notification jobs started successfully
+2025-10-17T22:45:53:    - SLA Monitor: Every 15 minutes
+2025-10-17T22:45:53:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T22:45:53:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T22:45:53:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T22:45:53: ⏰ Starting Alert Monitoring System...
+2025-10-17T22:45:53: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T22:45:53: ✅ Alert Monitoring System started successfully
+2025-10-17T22:45:53:    - System Health Checks: Every 5 minutes
+2025-10-17T22:45:53:    - Alert Rules: 8 default rules active
+2025-10-17T22:45:53:    - Notifications: WhatsApp + Email
+2025-10-17T22:45:53: 🚀 Server running on 0.0.0.0:3004
+2025-10-17T22:45:53: 🌍 Environment: production
+2025-10-17T22:45:53: 📡 Local access: http://localhost:3004
+2025-10-17T22:45:53: 🌐 Network access: http://192.168.121.30:3004
+2025-10-17T22:45:53: 📝 CORS origins configured for local network access
+2025-10-17T22:45:53: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T22:45:53: ✅ Redis Cache Connected
+2025-10-17T22:45:53: ✅ Redis client ready for OTP operations
+2025-10-17T22:45:53: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T22:45:53: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T22:45:58: 🔍 Starting SLA check...
+2025-10-17T22:45:58: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:58: 📋 Found 5 active tickets to check
+2025-10-17T22:45:58: 🚨 OVERDUE: Ticket #TKT20251014001 is 4510 minutes overdue!
+2025-10-17T22:45:58: 🚨 OVERDUE: Ticket #TKT20251013006 is 4022 minutes overdue!
+2025-10-17T22:45:58: 🚨 OVERDUE: Ticket #TKT20251013007 is 3999 minutes overdue!
+2025-10-17T22:45:58: 🚨 OVERDUE: Ticket #TKT20251014010 is 3978 minutes overdue!
+2025-10-17T22:45:58: 🚨 OVERDUE: Ticket #TKT20251015003 is 1334 minutes overdue!
+2025-10-17T22:45:58: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:45:58: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:58: 🔍 Checking system alerts...
+2025-10-17T22:45:58: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:45:58: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:45:58: 🚨 Triggered 1 alert(s)
+2025-10-17T22:45:58:    - SLA Violation (high): 5

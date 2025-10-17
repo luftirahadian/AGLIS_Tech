@@ -12,43 +12,40 @@ class RedisClient {
   }
 
   async connect() {
-    if (this.isConnected) {
+    if (this.isConnected && this.client?.isReady) {
       return this.client;
     }
 
     try {
+      // Redis v4+ syntax
+      const redisUrl = `redis://:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || '6379'}/${process.env.REDIS_DB || '1'}`;
+      
       this.client = redis.createClient({
-        host: process.env.REDIS_HOST || 'localhost',
-        port: parseInt(process.env.REDIS_PORT || '6379'),
-        password: process.env.REDIS_PASSWORD || undefined,
-        db: parseInt(process.env.REDIS_DB || '1'), // Use DB 1 for OTP (DB 0 for Socket.IO)
-        retry_strategy: (options) => {
-          if (options.error && options.error.code === 'ECONNREFUSED') {
-            console.error('❌ Redis connection refused');
-            return new Error('Redis server connection refused');
+        url: redisUrl,
+        socket: {
+          reconnectStrategy: (retries) => {
+            if (retries > 10) {
+              console.error('❌ Redis max reconnection attempts reached');
+              return new Error('Max retries reached');
+            }
+            // Exponential backoff: 100ms, 200ms, 400ms, ... max 3s
+            return Math.min(retries * 100, 3000);
           }
-          if (options.total_retry_time > 1000 * 60 * 60) {
-            return new Error('Redis retry time exhausted');
-          }
-          if (options.attempt > 10) {
-            return undefined;
-          }
-          return Math.min(options.attempt * 100, 3000);
         }
       });
 
       this.client.on('error', (err) => {
-        console.error('❌ Redis Client Error:', err);
+        console.error('❌ Redis Client Error:', err.message);
         this.isConnected = false;
       });
 
       this.client.on('connect', () => {
-        console.log('✅ Redis client connected for OTP storage');
+        console.log('✅ Redis client connected for OTP storage (DB 1)');
         this.isConnected = true;
       });
 
       this.client.on('ready', () => {
-        console.log('✅ Redis client ready');
+        console.log('✅ Redis client ready for OTP operations');
         this.isConnected = true;
       });
 
@@ -58,10 +55,12 @@ class RedisClient {
       });
 
       await this.client.connect();
+      console.log(`🔌 Redis OTP Client connected to ${process.env.REDIS_HOST}:${process.env.REDIS_PORT} DB ${process.env.REDIS_DB || '1'}`);
       return this.client;
 
     } catch (error) {
-      console.error('❌ Failed to connect to Redis:', error);
+      console.error('❌ Failed to connect to Redis:', error.message);
+      this.isConnected = false;
       throw error;
     }
   }
