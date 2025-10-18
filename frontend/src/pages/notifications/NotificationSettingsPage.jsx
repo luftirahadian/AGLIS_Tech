@@ -29,8 +29,9 @@ const NotificationSettingsPage = () => {
     { refetchOnWindowFocus: false }
   );
 
-  const settings = settingsData?.data || {};
-  const devices = devicesData?.data || [];
+  // React Query already extracts .data from response, so settingsData is the actual settings object
+  const settings = settingsData?.data || settingsData || {};
+  const devices = devicesData?.data || devicesData || [];
 
   // Debug: Log settings data
   console.log('🔍 [NotificationSettings] settingsData:', settingsData);
