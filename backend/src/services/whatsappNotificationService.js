@@ -1664,49 +1664,27 @@ _AGLIS Net - Always Connected_`;
   async notifyGroupNewRegistration(registrationData) {
     try {
       console.log('📱 [WhatsApp] Notifying groups about new registration:', registrationData.registration_number);
-      console.log('📍 [Smart Routing] Area:', registrationData.city, '| Service:', registrationData.service_type);
+      console.log('📍 [Registration Info] Area:', registrationData.city, '| Service:', registrationData.service_type);
       
-      // Smart routing query - match groups by area OR service type OR "all"
+      // Query groups that are active and subscribed to new_registration notifications
       const groupsQuery = `
-        SELECT id, name, phone_number, group_chat_id, coverage_area, service_types
+        SELECT id, name, phone_number, group_chat_id
         FROM whatsapp_groups
         WHERE is_active = TRUE
           AND (notification_types @> '["new_registration"]'::jsonb 
                OR notification_types @> '["all"]'::jsonb)
-          AND (
-            coverage_area IS NULL 
-            OR coverage_area = '' 
-            OR coverage_area ILIKE '%' || $1 || '%'
-            OR coverage_area = 'all'
-          )
-          AND (
-            service_types IS NULL
-            OR service_types @> $2::jsonb
-            OR service_types @> '["all"]'::jsonb
-          )
-        ORDER BY 
-          CASE 
-            WHEN coverage_area ILIKE '%' || $1 || '%' THEN 1
-            ELSE 2
-          END,
-          name
+        ORDER BY name
       `;
       
-      const groupsResult = await pool.query(groupsQuery, [
-        registrationData.city || '',
-        JSON.stringify([registrationData.service_type || 'installation'])
-      ]);
+      const groupsResult = await pool.query(groupsQuery);
       
       if (groupsResult.rows.length === 0) {
-        console.log('⚠️ [Smart Routing] No matching groups found for:', {
-          area: registrationData.city,
-          service: registrationData.service_type
-        });
-        return { success: true, message: 'No groups configured' };
+        console.log('⚠️ [WhatsApp Groups] No groups found with new_registration subscription');
+        return { success: true, message: 'No groups configured', groups_notified: 0 };
       }
 
-      console.log(`✅ [Smart Routing] Found ${groupsResult.rows.length} matching group(s):`, 
-        groupsResult.rows.map(g => `${g.name} (${g.coverage_area || 'all areas'})`).join(', ')
+      console.log(`✅ [WhatsApp Groups] Found ${groupsResult.rows.length} group(s):`, 
+        groupsResult.rows.map(g => `${g.name}`).join(', ')
       );
 
       // Create group-friendly message
