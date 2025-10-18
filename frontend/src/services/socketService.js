@@ -5,6 +5,7 @@ class SocketService {
     this.socket = null;
     this.isConnected = false;
     this.listeners = new Map();
+    this.currentUser = null;
   }
 
   // Initialize socket connection
@@ -13,11 +14,15 @@ class SocketService {
       this.disconnect();
     }
 
+    // Store user data for reconnections
+    this.currentUser = user;
+
     // Extract base URL from API URL (remove /api suffix for Socket.IO)
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
     const serverUrl = apiUrl.replace('/api', '');
     
     console.log(`🔗 Socket.IO: Connecting to ${serverUrl}`);
+    console.log(`👤 User data:`, { id: user?.id, role: user?.role, username: user?.username });
     
     this.socket = io(serverUrl, {
       autoConnect: true,
@@ -36,8 +41,12 @@ class SocketService {
       console.log('🔗 Socket connected:', this.socket.id);
       this.isConnected = true;
       
-      if (user) {
-        this.authenticate(user);
+      // Authenticate immediately with stored user data
+      if (this.currentUser) {
+        // Small delay to ensure connection is stable
+        setTimeout(() => {
+          this.authenticate(this.currentUser);
+        }, 100);
       }
     });
 
@@ -139,6 +148,22 @@ class SocketService {
       console.log('✨ New registration received:', data);
       this.emit('new_registration', data);
       window.dispatchEvent(new CustomEvent('new-registration', { detail: data }));
+    });
+
+    // Listen for invoice events
+    this.socket.on('invoice_created', (data) => {
+      console.log('💰 Invoice created:', data);
+      this.emit('invoice_created', data);
+    });
+
+    this.socket.on('invoice_updated', (data) => {
+      console.log('💰 Invoice updated:', data);
+      this.emit('invoice_updated', data);
+    });
+
+    this.socket.on('payment_received', (data) => {
+      console.log('💵 Payment received:', data);
+      this.emit('payment_received', data);
     });
   }
 

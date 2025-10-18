@@ -104,7 +104,16 @@ export const NotificationProvider = ({ children }) => {
     
     // Play sound if enabled
     if (settings.sound_notifications && shouldShowNotification(notification.type)) {
-      playNotificationSound();
+      // Determine sound type based on notification priority/type
+      let soundType = 'default';
+      if (notification.type === 'system_alert' || notification.type === 'sla_warning') {
+        soundType = 'urgent';
+      } else if (notification.type === 'ticket_completed' || notification.type === 'payment_received') {
+        soundType = 'success';
+      } else if (notification.type === 'ticket_assigned' || notification.type === 'new_ticket') {
+        soundType = 'warning';
+      }
+      playNotificationSound(soundType);
     }
     
     // Invalidate queries to refresh data
@@ -208,25 +217,42 @@ export const NotificationProvider = ({ children }) => {
     toast(notification.message, toastOptions);
   };
 
-  // Play notification sound
-  const playNotificationSound = () => {
+  // Play notification sound with different tones for different types
+  const playNotificationSound = (type = 'default') => {
     try {
-      // Create a simple beep sound
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
       
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
+      // Different sound patterns for different notification types
+      const soundPatterns = {
+        urgent: [{ freq: 880, duration: 0.1 }, { freq: 1046, duration: 0.15 }], // High priority
+        success: [{ freq: 523, duration: 0.1 }, { freq: 659, duration: 0.1 }, { freq: 784, duration: 0.15 }], // Success chime
+        warning: [{ freq: 659, duration: 0.15 }, { freq: 523, duration: 0.15 }], // Warning tone
+        default: [{ freq: 659, duration: 0.12 }, { freq: 784, duration: 0.18 }] // Pleasant notification
+      };
       
-      oscillator.frequency.value = 800;
-      oscillator.type = 'sine';
+      const pattern = soundPatterns[type] || soundPatterns.default;
+      let currentTime = audioContext.currentTime;
       
-      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-      
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.5);
+      pattern.forEach(({ freq, duration }) => {
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = freq;
+        oscillator.type = 'sine';
+        
+        // Smooth envelope
+        gainNode.gain.setValueAtTime(0, currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.2, currentTime + 0.01);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + duration);
+        
+        oscillator.start(currentTime);
+        oscillator.stop(currentTime + duration);
+        
+        currentTime += duration + 0.05; // Small gap between notes
+      });
     } catch (error) {
       console.warn('Could not play notification sound:', error);
     }

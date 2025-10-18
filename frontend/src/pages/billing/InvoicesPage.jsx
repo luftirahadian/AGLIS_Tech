@@ -2,7 +2,7 @@
 // 💰 INVOICES PAGE
 // ═══════════════════════════════════════════════════════════════
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import invoiceService from '../../services/invoiceService';
+import socketService from '../../services/socketService';
 
 const InvoicesPage = () => {
   const navigate = useNavigate();
@@ -47,6 +48,64 @@ const InvoicesPage = () => {
   const invoices = data?.data?.invoices || [];
   const pagination = data?.data?.pagination || {};
   const stats = statsData?.data || {};
+
+  // Real-time updates via Socket.IO
+  useEffect(() => {
+    const handleInvoiceUpdate = (data) => {
+      console.log('💰 Invoice updated via Socket.IO:', data);
+      queryClient.invalidateQueries(['invoices']);
+      queryClient.invalidateQueries(['invoice-statistics']);
+      
+      // Show toast notification for invoice updates
+      if (data?.invoice) {
+        toast.success(`Invoice ${data.invoice.invoice_number} telah diupdate!`, {
+          icon: '💰',
+          duration: 3000
+        });
+      }
+    };
+
+    const handleInvoiceCreated = (data) => {
+      console.log('💰 New invoice created:', data);
+      queryClient.invalidateQueries(['invoices']);
+      queryClient.invalidateQueries(['invoice-statistics']);
+      
+      if (data?.invoice) {
+        toast.success(`Invoice baru: ${data.invoice.invoice_number}`, {
+          icon: '✨',
+          duration: 4000
+        });
+      }
+    };
+
+    const handlePaymentReceived = (data) => {
+      console.log('💵 Payment received:', data);
+      queryClient.invalidateQueries(['invoices']);
+      queryClient.invalidateQueries(['invoice-statistics']);
+      
+      if (data?.payment) {
+        toast.success(`Pembayaran diterima: Rp ${(data.payment.amount || 0).toLocaleString('id-ID')}`, {
+          icon: '💵',
+          duration: 4000
+        });
+      }
+    };
+
+    // Register Socket.IO listeners
+    socketService.on('invoice_updated', handleInvoiceUpdate);
+    socketService.on('invoice_created', handleInvoiceCreated);
+    socketService.on('payment_received', handlePaymentReceived);
+
+    console.log('💰 [InvoicesPage] Socket.IO listeners registered');
+
+    // Cleanup
+    return () => {
+      socketService.off('invoice_updated', handleInvoiceUpdate);
+      socketService.off('invoice_created', handleInvoiceCreated);
+      socketService.off('payment_received', handlePaymentReceived);
+      console.log('💰 [InvoicesPage] Socket.IO listeners removed');
+    };
+  }, [queryClient]);
 
   // Delete mutation
   const deleteMutation = useMutation(
