@@ -552,3 +552,10 @@
 2025-10-18 20:19:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 20:19:46: 🔐 User authenticated: admin (admin)
 2025-10-18 20:19:46: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:33:42: 🔌 Socket disconnected: pn-umf00mlQi_jO8AAC_ (transport close)
+2025-10-18 20:33:42: 👋 User admin disconnected
+2025-10-18 20:33:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:33:43: 🔗 New connection: b2ZQ6mrrak-CaW7DAADP
+2025-10-18 20:33:43: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:33:43: 🔐 User authenticated: admin (admin)
+2025-10-18 20:33:43: 🏠 Joined rooms: role_admin, user_17
