@@ -92,6 +92,10 @@ const TicketsPage = () => {
     }
   )
 
+  // Extract tickets array from data
+  const tickets = ticketsData?.data?.tickets || []
+  const totalTickets = ticketsData?.data?.total || 0
+
   // Fetch ticket statistics
   const { data: statsData } = useQuery(
     'ticket-stats',
@@ -300,11 +304,13 @@ const TicketsPage = () => {
         { status: 'completed' }
       )
 
+      console.log('🔍 Bulk API Result:', result)
+
       setBulkProgress({
-        total: result.total,
-        processed: result.total,
-        succeeded: result.succeeded,
-        failed: result.failed,
+        total: result?.total || 0,
+        processed: result?.total || 0,
+        succeeded: result?.succeeded || 0,
+        failed: result?.failed || 0,
         currentItem: null
       })
 
@@ -319,7 +325,10 @@ const TicketsPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} ticket berhasil di-close`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
@@ -380,7 +389,10 @@ const TicketsPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} ticket berhasil di-assign`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
@@ -441,7 +453,10 @@ const TicketsPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} ticket priority updated`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 

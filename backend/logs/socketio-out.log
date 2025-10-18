@@ -503,3 +503,52 @@
 2025-10-18 19:28:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 19:28:51: 🔐 User authenticated: admin (admin)
 2025-10-18 19:28:51: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:10:00: 🔌 Socket disconnected: SPv8oyqUej0tYR3GAAC5 (transport close)
+2025-10-18 20:10:00: 👋 User admin disconnected
+2025-10-18 20:10:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:00: 🔗 New connection: 1UOh0L6G7VyhhGGSAADB
+2025-10-18 20:10:00: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:00: 🔐 User authenticated: admin (admin)
+2025-10-18 20:10:00: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:10:08: 🔌 Socket disconnected: 1UOh0L6G7VyhhGGSAADB (transport close)
+2025-10-18 20:10:08: 👋 User admin disconnected
+2025-10-18 20:10:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:08: 🔗 New connection: 5jdzLID3XNwUuF-GAADD
+2025-10-18 20:10:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:08: 🔐 User authenticated: admin (admin)
+2025-10-18 20:10:08: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:10:16: 🔌 Socket disconnected: 5jdzLID3XNwUuF-GAADD (transport close)
+2025-10-18 20:10:16: 👋 User admin disconnected
+2025-10-18 20:10:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:16: 🔗 New connection: YaDMX070uGqqc3sRAADF
+2025-10-18 20:10:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:10:16: 🔐 User authenticated: admin (admin)
+2025-10-18 20:10:16: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:12:42: 🔌 Socket disconnected: YaDMX070uGqqc3sRAADF (transport close)
+2025-10-18 20:12:42: 👋 User admin disconnected
+2025-10-18 20:12:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:12:42: 🔗 New connection: mj9p26beAiZYxrFnAADH
+2025-10-18 20:12:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:12:42: 🔐 User authenticated: admin (admin)
+2025-10-18 20:12:42: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:14:34: 🔌 Socket disconnected: mj9p26beAiZYxrFnAADH (transport close)
+2025-10-18 20:14:34: 👋 User admin disconnected
+2025-10-18 20:14:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:14:34: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:14:34: 🔗 New connection: Ry2xca7mElddwHcvAADJ
+2025-10-18 20:14:34: 🔐 User authenticated: admin (admin)
+2025-10-18 20:14:34: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:16:44: 🔌 Socket disconnected: Ry2xca7mElddwHcvAADJ (transport close)
+2025-10-18 20:16:44: 👋 User admin disconnected
+2025-10-18 20:16:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:16:44: 🔗 New connection: SCYlqZ_WDxA6dn4AAADL
+2025-10-18 20:16:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:16:44: 🔐 User authenticated: admin (admin)
+2025-10-18 20:16:44: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 20:19:46: 🔌 Socket disconnected: SCYlqZ_WDxA6dn4AAADL (transport close)
+2025-10-18 20:19:46: 👋 User admin disconnected
+2025-10-18 20:19:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:19:46: 🔗 New connection: eZlvzDYQmwB4zN0PAADN
+2025-10-18 20:19:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 20:19:46: 🔐 User authenticated: admin (admin)
+2025-10-18 20:19:46: 🏠 Joined rooms: role_admin, user_17

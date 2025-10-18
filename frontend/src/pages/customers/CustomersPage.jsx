@@ -535,7 +535,10 @@ const CustomersPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} customer berhasil di-suspend`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
@@ -593,7 +596,10 @@ const CustomersPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} customer berhasil diaktifkan`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
@@ -648,7 +654,10 @@ const CustomersPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} customer berhasil dihapus`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 

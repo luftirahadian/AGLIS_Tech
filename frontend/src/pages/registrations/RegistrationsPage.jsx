@@ -389,7 +389,10 @@ const RegistrationsPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} registration berhasil di-verify`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
@@ -463,7 +466,10 @@ const RegistrationsPage = () => {
         if (result.failed === 0) {
           toast.success(`✅ ${result.succeeded} registration berhasil di-reject`)
         } else {
-          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+          toast.success(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`, {
+            icon: '⚠️',
+            duration: 5000
+          })
         }
       }, 1000)
 
