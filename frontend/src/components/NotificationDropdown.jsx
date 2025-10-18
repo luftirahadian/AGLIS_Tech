@@ -35,10 +35,10 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
       return notificationCenterService.getNotifications(params);
     },
     {
-      enabled: isOpen,
-      staleTime: 10000, // 10 seconds
-      refetchOnWindowFocus: false,
-      refetchOnMount: true // Always fetch when component mounts
+      staleTime: 5000, // 5 seconds - shorter for fresher data
+      refetchOnWindowFocus: true, // Refetch when window gains focus
+      refetchOnMount: true, // Always fetch when component mounts
+      refetchInterval: isOpen ? 10000 : false // Auto-refresh when dropdown is open
     }
   );
 
