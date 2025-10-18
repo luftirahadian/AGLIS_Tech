@@ -5,7 +5,7 @@ module.exports = {
     name: 'aglis-backend',
     script: './src/server.js',
     instances: 4,
-    exec_mode: 'fork',
+    exec_mode: 'cluster', // Fixed: Use cluster mode for multiple instances
     env: {
       NODE_ENV: 'production',
       PORT: process.env.PORT || 3001,
