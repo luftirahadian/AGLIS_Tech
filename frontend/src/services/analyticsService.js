@@ -1,40 +1,46 @@
 import api from './api';
 
 const analyticsService = {
-  // Get dashboard overview statistics
-  getDashboardOverview: async (timeframe = 30) => {
-    const response = await api.get(`/analytics/dashboard/overview?timeframe=${timeframe}`);
-    return response;
+  // Get ticket trend data
+  getTicketTrend: async (range = '7days') => {
+    const response = await api.get(`/analytics/ticket-trend?range=${range}`);
+    return response.data;
   },
 
-  // Get ticket trends for charts
-  getTicketTrends: async (days = 30) => {
-    const response = await api.get(`/analytics/dashboard/ticket-trends?days=${days}`);
-    return response;
-  },
-
-  // Get service type distribution
-  getServiceDistribution: async () => {
-    const response = await api.get('/analytics/dashboard/service-distribution');
-    return response;
+  // Get status distribution
+  getStatusDistribution: async () => {
+    const response = await api.get('/analytics/status-distribution');
+    return response.data;
   },
 
   // Get technician performance
   getTechnicianPerformance: async () => {
-    const response = await api.get('/analytics/dashboard/technician-performance');
-    return response;
+    const response = await api.get('/analytics/technician-performance');
+    return response.data;
   },
 
-  // Get priority analysis
-  getPriorityAnalysis: async () => {
-    const response = await api.get('/analytics/dashboard/priority-analysis');
-    return response;
+  // Get revenue trend
+  getRevenueTrend: async () => {
+    const response = await api.get('/analytics/revenue-trend');
+    return response.data;
   },
 
-  // Get recent activities
-  getRecentActivities: async (limit = 10) => {
-    const response = await api.get(`/analytics/dashboard/recent-activities?limit=${limit}`);
-    return response;
+  // Get KPI metrics
+  getKPIMetrics: async () => {
+    const response = await api.get('/analytics/kpi');
+    return response.data;
+  },
+
+  // Get response time metrics
+  getResponseTimeMetrics: async () => {
+    const response = await api.get('/analytics/response-time');
+    return response.data;
+  },
+
+  // Get SLA compliance
+  getSLACompliance: async () => {
+    const response = await api.get('/analytics/sla-compliance');
+    return response.data;
   }
 };
 

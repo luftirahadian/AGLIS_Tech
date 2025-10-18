@@ -1,396 +1,235 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
+const { authenticate, authorize } = require('../middleware/auth');
 
-// Get dashboard overview statistics
-router.get('/dashboard/overview', async (req, res) => {
+// All analytics routes require authentication
+router.use(authenticate);
+router.use(authorize('admin', 'supervisor', 'manager'));
+
+/**
+ * GET /api/analytics/ticket-trend
+ * Get ticket creation trend
+ */
+router.get('/ticket-trend', async (req, res) => {
   try {
-    const { timeframe = '30' } = req.query; // days
+    const { range = '7days' } = req.query;
     
-    // Get current date ranges
-    const now = new Date();
-    const startDate = new Date(now.getTime() - (parseInt(timeframe) * 24 * 60 * 60 * 1000));
+    let days = 7;
+    if (range === 'today') days = 1;
+    else if (range === '30days') days = 30;
+    else if (range === '90days') days = 90;
+    else if (range === 'year') days = 365;
     
-    // Parallel queries for better performance
-    const [
-      totalTicketsResult,
-      todayTicketsResult,
-      allTicketsByStatusResult,
-      slaComplianceResult,
-      avgResolutionResult,
-      customerSatisfactionResult,
-      activeTechniciansResult,
-      revenueResult
-    ] = await Promise.all([
-      // Total tickets in timeframe
-      pool.query(`
-        SELECT COUNT(*) as total,
-               COUNT(CASE WHEN created_at >= CURRENT_DATE THEN 1 END) as today,
-               COUNT(CASE WHEN created_at >= CURRENT_DATE - INTERVAL '7 days' THEN 1 END) as week,
-               COUNT(CASE WHEN created_at >= CURRENT_DATE - INTERVAL '30 days' THEN 1 END) as month
-        FROM tickets 
-        WHERE created_at >= $1
-      `, [startDate]),
-      
-      // Today's tickets by status
-      pool.query(`
-        SELECT status, COUNT(*) as count
-        FROM tickets 
-        WHERE created_at >= CURRENT_DATE
-        GROUP BY status
-      `),
-      
-      // All tickets by status (in timeframe)
-      pool.query(`
-        SELECT status, COUNT(*) as count
-        FROM tickets 
-        WHERE created_at >= $1
-        GROUP BY status
-      `, [startDate]),
-      
-      // SLA Compliance Rate
-      pool.query(`
-        SELECT 
-          COUNT(*) as total_completed,
-          COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) as within_sla,
-          ROUND(
-            (COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) * 100.0 / NULLIF(COUNT(*), 0)), 2
-          ) as compliance_rate
-        FROM tickets 
-        WHERE status = 'completed' 
-        AND created_at >= $1
-      `, [startDate]),
-      
-      // Average Resolution Time
-      pool.query(`
-        SELECT 
-          AVG(EXTRACT(EPOCH FROM (completed_at - created_at))/3600) as avg_hours,
-          COUNT(*) as completed_tickets
-        FROM tickets 
-        WHERE status = 'completed' 
-        AND created_at >= $1
-      `, [startDate]),
-      
-      // Customer Satisfaction (mock data for now)
-      pool.query(`
-        SELECT 
-          AVG(CASE 
-            WHEN priority = 'critical' THEN 4.2
-            WHEN priority = 'high' THEN 4.5
-            WHEN priority = 'normal' THEN 4.7
-            ELSE 4.8
-          END) as avg_rating,
-          COUNT(*) as total_reviews
-        FROM tickets 
-        WHERE status = 'completed' 
-        AND created_at >= $1
-      `, [startDate]),
-      
-      // Active Technicians
-      pool.query(`
-        SELECT 
-          COUNT(DISTINCT t.id) as total_technicians,
-          COUNT(DISTINCT CASE WHEN t.availability_status = 'available' THEN t.id END) as available,
-          COUNT(DISTINCT CASE WHEN t.availability_status = 'busy' THEN t.id END) as busy,
-          COUNT(DISTINCT CASE WHEN t.availability_status = 'offline' THEN t.id END) as offline
-        FROM technicians t
-        WHERE t.employment_status = 'active'
-      `),
-      
-      // Revenue estimation (based on completed tickets and package prices)
-      pool.query(`
-        SELECT 
-          SUM(pm.monthly_price) as estimated_monthly_revenue,
-          COUNT(DISTINCT c.id) as active_customers
-        FROM customers c
-        JOIN packages_master pm ON c.package_id = pm.id
-        WHERE c.account_status = 'active'
-      `)
-    ]);
-
-    const overview = {
-      tickets: {
-        total: parseInt(totalTicketsResult.rows[0].total),
-        today: parseInt(totalTicketsResult.rows[0].today),
-        week: parseInt(totalTicketsResult.rows[0].week),
-        month: parseInt(totalTicketsResult.rows[0].month),
-        byStatus: allTicketsByStatusResult.rows.reduce((acc, row) => {
-          acc[row.status] = parseInt(row.count);
-          return acc;
-        }, {}),
-        todayByStatus: todayTicketsResult.rows.reduce((acc, row) => {
-          acc[row.status] = parseInt(row.count);
-          return acc;
-        }, {})
-      },
-      sla: {
-        complianceRate: parseFloat(slaComplianceResult.rows[0]?.compliance_rate || 0),
-        totalCompleted: parseInt(slaComplianceResult.rows[0]?.total_completed || 0),
-        withinSLA: parseInt(slaComplianceResult.rows[0]?.within_sla || 0)
-      },
-      resolution: {
-        averageHours: parseFloat(avgResolutionResult.rows[0]?.avg_hours || 0),
-        completedTickets: parseInt(avgResolutionResult.rows[0]?.completed_tickets || 0)
-      },
-      satisfaction: {
-        averageRating: parseFloat(customerSatisfactionResult.rows[0]?.avg_rating || 0),
-        totalReviews: parseInt(customerSatisfactionResult.rows[0]?.total_reviews || 0)
-      },
-      technicians: {
-        total: parseInt(activeTechniciansResult.rows[0]?.total_technicians || 0),
-        available: parseInt(activeTechniciansResult.rows[0]?.available || 0),
-        busy: parseInt(activeTechniciansResult.rows[0]?.busy || 0),
-        offline: parseInt(activeTechniciansResult.rows[0]?.offline || 0)
-      },
-      revenue: {
-        estimatedMonthly: parseFloat(revenueResult.rows[0]?.estimated_monthly_revenue || 0),
-        activeCustomers: parseInt(revenueResult.rows[0]?.active_customers || 0)
-      }
-    };
-
+    const query = `
+      SELECT 
+        DATE(created_at) as date,
+        COUNT(*) as tickets,
+        COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '${days} days'
+      GROUP BY DATE(created_at)
+      ORDER BY date ASC
+    `;
+    
+    const result = await pool.query(query);
+    
     res.json({
       success: true,
-      data: overview,
-      timeframe: parseInt(timeframe),
-      generatedAt: new Date().toISOString()
+      data: result.rows.map(row => ({
+        date: new Date(row.date).toLocaleDateString('id-ID', { day: '2-digit', month: 'short' }),
+        tickets: parseInt(row.tickets),
+        completed: parseInt(row.completed)
+      }))
     });
-
   } catch (error) {
-    console.error('Dashboard overview error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch dashboard overview' 
+    console.error('Error fetching ticket trend:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch ticket trend'
     });
   }
 });
 
-// Get ticket trends for charts
-router.get('/dashboard/ticket-trends', async (req, res) => {
+/**
+ * GET /api/analytics/status-distribution
+ * Get ticket status distribution
+ */
+router.get('/status-distribution', async (req, res) => {
   try {
-    const { days = '30' } = req.query;
-    
-    const trendsResult = await pool.query(`
-      WITH date_series AS (
-        SELECT generate_series(
-          CURRENT_DATE - INTERVAL '${parseInt(days)} days',
-          CURRENT_DATE,
-          INTERVAL '1 day'
-        )::date as date
-      )
+    const query = `
       SELECT 
-        ds.date,
-        COALESCE(COUNT(t.id), 0) as tickets_created,
-        COALESCE(COUNT(CASE WHEN t.status = 'completed' THEN 1 END), 0) as tickets_completed,
-        COALESCE(COUNT(CASE WHEN t.priority = 'critical' THEN 1 END), 0) as critical_tickets
-      FROM date_series ds
-      LEFT JOIN tickets t ON DATE(t.created_at) = ds.date
-      GROUP BY ds.date
-      ORDER BY ds.date
-    `);
-
-    const trends = trendsResult.rows.map(row => ({
-      date: row.date,
-      created: parseInt(row.tickets_created),
-      completed: parseInt(row.tickets_completed),
-      critical: parseInt(row.critical_tickets)
-    }));
-
-    res.json({
-      success: true,
-      data: trends
-    });
-
-  } catch (error) {
-    console.error('Ticket trends error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch ticket trends' 
-    });
-  }
-});
-
-// Get service type distribution
-router.get('/dashboard/service-distribution', async (req, res) => {
-  try {
-    const distributionResult = await pool.query(`
-      SELECT 
-        type,
-        COUNT(*) as count,
-        ROUND((COUNT(*) * 100.0 / SUM(COUNT(*)) OVER()), 2) as percentage
-      FROM tickets 
+        status,
+        COUNT(*) as count
+      FROM tickets
       WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
-      GROUP BY type
+      GROUP BY status
       ORDER BY count DESC
-    `);
-
-    const distribution = distributionResult.rows.map(row => ({
-      type: row.type,
-      count: parseInt(row.count),
-      percentage: parseFloat(row.percentage)
-    }));
-
+    `;
+    
+    const result = await pool.query(query);
+    
     res.json({
       success: true,
-      data: distribution
+      data: result.rows.map(row => ({
+        status: row.status.charAt(0).toUpperCase() + row.status.slice(1),
+        count: parseInt(row.count)
+      }))
     });
-
   } catch (error) {
-    console.error('Service distribution error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch service distribution' 
+    console.error('Error fetching status distribution:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch status distribution'
     });
   }
 });
 
-  // Get technician performance
-router.get('/dashboard/technician-performance', async (req, res) => {
+/**
+ * GET /api/analytics/technician-performance
+ * Get technician performance metrics
+ */
+router.get('/technician-performance', async (req, res) => {
   try {
-    const performanceResult = await pool.query(`
+    const query = `
       SELECT 
-        t.full_name,
-        t.employee_id,
-        COUNT(tk.id) as total_tickets,
-        COUNT(CASE WHEN tk.status = 'completed' THEN 1 END) as completed_tickets,
-        AVG(CASE 
-          WHEN tk.status = 'completed' AND tk.completed_at IS NOT NULL
-          THEN EXTRACT(EPOCH FROM (tk.completed_at - tk.created_at))/3600 
-        END) as avg_resolution_hours,
-        COALESCE(t.customer_rating, 0) as customer_rating,
-        COUNT(CASE WHEN tk.status = 'completed' AND tk.completed_at <= tk.sla_due_date THEN 1 END) as sla_met
+        t.full_name as name,
+        COUNT(tk.*) as total,
+        COUNT(CASE WHEN tk.status = 'completed' THEN 1 END) as completed,
+        COUNT(CASE WHEN tk.status != 'completed' THEN 1 END) as pending
       FROM technicians t
       LEFT JOIN tickets tk ON t.id = tk.assigned_technician_id
-      WHERE t.employment_status = 'active'
-      AND (tk.created_at >= CURRENT_DATE - INTERVAL '30 days' OR tk.created_at IS NULL)
-      GROUP BY t.id, t.full_name, t.employee_id, t.customer_rating
-      ORDER BY completed_tickets DESC
+      WHERE t.status = 'available'
+        AND (tk.created_at >= CURRENT_DATE - INTERVAL '30 days' OR tk.created_at IS NULL)
+      GROUP BY t.id, t.full_name
+      HAVING COUNT(tk.*) > 0
+      ORDER BY completed DESC
       LIMIT 10
-    `);
-
-    const performance = performanceResult.rows.map(row => ({
-      name: row.full_name,
-      employeeId: row.employee_id,
-      totalTickets: parseInt(row.total_tickets || 0),
-      completedTickets: parseInt(row.completed_tickets || 0),
-      avgResolutionHours: parseFloat(row.avg_resolution_hours || 0),
-      customerRating: parseFloat(row.customer_rating || 0),
-      slaCompliance: row.total_tickets > 0 ? 
-        Math.round((parseInt(row.sla_met || 0) / parseInt(row.total_tickets)) * 100) : 0
-    }));
-
+    `;
+    
+    const result = await pool.query(query);
+    
     res.json({
       success: true,
-      data: performance
+      data: result.rows.map(row => ({
+        name: row.name,
+        total: parseInt(row.total),
+        completed: parseInt(row.completed),
+        pending: parseInt(row.pending)
+      }))
     });
-
   } catch (error) {
-    console.error('Technician performance error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch technician performance' 
+    console.error('Error fetching technician performance:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch technician performance'
     });
   }
 });
 
-// Get priority analysis
-router.get('/dashboard/priority-analysis', async (req, res) => {
+/**
+ * GET /api/analytics/revenue-trend
+ * Get monthly revenue trend
+ */
+router.get('/revenue-trend', async (req, res) => {
   try {
-    const analysisResult = await pool.query(`
+    const query = `
       SELECT 
-        priority,
+        TO_CHAR(DATE_TRUNC('month', invoice_date), 'Mon YYYY') as month,
+        SUM(total_amount) as revenue,
+        SUM(total_amount) * 1.1 as target
+      FROM invoices
+      WHERE invoice_date >= CURRENT_DATE - INTERVAL '12 months'
+        AND status IN ('paid', 'partial')
+      GROUP BY DATE_TRUNC('month', invoice_date)
+      ORDER BY DATE_TRUNC('month', invoice_date) ASC
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows.map(row => ({
+        month: row.month,
+        revenue: parseFloat(row.revenue) || 0,
+        target: parseFloat(row.target) || 0
+      }))
+    });
+  } catch (error) {
+    console.error('Error fetching revenue trend:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch revenue trend'
+    });
+  }
+});
+
+/**
+ * GET /api/analytics/kpi
+ * Get KPI metrics
+ */
+router.get('/kpi', async (req, res) => {
+  try {
+    // Total tickets (last 30 days)
+    const ticketQuery = `
+      SELECT 
         COUNT(*) as total_tickets,
-        AVG(CASE 
-          WHEN status = 'completed' 
-          THEN EXTRACT(EPOCH FROM (completed_at - created_at))/3600 
-        END) as avg_resolution_hours,
-        COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed,
-        COUNT(CASE WHEN status IN ('open', 'assigned', 'in_progress') THEN 1 END) as pending
-      FROM tickets 
+        COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed_tickets,
+        AVG(EXTRACT(EPOCH FROM (completed_at - created_at))/3600) as avg_response_time
+      FROM tickets
       WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
-      GROUP BY priority
-      ORDER BY 
-        CASE priority 
-          WHEN 'critical' THEN 1 
-          WHEN 'high' THEN 2 
-          WHEN 'normal' THEN 3 
-          WHEN 'low' THEN 4 
-        END
-    `);
-
-    const analysis = analysisResult.rows.map(row => ({
-      priority: row.priority,
-      totalTickets: parseInt(row.total_tickets),
-      avgResolutionHours: parseFloat(row.avg_resolution_hours || 0),
-      completed: parseInt(row.completed || 0),
-      pending: parseInt(row.pending || 0),
-      completionRate: row.total_tickets > 0 ? 
-        Math.round((parseInt(row.completed || 0) / parseInt(row.total_tickets)) * 100) : 0
-    }));
-
-    res.json({
-      success: true,
-      data: analysis
-    });
-
-  } catch (error) {
-    console.error('Priority analysis error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch priority analysis' 
-    });
-  }
-});
-
-// Get recent activities for dashboard feed
-router.get('/dashboard/recent-activities', async (req, res) => {
-  try {
-    const { limit = '50' } = req.query;
+    `;
     
-    // Get today's date at midnight (start of day)
-    const todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
+    const ticketResult = await pool.query(ticketQuery);
+    const tickets = ticketResult.rows[0];
     
-    const activitiesResult = await pool.query(`
+    // Revenue this month
+    const revenueQuery = `
       SELECT 
-        'ticket' as type,
-        t.id,
-        t.ticket_number,
-        t.title,
-        t.status,
-        t.priority,
-        t.created_at as timestamp,
-        'Customer' as customer_name,
-        'Technician' as technician_name,
-        'Admin' as created_by_name
-      FROM tickets t
-      WHERE t.created_at >= $1
-      ORDER BY t.created_at DESC
-      LIMIT $2
-    `, [todayStart, parseInt(limit)]);
-
-    const activities = activitiesResult.rows.map(row => ({
-      type: row.type,
-      id: row.id,
-      ticketNumber: row.ticket_number,
-      title: row.title,
-      status: row.status,
-      priority: row.priority,
-      timestamp: row.timestamp,
-      customerName: row.customer_name,
-      technicianName: row.technician_name,
-      createdByName: row.created_by_name
-    }));
-
+        COALESCE(SUM(total_amount), 0) as monthly_revenue,
+        COALESCE(SUM(CASE WHEN status = 'paid' THEN total_amount ELSE 0 END), 0) as paid_revenue
+      FROM invoices
+      WHERE DATE_TRUNC('month', invoice_date) = DATE_TRUNC('month', CURRENT_DATE)
+    `;
+    
+    const revenueResult = await pool.query(revenueQuery);
+    const revenue = revenueResult.rows[0];
+    
+    // Calculate growth rates (compare with previous period)
+    const prevTicketQuery = `
+      SELECT COUNT(*) as prev_tickets
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '60 days'
+        AND created_at < CURRENT_DATE - INTERVAL '30 days'
+    `;
+    
+    const prevTicketResult = await pool.query(prevTicketQuery);
+    const prevTickets = parseInt(prevTicketResult.rows[0].prev_tickets) || 1;
+    const currentTickets = parseInt(tickets.total_tickets) || 0;
+    const ticketGrowth = ((currentTickets - prevTickets) / prevTickets * 100).toFixed(1);
+    
+    const completionRate = tickets.total_tickets > 0 
+      ? ((tickets.completed_tickets / tickets.total_tickets) * 100).toFixed(1)
+      : 0;
+    
     res.json({
       success: true,
-      data: activities
+      data: {
+        total_tickets: currentTickets,
+        ticket_growth: parseFloat(ticketGrowth),
+        completion_rate: parseFloat(completionRate),
+        completion_growth: 5.2, // Mock data - implement real calculation
+        avg_response_time: parseFloat(tickets.avg_response_time || 0).toFixed(1),
+        response_improvement: 12.5, // Mock data
+        monthly_revenue: parseFloat(revenue.monthly_revenue),
+        revenue_growth: 8.3 // Mock data
+      }
     });
-
   } catch (error) {
-    console.error('Recent activities error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to fetch recent activities' 
+    console.error('Error fetching KPI metrics:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch KPI metrics'
     });
   }
 });

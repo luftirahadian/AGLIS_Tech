@@ -11,7 +11,7 @@ import LoginPage from './pages/auth/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 
 // Lazy load all other pages for better performance
-const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'))
+const AnalyticsDashboard = lazy(() => import('./pages/analytics/AnalyticsDashboard'))
 const PerformanceDashboard = lazy(() => import('./pages/PerformanceDashboard'))
 const TicketsPage = lazy(() => import('./pages/tickets/TicketsPage'))
 const TicketDetailPage = lazy(() => import('./pages/tickets/TicketDetailPage'))
