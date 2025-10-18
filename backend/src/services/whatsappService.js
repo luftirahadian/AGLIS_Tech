@@ -1,5 +1,6 @@
 const axios = require('axios');
 const redisClient = require('../utils/redisClient');
+const { addWhatsAppJob } = require('../queues/whatsappQueue');
 
 /**
  * WhatsApp Service
@@ -24,6 +25,10 @@ class WhatsAppService {
     this.enabled = process.env.WHATSAPP_ENABLED === 'true';
     this.useRedis = process.env.USE_REDIS_FOR_OTP !== 'false'; // Default to true
     
+    // Queue configuration
+    this.useQueue = process.env.WHATSAPP_USE_QUEUE !== 'false'; // Default to true
+    this.queueFallback = true; // Fallback to direct send if queue fails
+    
     // Failover configuration
     this.enableFailover = process.env.WHATSAPP_ENABLE_FAILOVER === 'true';
     this.backupProvider = process.env.WHATSAPP_BACKUP_PROVIDER || 'wablas';
@@ -37,6 +42,11 @@ class WhatsAppService {
         this.useRedis = false;
       });
     }
+    
+    console.log('📱 WhatsApp Service initialized:');
+    console.log(`   - Provider: ${this.provider}`);
+    console.log(`   - Queue enabled: ${this.useQueue}`);
+    console.log(`   - Queue fallback: ${this.queueFallback}`);
   }
 
   getApiUrl() {
@@ -376,6 +386,9 @@ class WhatsAppService {
   /**
    * Send OTP via WhatsApp
    */
+  /**
+   * Send OTP via queue (with fallback to direct send)
+   */
   async sendOTP(phone, otp, name = '') {
     // Use OTP template
     const templates = require('../templates/whatsappTemplates');
@@ -388,6 +401,39 @@ class WhatsAppService {
     
     const message = templates.otpVerification(messageData);
 
+    // Use queue if enabled
+    if (this.useQueue) {
+      try {
+        await addWhatsAppJob('send-otp', {
+          phone,
+          message,
+          otp,
+          name
+        }, {
+          priority: 10, // Highest priority for OTP
+          attempts: 3
+        });
+        
+        console.log(`📱 [Queue] OTP job added for ${phone}`);
+        return {
+          success: true,
+          message: 'OTP queued for delivery',
+          queued: true
+        };
+      } catch (queueError) {
+        console.error('📱 [Queue] Failed to add OTP job:', queueError);
+        
+        // Fallback to direct send if queue fails
+        if (this.queueFallback) {
+          console.log('📱 [Queue] Falling back to direct send for OTP');
+          return this.sendMessage(phone, message);
+        }
+        
+        throw queueError;
+      }
+    }
+
+    // Direct send if queue disabled
     return this.sendMessage(phone, message);
   }
 
