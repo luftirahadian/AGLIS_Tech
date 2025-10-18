@@ -57,12 +57,22 @@ class SocketService {
   // Authenticate user with server
   authenticate(user) {
     if (this.socket && this.isConnected) {
-      this.socket.emit('authenticate', {
+      const authData = {
         userId: user.id,
         role: user.role,
         username: user.username
+      };
+      
+      console.log('🔐 Authenticating user with data:', authData);
+      this.socket.emit('authenticate', authData);
+      console.log('🔐 User authenticated:', user.username, 'Role:', user.role);
+    } else {
+      console.warn('⚠️ Cannot authenticate: socket not connected or not available');
+      console.log('Socket status:', {
+        socket: !!this.socket,
+        isConnected: this.isConnected,
+        socketId: this.socket?.id
       });
-      console.log('🔐 User authenticated:', user.username);
     }
   }
 
@@ -116,6 +126,19 @@ class SocketService {
     this.socket.on('system_alert', (alert) => {
       console.log('⚠️ System alert:', alert);
       this.emit('system_alert', alert);
+    });
+
+    // Listen for authentication confirmation
+    this.socket.on('authenticated', (data) => {
+      console.log('✅ Authentication confirmed:', data);
+      console.log('🏠 Joined rooms:', data.rooms);
+    });
+
+    // Listen for new registrations
+    this.socket.on('new_registration', (data) => {
+      console.log('✨ New registration received:', data);
+      this.emit('new_registration', data);
+      window.dispatchEvent(new CustomEvent('new-registration', { detail: data }));
     });
   }
 

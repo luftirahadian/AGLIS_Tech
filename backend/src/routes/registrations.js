@@ -273,14 +273,36 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
       // Emit Socket.IO event for real-time update
       const io = req.app.get('io');
       if (io) {
+        // Get room sizes for debugging
+        const adminRoom = io.sockets.adapter.rooms.get('role_admin');
+        const supervisorRoom = io.sockets.adapter.rooms.get('role_supervisor');
+        const csRoom = io.sockets.adapter.rooms.get('role_customer_service');
+        
         console.log('📡 [Socket.IO] Emitting new_registration event:', {
           registration_number: registration.registration_number,
           full_name: registration.full_name,
-          rooms: ['role_admin', 'role_supervisor', 'role_customer_service']
+          rooms: ['role_admin', 'role_supervisor', 'role_customer_service'],
+          listeners: {
+            role_admin: adminRoom?.size || 0,
+            role_supervisor: supervisorRoom?.size || 0,
+            role_customer_service: csRoom?.size || 0
+          }
         });
+        
+        // Try room-based emission first
         io.to('role_admin').to('role_supervisor').to('role_customer_service').emit('new_registration', {
           registration: registration
         });
+        
+        // Fallback: If no listeners in rooms, broadcast to all connected clients
+        const totalListeners = (adminRoom?.size || 0) + (supervisorRoom?.size || 0) + (csRoom?.size || 0);
+        if (totalListeners === 0) {
+          console.log('⚠️ [Socket.IO] No listeners in role rooms, broadcasting to all connected clients');
+          io.emit('new_registration', {
+            registration: registration
+          });
+        }
+        
         console.log('✅ [Socket.IO] new_registration event emitted successfully');
       } else {
         console.warn('⚠️ [Socket.IO] io object not available, event not emitted');

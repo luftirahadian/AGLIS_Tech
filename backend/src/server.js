@@ -318,15 +318,17 @@ io.on('connection', (socket) => {
   
   // User authentication and room joining
   socket.on('authenticate', (data) => {
-    const { userId, role } = data;
+    const { userId, role, username } = data;
     socket.userId = userId;
     socket.role = role;
+    socket.username = username;
     
     // Join role-based rooms
     socket.join(`role_${role}`);
     socket.join(`user_${userId}`);
     
     console.log(`👤 User ${userId} (${role}) authenticated: ${socket.id}`);
+    console.log(`🏠 Socket ${socket.id} joined rooms: role_${role}, user_${userId}`);
     
     // Send welcome notification
     socket.emit('notification', {
@@ -334,6 +336,14 @@ io.on('connection', (socket) => {
       title: 'Connected',
       message: 'Real-time notifications active',
       timestamp: new Date().toISOString()
+    });
+    
+    // Confirm authentication back to client
+    socket.emit('authenticated', {
+      userId,
+      role,
+      username,
+      rooms: [`role_${role}`, `user_${userId}`]
     });
   });
   

@@ -1,0 +1,2350 @@
+2025-10-17T00:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:00:00: 📋 Found 5 active tickets to check
+2025-10-17T00:00:00: ⚠️ Ticket #TKT20251015003 approaching SLA: 32 minutes remaining
+2025-10-17T00:00:00: 🔍 Checking system alerts...
+2025-10-17T00:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:00:00: ✅ WhatsApp sent to 62267800201 via fonnte (primary)
+2025-10-17T00:00:00: 📱 SLA warning sent for ticket #TKT20251015003
+2025-10-17T00:00:00: ✅ SLA check completed. Warnings sent: 1
+2025-10-17T00:00:01: 103.55.225.241 - - [16/Oct/2025:17:00:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T00:00:18: 👤 User disconnected: 3VihSKP_uGrdFc5yAABP
+2025-10-17T00:00:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:00:54: 👤 User connected: zm3dpN2RZL4JsMw6AABR
+2025-10-17T00:00:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:00:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:00:54: 👤 User disconnected: zm3dpN2RZL4JsMw6AABR
+2025-10-17T00:00:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:00:54: 👤 User connected: J4-56bHji9HpicHBAABT
+2025-10-17T00:00:54: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:02:04: 👤 User disconnected: J4-56bHji9HpicHBAABT
+2025-10-17T00:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:05:00: 🔍 Checking system alerts...
+2025-10-17T00:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:10:00: 🔍 Checking system alerts...
+2025-10-17T00:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:10:01: 103.55.225.241 - - [16/Oct/2025:17:10:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T00:15:00: 🔍 Starting SLA check...
+2025-10-17T00:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:15:00: 📋 Found 5 active tickets to check
+2025-10-17T00:15:00: ⚠️ Ticket #TKT20251015003 approaching SLA: 17 minutes remaining
+2025-10-17T00:15:00: 🔍 Checking system alerts...
+2025-10-17T00:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:15:00: ✅ WhatsApp sent to 62267800201 via fonnte (primary)
+2025-10-17T00:15:00: 📱 SLA warning sent for ticket #TKT20251015003
+2025-10-17T00:15:00: ✅ SLA check completed. Warnings sent: 1
+2025-10-17T00:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:20:00: 🔍 Checking system alerts...
+2025-10-17T00:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:20:01: 103.55.225.241 - - [16/Oct/2025:17:20:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T00:22:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:22:06: 👤 User connected: awWl-aJyDFfNRMceAABV
+2025-10-17T00:22:06: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:22:51: 👤 User disconnected: awWl-aJyDFfNRMceAABV
+2025-10-17T00:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:25:00: 🔍 Checking system alerts...
+2025-10-17T00:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:30:00: 🔍 Starting SLA check...
+2025-10-17T00:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:30:00: 📋 Found 5 active tickets to check
+2025-10-17T00:30:00: ⚠️ Ticket #TKT20251015003 approaching SLA: 2 minutes remaining
+2025-10-17T00:30:00: 🔍 Checking system alerts...
+2025-10-17T00:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:30:00: ✅ WhatsApp sent to 62267800201 via fonnte (primary)
+2025-10-17T00:30:00: 📱 SLA warning sent for ticket #TKT20251015003
+2025-10-17T00:30:00: ✅ SLA check completed. Warnings sent: 1
+2025-10-17T00:30:02: 103.55.225.241 - - [16/Oct/2025:17:30:02 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T00:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:35:00: 🔍 Checking system alerts...
+2025-10-17T00:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:40:00: 🔍 Checking system alerts...
+2025-10-17T00:40:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T00:40:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T00:40:00: 🚨 Triggered 1 alert(s)
+2025-10-17T00:40:00:    - SLA Violation (high): 4
+2025-10-17T00:40:02: 103.55.225.241 - - [16/Oct/2025:17:40:02 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T00:45:00: 🔍 Starting SLA check...
+2025-10-17T00:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:45:00: 📋 Found 5 active tickets to check
+2025-10-17T00:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T00:45:00: 🔍 Checking system alerts...
+2025-10-17T00:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:49:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:49:17: 👤 User connected: QbxOWpVXaX19BEiUAABX
+2025-10-17T00:49:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T00:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:50:00: 🔍 Checking system alerts...
+2025-10-17T00:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:50:02: 👤 User disconnected: QbxOWpVXaX19BEiUAABX
+2025-10-17T00:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T00:55:00: 🔍 Checking system alerts...
+2025-10-17T00:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T00:58:21: ✅ Connected to PostgreSQL database
+2025-10-17T00:58:21: ✅ Connected to PostgreSQL database
+2025-10-17T00:58:21: 103.73.75.188 - - [16/Oct/2025:17:58:21 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T01:00:00: 🔍 Starting SLA check...
+2025-10-17T01:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:00:00: 📋 Found 5 active tickets to check
+2025-10-17T01:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T01:00:00: 🔍 Checking system alerts...
+2025-10-17T01:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:05:00: 🔍 Checking system alerts...
+2025-10-17T01:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:10:00: 🔍 Checking system alerts...
+2025-10-17T01:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:10:01: 103.55.225.241 - - [16/Oct/2025:18:10:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T01:15:00: 🔍 Starting SLA check...
+2025-10-17T01:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:15:00: 📋 Found 5 active tickets to check
+2025-10-17T01:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T01:15:00: 🔍 Checking system alerts...
+2025-10-17T01:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:16:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T01:16:32: 👤 User connected: BJmt7ch9wxZuFv8EAABZ
+2025-10-17T01:16:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T01:17:17: 👤 User disconnected: BJmt7ch9wxZuFv8EAABZ
+2025-10-17T01:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:20:00: 🔍 Checking system alerts...
+2025-10-17T01:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:20:01: 103.55.225.241 - - [16/Oct/2025:18:20:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T01:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:25:00: 🔍 Checking system alerts...
+2025-10-17T01:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:30:00: 🔍 Starting SLA check...
+2025-10-17T01:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:30:00: 📋 Found 5 active tickets to check
+2025-10-17T01:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T01:30:00: 🔍 Checking system alerts...
+2025-10-17T01:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:32:04: ✅ Connected to PostgreSQL database
+2025-10-17T01:32:04: ✅ Connected to PostgreSQL database
+2025-10-17T01:32:04: 103.73.75.188 - - [16/Oct/2025:18:32:04 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T01:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:35:00: 🔍 Checking system alerts...
+2025-10-17T01:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:40:00: 🔍 Checking system alerts...
+2025-10-17T01:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:45:00: 🔍 Starting SLA check...
+2025-10-17T01:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:45:00: 📋 Found 5 active tickets to check
+2025-10-17T01:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T01:45:00: 🔍 Checking system alerts...
+2025-10-17T01:45:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T01:45:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T01:45:00: 🚨 Triggered 1 alert(s)
+2025-10-17T01:45:00:    - SLA Violation (high): 4
+2025-10-17T01:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:50:00: 🔍 Checking system alerts...
+2025-10-17T01:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:50:01: 103.55.225.241 - - [16/Oct/2025:18:50:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T01:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T01:55:00: 🔍 Checking system alerts...
+2025-10-17T01:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T01:59:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T01:59:10: 👤 User connected: KYbNiG3z9ze1sCd8AABb
+2025-10-17T01:59:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T01:59:55: 👤 User disconnected: KYbNiG3z9ze1sCd8AABb
+2025-10-17T02:00:00: 💳 Starting payment reminder job...
+2025-10-17T02:00:00: 🔍 Starting SLA check...
+2025-10-17T02:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:00:00: 📋 Found 5 active tickets to check
+2025-10-17T02:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T02:00:00: 📋 Found 0 invoices needing reminders
+2025-10-17T02:00:00: ✅ Payment reminder job completed. Reminders sent: 0/0
+2025-10-17T02:00:00: 🔍 Checking system alerts...
+2025-10-17T02:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:05:00: 🔍 Checking system alerts...
+2025-10-17T02:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:08:12: ✅ Connected to PostgreSQL database
+2025-10-17T02:08:12: ✅ Connected to PostgreSQL database
+2025-10-17T02:08:12: 103.73.75.188 - - [16/Oct/2025:19:08:12 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T02:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:10:00: 🔍 Checking system alerts...
+2025-10-17T02:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:15:00: 🔍 Starting SLA check...
+2025-10-17T02:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:15:00: 📋 Found 5 active tickets to check
+2025-10-17T02:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T02:15:00: 🔍 Checking system alerts...
+2025-10-17T02:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:20:00: 🔍 Checking system alerts...
+2025-10-17T02:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:20:01: 103.55.225.241 - - [16/Oct/2025:19:20:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T02:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:25:00: 🔍 Checking system alerts...
+2025-10-17T02:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:30:00: 🔍 Starting SLA check...
+2025-10-17T02:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:30:00: 📋 Found 5 active tickets to check
+2025-10-17T02:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T02:30:00: 🔍 Checking system alerts...
+2025-10-17T02:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:35:00: 🔍 Checking system alerts...
+2025-10-17T02:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:40:00: 🔍 Checking system alerts...
+2025-10-17T02:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:40:02: 103.55.225.241 - - [16/Oct/2025:19:40:02 +0000] "GET /api/health HTTP/1.1" 200 700 "-" "curl/7.81.0"
+2025-10-17T02:45:00: 🔍 Starting SLA check...
+2025-10-17T02:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:45:00: 📋 Found 5 active tickets to check
+2025-10-17T02:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T02:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:45:00: 🔍 Checking system alerts...
+2025-10-17T02:45:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T02:45:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T02:45:00: 🚨 Triggered 1 alert(s)
+2025-10-17T02:45:00:    - SLA Violation (high): 4
+2025-10-17T02:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:50:00: 🔍 Checking system alerts...
+2025-10-17T02:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T02:50:01: 103.55.225.241 - - [16/Oct/2025:19:50:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T02:51:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T02:51:08: 👤 User connected: VAdT0bSHT0fFGAG-AABd
+2025-10-17T02:51:08: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T02:51:53: 👤 User disconnected: VAdT0bSHT0fFGAG-AABd
+2025-10-17T02:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T02:55:00: 🔍 Checking system alerts...
+2025-10-17T02:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:00:00: 🔍 Starting SLA check...
+2025-10-17T03:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:00:00: 📋 Found 5 active tickets to check
+2025-10-17T03:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T03:00:00: 🔍 Checking system alerts...
+2025-10-17T03:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:05:00: 🔍 Checking system alerts...
+2025-10-17T03:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:10:00: 🔍 Checking system alerts...
+2025-10-17T03:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:10:01: 103.55.225.241 - - [16/Oct/2025:20:10:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T03:15:00: 🔍 Starting SLA check...
+2025-10-17T03:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:15:00: 📋 Found 5 active tickets to check
+2025-10-17T03:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T03:15:00: 🔍 Checking system alerts...
+2025-10-17T03:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:20:00: 🔍 Checking system alerts...
+2025-10-17T03:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:20:01: 103.55.225.241 - - [16/Oct/2025:20:20:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T03:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:25:00: 🔍 Checking system alerts...
+2025-10-17T03:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:25:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T03:25:01: 👤 User connected: 4xm_h5zBwMjBiEurAABf
+2025-10-17T03:25:01: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T03:25:45: 👤 User disconnected: 4xm_h5zBwMjBiEurAABf
+2025-10-17T03:30:00: 🔍 Starting SLA check...
+2025-10-17T03:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:30:00: 📋 Found 5 active tickets to check
+2025-10-17T03:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T03:30:00: 🔍 Checking system alerts...
+2025-10-17T03:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:30:01: 103.55.225.241 - - [16/Oct/2025:20:30:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T03:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:35:00: 🔍 Checking system alerts...
+2025-10-17T03:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:38:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T03:38:42: 👤 User connected: 3CHFCKLJZVBwa7I9AABh
+2025-10-17T03:38:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T03:39:27: 👤 User disconnected: 3CHFCKLJZVBwa7I9AABh
+2025-10-17T03:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:40:00: 🔍 Checking system alerts...
+2025-10-17T03:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:40:01: 103.55.225.241 - - [16/Oct/2025:20:40:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T03:45:00: 🔍 Starting SLA check...
+2025-10-17T03:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:45:00: 📋 Found 5 active tickets to check
+2025-10-17T03:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T03:45:00: 🔍 Checking system alerts...
+2025-10-17T03:45:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T03:45:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T03:45:00: 🚨 Triggered 1 alert(s)
+2025-10-17T03:45:00:    - SLA Violation (high): 4
+2025-10-17T03:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:50:00: 🔍 Checking system alerts...
+2025-10-17T03:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T03:50:01: 103.55.225.241 - - [16/Oct/2025:20:50:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T03:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T03:55:00: 🔍 Checking system alerts...
+2025-10-17T03:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:00:00: 🔍 Starting SLA check...
+2025-10-17T04:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:00:00: 📋 Found 5 active tickets to check
+2025-10-17T04:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T04:00:00: 🔍 Checking system alerts...
+2025-10-17T04:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:00:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:00:42: 👤 User connected: nQ5itWNPrg-1keK6AABj
+2025-10-17T04:00:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:00:47: ✅ Connected to PostgreSQL database
+2025-10-17T04:00:47: ✅ Connected to PostgreSQL database
+2025-10-17T04:00:47: 103.73.75.188 - - [16/Oct/2025:21:00:47 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T04:01:27: 👤 User disconnected: nQ5itWNPrg-1keK6AABj
+2025-10-17T04:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:05:00: 🔍 Checking system alerts...
+2025-10-17T04:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:10:00: 🔍 Checking system alerts...
+2025-10-17T04:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:14:42: ✅ Connected to PostgreSQL database
+2025-10-17T04:14:42: ✅ Connected to PostgreSQL database
+2025-10-17T04:14:42: 103.73.75.188 - - [16/Oct/2025:21:14:42 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T04:15:00: 🔍 Starting SLA check...
+2025-10-17T04:15:00: 📋 Found 5 active tickets to check
+2025-10-17T04:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T04:15:00: 🔍 Checking system alerts...
+2025-10-17T04:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:19:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:19:24: 👤 User connected: 8HQcZGxT7-d_TiU9AABl
+2025-10-17T04:19:24: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:20:00: 🔍 Checking system alerts...
+2025-10-17T04:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:20:09: 👤 User disconnected: 8HQcZGxT7-d_TiU9AABl
+2025-10-17T04:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:25:00: 🔍 Checking system alerts...
+2025-10-17T04:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:25:59: ✅ Connected to PostgreSQL database
+2025-10-17T04:25:59: ✅ Connected to PostgreSQL database
+2025-10-17T04:25:59: 103.73.75.188 - - [16/Oct/2025:21:25:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T04:30:00: 🔍 Starting SLA check...
+2025-10-17T04:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:30:00: 📋 Found 5 active tickets to check
+2025-10-17T04:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T04:30:00: 🔍 Checking system alerts...
+2025-10-17T04:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:35:00: 🔍 Checking system alerts...
+2025-10-17T04:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:35:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:35:22: 👤 User connected: le2XagwHAnQqzHbOAABn
+2025-10-17T04:35:22: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T04:35:24: ✅ Connected to PostgreSQL database
+2025-10-17T04:35:24: 103.73.75.188 - - [16/Oct/2025:21:35:24 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T04:36:07: 👤 User disconnected: le2XagwHAnQqzHbOAABn
+2025-10-17T04:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:40:00: 🔍 Checking system alerts...
+2025-10-17T04:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:45:00: 🔍 Starting SLA check...
+2025-10-17T04:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:45:00: 📋 Found 5 active tickets to check
+2025-10-17T04:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T04:45:00: 🔍 Checking system alerts...
+2025-10-17T04:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T04:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:50:00: 🔍 Checking system alerts...
+2025-10-17T04:50:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T04:50:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T04:50:00: 🚨 Triggered 1 alert(s)
+2025-10-17T04:50:00:    - SLA Violation (high): 4
+2025-10-17T04:50:01: 103.55.225.241 - - [16/Oct/2025:21:50:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T04:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T04:55:00: 🔍 Checking system alerts...
+2025-10-17T04:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:00:00: 🔍 Starting SLA check...
+2025-10-17T05:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:00:00: 📋 Found 5 active tickets to check
+2025-10-17T05:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T05:00:00: 🔍 Checking system alerts...
+2025-10-17T05:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:00:01: 103.55.225.241 - - [16/Oct/2025:22:00:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T05:03:07: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:03:07: 👤 User connected: aDCtXObpTGMSo0kVAABp
+2025-10-17T05:03:07: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:03:52: 👤 User disconnected: aDCtXObpTGMSo0kVAABp
+2025-10-17T05:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:05:00: 🔍 Checking system alerts...
+2025-10-17T05:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:10:00: 🔍 Checking system alerts...
+2025-10-17T05:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:10:01: 103.55.225.241 - - [16/Oct/2025:22:10:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T05:15:00: 🔍 Starting SLA check...
+2025-10-17T05:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:15:00: 📋 Found 5 active tickets to check
+2025-10-17T05:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T05:15:00: 🔍 Checking system alerts...
+2025-10-17T05:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:20:00: 🔍 Checking system alerts...
+2025-10-17T05:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:21:01: ✅ Connected to PostgreSQL database
+2025-10-17T05:21:01: ✅ Connected to PostgreSQL database
+2025-10-17T05:21:01: 103.73.75.188 - - [16/Oct/2025:22:21:01 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T05:21:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:21:02: 👤 User connected: tylbbsjvtHNkRI79AABr
+2025-10-17T05:21:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:21:47: 👤 User disconnected: tylbbsjvtHNkRI79AABr
+2025-10-17T05:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:25:00: 🔍 Checking system alerts...
+2025-10-17T05:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:30:00: 🔍 Starting SLA check...
+2025-10-17T05:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:30:00: 📋 Found 5 active tickets to check
+2025-10-17T05:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T05:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:30:00: 🔍 Checking system alerts...
+2025-10-17T05:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:30:52: ✅ Connected to PostgreSQL database
+2025-10-17T05:30:52: ✅ Connected to PostgreSQL database
+2025-10-17T05:30:52: 103.73.75.188 - - [16/Oct/2025:22:30:52 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T05:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:35:00: 🔍 Checking system alerts...
+2025-10-17T05:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:35:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:35:44: 👤 User connected: 3UBreFbL2ncaX4N-AABt
+2025-10-17T05:35:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:36:29: 👤 User disconnected: 3UBreFbL2ncaX4N-AABt
+2025-10-17T05:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:40:00: 🔍 Checking system alerts...
+2025-10-17T05:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:40:01: 103.55.225.241 - - [16/Oct/2025:22:40:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T05:45:00: 🔍 Starting SLA check...
+2025-10-17T05:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:45:00: 📋 Found 5 active tickets to check
+2025-10-17T05:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T05:45:00: 🔍 Checking system alerts...
+2025-10-17T05:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:50:00: 🔍 Checking system alerts...
+2025-10-17T05:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T05:52:55: ✅ Connected to PostgreSQL database
+2025-10-17T05:52:55: ✅ Connected to PostgreSQL database
+2025-10-17T05:52:55: 103.73.75.188 - - [16/Oct/2025:22:52:55 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T05:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T05:55:00: 🔍 Checking system alerts...
+2025-10-17T05:55:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T05:55:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T05:55:00: 🚨 Triggered 1 alert(s)
+2025-10-17T05:55:00:    - SLA Violation (high): 4
+2025-10-17T05:57:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:57:02: 👤 User connected: bnaTdBkSvLBsCASUAABv
+2025-10-17T05:57:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T05:57:47: 👤 User disconnected: bnaTdBkSvLBsCASUAABv
+2025-10-17T06:00:00: 🔍 Starting SLA check...
+2025-10-17T06:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:00:00: 📋 Found 5 active tickets to check
+2025-10-17T06:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T06:00:00: 🔍 Checking system alerts...
+2025-10-17T06:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:05:00: 🔍 Checking system alerts...
+2025-10-17T06:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:05:15: ✅ Connected to PostgreSQL database
+2025-10-17T06:05:15: 103.73.75.188 - - [16/Oct/2025:23:05:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T06:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:10:00: 🔍 Checking system alerts...
+2025-10-17T06:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:14:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:14:21: 👤 User connected: ID87JmfZDhocoPskAABx
+2025-10-17T06:14:21: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:15:00: 🔍 Starting SLA check...
+2025-10-17T06:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:15:00: 📋 Found 5 active tickets to check
+2025-10-17T06:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T06:15:00: 🔍 Checking system alerts...
+2025-10-17T06:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:15:06: 👤 User disconnected: ID87JmfZDhocoPskAABx
+2025-10-17T06:18:38: ✅ Connected to PostgreSQL database
+2025-10-17T06:18:38: ✅ Connected to PostgreSQL database
+2025-10-17T06:18:38: 103.73.75.188 - - [16/Oct/2025:23:18:38 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T06:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:20:00: 🔍 Checking system alerts...
+2025-10-17T06:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:25:00: 🔍 Checking system alerts...
+2025-10-17T06:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:27:17: ✅ Connected to PostgreSQL database
+2025-10-17T06:27:17: ✅ Connected to PostgreSQL database
+2025-10-17T06:27:17: 103.73.75.188 - - [16/Oct/2025:23:27:17 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets/29" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T06:30:00: 🔍 Starting SLA check...
+2025-10-17T06:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:30:00: 📋 Found 5 active tickets to check
+2025-10-17T06:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T06:30:00: 🔍 Checking system alerts...
+2025-10-17T06:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:31:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:31:50: 👤 User connected: zdfjtQf_QhikPbsFAABz
+2025-10-17T06:31:50: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:32:35: 👤 User disconnected: zdfjtQf_QhikPbsFAABz
+2025-10-17T06:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:35:00: 🔍 Checking system alerts...
+2025-10-17T06:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:40:00: 🔍 Checking system alerts...
+2025-10-17T06:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:40:01: 103.55.225.241 - - [16/Oct/2025:23:40:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T06:41:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:41:15: 👤 User connected: OoeebWgxhpY0gwQrAAB1
+2025-10-17T06:41:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T06:42:00: 👤 User disconnected: OoeebWgxhpY0gwQrAAB1
+2025-10-17T06:45:00: 🔍 Starting SLA check...
+2025-10-17T06:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:45:00: 📋 Found 5 active tickets to check
+2025-10-17T06:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T06:45:00: 🔍 Checking system alerts...
+2025-10-17T06:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:50:00: 🔍 Checking system alerts...
+2025-10-17T06:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T06:50:01: 103.55.225.241 - - [16/Oct/2025:23:50:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T06:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T06:55:00: 🔍 Checking system alerts...
+2025-10-17T06:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:00:00: 🔍 Starting SLA check...
+2025-10-17T07:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:00:00: 📋 Found 5 active tickets to check
+2025-10-17T07:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T07:00:00: 🔍 Checking system alerts...
+2025-10-17T07:00:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T07:00:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T07:00:00: 🚨 Triggered 1 alert(s)
+2025-10-17T07:00:00:    - SLA Violation (high): 4
+2025-10-17T07:00:01: 103.55.225.241 - - [17/Oct/2025:00:00:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T07:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:05:00: 🔍 Checking system alerts...
+2025-10-17T07:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:10:00: 🔍 Checking system alerts...
+2025-10-17T07:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:15:00: 🔍 Starting SLA check...
+2025-10-17T07:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:15:00: 📋 Found 5 active tickets to check
+2025-10-17T07:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T07:15:00: 🔍 Checking system alerts...
+2025-10-17T07:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:20:00: 🔍 Checking system alerts...
+2025-10-17T07:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:20:01: 103.55.225.241 - - [17/Oct/2025:00:20:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T07:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:25:00: 🔍 Checking system alerts...
+2025-10-17T07:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:26:06: 103.73.75.188 - - [17/Oct/2025:00:26:06 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T07:30:00: 🔍 Starting SLA check...
+2025-10-17T07:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:30:00: 📋 Found 5 active tickets to check
+2025-10-17T07:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T07:30:00: 🔍 Checking system alerts...
+2025-10-17T07:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:35:00: 🔍 Checking system alerts...
+2025-10-17T07:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:40:00: 🔍 Checking system alerts...
+2025-10-17T07:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:45:00: 🔍 Starting SLA check...
+2025-10-17T07:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:45:00: 📋 Found 5 active tickets to check
+2025-10-17T07:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T07:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:45:00: 🔍 Checking system alerts...
+2025-10-17T07:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:45:01: 103.55.225.241 - - [17/Oct/2025:00:45:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T07:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:50:00: 🔍 Checking system alerts...
+2025-10-17T07:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T07:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T07:55:00: 🔍 Checking system alerts...
+2025-10-17T07:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:00:00: 
+2025-10-17T08:00:00: ═══════════════════════════════════════════════════════
+2025-10-17T08:00:00: 📬 CRON JOB: Daily Overdue Check & Reminders
+2025-10-17T08:00:00: ═══════════════════════════════════════════════════════
+2025-10-17T08:00:00: ⏰ Triggered at: 2025-10-17T01:00:00.022Z
+2025-10-17T08:00:00: 🔍 Starting SLA check...
+2025-10-17T08:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:00:00: 📧 Found 0 overdue invoices
+2025-10-17T08:00:00: ✅ Overdue check completed
+2025-10-17T08:00:00:    Overdue Invoices: 0
+2025-10-17T08:00:00:    Reminders Sent: 0
+2025-10-17T08:00:00: ═══════════════════════════════════════════════════════
+2025-10-17T08:00:00: 
+2025-10-17T08:00:00: 📋 Found 5 active tickets to check
+2025-10-17T08:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T08:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:00:00: 🔍 Checking system alerts...
+2025-10-17T08:00:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T08:00:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T08:00:00: 🚨 Triggered 1 alert(s)
+2025-10-17T08:00:00:    - SLA Violation (high): 4
+2025-10-17T08:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:05:00: 🔍 Checking system alerts...
+2025-10-17T08:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:05:01: 103.55.225.241 - - [17/Oct/2025:01:05:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T08:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:10:00: 🔍 Checking system alerts...
+2025-10-17T08:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:15:00: 🔍 Starting SLA check...
+2025-10-17T08:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:15:00: 📋 Found 5 active tickets to check
+2025-10-17T08:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T08:15:00: 🔍 Checking system alerts...
+2025-10-17T08:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:20:00: 🔍 Checking system alerts...
+2025-10-17T08:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:25:00: 🔍 Checking system alerts...
+2025-10-17T08:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:25:01: 103.55.225.241 - - [17/Oct/2025:01:25:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T08:30:00: 🔍 Starting SLA check...
+2025-10-17T08:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:30:00: 📋 Found 5 active tickets to check
+2025-10-17T08:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T08:30:00: 🔍 Checking system alerts...
+2025-10-17T08:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:35:00: 🔍 Checking system alerts...
+2025-10-17T08:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:40:00: 🔍 Checking system alerts...
+2025-10-17T08:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:45:00: 🔍 Starting SLA check...
+2025-10-17T08:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:45:00: 📋 Found 5 active tickets to check
+2025-10-17T08:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T08:45:00: 🔍 Checking system alerts...
+2025-10-17T08:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:45:01: 103.55.225.241 - - [17/Oct/2025:01:45:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T08:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:50:00: 🔍 Checking system alerts...
+2025-10-17T08:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T08:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T08:55:00: 🔍 Checking system alerts...
+2025-10-17T08:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:00:00: 🔍 Starting SLA check...
+2025-10-17T09:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:00:00: 📋 Found 5 active tickets to check
+2025-10-17T09:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T09:00:00: 🔍 Checking system alerts...
+2025-10-17T09:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:05:00: 🔍 Checking system alerts...
+2025-10-17T09:05:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T09:05:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T09:05:00: 🚨 Triggered 1 alert(s)
+2025-10-17T09:05:00:    - SLA Violation (high): 4
+2025-10-17T09:05:02: 103.55.225.241 - - [17/Oct/2025:02:05:02 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T09:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:10:00: 🔍 Checking system alerts...
+2025-10-17T09:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:15:00: 🔍 Starting SLA check...
+2025-10-17T09:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:15:00: 📋 Found 5 active tickets to check
+2025-10-17T09:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T09:15:00: 🔍 Checking system alerts...
+2025-10-17T09:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:20:00: 🔍 Checking system alerts...
+2025-10-17T09:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:25:00: 🔍 Checking system alerts...
+2025-10-17T09:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:25:02: 103.55.225.241 - - [17/Oct/2025:02:25:02 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T09:30:00: 🔍 Starting SLA check...
+2025-10-17T09:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:30:00: 📋 Found 5 active tickets to check
+2025-10-17T09:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T09:30:00: 🔍 Checking system alerts...
+2025-10-17T09:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:35:00: 🔍 Checking system alerts...
+2025-10-17T09:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:40:00: 🔍 Checking system alerts...
+2025-10-17T09:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:45:00: 🔍 Starting SLA check...
+2025-10-17T09:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:45:00: 📋 Found 5 active tickets to check
+2025-10-17T09:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T09:45:00: 🔍 Checking system alerts...
+2025-10-17T09:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:45:01: 103.55.225.241 - - [17/Oct/2025:02:45:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T09:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:50:00: 🔍 Checking system alerts...
+2025-10-17T09:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T09:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T09:55:00: 🔍 Checking system alerts...
+2025-10-17T09:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:00:00: 🔍 Starting SLA check...
+2025-10-17T10:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:00:00: 📋 Found 5 active tickets to check
+2025-10-17T10:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T10:00:00: 🔍 Checking system alerts...
+2025-10-17T10:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:05:00: 🔍 Checking system alerts...
+2025-10-17T10:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:05:01: 103.55.225.241 - - [17/Oct/2025:03:05:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T10:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:10:00: 🔍 Checking system alerts...
+2025-10-17T10:10:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T10:10:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T10:10:00: 🚨 Triggered 1 alert(s)
+2025-10-17T10:10:00:    - SLA Violation (high): 4
+2025-10-17T10:15:00: 🔍 Starting SLA check...
+2025-10-17T10:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:15:00: 📋 Found 5 active tickets to check
+2025-10-17T10:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T10:15:00: 🔍 Checking system alerts...
+2025-10-17T10:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:16:50: 23.27.145.64 - - [17/Oct/2025:03:16:50 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+2025-10-17T10:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:20:00: 🔍 Checking system alerts...
+2025-10-17T10:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:25:00: 🔍 Checking system alerts...
+2025-10-17T10:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:30:00: 🔍 Starting SLA check...
+2025-10-17T10:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:30:00: 📋 Found 5 active tickets to check
+2025-10-17T10:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T10:30:00: 🔍 Checking system alerts...
+2025-10-17T10:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:35:00: 🔍 Checking system alerts...
+2025-10-17T10:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:35:01: 103.55.225.241 - - [17/Oct/2025:03:35:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T10:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:40:00: 🔍 Checking system alerts...
+2025-10-17T10:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:45:00: 🔍 Starting SLA check...
+2025-10-17T10:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:45:00: 📋 Found 5 active tickets to check
+2025-10-17T10:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T10:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:45:00: 🔍 Checking system alerts...
+2025-10-17T10:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:50:00: 🔍 Checking system alerts...
+2025-10-17T10:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T10:55:00: 🔍 Checking system alerts...
+2025-10-17T10:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T10:55:01: 103.55.225.241 - - [17/Oct/2025:03:55:01 +0000] "GET /api/health HTTP/1.1" 200 700 "-" "curl/7.81.0"
+2025-10-17T11:00:00: 🔍 Starting SLA check...
+2025-10-17T11:00:00: 📊 Sending daily summary...
+2025-10-17T11:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:00:00: 📋 Found 5 active tickets to check
+2025-10-17T11:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T11:00:00: 🔍 Checking system alerts...
+2025-10-17T11:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:05:00: 🔍 Checking system alerts...
+2025-10-17T11:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:10:00: 🔍 Checking system alerts...
+2025-10-17T11:10:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T11:10:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T11:10:00: 🚨 Triggered 1 alert(s)
+2025-10-17T11:10:00:    - SLA Violation (high): 4
+2025-10-17T11:15:00: 🔍 Starting SLA check...
+2025-10-17T11:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:15:00: 📋 Found 5 active tickets to check
+2025-10-17T11:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T11:15:00: 🔍 Checking system alerts...
+2025-10-17T11:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:15:02: 103.55.225.241 - - [17/Oct/2025:04:15:02 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T11:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:20:00: 🔍 Checking system alerts...
+2025-10-17T11:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:25:00: 🔍 Checking system alerts...
+2025-10-17T11:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:30:00: 🔍 Starting SLA check...
+2025-10-17T11:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:30:00: 📋 Found 5 active tickets to check
+2025-10-17T11:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T11:30:00: 🔍 Checking system alerts...
+2025-10-17T11:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:35:00: 🔍 Checking system alerts...
+2025-10-17T11:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:35:01: 103.55.225.241 - - [17/Oct/2025:04:35:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T11:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:40:00: 🔍 Checking system alerts...
+2025-10-17T11:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:45:00: 🔍 Starting SLA check...
+2025-10-17T11:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:45:00: 📋 Found 5 active tickets to check
+2025-10-17T11:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T11:45:00: 🔍 Checking system alerts...
+2025-10-17T11:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:50:00: 🔍 Checking system alerts...
+2025-10-17T11:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T11:55:00: 🔍 Checking system alerts...
+2025-10-17T11:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T11:55:01: 103.55.225.241 - - [17/Oct/2025:04:55:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T12:00:00: 🔍 Starting SLA check...
+2025-10-17T12:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:00:00: 📋 Found 5 active tickets to check
+2025-10-17T12:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T12:00:00: 🔍 Checking system alerts...
+2025-10-17T12:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:05:00: 🔍 Checking system alerts...
+2025-10-17T12:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:10:00: 🔍 Checking system alerts...
+2025-10-17T12:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:15:00: 🔍 Starting SLA check...
+2025-10-17T12:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:15:00: 📋 Found 5 active tickets to check
+2025-10-17T12:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T12:15:00: 🔍 Checking system alerts...
+2025-10-17T12:15:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T12:15:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T12:15:00: 🚨 Triggered 1 alert(s)
+2025-10-17T12:15:00:    - SLA Violation (high): 4
+2025-10-17T12:15:01: 103.55.225.241 - - [17/Oct/2025:05:15:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T12:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:20:00: 🔍 Checking system alerts...
+2025-10-17T12:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:25:00: 🔍 Checking system alerts...
+2025-10-17T12:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:30:00: 🔍 Starting SLA check...
+2025-10-17T12:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:30:00: 📋 Found 5 active tickets to check
+2025-10-17T12:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T12:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:30:00: 🔍 Checking system alerts...
+2025-10-17T12:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:35:00: 🔍 Checking system alerts...
+2025-10-17T12:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:35:01: 103.55.225.241 - - [17/Oct/2025:05:35:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T12:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:40:00: 🔍 Checking system alerts...
+2025-10-17T12:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:45:00: 🔍 Starting SLA check...
+2025-10-17T12:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:45:00: 📋 Found 5 active tickets to check
+2025-10-17T12:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T12:45:00: 🔍 Checking system alerts...
+2025-10-17T12:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:50:00: 🔍 Checking system alerts...
+2025-10-17T12:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T12:55:00: 🔍 Checking system alerts...
+2025-10-17T12:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T12:55:01: 103.55.225.241 - - [17/Oct/2025:05:55:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T13:00:00: 🔍 Starting SLA check...
+2025-10-17T13:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:00:00: 📋 Found 5 active tickets to check
+2025-10-17T13:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T13:00:00: 🔍 Checking system alerts...
+2025-10-17T13:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:05:00: 🔍 Checking system alerts...
+2025-10-17T13:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:10:00: 🔍 Checking system alerts...
+2025-10-17T13:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:15:00: 🔍 Starting SLA check...
+2025-10-17T13:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:15:00: 📋 Found 5 active tickets to check
+2025-10-17T13:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T13:15:00: 🔍 Checking system alerts...
+2025-10-17T13:15:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T13:15:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T13:15:00: 🚨 Triggered 1 alert(s)
+2025-10-17T13:15:00:    - SLA Violation (high): 4
+2025-10-17T13:15:01: 103.55.225.241 - - [17/Oct/2025:06:15:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T13:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:20:00: 🔍 Checking system alerts...
+2025-10-17T13:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:25:00: 🔍 Checking system alerts...
+2025-10-17T13:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:30:00: 🔍 Starting SLA check...
+2025-10-17T13:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:30:00: 📋 Found 5 active tickets to check
+2025-10-17T13:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T13:30:00: 🔍 Checking system alerts...
+2025-10-17T13:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:35:00: 🔍 Checking system alerts...
+2025-10-17T13:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:35:01: 103.55.225.241 - - [17/Oct/2025:06:35:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T13:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:40:00: 🔍 Checking system alerts...
+2025-10-17T13:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:45:00: 🔍 Starting SLA check...
+2025-10-17T13:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:45:00: 📋 Found 5 active tickets to check
+2025-10-17T13:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T13:45:00: 🔍 Checking system alerts...
+2025-10-17T13:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:50:00: 🔍 Checking system alerts...
+2025-10-17T13:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T13:55:00: 🔍 Checking system alerts...
+2025-10-17T13:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T13:55:01: 103.55.225.241 - - [17/Oct/2025:06:55:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T14:00:00: 🔍 Starting SLA check...
+2025-10-17T14:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:00:00: 📋 Found 5 active tickets to check
+2025-10-17T14:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T14:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:00:00: 🔍 Checking system alerts...
+2025-10-17T14:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:05:00: 🔍 Checking system alerts...
+2025-10-17T14:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:10:00: 🔍 Checking system alerts...
+2025-10-17T14:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:15:00: 🔍 Starting SLA check...
+2025-10-17T14:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:15:00: 📋 Found 5 active tickets to check
+2025-10-17T14:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T14:15:00: 🔍 Checking system alerts...
+2025-10-17T14:15:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T14:15:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T14:15:00: 🚨 Triggered 1 alert(s)
+2025-10-17T14:15:00:    - SLA Violation (high): 4
+2025-10-17T14:15:02: 103.55.225.241 - - [17/Oct/2025:07:15:02 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T14:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:20:00: 🔍 Checking system alerts...
+2025-10-17T14:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:25:00: 🔍 Checking system alerts...
+2025-10-17T14:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:30:00: 🔍 Starting SLA check...
+2025-10-17T14:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:30:00: 📋 Found 5 active tickets to check
+2025-10-17T14:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T14:30:00: 🔍 Checking system alerts...
+2025-10-17T14:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:35:00: 🔍 Checking system alerts...
+2025-10-17T14:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:35:01: 103.55.225.241 - - [17/Oct/2025:07:35:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T14:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:40:00: 🔍 Checking system alerts...
+2025-10-17T14:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:45:00: 🔍 Starting SLA check...
+2025-10-17T14:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:45:00: 📋 Found 5 active tickets to check
+2025-10-17T14:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T14:45:00: 🔍 Checking system alerts...
+2025-10-17T14:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:50:00: 🔍 Checking system alerts...
+2025-10-17T14:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T14:55:00: 🔍 Checking system alerts...
+2025-10-17T14:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T14:55:01: 103.55.225.241 - - [17/Oct/2025:07:55:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T15:00:00: 🔍 Starting SLA check...
+2025-10-17T15:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:00:00: 📋 Found 5 active tickets to check
+2025-10-17T15:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T15:00:00: 🔍 Checking system alerts...
+2025-10-17T15:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:05:00: 🔍 Checking system alerts...
+2025-10-17T15:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:10:00: 🔍 Checking system alerts...
+2025-10-17T15:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:15:00: 🔍 Starting SLA check...
+2025-10-17T15:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:15:00: 📋 Found 5 active tickets to check
+2025-10-17T15:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T15:15:00: 🔍 Checking system alerts...
+2025-10-17T15:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:15:01: 103.55.225.241 - - [17/Oct/2025:08:15:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T15:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:20:00: 🔍 Checking system alerts...
+2025-10-17T15:20:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T15:20:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T15:20:00: 🚨 Triggered 1 alert(s)
+2025-10-17T15:20:00:    - SLA Violation (high): 5
+2025-10-17T15:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:25:00: 🔍 Checking system alerts...
+2025-10-17T15:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:30:00: 🔍 Starting SLA check...
+2025-10-17T15:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:30:00: 📋 Found 5 active tickets to check
+2025-10-17T15:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T15:30:00: 🔍 Checking system alerts...
+2025-10-17T15:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:35:00: 🔍 Checking system alerts...
+2025-10-17T15:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:35:01: 103.55.225.241 - - [17/Oct/2025:08:35:01 +0000] "GET /api/health HTTP/1.1" 200 705 "-" "curl/7.81.0"
+2025-10-17T15:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:40:00: 🔍 Checking system alerts...
+2025-10-17T15:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:45:00: 🔍 Starting SLA check...
+2025-10-17T15:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:45:00: 📋 Found 5 active tickets to check
+2025-10-17T15:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T15:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:45:00: 🔍 Checking system alerts...
+2025-10-17T15:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:50:00: 🔍 Checking system alerts...
+2025-10-17T15:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T15:55:00: 🔍 Checking system alerts...
+2025-10-17T15:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T15:55:01: 103.55.225.241 - - [17/Oct/2025:08:55:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T16:00:00: 🔍 Starting SLA check...
+2025-10-17T16:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:00:00: 📋 Found 5 active tickets to check
+2025-10-17T16:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T16:00:00: 🔍 Checking system alerts...
+2025-10-17T16:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:05:00: 🔍 Checking system alerts...
+2025-10-17T16:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:10:00: 🔍 Checking system alerts...
+2025-10-17T16:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:15:00: 🔍 Starting SLA check...
+2025-10-17T16:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:15:00: 📋 Found 5 active tickets to check
+2025-10-17T16:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T16:15:00: 🔍 Checking system alerts...
+2025-10-17T16:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:15:01: 103.55.225.241 - - [17/Oct/2025:09:15:01 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T16:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:20:00: 🔍 Checking system alerts...
+2025-10-17T16:20:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T16:20:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T16:20:00: 🚨 Triggered 1 alert(s)
+2025-10-17T16:20:00:    - SLA Violation (high): 5
+2025-10-17T16:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:25:00: 🔍 Checking system alerts...
+2025-10-17T16:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:30:00: 🔍 Starting SLA check...
+2025-10-17T16:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:30:00: 📋 Found 5 active tickets to check
+2025-10-17T16:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T16:30:00: 🔍 Checking system alerts...
+2025-10-17T16:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:35:00: 🔍 Checking system alerts...
+2025-10-17T16:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:35:01: 103.55.225.241 - - [17/Oct/2025:09:35:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T16:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:40:00: 🔍 Checking system alerts...
+2025-10-17T16:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:45:00: 🔍 Starting SLA check...
+2025-10-17T16:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:45:00: 📋 Found 5 active tickets to check
+2025-10-17T16:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T16:45:00: 🔍 Checking system alerts...
+2025-10-17T16:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:50:00: 🔍 Checking system alerts...
+2025-10-17T16:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T16:55:00: 🔍 Checking system alerts...
+2025-10-17T16:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T16:55:01: 103.55.225.241 - - [17/Oct/2025:09:55:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T17:00:00: 🔍 Starting SLA check...
+2025-10-17T17:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:00:00: 📋 Found 5 active tickets to check
+2025-10-17T17:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T17:00:00: 🔍 Checking system alerts...
+2025-10-17T17:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:05:00: 🔍 Checking system alerts...
+2025-10-17T17:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:10:00: 🔍 Checking system alerts...
+2025-10-17T17:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:15:00: 🔍 Starting SLA check...
+2025-10-17T17:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:15:00: 📋 Found 5 active tickets to check
+2025-10-17T17:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T17:15:00: 🔍 Checking system alerts...
+2025-10-17T17:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:15:01: 103.55.225.241 - - [17/Oct/2025:10:15:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T17:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:20:00: 🔍 Checking system alerts...
+2025-10-17T17:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:25:00: 🔍 Checking system alerts...
+2025-10-17T17:25:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T17:25:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T17:25:00: 🚨 Triggered 1 alert(s)
+2025-10-17T17:25:00:    - SLA Violation (high): 5
+2025-10-17T17:30:00: 🔍 Starting SLA check...
+2025-10-17T17:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:30:00: 📋 Found 5 active tickets to check
+2025-10-17T17:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T17:30:00: 🔍 Checking system alerts...
+2025-10-17T17:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:35:00: 🔍 Checking system alerts...
+2025-10-17T17:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:35:02: 103.55.225.241 - - [17/Oct/2025:10:35:02 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T17:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:40:00: 🔍 Checking system alerts...
+2025-10-17T17:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:45:00: 🔍 Starting SLA check...
+2025-10-17T17:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:45:00: 📋 Found 5 active tickets to check
+2025-10-17T17:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T17:45:00: 🔍 Checking system alerts...
+2025-10-17T17:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:50:00: 🔍 Checking system alerts...
+2025-10-17T17:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T17:55:00: 🔍 Checking system alerts...
+2025-10-17T17:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T17:55:02: 103.55.225.241 - - [17/Oct/2025:10:55:02 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T18:00:00: 🔍 Starting SLA check...
+2025-10-17T18:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:00:00: 📋 Found 5 active tickets to check
+2025-10-17T18:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T18:00:00: 🔍 Checking system alerts...
+2025-10-17T18:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:05:00: 🔍 Checking system alerts...
+2025-10-17T18:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:10:00: 🔍 Checking system alerts...
+2025-10-17T18:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:15:00: 🔍 Starting SLA check...
+2025-10-17T18:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:15:00: 📋 Found 5 active tickets to check
+2025-10-17T18:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T18:15:00: 🔍 Checking system alerts...
+2025-10-17T18:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:15:02: 103.55.225.241 - - [17/Oct/2025:11:15:02 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T18:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:20:00: 🔍 Checking system alerts...
+2025-10-17T18:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:25:00: 🔍 Checking system alerts...
+2025-10-17T18:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:30:00: 🔍 Starting SLA check...
+2025-10-17T18:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:30:00: 📋 Found 5 active tickets to check
+2025-10-17T18:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T18:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:30:00: 🔍 Checking system alerts...
+2025-10-17T18:30:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T18:30:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T18:30:00: 🚨 Triggered 1 alert(s)
+2025-10-17T18:30:00:    - SLA Violation (high): 5
+2025-10-17T18:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:35:00: 🔍 Checking system alerts...
+2025-10-17T18:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:35:02: 103.55.225.241 - - [17/Oct/2025:11:35:02 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T18:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:40:00: 🔍 Checking system alerts...
+2025-10-17T18:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:45:00: 🔍 Starting SLA check...
+2025-10-17T18:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:45:00: 📋 Found 5 active tickets to check
+2025-10-17T18:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T18:45:00: 🔍 Checking system alerts...
+2025-10-17T18:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:50:00: 🔍 Checking system alerts...
+2025-10-17T18:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T18:55:00: 🔍 Checking system alerts...
+2025-10-17T18:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T18:55:02: 103.55.225.241 - - [17/Oct/2025:11:55:02 +0000] "GET /api/health HTTP/1.1" 200 703 "-" "curl/7.81.0"
+2025-10-17T19:00:00: 🔍 Starting SLA check...
+2025-10-17T19:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:00:00: 📋 Found 5 active tickets to check
+2025-10-17T19:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T19:00:00: 🔍 Checking system alerts...
+2025-10-17T19:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:05:00: 🔍 Checking system alerts...
+2025-10-17T19:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:10:00: 🔍 Checking system alerts...
+2025-10-17T19:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:15:00: 🔍 Starting SLA check...
+2025-10-17T19:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:15:00: 📋 Found 5 active tickets to check
+2025-10-17T19:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T19:15:00: 🔍 Checking system alerts...
+2025-10-17T19:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:15:02: 103.55.225.241 - - [17/Oct/2025:12:15:02 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T19:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:20:00: 🔍 Checking system alerts...
+2025-10-17T19:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:25:00: 🔍 Checking system alerts...
+2025-10-17T19:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:30:00: 🔍 Starting SLA check...
+2025-10-17T19:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:30:00: 📋 Found 5 active tickets to check
+2025-10-17T19:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T19:30:00: 🔍 Checking system alerts...
+2025-10-17T19:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:35:00: 🔍 Checking system alerts...
+2025-10-17T19:35:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T19:35:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T19:35:00: 🚨 Triggered 1 alert(s)
+2025-10-17T19:35:00:    - SLA Violation (high): 5
+2025-10-17T19:35:01: 103.55.225.241 - - [17/Oct/2025:12:35:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T19:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:40:00: 🔍 Checking system alerts...
+2025-10-17T19:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:45:00: 🔍 Starting SLA check...
+2025-10-17T19:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:45:00: 📋 Found 5 active tickets to check
+2025-10-17T19:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T19:45:00: 🔍 Checking system alerts...
+2025-10-17T19:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:50:00: 🔍 Checking system alerts...
+2025-10-17T19:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T19:55:00: 🔍 Checking system alerts...
+2025-10-17T19:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T19:55:01: 103.55.225.241 - - [17/Oct/2025:12:55:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T20:00:00: 🔍 Starting SLA check...
+2025-10-17T20:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:00:00: 📋 Found 5 active tickets to check
+2025-10-17T20:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:00:00: 🔍 Checking system alerts...
+2025-10-17T20:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:05:00: 🔍 Checking system alerts...
+2025-10-17T20:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:10:00: 🔍 Checking system alerts...
+2025-10-17T20:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:13:57: 103.55.224.49 - - [17/Oct/2025:13:13:57 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 401 44 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T20:15:00: 🔍 Starting SLA check...
+2025-10-17T20:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:15:00: 📋 Found 5 active tickets to check
+2025-10-17T20:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:15:00: 🔍 Checking system alerts...
+2025-10-17T20:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:20:00: 🔍 Checking system alerts...
+2025-10-17T20:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:25:00: 🔍 Checking system alerts...
+2025-10-17T20:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:25:01: 103.55.225.241 - - [17/Oct/2025:13:25:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T20:30:00: 🔍 Starting SLA check...
+2025-10-17T20:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:30:00: 📋 Found 5 active tickets to check
+2025-10-17T20:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:30:00: 🔍 Checking system alerts...
+2025-10-17T20:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:30:01: 103.55.225.241 - - [17/Oct/2025:13:30:01 +0000] "GET /api/health HTTP/1.1" 200 704 "-" "curl/7.81.0"
+2025-10-17T20:30:08: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T20:30:08: ⏰ Starting billing cron jobs...
+2025-10-17T20:30:08:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T20:30:08:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T20:30:08: ✅ All billing cron jobs started successfully
+2025-10-17T20:30:08: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T20:30:08: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T20:30:08: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T20:30:08: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T20:30:08: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T20:30:08: ✅ WhatsApp notification jobs started successfully
+2025-10-17T20:30:08:    - SLA Monitor: Every 15 minutes
+2025-10-17T20:30:08:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T20:30:08:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T20:30:08:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T20:30:08: ⏰ Starting Alert Monitoring System...
+2025-10-17T20:30:08: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T20:30:08: ✅ Alert Monitoring System started successfully
+2025-10-17T20:30:08:    - System Health Checks: Every 5 minutes
+2025-10-17T20:30:08:    - Alert Rules: 8 default rules active
+2025-10-17T20:30:08:    - Notifications: WhatsApp + Email
+2025-10-17T20:30:08: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T20:30:08: 🌍 Environment: production
+2025-10-17T20:30:08: 📡 Local access: http://localhost:3002
+2025-10-17T20:30:08: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T20:30:08: 📝 CORS origins configured for local network access
+2025-10-17T20:30:08: ✅ Redis Cache Connected
+2025-10-17T20:30:08: ✅ Redis client connected for OTP storage
+2025-10-17T20:30:08: ✅ Redis client ready
+2025-10-17T20:30:08: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T20:30:13: 🔍 Starting SLA check...
+2025-10-17T20:30:13: ✅ Connected to PostgreSQL database
+2025-10-17T20:30:13: 📋 Found 5 active tickets to check
+2025-10-17T20:30:13: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:30:13: 🔍 Checking system alerts...
+2025-10-17T20:30:13: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T20:30:13: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T20:30:13: 🚨 Triggered 1 alert(s)
+2025-10-17T20:30:13:    - SLA Violation (high): 5
+2025-10-17T20:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:35:00: 🔍 Checking system alerts...
+2025-10-17T20:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:36:35: 103.55.224.49 - - [17/Oct/2025:13:36:35 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T20:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:40:00: 🔍 Checking system alerts...
+2025-10-17T20:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:45:00: 🔍 Starting SLA check...
+2025-10-17T20:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:45:00: 📋 Found 5 active tickets to check
+2025-10-17T20:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T20:45:00: 🔍 Checking system alerts...
+2025-10-17T20:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:50:00: 🔍 Checking system alerts...
+2025-10-17T20:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T20:55:00: 🔍 Checking system alerts...
+2025-10-17T20:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T20:55:01: 103.55.225.241 - - [17/Oct/2025:13:55:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T21:00:00: 🔍 Starting SLA check...
+2025-10-17T21:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:00:00: 📋 Found 5 active tickets to check
+2025-10-17T21:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:00:00: 🔍 Checking system alerts...
+2025-10-17T21:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:05:00: 🔍 Checking system alerts...
+2025-10-17T21:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:10:00: 🔍 Checking system alerts...
+2025-10-17T21:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:15:00: 🔍 Starting SLA check...
+2025-10-17T21:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:15:00: 📋 Found 5 active tickets to check
+2025-10-17T21:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:15:00: 🔍 Checking system alerts...
+2025-10-17T21:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:15:01: 103.55.225.241 - - [17/Oct/2025:14:15:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T21:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:20:00: 🔍 Checking system alerts...
+2025-10-17T21:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:25:00: 🔍 Checking system alerts...
+2025-10-17T21:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:30:00: 🔍 Starting SLA check...
+2025-10-17T21:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:30:00: 📋 Found 5 active tickets to check
+2025-10-17T21:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:30:00: 🔍 Checking system alerts...
+2025-10-17T21:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:35:00: 🔍 Checking system alerts...
+2025-10-17T21:35:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T21:35:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T21:35:00: 🚨 Triggered 1 alert(s)
+2025-10-17T21:35:00:    - SLA Violation (high): 5
+2025-10-17T21:35:01: 103.55.225.241 - - [17/Oct/2025:14:35:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T21:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:40:00: 🔍 Checking system alerts...
+2025-10-17T21:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:45:00: 🔍 Starting SLA check...
+2025-10-17T21:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:45:00: 📋 Found 5 active tickets to check
+2025-10-17T21:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T21:45:00: 🔍 Checking system alerts...
+2025-10-17T21:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:50:00: 🔍 Checking system alerts...
+2025-10-17T21:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:55:00: ✅ Connected to PostgreSQL database
+2025-10-17T21:55:00: 🔍 Checking system alerts...
+2025-10-17T21:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T21:55:01: 103.55.225.241 - - [17/Oct/2025:14:55:01 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T22:00:00: 🔍 Starting SLA check...
+2025-10-17T22:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:00:00: 📋 Found 5 active tickets to check
+2025-10-17T22:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:00:00: 🔍 Checking system alerts...
+2025-10-17T22:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:05:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:05:00: 🔍 Checking system alerts...
+2025-10-17T22:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:10:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:10:00: 🔍 Checking system alerts...
+2025-10-17T22:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:15:00: 🔍 Starting SLA check...
+2025-10-17T22:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:15:00: 📋 Found 5 active tickets to check
+2025-10-17T22:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:15:00: 🔍 Checking system alerts...
+2025-10-17T22:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:15:01: 103.55.225.241 - - [17/Oct/2025:15:15:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T22:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:20:00: 🔍 Checking system alerts...
+2025-10-17T22:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:25:00: 🔍 Checking system alerts...
+2025-10-17T22:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:30:00: 🔍 Starting SLA check...
+2025-10-17T22:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:30:00: 📋 Found 5 active tickets to check
+2025-10-17T22:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:30:00: 🔍 Checking system alerts...
+2025-10-17T22:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:35:00: 🔍 Checking system alerts...
+2025-10-17T22:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:35:01: 103.55.225.241 - - [17/Oct/2025:15:35:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T22:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:40:00: 🔍 Checking system alerts...
+2025-10-17T22:40:00: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:40:00: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:40:00: 🚨 Triggered 1 alert(s)
+2025-10-17T22:40:00:    - SLA Violation (high): 5
+2025-10-17T22:43:15: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:43:15: ✅ Connected to PostgreSQL database
+2025-10-17T22:43:15: 💾 OTP STORED (Memory): Phone=628197670700, OTP=235991, Purpose=customer_login, Expiry=10min, Process=1157536
+2025-10-17T22:43:15: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T22:43:15: 103.55.224.49 - - [17/Oct/2025:15:43:15 +0000] "POST /api/customer-portal/request-otp HTTP/1.1" 200 117 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:45:00: 🔍 Starting SLA check...
+2025-10-17T22:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:00: 📋 Found 5 active tickets to check
+2025-10-17T22:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:45:00: 🔍 Checking system alerts...
+2025-10-17T22:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:45:53: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T22:45:53: ⏰ Starting billing cron jobs...
+2025-10-17T22:45:53:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T22:45:53:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T22:45:53: ✅ All billing cron jobs started successfully
+2025-10-17T22:45:53: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T22:45:53: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T22:45:53: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T22:45:53: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T22:45:53: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T22:45:53: ✅ WhatsApp notification jobs started successfully
+2025-10-17T22:45:53:    - SLA Monitor: Every 15 minutes
+2025-10-17T22:45:53:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T22:45:53:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T22:45:53:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T22:45:53: ⏰ Starting Alert Monitoring System...
+2025-10-17T22:45:53: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T22:45:53: ✅ Alert Monitoring System started successfully
+2025-10-17T22:45:53:    - System Health Checks: Every 5 minutes
+2025-10-17T22:45:53:    - Alert Rules: 8 default rules active
+2025-10-17T22:45:53:    - Notifications: WhatsApp + Email
+2025-10-17T22:45:53: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T22:45:53: 🌍 Environment: production
+2025-10-17T22:45:53: 📡 Local access: http://localhost:3002
+2025-10-17T22:45:53: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T22:45:53: 📝 CORS origins configured for local network access
+2025-10-17T22:45:53: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T22:45:53: ✅ Redis Cache Connected
+2025-10-17T22:45:53: ✅ Redis client ready for OTP operations
+2025-10-17T22:45:53: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T22:45:53: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T22:45:58: 🔍 Starting SLA check...
+2025-10-17T22:45:58: ✅ Connected to PostgreSQL database
+2025-10-17T22:45:58: 📋 Found 5 active tickets to check
+2025-10-17T22:45:58: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:45:58: 🔍 Checking system alerts...
+2025-10-17T22:45:58: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:45:58: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:45:58: 🚨 Triggered 1 alert(s)
+2025-10-17T22:45:58:    - SLA Violation (high): 5
+2025-10-17T22:49:59: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:49:59: 🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: 08197670700, OTP: 65****
+2025-10-17T22:49:59: 🔍 OTP VERIFY (Memory): Phone=628197670700, InputOTP=655285, Process=1172291, StorageSize=0
+2025-10-17T22:49:59: ❌ OTP NOT FOUND: Phone=628197670700
+2025-10-17T22:49:59: 🔐 [CUSTOMER PORTAL] Verify result: { success: false, error: 'OTP tidak ditemukan atau sudah kadaluarsa' }
+2025-10-17T22:49:59: 103.55.224.49 - - [17/Oct/2025:15:49:59 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 401 71 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:50:00: ✅ Connected to PostgreSQL database
+2025-10-17T22:50:00: 🔍 Checking system alerts...
+2025-10-17T22:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:50:50: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:50:50: ✅ Connected to PostgreSQL database
+2025-10-17T22:50:50: 💾 OTP STORED (Memory): Phone=628197670700, OTP=134412, Purpose=customer_login, Expiry=10min, Process=1172291
+2025-10-17T22:50:50: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T22:50:50: 103.55.224.49 - - [17/Oct/2025:15:50:50 +0000] "POST /api/customer-portal/request-otp HTTP/1.1" 200 117 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:52:43: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T22:52:43: ⏰ Starting billing cron jobs...
+2025-10-17T22:52:43:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T22:52:43:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T22:52:43: ✅ All billing cron jobs started successfully
+2025-10-17T22:52:43: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T22:52:43: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T22:52:43: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T22:52:43: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T22:52:43: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T22:52:43: ✅ WhatsApp notification jobs started successfully
+2025-10-17T22:52:43:    - SLA Monitor: Every 15 minutes
+2025-10-17T22:52:43:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T22:52:43:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T22:52:43:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T22:52:43: ⏰ Starting Alert Monitoring System...
+2025-10-17T22:52:43: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T22:52:43: ✅ Alert Monitoring System started successfully
+2025-10-17T22:52:43:    - System Health Checks: Every 5 minutes
+2025-10-17T22:52:43:    - Alert Rules: 8 default rules active
+2025-10-17T22:52:43:    - Notifications: WhatsApp + Email
+2025-10-17T22:52:43: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T22:52:43: 🌍 Environment: production
+2025-10-17T22:52:43: 📡 Local access: http://localhost:3002
+2025-10-17T22:52:43: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T22:52:43: 📝 CORS origins configured for local network access
+2025-10-17T22:52:43: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T22:52:43: ✅ Redis Cache Connected
+2025-10-17T22:52:43: ✅ Redis client ready for OTP operations
+2025-10-17T22:52:43: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T22:52:43: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T22:52:48: 🔍 Starting SLA check...
+2025-10-17T22:52:48: ✅ Connected to PostgreSQL database
+2025-10-17T22:52:48: 📋 Found 5 active tickets to check
+2025-10-17T22:52:48: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T22:52:48: ✅ Connected to PostgreSQL database
+2025-10-17T22:52:48: 🔍 Checking system alerts...
+2025-10-17T22:52:48: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T22:52:48: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T22:52:48: 🚨 Triggered 1 alert(s)
+2025-10-17T22:52:48:    - SLA Violation (high): 5
+2025-10-17T22:52:59: 🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: 082321922280, OTP: 27****
+2025-10-17T22:52:59: 🔍 OTP VERIFY (Redis): Phone=6282321922280, InputOTP=275750, Key=otp:6282321922280, Process=1173882
+2025-10-17T22:52:59: 📦 STORED OTP: 275750, Expires: 2025-10-17T16:02:50.110Z, Attempts: 0, Source: Redis
+2025-10-17T22:52:59: ✅ OTP VERIFIED: Phone=6282321922280
+2025-10-17T22:52:59: 🔐 [CUSTOMER PORTAL] Verify result: { success: true, message: 'OTP verified successfully' }
+2025-10-17T22:52:59: 103.55.225.241 - - [17/Oct/2025:15:52:59 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 200 441 "-" "curl/7.81.0"
+2025-10-17T22:54:03: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T22:54:03: 🔐 [CUSTOMER PORTAL] Verify OTP attempt - Phone: 08197670700, OTP: 61****
+2025-10-17T22:54:03: 🔍 OTP VERIFY (Redis): Phone=628197670700, InputOTP=612713, Key=otp:628197670700, Process=1173882
+2025-10-17T22:54:03: 📦 STORED OTP: 612713, Expires: 2025-10-17T16:03:52.199Z, Attempts: 0, Source: Redis
+2025-10-17T22:54:03: ✅ OTP VERIFIED: Phone=628197670700
+2025-10-17T22:54:03: 🔐 [CUSTOMER PORTAL] Verify result: { success: true, message: 'OTP verified successfully' }
+2025-10-17T22:54:03: ✅ Connected to PostgreSQL database
+2025-10-17T22:54:03: 103.55.224.49 - - [17/Oct/2025:15:54:03 +0000] "POST /api/customer-portal/verify-otp HTTP/1.1" 200 444 "https://portal.aglis.biz.id/customer/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:54:14: 103.55.224.49 - - [17/Oct/2025:15:54:14 +0000] "GET /api/customer-portal/tickets HTTP/1.1" 200 - "https://portal.aglis.biz.id/customer/tickets/17" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:54:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:54:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:54:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:54:47: 103.55.224.49 - - [17/Oct/2025:15:54:47 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:54:47: 103.55.224.49 - - [17/Oct/2025:15:54:47 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 519 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:00: 🔍 Checking system alerts...
+2025-10-17T22:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T22:55:02: 103.55.224.49 - - [17/Oct/2025:15:55:02 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:16: 103.55.224.49 - - [17/Oct/2025:15:55:16 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:16: 103.55.224.49 - - [17/Oct/2025:15:55:16 +0000] "GET /api/registrations/stats HTTP/1.1" 200 262 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:19: 103.55.224.49 - - [17/Oct/2025:15:55:19 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:19: 103.55.224.49 - - [17/Oct/2025:15:55:19 +0000] "GET /api/registrations/stats HTTP/1.1" 200 262 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:23: 103.55.224.49 - - [17/Oct/2025:15:55:23 +0000] "GET /api/tickets/stats/overview HTTP/1.1" 200 200 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:26: 103.55.224.49 - - [17/Oct/2025:15:55:26 +0000] "GET /api/invoices/statistics HTTP/1.1" 200 191 "https://portal.aglis.biz.id/invoices" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:28: 103.55.224.49 - - [17/Oct/2025:15:55:28 +0000] "GET /api/technicians?search=&employment_status=&availability_status=&skill_level=&work_zone=&specialization=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/technicians" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:29: 103.55.224.49 - - [17/Oct/2025:15:55:29 +0000] "GET /api/inventory-stock/stats HTTP/1.1" 200 176 "https://portal.aglis.biz.id/inventory-stock" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:32: 103.55.224.49 - - [17/Oct/2025:15:55:32 +0000] "GET /api/analytics/dashboard/service-distribution HTTP/1.1" 200 176 "https://portal.aglis.biz.id/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:32: 103.55.224.49 - - [17/Oct/2025:15:55:32 +0000] "GET /api/registration-analytics/package-popularity HTTP/1.1" 200 743 "https://portal.aglis.biz.id/registration-analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:39: 🔍 Cache MISS: cache:GET:/:page=1&limit=10&sort_by=display_order&sort_order=asc:admin...
+2025-10-17T22:55:39: 💾 Cached: cache:GET:/:page=1&limit=10&sort_by=display_order&sort_order=asc:admin... (TTL: 600s)
+2025-10-17T22:55:39: 103.55.224.49 - - [17/Oct/2025:15:55:39 +0000] "GET /api/service-types?page=1&limit=10&sort_by=display_order&sort_order=asc HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/service-types" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:42: 🔍 Cache MISS: cache:GET:/:page=1&limit=100:public...
+2025-10-17T22:55:42: 💾 Cached: cache:GET:/:page=1&limit=100:public... (TTL: 300s)
+2025-10-17T22:55:42: 103.55.224.49 - - [17/Oct/2025:15:55:42 +0000] "GET /api/packages?page=1&limit=100 HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/packages" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:44: 💨 Cache HIT: cache:GET:/:page=1&limit=1000:admin...
+2025-10-17T22:55:44: 103.55.224.49 - - [17/Oct/2025:15:55:44 +0000] "GET /api/equipment?page=1&limit=1000 HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/equipment" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:47: 🔍 Cache MISS: cache:GET:/grouped:active_only=true:admin...
+2025-10-17T22:55:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:55:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:55:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:55:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:55:47: ✅ Connected to PostgreSQL database
+2025-10-17T22:55:47: 💾 Cached: cache:GET:/grouped:active_only=true:admin... (TTL: 600s)
+2025-10-17T22:55:47: 103.55.224.49 - - [17/Oct/2025:15:55:47 +0000] "GET /api/specializations/grouped?active_only=true HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/specializations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:50: 103.55.224.49 - - [17/Oct/2025:15:55:50 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/master-data/whatsapp-templates" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:51: 103.55.224.49 - - [17/Oct/2025:15:55:51 +0000] "GET /api/notification-analytics/by-type? HTTP/1.1" 200 - "https://portal.aglis.biz.id/notifications/analytics" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:52: 103.55.224.49 - - [17/Oct/2025:15:55:52 +0000] "GET /api/notification-settings/advanced HTTP/1.1" 200 719 "https://portal.aglis.biz.id/notifications/settings" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:55:53: 103.55.224.49 - - [17/Oct/2025:15:55:53 +0000] "GET /api/users/activity-logs/list?limit=15 HTTP/1.1" 200 - "https://portal.aglis.biz.id/users" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:56:02: 103.55.224.49 - - [17/Oct/2025:15:56:02 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:56:02: 🔍 Cache MISS: cache:GET:/::public...
+2025-10-17T22:56:02: 103.55.224.49 - - [17/Oct/2025:15:56:02 +0000] "GET /api/packages HTTP/1.1" 200 - "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:56:02: 💾 Cached: cache:GET:/::public... (TTL: 300s)
+2025-10-17T22:57:23: 🔑 OTP SAVED (Redis): Phone=6281298765432, OTP=919663, Key=otp:6281298765432, Process=1173882
+2025-10-17T22:57:23: ✅ WhatsApp sent to 6281298765432 via fonnte (primary)
+2025-10-17T22:57:23: 103.55.225.241 - - [17/Oct/2025:15:57:23 +0000] "POST /api/registrations/public/request-otp HTTP/1.1" 200 78 "-" "curl/7.81.0"
+2025-10-17T22:58:02: ✅ Connected to PostgreSQL database
+2025-10-17T22:58:02: ✅ Connected to PostgreSQL database
+2025-10-17T22:58:02: 103.55.224.49 - - [17/Oct/2025:15:58:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T22:59:02: ✅ Connected to PostgreSQL database
+2025-10-17T22:59:02: ✅ Connected to PostgreSQL database
+2025-10-17T22:59:02: 103.55.224.49 - - [17/Oct/2025:15:59:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:00:00: 🔍 Starting SLA check...
+2025-10-17T23:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:00:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:00:00: 📋 Found 5 active tickets to check
+2025-10-17T23:00:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:00:00: 🔍 Checking system alerts...
+2025-10-17T23:00:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:00:33: ✅ Connected to PostgreSQL database
+2025-10-17T23:00:33: ✅ Connected to PostgreSQL database
+2025-10-17T23:00:33: 103.55.224.49 - - [17/Oct/2025:16:00:33 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:01:10: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:01:10: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:01:10: ✅ Connected to PostgreSQL database
+2025-10-17T23:01:10: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T23:01:10: 📱 WhatsApp confirmation sent: {
+2025-10-17T23:01:10:   success: true,
+2025-10-17T23:01:10:   data: {
+2025-10-17T23:01:10:     detail: 'success! message in queue',
+2025-10-17T23:01:10:     id: [ '126450093' ],
+2025-10-17T23:01:10:     process: 'pending',
+2025-10-17T23:01:10:     quota: { '628179380800': [Object] },
+2025-10-17T23:01:10:     requestid: 151844176,
+2025-10-17T23:01:10:     status: true,
+2025-10-17T23:01:10:     target: [ '628197670700' ]
+2025-10-17T23:01:10:   },
+2025-10-17T23:01:10:   provider: 'fonnte'
+2025-10-17T23:01:10: }
+2025-10-17T23:01:10: ✅ Connected to PostgreSQL database
+2025-10-17T23:01:10: 103.55.224.49 - - [17/Oct/2025:16:01:10 +0000] "POST /api/registrations/public HTTP/1.1" 201 228 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:01:18: 103.55.224.49 - - [17/Oct/2025:16:01:18 +0000] "GET /api/auth/me HTTP/1.1" 200 370 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:01:18: 103.55.224.49 - - [17/Oct/2025:16:01:18 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:01:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:01:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:01:48: 103.55.224.49 - - [17/Oct/2025:16:01:48 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:02:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:02:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:02:48: 103.55.224.49 - - [17/Oct/2025:16:02:48 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 513 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:03:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:03:48: ✅ Connected to PostgreSQL database
+2025-10-17T23:03:48: 103.55.224.49 - - [17/Oct/2025:16:03:48 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:04:41: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:04:41: ✅ Connected to PostgreSQL database
+2025-10-17T23:04:41: ✅ WhatsApp sent to 6281299887766 via fonnte (primary)
+2025-10-17T23:04:41: 📱 WhatsApp confirmation sent: {
+2025-10-17T23:04:41:   success: true,
+2025-10-17T23:04:41:   data: {
+2025-10-17T23:04:41:     detail: 'success! message in queue',
+2025-10-17T23:04:41:     id: [ '126450315' ],
+2025-10-17T23:04:41:     process: 'pending',
+2025-10-17T23:04:41:     quota: { '628179380800': [Object] },
+2025-10-17T23:04:41:     requestid: 151846311,
+2025-10-17T23:04:41:     status: true,
+2025-10-17T23:04:41:     target: [ '6281299887766' ]
+2025-10-17T23:04:41:   },
+2025-10-17T23:04:41:   provider: 'fonnte'
+2025-10-17T23:04:41: }
+2025-10-17T23:04:41: ✅ Connected to PostgreSQL database
+2025-10-17T23:04:41: 103.55.225.241 - - [17/Oct/2025:16:04:41 +0000] "POST /api/registrations/public HTTP/1.1" 201 228 "-" "curl/7.81.0"
+2025-10-17T23:05:00: 🔍 Checking system alerts...
+2025-10-17T23:05:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:05:15: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T23:05:15: ⏰ Starting billing cron jobs...
+2025-10-17T23:05:15:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T23:05:15:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T23:05:15: ✅ All billing cron jobs started successfully
+2025-10-17T23:05:15: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T23:05:15: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T23:05:15: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T23:05:15: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T23:05:15: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T23:05:15: ✅ WhatsApp notification jobs started successfully
+2025-10-17T23:05:15:    - SLA Monitor: Every 15 minutes
+2025-10-17T23:05:15:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T23:05:15:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T23:05:15:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T23:05:15: ⏰ Starting Alert Monitoring System...
+2025-10-17T23:05:15: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T23:05:15: ✅ Alert Monitoring System started successfully
+2025-10-17T23:05:15:    - System Health Checks: Every 5 minutes
+2025-10-17T23:05:15:    - Alert Rules: 8 default rules active
+2025-10-17T23:05:15:    - Notifications: WhatsApp + Email
+2025-10-17T23:05:15: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T23:05:15: 🌍 Environment: production
+2025-10-17T23:05:15: 📡 Local access: http://localhost:3002
+2025-10-17T23:05:15: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T23:05:15: 📝 CORS origins configured for local network access
+2025-10-17T23:05:15: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T23:05:15: ✅ Redis Cache Connected
+2025-10-17T23:05:15: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T23:05:15: ✅ Redis client ready for OTP operations
+2025-10-17T23:05:15: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T23:05:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:05:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:05:18: 103.55.224.49 - - [17/Oct/2025:16:05:18 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:05:20: 🔍 Starting SLA check...
+2025-10-17T23:05:20: 📋 Found 5 active tickets to check
+2025-10-17T23:05:20: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:05:20: 🔍 Checking system alerts...
+2025-10-17T23:05:21: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T23:05:21: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T23:05:21: 🚨 Triggered 1 alert(s)
+2025-10-17T23:05:21:    - SLA Violation (high): 5
+2025-10-17T23:05:41: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:05:41: ✅ WhatsApp sent to 6281299887766 via fonnte (primary)
+2025-10-17T23:05:41: 📱 WhatsApp confirmation sent: {
+2025-10-17T23:05:41:   success: true,
+2025-10-17T23:05:41:   data: {
+2025-10-17T23:05:41:     detail: 'success! message in queue',
+2025-10-17T23:05:41:     id: [ '126450373' ],
+2025-10-17T23:05:41:     process: 'pending',
+2025-10-17T23:05:41:     quota: { '628179380800': [Object] },
+2025-10-17T23:05:41:     requestid: 151848440,
+2025-10-17T23:05:41:     status: true,
+2025-10-17T23:05:41:     target: [ '6281299887766' ]
+2025-10-17T23:05:41:   },
+2025-10-17T23:05:41:   provider: 'fonnte'
+2025-10-17T23:05:41: }
+2025-10-17T23:05:41: 📡 [Socket.IO] Emitting new_registration event: {
+2025-10-17T23:05:41:   registration_number: 'REG20251017004',
+2025-10-17T23:05:41:   full_name: 'Test Socket Notification',
+2025-10-17T23:05:41:   rooms: [ 'role_admin', 'role_supervisor', 'role_customer_service' ]
+2025-10-17T23:05:41: }
+2025-10-17T23:05:41: ✅ [Socket.IO] new_registration event emitted successfully
+2025-10-17T23:05:41: 103.55.225.241 - - [17/Oct/2025:16:05:41 +0000] "POST /api/registrations/public HTTP/1.1" 201 228 "-" "curl/7.81.0"
+2025-10-17T23:06:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:06:18: 103.55.224.49 - - [17/Oct/2025:16:06:18 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 532 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:07:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:07:18: ✅ Connected to PostgreSQL database
+2025-10-17T23:07:18: 103.55.224.49 - - [17/Oct/2025:16:07:18 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:07:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:07:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:07:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:07:59: 103.55.224.49 - - [17/Oct/2025:16:07:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 532 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:07:59: 103.55.224.49 - - [17/Oct/2025:16:07:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:08:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:08:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:08:29: 103.55.224.49 - - [17/Oct/2025:16:08:29 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:08:49: 103.55.224.49 - - [17/Oct/2025:16:08:49 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:09:07: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:09:07: 🔑 OTP SAVED (Redis): Phone=628197670700, OTP=376061, Key=otp:628197670700, Process=1178094
+2025-10-17T23:09:07: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T23:09:07: 103.55.224.49 - - [17/Oct/2025:16:09:07 +0000] "POST /api/registrations/public/request-otp HTTP/1.1" 200 78 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:09:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:09:36: 103.55.224.49 - - [17/Oct/2025:16:09:36 +0000] "GET /api/registrations/public/status/REG20251017005 HTTP/1.1" 200 455 "https://portal.aglis.biz.id/track/REG20251017005" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:10:00: 🔍 Checking system alerts...
+2025-10-17T23:10:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:10:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:10:29: 103.55.224.49 - - [17/Oct/2025:16:10:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:11:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:11:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:11:29: 103.55.224.49 - - [17/Oct/2025:16:11:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:12:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:12:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:12:29: 103.55.224.49 - - [17/Oct/2025:16:12:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:12:57: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T23:12:57: ⏰ Starting billing cron jobs...
+2025-10-17T23:12:57:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T23:12:57:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T23:12:57: ✅ All billing cron jobs started successfully
+2025-10-17T23:12:57: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T23:12:57: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T23:12:57: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T23:12:57: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T23:12:57: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T23:12:57: ✅ WhatsApp notification jobs started successfully
+2025-10-17T23:12:57:    - SLA Monitor: Every 15 minutes
+2025-10-17T23:12:57:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T23:12:57:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T23:12:57:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T23:12:57: ⏰ Starting Alert Monitoring System...
+2025-10-17T23:12:57: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T23:12:57: ✅ Alert Monitoring System started successfully
+2025-10-17T23:12:57:    - System Health Checks: Every 5 minutes
+2025-10-17T23:12:57:    - Alert Rules: 8 default rules active
+2025-10-17T23:12:57:    - Notifications: WhatsApp + Email
+2025-10-17T23:12:57: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T23:12:57: 🌍 Environment: production
+2025-10-17T23:12:57: 📡 Local access: http://localhost:3002
+2025-10-17T23:12:57: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T23:12:57: 📝 CORS origins configured for local network access
+2025-10-17T23:12:57: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T23:12:57: ✅ Redis Cache Connected
+2025-10-17T23:12:57: ✅ Redis client ready for OTP operations
+2025-10-17T23:12:57: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T23:12:57: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T23:13:02: 🔍 Starting SLA check...
+2025-10-17T23:13:02: ✅ Connected to PostgreSQL database
+2025-10-17T23:13:02: 📋 Found 5 active tickets to check
+2025-10-17T23:13:02: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:13:02: ✅ Connected to PostgreSQL database
+2025-10-17T23:13:02: 🔍 Checking system alerts...
+2025-10-17T23:13:02: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T23:13:02: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T23:13:02: 🚨 Triggered 1 alert(s)
+2025-10-17T23:13:02:    - SLA Violation (high): 5
+2025-10-17T23:13:29: 103.55.224.49 - - [17/Oct/2025:16:13:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:14:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:14:29: ✅ Connected to PostgreSQL database
+2025-10-17T23:14:29: 103.55.224.49 - - [17/Oct/2025:16:14:29 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:15:00: 🔍 Starting SLA check...
+2025-10-17T23:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:15:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:15:00: 📋 Found 5 active tickets to check
+2025-10-17T23:15:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:15:00: 🔍 Checking system alerts...
+2025-10-17T23:15:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:15:01: 103.55.225.241 - - [17/Oct/2025:16:15:01 +0000] "GET /api/health HTTP/1.1" 200 700 "-" "curl/7.81.0"
+2025-10-17T23:16:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:16:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:16:00: 103.55.224.49 - - [17/Oct/2025:16:16:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:17:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:17:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:17:00: 103.55.224.49 - - [17/Oct/2025:16:17:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:18:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:18:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:18:00: 103.55.224.49 - - [17/Oct/2025:16:18:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:19:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:19:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:19:00: 103.55.224.49 - - [17/Oct/2025:16:19:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:20:00: 🔍 Checking system alerts...
+2025-10-17T23:20:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:20:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:20:00: 103.55.224.49 - - [17/Oct/2025:16:20:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:21:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:21:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:21:00: 103.55.224.49 - - [17/Oct/2025:16:21:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:22:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:22:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:22:00: 103.55.224.49 - - [17/Oct/2025:16:22:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:23:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:23:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:23:00: 103.55.224.49 - - [17/Oct/2025:16:23:00 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:24:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:24:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:24:00: 103.55.224.49 - - [17/Oct/2025:16:24:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:25:00: 🔍 Checking system alerts...
+2025-10-17T23:25:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:25:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:25:00: 103.55.224.49 - - [17/Oct/2025:16:25:00 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:25:31: ✅ Connected to PostgreSQL database
+2025-10-17T23:25:31: ✅ Connected to PostgreSQL database
+2025-10-17T23:25:31: 103.55.224.49 - - [17/Oct/2025:16:25:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:26:31: ✅ Connected to PostgreSQL database
+2025-10-17T23:26:31: ✅ Connected to PostgreSQL database
+2025-10-17T23:26:31: 103.55.224.49 - - [17/Oct/2025:16:26:31 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:27:26: ✅ Connected to PostgreSQL database
+2025-10-17T23:27:26: ✅ Connected to PostgreSQL database
+2025-10-17T23:27:26: 103.55.224.49 - - [17/Oct/2025:16:27:26 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:27:26: ✅ Connected to PostgreSQL database
+2025-10-17T23:27:26: 103.55.224.49 - - [17/Oct/2025:16:27:26 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:27:44: 103.55.224.49 - - [17/Oct/2025:16:27:44 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:27:44: 103.55.224.49 - - [17/Oct/2025:16:27:44 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:28:33: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:28:33: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:28:33: ✅ Connected to PostgreSQL database
+2025-10-17T23:28:33: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T23:28:33: 📱 WhatsApp confirmation sent: {
+2025-10-17T23:28:33:   success: true,
+2025-10-17T23:28:33:   data: {
+2025-10-17T23:28:33:     detail: 'success! message in queue',
+2025-10-17T23:28:33:     id: [ '126451396' ],
+2025-10-17T23:28:33:     process: 'pending',
+2025-10-17T23:28:33:     quota: { '628179380800': [Object] },
+2025-10-17T23:28:33:     requestid: 151871834,
+2025-10-17T23:28:33:     status: true,
+2025-10-17T23:28:33:     target: [ '628197670700' ]
+2025-10-17T23:28:33:   },
+2025-10-17T23:28:33:   provider: 'fonnte'
+2025-10-17T23:28:33: }
+2025-10-17T23:28:33: ✅ Connected to PostgreSQL database
+2025-10-17T23:28:33: 📡 [Socket.IO] Emitting new_registration event: {
+2025-10-17T23:28:33:   registration_number: 'REG20251017006',
+2025-10-17T23:28:33:   full_name: 'Didin',
+2025-10-17T23:28:33:   rooms: [ 'role_admin', 'role_supervisor', 'role_customer_service' ]
+2025-10-17T23:28:33: }
+2025-10-17T23:28:33: ✅ [Socket.IO] new_registration event emitted successfully
+2025-10-17T23:28:33: 103.55.224.49 - - [17/Oct/2025:16:28:33 +0000] "POST /api/registrations/public HTTP/1.1" 201 228 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:08: 103.55.224.49 - - [17/Oct/2025:16:29:08 +0000] "GET /api/auth/me HTTP/1.1" 401 44 "https://portal.aglis.biz.id/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:29:15: 👤 User connected: yd8-Hx01aE5oBe7IAAAD
+2025-10-17T23:29:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:29:15: 👤 User disconnected: yd8-Hx01aE5oBe7IAAAD
+2025-10-17T23:29:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:29:15: 👤 User connected: 52eGtNKd9amSOVmcAAAJ
+2025-10-17T23:29:15: 103.55.224.49 - - [17/Oct/2025:16:29:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:29:15: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:29:15: 103.55.224.49 - - [17/Oct/2025:16:29:15 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:18: 103.55.224.49 - - [17/Oct/2025:16:29:18 +0000] "GET /api/customers/stats HTTP/1.1" 200 256 "https://portal.aglis.biz.id/customers" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:26: 103.55.224.49 - - [17/Oct/2025:16:29:26 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:29:35: 103.55.224.49 - - [17/Oct/2025:16:29:35 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:30:00: 🔍 Starting SLA check...
+2025-10-17T23:30:00: 📋 Found 5 active tickets to check
+2025-10-17T23:30:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:30:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:30:00: 🔍 Checking system alerts...
+2025-10-17T23:30:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:30:02: ✅ CORS: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:30:02: 🔑 OTP SAVED (Redis): Phone=628197670700, OTP=876601, Key=otp:628197670700, Process=1181231
+2025-10-17T23:30:02: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-17T23:30:02: 103.55.224.49 - - [17/Oct/2025:16:30:02 +0000] "POST /api/registrations/public/request-otp HTTP/1.1" 200 78 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:30:26: 103.55.224.49 - - [17/Oct/2025:16:30:26 +0000] "GET /api/registrations/public/status/REG20251017007 HTTP/1.1" 200 449 "https://portal.aglis.biz.id/track/REG20251017007" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:31:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:31:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:31:15: 103.55.224.49 - - [17/Oct/2025:16:31:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:32:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:32:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:32:15: 103.55.224.49 - - [17/Oct/2025:16:32:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:33:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:33:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:33:15: 103.55.224.49 - - [17/Oct/2025:16:33:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:34:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:34:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:34:15: 103.55.224.49 - - [17/Oct/2025:16:34:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:35:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:35:00: 🔍 Checking system alerts...
+2025-10-17T23:35:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:35:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:35:15: 103.55.224.49 - - [17/Oct/2025:16:35:15 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:36:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:36:15: ✅ Connected to PostgreSQL database
+2025-10-17T23:36:15: 103.55.224.49 - - [17/Oct/2025:16:36:15 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:37:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:37:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:37:16: 103.55.224.49 - - [17/Oct/2025:16:37:16 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:38:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:38:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:38:16: 103.55.224.49 - - [17/Oct/2025:16:38:16 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:39:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:39:16: ✅ Connected to PostgreSQL database
+2025-10-17T23:39:16: 103.55.224.49 - - [17/Oct/2025:16:39:16 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:40:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:40:00: 🔍 Checking system alerts...
+2025-10-17T23:40:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:40:01: 103.55.225.241 - - [17/Oct/2025:16:40:01 +0000] "GET /api/health HTTP/1.1" 200 702 "-" "curl/7.81.0"
+2025-10-17T23:40:43: ✅ Connected to PostgreSQL database
+2025-10-17T23:40:43: ✅ Connected to PostgreSQL database
+2025-10-17T23:40:43: 103.55.224.49 - - [17/Oct/2025:16:40:43 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/track/REG20251015002" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:40:53: 103.55.224.49 - - [17/Oct/2025:16:40:53 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:41:03: 103.55.224.49 - - [17/Oct/2025:16:41:03 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/register" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:41:59: 👤 User disconnected: 52eGtNKd9amSOVmcAAAJ
+2025-10-17T23:41:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:41:59: 👤 User connected: VSXnGK3Vm-X6NmdqAAAL
+2025-10-17T23:41:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:41:59: 103.55.224.49 - - [17/Oct/2025:16:41:59 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:41:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:41:59: 👤 User disconnected: VSXnGK3Vm-X6NmdqAAAL
+2025-10-17T23:41:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:41:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:41:59: 👤 User connected: qqb96O575kL_13FXAAAO
+2025-10-17T23:41:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:41:59: 103.55.224.49 - - [17/Oct/2025:16:41:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 512 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:41:59: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:42:21: 103.55.224.49 - - [17/Oct/2025:16:42:21 +0000] "GET /api/registrations/public/status/REG20251017008 HTTP/1.1" 200 462 "https://portal.aglis.biz.id/track/REG20251017008" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:42:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:42:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:42:59: 103.55.224.49 - - [17/Oct/2025:16:42:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 513 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:43:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:43:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:43:59: 103.55.224.49 - - [17/Oct/2025:16:43:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 513 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:44:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:44:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:44:59: 103.55.224.49 - - [17/Oct/2025:16:44:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:45:00: 🔍 Starting SLA check...
+2025-10-17T23:45:00: 📋 Found 5 active tickets to check
+2025-10-17T23:45:00: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:45:00: 🔍 Checking system alerts...
+2025-10-17T23:45:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:45:57: 🔑 OTP SAVED (Redis): Phone=6281277665544, OTP=650410, Key=otp:6281277665544, Process=1181231
+2025-10-17T23:45:57: ✅ WhatsApp sent to 6281277665544 via fonnte (primary)
+2025-10-17T23:45:57: 103.55.225.241 - - [17/Oct/2025:16:45:57 +0000] "POST /api/registrations/public/request-otp HTTP/1.1" 200 78 "-" "curl/7.81.0"
+2025-10-17T23:46:00: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:46:00: ✅ Connected to PostgreSQL database
+2025-10-17T23:46:00: 103.55.225.241 - - [17/Oct/2025:16:46:00 +0000] "POST /api/registrations/public HTTP/1.1" 400 110 "-" "curl/7.81.0"
+2025-10-17T23:46:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:46:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:46:59: 103.55.224.49 - - [17/Oct/2025:16:46:59 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:47:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:47:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:47:59: 103.55.224.49 - - [17/Oct/2025:16:47:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 526 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:48:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:48:59: ✅ Connected to PostgreSQL database
+2025-10-17T23:48:59: 103.55.224.49 - - [17/Oct/2025:16:48:59 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 526 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:16: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T23:49:16: ⏰ Starting billing cron jobs...
+2025-10-17T23:49:16:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T23:49:16:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T23:49:16: ✅ All billing cron jobs started successfully
+2025-10-17T23:49:16: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T23:49:16: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T23:49:16: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T23:49:16: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T23:49:16: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T23:49:16: ✅ WhatsApp notification jobs started successfully
+2025-10-17T23:49:16:    - SLA Monitor: Every 15 minutes
+2025-10-17T23:49:16:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T23:49:16:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T23:49:16:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T23:49:16: ⏰ Starting Alert Monitoring System...
+2025-10-17T23:49:16: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T23:49:16: ✅ Alert Monitoring System started successfully
+2025-10-17T23:49:16:    - System Health Checks: Every 5 minutes
+2025-10-17T23:49:16:    - Alert Rules: 8 default rules active
+2025-10-17T23:49:16:    - Notifications: WhatsApp + Email
+2025-10-17T23:49:16: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T23:49:16: 🌍 Environment: production
+2025-10-17T23:49:16: 📡 Local access: http://localhost:3002
+2025-10-17T23:49:16: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T23:49:16: 📝 CORS origins configured for local network access
+2025-10-17T23:49:16: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T23:49:16: ✅ Redis Cache Connected
+2025-10-17T23:49:16: ✅ Redis client ready for OTP operations
+2025-10-17T23:49:16: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T23:49:16: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T23:49:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:17: 👤 User connected: Wkc0uPPUJFvkJkwZAAAB
+2025-10-17T23:49:17: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:21: 🔍 Starting SLA check...
+2025-10-17T23:49:21: ✅ Connected to PostgreSQL database
+2025-10-17T23:49:21: 📋 Found 5 active tickets to check
+2025-10-17T23:49:21: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:49:21: ✅ Connected to PostgreSQL database
+2025-10-17T23:49:21: 🔍 Checking system alerts...
+2025-10-17T23:49:21: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T23:49:21: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T23:49:21: 🚨 Triggered 1 alert(s)
+2025-10-17T23:49:21:    - SLA Violation (high): 5
+2025-10-17T23:49:26: 👤 User disconnected: Wkc0uPPUJFvkJkwZAAAB
+2025-10-17T23:49:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:26: 👤 User connected: zfgxl50K2jWqk1CSAAAD
+2025-10-17T23:49:26: 103.55.224.49 - - [17/Oct/2025:16:49:26 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:26: 👤 User disconnected: zfgxl50K2jWqk1CSAAAD
+2025-10-17T23:49:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:26: 👤 User connected: zUmtTiSSzGCVc4xPAAAG
+2025-10-17T23:49:26: 103.55.224.49 - - [17/Oct/2025:16:49:26 +0000] "GET /api/notifications HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:26: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:31: 👤 User connected: m_YjnlYK_CiooBOyAAAI
+2025-10-17T23:49:31: 103.55.224.49 - - [17/Oct/2025:16:49:31 +0000] "GET /api/permissions/me HTTP/1.1" 200 724 "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:31: 103.55.224.49 - - [17/Oct/2025:16:49:31 +0000] "GET /api/tickets?search=&status=&type=&priority=&page=1&limit=10&sort_by=created_at&sort_order=DESC HTTP/1.1" 200 - "https://portal.aglis.biz.id/tickets" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:31: 👤 User disconnected: m_YjnlYK_CiooBOyAAAI
+2025-10-17T23:49:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:31: 👤 User connected: -KEGdbNsKCEsMS4eAAAL
+2025-10-17T23:49:31: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:35: 👤 User disconnected: -KEGdbNsKCEsMS4eAAAL
+2025-10-17T23:49:41: 👤 User disconnected: zUmtTiSSzGCVc4xPAAAG
+2025-10-17T23:49:43: 103.55.224.49 - - [17/Oct/2025:16:49:43 +0000] "GET /api/auth/recaptcha-config HTTP/1.1" 200 94 "https://portal.aglis.biz.id/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:53: 103.55.224.49 - - [17/Oct/2025:16:49:53 +0000] "GET /api/notifications/settings/preferences HTTP/1.1" 200 452 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:53: 👤 User connected: nIbqDfy7_K5U3CsNAAAP
+2025-10-17T23:49:53: 103.55.224.49 - - [17/Oct/2025:16:49:53 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:53: 👤 User disconnected: nIbqDfy7_K5U3CsNAAAP
+2025-10-17T23:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:49:53: 👤 User connected: Ms8SkqTFUmofQX4IAAAV
+2025-10-17T23:49:53: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:00: 🔍 Checking system alerts...
+2025-10-17T23:50:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:09: 103.55.224.49 - - [17/Oct/2025:16:50:09 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:50:10: 👤 User disconnected: Ms8SkqTFUmofQX4IAAAV
+2025-10-17T23:50:10: 103.55.224.49 - - [17/Oct/2025:16:50:10 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 526 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:10: 👤 User connected: Fw-mjv6KTW_SbeDRAAAZ
+2025-10-17T23:50:10: 103.55.224.49 - - [17/Oct/2025:16:50:10 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:10: 👤 User disconnected: Fw-mjv6KTW_SbeDRAAAZ
+2025-10-17T23:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:10: 👤 User connected: K1z3UDAV4GA1qGMkAAAf
+2025-10-17T23:50:10: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:50:29: ⚠️  reCAPTCHA verification skipped (RECAPTCHA_ENABLED=false)
+2025-10-17T23:50:29: ✅ WhatsApp sent to 6281266554433 via fonnte (primary)
+2025-10-17T23:50:29: 📱 WhatsApp confirmation sent: {
+2025-10-17T23:50:29:   success: true,
+2025-10-17T23:50:29:   data: {
+2025-10-17T23:50:29:     detail: 'success! message in queue',
+2025-10-17T23:50:29:     id: [ '126452152' ],
+2025-10-17T23:50:29:     process: 'pending',
+2025-10-17T23:50:29:     quota: { '628179380800': [Object] },
+2025-10-17T23:50:29:     requestid: 151894850,
+2025-10-17T23:50:29:     status: true,
+2025-10-17T23:50:29:     target: [ '6281266554433' ]
+2025-10-17T23:50:29:   },
+2025-10-17T23:50:29:   provider: 'fonnte'
+2025-10-17T23:50:29: }
+2025-10-17T23:50:29: 📡 [Socket.IO] Emitting new_registration event: {
+2025-10-17T23:50:29:   registration_number: 'REG20251017010',
+2025-10-17T23:50:29:   full_name: 'Socket Test User',
+2025-10-17T23:50:29:   rooms: [ 'role_admin', 'role_supervisor', 'role_customer_service' ],
+2025-10-17T23:50:29:   listeners: { role_admin: 0, role_supervisor: 0, role_customer_service: 0 }
+2025-10-17T23:50:29: }
+2025-10-17T23:50:29: ✅ [Socket.IO] new_registration event emitted successfully
+2025-10-17T23:50:29: 103.55.225.241 - - [17/Oct/2025:16:50:29 +0000] "POST /api/registrations/public HTTP/1.1" 201 228 "-" "curl/7.81.0"
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: ✅ Connected to PostgreSQL database
+2025-10-17T23:50:40: 103.55.224.49 - - [17/Oct/2025:16:50:40 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:52:00: 👤 User disconnected: K1z3UDAV4GA1qGMkAAAf
+2025-10-17T23:52:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:52:25: 👤 User connected: LOlBeDAOX113lxX4AAAi
+2025-10-17T23:52:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:52:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:52:25: 👤 User disconnected: LOlBeDAOX113lxX4AAAi
+2025-10-17T23:52:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:52:25: 👤 User connected: c5eNk1d8Q4d54XN8AAAk
+2025-10-17T23:52:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: ✅ Connected to PostgreSQL database
+2025-10-17T23:52:36: 103.55.224.49 - - [17/Oct/2025:16:52:36 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: ✅ Connected to PostgreSQL database
+2025-10-17T23:53:06: 103.55.224.49 - - [17/Oct/2025:16:53:06 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:53:31: 103.55.224.49 - - [17/Oct/2025:16:53:31 +0000] "GET /api/analytics/dashboard/overview?timeframe=30 HTTP/1.1" 200 533 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:53:46: 103.55.224.49 - - [17/Oct/2025:16:53:46 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:54:02: ✅ Connected to PostgreSQL database
+2025-10-17T23:54:02: 103.55.224.49 - - [17/Oct/2025:16:54:02 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:54:32: ✅ Connected to PostgreSQL database
+2025-10-17T23:54:32: ✅ Connected to PostgreSQL database
+2025-10-17T23:54:32: 103.55.224.49 - - [17/Oct/2025:16:54:32 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 524 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:00: 🔍 Checking system alerts...
+2025-10-17T23:55:00: ✅ No alerts triggered - System healthy
+2025-10-17T23:55:02: 103.55.225.241 - - [17/Oct/2025:16:55:02 +0000] "GET /api/health HTTP/1.1" 200 701 "-" "curl/7.81.0"
+2025-10-17T23:55:17: 103.55.224.49 - - [17/Oct/2025:16:55:17 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:32: ✅ Connected to PostgreSQL database
+2025-10-17T23:55:32: 103.55.224.49 - - [17/Oct/2025:16:55:32 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:43: 103.55.224.49 - - [17/Oct/2025:16:55:43 +0000] "GET /api/analytics/dashboard/recent-activities?limit=50 HTTP/1.1" 200 26 "https://portal.aglis.biz.id/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:52: 👤 User disconnected: c5eNk1d8Q4d54XN8AAAk
+2025-10-17T23:55:52: 103.55.224.49 - - [17/Oct/2025:16:55:52 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:55:52: 👤 User connected: EJJxqq5H2u0hexoWAAAm
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:55:52: 👤 User disconnected: EJJxqq5H2u0hexoWAAAm
+2025-10-17T23:55:52: 103.55.224.49 - - [17/Oct/2025:16:55:52 +0000] "GET /api/registrations/stats HTTP/1.1" 200 264 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:55:52: 👤 User connected: g76047v4XfYLl7IGAAAp
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:55:52: 👤 User disconnected: g76047v4XfYLl7IGAAAp
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:55:52: 👤 User connected: ZqL92Kv7zi91cAq7AAAv
+2025-10-17T23:55:52: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:56:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:56:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:56:22: 103.55.224.49 - - [17/Oct/2025:16:56:22 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 524 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:57:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:57:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:57:22: 103.55.224.49 - - [17/Oct/2025:16:57:22 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 524 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:58:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:58:22: ✅ Connected to PostgreSQL database
+2025-10-17T23:58:22: 103.55.224.49 - - [17/Oct/2025:16:58:22 +0000] "GET /api/notifications?limit=1&is_read=false HTTP/1.1" 200 524 "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-10-17T23:58:29: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T23:58:29: ⏰ Starting billing cron jobs...
+2025-10-17T23:58:29:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T23:58:29:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T23:58:29: ✅ All billing cron jobs started successfully
+2025-10-17T23:58:29: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T23:58:29: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T23:58:29: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T23:58:29: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T23:58:29: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T23:58:29: ✅ WhatsApp notification jobs started successfully
+2025-10-17T23:58:29:    - SLA Monitor: Every 15 minutes
+2025-10-17T23:58:29:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T23:58:29:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T23:58:29:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T23:58:29: ⏰ Starting Alert Monitoring System...
+2025-10-17T23:58:29: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T23:58:29: ✅ Alert Monitoring System started successfully
+2025-10-17T23:58:29:    - System Health Checks: Every 5 minutes
+2025-10-17T23:58:29:    - Alert Rules: 8 default rules active
+2025-10-17T23:58:29:    - Notifications: WhatsApp + Email
+2025-10-17T23:58:29: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T23:58:29: 🌍 Environment: production
+2025-10-17T23:58:29: 📡 Local access: http://localhost:3002
+2025-10-17T23:58:29: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T23:58:29: 📝 CORS origins configured for local network access
+2025-10-17T23:58:29: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T23:58:29: ✅ Redis Cache Connected
+2025-10-17T23:58:29: ✅ Redis client ready for OTP operations
+2025-10-17T23:58:29: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T23:58:29: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T23:58:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:58:30: 👤 User connected: s6UGL5qnu1p9c8ggAAAB
+2025-10-17T23:58:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:58:34: 🔍 Starting SLA check...
+2025-10-17T23:58:34: ✅ Connected to PostgreSQL database
+2025-10-17T23:58:34: 📋 Found 5 active tickets to check
+2025-10-17T23:58:34: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:58:34: 🔍 Checking system alerts...
+2025-10-17T23:58:34: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T23:58:34: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T23:58:34: 🚨 Triggered 1 alert(s)
+2025-10-17T23:58:34:    - SLA Violation (high): 5
+2025-10-17T23:58:53: 🔍 OTP VERIFY (Redis): Phone=6281277889900, InputOTP=166322, Key=otp:6281277889900, Process=1192137
+2025-10-17T23:58:53: 📦 STORED OTP: 166322, Expires: 2025-10-17T17:03:51.291Z, Attempts: 0, Source: Redis
+2025-10-17T23:58:53: ✅ OTP VERIFIED: Phone=6281277889900
+2025-10-17T23:58:53: 103.55.225.241 - - [17/Oct/2025:16:58:53 +0000] "POST /api/registrations/public/verify-otp HTTP/1.1" 200 65 "-" "curl/7.81.0"
+2025-10-17T23:59:44: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-17T23:59:44: ⏰ Starting billing cron jobs...
+2025-10-17T23:59:44:    ✓ Monthly Invoice Generation: Every 1st of month at 00:01 WIB
+2025-10-17T23:59:44:    ✓ Daily Overdue Check: Every day at 08:00 WIB
+2025-10-17T23:59:44: ✅ All billing cron jobs started successfully
+2025-10-17T23:59:44: ⏰ Starting WhatsApp notification jobs...
+2025-10-17T23:59:44: ⏰ SLA Monitor started: Checking every 15 minutes
+2025-10-17T23:59:44: ⏰ Payment Reminder Job started: Every day at 09:00 WIB
+2025-10-17T23:59:44: ⏰ Daily Summary Job started: Every day at 18:00 WIB
+2025-10-17T23:59:44: ⏰ Weekly Performance Job started: Every Monday at 08:00 WIB
+2025-10-17T23:59:44: ✅ WhatsApp notification jobs started successfully
+2025-10-17T23:59:44:    - SLA Monitor: Every 15 minutes
+2025-10-17T23:59:44:    - Payment Reminder: Daily at 09:00 WIB
+2025-10-17T23:59:44:    - Daily Summary: Daily at 18:00 WIB
+2025-10-17T23:59:44:    - Weekly Performance: Every Monday at 08:00 WIB
+2025-10-17T23:59:44: ⏰ Starting Alert Monitoring System...
+2025-10-17T23:59:44: ⏰ Alert Monitor started: Checking every 5 minutes
+2025-10-17T23:59:44: ✅ Alert Monitoring System started successfully
+2025-10-17T23:59:44:    - System Health Checks: Every 5 minutes
+2025-10-17T23:59:44:    - Alert Rules: 8 default rules active
+2025-10-17T23:59:44:    - Notifications: WhatsApp + Email
+2025-10-17T23:59:44: 🚀 Server running on 0.0.0.0:3002
+2025-10-17T23:59:44: 🌍 Environment: production
+2025-10-17T23:59:44: 📡 Local access: http://localhost:3002
+2025-10-17T23:59:44: 🌐 Network access: http://192.168.121.30:3002
+2025-10-17T23:59:44: 📝 CORS origins configured for local network access
+2025-10-17T23:59:44: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-17T23:59:44: ✅ Redis Cache Connected
+2025-10-17T23:59:44: ✅ Redis client ready for OTP operations
+2025-10-17T23:59:44: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 1
+2025-10-17T23:59:44: ✅ Redis clients connected for Socket.IO adapter
+2025-10-17T23:59:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:59:45: 👤 User connected: RfnkBKjK-sD2yquAAAAB
+2025-10-17T23:59:45: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-17T23:59:49: 🔍 Starting SLA check...
+2025-10-17T23:59:49: ✅ Connected to PostgreSQL database
+2025-10-17T23:59:49: 📋 Found 5 active tickets to check
+2025-10-17T23:59:49: ✅ SLA check completed. Warnings sent: 0
+2025-10-17T23:59:49: ✅ Connected to PostgreSQL database
+2025-10-17T23:59:49: 🔍 Checking system alerts...
+2025-10-17T23:59:49: ✅ WhatsApp sent to 628179380800 via fonnte (primary)
+2025-10-17T23:59:49: 🚨 Alert triggered: SLA Violation (high)
+2025-10-17T23:59:49: 🚨 Triggered 1 alert(s)
+2025-10-17T23:59:49:    - SLA Violation (high): 5
+2025-10-17T23:59:52: 103.55.224.49 - - [17/Oct/2025:16:59:52 +0000] "GET /api/notifications?page=1&limit=50&is_read=false HTTP/1.1" 200 - "https://portal.aglis.biz.id/registrations" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
