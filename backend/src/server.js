@@ -15,9 +15,7 @@ const morgan = require('morgan');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const { createServer } = require('http');
-const { Server } = require('socket.io');
-const { createAdapter } = require('@socket.io/redis-adapter');
-const { createClient } = require('redis');
+// Socket.IO removed - using dedicated server on port 3002
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -60,30 +58,14 @@ const { cacheMiddleware, invalidateCache, getCacheStats } = require('./middlewar
 // Import cron jobs
 const billingCron = require('./jobs/billingCron');
 
+// Import Socket.IO broadcaster for real-time events
+const socketBroadcaster = require('./utils/socketBroadcaster');
+
 const app = express();
 const server = createServer(app);
 
-// Create Redis clients for Socket.IO adapter
-const pubClient = createClient({
-  url: `redis://127.0.0.1:${process.env.REDIS_PORT || 6379}`,
-  password: process.env.REDIS_PASSWORD
-});
-
-const subClient = pubClient.duplicate();
-
-// Connect Redis clients
-Promise.all([pubClient.connect(), subClient.connect()])
-  .then(() => {
-    console.log('✅ Redis clients connected for Socket.IO adapter');
-  })
-  .catch((err) => {
-    console.error('❌ Redis connection failed:', err);
-    process.exit(1);
-  });
-
-// Error handling for Redis
-pubClient.on('error', (err) => console.error('❌ Redis Pub Client Error:', err));
-subClient.on('error', (err) => console.error('❌ Redis Sub Client Error:', err));
+// Make socketBroadcaster available globally for routes
+global.socketBroadcaster = socketBroadcaster;
 
 // Configure CORS origins - flexible for development and production
 const getCorsOrigins = () => {
@@ -106,41 +88,7 @@ const getCorsOrigins = () => {
 };
 
 const allowedOrigins = getCorsOrigins();
-
-const io = new Server(server, {
-  cors: {
-    origin: (origin, callback) => {
-      // Allow requests with no origin (mobile apps, Postman, etc)
-      if (!origin) return callback(null, true);
-      
-      // Check if origin is in allowed list
-      const isAllowed = allowedOrigins.some(allowed => {
-        if (typeof allowed === 'string') return allowed === origin;
-        if (allowed instanceof RegExp) return allowed.test(origin);
-        return false;
-      });
-      
-      if (isAllowed) {
-        console.log(`✅ Socket.IO: Allowed origin: ${origin}`);
-        callback(null, true);
-      } else {
-        console.warn(`🚫 Socket.IO: Blocked origin: ${origin}`);
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-    transports: ['polling', 'websocket']
-  },
-  // Add namespace configuration
-  path: '/socket.io/',
-  // Connection stability settings
-  pingTimeout: 60000, // 60 seconds
-  pingInterval: 25000, // 25 seconds
-  connectTimeout: 45000, // 45 seconds
-  // Use Redis adapter for cluster mode
-  adapter: createAdapter(pubClient, subClient)
-});
+// Socket.IO server removed - now running on dedicated server (port 3002)
 
 // Rate limiting - Secure rate limiter
 // Note: apiLimiter imported from rateLimiter middleware (100 req/15min)
@@ -322,112 +270,8 @@ app.post('/api/billing/check-overdue', authMiddleware, async (req, res) => {
   }
 });
 
-// Socket.IO for real-time updates
-io.on('connection', (socket) => {
-  console.log('👤 User connected:', socket.id);
-  
-  // User authentication and room joining
-  socket.on('authenticate', (data) => {
-    const { userId, role, username } = data;
-    socket.userId = userId;
-    socket.role = role;
-    socket.username = username;
-    
-    // Join role-based rooms
-    socket.join(`role_${role}`);
-    socket.join(`user_${userId}`);
-    
-    console.log(`👤 User ${userId} (${role}) authenticated: ${socket.id}`);
-    console.log(`🏠 Socket ${socket.id} joined rooms: role_${role}, user_${userId}`);
-    
-    // Send welcome notification
-    socket.emit('notification', {
-      type: 'system',
-      title: 'Connected',
-      message: 'Real-time notifications active',
-      timestamp: new Date().toISOString()
-    });
-    
-    // Confirm authentication back to client
-    socket.emit('authenticated', {
-      userId,
-      role,
-      username,
-      rooms: [`role_${role}`, `user_${userId}`]
-    });
-  });
-  
-  // Join specific rooms (tickets, technicians, etc.)
-  socket.on('join_room', (room) => {
-    socket.join(room);
-    console.log(`👤 User ${socket.id} joined room: ${room}`);
-  });
-  
-  // Leave specific rooms
-  socket.on('leave_room', (room) => {
-    socket.leave(room);
-    console.log(`👤 User ${socket.id} left room: ${room}`);
-  });
-  
-  // Handle ticket updates
-  socket.on('ticket_update', (data) => {
-    const { ticketId, status, assignedTo } = data;
-    
-    // Broadcast to relevant users
-    io.to(`ticket_${ticketId}`).emit('ticket_updated', {
-      ticketId,
-      status,
-      assignedTo,
-      updatedBy: socket.userId,
-      timestamp: new Date().toISOString()
-    });
-    
-    // Notify assigned technician
-    if (assignedTo) {
-      io.to(`user_${assignedTo}`).emit('notification', {
-        type: 'ticket_assigned',
-        title: 'New Ticket Assignment',
-        message: `You have been assigned to ticket #${ticketId}`,
-        ticketId,
-        timestamp: new Date().toISOString()
-      });
-    }
-  });
-  
-  // Handle technician status updates
-  socket.on('technician_status_update', (data) => {
-    const { technicianId, status } = data;
-    
-    // Broadcast to supervisors and admins
-    io.to('role_admin').to('role_supervisor').emit('technician_status_changed', {
-      technicianId,
-      status,
-      timestamp: new Date().toISOString()
-    });
-  });
-  
-  // Handle system alerts
-  socket.on('system_alert', (data) => {
-    const { message, type, targetRole } = data;
-    
-    // Broadcast to specific role or all users
-    const target = targetRole ? `role_${targetRole}` : io;
-    target.emit('notification', {
-      type: 'system_alert',
-      title: 'System Alert',
-      message,
-      priority: type,
-      timestamp: new Date().toISOString()
-    });
-  });
-  
-  socket.on('disconnect', () => {
-    console.log('👤 User disconnected:', socket.id);
-  });
-});
-
-// Make io available to routes
-app.set('io', io);
+// Socket.IO connection handlers removed - handled by dedicated server (port 3002)
+// Real-time events are now broadcasted via global.socketBroadcaster
 
 // Start billing cron jobs
 if (process.env.ENABLE_BILLING_CRON === 'true') {
@@ -494,4 +338,4 @@ server.listen(PORT, HOST, () => {
   console.log(`📝 CORS origins configured for local network access`);
 });
 
-module.exports = { app, io };
+module.exports = { app, server };
