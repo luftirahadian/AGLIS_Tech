@@ -308,6 +308,28 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
         console.warn('⚠️ [Socket.IO] io object not available, event not emitted');
       }
 
+      // Send notification to WhatsApp groups about new registration
+      console.log('📱 [WhatsApp] Sending new registration notification to groups...');
+      const groupNotifResult = await whatsappNotificationService.notifyGroupNewRegistration({
+        registration_number: registration.registration_number,
+        full_name: registration.full_name,
+        phone: registration.phone,
+        email: registration.email,
+        address: registration.address,
+        city: registration.city,
+        province: registration.province,
+        installation_address: registration.installation_address,
+        package_name: packageInfo.package_name,
+        service_type: registration.service_type,
+        preferred_date: registration.preferred_date,
+        notes: registration.notes
+      });
+      
+      console.log('📱 [WhatsApp] Group notification result:', {
+        success: groupNotifResult.success,
+        groups_notified: groupNotifResult.groups_notified || 0
+      });
+
       res.status(201).json({
         success: true,
         message: 'Pendaftaran berhasil! Kami akan menghubungi Anda segera.',

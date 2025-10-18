@@ -1658,6 +1658,114 @@ _AGLIS Net - Always Connected_`;
   }
 
   /**
+   * NEW: Send notification to WhatsApp groups when new customer registration
+   */
+  async notifyGroupNewRegistration(registrationData) {
+    try {
+      console.log('📱 [WhatsApp] Notifying groups about new registration:', registrationData.registration_number);
+      
+      // Get active WhatsApp groups that want new registration notifications
+      const groupsQuery = `
+        SELECT id, name, phone_number, group_chat_id
+        FROM whatsapp_groups
+        WHERE is_active = TRUE
+          AND (notification_types @> '["new_registration"]'::jsonb 
+               OR notification_types @> '["all"]'::jsonb)
+      `;
+      
+      const groupsResult = await pool.query(groupsQuery);
+      
+      if (groupsResult.rows.length === 0) {
+        console.log('⚠️ No WhatsApp groups configured for new registration notifications');
+        return { success: true, message: 'No groups configured' };
+      }
+
+      // Create group-friendly message
+      const groupMessage = `🎉 *PENDAFTAR BARU!*
+
+📋 Nomor Registrasi: ${registrationData.registration_number}
+👤 Nama: ${registrationData.full_name}
+📱 No. HP: ${registrationData.phone}
+📧 Email: ${registrationData.email || '-'}
+
+📍 Lokasi: ${registrationData.city}, ${registrationData.province}
+🏠 Alamat Instalasi: ${registrationData.installation_address || registrationData.address}
+
+📦 Paket: ${registrationData.package_name || 'Belum dipilih'}
+🛠️ Jenis Layanan: ${this.formatServiceType(registrationData.service_type)}
+📅 Tanggal Preferensi: ${registrationData.preferred_date || '-'}
+
+💬 Catatan: ${registrationData.notes || '-'}
+
+⏰ Waktu: ${new Date().toLocaleString('id-ID', { 
+  timeZone: 'Asia/Jakarta',
+  dateStyle: 'full',
+  timeStyle: 'short'
+})}
+
+_AGLIS Net - Excellent Service!_ 🌐`;
+
+      // Send to all configured groups
+      const results = [];
+      for (const group of groupsResult.rows) {
+        const targetNumber = group.group_chat_id || group.phone_number;
+        
+        if (!targetNumber) {
+          console.warn(`⚠️ Group ${group.name} has no phone number or group chat ID`);
+          continue;
+        }
+
+        console.log(`📤 Sending to group "${group.name}" (${targetNumber})...`);
+        const sendResult = await this.whatsappService.sendMessage(targetNumber, groupMessage);
+        
+        // Log group notification
+        await this.logNotification({
+          phone_number: targetNumber,
+          recipient_type: 'group',
+          group_id: group.id,
+          notification_type: 'new_registration',
+          message: groupMessage,
+          status: sendResult.success ? 'sent' : 'failed',
+          provider: sendResult.provider,
+          error: sendResult.error
+        });
+
+        results.push({
+          group: group.name,
+          success: sendResult.success,
+          error: sendResult.error
+        });
+
+        console.log(`${sendResult.success ? '✅' : '❌'} Group "${group.name}": ${sendResult.success ? 'SENT' : 'FAILED'}`);
+      }
+
+      return {
+        success: true,
+        groups_notified: results.length,
+        results: results
+      };
+
+    } catch (error) {
+      console.error('❌ Error sending group new registration notification:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * Helper: Format service type for display
+   */
+  formatServiceType(type) {
+    const types = {
+      installation: 'Instalasi Baru',
+      upgrade: 'Upgrade Paket',
+      maintenance: 'Maintenance',
+      repair: 'Perbaikan',
+      relocation: 'Relokasi'
+    };
+    return types[type] || type;
+  }
+
+  /**
    * Helper: Format ticket type for display
    */
   formatTicketType(type) {
