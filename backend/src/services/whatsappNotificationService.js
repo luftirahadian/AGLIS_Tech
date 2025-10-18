@@ -502,26 +502,37 @@ _AGLIS Net - Excellent Service!_ 🌐`;
    */
   async logNotification(data) {
     try {
+      // Format phone number before saving to database
+      let formattedPhone = data.phone_number;
+      if (formattedPhone && !formattedPhone.includes('@g.us')) {
+        // Format individual numbers to international format (62xxx)
+        formattedPhone = this.whatsappService.formatPhoneNumber(formattedPhone);
+      }
+      
       const query = `
         INSERT INTO whatsapp_notifications 
-        (ticket_id, invoice_id, phone_number, recipient_type, notification_type, message, status, provider, error_message)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        (ticket_id, invoice_id, phone_number, recipient_type, notification_type, message, status, provider, error_message, sent_at)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING id
       `;
 
       const values = [
         data.ticket_id || null,
         data.invoice_id || null,
-        data.phone_number,
+        formattedPhone,  // Save formatted phone number
         data.recipient_type,
         data.notification_type,
         data.message,
         data.status,
         data.provider || 'fonnte',
-        data.error || null
+        data.error || null,
+        data.status === 'sent' ? new Date() : null  // Set sent_at if status is 'sent'
       ];
 
       const result = await pool.query(query, values);
+      
+      console.log(`📝 [Log] Notification saved: ID ${result.rows[0].id}, Phone: ${formattedPhone}, Status: ${data.status}`);
+      
       return result.rows[0].id;
     } catch (error) {
       console.error('Error logging notification:', error);
