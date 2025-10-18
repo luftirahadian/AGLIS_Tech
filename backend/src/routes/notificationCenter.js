@@ -133,37 +133,7 @@ router.put('/mark-all-read', authMiddleware, async (req, res) => {
   }
 });
 
-// Delete a notification
-router.delete('/:id', authMiddleware, async (req, res) => {
-  try {
-    const notificationId = parseInt(req.params.id);
-    const userId = req.user.id;
-
-    await notificationCenterService.deleteNotification(notificationId, userId);
-
-    // Broadcast updated unread count via Socket.IO
-    if (global.socketBroadcaster) {
-      const unreadCount = await notificationCenterService.getUnreadCount(userId);
-      global.socketBroadcaster.notifyUser(userId, 'notification_deleted', {
-        notificationId,
-        unreadCount
-      });
-    }
-
-    res.json({
-      success: true,
-      message: 'Notification deleted'
-    });
-  } catch (error) {
-    console.error('Delete notification error:', error);
-    res.status(500).json({
-      success: false,
-      message: error.message || 'Failed to delete notification'
-    });
-  }
-});
-
-// Clear all read notifications
+// Clear all read notifications (MUST BE BEFORE /:id to avoid conflict)
 router.delete('/clear-read', authMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
@@ -186,6 +156,44 @@ router.delete('/clear-read', authMiddleware, async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to clear notifications'
+    });
+  }
+});
+
+// Delete a notification (MUST BE AFTER /clear-read)
+router.delete('/:id', authMiddleware, async (req, res) => {
+  try {
+    const notificationId = parseInt(req.params.id);
+    const userId = req.user.id;
+
+    // Validate notificationId is a valid number
+    if (isNaN(notificationId)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid notification ID'
+      });
+    }
+
+    await notificationCenterService.deleteNotification(notificationId, userId);
+
+    // Broadcast updated unread count via Socket.IO
+    if (global.socketBroadcaster) {
+      const unreadCount = await notificationCenterService.getUnreadCount(userId);
+      global.socketBroadcaster.notifyUser(userId, 'notification_deleted', {
+        notificationId,
+        unreadCount
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Notification deleted'
+    });
+  } catch (error) {
+    console.error('Delete notification error:', error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'Failed to delete notification'
     });
   }
 });
