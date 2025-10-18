@@ -1,0 +1,25 @@
+2025-10-18 14:50:57: 🚀 Starting Dedicated Socket.IO Server...
+2025-10-18 14:50:57: 📋 Configuration:
+2025-10-18 14:50:57:   Port: 3002
+2025-10-18 14:50:57:   Redis: 127.0.0.1:6379
+2025-10-18 14:50:57: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-18 14:50:57: ✅ Socket.IO Server running on port 3002
+2025-10-18 14:50:57: 🔌 WebSocket endpoint: ws://localhost:3002/socket.io/
+2025-10-18 14:50:57: 📊 Connected users: 0
+2025-10-18 14:50:57: ✅ Redis clients connected for Socket.IO adapter
+2025-10-18 14:51:12: 🔗 New connection: F7vmpoXAgmwp6_hbAAAC
+2025-10-18 14:52:37: 🔌 Socket disconnected: F7vmpoXAgmwp6_hbAAAC (ping timeout)
+2025-10-18 14:52:48: 📴 SIGINT received, closing Socket.IO server...
+2025-10-18 14:52:50: 🚀 Starting Dedicated Socket.IO Server...
+2025-10-18 14:52:50: 📋 Configuration:
+2025-10-18 14:52:50:   Port: 3002
+2025-10-18 14:52:50:   Redis: 127.0.0.1:6379
+2025-10-18 14:52:50: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-18 14:52:50: ✅ Socket.IO Server running on port 3002
+2025-10-18 14:52:50: 🔌 WebSocket endpoint: ws://localhost:3002/socket.io/
+2025-10-18 14:52:50: 📊 Connected users: 0
+2025-10-18 14:52:50: ✅ Redis clients connected for Socket.IO adapter
+2025-10-18 14:52:55: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 14:52:55: 🔗 New connection: dZPoR5-QtyhpPrLAAAAB
+2025-10-18 14:52:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 14:52:59: 🔌 Socket disconnected: dZPoR5-QtyhpPrLAAAAB (transport close)
