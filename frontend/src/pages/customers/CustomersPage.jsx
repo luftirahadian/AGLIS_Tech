@@ -486,7 +486,7 @@ const CustomersPage = () => {
     }
   }
 
-  // ==================== BULK ACTION HANDLERS ====================
+  // ==================== BULK ACTION HANDLERS (NEW - Using Bulk APIs) ====================
 
   const handleBulkSuspend = () => {
     if (selectedCustomers.length === 0) {
@@ -497,35 +497,52 @@ const CustomersPage = () => {
   }
 
   const confirmBulkSuspend = async () => {
+    setShowBulkSuspendModal(false)
+
+    setBulkOperation('Bulk Suspend Customers')
+    setBulkProgress({
+      total: selectedCustomers.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
 
     try {
-      let successCount = 0
-      let errorCount = 0
+      const result = await bulkOperationsService.bulkUpdateCustomerStatus(
+        selectedCustomers,
+        { account_status: 'suspended' }
+      )
 
-      for (const customerId of selectedCustomers) {
-        try {
-          await customerService.updateCustomer(customerId, { account_status: 'suspended' })
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to suspend customer ${customerId}:`, error)
-        }
-      }
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} customer berhasil di-suspend${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
         refetchCustomers()
         queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal suspend customer')
-      }
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} customer berhasil di-suspend`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk suspend error:', error)
-      toast.error('Terjadi kesalahan saat suspend customer')
-    } finally {
-      setShowBulkSuspendModal(false)
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal suspend customer')
     }
   }
 
@@ -538,35 +555,52 @@ const CustomersPage = () => {
   }
 
   const confirmBulkActivate = async () => {
+    setShowBulkActivateModal(false)
+
+    setBulkOperation('Bulk Activate Customers')
+    setBulkProgress({
+      total: selectedCustomers.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
 
     try {
-      let successCount = 0
-      let errorCount = 0
+      const result = await bulkOperationsService.bulkUpdateCustomerStatus(
+        selectedCustomers,
+        { account_status: 'active' }
+      )
 
-      for (const customerId of selectedCustomers) {
-        try {
-          await customerService.updateCustomer(customerId, { account_status: 'active' })
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to activate customer ${customerId}:`, error)
-        }
-      }
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} customer berhasil diaktifkan${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
         refetchCustomers()
         queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal aktifkan customer')
-      }
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} customer berhasil diaktifkan`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk activate error:', error)
-      toast.error('Terjadi kesalahan saat aktifkan customer')
-    } finally {
-      setShowBulkActivateModal(false)
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal aktifkan customer')
     }
   }
 
@@ -579,36 +613,55 @@ const CustomersPage = () => {
   }
 
   const confirmBulkDelete = async () => {
+    setShowBulkDeleteModal(false)
+
+    setBulkOperation('Bulk Delete Customers')
+    setBulkProgress({
+      total: selectedCustomers.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
 
     try {
-      let successCount = 0
-      let errorCount = 0
+      const result = await bulkOperationsService.bulkDeleteCustomers(selectedCustomers)
 
-      for (const customerId of selectedCustomers) {
-        try {
-          await customerService.deleteCustomer(customerId)
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to delete customer ${customerId}:`, error)
-        }
-      }
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} customer berhasil dihapus${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
         refetchCustomers()
         queryClient.invalidateQueries('customer-stats')
         setSelectedCustomers([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal hapus customer')
-      }
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} customer berhasil dihapus`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk delete error:', error)
-      toast.error('Terjadi kesalahan saat hapus customer')
-    } finally {
-      setShowBulkDeleteModal(false)
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal hapus customer')
     }
+  }
+
+  // Retry failed items
+  const handleRetryFailed = async (failedIds) => {
+    setSelectedCustomers(failedIds)
   }
 
   // ==================== COPY TO CLIPBOARD HANDLER ====================
@@ -1410,6 +1463,30 @@ const CustomersPage = () => {
         filteredCount={totalCustomers}
         selectedCount={selectedCustomers.length}
         availableColumns={exportColumns}
+      />
+
+      {/* Bulk Progress Modal */}
+      <BulkProgressModal
+        isOpen={showBulkProgress}
+        total={bulkProgress.total}
+        processed={bulkProgress.processed}
+        succeeded={bulkProgress.succeeded}
+        failed={bulkProgress.failed}
+        currentItem={bulkProgress.currentItem}
+        operation={bulkOperation}
+        onCancel={() => setShowBulkProgress(false)}
+      />
+
+      {/* Bulk Results Modal */}
+      <BulkResultsModal
+        isOpen={showBulkResults}
+        results={bulkResults}
+        operation={bulkOperation}
+        onClose={() => {
+          setShowBulkResults(false)
+          setBulkResults(null)
+        }}
+        onRetryFailed={handleRetryFailed}
       />
     </div>
   )
