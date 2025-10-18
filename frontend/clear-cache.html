@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Clear Cache - AGLIS</title>
+    <script>
+        // Unregister service workers
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                    console.log('Service worker unregistered:', registration);
+                });
+            });
+        }
+        
+        // Clear all caches
+        if ('caches' in window) {
+            caches.keys().then(names => {
+                names.forEach(name => {
+                    caches.delete(name);
+                    console.log('Cache deleted:', name);
+                });
+            });
+        }
+        
+        // Clear localStorage and sessionStorage
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // Redirect after 2 seconds
+        setTimeout(() => {
+            alert('Cache cleared! Redirecting to login...');
+            window.location.href = '/login?t=' + Date.now();
+        }, 2000);
+    </script>
+</head>
+<body style="font-family: Arial; text-align: center; padding: 50px;">
+    <h1>🧹 Clearing Browser Cache...</h1>
+    <p>Please wait...</p>
+    <p style="color: #666; margin-top: 20px;">
+        <small>This page will clear all cached data and redirect you to login.</small>
+    </p>
+</body>
+</html>
