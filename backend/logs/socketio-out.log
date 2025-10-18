@@ -163,3 +163,32 @@
 2025-10-18 16:36:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 16:36:38: 🔐 User authenticated: admin (admin)
 2025-10-18 16:36:38: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 16:44:31: 📡 Broadcasting new_registration to role_admin
+2025-10-18 16:44:31: 📡 Broadcasting new_registration to role_supervisor
+2025-10-18 16:44:31: 📡 Broadcasting new_registration to role_customer_service
+2025-10-18 16:44:31: 📡 Broadcasting new_registration to all
+2025-10-18 16:44:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:44:32: 🔗 New connection: UTLG5Zd3AXU4JOGNAABp
+2025-10-18 16:44:32: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:45:24: 📡 Broadcasting registration_updated to role_admin
+2025-10-18 16:45:24: 📡 Broadcasting registration_updated to role_supervisor
+2025-10-18 16:45:24: 📡 Broadcasting registration_updated to role_customer_service
+2025-10-18 16:45:24: 📡 Broadcasting registration_status_changed to all
+2025-10-18 16:45:33: 📡 Broadcasting registration_updated to role_admin
+2025-10-18 16:45:33: 📡 Broadcasting registration_updated to role_supervisor
+2025-10-18 16:45:33: 📡 Broadcasting registration_updated to role_customer_service
+2025-10-18 16:45:33: 📡 Broadcasting registration_status_changed to all
+2025-10-18 16:45:38: 📡 Broadcasting customer-created to all
+2025-10-18 16:45:38: 📡 Broadcasting registration-updated to all
+2025-10-18 16:45:38: 📡 Broadcasting ticket-created to all
+2025-10-18 16:46:05: 📡 Broadcasting ticket_updated to all
+2025-10-18 16:46:05: 📡 Broadcasting ticket_status_updated to all
+2025-10-18 16:46:05: 📡 Broadcasting dashboard_update to all
+2025-10-18 16:48:10: 📡 Broadcasting ticket_updated to all
+2025-10-18 16:48:10: 📡 Broadcasting ticket_status_updated to all
+2025-10-18 16:48:10: 📡 Broadcasting dashboard_update to all
+2025-10-18 16:49:00: 📡 Broadcasting customer-updated to all
+2025-10-18 16:49:00: 📡 Broadcasting ticket_updated to all
+2025-10-18 16:49:00: 📡 Broadcasting ticket_status_updated to all
+2025-10-18 16:49:00: 📡 Broadcasting dashboard_update to all
+2025-10-18 16:53:35: 🔌 Socket disconnected: UTLG5Zd3AXU4JOGNAABp (transport close)

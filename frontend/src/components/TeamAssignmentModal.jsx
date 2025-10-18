@@ -215,8 +215,10 @@ const TeamAssignmentModal = ({ isOpen, onClose, ticket }) => {
     () => technicianService.getTechnicians({ status: 'active' }),
     {
       enabled: isOpen,
-      staleTime: 30000, // 30 seconds
-      refetchOnWindowFocus: false
+      staleTime: 5 * 60 * 1000, // 5 minutes - fresh data
+      cacheTime: 10 * 60 * 1000, // 10 minutes - keep in cache
+      refetchOnWindowFocus: false,
+      refetchOnMount: false // Don't refetch if cache exists
     }
   );
 
@@ -250,11 +252,6 @@ const TeamAssignmentModal = ({ isOpen, onClose, ticket }) => {
                      (Array.isArray(techniciansData?.data) ? techniciansData.data : []) ||
                      (Array.isArray(techniciansData) ? techniciansData : []) ||
                      [];
-
-  // Debug log
-  console.log('📊 [TeamAssignmentModal] techniciansData:', techniciansData);
-  console.log('📊 [TeamAssignmentModal] technicians array:', technicians);
-  console.log('📊 [TeamAssignmentModal] technicians count:', technicians.length);
 
   const handleSubmit = (e) => {
     e.preventDefault();

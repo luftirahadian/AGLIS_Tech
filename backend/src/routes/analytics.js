@@ -395,4 +395,237 @@ router.get('/dashboard/recent-activities', async (req, res) => {
   }
 });
 
+// ============= LEGACY ENDPOINTS (for backward compatibility) =============
+
+// Get ticket trend (legacy)
+router.get('/ticket-trend', async (req, res) => {
+  try {
+    const { range = '7days' } = req.query;
+    
+    // Convert range to days
+    const daysMap = {
+      '7days': 7,
+      '30days': 30,
+      '90days': 90
+    };
+    const days = daysMap[range] || 7;
+    
+    const query = `
+      SELECT 
+        DATE(created_at) as date,
+        COUNT(*) as total,
+        COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed,
+        COUNT(CASE WHEN status = 'in_progress' THEN 1 END) as in_progress,
+        COUNT(CASE WHEN status = 'open' THEN 1 END) as open
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '${days} days'
+      GROUP BY DATE(created_at)
+      ORDER BY date ASC
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows
+    });
+  } catch (error) {
+    console.error('Ticket trend error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch ticket trend'
+    });
+  }
+});
+
+// Get status distribution (legacy)
+router.get('/status-distribution', async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        status,
+        COUNT(*) as count,
+        ROUND((COUNT(*) * 100.0 / SUM(COUNT(*)) OVER()), 2) as percentage
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      GROUP BY status
+      ORDER BY count DESC
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows
+    });
+  } catch (error) {
+    console.error('Status distribution error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch status distribution'
+    });
+  }
+});
+
+// Get revenue trend (legacy)
+router.get('/revenue-trend', async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        DATE(i.created_at) as date,
+        SUM(i.total_amount) as revenue,
+        COUNT(i.id) as invoice_count,
+        COUNT(CASE WHEN i.status = 'paid' THEN 1 END) as paid_count
+      FROM invoices i
+      WHERE i.created_at >= CURRENT_DATE - INTERVAL '30 days'
+      GROUP BY DATE(i.created_at)
+      ORDER BY date ASC
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows
+    });
+  } catch (error) {
+    console.error('Revenue trend error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch revenue trend'
+    });
+  }
+});
+
+// Get KPI metrics (legacy)
+router.get('/kpi', async (req, res) => {
+  try {
+    const [
+      ticketsResult,
+      revenueResult,
+      customersResult,
+      slaResult
+    ] = await Promise.all([
+      // Total tickets
+      pool.query(`
+        SELECT 
+          COUNT(*) as total_tickets,
+          COUNT(CASE WHEN created_at >= CURRENT_DATE THEN 1 END) as today_tickets,
+          COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed_tickets
+        FROM tickets
+        WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      `),
+      
+      // Revenue
+      pool.query(`
+        SELECT 
+          COALESCE(SUM(total_amount), 0) as total_revenue,
+          COALESCE(SUM(CASE WHEN created_at >= CURRENT_DATE THEN total_amount END), 0) as today_revenue,
+          COUNT(CASE WHEN status = 'paid' THEN 1 END) as paid_invoices
+        FROM invoices
+        WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      `),
+      
+      // Customers
+      pool.query(`
+        SELECT 
+          COUNT(*) as total_customers,
+          COUNT(CASE WHEN created_at >= CURRENT_DATE THEN 1 END) as today_customers,
+          COUNT(CASE WHEN status = 'active' THEN 1 END) as active_customers
+        FROM customers
+      `),
+      
+      // SLA Compliance
+      pool.query(`
+        SELECT 
+          COUNT(*) as total_completed,
+          COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) as within_sla,
+          ROUND(
+            (COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) * 100.0 / NULLIF(COUNT(*), 0)), 2
+          ) as compliance_rate
+        FROM tickets
+        WHERE status = 'completed'
+        AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+      `)
+    ]);
+    
+    res.json({
+      success: true,
+      data: {
+        tickets: ticketsResult.rows[0],
+        revenue: revenueResult.rows[0],
+        customers: customersResult.rows[0],
+        sla: slaResult.rows[0]
+      }
+    });
+  } catch (error) {
+    console.error('KPI metrics error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch KPI metrics'
+    });
+  }
+});
+
+// Get response time metrics (legacy)
+router.get('/response-time', async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        AVG(EXTRACT(EPOCH FROM (first_response_at - created_at))/60) as avg_first_response_minutes,
+        AVG(EXTRACT(EPOCH FROM (completed_at - created_at))/3600) as avg_resolution_hours,
+        COUNT(*) as total_tickets
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      AND status = 'completed'
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Response time metrics error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch response time metrics'
+    });
+  }
+});
+
+// Get SLA compliance (legacy)
+router.get('/sla-compliance', async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        status,
+        COUNT(*) as total,
+        COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) as within_sla,
+        COUNT(CASE WHEN completed_at > sla_due_date THEN 1 END) as breached,
+        ROUND(
+          (COUNT(CASE WHEN completed_at <= sla_due_date THEN 1 END) * 100.0 / NULLIF(COUNT(*), 0)), 2
+        ) as compliance_rate
+      FROM tickets
+      WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      AND status IN ('completed', 'closed')
+      GROUP BY status
+    `;
+    
+    const result = await pool.query(query);
+    
+    res.json({
+      success: true,
+      data: result.rows
+    });
+  } catch (error) {
+    console.error('SLA compliance error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch SLA compliance'
+    });
+  }
+});
+
 module.exports = router;

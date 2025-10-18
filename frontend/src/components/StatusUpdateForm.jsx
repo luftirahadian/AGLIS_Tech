@@ -44,16 +44,15 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
     () => odpService.getAll(),
     {
       refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
+      cacheTime: 10 * 60 * 1000, // Keep in cache for 10 minutes
+      refetchOnMount: false, // Don't refetch if data exists
       select: (response) => {
-        console.log('🔍 ODP API Response:', response)
-        
         // Extract array from response.data
         const odpArray = Array.isArray(response?.data) ? response.data : []
-        console.log('📦 ODP Array:', odpArray)
         
         // Filter only active ODPs
         const activeOdps = odpArray.filter(odp => odp.status === 'active')
-        console.log('✅ Active ODPs:', activeOdps)
         
         return activeOdps
       }
@@ -66,6 +65,9 @@ const StatusUpdateForm = ({ ticket, onUpdate, isLoading, preSelectedStatus, onSt
     () => packageService.getAll(),
     {
       refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
+      cacheTime: 10 * 60 * 1000, // Keep in cache for 10 minutes
+      refetchOnMount: false, // Don't refetch if data exists
       enabled: ticket.type === 'upgrade' || ticket.type === 'downgrade',
       select: (data) => {
         // packageService.getAll() returns array directly
