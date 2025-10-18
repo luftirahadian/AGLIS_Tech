@@ -23,7 +23,7 @@ const NotificationBadge = () => {
     }
   );
 
-  const unreadCount = unreadData?.count || 0;
+  const unreadCount = unreadData?.data?.count || 0;
 
   return (
     <div className="relative">

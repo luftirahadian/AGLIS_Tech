@@ -410,3 +410,31 @@
 2025-10-18 18:37:21: 🔗 New connection: T8iiVccIYEkZWxEeAACl
 2025-10-18 18:37:21: 🔐 User authenticated: admin (admin)
 2025-10-18 18:37:21: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:39:51: 🔌 Socket disconnected: 07NiCbqbgaWuyNWgAACj (transport close)
+2025-10-18 18:39:51: 👋 User admin disconnected
+2025-10-18 18:39:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:39:51: 🔗 New connection: y8xJ2blmEuguKSTRAACn
+2025-10-18 18:39:51: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:39:52: 🔐 User authenticated: admin (admin)
+2025-10-18 18:39:52: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:43:16: 🔌 Socket disconnected: T8iiVccIYEkZWxEeAACl (transport close)
+2025-10-18 18:43:16: 👋 User admin disconnected
+2025-10-18 18:43:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:43:16: 🔗 New connection: 7OU1bjksRWi5KOhaAACp
+2025-10-18 18:43:16: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:43:16: 🔐 User authenticated: admin (admin)
+2025-10-18 18:43:16: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:43:33: 🔌 Socket disconnected: y8xJ2blmEuguKSTRAACn (transport close)
+2025-10-18 18:43:33: 👋 User admin disconnected
+2025-10-18 18:43:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:43:33: 🔗 New connection: 7wBe3fqT85qWBt_VAACr
+2025-10-18 18:43:33: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:43:33: 🔐 User authenticated: admin (admin)
+2025-10-18 18:43:33: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:45:18: 🔌 Socket disconnected: 7OU1bjksRWi5KOhaAACp (transport close)
+2025-10-18 18:45:18: 👋 User admin disconnected
+2025-10-18 18:45:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:45:19: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:45:19: 🔗 New connection: A1KjyHR6wOEP_pk1AACt
+2025-10-18 18:45:19: 🔐 User authenticated: admin (admin)
+2025-10-18 18:45:19: 🏠 Joined rooms: role_admin, user_17

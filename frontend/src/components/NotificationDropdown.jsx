@@ -202,8 +202,13 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
     return colors[priority] || colors.normal;
   };
 
-  const notifications = notificationsData?.data?.notifications || [];
-  const pagination = notificationsData?.data?.pagination || {};
+  // Try multiple data structures to handle different response formats
+  const notifications = notificationsData?.data?.notifications || 
+                       notificationsData?.notifications || 
+                       (Array.isArray(notificationsData) ? notificationsData : []);
+  const pagination = notificationsData?.data?.pagination || 
+                    notificationsData?.pagination || 
+                    {};
   
   // Debug logging
   console.log('🔍 NotificationDropdown Debug:', {
@@ -215,7 +220,8 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
     pagination,
     filter,
     page,
-    rawNotifications: notificationsData?.data?.notifications
+    rawNotifications: notificationsData?.data?.notifications,
+    fullDataStructure: notificationsData
   });
 
   if (!isOpen) return null;
