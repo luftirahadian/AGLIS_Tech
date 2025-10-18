@@ -32,6 +32,12 @@ const NotificationSettingsPage = () => {
   const settings = settingsData?.data || {};
   const devices = devicesData?.data || [];
 
+  // Debug: Log settings data
+  console.log('🔍 [NotificationSettings] settingsData:', settingsData);
+  console.log('🔍 [NotificationSettings] settings:', settings);
+  console.log('🔍 [NotificationSettings] web_notifications:', settings.web_notifications);
+  console.log('🔍 [NotificationSettings] whatsapp_notifications:', settings.whatsapp_notifications);
+
   // Update settings mutation
   const updateMutation = useMutation(
     (newSettings) => settingsService.updateAdvancedSettings(newSettings),
@@ -149,7 +155,7 @@ const NotificationSettingsPage = () => {
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={settings.web_notifications}
+                        checked={settings.web_notifications === true}
                         onChange={(e) => handleSettingChange('web_notifications', e.target.checked)}
                         className="sr-only peer"
                       />
@@ -173,7 +179,7 @@ const NotificationSettingsPage = () => {
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={settings.mobile_push}
+                        checked={settings.mobile_push === true}
                         onChange={(e) => handleSettingChange('mobile_push', e.target.checked)}
                         className="sr-only peer"
                       />
@@ -197,7 +203,7 @@ const NotificationSettingsPage = () => {
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={settings.email_notifications}
+                        checked={settings.email_notifications === true}
                         onChange={(e) => handleSettingChange('email_notifications', e.target.checked)}
                         className="sr-only peer"
                       />
@@ -221,7 +227,7 @@ const NotificationSettingsPage = () => {
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={settings.whatsapp_notifications}
+                        checked={settings.whatsapp_notifications === true}
                         onChange={(e) => handleSettingChange('whatsapp_notifications', e.target.checked)}
                         className="sr-only peer"
                       />
@@ -251,7 +257,7 @@ const NotificationSettingsPage = () => {
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={settings.sms_notifications}
+                        checked={settings.sms_notifications === true}
                         onChange={(e) => handleSettingChange('sms_notifications', e.target.checked)}
                         className="sr-only peer"
                       />
