@@ -3,6 +3,7 @@ const { body, validationResult } = require('express-validator');
 const pool = require('../config/database');
 const { saveBase64File, getFileUrl, validateFile } = require('../utils/fileUpload');
 const whatsappNotificationService = require('../services/whatsappNotificationService');
+const notificationHelper = require('../utils/notificationHelper');
 
 // Helper function to create notification
 const createNotification = async (userId, type, title, message, data = null) => {
@@ -889,32 +890,43 @@ router.put('/:id/status', [
         console.log(`📡 Socket.IO: Events emitted for ticket ${id} status update (${oldStatus} → ${status})`);
       }
 
-      // 📱 PHASE 1: Send WhatsApp notification for technician assignment
+      // 🔔 Create in-app notifications for team assignment
       if (team_assignment && Array.isArray(team_assignment) && team_assignment.length > 0) {
-        // Team assignment - send notifications to all team members
-        console.log('📱 Sending team assignment notifications...');
-        
-        // Fetch team details for notifications
+        // Fetch team details
         const teamQuery = `
           SELECT 
             tt.*,
             t.full_name,
             t.phone,
-            t.email
+            t.email,
+            t.user_id
           FROM ticket_technicians tt
           JOIN technicians t ON tt.technician_id = t.id
           WHERE tt.ticket_id = $1 AND tt.is_active = TRUE
         `;
         const teamResult = await pool.query(teamQuery, [id]);
         
-        // Send notification to each team member
+        // Create notification center notifications for team members
+        notificationHelper.notifyTeamAssignment(team_assignment, updatedTicket, req.user)
+          .catch(err => console.error('❌ Notification center error:', err));
+        
+        // Send WhatsApp notifications to each team member
+        console.log('📱 Sending team assignment notifications...');
         for (const member of team_assignment) {
           whatsappNotificationService.notifyTechnicianTeamAssignment(id, member.technician_id, member.role, teamResult.rows)
             .then(result => console.log(`📱 Team notification sent to tech ${member.technician_id}:`, result.success ? 'SUCCESS' : 'FAILED'))
             .catch(err => console.error(`❌ Team notification error for tech ${member.technician_id}:`, err));
         }
       } else if (assigned_technician_id && assigned_technician_id !== ticket.assigned_technician_id) {
-        // Single technician assignment - send single assignment notification
+        // Single technician assignment
+        // Create notification center notification
+        const techQuery = await pool.query('SELECT user_id FROM technicians WHERE id = $1', [assigned_technician_id]);
+        if (techQuery.rows.length > 0) {
+          notificationHelper.notifyTicketAssignment(techQuery.rows[0].user_id, updatedTicket, req.user)
+            .catch(err => console.error('❌ Notification center error:', err));
+        }
+        
+        // Send WhatsApp notification
         whatsappNotificationService.notifyTicketAssignment(id)
           .then(whatsappResult => {
             if (whatsappResult.success) {
@@ -926,6 +938,12 @@ router.put('/:id/status', [
           .catch(err => {
             console.error(`❌ WhatsApp assignment notification error for ticket #${id}:`, err);
           });
+      }
+
+      // 🔔 Create in-app notification for status change
+      if (status !== oldStatus) {
+        notificationHelper.notifyTicketStatusUpdate(updatedTicket, oldStatus, status, req.user)
+          .catch(err => console.error('❌ Notification center error:', err));
       }
 
       // 📱 PHASE 2: Send WhatsApp notification to customer on status change

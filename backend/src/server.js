@@ -33,6 +33,7 @@ const odpRoutes = require('./routes/odp');
 const serviceTypesRoutes = require('./routes/serviceTypes');
 const serviceCategoriesRoutes = require('./routes/serviceCategories');
 const notificationRoutes = require('./routes/notifications');
+const notificationCenterRoutes = require('./routes/notificationCenter');
 const testNotificationRoutes = require('./routes/test-notifications');
 const notificationTemplatesRoutes = require('./routes/notificationTemplates');
 const notificationAnalyticsRoutes = require('./routes/notificationAnalytics');
@@ -196,6 +197,7 @@ app.use('/api/odp', authMiddleware, cacheMiddleware(180), odpRoutes); // Cache 3
 app.use('/api/service-types', authMiddleware, cacheMiddleware(600), serviceTypesRoutes); // Cache 10 min
 app.use('/api/service-categories', authMiddleware, cacheMiddleware(600), serviceCategoriesRoutes); // Cache 10 min
 app.use('/api/notifications', authMiddleware, notificationRoutes);
+app.use('/api/notification-center', authMiddleware, notificationCenterRoutes);
 app.use('/api/test-notifications', authMiddleware, testNotificationRoutes);
 app.use('/api/notification-templates', authMiddleware, notificationTemplatesRoutes);
 app.use('/api/notification-analytics', authMiddleware, notificationAnalyticsRoutes);

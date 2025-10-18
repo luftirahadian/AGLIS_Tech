@@ -5,6 +5,7 @@ const { authMiddleware } = require('../middleware/auth');
 const { saveBase64File, getFileUrl } = require('../utils/fileUpload');
 const whatsappService = require('../services/whatsappService');
 const whatsappNotificationService = require('../services/whatsappNotificationService');
+const notificationHelper = require('../utils/notificationHelper');
 const { publicRegistrationLimiter } = require('../middleware/rateLimiter');
 const { verifyCaptchaMiddleware } = require('../utils/recaptchaVerify');
 
@@ -297,6 +298,20 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
         console.log('✅ [Socket.IO] new_registration event emitted successfully');
       } else {
         console.warn('⚠️ [Socket.IO] socketBroadcaster not available, event not emitted');
+      }
+
+      // 🔔 Create in-app notifications for admin users about new registration
+      console.log('🔔 [Notification] Creating in-app notifications for admins...');
+      const adminUsersQuery = await pool.query(`
+        SELECT id, full_name 
+        FROM users 
+        WHERE role IN ('admin', 'super_admin', 'supervisor', 'customer_service') 
+        AND is_active = TRUE
+      `);
+      
+      if (adminUsersQuery.rows.length > 0) {
+        notificationHelper.notifyNewRegistration(registration, adminUsersQuery.rows)
+          .catch(err => console.error('❌ Notification center error:', err));
       }
 
       // Send notification to WhatsApp groups about new registration
