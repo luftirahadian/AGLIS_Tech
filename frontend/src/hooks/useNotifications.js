@@ -34,10 +34,8 @@ export const useNotifications = (params = {}) => {
 
   // Socket.IO real-time updates
   useEffect(() => {
-    if (!socketService.isConnected) {
-      socketService.connect()
-    }
-
+    // Don't connect here - NotificationContext handles connection
+    // Just register listeners
     const handleNewNotification = (notification) => {
       console.log('🔔 [useNotifications] New notification received:', notification)
       
@@ -270,10 +268,8 @@ export const useUnreadCount = () => {
 
   // Socket.IO real-time updates for unread count
   useEffect(() => {
-    if (!socketService.isConnected) {
-      socketService.connect()
-    }
-
+    // Don't connect here - NotificationContext handles connection
+    // Just register listeners
     const handleNewNotification = () => {
       setUnreadCount(prev => prev + 1)
     }

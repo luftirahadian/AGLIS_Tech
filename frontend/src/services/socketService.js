@@ -10,6 +10,20 @@ class SocketService {
 
   // Initialize socket connection
   connect(user) {
+    // Prevent duplicate connections
+    if (this.socket?.connected) {
+      console.log('⚠️ Socket already connected, skipping duplicate connection');
+      
+      // If user data provided and different from current, re-authenticate
+      if (user && user.id !== this.currentUser?.id) {
+        console.log('🔄 User changed, re-authenticating...');
+        this.currentUser = user;
+        this.authenticate(user);
+      }
+      return this.socket;
+    }
+
+    // If socket exists but disconnected, disconnect it first
     if (this.socket) {
       this.disconnect();
     }
@@ -22,7 +36,11 @@ class SocketService {
     const serverUrl = apiUrl.replace('/api', '');
     
     console.log(`🔗 Socket.IO: Connecting to ${serverUrl}`);
-    console.log(`👤 User data:`, { id: user?.id, role: user?.role, username: user?.username });
+    if (user) {
+      console.log(`👤 User data:`, { id: user?.id, role: user?.role, username: user?.username });
+    } else {
+      console.log(`👤 Anonymous connection (public page)`);
+    }
     
     this.socket = io(serverUrl, {
       autoConnect: true,
