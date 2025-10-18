@@ -8,11 +8,14 @@ import {
   Copy, Check, ShieldOff, ShieldCheck, Trash2, X, PhoneCall, MailIcon, ShieldAlert
 } from 'lucide-react'
 import { customerService } from '../../services/customerService'
+import bulkOperationsService from '../../services/bulkOperationsService'
 import packageService from '../../services/packageService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import CustomerForm from '../../components/CustomerForm'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import BulkProgressModal from '../../components/BulkProgressModal'
+import BulkResultsModal from '../../components/BulkResultsModal'
 import ExportModal from '../../components/ExportModal'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
@@ -57,6 +60,19 @@ const CustomersPage = () => {
   const [showBulkSuspendModal, setShowBulkSuspendModal] = useState(false)
   const [showBulkActivateModal, setShowBulkActivateModal] = useState(false)
   const [showBulkDeleteModal, setShowBulkDeleteModal] = useState(false)
+  
+  // Bulk operation modals (NEW)
+  const [showBulkProgress, setShowBulkProgress] = useState(false)
+  const [showBulkResults, setShowBulkResults] = useState(false)
+  const [bulkProgress, setBulkProgress] = useState({
+    total: 0,
+    processed: 0,
+    succeeded: 0,
+    failed: 0,
+    currentItem: null
+  })
+  const [bulkResults, setBulkResults] = useState(null)
+  const [bulkOperation, setBulkOperation] = useState('')
   
   // Export modal state
   const [showExportModal, setShowExportModal] = useState(false)

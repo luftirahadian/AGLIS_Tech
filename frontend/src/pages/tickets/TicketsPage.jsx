@@ -4,9 +4,12 @@ import { Ticket, Plus, Search, Filter, Eye, Target, CheckCircle, Clock, AlertCir
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { ticketService } from '../../services/ticketService'
+import bulkOperationsService from '../../services/bulkOperationsService'
 import TicketCreateForm from '../../components/TicketCreateForm'
 import SmartAssignmentModal from '../../components/SmartAssignmentModal'
 import TeamAssignmentModal from '../../components/TeamAssignmentModal.jsx'
+import BulkProgressModal from '../../components/BulkProgressModal'
+import BulkResultsModal from '../../components/BulkResultsModal'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import { exportToExcel, formatCurrency, formatDate } from '../../utils/exportToExcel'
@@ -37,6 +40,19 @@ const TicketsPage = () => {
   // Bulk selection states
   const [selectedTickets, setSelectedTickets] = useState([])
   const [selectAll, setSelectAll] = useState(false)
+  
+  // Bulk operation modals
+  const [showBulkProgress, setShowBulkProgress] = useState(false)
+  const [showBulkResults, setShowBulkResults] = useState(false)
+  const [bulkProgress, setBulkProgress] = useState({
+    total: 0,
+    processed: 0,
+    succeeded: 0,
+    failed: 0,
+    currentItem: null
+  })
+  const [bulkResults, setBulkResults] = useState(null)
+  const [bulkOperation, setBulkOperation] = useState('')
   
   // Copy to clipboard state
   const [copiedField, setCopiedField] = useState(null)
@@ -256,7 +272,7 @@ const TicketsPage = () => {
     }
   }
 
-  // ==================== BULK ACTION HANDLERS ====================
+  // ==================== BULK ACTION HANDLERS (NEW - Using Bulk APIs) ====================
 
   const handleBulkClose = async () => {
     if (selectedTickets.length === 0) {
@@ -268,31 +284,171 @@ const TicketsPage = () => {
       return
     }
 
+    setBulkOperation('Bulk Close Tickets')
+    setBulkProgress({
+      total: selectedTickets.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
+
     try {
-      let successCount = 0
-      let errorCount = 0
+      const result = await bulkOperationsService.bulkUpdateTicketStatus(
+        selectedTickets,
+        { status: 'completed' }
+      )
 
-      for (const ticketId of selectedTickets) {
-        try {
-          await ticketService.updateTicket(ticketId, { status: 'completed' })
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to close ticket ${ticketId}:`, error)
-        }
-      }
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} ticket berhasil di-close${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
         refetch()
         setSelectedTickets([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal close ticket')
-      }
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} ticket berhasil di-close`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk close error:', error)
-      toast.error('Terjadi kesalahan saat close ticket')
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal close ticket')
+    }
+  }
+
+  const handleBulkAssign = async (technicianId) => {
+    if (selectedTickets.length === 0) {
+      toast.error('Pilih ticket terlebih dahulu')
+      return
+    }
+
+    if (!technicianId) {
+      toast.error('Pilih teknisi terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Assign ${selectedTickets.length} ticket ke teknisi yang dipilih?`)) {
+      return
+    }
+
+    setBulkOperation('Bulk Assign Tickets')
+    setBulkProgress({
+      total: selectedTickets.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
+
+    try {
+      const result = await bulkOperationsService.bulkAssignTickets(
+        selectedTickets,
+        { technician_id: technicianId }
+      )
+
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
+
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
+        refetch()
+        setSelectedTickets([])
+        setSelectAll(false)
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} ticket berhasil di-assign`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
+    } catch (error) {
+      console.error('Bulk assign error:', error)
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal assign ticket')
+    }
+  }
+
+  const handleBulkUpdatePriority = async (priority) => {
+    if (selectedTickets.length === 0) {
+      toast.error('Pilih ticket terlebih dahulu')
+      return
+    }
+
+    if (!priority) {
+      toast.error('Pilih priority terlebih dahulu')
+      return
+    }
+
+    if (!window.confirm(`Update priority ${selectedTickets.length} ticket ke "${priority}"?`)) {
+      return
+    }
+
+    setBulkOperation('Bulk Update Priority')
+    setBulkProgress({
+      total: selectedTickets.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
+
+    try {
+      const result = await bulkOperationsService.bulkUpdateTicketPriority(
+        selectedTickets,
+        { priority }
+      )
+
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
+
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        setBulkResults(result)
+        setShowBulkResults(true)
+        refetch()
+        setSelectedTickets([])
+        setSelectAll(false)
+
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} ticket priority updated`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
+    } catch (error) {
+      console.error('Bulk update priority error:', error)
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal update priority')
     }
   }
 
@@ -306,6 +462,8 @@ const TicketsPage = () => {
       return
     }
 
+    // Note: Bulk delete is not implemented in backend yet
+    // Using sequential delete for now
     try {
       let successCount = 0
       let errorCount = 0
@@ -332,6 +490,11 @@ const TicketsPage = () => {
       console.error('Bulk delete error:', error)
       toast.error('Terjadi kesalahan saat hapus ticket')
     }
+  }
+
+  // Retry failed items
+  const handleRetryFailed = async (failedIds) => {
+    setSelectedTickets(failedIds)
   }
 
   // ==================== COPY TO CLIPBOARD HANDLER ====================
@@ -1109,6 +1272,30 @@ const TicketsPage = () => {
           setSelectedTicketForAssignment(null);
         }}
         ticket={selectedTicketForAssignment}
+      />
+
+      {/* Bulk Progress Modal */}
+      <BulkProgressModal
+        isOpen={showBulkProgress}
+        total={bulkProgress.total}
+        processed={bulkProgress.processed}
+        succeeded={bulkProgress.succeeded}
+        failed={bulkProgress.failed}
+        currentItem={bulkProgress.currentItem}
+        operation={bulkOperation}
+        onCancel={() => setShowBulkProgress(false)}
+      />
+
+      {/* Bulk Results Modal */}
+      <BulkResultsModal
+        isOpen={showBulkResults}
+        results={bulkResults}
+        operation={bulkOperation}
+        onClose={() => {
+          setShowBulkResults(false)
+          setBulkResults(null)
+        }}
+        onRetryFailed={handleRetryFailed}
       />
     </div>
   )
