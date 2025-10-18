@@ -322,20 +322,25 @@ router.get('/settings/preferences', async (req, res) => {
         email_notifications: true,
         push_notifications: true,
         sound_notifications: true,
+        desktop_notifications: true,
+        whatsapp_notifications: true,
         notification_types: {
           ticket_assigned: true,
           ticket_updated: true,
           ticket_completed: true,
           system_alert: true,
           technician_status: true,
-          new_ticket: true
+          new_ticket: true,
+          new_registration: true,
+          payment_received: true,
+          sla_warning: true
         }
       };
       
       const insertQuery = `
         INSERT INTO notification_settings (user_id, email_notifications, push_notifications, 
-                                         sound_notifications, notification_types)
-        VALUES ($1, $2, $3, $4, $5)
+                                         sound_notifications, desktop_notifications, whatsapp_notifications, notification_types)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING *
       `;
       
@@ -344,6 +349,8 @@ router.get('/settings/preferences', async (req, res) => {
         defaultSettings.email_notifications,
         defaultSettings.push_notifications,
         defaultSettings.sound_notifications,
+        defaultSettings.desktop_notifications,
+        defaultSettings.whatsapp_notifications,
         JSON.stringify(defaultSettings.notification_types)
       ]);
       
@@ -372,6 +379,8 @@ router.put('/settings/preferences', async (req, res) => {
       email_notifications, 
       push_notifications, 
       sound_notifications, 
+      desktop_notifications,
+      whatsapp_notifications,
       notification_types,
       quiet_hours_start,
       quiet_hours_end
@@ -382,9 +391,11 @@ router.put('/settings/preferences', async (req, res) => {
       SET email_notifications = COALESCE($2, email_notifications),
           push_notifications = COALESCE($3, push_notifications),
           sound_notifications = COALESCE($4, sound_notifications),
-          notification_types = COALESCE($5, notification_types),
-          quiet_hours_start = COALESCE($6, quiet_hours_start),
-          quiet_hours_end = COALESCE($7, quiet_hours_end),
+          desktop_notifications = COALESCE($5, desktop_notifications),
+          whatsapp_notifications = COALESCE($6, whatsapp_notifications),
+          notification_types = COALESCE($7, notification_types),
+          quiet_hours_start = COALESCE($8, quiet_hours_start),
+          quiet_hours_end = COALESCE($9, quiet_hours_end),
           updated_at = NOW()
       WHERE user_id = $1
       RETURNING *
@@ -395,6 +406,8 @@ router.put('/settings/preferences', async (req, res) => {
       email_notifications,
       push_notifications,
       sound_notifications,
+      desktop_notifications,
+      whatsapp_notifications,
       notification_types ? JSON.stringify(notification_types) : null,
       quiet_hours_start,
       quiet_hours_end
