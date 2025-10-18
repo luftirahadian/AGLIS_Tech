@@ -8,10 +8,11 @@ const rateLimit = require('express-rate-limit');
 /**
  * General API rate limiter
  * Applied to all API endpoints
+ * Updated: Increased limits for better user experience
  */
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: 500, // Limit each IP to 500 requests per windowMs (increased from 100)
   message: {
     success: false,
     message: 'Too many requests from this IP, please try again after 15 minutes.'
@@ -19,19 +20,20 @@ const apiLimiter = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   skip: (req) => {
-    // Don't apply rate limit to admin users (optional)
-    // Admins can make more requests for management purposes
-    return req.user && req.user.role === 'admin';
+    // Don't apply rate limit to authenticated users
+    // Authenticated users can make more requests for management purposes
+    return req.user !== undefined;
   }
 });
 
 /**
  * Strict rate limiter for authentication endpoints
  * Prevents brute force login attacks
+ * Updated: Increased limit for better user experience while maintaining security
  */
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Limit each IP to 5 login attempts per 15 minutes
+  max: 15, // Limit each IP to 15 login attempts per 15 minutes (increased from 5)
   message: {
     success: false,
     message: 'Too many login attempts from this IP, please try again after 15 minutes.'
@@ -54,10 +56,11 @@ const authLimiter = rateLimit({
 /**
  * Strict rate limiter for password reset requests
  * Prevents abuse of password reset functionality
+ * Updated: Increased from 3 to 10 for better user experience
  */
 const passwordResetLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 3, // Limit each IP to 3 password reset requests per hour
+  max: 10, // Limit each IP to 10 password reset requests per hour (increased from 3)
   message: {
     success: false,
     message: 'Too many password reset requests. Please try again after an hour.'
@@ -111,10 +114,11 @@ const publicRegistrationLimiter = rateLimit({
 /**
  * Rate limiter for file uploads
  * Prevents upload spam
+ * Updated: Increased from 50 to 200 for better user experience
  */
 const uploadLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // Limit to 50 uploads per 15 minutes
+  max: 200, // Limit to 200 uploads per 15 minutes (increased from 50)
   message: {
     success: false,
     message: 'Too many upload requests. Please try again later.'
