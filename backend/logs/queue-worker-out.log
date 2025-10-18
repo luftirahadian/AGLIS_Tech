@@ -1,0 +1,15 @@
+2025-10-18 21:47:27: 📱 WhatsApp Queue: Queue initialized successfully
+2025-10-18 21:47:28: 📱 WhatsApp Service initialized:
+2025-10-18 21:47:28:    - Provider: fonnte
+2025-10-18 21:47:28:    - Queue enabled: false
+2025-10-18 21:47:28:    - Queue fallback: true
+2025-10-18 21:47:28: 📱 WhatsApp Worker: Started successfully
+2025-10-18 21:47:28: 📱 Configuration:
+2025-10-18 21:47:28:    - Concurrency: 5 jobs
+2025-10-18 21:47:28:    - Rate limit: 100 jobs/minute
+2025-10-18 21:47:28:    - Max attempts: 3
+2025-10-18 21:47:28:    - Backoff: Exponential (2s, 4s, 8s)
+2025-10-18 21:47:28: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-18 21:47:28: 📱 WhatsApp Queue: Redis connected
+2025-10-18 21:47:28: ✅ Redis client ready for OTP operations
+2025-10-18 21:47:28: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 0

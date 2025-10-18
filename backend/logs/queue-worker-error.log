@@ -1,0 +1,9 @@
+2025-10-18 21:47:28: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 21:47:28: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 21:47:28:              Current: 6.0.16
+2025-10-18 21:47:28: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 21:47:28: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 21:47:28:              Current: 6.0.16
+2025-10-18 21:47:28: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 21:47:28: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 21:47:28:              Current: 6.0.16
