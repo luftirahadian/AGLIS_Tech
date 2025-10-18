@@ -21,7 +21,7 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
   const [page, setPage] = useState(1);
 
   // Get notifications
-  const { data: notificationsData, isLoading, refetch } = useQuery(
+  const { data: notificationsData, isLoading, error, refetch } = useQuery(
     ['notification-center', { page, filter }],
     () => {
       const params = { page, limit: 20 };
@@ -202,12 +202,13 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
     return colors[priority] || colors.normal;
   };
 
-  const notifications = notificationsData?.notifications || [];
-  const pagination = notificationsData?.pagination || {};
+  const notifications = notificationsData?.data?.notifications || [];
+  const pagination = notificationsData?.data?.pagination || {};
   
   // Debug logging
   console.log('🔍 NotificationDropdown Debug:', {
     isLoading,
+    error,
     notificationsData,
     notificationsDataKeys: notificationsData ? Object.keys(notificationsData) : null,
     notifications: notifications.length,

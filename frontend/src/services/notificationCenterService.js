@@ -19,7 +19,7 @@ const notificationCenterService = {
     if (is_read !== null) queryParams += `&is_read=${is_read}`;
     
     const response = await api.get(`/notification-center?${queryParams}`);
-    return response.data.data; // Return the actual data, not the wrapper
+    return response.data; // Return the full response data
   },
 
   /**
@@ -28,7 +28,7 @@ const notificationCenterService = {
    */
   getUnreadCount: async () => {
     const response = await api.get('/notification-center/unread-count');
-    return response.data.data; // Return the actual data, not the wrapper
+    return response.data; // Return the full response data
   },
 
   /**
