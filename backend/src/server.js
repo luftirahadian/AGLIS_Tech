@@ -48,6 +48,7 @@ const specializationsRoutes = require('./routes/specializations');
 const technicianSpecializationsRoutes = require('./routes/technicianSpecializations');
 const whatsappGroupsRoutes = require('./routes/whatsappGroups');
 const webhooksRoutes = require('./routes/webhooks');
+const bulkOperationsRoutes = require('./routes/bulkOperations');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -213,6 +214,7 @@ app.use('/api/whatsapp-groups', authMiddleware, whatsappGroupsRoutes); // WhatsA
 app.use('/api/whatsapp-notifications', authMiddleware, require('./routes/whatsappNotifications')); // WhatsApp notification triggers
 app.use('/api/whatsapp-templates', authMiddleware, require('./routes/whatsappTemplates')); // WhatsApp template management
 app.use('/api/webhooks', webhooksRoutes); // Webhooks (NO AUTH - external services)
+app.use('/api/bulk', authMiddleware, bulkOperationsRoutes); // Bulk operations endpoints
 
 // Performance monitoring endpoints (admin only)
 const { getQueryStats, resetQueryStats } = require('./middleware/queryLogger');
