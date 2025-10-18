@@ -28,21 +28,25 @@ class NotificationCenterService {
 
       const query = `
         INSERT INTO notifications (
-          user_id, type, title, message, link, data, priority, expires_at
+          user_id, type, title, message, data, priority
         )
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *
       `;
+
+      // Store link inside data JSONB
+      const dataToStore = {
+        ...(data || {}),
+        link: link || null
+      };
 
       const result = await pool.query(query, [
         userId,
         type,
         title,
         message,
-        link,
-        data ? JSON.stringify(data) : null,
-        priority,
-        expiresAt
+        JSON.stringify(dataToStore),
+        priority
       ]);
 
       console.log('✅ Notification created:', {
@@ -104,11 +108,10 @@ class NotificationCenterService {
 
       let query = `
         SELECT 
-          id, type, title, message, link, data, 
+          id, type, title, message, data, 
           is_read, read_at, priority, created_at
         FROM notifications
         WHERE user_id = $1
-        AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
       `;
 
       const params = [userId];
@@ -151,7 +154,6 @@ class NotificationCenterService {
         SELECT COUNT(*) 
         FROM notifications
         WHERE user_id = $1
-        AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
       `;
       const countParams = [userId];
       let countParamCount = 1;
@@ -198,7 +200,6 @@ class NotificationCenterService {
         FROM notifications
         WHERE user_id = $1
         AND is_read = FALSE
-        AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
       `;
 
       const result = await pool.query(query, [userId]);
@@ -313,27 +314,28 @@ class NotificationCenterService {
   }
 
   /**
-   * Delete expired notifications (cleanup job)
+   * Delete old notifications (cleanup job)
+   * @param {number} daysOld - Delete notifications older than this many days
    * @returns {Promise<number>} Number of notifications deleted
    */
-  async deleteExpiredNotifications() {
+  async deleteOldNotifications(daysOld = 30) {
     try {
       const query = `
         DELETE FROM notifications
-        WHERE expires_at IS NOT NULL 
-        AND expires_at < CURRENT_TIMESTAMP
+        WHERE created_at < CURRENT_TIMESTAMP - INTERVAL '${daysOld} days'
+        AND is_read = TRUE
         RETURNING id
       `;
 
       const result = await pool.query(query);
 
       if (result.rows.length > 0) {
-        console.log(`🧹 Cleaned up ${result.rows.length} expired notifications`);
+        console.log(`🧹 Cleaned up ${result.rows.length} old notifications (>${daysOld} days)`);
       }
 
       return result.rows.length;
     } catch (error) {
-      console.error('❌ Delete expired notifications error:', error);
+      console.error('❌ Delete old notifications error:', error);
       throw error;
     }
   }
@@ -357,7 +359,6 @@ class NotificationCenterService {
           COUNT(CASE WHEN priority = 'urgent' THEN 1 END) as urgent
         FROM notifications
         WHERE user_id = $1
-        AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
       `;
 
       const result = await pool.query(query, [userId]);
