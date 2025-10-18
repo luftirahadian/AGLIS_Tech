@@ -74,11 +74,10 @@ router.post('/create-sample', async (req, res) => {
       insertedNotifications.push(result.rows[0]);
     }
 
-    // Emit real-time notifications via Socket.IO
-    const io = req.app.get('io');
-    if (io) {
+    // Emit real-time notifications via Socket.IO broadcaster
+    if (global.socketBroadcaster) {
       insertedNotifications.forEach(notification => {
-        io.to(`user_${userId}`).emit('notification', {
+        global.socketBroadcaster.notifyUser(userId, {
           ...notification,
           timestamp: notification.created_at
         });

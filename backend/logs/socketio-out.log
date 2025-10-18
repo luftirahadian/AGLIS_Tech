@@ -23,3 +23,14 @@
 2025-10-18 14:52:55: 🔗 New connection: dZPoR5-QtyhpPrLAAAAB
 2025-10-18 14:52:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 14:52:59: 🔌 Socket disconnected: dZPoR5-QtyhpPrLAAAAB (transport close)
+2025-10-18 15:17:08: 📴 SIGINT received, closing Socket.IO server...
+2025-10-18 15:17:08: ✅ Socket.IO server closed
+2025-10-18 15:17:09: 🚀 Starting Dedicated Socket.IO Server...
+2025-10-18 15:17:09: 📋 Configuration:
+2025-10-18 15:17:09:   Port: 3002
+2025-10-18 15:17:09:   Redis: 127.0.0.1:6379
+2025-10-18 15:17:09: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-18 15:17:09: ✅ Socket.IO Server running on port 3002
+2025-10-18 15:17:09: 🔌 WebSocket endpoint: ws://localhost:3002/socket.io/
+2025-10-18 15:17:09: 📊 Connected users: 0
+2025-10-18 15:17:09: ✅ Redis clients connected for Socket.IO adapter

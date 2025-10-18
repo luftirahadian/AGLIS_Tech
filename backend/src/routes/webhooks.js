@@ -71,11 +71,10 @@ router.post('/fonnte', async (req, res) => {
         status
       });
 
-      // Emit Socket.IO event for real-time UI update
-      const io = req.app.get('io');
-      if (io) {
+      // Emit Socket.IO event for real-time UI update via broadcaster
+      if (global.socketBroadcaster) {
         result.rows.forEach(row => {
-          io.emit('whatsapp_status_update', {
+          global.socketBroadcaster.broadcast('whatsapp_status_update', {
             notification_id: row.id,
             status,
             target,
@@ -83,7 +82,7 @@ router.post('/fonnte', async (req, res) => {
             timestamp: time
           });
         });
-        console.log('📡 [Socket.IO] Emitted whatsapp_status_update events');
+        console.log('📡 [Socket.IO] Broadcasted whatsapp_status_update events');
       }
 
       res.json({

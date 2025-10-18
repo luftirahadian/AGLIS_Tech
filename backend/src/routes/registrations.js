@@ -271,8 +271,8 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
       }
 
       // Emit Socket.IO event for real-time update
-      const io = req.app.get('io');
-      if (io) {
+      // Socket.IO broadcaster (global)
+      if (global.socketBroadcaster) {
         // Get room sizes for debugging
         const adminRoom = io.sockets.adapter.rooms.get('role_admin');
         const supervisorRoom = io.sockets.adapter.rooms.get('role_supervisor');
@@ -290,7 +290,13 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
         });
         
         // Try room-based emission first
-        io.to('role_admin').to('role_supervisor').to('role_customer_service').emit('new_registration', {
+        global.socketBroadcaster?.broadcastToRoom('role_admin', 'new_registration', {
+          registration: registration
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_supervisor', 'new_registration', {
+          registration: registration
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_customer_service', 'new_registration', {
           registration: registration
         });
         
@@ -298,7 +304,7 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
         const totalListeners = (adminRoom?.size || 0) + (supervisorRoom?.size || 0) + (csRoom?.size || 0);
         if (totalListeners === 0) {
           console.log('⚠️ [Socket.IO] No listeners in role rooms, broadcasting to all connected clients');
-          io.emit('new_registration', {
+          global.socketBroadcaster?.broadcast('new_registration', {
             registration: registration
           });
         }
@@ -778,10 +784,32 @@ router.put('/:id/status', authMiddleware, [
       }
 
       // Emit Socket.IO event for real-time updates
-      const io = req.app.get('io');
-      if (io) {
+      // Socket.IO broadcaster (global)
+      if (global.socketBroadcaster) {
         // Emit to admin/staff roles
-        io.to('role_admin').to('role_supervisor').to('role_customer_service').emit('registration_updated', {
+        global.socketBroadcaster?.broadcastToRoom('role_admin', 'registration_updated', {
+          registration_id: updatedReg.id,
+          registration_number: updatedReg.registration_number,
+          email: updatedReg.email,
+          old_status: registration.status,
+          new_status: updatedReg.status,
+          full_name: updatedReg.full_name,
+          phone: updatedReg.phone,
+          updated_by: req.user.id,
+          updated_at: updatedReg.updated_at
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_supervisor', 'registration_updated', {
+          registration_id: updatedReg.id,
+          registration_number: updatedReg.registration_number,
+          email: updatedReg.email,
+          old_status: registration.status,
+          new_status: updatedReg.status,
+          full_name: updatedReg.full_name,
+          phone: updatedReg.phone,
+          updated_by: req.user.id,
+          updated_at: updatedReg.updated_at
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_customer_service', 'registration_updated', {
           registration_id: updatedReg.id,
           registration_number: updatedReg.registration_number,
           email: updatedReg.email,
@@ -794,7 +822,7 @@ router.put('/:id/status', authMiddleware, [
         });
 
         // Emit broadcast event for public tracking page
-        io.emit('registration_status_changed', {
+        global.socketBroadcaster?.broadcast('registration_status_changed', {
           registration_id: updatedReg.id,
           registration_number: updatedReg.registration_number,
           email: updatedReg.email,
@@ -1003,10 +1031,10 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
       console.log('✅ Transaction COMMITTED');
 
       // Emit Socket.IO events for real-time updates
-      const io = req.app.get('io');
-      if (io) {
+      // Socket.IO broadcaster (global)
+      if (global.socketBroadcaster) {
         // Notify customer-created event
-        io.emit('customer-created', {
+        global.socketBroadcaster?.broadcast('customer-created', {
           customerId: customer.id,
           customer_id: customer.customer_id,
           name: customer.name,
@@ -1014,7 +1042,7 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
         });
         
         // Notify registration status updated
-        io.emit('registration-updated', {
+        global.socketBroadcaster?.broadcast('registration-updated', {
           registrationId: id,
           registration_number: registration.registration_number,
           oldStatus: 'approved',
@@ -1023,7 +1051,7 @@ router.post('/:id/create-customer', authMiddleware, async (req, res) => {
         });
 
         // Notify ticket created
-        io.emit('ticket-created', {
+        global.socketBroadcaster?.broadcast('ticket-created', {
           ticketId: ticket.id,
           ticket_number: ticket.ticket_number,
           type: 'installation',

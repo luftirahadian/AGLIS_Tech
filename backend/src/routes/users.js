@@ -234,11 +234,10 @@ router.post('/', createUserLimiter, [
         userAgent: req.get('user-agent')
       });
 
-      // Emit Socket.IO event for real-time updates
-      const io = req.app.get('io');
-      if (io) {
+      // Emit Socket.IO event for real-time updates via broadcaster
+      if (global.socketBroadcaster) {
         // Emit user-created event
-        io.emit('user-created', {
+        global.socketBroadcaster.broadcast('user-created', {
           user: newUser,
           technician: technicianProfile,
           createdBy: req.user.id
@@ -246,15 +245,15 @@ router.post('/', createUserLimiter, [
 
         // If technician, also emit technician-created event
         if (role === 'technician' && technicianProfile) {
-          io.emit('technician-created', {
+          global.socketBroadcaster.broadcast('technician-created', {
             technician: technicianProfile,
             user: newUser,
             createdBy: req.user.id
           });
-          console.log(`📡 Socket.IO: Emitted technician-created event for ${technicianProfile.employee_id}`);
+          console.log(`📡 Socket.IO: Broadcasted technician-created event for ${technicianProfile.employee_id}`);
         }
         
-        console.log(`📡 Socket.IO: Emitted user-created event for ${username}`);
+        console.log(`📡 Socket.IO: Broadcasted user-created event for ${username}`);
       }
 
       res.status(201).json({

@@ -166,10 +166,9 @@ router.post('/', async (req, res) => {
     
     const notification = result.rows[0];
     
-    // Emit real-time notification via Socket.IO
-    const io = req.app.get('io');
-    if (io) {
-      io.to(`user_${user_id}`).emit('notification', {
+    // Emit real-time notification via Socket.IO broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.notifyUser(user_id, {
         ...notification,
         timestamp: notification.created_at
       });

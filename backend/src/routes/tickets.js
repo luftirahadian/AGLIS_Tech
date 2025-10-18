@@ -29,9 +29,9 @@ const createNotification = async (userId, type, title, message, data = null) => 
 
 // Helper function to emit Socket.IO notification
 const emitNotification = (req, notification) => {
-  const io = req.app.get('io');
-  if (io && notification) {
-    io.to(`user_${notification.user_id}`).emit('notification', {
+  // Socket.IO broadcaster (global)
+  if (global.socketBroadcaster && notification) {
+    global.socketBroadcaster.notifyUser(notification.user_id, {
       ...notification,
       timestamp: notification.created_at
     });
@@ -498,7 +498,7 @@ router.post('/', [
       await client.query('COMMIT');
 
       // Get Socket.IO instance
-      const io = req.app.get('io');
+      // Socket.IO broadcaster (global)
 
       // Create notifications for supervisors and admins
       const supervisorQuery = `
@@ -522,9 +522,9 @@ router.post('/', [
       }
 
       // Emit Socket.IO events for real-time updates
-      if (io) {
+      if (global.socketBroadcaster) {
         // 1. Emit ticket_created event (for socketService listener)
-        io.emit('ticket_created', {
+        global.socketBroadcaster?.broadcast('ticket_created', {
           ticket: ticket,
           ticketId: ticket.id,
           ticketNumber: ticket.ticket_number,
@@ -534,14 +534,19 @@ router.post('/', [
         });
 
         // 2. Emit to specific roles
-        io.to('role_admin').to('role_supervisor').emit('new_ticket', {
+        global.socketBroadcaster?.broadcastToRoom('role_admin', 'new_ticket', {
+          ticket: ticket,
+          customer: customerCheck.rows[0],
+          createdBy: req.user.username
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_supervisor', 'new_ticket', {
           ticket: ticket,
           customer: customerCheck.rows[0],
           createdBy: req.user.username
         });
         
         // 3. Emit global dashboard update event
-        io.emit('dashboard_update', {
+        global.socketBroadcaster?.broadcast('dashboard_update', {
           type: 'ticket_created',
           data: { ticket_id: ticket.id }
         });
@@ -815,9 +820,9 @@ router.put('/:id/status', [
           console.log(`✅ Customer ${ticket.customer_id} activated after installation completed`);
           
           // Emit customer-updated event for real-time UI refresh
-          const io = req.app.get('io');
-          if (io) {
-            io.emit('customer-updated', {
+          // Socket.IO broadcaster (global)
+          if (global.socketBroadcaster) {
+            global.socketBroadcaster?.broadcast('customer-updated', {
               customerId: ticket.customer_id,
               oldStatus: 'pending_installation',
               newStatus: 'active',
@@ -857,10 +862,10 @@ router.put('/:id/status', [
       await client.query('COMMIT');
 
       // Emit Socket.IO events for real-time updates
-      const io = req.app.get('io');
-      if (io) {
+      // Socket.IO broadcaster (global)
+      if (global.socketBroadcaster) {
         // 1. Emit ticket_updated event (for socketService listener with underscore)
-        io.emit('ticket_updated', {
+        global.socketBroadcaster?.broadcast('ticket_updated', {
           ticketId: id,
           oldStatus: oldStatus,
           newStatus: status,
@@ -868,7 +873,7 @@ router.put('/:id/status', [
         });
 
         // 2. Emit ticket_status_updated (for legacy listeners)
-        io.emit('ticket_status_updated', {
+        global.socketBroadcaster?.broadcast('ticket_status_updated', {
           ticket_id: id,
           old_status: oldStatus,
           new_status: status,
@@ -876,7 +881,7 @@ router.put('/:id/status', [
         });
         
         // 3. Emit dashboard update event
-        io.emit('dashboard_update', {
+        global.socketBroadcaster?.broadcast('dashboard_update', {
           type: 'ticket_status_changed',
           data: { ticket_id: id, old_status: oldStatus, new_status: status }
         });
@@ -1047,10 +1052,10 @@ router.put('/:id/assign', [
       }
 
       // Emit Socket.IO events for real-time updates
-      const io = req.app.get('io');
-      if (io) {
+      // Socket.IO broadcaster (global)
+      if (global.socketBroadcaster) {
         // 1. Emit ticket_assigned event (for socketService listener)
-        io.emit('ticket_assigned', {
+        global.socketBroadcaster?.broadcast('ticket_assigned', {
           ticketId: id,
           status: 'assigned',
           assignedTo: technician_id,
@@ -1058,7 +1063,7 @@ router.put('/:id/assign', [
         });
 
         // 2. Emit to assigned technician
-        io.to(`user_${technician.user_id}`).emit('ticket_assigned', {
+        global.socketBroadcaster?.broadcastToRoom(`user_${technician.user_id}`, 'ticket_assigned', {
           ticket_id: id,
           technician_id: technician_id,
           technician_name: technician.full_name,
@@ -1066,7 +1071,14 @@ router.put('/:id/assign', [
         });
         
         // 3. Broadcast to supervisors
-        io.to('role_admin').to('role_supervisor').emit('ticket_updated', {
+        global.socketBroadcaster?.broadcastToRoom('role_admin', 'ticket_updated', {
+          ticketId: id,
+          status: 'assigned',
+          assignedTo: technician_id,
+          updatedBy: req.user.id,
+          timestamp: new Date().toISOString()
+        });
+      global.socketBroadcaster?.broadcastToRoom('role_supervisor', 'ticket_updated', {
           ticketId: id,
           status: 'assigned',
           assignedTo: technician_id,
@@ -1075,7 +1087,7 @@ router.put('/:id/assign', [
         });
         
         // 4. Emit dashboard update event
-        io.emit('dashboard_update', {
+        global.socketBroadcaster?.broadcast('dashboard_update', {
           type: 'ticket_assigned',
           data: { ticket_id: id, technician_id: technician_id }
         });

@@ -112,10 +112,9 @@ router.post('/:techId/specializations', authMiddleware, authorize('admin', 'supe
       [result.rows[0].id]
     );
 
-    // Emit Socket.IO event
-    const io = req.app.get('io');
-    if (io) {
-      io.emit('technician-specialization-added', {
+    // Emit Socket.IO event via broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.broadcast('technician-specialization-added', {
         technician_id: parseInt(techId),
         specialization: complete.rows[0]
       });
@@ -162,10 +161,9 @@ router.put('/:techId/specializations/:specId', authMiddleware, authorize('admin'
       });
     }
 
-    // Emit Socket.IO event
-    const io = req.app.get('io');
-    if (io) {
-      io.emit('technician-specialization-updated', {
+    // Emit Socket.IO event via broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.broadcast('technician-specialization-updated', {
         technician_id: parseInt(techId),
         assignment_id: parseInt(specId)
       });
@@ -206,10 +204,9 @@ router.delete('/:techId/specializations/:specId', authMiddleware, authorize('adm
       });
     }
 
-    // Emit Socket.IO event
-    const io = req.app.get('io');
-    if (io) {
-      io.emit('technician-specialization-removed', {
+    // Emit Socket.IO event via broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.broadcast('technician-specialization-removed', {
         technician_id: parseInt(techId),
         assignment_id: parseInt(specId)
       });

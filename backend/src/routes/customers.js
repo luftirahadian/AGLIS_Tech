@@ -599,10 +599,13 @@ router.post('/:id/equipment', [
       notes || null
     ]);
 
-    // Emit socket event for real-time update
-    const io = req.app.get('io');
-    if (io) {
-      io.to('role_admin').to('role_supervisor').emit('equipment-added', {
+    // Emit socket event for real-time update via broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.broadcastToRoom('role_admin', 'equipment-added', {
+        customer_id: parseInt(id),
+        equipment: result.rows[0]
+      });
+      global.socketBroadcaster.broadcastToRoom('role_supervisor', 'equipment-added', {
         customer_id: parseInt(id),
         equipment: result.rows[0]
       });
@@ -660,10 +663,13 @@ router.delete('/:customerId/equipment/:equipmentId', async (req, res) => {
 
     const result = await pool.query(query, [equipmentId, customerId]);
 
-    // Emit socket event for real-time update
-    const io = req.app.get('io');
-    if (io) {
-      io.to('role_admin').to('role_supervisor').emit('equipment-deleted', {
+    // Emit socket event for real-time update via broadcaster
+    if (global.socketBroadcaster) {
+      global.socketBroadcaster.broadcastToRoom('role_admin', 'equipment-deleted', {
+        customer_id: parseInt(customerId),
+        equipment_id: parseInt(equipmentId)
+      });
+      global.socketBroadcaster.broadcastToRoom('role_supervisor', 'equipment-deleted', {
         customer_id: parseInt(customerId),
         equipment_id: parseInt(equipmentId)
       });
