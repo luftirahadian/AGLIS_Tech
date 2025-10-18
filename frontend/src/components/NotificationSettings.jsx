@@ -7,24 +7,31 @@ import {
   Moon, 
   Clock,
   Check,
-  X
+  X,
+  Monitor
 } from 'lucide-react'
 import { useNotificationSettings } from '../hooks/useNotifications'
+import { useNotifications } from '../contexts/NotificationContext'
 import { toast } from 'react-hot-toast'
 
 const NotificationSettings = ({ isOpen, onClose }) => {
   const { settings, updateSettings, isUpdating } = useNotificationSettings()
+  const { desktopNotificationsEnabled, requestDesktopPermission } = useNotifications()
   const [formData, setFormData] = useState({
     email_notifications: true,
     push_notifications: true,
     sound_notifications: true,
+    desktop_notifications: true,
     notification_types: {
       ticket_assigned: true,
       ticket_updated: true,
       ticket_completed: true,
       system_alert: true,
       technician_status: true,
-      new_ticket: true
+      new_ticket: true,
+      new_registration: true,
+      payment_received: true,
+      sla_warning: true
     },
     quiet_hours_start: '',
     quiet_hours_end: ''
@@ -37,13 +44,17 @@ const NotificationSettings = ({ isOpen, onClose }) => {
         email_notifications: settings.email_notifications ?? true,
         push_notifications: settings.push_notifications ?? true,
         sound_notifications: settings.sound_notifications ?? true,
+        desktop_notifications: settings.desktop_notifications ?? true,
         notification_types: settings.notification_types || {
           ticket_assigned: true,
           ticket_updated: true,
           ticket_completed: true,
           system_alert: true,
           technician_status: true,
-          new_ticket: true
+          new_ticket: true,
+          new_registration: true,
+          payment_received: true,
+          sla_warning: true
         },
         quiet_hours_start: settings.quiet_hours_start || '',
         quiet_hours_end: settings.quiet_hours_end || ''
@@ -88,7 +99,10 @@ const NotificationSettings = ({ isOpen, onClose }) => {
     ticket_completed: 'Tiket Selesai',
     system_alert: 'Peringatan Sistem',
     technician_status: 'Status Teknisi',
-    new_ticket: 'Tiket Baru'
+    new_ticket: 'Tiket Baru',
+    new_registration: 'Pendaftar Baru',
+    payment_received: 'Pembayaran Diterima',
+    sla_warning: 'SLA Warning'
   }
 
   if (!isOpen) return null
@@ -186,6 +200,55 @@ const NotificationSettings = ({ isOpen, onClose }) => {
                     />
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                   </label>
+                </div>
+
+                {/* Desktop Notifications */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50">
+                  <div className="flex items-center space-x-3">
+                    <Monitor className="h-5 w-5 text-blue-600" />
+                    <div className="flex-1">
+                      <p className="font-medium text-gray-900">Notifikasi Desktop</p>
+                      <p className="text-sm text-gray-500">
+                        Tampilkan notifikasi bahkan saat browser minimize
+                      </p>
+                      {!desktopNotificationsEnabled && (
+                        <button
+                          onClick={async () => {
+                            const granted = await requestDesktopPermission();
+                            if (granted) {
+                              toast.success('Desktop notifications enabled!');
+                            } else {
+                              toast.error('Permission denied. Check browser settings.');
+                            }
+                          }}
+                          className="mt-2 text-xs text-blue-600 hover:text-blue-800 font-medium"
+                        >
+                          🔔 Klik untuk izinkan
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    {desktopNotificationsEnabled ? (
+                      <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-medium">
+                        Aktif
+                      </span>
+                    ) : (
+                      <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                        Belum Aktif
+                      </span>
+                    )}
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.desktop_notifications && desktopNotificationsEnabled}
+                        onChange={(e) => setFormData(prev => ({ ...prev, desktop_notifications: e.target.checked }))}
+                        disabled={!desktopNotificationsEnabled}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600 peer-disabled:opacity-50 peer-disabled:cursor-not-allowed"></div>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

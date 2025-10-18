@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from 'react-query';
 import toast from 'react-hot-toast';
 import socketService from '../services/socketService';
 import notificationService from '../services/notificationService';
+import desktopNotification from '../utils/desktopNotification';
 import { useAuth } from './AuthContext';
 
 const NotificationContext = createContext();
@@ -24,17 +25,22 @@ export const NotificationProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [isSocketConnected, setIsSocketConnected] = useState(false);
+  const [desktopNotificationsEnabled, setDesktopNotificationsEnabled] = useState(false);
   const [settings, setSettings] = useState({
     email_notifications: true,
     push_notifications: true,
     sound_notifications: true,
+    desktop_notifications: true, // NEW: Desktop notifications
     notification_types: {
       ticket_assigned: true,
       ticket_updated: true,
       ticket_completed: true,
       system_alert: true,
       technician_status: true,
-      new_ticket: true
+      new_ticket: true,
+      new_registration: true,
+      payment_received: true,
+      sla_warning: true
     }
   });
 
@@ -114,6 +120,11 @@ export const NotificationProvider = ({ children }) => {
         soundType = 'warning';
       }
       playNotificationSound(soundType);
+    }
+    
+    // Show desktop notification if enabled
+    if (settings.desktop_notifications && desktopNotificationsEnabled && shouldShowNotification(notification.type)) {
+      showDesktopNotification(notification);
     }
     
     // Invalidate queries to refresh data
@@ -217,6 +228,71 @@ export const NotificationProvider = ({ children }) => {
     toast(notification.message, toastOptions);
   };
 
+  // Show desktop notification
+  const showDesktopNotification = (notification) => {
+    try {
+      const { type, title, message, data } = notification;
+      
+      // Map notification types to desktop notification methods
+      switch (type) {
+        case 'new_ticket':
+          desktopNotification.showNewTicket({
+            id: data?.ticket_id,
+            ticket_number: data?.ticket_number || 'N/A',
+            title: message
+          });
+          break;
+          
+        case 'ticket_assigned':
+          desktopNotification.showTicketAssignment({
+            id: data?.ticket_id,
+            ticket_number: data?.ticket_number || 'N/A'
+          });
+          break;
+          
+        case 'new_registration':
+          desktopNotification.showNewRegistration({
+            id: data?.registration_id,
+            full_name: data?.full_name || 'New Customer',
+            phone: data?.phone || ''
+          });
+          break;
+          
+        case 'sla_warning':
+          desktopNotification.showSLAWarning({
+            id: data?.ticket_id,
+            ticket_number: data?.ticket_number || 'N/A'
+          });
+          break;
+          
+        case 'payment_received':
+          desktopNotification.showPaymentReceived({
+            id: data?.payment_id,
+            invoice_id: data?.invoice_id,
+            invoice_number: data?.invoice_number,
+            amount: data?.amount
+          });
+          break;
+          
+        case 'system_alert':
+          desktopNotification.showSystemAlert({
+            id: data?.alert_id,
+            message: message
+          });
+          break;
+          
+        default:
+          // Generic desktop notification
+          desktopNotification.showCustom(title, message, {
+            tag: `notif-${notification.id || Date.now()}`,
+            data: data
+          });
+      }
+    } catch (error) {
+      console.warn('Could not show desktop notification:', error);
+    }
+  };
+
   // Play notification sound with different tones for different types
   const playNotificationSound = (type = 'default') => {
     try {
@@ -257,6 +333,42 @@ export const NotificationProvider = ({ children }) => {
       console.warn('Could not play notification sound:', error);
     }
   };
+
+  // Request desktop notification permission when user logs in
+  useEffect(() => {
+    if (!user) return;
+    
+    // Check and request desktop notification permission
+    const initDesktopNotifications = async () => {
+      if (desktopNotification.isSupported()) {
+        const currentPermission = desktopNotification.getPermission();
+        
+        if (currentPermission === 'default') {
+          // Request permission after a short delay to not overwhelm user
+          setTimeout(async () => {
+            console.log('🔔 Requesting desktop notification permission...');
+            const granted = await desktopNotification.requestPermission();
+            setDesktopNotificationsEnabled(granted);
+            
+            if (granted) {
+              console.log('✅ Desktop notifications enabled');
+            } else {
+              console.log('❌ Desktop notifications denied by user');
+            }
+          }, 2000);
+        } else if (currentPermission === 'granted') {
+          setDesktopNotificationsEnabled(true);
+          console.log('✅ Desktop notifications already granted');
+        } else {
+          console.log('❌ Desktop notifications not permitted');
+        }
+      } else {
+        console.log('⚠️ Desktop notifications not supported by browser');
+      }
+    };
+    
+    initDesktopNotifications();
+  }, [user]);
 
   // Initialize Socket.IO connection when user is available
   useEffect(() => {
@@ -436,6 +548,10 @@ export const NotificationProvider = ({ children }) => {
     isSocketConnected,
     settings,
     isLoading: notificationsLoading,
+    
+    // Desktop notifications
+    desktopNotificationsEnabled,
+    requestDesktopPermission: () => desktopNotification.requestPermission().then(setDesktopNotificationsEnabled),
     
     // Actions
     markAsRead,
