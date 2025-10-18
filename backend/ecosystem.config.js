@@ -90,6 +90,54 @@ module.exports = {
       out_file: './logs/pm2-out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss',
       merge_logs: true
+    },
+    
+    // ═══════════════════════════════════════════════════════════════
+    // 📱 WHATSAPP QUEUE WORKER (Background Job Processor)
+    // Purpose: Process WhatsApp messages from queue with retry
+    // Mode: Fork (single instance to avoid duplicate processing)
+    // ═══════════════════════════════════════════════════════════════
+    {
+      name: 'aglis-queue-worker',
+      script: './src/workers/whatsappWorker.js',
+      instances: 1, // Single instance to avoid duplicate processing
+      exec_mode: 'fork',
+      watch: false,
+      max_memory_restart: '200M',
+      autorestart: true,
+      env: {
+        NODE_ENV: 'production',
+        
+        // Database
+        DB_HOST: process.env.DB_HOST || 'localhost',
+        DB_PORT: process.env.DB_PORT || 5432,
+        DB_NAME: process.env.DB_NAME || 'aglis_db',
+        DB_USER: process.env.DB_USER || 'postgres',
+        DB_PASSWORD: process.env.DB_PASSWORD,
+        
+        // Redis (for queue)
+        REDIS_HOST: process.env.REDIS_HOST || '127.0.0.1',
+        REDIS_PORT: process.env.REDIS_PORT || 6379,
+        REDIS_PASSWORD: process.env.REDIS_PASSWORD,
+        REDIS_DB: process.env.REDIS_DB || 0,
+        
+        // WhatsApp
+        WHATSAPP_PROVIDER: process.env.WHATSAPP_PROVIDER || 'fonnte',
+        WHATSAPP_API_TOKEN: process.env.WHATSAPP_API_TOKEN,
+        WHATSAPP_API_URL: process.env.WHATSAPP_API_URL,
+        WHATSAPP_ENABLED: process.env.WHATSAPP_ENABLED || 'true',
+        WHATSAPP_USE_QUEUE: process.env.WHATSAPP_USE_QUEUE || 'false', // Default disabled
+        
+        // Backup provider (failover)
+        WHATSAPP_ENABLE_FAILOVER: process.env.WHATSAPP_ENABLE_FAILOVER,
+        WHATSAPP_BACKUP_PROVIDER: process.env.WHATSAPP_BACKUP_PROVIDER,
+        WHATSAPP_BACKUP_API_TOKEN: process.env.WHATSAPP_BACKUP_API_TOKEN,
+        WHATSAPP_BACKUP_API_URL: process.env.WHATSAPP_BACKUP_API_URL
+      },
+      error_file: './logs/queue-worker-error.log',
+      out_file: './logs/queue-worker-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss',
+      merge_logs: true
     }
   ]
 };
