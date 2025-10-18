@@ -530,8 +530,8 @@ router.get('/kpi', async (req, res) => {
       pool.query(`
         SELECT 
           COUNT(*) as total_customers,
-          COUNT(CASE WHEN created_at >= CURRENT_DATE THEN 1 END) as today_customers,
-          COUNT(CASE WHEN status = 'active' THEN 1 END) as active_customers
+          COUNT(CASE WHEN registration_date >= CURRENT_DATE THEN 1 END) as today_customers,
+          COUNT(CASE WHEN account_status = 'active' THEN 1 END) as active_customers
         FROM customers
       `),
       
