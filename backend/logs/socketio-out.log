@@ -34,3 +34,24 @@
 2025-10-18 15:17:09: 🔌 WebSocket endpoint: ws://localhost:3002/socket.io/
 2025-10-18 15:17:09: 📊 Connected users: 0
 2025-10-18 15:17:09: ✅ Redis clients connected for Socket.IO adapter
+2025-10-18 16:03:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:03:42: 🔗 New connection: t3jmL0TNhMWjpEPFAAAG
+2025-10-18 16:03:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:03:42: 🔌 Socket disconnected: t3jmL0TNhMWjpEPFAAAG (transport close)
+2025-10-18 16:03:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:03:42: 🔗 New connection: HtoaRw3W4m76fvFHAAAJ
+2025-10-18 16:03:42: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:08:23: 📴 SIGINT received, closing Socket.IO server...
+2025-10-18 16:08:23: 🔌 Socket disconnected: HtoaRw3W4m76fvFHAAAJ (server shutting down)
+2025-10-18 16:08:25: 🚀 Starting Dedicated Socket.IO Server...
+2025-10-18 16:08:25: 📋 Configuration:
+2025-10-18 16:08:25:   Port: 3002
+2025-10-18 16:08:25:   Redis: 127.0.0.1:6379
+2025-10-18 16:08:25: 🔧 CORS: Using production origins from CORS_ORIGIN
+2025-10-18 16:08:25: ✅ Socket.IO Server running on port 3002
+2025-10-18 16:08:25: 🔌 WebSocket endpoint: ws://localhost:3002/socket.io/
+2025-10-18 16:08:25: 📊 Connected users: 0
+2025-10-18 16:08:25: ✅ Redis clients connected for Socket.IO adapter
+2025-10-18 16:08:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:08:25: 🔗 New connection: FMjIXlqzSI_LH00JAAAB
+2025-10-18 16:08:25: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
