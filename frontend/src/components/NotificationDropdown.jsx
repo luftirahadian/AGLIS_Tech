@@ -202,8 +202,20 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
     return colors[priority] || colors.normal;
   };
 
-  const notifications = notificationsData?.data?.notifications || [];
-  const pagination = notificationsData?.data?.pagination || {};
+  const notifications = notificationsData?.notifications || [];
+  const pagination = notificationsData?.pagination || {};
+  
+  // Debug logging
+  console.log('🔍 NotificationDropdown Debug:', {
+    isLoading,
+    notificationsData,
+    notificationsDataKeys: notificationsData ? Object.keys(notificationsData) : null,
+    notifications: notifications.length,
+    pagination,
+    filter,
+    page,
+    rawNotifications: notificationsData?.data?.notifications
+  });
 
   if (!isOpen) return null;
 

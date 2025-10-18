@@ -347,3 +347,31 @@
 2025-10-18 18:19:04: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 18:19:04: 🔐 User authenticated: admin (admin)
 2025-10-18 18:19:04: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:22:57: 🔌 Socket disconnected: VO0kwMKW8-9j2YqCAACP (transport close)
+2025-10-18 18:22:57: 👋 User admin disconnected
+2025-10-18 18:22:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:22:57: 🔗 New connection: TMENRBZAnXQZRCIEAACV
+2025-10-18 18:22:57: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:22:57: 🔐 User authenticated: admin (admin)
+2025-10-18 18:22:57: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:24:13: 🔌 Socket disconnected: TMENRBZAnXQZRCIEAACV (transport close)
+2025-10-18 18:24:13: 👋 User admin disconnected
+2025-10-18 18:24:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:24:13: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:24:13: 🔗 New connection: 1lGnaErx_fyNqwOBAACX
+2025-10-18 18:24:13: 🔐 User authenticated: admin (admin)
+2025-10-18 18:24:13: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:24:46: 🔌 Socket disconnected: 1lGnaErx_fyNqwOBAACX (transport close)
+2025-10-18 18:24:46: 👋 User admin disconnected
+2025-10-18 18:24:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:24:46: 🔗 New connection: E2a154OT7ejMS564AACZ
+2025-10-18 18:24:46: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:24:46: 🔐 User authenticated: admin (admin)
+2025-10-18 18:24:46: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 18:26:44: 🔌 Socket disconnected: E2a154OT7ejMS564AACZ (transport close)
+2025-10-18 18:26:44: 👋 User admin disconnected
+2025-10-18 18:26:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:26:44: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 18:26:44: 🔗 New connection: CDLxu79fTtL768bsAACb
+2025-10-18 18:26:44: 🔐 User authenticated: admin (admin)
+2025-10-18 18:26:44: 🏠 Joined rooms: role_admin, user_17

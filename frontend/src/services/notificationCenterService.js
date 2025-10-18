@@ -19,7 +19,7 @@ const notificationCenterService = {
     if (is_read !== null) queryParams += `&is_read=${is_read}`;
     
     const response = await api.get(`/notification-center?${queryParams}`);
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -28,7 +28,7 @@ const notificationCenterService = {
    */
   getUnreadCount: async () => {
     const response = await api.get('/notification-center/unread-count');
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -37,7 +37,7 @@ const notificationCenterService = {
    */
   getStatistics: async () => {
     const response = await api.get('/notification-center/statistics');
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -47,7 +47,7 @@ const notificationCenterService = {
    */
   markAsRead: async (notificationId) => {
     const response = await api.put(`/notification-center/${notificationId}/read`);
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -56,7 +56,7 @@ const notificationCenterService = {
    */
   markAllAsRead: async () => {
     const response = await api.put('/notification-center/mark-all-read');
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -66,7 +66,7 @@ const notificationCenterService = {
    */
   deleteNotification: async (notificationId) => {
     const response = await api.delete(`/notification-center/${notificationId}`);
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -75,7 +75,7 @@ const notificationCenterService = {
    */
   clearReadNotifications: async () => {
     const response = await api.delete('/notification-center/clear-read');
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   },
 
   /**
@@ -85,7 +85,7 @@ const notificationCenterService = {
    */
   createNotification: async (notificationData) => {
     const response = await api.post('/notification-center', notificationData);
-    return response.data;
+    return response.data.data; // Return the actual data, not the wrapper
   }
 };
 
