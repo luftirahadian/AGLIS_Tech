@@ -7,3 +7,462 @@
 2025-10-18 21:47:28: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
 2025-10-18 21:47:28: It is highly recommended to use a minimum Redis version of 6.2.0
 2025-10-18 21:47:28:              Current: 6.0.16
+2025-10-18 22:03:07: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:03:07:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:03:07:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:03:07:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:03:07:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:03:07:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:03:07:   length: 110,
+2025-10-18 22:03:07:   severity: 'ERROR',
+2025-10-18 22:03:07:   code: '42P01',
+2025-10-18 22:03:07:   detail: undefined,
+2025-10-18 22:03:07:   hint: undefined,
+2025-10-18 22:03:07:   position: '323',
+2025-10-18 22:03:07:   internalPosition: undefined,
+2025-10-18 22:03:07:   internalQuery: undefined,
+2025-10-18 22:03:07:   where: undefined,
+2025-10-18 22:03:07:   schema: undefined,
+2025-10-18 22:03:07:   table: undefined,
+2025-10-18 22:03:07:   column: undefined,
+2025-10-18 22:03:07:   dataType: undefined,
+2025-10-18 22:03:07:   constraint: undefined,
+2025-10-18 22:03:07:   file: 'parse_relation.c',
+2025-10-18 22:03:07:   line: '1381',
+2025-10-18 22:03:07:   routine: 'parserOpenTable'
+2025-10-18 22:03:07: }
+2025-10-18 22:04:33: ❌ [Worker] Job 4 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: ❌ [Worker] Job 7 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: ❌ [Worker] Job 10 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ❌ [Worker] Job 4 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ❌ [Worker] Job 7 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ❌ [Worker] Job 10 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:33:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:33:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:33:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:33:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:93:5)
+2025-10-18 22:04:33:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:33:   length: 110,
+2025-10-18 22:04:33:   severity: 'ERROR',
+2025-10-18 22:04:33:   code: '42P01',
+2025-10-18 22:04:33:   detail: undefined,
+2025-10-18 22:04:33:   hint: undefined,
+2025-10-18 22:04:33:   position: '323',
+2025-10-18 22:04:33:   internalPosition: undefined,
+2025-10-18 22:04:33:   internalQuery: undefined,
+2025-10-18 22:04:33:   where: undefined,
+2025-10-18 22:04:33:   schema: undefined,
+2025-10-18 22:04:33:   table: undefined,
+2025-10-18 22:04:33:   column: undefined,
+2025-10-18 22:04:33:   dataType: undefined,
+2025-10-18 22:04:33:   constraint: undefined,
+2025-10-18 22:04:33:   file: 'parse_relation.c',
+2025-10-18 22:04:33:   line: '1381',
+2025-10-18 22:04:33:   routine: 'parserOpenTable'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:35: ❌ [Worker] Job 4 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:35: ❌ [Worker] Job 7 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:35: ❌ [Worker] Job 10 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:35: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:35:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:35:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:35:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:35:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:35:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:35:   length: 110,
+2025-10-18 22:04:35:   severity: 'ERROR',
+2025-10-18 22:04:35:   code: '42P01',
+2025-10-18 22:04:35:   detail: undefined,
+2025-10-18 22:04:35:   hint: undefined,
+2025-10-18 22:04:35:   position: '323',
+2025-10-18 22:04:35:   internalPosition: undefined,
+2025-10-18 22:04:35:   internalQuery: undefined,
+2025-10-18 22:04:35:   where: undefined,
+2025-10-18 22:04:35:   schema: undefined,
+2025-10-18 22:04:35:   table: undefined,
+2025-10-18 22:04:35:   column: undefined,
+2025-10-18 22:04:35:   dataType: undefined,
+2025-10-18 22:04:35:   constraint: undefined,
+2025-10-18 22:04:35:   file: 'parse_relation.c',
+2025-10-18 22:04:35:   line: '1381',
+2025-10-18 22:04:35:   routine: 'parserOpenTable'
+2025-10-18 22:04:35: }
+2025-10-18 22:04:35: ❌ [Worker] Job 4 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:35: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:35:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:35:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:35:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:35:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:35:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:35:   length: 110,
+2025-10-18 22:04:35:   severity: 'ERROR',
+2025-10-18 22:04:35:   code: '42P01',
+2025-10-18 22:04:35:   detail: undefined,
+2025-10-18 22:04:35:   hint: undefined,
+2025-10-18 22:04:35:   position: '323',
+2025-10-18 22:04:35:   internalPosition: undefined,
+2025-10-18 22:04:35:   internalQuery: undefined,
+2025-10-18 22:04:35:   where: undefined,
+2025-10-18 22:04:35:   schema: undefined,
+2025-10-18 22:04:35:   table: undefined,
+2025-10-18 22:04:35:   column: undefined,
+2025-10-18 22:04:35:   dataType: undefined,
+2025-10-18 22:04:35:   constraint: undefined,
+2025-10-18 22:04:35:   file: 'parse_relation.c',
+2025-10-18 22:04:35:   line: '1381',
+2025-10-18 22:04:35:   routine: 'parserOpenTable'
+2025-10-18 22:04:35: }
+2025-10-18 22:04:35: ❌ [Worker] Job 7 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:35: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:35:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:35:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:35:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:35:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:35:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:35:   length: 110,
+2025-10-18 22:04:35:   severity: 'ERROR',
+2025-10-18 22:04:35:   code: '42P01',
+2025-10-18 22:04:35:   detail: undefined,
+2025-10-18 22:04:35:   hint: undefined,
+2025-10-18 22:04:35:   position: '323',
+2025-10-18 22:04:35:   internalPosition: undefined,
+2025-10-18 22:04:35:   internalQuery: undefined,
+2025-10-18 22:04:35:   where: undefined,
+2025-10-18 22:04:35:   schema: undefined,
+2025-10-18 22:04:35:   table: undefined,
+2025-10-18 22:04:35:   column: undefined,
+2025-10-18 22:04:35:   dataType: undefined,
+2025-10-18 22:04:35:   constraint: undefined,
+2025-10-18 22:04:35:   file: 'parse_relation.c',
+2025-10-18 22:04:35:   line: '1381',
+2025-10-18 22:04:35:   routine: 'parserOpenTable'
+2025-10-18 22:04:35: }
+2025-10-18 22:04:35: ❌ [Worker] Job 10 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: ❌ [Worker] Job 4 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: ❌ [Worker] Job 7 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: ❌ [Worker] Job 10 failed: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:39:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:39:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:39:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:39:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:39:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:39:   length: 110,
+2025-10-18 22:04:39:   severity: 'ERROR',
+2025-10-18 22:04:39:   code: '42P01',
+2025-10-18 22:04:39:   detail: undefined,
+2025-10-18 22:04:39:   hint: undefined,
+2025-10-18 22:04:39:   position: '323',
+2025-10-18 22:04:39:   internalPosition: undefined,
+2025-10-18 22:04:39:   internalQuery: undefined,
+2025-10-18 22:04:39:   where: undefined,
+2025-10-18 22:04:39:   schema: undefined,
+2025-10-18 22:04:39:   table: undefined,
+2025-10-18 22:04:39:   column: undefined,
+2025-10-18 22:04:39:   dataType: undefined,
+2025-10-18 22:04:39:   constraint: undefined,
+2025-10-18 22:04:39:   file: 'parse_relation.c',
+2025-10-18 22:04:39:   line: '1381',
+2025-10-18 22:04:39:   routine: 'parserOpenTable'
+2025-10-18 22:04:39: }
+2025-10-18 22:04:39: ❌ [Worker] Job 4 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:39:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:39:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:39:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:39:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:39:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:39:   length: 110,
+2025-10-18 22:04:39:   severity: 'ERROR',
+2025-10-18 22:04:39:   code: '42P01',
+2025-10-18 22:04:39:   detail: undefined,
+2025-10-18 22:04:39:   hint: undefined,
+2025-10-18 22:04:39:   position: '323',
+2025-10-18 22:04:39:   internalPosition: undefined,
+2025-10-18 22:04:39:   internalQuery: undefined,
+2025-10-18 22:04:39:   where: undefined,
+2025-10-18 22:04:39:   schema: undefined,
+2025-10-18 22:04:39:   table: undefined,
+2025-10-18 22:04:39:   column: undefined,
+2025-10-18 22:04:39:   dataType: undefined,
+2025-10-18 22:04:39:   constraint: undefined,
+2025-10-18 22:04:39:   file: 'parse_relation.c',
+2025-10-18 22:04:39:   line: '1381',
+2025-10-18 22:04:39:   routine: 'parserOpenTable'
+2025-10-18 22:04:39: }
+2025-10-18 22:04:39: ❌ [Worker] Job 7 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:04:39: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:04:39:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:04:39:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:04:39:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:04:39:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:110:5)
+2025-10-18 22:04:39:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:04:39:   length: 110,
+2025-10-18 22:04:39:   severity: 'ERROR',
+2025-10-18 22:04:39:   code: '42P01',
+2025-10-18 22:04:39:   detail: undefined,
+2025-10-18 22:04:39:   hint: undefined,
+2025-10-18 22:04:39:   position: '323',
+2025-10-18 22:04:39:   internalPosition: undefined,
+2025-10-18 22:04:39:   internalQuery: undefined,
+2025-10-18 22:04:39:   where: undefined,
+2025-10-18 22:04:39:   schema: undefined,
+2025-10-18 22:04:39:   table: undefined,
+2025-10-18 22:04:39:   column: undefined,
+2025-10-18 22:04:39:   dataType: undefined,
+2025-10-18 22:04:39:   constraint: undefined,
+2025-10-18 22:04:39:   file: 'parse_relation.c',
+2025-10-18 22:04:39:   line: '1381',
+2025-10-18 22:04:39:   routine: 'parserOpenTable'
+2025-10-18 22:04:39: }
+2025-10-18 22:04:39: ❌ [Worker] Job 10 failed permanently: whatsappService.sendGroupMessage is not a function
+2025-10-18 22:05:23: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 22:05:23: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 22:05:23:              Current: 6.0.16
+2025-10-18 22:05:23: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 22:05:23: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 22:05:23:              Current: 6.0.16
+2025-10-18 22:05:23: IMPORTANT! Eviction policy is allkeys-lru. It should be "noeviction"
+2025-10-18 22:05:23: It is highly recommended to use a minimum Redis version of 6.2.0
+2025-10-18 22:05:23:              Current: 6.0.16
+2025-10-18 22:05:31: 📱 Failed to update delivery status: error: relation "queue_jobs" does not exist
+2025-10-18 22:05:31:     at /home/aglis/AGLIS_Tech/backend/node_modules/pg-pool/index.js:45:11
+2025-10-18 22:05:31:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-10-18 22:05:31:     at async updateDeliveryStatus (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:24:5)
+2025-10-18 22:05:31:     at async Worker.connection.connection [as processFn] (/home/aglis/AGLIS_Tech/backend/src/workers/whatsappWorker.js:112:5)
+2025-10-18 22:05:31:     at async /home/aglis/AGLIS_Tech/backend/node_modules/bullmq/dist/cjs/classes/worker.js:533:32 {
+2025-10-18 22:05:31:   length: 110,
+2025-10-18 22:05:31:   severity: 'ERROR',
+2025-10-18 22:05:31:   code: '42P01',
+2025-10-18 22:05:31:   detail: undefined,
+2025-10-18 22:05:31:   hint: undefined,
+2025-10-18 22:05:31:   position: '323',
+2025-10-18 22:05:31:   internalPosition: undefined,
+2025-10-18 22:05:31:   internalQuery: undefined,
+2025-10-18 22:05:31:   where: undefined,
+2025-10-18 22:05:31:   schema: undefined,
+2025-10-18 22:05:31:   table: undefined,
+2025-10-18 22:05:31:   column: undefined,
+2025-10-18 22:05:31:   dataType: undefined,
+2025-10-18 22:05:31:   constraint: undefined,
+2025-10-18 22:05:31:   file: 'parse_relation.c',
+2025-10-18 22:05:31:   line: '1381',
+2025-10-18 22:05:31:   routine: 'parserOpenTable'
+2025-10-18 22:05:31: }

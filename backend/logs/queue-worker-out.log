@@ -13,3 +13,457 @@
 2025-10-18 21:47:28: 📱 WhatsApp Queue: Redis connected
 2025-10-18 21:47:28: ✅ Redis client ready for OTP operations
 2025-10-18 21:47:28: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 0
+2025-10-18 22:03:07: 🔄 [Worker] Job 1 started (send-otp)
+2025-10-18 22:03:07: 📱 [Worker] Processing job 1: send-otp
+2025-10-18 22:03:07: 📱 [Worker] Job data: {
+2025-10-18 22:03:07:   phone: '08197670700',
+2025-10-18 22:03:07:   message: 'Test OTP: 999999',
+2025-10-18 22:03:07:   otp: '999999',
+2025-10-18 22:03:07:   name: 'Queue Test User'
+2025-10-18 22:03:07: }
+2025-10-18 22:03:07: 📱 [Worker] Attempt 1/3
+2025-10-18 22:03:07: 📱 [Worker] Sending OTP to 08197670700
+2025-10-18 22:03:07: 📱 [WhatsApp] Attempting to send to INDIVIDUAL: 08197670700
+2025-10-18 22:03:07: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:03:07:    Original: 08197670700
+2025-10-18 22:03:07:    Formatted: 628197670700
+2025-10-18 22:03:07:    Type: INDIVIDUAL
+2025-10-18 22:03:07: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:03:07:    URL: https://api.fonnte.com/send
+2025-10-18 22:03:07:    Target: 628197670700
+2025-10-18 22:03:07:    Message length: 200 chars
+2025-10-18 22:03:07: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567734"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9244,"remaining":9243,"used":1}},"requestid":153530006,"status":true,"target":["628197670700"]}
+2025-10-18 22:03:07: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-18 22:03:07: ✅ Connected to PostgreSQL database
+2025-10-18 22:03:07: ✅ [Worker] Job 1 completed successfully
+2025-10-18 22:03:07: ✅ [Worker] Job 1 completed
+2025-10-18 22:03:07: 📱 [Worker] Result: {
+2025-10-18 22:03:07:   success: true,
+2025-10-18 22:03:07:   jobId: '1',
+2025-10-18 22:03:07:   type: 'send-otp',
+2025-10-18 22:03:07:   result: {
+2025-10-18 22:03:07:     success: true,
+2025-10-18 22:03:07:     data: {
+2025-10-18 22:03:07:       detail: 'success! message in queue',
+2025-10-18 22:03:07:       id: [Array],
+2025-10-18 22:03:07:       process: 'pending',
+2025-10-18 22:03:07:       quota: [Object],
+2025-10-18 22:03:07:       requestid: 153530006,
+2025-10-18 22:03:07:       status: true,
+2025-10-18 22:03:07:       target: [Array]
+2025-10-18 22:03:07:     },
+2025-10-18 22:03:07:     provider: 'fonnte'
+2025-10-18 22:03:07:   },
+2025-10-18 22:03:07:   processedAt: '2025-10-18T15:03:07.437Z'
+2025-10-18 22:03:07: }
+2025-10-18 22:04:33: 🔄 [Worker] Job 2 started (send-otp)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 2: send-otp
+2025-10-18 22:04:33: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #1', testId: 1 }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending OTP to 08197670700
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to INDIVIDUAL: 08197670700
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 08197670700
+2025-10-18 22:04:33:    Formatted: 628197670700
+2025-10-18 22:04:33:    Type: INDIVIDUAL
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 628197670700
+2025-10-18 22:04:33:    Message length: 203 chars
+2025-10-18 22:04:33: 🔄 [Worker] Job 4 started (send-group)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 4: send-group
+2025-10-18 22:04:33: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #3', testId: 3 }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:33: 🔄 [Worker] Job 7 started (send-group)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 7: send-group
+2025-10-18 22:04:33: 📱 [Worker] Job data: {
+2025-10-18 22:04:33:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:33:   message: 'Load test message #6',
+2025-10-18 22:04:33:   testId: 6
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:33: 🔄 [Worker] Job 3 started (send-notification)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 3: send-notification
+2025-10-18 22:04:33: 📱 [Worker] Job data: {
+2025-10-18 22:04:33:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:33:   message: 'Load test message #2',
+2025-10-18 22:04:33:   testId: 2
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending notification to 120363419722776103@g.us
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to GROUP: 120363419722776103@g.us
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 120363419722776103@g.us
+2025-10-18 22:04:33:    Formatted: 120363419722776103@g.us
+2025-10-18 22:04:33:    Type: GROUP
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 120363419722776103@g.us
+2025-10-18 22:04:33:    Message length: 20 chars
+2025-10-18 22:04:33: 🔄 [Worker] Job 10 started (send-group)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 10: send-group
+2025-10-18 22:04:33: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #9', testId: 9 }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: 🔄 [Worker] Will retry job 4 (attempt 2/3)
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: 🔄 [Worker] Job 6 started (send-notification)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 6: send-notification
+2025-10-18 22:04:33: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #5', testId: 5 }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending notification to 08197670700
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to INDIVIDUAL: 08197670700
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 08197670700
+2025-10-18 22:04:33:    Formatted: 628197670700
+2025-10-18 22:04:33:    Type: INDIVIDUAL
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 628197670700
+2025-10-18 22:04:33:    Message length: 20 chars
+2025-10-18 22:04:33: 🔄 [Worker] Will retry job 7 (attempt 2/3)
+2025-10-18 22:04:33: 🔄 [Worker] Job 9 started (send-notification)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 9: send-notification
+2025-10-18 22:04:33: 📱 [Worker] Job data: {
+2025-10-18 22:04:33:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:33:   message: 'Load test message #8',
+2025-10-18 22:04:33:   testId: 8
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending notification to 120363419722776103@g.us
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to GROUP: 120363419722776103@g.us
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 120363419722776103@g.us
+2025-10-18 22:04:33:    Formatted: 120363419722776103@g.us
+2025-10-18 22:04:33:    Type: GROUP
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 120363419722776103@g.us
+2025-10-18 22:04:33:    Message length: 20 chars
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: 🔄 [Worker] Will retry job 10 (attempt 2/3)
+2025-10-18 22:04:33: 🔄 [Worker] Job 5 started (send-otp)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 5: send-otp
+2025-10-18 22:04:33: 📱 [Worker] Job data: {
+2025-10-18 22:04:33:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:33:   message: 'Load test message #4',
+2025-10-18 22:04:33:   testId: 4
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending OTP to 120363419722776103@g.us
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to GROUP: 120363419722776103@g.us
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 120363419722776103@g.us
+2025-10-18 22:04:33:    Formatted: 120363419722776103@g.us
+2025-10-18 22:04:33:    Type: GROUP
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 120363419722776103@g.us
+2025-10-18 22:04:33:    Message length: 203 chars
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567779"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9243,"remaining":9242,"used":1}},"requestid":153530928,"status":true,"target":["628197670700"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567780"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9242,"remaining":9241,"used":1}},"requestid":153530929,"status":true,"target":["120363419722776103@g.us"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 2 completed successfully
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 2 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '2',
+2025-10-18 22:04:33:   type: 'send-otp',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530928,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.530Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 🔄 [Worker] Job 8 started (send-otp)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 8: send-otp
+2025-10-18 22:04:33: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #7', testId: 7 }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending OTP to 08197670700
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to INDIVIDUAL: 08197670700
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 08197670700
+2025-10-18 22:04:33:    Formatted: 628197670700
+2025-10-18 22:04:33:    Type: INDIVIDUAL
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 628197670700
+2025-10-18 22:04:33:    Message length: 203 chars
+2025-10-18 22:04:33: ✅ [Worker] Job 3 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 3 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '3',
+2025-10-18 22:04:33:   type: 'send-notification',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530929,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.539Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 🔄 [Worker] Job 11 started (send-otp)
+2025-10-18 22:04:33: 📱 [Worker] Processing job 11: send-otp
+2025-10-18 22:04:33: 📱 [Worker] Job data: {
+2025-10-18 22:04:33:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:33:   message: 'Load test message #10',
+2025-10-18 22:04:33:   testId: 10
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: 📱 [Worker] Attempt 1/3
+2025-10-18 22:04:33: 📱 [Worker] Sending OTP to 120363419722776103@g.us
+2025-10-18 22:04:33: 📱 [WhatsApp] Attempting to send to GROUP: 120363419722776103@g.us
+2025-10-18 22:04:33: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:04:33:    Original: 120363419722776103@g.us
+2025-10-18 22:04:33:    Formatted: 120363419722776103@g.us
+2025-10-18 22:04:33:    Type: GROUP
+2025-10-18 22:04:33: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:04:33:    URL: https://api.fonnte.com/send
+2025-10-18 22:04:33:    Target: 120363419722776103@g.us
+2025-10-18 22:04:33:    Message length: 203 chars
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567781"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9241,"remaining":9240,"used":1}},"requestid":153530931,"status":true,"target":["628197670700"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567782"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9240,"remaining":9239,"used":1}},"requestid":153530932,"status":true,"target":["120363419722776103@g.us"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567783"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9239,"remaining":9238,"used":1}},"requestid":153530933,"status":true,"target":["120363419722776103@g.us"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 6 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 6 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '6',
+2025-10-18 22:04:33:   type: 'send-notification',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530931,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.565Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 9 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 9 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '9',
+2025-10-18 22:04:33:   type: 'send-notification',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530932,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.568Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567784"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9238,"remaining":9237,"used":1}},"requestid":153530934,"status":true,"target":["628197670700"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-18 22:04:33: ✅ [Worker] Job 5 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 5 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '5',
+2025-10-18 22:04:33:   type: 'send-otp',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530933,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.575Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567785"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9237,"remaining":9236,"used":1}},"requestid":153530935,"status":true,"target":["120363419722776103@g.us"]}
+2025-10-18 22:04:33: ✅ WhatsApp sent to 120363419722776103@g.us via fonnte (primary)
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 8 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 8 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '8',
+2025-10-18 22:04:33:   type: 'send-otp',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530934,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.586Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:33: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:33: ✅ [Worker] Job 11 completed successfully
+2025-10-18 22:04:33: ✅ [Worker] Job 11 completed
+2025-10-18 22:04:33: 📱 [Worker] Result: {
+2025-10-18 22:04:33:   success: true,
+2025-10-18 22:04:33:   jobId: '11',
+2025-10-18 22:04:33:   type: 'send-otp',
+2025-10-18 22:04:33:   result: {
+2025-10-18 22:04:33:     success: true,
+2025-10-18 22:04:33:     data: {
+2025-10-18 22:04:33:       detail: 'success! message in queue',
+2025-10-18 22:04:33:       id: [Array],
+2025-10-18 22:04:33:       process: 'pending',
+2025-10-18 22:04:33:       quota: [Object],
+2025-10-18 22:04:33:       requestid: 153530935,
+2025-10-18 22:04:33:       status: true,
+2025-10-18 22:04:33:       target: [Array]
+2025-10-18 22:04:33:     },
+2025-10-18 22:04:33:     provider: 'fonnte'
+2025-10-18 22:04:33:   },
+2025-10-18 22:04:33:   processedAt: '2025-10-18T15:04:33.591Z'
+2025-10-18 22:04:33: }
+2025-10-18 22:04:35: 🔄 [Worker] Job 4 started (send-group)
+2025-10-18 22:04:35: 📱 [Worker] Processing job 4: send-group
+2025-10-18 22:04:35: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #3', testId: 3 }
+2025-10-18 22:04:35: 📱 [Worker] Attempt 2/3
+2025-10-18 22:04:35: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:35: 🔄 [Worker] Job 7 started (send-group)
+2025-10-18 22:04:35: 📱 [Worker] Processing job 7: send-group
+2025-10-18 22:04:35: 📱 [Worker] Job data: {
+2025-10-18 22:04:35:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:35:   message: 'Load test message #6',
+2025-10-18 22:04:35:   testId: 6
+2025-10-18 22:04:35: }
+2025-10-18 22:04:35: 📱 [Worker] Attempt 2/3
+2025-10-18 22:04:35: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:35: 🔄 [Worker] Job 10 started (send-group)
+2025-10-18 22:04:35: 📱 [Worker] Processing job 10: send-group
+2025-10-18 22:04:35: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #9', testId: 9 }
+2025-10-18 22:04:35: 📱 [Worker] Attempt 2/3
+2025-10-18 22:04:35: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:35: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:35: 🔄 [Worker] Will retry job 4 (attempt 3/3)
+2025-10-18 22:04:35: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:35: 🔄 [Worker] Will retry job 7 (attempt 3/3)
+2025-10-18 22:04:35: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:35: 🔄 [Worker] Will retry job 10 (attempt 3/3)
+2025-10-18 22:04:39: 🔄 [Worker] Job 4 started (send-group)
+2025-10-18 22:04:39: 📱 [Worker] Processing job 4: send-group
+2025-10-18 22:04:39: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #3', testId: 3 }
+2025-10-18 22:04:39: 📱 [Worker] Attempt 3/3
+2025-10-18 22:04:39: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:39: 🔄 [Worker] Job 7 started (send-group)
+2025-10-18 22:04:39: 📱 [Worker] Processing job 7: send-group
+2025-10-18 22:04:39: 📱 [Worker] Job data: {
+2025-10-18 22:04:39:   phone: '120363419722776103@g.us',
+2025-10-18 22:04:39:   message: 'Load test message #6',
+2025-10-18 22:04:39:   testId: 6
+2025-10-18 22:04:39: }
+2025-10-18 22:04:39: 📱 [Worker] Attempt 3/3
+2025-10-18 22:04:39: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:39: 🔄 [Worker] Job 10 started (send-group)
+2025-10-18 22:04:39: 📱 [Worker] Processing job 10: send-group
+2025-10-18 22:04:39: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #9', testId: 9 }
+2025-10-18 22:04:39: 📱 [Worker] Attempt 3/3
+2025-10-18 22:04:39: 📱 [Worker] Sending group message to undefined
+2025-10-18 22:04:39: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:39: ⛔ [Worker] Job 4 failed permanently after 3 attempts
+2025-10-18 22:04:39: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:39: ⛔ [Worker] Job 7 failed permanently after 3 attempts
+2025-10-18 22:04:39: ✅ Connected to PostgreSQL database
+2025-10-18 22:04:39: ⛔ [Worker] Job 10 failed permanently after 3 attempts
+2025-10-18 22:05:22: 📱 [Worker] SIGINT received, closing worker...
+2025-10-18 22:05:23: 📱 WhatsApp Queue: Queue initialized successfully
+2025-10-18 22:05:23: 📱 WhatsApp Service initialized:
+2025-10-18 22:05:23:    - Provider: fonnte
+2025-10-18 22:05:23:    - Queue enabled: false
+2025-10-18 22:05:23:    - Queue fallback: true
+2025-10-18 22:05:23: 📱 WhatsApp Worker: Started successfully
+2025-10-18 22:05:23: 📱 Configuration:
+2025-10-18 22:05:23:    - Concurrency: 5 jobs
+2025-10-18 22:05:23:    - Rate limit: 100 jobs/minute
+2025-10-18 22:05:23:    - Max attempts: 3
+2025-10-18 22:05:23:    - Backoff: Exponential (2s, 4s, 8s)
+2025-10-18 22:05:23: ✅ Redis client connected for OTP storage (DB 1)
+2025-10-18 22:05:23: 📱 WhatsApp Queue: Redis connected
+2025-10-18 22:05:23: ✅ Redis client ready for OTP operations
+2025-10-18 22:05:23: 🔌 Redis OTP Client connected to 127.0.0.1:6379 DB 0
+2025-10-18 22:05:31: 🔄 [Worker] Job 4 started (send-group)
+2025-10-18 22:05:31: 📱 [Worker] Processing job 4: send-group
+2025-10-18 22:05:31: 📱 [Worker] Job data: { phone: '08197670700', message: 'Load test message #3', testId: 3 }
+2025-10-18 22:05:31: 📱 [Worker] Attempt 4/3
+2025-10-18 22:05:31: 📱 [Worker] Sending group message to 08197670700
+2025-10-18 22:05:31: 📱 [WhatsApp] Attempting to send to INDIVIDUAL: 08197670700
+2025-10-18 22:05:31: 📝 [WhatsApp] Format conversion:
+2025-10-18 22:05:31:    Original: 08197670700
+2025-10-18 22:05:31:    Formatted: 628197670700
+2025-10-18 22:05:31:    Type: INDIVIDUAL
+2025-10-18 22:05:31: 🚀 [Fonnte] Sending request to API...
+2025-10-18 22:05:31:    URL: https://api.fonnte.com/send
+2025-10-18 22:05:31:    Target: 628197670700
+2025-10-18 22:05:31:    Message length: 20 chars
+2025-10-18 22:05:31: ✅ [Fonnte] Response received: {"detail":"success! message in queue","id":["126567831"],"process":"pending","quota":{"628179380800":{"details":"deduced from total quota","quota":9236,"remaining":9235,"used":1}},"requestid":153532381,"status":true,"target":["628197670700"]}
+2025-10-18 22:05:31: ✅ WhatsApp sent to 628197670700 via fonnte (primary)
+2025-10-18 22:05:31: ✅ Connected to PostgreSQL database
+2025-10-18 22:05:31: ✅ [Worker] Job 4 completed successfully
+2025-10-18 22:05:31: ✅ [Worker] Job 4 completed
+2025-10-18 22:05:31: 📱 [Worker] Result: {
+2025-10-18 22:05:31:   success: true,
+2025-10-18 22:05:31:   jobId: '4',
+2025-10-18 22:05:31:   type: 'send-group',
+2025-10-18 22:05:31:   result: {
+2025-10-18 22:05:31:     success: true,
+2025-10-18 22:05:31:     data: {
+2025-10-18 22:05:31:       detail: 'success! message in queue',
+2025-10-18 22:05:31:       id: [Array],
+2025-10-18 22:05:31:       process: 'pending',
+2025-10-18 22:05:31:       quota: [Object],
+2025-10-18 22:05:31:       requestid: 153532381,
+2025-10-18 22:05:31:       status: true,
+2025-10-18 22:05:31:       target: [Array]
+2025-10-18 22:05:31:     },
+2025-10-18 22:05:31:     provider: 'fonnte'
+2025-10-18 22:05:31:   },
+2025-10-18 22:05:31:   processedAt: '2025-10-18T15:05:31.950Z'
+2025-10-18 22:05:31: }

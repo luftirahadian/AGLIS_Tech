@@ -52,9 +52,17 @@ const worker = new Worker('whatsapp-messages', async (job) => {
 
     switch(type) {
       case 'send-otp':
-        // Send OTP message
+        // Send OTP message (direct call, already in queue)
         console.log(`📱 [Worker] Sending OTP to ${data.phone}`);
-        result = await whatsappService.sendOTP(data.phone, data.otp);
+        // Call sendMessage directly to avoid queue recursion
+        const templates = require('../templates/whatsappTemplates');
+        const otpMessage = templates.otpVerification({
+          customerName: data.name || 'Customer',
+          otpCode: data.otp,
+          expiryMinutes: '5',
+          purpose: 'Verifikasi'
+        });
+        result = await whatsappService.sendMessage(data.phone, otpMessage);
         break;
 
       case 'send-notification':
@@ -62,27 +70,38 @@ const worker = new Worker('whatsapp-messages', async (job) => {
         console.log(`📱 [Worker] Sending notification to ${data.phone}`);
         result = await whatsappService.sendMessage(
           data.phone, 
-          data.message, 
-          data.type || 'notification'
+          data.message
         );
         break;
 
       case 'send-group':
         // Send group message
-        console.log(`📱 [Worker] Sending group message to ${data.groupId}`);
-        result = await whatsappService.sendGroupMessage(
-          data.groupId,
+        console.log(`📱 [Worker] Sending group message to ${data.phone}`);
+        result = await whatsappService.sendMessage(
+          data.phone, // Can be group ID (xxx@g.us) or regular phone
           data.message
         );
         break;
 
       case 'send-bulk':
-        // Send bulk messages
+        // Send bulk messages (process each individually)
         console.log(`📱 [Worker] Sending bulk messages to ${data.recipients?.length || 0} recipients`);
-        result = await whatsappService.sendBulkMessages(
-          data.recipients,
-          data.message
-        );
+        const results = [];
+        for (const recipient of data.recipients || []) {
+          try {
+            const res = await whatsappService.sendMessage(recipient.phone, recipient.message || data.message);
+            results.push({ phone: recipient.phone, success: true, result: res });
+          } catch (err) {
+            results.push({ phone: recipient.phone, success: false, error: err.message });
+          }
+        }
+        result = {
+          success: true,
+          total: data.recipients?.length || 0,
+          succeeded: results.filter(r => r.success).length,
+          failed: results.filter(r => !r.success).length,
+          results
+        };
         break;
 
       default:
