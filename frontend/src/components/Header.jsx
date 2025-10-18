@@ -3,6 +3,7 @@ import { Menu, Bell, User, LogOut, Settings, ChevronDown, TestTube } from 'lucid
 import { useAuth } from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import NotificationBell from './NotificationBell'
+import NotificationBadge from './NotificationBadge'
 import NotificationSettings from './NotificationSettings'
 import TestNotificationPanel from './TestNotificationPanel'
 
@@ -69,8 +70,11 @@ const Header = ({ onMenuClick }) => {
 
           {/* Right side - Actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
-            {/* Notifications */}
-            <NotificationBell />
+            {/* Notification Center (New) */}
+            <NotificationBadge />
+            
+            {/* Old Notification Bell (Keep for backward compatibility) */}
+            {/* <NotificationBell /> */}
 
             {/* User Menu */}
             <div className="relative" ref={dropdownRef}>
