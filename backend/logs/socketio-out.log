@@ -466,3 +466,7 @@
 2025-10-18 19:05:02: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
 2025-10-18 19:05:03: 🔐 User authenticated: admin (admin)
 2025-10-18 19:05:03: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 19:23:14: 🔌 Socket disconnected: JClrzcU7MCO0uLy1AAC1 (transport close)
+2025-10-18 19:23:14: 👋 User admin disconnected
+2025-10-18 19:24:26: 🔌 Socket disconnected: A1KjyHR6wOEP_pk1AACt (transport close)
+2025-10-18 19:24:26: 👋 User admin disconnected

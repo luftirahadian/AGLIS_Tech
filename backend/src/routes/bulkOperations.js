@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
-const authMiddleware = require('../middleware/auth');
+const { authMiddleware } = require('../middleware/auth');
 const whatsappNotificationService = require('../services/whatsappNotificationService');
 
 // ==================== REGISTRATIONS BULK OPERATIONS ====================
