@@ -38,17 +38,17 @@ router.post('/fonnte', async (req, res) => {
     const updateQuery = `
       UPDATE whatsapp_notifications
       SET 
-        status = $1,
-        provider_message_id = $2,
-        delivered_at = CASE WHEN $1 = 'delivered' THEN $3 ELSE delivered_at END,
-        read_at = CASE WHEN $1 = 'read' THEN $3 ELSE read_at END,
-        failed_at = CASE WHEN $1 = 'failed' THEN $3 ELSE failed_at END,
+        status = $1::text,
+        provider_message_id = $2::text,
+        delivered_at = CASE WHEN $1 = 'delivered' THEN $3::timestamp ELSE delivered_at END,
+        read_at = CASE WHEN $1 = 'read' THEN $3::timestamp ELSE read_at END,
+        failed_at = CASE WHEN $1 = 'failed' THEN $3::timestamp ELSE failed_at END,
         provider_response = jsonb_set(
           COALESCE(provider_response, '{}'::jsonb),
           '{webhook}',
           $4::jsonb
         )
-      WHERE phone_number = $5
+      WHERE phone_number = $5::text
         AND provider_message_id IS NULL
         AND created_at >= CURRENT_TIMESTAMP - INTERVAL '24 hours'
       RETURNING id, notification_type, recipient_type
