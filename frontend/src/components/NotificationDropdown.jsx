@@ -21,7 +21,7 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
   const [page, setPage] = useState(1);
 
   // Get notifications
-  const { data: notificationsData, isLoading } = useQuery(
+  const { data: notificationsData, isLoading, refetch } = useQuery(
     ['notification-center', { page, filter }],
     () => {
       const params = { page, limit: 20 };
@@ -36,10 +36,18 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
     },
     {
       enabled: isOpen,
-      staleTime: 30000, // 30 seconds
-      refetchOnWindowFocus: false
+      staleTime: 10000, // 10 seconds
+      refetchOnWindowFocus: false,
+      refetchOnMount: true // Always fetch when component mounts
     }
   );
+
+  // Refetch when dropdown opens
+  useEffect(() => {
+    if (isOpen) {
+      refetch();
+    }
+  }, [isOpen, refetch]);
 
   // Get unread count
   const { data: unreadData } = useQuery(
