@@ -4,7 +4,7 @@ module.exports = {
   apps: [{
     name: 'aglis-backend',
     script: './src/server.js',
-    instances: 4,
+    instances: 8, // Upgraded from 4 to 8 for better load handling
     exec_mode: 'cluster', // Fixed: Use cluster mode for multiple instances
     env: {
       NODE_ENV: 'production',
