@@ -10,9 +10,12 @@ import {
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import registrationService from '../../services/registrationService'
+import bulkOperationsService from '../../services/bulkOperationsService'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import KPICard from '../../components/dashboard/KPICard'
 import ConfirmationModal from '../../components/ConfirmationModal'
+import BulkProgressModal from '../../components/BulkProgressModal'
+import BulkResultsModal from '../../components/BulkResultsModal'
 import socketService from '../../services/socketService'
 import { exportToExcel, formatCurrency as formatCurrencyExport, formatDate, formatDateOnly } from '../../utils/exportToExcel'
 import { useAuth } from '../../contexts/AuthContext'
@@ -43,6 +46,19 @@ const RegistrationsPage = () => {
   // Bulk selection states
   const [selectedRegistrations, setSelectedRegistrations] = useState([])
   const [selectAll, setSelectAll] = useState(false)
+  
+  // Bulk operation modals
+  const [showBulkProgress, setShowBulkProgress] = useState(false)
+  const [showBulkResults, setShowBulkResults] = useState(false)
+  const [bulkProgress, setBulkProgress] = useState({
+    total: 0,
+    processed: 0,
+    succeeded: 0,
+    failed: 0,
+    currentItem: null
+  })
+  const [bulkResults, setBulkResults] = useState(null)
+  const [bulkOperation, setBulkOperation] = useState('')
   
   // Copy to clipboard state
   const [copiedField, setCopiedField] = useState(null)
@@ -314,7 +330,7 @@ const RegistrationsPage = () => {
     }
   }
 
-  // ==================== BULK ACTION HANDLERS ====================
+  // ==================== BULK ACTION HANDLERS (NEW - Using Bulk APIs) ====================
 
   const handleBulkVerify = async () => {
     if (selectedRegistrations.length === 0) {
@@ -326,32 +342,61 @@ const RegistrationsPage = () => {
       return
     }
 
+    // Show progress modal
+    setBulkOperation('Bulk Verify Registrations')
+    setBulkProgress({
+      total: selectedRegistrations.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
+
     try {
-      let successCount = 0
-      let errorCount = 0
+      // Call bulk API
+      const result = await bulkOperationsService.bulkVerifyRegistrations(
+        selectedRegistrations,
+        { notes: 'Bulk verified' }
+      )
 
-      for (const regId of selectedRegistrations) {
-        try {
-          await registrationService.updateStatus(regId, 'verified', { notes: 'Bulk verified' })
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to verify registration ${regId}:`, error)
-        }
-      }
+      // Update final progress
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} registration berhasil di-verify${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      // Close progress modal
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        
+        // Show results modal
+        setBulkResults(result)
+        setShowBulkResults(true)
+
+        // Refresh data
         queryClient.invalidateQueries(['registrations'])
         queryClient.invalidateQueries('registration-stats')
+
+        // Clear selection
         setSelectedRegistrations([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal verify registration')
-      }
+
+        // Show success toast
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} registration berhasil di-verify`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk verify error:', error)
-      toast.error('Terjadi kesalahan saat verify registration')
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal verify registration')
     }
   }
 
@@ -368,36 +413,71 @@ const RegistrationsPage = () => {
       return
     }
 
+    // Show progress modal
+    setBulkOperation('Bulk Reject Registrations')
+    setBulkProgress({
+      total: selectedRegistrations.length,
+      processed: 0,
+      succeeded: 0,
+      failed: 0,
+      currentItem: 'Starting...'
+    })
+    setShowBulkProgress(true)
+
     try {
-      let successCount = 0
-      let errorCount = 0
-
-      for (const regId of selectedRegistrations) {
-        try {
-          await registrationService.updateStatus(regId, 'rejected', { 
-            rejection_reason: reason,
-            notes: 'Bulk rejected'
-          })
-          successCount++
-        } catch (error) {
-          errorCount++
-          console.error(`Failed to reject registration ${regId}:`, error)
+      // Call bulk API
+      const result = await bulkOperationsService.bulkRejectRegistrations(
+        selectedRegistrations,
+        { 
+          rejection_reason: reason,
+          notes: 'Bulk rejected'
         }
-      }
+      )
 
-      if (successCount > 0) {
-        toast.success(`✅ ${successCount} registration berhasil di-reject${errorCount > 0 ? `, ${errorCount} gagal` : ''}`)
+      // Update final progress
+      setBulkProgress({
+        total: result.total,
+        processed: result.total,
+        succeeded: result.succeeded,
+        failed: result.failed,
+        currentItem: null
+      })
+
+      // Close progress modal
+      setTimeout(() => {
+        setShowBulkProgress(false)
+        
+        // Show results modal
+        setBulkResults(result)
+        setShowBulkResults(true)
+
+        // Refresh data
         queryClient.invalidateQueries(['registrations'])
         queryClient.invalidateQueries('registration-stats')
+
+        // Clear selection
         setSelectedRegistrations([])
         setSelectAll(false)
-      } else {
-        toast.error('Gagal reject registration')
-      }
+
+        // Show success toast
+        if (result.failed === 0) {
+          toast.success(`✅ ${result.succeeded} registration berhasil di-reject`)
+        } else {
+          toast.warning(`⚠️ ${result.succeeded} berhasil, ${result.failed} gagal`)
+        }
+      }, 1000)
+
     } catch (error) {
       console.error('Bulk reject error:', error)
-      toast.error('Terjadi kesalahan saat reject registration')
+      setShowBulkProgress(false)
+      toast.error(error.response?.data?.message || 'Gagal reject registration')
     }
+  }
+
+  // Retry failed items
+  const handleRetryFailed = async (failedIds) => {
+    setSelectedRegistrations(failedIds)
+    // Will trigger the same operation again with failed IDs
   }
 
   // ==================== COPY TO CLIPBOARD HANDLER ====================
@@ -1834,6 +1914,30 @@ const RegistrationsPage = () => {
           </div>
         )}
       </ConfirmationModal>
+
+      {/* Bulk Progress Modal */}
+      <BulkProgressModal
+        isOpen={showBulkProgress}
+        total={bulkProgress.total}
+        processed={bulkProgress.processed}
+        succeeded={bulkProgress.succeeded}
+        failed={bulkProgress.failed}
+        currentItem={bulkProgress.currentItem}
+        operation={bulkOperation}
+        onCancel={() => setShowBulkProgress(false)}
+      />
+
+      {/* Bulk Results Modal */}
+      <BulkResultsModal
+        isOpen={showBulkResults}
+        results={bulkResults}
+        operation={bulkOperation}
+        onClose={() => {
+          setShowBulkResults(false)
+          setBulkResults(null)
+        }}
+        onRetryFailed={handleRetryFailed}
+      />
     </div>
   )
 }
