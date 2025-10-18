@@ -1,3 +1,13 @@
+// Load environment variables FIRST
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+// Debug: Verify critical env vars are loaded
+console.log('🔧 Environment Check:');
+console.log('  WHATSAPP_ENABLED:', process.env.WHATSAPP_ENABLED || 'NOT SET');
+console.log('  WHATSAPP_API_TOKEN:', process.env.WHATSAPP_API_TOKEN ? 'SET' : 'NOT SET');
+console.log('  DB_HOST:', process.env.DB_HOST || 'NOT SET');
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -8,8 +18,6 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const { createAdapter } = require('@socket.io/redis-adapter');
 const { createClient } = require('redis');
-const path = require('path');
-require('dotenv').config({ path: require('path').join(__dirname, '../../backend/config.env') });
 
 // Import routes
 const authRoutes = require('./routes/auth');

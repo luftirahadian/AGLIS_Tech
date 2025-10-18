@@ -107,6 +107,11 @@ class WhatsAppService {
         ...options
       };
 
+      console.log(`🚀 [Fonnte] Sending request to API...`);
+      console.log(`   URL: ${this.apiUrl}`);
+      console.log(`   Target: ${target}`);
+      console.log(`   Message length: ${message.length} chars`);
+
       const response = await axios.post(this.apiUrl, data, {
         headers: {
           'Authorization': this.apiToken,
@@ -114,13 +119,15 @@ class WhatsAppService {
         }
       });
 
+      console.log(`✅ [Fonnte] Response received:`, JSON.stringify(response.data));
+
       return {
         success: true,
         data: response.data,
         provider: 'fonnte'
       };
     } catch (error) {
-      console.error('Fonnte WhatsApp Error:', error.response?.data || error.message);
+      console.error('❌ [Fonnte] Error:', error.response?.data || error.message);
       return {
         success: false,
         error: error.response?.data || error.message,
@@ -199,8 +206,16 @@ class WhatsAppService {
    * Main method to send WhatsApp message with automatic failover
    */
   async sendMessage(phone, message, options = {}) {
+    // Enhanced logging untuk trace eksekusi
+    const isGroup = phone.includes('@g.us');
+    const recipientType = isGroup ? 'GROUP' : 'INDIVIDUAL';
+    
+    console.log(`📱 [WhatsApp] Attempting to send to ${recipientType}: ${phone}`);
+    
     if (!this.enabled) {
-      console.log('WhatsApp service is disabled. Message:', message);
+      console.log('⚠️ [WhatsApp] Service is DISABLED. Message logged only.');
+      console.log(`   Recipient: ${phone} (${recipientType})`);
+      console.log(`   Message preview: ${message.substring(0, 50)}...`);
       return {
         success: true,
         message: 'WhatsApp service disabled - message logged only',
@@ -209,7 +224,7 @@ class WhatsAppService {
     }
 
     if (!this.apiToken) {
-      console.error('WhatsApp API token not configured');
+      console.error('❌ [WhatsApp] API token not configured');
       return {
         success: false,
         error: 'WhatsApp service not configured'
@@ -218,6 +233,7 @@ class WhatsAppService {
 
     // Validate and format phone number
     if (!this.isValidWhatsAppNumber(phone)) {
+      console.error(`❌ [WhatsApp] Invalid format: ${phone} (${recipientType})`);
       return {
         success: false,
         error: 'Invalid WhatsApp number format'
@@ -225,6 +241,12 @@ class WhatsAppService {
     }
 
     const target = this.formatPhoneNumber(phone);
+    
+    // Log format sebelum dan sesudah
+    console.log(`📝 [WhatsApp] Format conversion:`);
+    console.log(`   Original: ${phone}`);
+    console.log(`   Formatted: ${target}`);
+    console.log(`   Type: ${recipientType}`);
 
     // Try primary provider first
     try {
