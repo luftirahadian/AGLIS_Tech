@@ -270,48 +270,33 @@ router.post('/public', publicRegistrationLimiter, verifyCaptchaMiddleware, [
         );
       }
 
-      // Emit Socket.IO event for real-time update
-      // Socket.IO broadcaster (global)
+      // Emit Socket.IO event for real-time update via socketBroadcaster
       if (global.socketBroadcaster) {
-        // Get room sizes for debugging
-        const adminRoom = io.sockets.adapter.rooms.get('role_admin');
-        const supervisorRoom = io.sockets.adapter.rooms.get('role_supervisor');
-        const csRoom = io.sockets.adapter.rooms.get('role_customer_service');
-        
         console.log('📡 [Socket.IO] Emitting new_registration event:', {
           registration_number: registration.registration_number,
           full_name: registration.full_name,
-          rooms: ['role_admin', 'role_supervisor', 'role_customer_service'],
-          listeners: {
-            role_admin: adminRoom?.size || 0,
-            role_supervisor: supervisorRoom?.size || 0,
-            role_customer_service: csRoom?.size || 0
-          }
+          rooms: ['role_admin', 'role_supervisor', 'role_customer_service']
         });
         
-        // Try room-based emission first
-        global.socketBroadcaster?.broadcastToRoom('role_admin', 'new_registration', {
+        // Broadcast to role-based rooms
+        global.socketBroadcaster.broadcastToRoom('role_admin', 'new_registration', {
           registration: registration
         });
-      global.socketBroadcaster?.broadcastToRoom('role_supervisor', 'new_registration', {
+        global.socketBroadcaster.broadcastToRoom('role_supervisor', 'new_registration', {
           registration: registration
         });
-      global.socketBroadcaster?.broadcastToRoom('role_customer_service', 'new_registration', {
+        global.socketBroadcaster.broadcastToRoom('role_customer_service', 'new_registration', {
           registration: registration
         });
         
-        // Fallback: If no listeners in rooms, broadcast to all connected clients
-        const totalListeners = (adminRoom?.size || 0) + (supervisorRoom?.size || 0) + (csRoom?.size || 0);
-        if (totalListeners === 0) {
-          console.log('⚠️ [Socket.IO] No listeners in role rooms, broadcasting to all connected clients');
-          global.socketBroadcaster?.broadcast('new_registration', {
-            registration: registration
-          });
-        }
+        // Also broadcast to all connected clients as fallback
+        global.socketBroadcaster.broadcast('new_registration', {
+          registration: registration
+        });
         
         console.log('✅ [Socket.IO] new_registration event emitted successfully');
       } else {
-        console.warn('⚠️ [Socket.IO] io object not available, event not emitted');
+        console.warn('⚠️ [Socket.IO] socketBroadcaster not available, event not emitted');
       }
 
       // Send notification to WhatsApp groups about new registration

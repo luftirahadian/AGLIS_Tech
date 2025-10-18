@@ -150,3 +150,16 @@
 2025-10-18 16:33:37: 🔌 Socket disconnected: xAWPaLuzP6eDIboRAAA_ (ping timeout)
 2025-10-18 16:33:37: 🔌 Socket disconnected: Hx70bXVi0cUgxqX_AABH (ping timeout)
 2025-10-18 16:34:48: 🔌 Socket disconnected: ULlHgqjpvXhrdNV0AABR (transport close)
+2025-10-18 16:36:29: 🔌 Socket disconnected: T-74U9yMtrNhdV86AABj (transport close)
+2025-10-18 16:36:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:36:30: 🔗 New connection: HTnSApDyEGpPhrA3AABl
+2025-10-18 16:36:30: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:36:30: 🔐 User authenticated: admin (admin)
+2025-10-18 16:36:30: 🏠 Joined rooms: role_admin, user_17
+2025-10-18 16:36:33: 🔌 Socket disconnected: HTnSApDyEGpPhrA3AABl (transport close)
+2025-10-18 16:36:33: 👋 User admin disconnected
+2025-10-18 16:36:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:36:38: 🔗 New connection: lsoS2nPfV1fec6RvAABn
+2025-10-18 16:36:38: ✅ Socket.IO: Allowed origin: https://portal.aglis.biz.id
+2025-10-18 16:36:38: 🔐 User authenticated: admin (admin)
+2025-10-18 16:36:38: 🏠 Joined rooms: role_admin, user_17
