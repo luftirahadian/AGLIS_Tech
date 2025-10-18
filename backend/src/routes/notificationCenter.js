@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const notificationCenterService = require('../services/notificationCenterService');
-const authMiddleware = require('../middlewares/auth');
+const { authMiddleware } = require('../middleware/auth');
 
 /**
  * Notification Center Routes
